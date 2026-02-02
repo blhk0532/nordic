@@ -6,16 +6,23 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
+        "dedoc/scramble": "^0.12",
         "filament/filament": "^5.0",
+        "grazulex/laravel-apiroute": "^2.0",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.9.0",
-        "livewire/livewire": "^4.0"
+        "livewire/livewire": "^4.0",
+        "spatie/laravel-data": "^4.0",
+        "spatie/laravel-query-builder": "^6.0"
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^2.0",
         "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^3.7",
         "laravel/boost": "^2.0",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
@@ -23,7 +30,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^4.3",
-        "pestphp/pest-plugin-laravel": "^4.0"
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "rector/rector": "^2.2"
     },
     "autoload": {
         "psr-4": {
@@ -51,15 +59,25 @@
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
         "lint": [
-            "pint --parallel"
+            "rector",
+            "pint"
         ],
         "test:lint": [
-            "pint --parallel --test"
+            "pint --test",
+            "rector --dry-run"
         ],
-        "test": [
+        "test:types": [
+            "phpstan"
+        ],
+        "test:unit": [
             "@php artisan config:clear --ansi",
             "@test:lint",
             "@php artisan test"
+        ],
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
