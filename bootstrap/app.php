@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Middleware\EnsureEmailVerified;
 use App\Http\Middleware\ForceJsonResponse;
+use App\Http\Middleware\ForceLocalhost;
 use App\Http\Middleware\LogApiRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,10 +18,18 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->validateCsrfTokens(except: [
+            'livewire/*',
+        ]);
+
         $middleware->alias([
             'force.json' => ForceJsonResponse::class,
             'log.api' => LogApiRequests::class,
             'verified' => EnsureEmailVerified::class,
+        ]);
+
+        $middleware->web(append: [
+            ForceLocalhost::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
