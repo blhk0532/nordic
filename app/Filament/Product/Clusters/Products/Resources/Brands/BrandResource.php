@@ -1,0 +1,63 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Product\Clusters\Products\Resources\Brands;
+
+use Adultdate\FilamentBooking\Models\Booking\Brand;
+use App\Filament\Product\Clusters\Products\ProductsCluster;
+use App\Filament\Product\Clusters\Products\Resources\Brands\Pages\CreateBrand;
+use App\Filament\Product\Clusters\Products\Resources\Brands\Pages\EditBrand;
+use App\Filament\Product\Clusters\Products\Resources\Brands\Pages\ListBrands;
+use App\Filament\Product\Clusters\Products\Resources\Brands\RelationManagers\AddressesRelationManager;
+use App\Filament\Product\Clusters\Products\Resources\Brands\RelationManagers\ProductsRelationManager;
+use App\Filament\Product\Clusters\Products\Resources\Brands\Schemas\BrandForm;
+use App\Filament\Product\Clusters\Products\Resources\Brands\Tables\BrandsTable;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
+
+final class BrandResource extends Resource
+{
+    protected static ?string $model = Brand::class;
+
+    protected static ?string $cluster = ProductsCluster::class;
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shopping-bag';
+
+    protected static ?string $navigationParentItem = 'Products';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static bool $isScopedToTenant = false;
+
+    public static function form(Schema $schema): Schema
+    {
+        return BrandForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return BrandsTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            ProductsRelationManager::class,
+            AddressesRelationManager::class,
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListBrands::route('/'),
+            'create' => CreateBrand::route('/create'),
+            'edit' => EditBrand::route('/{record}/edit'),
+        ];
+    }
+}

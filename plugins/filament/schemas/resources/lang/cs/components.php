@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'wizard' => [
+
+        'actions' => [
+
+            'previous_step' => [
+                'label' => 'Zpět',
+            ],
+
+            'next_step' => [
+                'label' => 'Další',
+            ],
+
+        ],
+
+    ],
+
+];

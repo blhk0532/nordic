@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'field' => [
+        'label' => 'گلوبل تلاش',
+        'placeholder' => 'تلاش کریں',
+    ],
+
+    'no_results_message' => 'کوئی نتیجہ نہیں ملا۔',
+
+];

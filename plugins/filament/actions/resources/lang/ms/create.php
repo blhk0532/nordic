@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'single' => [
+
+        'label' => 'Cipta',
+
+        'modal' => [
+
+            'heading' => 'Cipta :label',
+
+            'actions' => [
+
+                'create' => [
+                    'label' => 'Cipta',
+                ],
+
+                'create_another' => [
+                    'label' => 'Cipta dan cipta yang lain',
+                ],
+
+            ],
+
+        ],
+
+        'notifications' => [
+
+            'created' => [
+                'title' => 'Dicipta',
+            ],
+
+        ],
+
+    ],
+
+];

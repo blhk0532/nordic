@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Product\Clusters\Products\Resources\Products\Pages;
+
+use App\Filament\Product\Clusters\Products\Resources\Products\ProductResource;
+use Filament\Resources\Pages\CreateRecord;
+
+final class CreateProduct extends CreateRecord
+{
+    protected static string $resource = ProductResource::class;
+}

@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\User\Resources\Teams\RelationManagers;
+
+use App\Filament\User\Resources\Users\UserResource;
+use Filament\Actions\AttachAction;
+use Filament\Actions\DetachAction;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+
+/**
+ * @property \App\Models\Team $ownerRecord
+ */
+final class UsersRelationManager extends RelationManager
+{
+    protected static string $relationship = 'users';
+
+    protected static ?string $relatedResource = UserResource::class;
+
+    public function table(Table $table): Table
+    {
+        return $table
+            ->headerActions([
+                AttachAction::make()
+                    ->recordSelectOptionsQuery(fn (Builder $query) => $query->where('users.id', '!=', $this->ownerRecord->user_id))
+                    ->preloadRecordSelect()
+                    ->multiple(),
+            ])
+            ->recordActions([
+                DetachAction::make(),
+            ]);
+    }
+}

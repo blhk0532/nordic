@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'confirmation' => 'แน่ใจหรือไม่ว่าต้องการดำเนินการต่อ',
+
+    'actions' => [
+
+        'cancel' => [
+            'label' => 'ยกเลิก',
+        ],
+
+        'confirm' => [
+            'label' => 'ยืนยัน',
+        ],
+
+        'submit' => [
+            'label' => 'บันทึก',
+        ],
+
+    ],
+
+];

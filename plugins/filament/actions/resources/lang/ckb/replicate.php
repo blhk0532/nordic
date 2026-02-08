@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'single' => [
+
+        'label' => 'لەبەرگرتنەوە',
+
+        'modal' => [
+
+            'heading' => 'لەبەرگرتنەوەی :label',
+
+            'actions' => [
+
+                'replicate' => [
+                    'label' => 'لەبەرگرتنەوە',
+                ],
+
+            ],
+
+        ],
+
+        'notifications' => [
+
+            'replicated' => [
+                'title' => 'لەبەرگیرایەوە',
+            ],
+
+        ],
+
+    ],
+
+];

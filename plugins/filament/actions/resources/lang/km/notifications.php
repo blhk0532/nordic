@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'throttled' => [
+        'title' => 'ការព្យាយាមច្រើនពេក',
+        'body' => 'សូមព្យាយាមម្ដងទៀតក្នុងរយៈពេល :seconds វិនាទី។',
+    ],
+
+];

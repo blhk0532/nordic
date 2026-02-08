@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'single' => [
+
+        'label' => 'Atkārtot',
+
+        'modal' => [
+
+            'heading' => 'Atkārtot :label',
+
+            'actions' => [
+
+                'replicate' => [
+                    'label' => 'Atkārtot',
+                ],
+
+            ],
+
+        ],
+
+        'notifications' => [
+
+            'replicated' => [
+                'title' => 'Atkārtots',
+            ],
+
+        ],
+
+    ],
+
+];

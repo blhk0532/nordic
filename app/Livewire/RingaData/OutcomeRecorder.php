@@ -1,0 +1,593 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Livewire\RingaData;
+
+use App\Filament\App\Resources\RingaDatas\RingaDatasResource;
+use App\Models\RingaData;
+use App\Services\OutcomeDelayService;
+use Exception;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Notifications\Notification;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Livewire\Component;
+
+final class OutcomeRecorder extends Component implements HasActions, HasForms
+{
+    use InteractsWithActions;
+    use InteractsWithForms;
+
+    public ?int $recordId = null;
+
+    public ?RingaData $record = null;
+
+    public ?string $tenant = null;
+
+    protected $listeners = [
+        'externalRecordOutcome' => 'recordOutcome',
+        'record-selected' => 'updateRecordId',
+    ];
+
+    protected ?string $defaultReturnCallAt = null;
+
+    protected array $outcomeColors = [];
+
+    public function updateRecordId(int $recordId): void
+    {
+        Log::info('OutcomeRecorder updateRecordId', ['newRecordId' => $recordId, 'currentRecordId' => $this->recordId]);
+
+        if ($this->recordId !== $recordId) {
+            $this->recordId = $recordId;
+            $this->loadRecord();
+        }
+    }
+
+    public function returnCallAction(): Action
+    {
+        $default = $this->defaultReturnCallAt
+            ? Carbon::parse($this->defaultReturnCallAt)
+            : now()->addHour();
+
+        $color = $this->outcomeColors['RingTillbaka'] ?? '#2563eb';
+
+        return Action::make('returnCall')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+            ])
+            ->modalHeading('Schemalägg återkommande samtal')
+            ->modalSubmitActionLabel('Schemalägg')
+            ->modalWidth('md')
+            ->schema([
+                DateTimePicker::make('aterkom_at')
+                    ->label('Datum och tid för återkommande samtal')
+                    ->default(fn () => $default)
+                    ->native(true)
+                    ->seconds(false)
+                    ->timezone(config('app.timezone'))
+                    ->required(),
+            ])
+            ->action(function (array $data): void {
+                $this->recordOutcome('RingTillbaka', $data['aterkom_at'] ?? null);
+            });
+    }
+
+    public function bokadAction(): Action
+    {
+        $color = $this->outcomeColors['Bokad'] ?? '#16a34a';
+
+        return Action::make('bokad')
+            ->label('Bokad')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+            ])
+            ->modalHeading('Bokad')
+            ->schema([
+                \Filament\Forms\Components\Textarea::make('notes')
+                    ->label('Anteckningar')
+                    ->rows(3),
+            ])
+            ->action(function (array $data): void {
+                $this->recordOutcome('Bokad');
+
+                Notification::make()
+                    ->title('Bokad')
+                    ->success()
+                    ->send();
+            });
+    }
+
+    public function aterkommerAction(): Action
+    {
+        $default = $this->defaultReturnCallAt
+            ? Carbon::parse($this->defaultReturnCallAt)
+            : now()->addHour();
+
+        $color = $this->outcomeColors['Aterkommer'] ?? '#6b7280';
+
+        return Action::make('aterkommer')
+            ->label('Återkommer')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+            ])
+            ->modalHeading('Schemalägg återkommande samtal')
+            ->modalSubmitActionLabel('Schemalägg')
+            ->modalWidth('md')
+            ->schema([
+                DateTimePicker::make('aterkom_at')
+                    ->label('Datum och tid för återkommande samtal')
+                    ->default(fn () => $default)
+                    ->native(true)
+                    ->seconds(false)
+                    ->timezone(config('app.timezone'))
+                    ->required(),
+            ])
+            ->action(function (array $data): void {
+                $this->recordOutcome('Aterkommer', $data['aterkom_at'] ?? null);
+            });
+    }
+
+    public function nextGangAction(): Action
+    {
+        $color = $this->outcomeColors['NyligenGjort'] ?? '#6b7280';
+
+        return Action::make('nextGang')
+            ->label('Nästa Gång')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+            ])
+            ->modalHeading('Välj Nästa Gång')
+            ->modalSubmitActionLabel('Spara')
+            ->modalWidth('md')
+            ->schema([
+                Select::make('outcome_value')
+                    ->label('Resultat')
+                    ->options(fn () => collect(\App\Enums\Outcomes3::cases())
+                        ->mapWithKeys(fn (\App\Enums\Outcomes3 $case) => [$case->name => $case->getLabel()])
+                        ->toArray())
+                    ->required(),
+            ])
+            ->action(function (array $data): void {
+                $this->recordOutcome($data['outcome_value']);
+            });
+    }
+
+    public function offertAction(): Action
+    {
+        $color = $this->outcomeColors['Offert'] ?? '#16a34a';
+
+        return Action::make('offert')
+            ->label('Offert')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+            ])
+            ->modalHeading('Skapa Offert')
+            ->modalSubmitActionLabel('Spara Offert')
+            ->modalWidth('lg')
+            ->schema([
+                TextInput::make('subject')
+                    ->label('Ämne')
+                    ->placeholder('Offert ämne')
+                    ->required(),
+                RichEditor::make('message')
+                    ->label('Meddelande')
+                    ->placeholder('Offert text...')
+                    ->required(),
+            ])
+            ->action(function (array $data): void {
+                // TODO: Save offer and send email
+                $this->recordOutcome('Offert');
+            });
+    }
+
+    public function mount(): void
+    {
+        Log::info('OutcomeRecorder mount', ['recordId' => $this->recordId, 'tenant' => $this->tenant]);
+
+        // Load outcome colors ONCE
+        $this->outcomeColors = \App\Models\OutcomeSetting::pluck('color', 'outcome')->toArray();
+
+        $this->loadRecord();
+
+        if (! $this->defaultReturnCallAt) {
+            $this->defaultReturnCallAt = now()->addHour()->seconds(0)->format('Y-m-d H:i');
+        }
+
+        // Fallback: if no recordId passed, load first unprocessed record
+        if (! $this->record && ! $this->recordId) {
+            $this->record = RingaData::query()
+                ->where(function ($query) {
+                    $query->where('user_id', auth()->id());
+                    if (filament()->getTenant()) {
+                        $query->orWhere('team_id', filament()->getTenant()->id);
+                    }
+                })
+                ->where('is_active', true)
+                ->whereDate('started_at', '<=', now())
+                ->where(function ($query) {
+                    $query->whereRaw('attempts < COALESCE((
+                        SELECT MAX(max_retry_count)
+                        FROM outcome_settings
+                        WHERE is_active = TRUE
+                    ), 3)');
+                })
+                ->where(function ($query) {
+                    $query->whereNull('available_at')
+                        ->orWhere('available_at', '<=', now());
+                })
+                ->where(function ($query) {
+                    $query->whereNull('aterkom_at')
+                        ->orWhere('aterkom_at', '<=', now());
+                })
+                ->whereNull('outcome_category')
+                ->whereNull('outcome')
+                ->orderBy('id', 'desc')
+                ->first();
+            if ($this->record) {
+                $this->recordId = $this->record->id;
+                Log::info('Loaded fallback record', ['recordId' => $this->recordId]);
+            }
+        }
+    }
+
+    public function updated($property): void
+    {
+        if ($property === 'recordId') {
+            $this->loadRecord();
+        }
+    }
+
+    public function recordOutcome($outcomeValue, $aterkom_at = null): void
+    {
+        if (empty($outcomeValue)) {
+            Log::error('recordOutcome called with empty value');
+            Notification::make()
+                ->title('Invalid outcome value')
+                ->body('Empty outcome value received')
+                ->danger()
+                ->send();
+
+            return;
+        }
+
+        $recordId = $this->recordId ?? $this->record?->id;
+        $record = $recordId ? RingaData::query()->find($recordId) : null;
+
+        if (! $record) {
+            Notification::make()
+                ->title('No record selected')
+                ->danger()
+                ->send();
+
+            return;
+        }
+
+        try {
+            Log::info('Recording outcome', [
+                'recordId' => $record->id,
+                'outcome' => $outcomeValue,
+                'aterkom_at' => $aterkom_at,
+            ]);
+
+            // Find the actual Outcomes enum that matches this enum name or value
+            $outcomeEnum = null;
+
+            // First try to match directly against the main Outcomes enum by name or value
+            foreach (\App\Enums\Outcomes::cases() as $case) {
+                if ($case->name === $outcomeValue || $case->value === $outcomeValue) {
+                    $outcomeEnum = $case;
+                    break;
+                }
+            }
+
+            // If not found, try to find it in the display enums
+            if (! $outcomeEnum) {
+                $displayEnums = [
+                    \App\Enums\Outcomes1::class,
+                    \App\Enums\Outcomes2::class,
+                    \App\Enums\Outcomes4::class,
+                ];
+
+                foreach ($displayEnums as $enumClass) {
+                    try {
+                        // Find the enum case by name
+                        $displayEnum = null;
+                        foreach ($enumClass::cases() as $case) {
+                            if ($case->name === $outcomeValue) {
+                                $displayEnum = $case;
+                                break;
+                            }
+                        }
+
+                        if ($displayEnum) {
+                            // Find the corresponding main enum by value
+                            foreach (\App\Enums\Outcomes::cases() as $case) {
+                                if ($case->value === $displayEnum->value) {
+                                    $outcomeEnum = $case;
+                                    break 2;
+                                }
+                            }
+
+                            // Fallback: match by name
+                            foreach (\App\Enums\Outcomes::cases() as $case) {
+                                if ($case->name === $displayEnum->name) {
+                                    $outcomeEnum = $case;
+                                    break 2;
+                                }
+                            }
+                        }
+                    } catch (Exception $e) {
+                        // Not in this enum, continue
+                    }
+                }
+            }
+
+            if (! $outcomeEnum) {
+                Log::error('Invalid outcome value', ['value' => $outcomeValue]);
+                Notification::make()
+                    ->title('Invalid outcome value: '.$outcomeValue)
+                    ->danger()
+                    ->send();
+
+                return;
+            }
+
+            // Determine the outcome category based on the outcome value
+            $outcomeCategory = $this->getOutcomeCategory($outcomeEnum->value);
+
+            // If outcome is "Ring Tillbaka" or "Återkommer" we expect a scheduled datetime from the action form
+            if (in_array($outcomeEnum->value, ['Ring Tillbaka', 'Återkommer'])) {
+                if (blank($aterkom_at)) {
+                    Notification::make()
+                        ->title('Datum och tid krävs')
+                        ->body('Välj ett datum och en tid för återkommande samtal.')
+                        ->danger()
+                        ->send();
+
+                    return;
+                }
+
+                $scheduledAt = Carbon::parse($aterkom_at);
+
+                DB::transaction(function () use ($outcomeEnum, $outcomeCategory, $scheduledAt, $record) {
+                    $attempts = ($record->attempts ?? 0) + 1;
+
+                    RingaData::query()
+                        ->whereKey($record->id)
+                        ->update([
+                            'is_active' => false,
+                            'outcome' => $outcomeEnum->value,
+                            'outcome_category' => $outcomeCategory,
+                            'aterkom_at' => $scheduledAt,
+                            'attempts' => $attempts,
+                            'is_outcome' => true,
+                        ]);
+                });
+
+                // Refresh to confirm save
+                $this->record = RingaData::query()->find($record->id);
+                $this->recordId = $record->id;
+                Log::info('Outcome marked with return date', [
+                    'recordId' => $record->id,
+                    'outcome' => $outcomeEnum->value,
+                    'is_active' => $this->record?->is_active,
+                    'aterkom_at' => $this->record?->aterkom_at,
+                    'saved' => true,
+                ]);
+
+                Notification::make()
+                    ->title('Outcome recorded')
+                    ->body("Recorded outcome: {$outcomeEnum->getLabel()} with return call scheduled for {$scheduledAt->format('Y-m-d H:i')}")
+                    ->success()
+                    ->send();
+
+                $this->loadNextRecord();
+                // Dispatch event to page to load next record
+                $this->dispatch('outcome-recorded', recordId: $this->recordId);
+
+                return;
+            }
+
+            // For other outcomes, handle based on category
+            DB::transaction(function () use ($outcomeEnum, $outcomeCategory, $record) {
+                $attempts = ($record->attempts ?? 0) + 1;
+                $retryCount = ($record->retry_count ?? 0) + 1;
+                $maxRetryCount = OutcomeDelayService::getMaxRetryCount($outcomeEnum->value);
+                $delayMinutes = OutcomeDelayService::getDelay($outcomeEnum->value) ?? 5;
+
+                // Set is_active based on category
+                $isActive = match ($outcomeCategory) {
+                    'Later' => false, // Permanently deactivate
+                    'Return' => false, // Already scheduled for return call
+                    'Maybe' => true, // Keep active for potential follow-up
+                    'Retry' => $retryCount < $maxRetryCount, // Keep active until max retries
+                    default => true, // Default to active
+                };
+
+                RingaData::query()
+                    ->whereKey($record->id)
+                    ->update([
+                        'is_active' => $isActive,
+                        'outcome' => $outcomeEnum->value,
+                        'outcome_category' => $outcomeCategory,
+                        'attempts' => $attempts,
+                        'retry_count' => $retryCount,
+                        'available_at' => $isActive ? now()->addMinutes($delayMinutes) : $record->available_at,
+                        'is_outcome' => true,
+                    ]);
+            });
+
+            // Refresh to confirm save
+            $this->record = RingaData::query()->find($record->id);
+            $this->recordId = $record->id;
+            Log::info('Outcome marked', [
+                'recordId' => $record->id,
+                'outcome' => $outcomeEnum->value,
+                'is_active' => $this->record?->is_active,
+                'saved' => true,
+            ]);
+
+            Notification::make()
+                ->title('Outcome recorded')
+                ->body("Recorded outcome: {$outcomeEnum->getLabel()}")
+                ->success()
+                ->send();
+
+            $this->loadNextRecord();
+            // Dispatch event to page to load next record
+            $this->dispatch('outcome-recorded', recordId: $this->recordId ?? 0);
+            // Use SPA navigation to refresh the page
+            $this->redirect(RingaDatasResource::getUrl('queue'), navigate: true);
+
+        } catch (Exception $e) {
+            Log::error('Error recording outcome', [
+                'error' => $e->getMessage(),
+                'outcome' => $outcomeValue,
+                'recordId' => $recordId,
+                'trace' => $e->getTraceAsString(),
+            ]);
+            Notification::make()
+                ->title('Error recording outcome')
+                ->body('An error occurred while saving the outcome: '.$e->getMessage())
+                ->danger()
+                ->send();
+        }
+    }
+
+    public function getColorClass($colorName): string
+    {
+        return match ($colorName) {
+            'danger' => 'bg-red-600 hover:bg-red-700',
+            'success' => 'bg-green-600 hover:bg-green-700',
+            'warning' => 'bg-amber-600 hover:bg-amber-700',
+            'primary' => 'bg-blue-600 hover:bg-blue-700',
+            'secondary' => 'bg-gray-600 hover:bg-gray-700',
+            'gray' => 'bg-slate-600 hover:bg-slate-700',
+            default => 'bg-blue-600 hover:bg-blue-700',
+        };
+    }
+
+    public function render()
+    {
+        return view('livewire.ringa-data.outcome-recorder');
+    }
+
+    public function getOutcomeButtons()
+    {
+        return \App\Models\OutcomeSetting::where('is_active', true)
+            ->whereNotNull('color')
+            ->orderBy('order')
+            ->get();
+    }
+
+    private function colorToFilament(string $hexColor): string
+    {
+        // Map hex colors to Filament color names for consistency
+        return match ($hexColor) {
+            '#dc2626' => 'danger',
+            '#2563eb' => 'primary',
+            '#f59e0b' => 'warning',
+            '#16a34a' => 'success',
+            '#6b7280' => 'gray',
+            default => 'gray',
+        };
+    }
+
+    private function loadRecord(): void
+    {
+        if ($this->recordId) {
+            $this->record = RingaData::find($this->recordId);
+            Log::info('Loaded record', ['recordId' => $this->recordId, 'found' => (bool) $this->record]);
+        } else {
+            $this->record = null;
+            Log::info('No recordId provided');
+        }
+    }
+
+    private function loadNextRecord(): void
+    {
+        $now = now();
+        $userId = auth()->id();
+        $tenantId = filament()->getTenant()?->id;
+
+        $nextRecord = RingaData::query()
+            ->where(function ($q) use ($userId, $tenantId) {
+                $q->where('user_id', $userId);
+                if ($tenantId) {
+                    $q->orWhere('team_id', $tenantId);
+                }
+            })
+            ->where('is_active', true)
+            ->whereDate('started_at', '<=', $now)
+            ->where(function ($q) {
+                $q->whereRaw('attempts < COALESCE((
+                    SELECT MAX(max_retry_count)
+                    FROM outcome_settings
+                    WHERE is_active = TRUE
+                ), 3)');
+            })
+            ->where(function ($q) use ($now) {
+                $q->whereNull('available_at')
+                    ->orWhere('available_at', '<=', $now);
+            })
+            ->where(function ($q) use ($now) {
+                $q->whereNull('aterkom_at')
+                    ->orWhere('aterkom_at', '<=', $now);
+            })
+            ->whereNull('outcome_category')
+            ->whereNull('outcome')
+            ->where('id', '!=', $this->recordId) // Exclude current record
+            ->orderBy('id', 'desc') // Match page ordering
+            ->first();
+
+        if ($nextRecord) {
+            $this->recordId = $nextRecord->id;
+            $this->record = $nextRecord;
+            Log::info('Loaded next record', ['recordId' => $nextRecord->id]);
+
+            return;
+        }
+
+        $this->recordId = null;
+        $this->record = null;
+        Log::info('No more records available');
+    }
+
+    private function getOutcomeCategory(string $outcomeValue): ?string
+    {
+        // Get category from outcome_settings table
+        return \App\Models\OutcomeSetting::where('outcome', $outcomeValue)
+            ->where('is_active', true)
+            ->value('category');
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Clients\Clusters\Products\Resources\Categories\Pages;
+
+use App\Filament\Clients\Clusters\Products\Resources\Categories\CategoryResource;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+final class EditCategory extends EditRecord
+{
+    protected static string $resource = CategoryResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
+}

@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Panels\Resources\Searches\Schemas;
+
+use Filament\Schemas\Schema;
+
+final class SearchForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                //
+            ]);
+    }
+}

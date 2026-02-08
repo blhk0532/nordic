@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'single' => [
+
+        'label' => 'Ny :label',
+
+        'modal' => [
+
+            'heading' => 'Skapa :label',
+
+            'actions' => [
+
+                'create' => [
+                    'label' => 'Skapa',
+                ],
+
+                'create_another' => [
+                    'label' => 'Skapa & skapa en till',
+                ],
+
+            ],
+
+        ],
+
+        'notifications' => [
+
+            'created' => [
+                'title' => 'Skapades',
+            ],
+
+        ],
+
+    ],
+
+];

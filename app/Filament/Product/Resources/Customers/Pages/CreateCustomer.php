@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Product\Resources\Customers\Pages;
+
+use App\Filament\Product\Resources\Customers\CustomerResource;
+use Filament\Resources\Pages\CreateRecord;
+
+final class CreateCustomer extends CreateRecord
+{
+    protected static string $resource = CustomerResource::class;
+}

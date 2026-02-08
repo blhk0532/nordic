@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Product\Clusters\Products\Resources\Products\Pages;
+
+use App\Filament\Product\Clusters\Products\Resources\Products\ProductResource;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+final class EditProduct extends EditRecord
+{
+    protected static string $resource = ProductResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
+}

@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'single' => [
+
+        'label' => 'ดู',
+
+        'modal' => [
+
+            'heading' => 'ดู :label',
+
+            'actions' => [
+
+                'close' => [
+                    'label' => 'ปิด',
+                ],
+
+            ],
+
+        ],
+
+    ],
+
+];
