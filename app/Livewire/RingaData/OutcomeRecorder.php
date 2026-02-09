@@ -29,7 +29,10 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 {
     use InteractsWithActions;
     use InteractsWithForms;
-    use InteractsWithSchemas;
+    use InteractsWithSchemas {
+        InteractsWithForms::getCachedSchemas insteadof InteractsWithSchemas;
+        InteractsWithSchemas::getCachedSchemas as getSchemasFromTrait;
+    }
 
     public ?int $recordId = null;
 
@@ -558,48 +561,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
         $now = now();
         $userId = auth()->id();
         $tenantId = filament()->getTenant()?->id;
-
-        $nextRecord = RingaData::query()
-            ->where(function ($q) use ($userId, $tenantId) {
-                $q->where('user_id', $userId);
-                if ($tenantId) {
-                    $q->orWhere('team_id', $tenantId);
-                }
-            })
-            ->where('is_active', true)
-            ->whereDate('started_at', '<=', $now)
-            ->where(function ($q) {
-                $q->whereRaw('attempts < COALESCE((
-                    SELECT MAX(max_retry_count)
-                    FROM outcome_settings
-                    WHERE is_active = TRUE
-                ), 3)');
-            })
-            ->where(function ($q) use ($now) {
-                $q->whereNull('available_at')
-                    ->orWhere('available_at', '<=', $now);
-            })
-            ->where(function ($q) use ($now) {
-                $q->whereNull('aterkom_at')
-                    ->orWhere('aterkom_at', '<=', $now);
-            })
-            ->whereNull('outcome_category')
-            ->whereNull('outcome')
-            ->where('id', '!=', $this->recordId) // Exclude current record
-            ->orderBy('id', 'desc') // Match page ordering
-            ->first();
-
-        if ($nextRecord) {
-            $this->recordId = $nextRecord->id;
-            $this->record = $nextRecord;
-            Log::info('Loaded next record', ['recordId' => $nextRecord->id]);
-
-            return;
-        }
-
         $this->recordId = null;
         $this->record = null;
-        Log::info('No more records available');
+        Log::info($now->format('Y-m-d H:i:s')." - Loading next record for user {$userId} and tenant {$tenantId}");
     }
 
     private function getOutcomeCategory(string $outcomeValue): ?string

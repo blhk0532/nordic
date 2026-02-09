@@ -30,8 +30,11 @@ class RingaDatasTable
                     ->sortable(),
                 TextColumn::make('postort')
                     ->sortable(),
-                TextColumn::make('telefon'),
+                TextColumn::make('telfonnummer')
+                ->label('Telefon')
+                    ->sortable(),
                 TextColumn::make('outcome')
+                ->label('Utfall')
                     ->sortable()
                     ->badge(),
                 TextColumn::make('attempts')
@@ -39,6 +42,8 @@ class RingaDatasTable
                     ->alignCenter(),
                 TextColumn::make('updated_at')
                     ->dateTime()
+                    ->label('Uppdaterad')
+                     ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

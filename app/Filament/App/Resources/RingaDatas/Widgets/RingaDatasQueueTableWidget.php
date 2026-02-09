@@ -9,7 +9,8 @@ use App\Models\RingaData;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Livewire\Attributes\On;
-
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 class RingaDatasQueueTableWidget extends BaseWidget
 {
     public ?int $selectedRecordId = null;
@@ -53,7 +54,16 @@ class RingaDatasQueueTableWidget extends BaseWidget
             ->emptyStateDescription('Välj en post från listan eller kalendern för att se detaljer.');
     }
 
-    private function loadInitialRecord(): void
+    protected function loadInitialRecord(): Builder
+    {
+        $query = QueueRingaData::getQuery();
+        $electedRecordId = $query;
+        logger()->info('RingaDatasQueueTableWidget loaded initial record', ['recordId' =>  $electedRecordId]);
+
+        return $query;
+    }
+
+    private function loadInitialRecords(): void
     {
         // Load the first unprocessed record using the same logic as the page
         $record = \App\Filament\App\Resources\RingaDatas\RingaDatasResource::getEloquentQuery()
@@ -62,9 +72,7 @@ class RingaDatasQueueTableWidget extends BaseWidget
                 if (filament()->getTenant()) {
                     $query->orWhere('team_id', filament()->getTenant()->id);
                 }
-            })
-            ->orderBy('id', 'desc')
-            ->first();
+            });
         //    ->where('is_active', true)
         //    ->whereDate('started_at', '<=', now())
         //    ->where(function ($query) {
@@ -87,7 +95,5 @@ class RingaDatasQueueTableWidget extends BaseWidget
         //    ->orderBy('id', 'desc')
         //    ->first();
 
-        $this->selectedRecordId = $record?->id;
-        logger()->info('RingaDatasQueueTableWidget loaded initial record', ['recordId' => $this->selectedRecordId]);
-    }
+  }
 }

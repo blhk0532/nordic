@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\RingaData;
 use Filament\Widgets\Widget;
 use Livewire\Attributes\On;
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
+use App\Filament\App\Resources\RingaDatas\RingaDatasResource;
 
 class RingaDataOutcomeFormWidget extends Widget
 {
@@ -42,17 +45,6 @@ class RingaDataOutcomeFormWidget extends Widget
 
     private function loadInitialRecord(): void
     {
-        // Use the same query logic as the page for consistency
-        $query = \App\Filament\App\Resources\RingaDatas\RingaDatasResource::getEloquentQuery()
-            ->where(function ($query) {
-                $query->where('user_id', auth()->id());
-                if (filament()->getTenant()) {
-                    $query->orWhere('team_id', filament()->getTenant()->id);
-                }
-            })
-            ->orderBy('id', 'desc');
-
-        $this->record = $query->first();
 
         logger('Widget loaded initial record', ['recordId' => $this->record?->id, 'user_id' => auth()->id(), 'tenant_id' => filament()->getTenant()?->id]);
     }

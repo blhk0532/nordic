@@ -42,29 +42,11 @@ class InertiaCalendar extends Page
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
     protected static string|UnitEnum|null $navigationGroup = ' ';
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        //    if (Auth::user()->role === 'booking' || Auth::user()->role === 'admin' || Auth::user()->role === 'super' || Auth::user()->role === 'manager') {
-        //        return true;
-        //    }
-
-        return true;
-
-    }
-
     //    public static function getNavigationBadge(): ?string
     //    {
     //        $role = Str::upper(Auth::user()->role);
     //        return 'Öppen';
     //    }
 
-    public static function getNavigationBadgeColor(): ?string
-    {
-        return 'warning';
-    }
-
-    public function getMaxContentWidth(): Width
-    {
-        return Width::Full;
-    }
+    protected Width|string|null $maxContentWidth = 'full';
 }

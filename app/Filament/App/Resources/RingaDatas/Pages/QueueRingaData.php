@@ -32,9 +32,9 @@ class QueueRingaData extends Page
 
     protected static ?string $model = RingaData::class;
 
-    protected static ?string $navigationLabel = 'Ringlista';
+    protected static ?string $navigationLabel = 'Ringlistan';
 
-    protected static ?string $title = 'Ringlista';
+    protected static ?string $title = 'Ringlistan';
 
     // public static bool $shouldRegisterNavigation = true;
 
@@ -46,37 +46,18 @@ class QueueRingaData extends Page
 
     protected static string|BackedEnum|null $navigationIcon = Tabler::PhoneRinging;
 
-        protected Width|string|null $maxContentWidth = Width::Full;
+    protected Width|string|null $maxContentWidth = Width::Full;
 
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
-    public static function shouldRegisterNavigation(array $parameters = []): bool
-    {
-        return true;
-    }
 
-    public static function getNavigationBadge(): ?string
-    {
-        $count = self::getResource()::getEloquentQuery()
-        //    ->whereNotNull('outcome')
-        //    ->where('outcome', false)
-            ->where('user_id', Auth::id())
-        //    ->whereDate('updated_at', today())
-            ->count();
 
-        return $count > 0 ? (string) $count : null;
-    }
-
-    public static function getNavigationBadgeColor(): ?string
-    {
-        return 'danger';
-    }
 
     public function mount(): void
     {
         try {
             // Always reset selectedRecordId on mount to avoid stale state
-            $this->selectedRecordId = null;
+
 
             // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
@@ -115,9 +96,11 @@ class QueueRingaData extends Page
         }
     }
 
-    public function getHeaderWidgetsColumns(): int|array
+
+    public static function getNavigationBadge(): ?string
     {
-        return 2;
+        return (string) self::getQuery()->count();
+        // return (string) (auth()->user()?->name ?? '');
     }
 
     public function getHeaderWidgetsData(): array
@@ -171,18 +154,13 @@ class QueueRingaData extends Page
         }
     }
 
-    public function getMaxContentWidth(): Width
-    {
-        return Width::Full;
-    }
-
-    protected function getQuery(): Builder
+    public static function getQuery(): Builder
     {
         $now = now();
 
         $query = self::getResource()::getEloquentQuery()
             // Only records for current user or team
-        
+
             ->where(function ($query) {
                 $query->where('user_id', auth()->id());
                 if (filament()->getTenant()) {
@@ -193,7 +171,7 @@ class QueueRingaData extends Page
           ->where('is_active', true)
         //  // Only records where current date is between started_at and expires_at
           ->whereDate('started_at', '<=', $now)
-          ->whereDate('expires_at', '<', $now)
+          ->whereDate('expires_at', '<=', $now)
             // Only records where attempts < max_retry_count from outcome_settings
             ->where(function (Builder $query) {
                 $query->whereRaw('attempts < COALESCE((
@@ -212,12 +190,24 @@ class QueueRingaData extends Page
                $query->whereNull('aterkom_at')
                    ->orWhere('aterkom_at', '<=', $now);
            })
+            ->where(function (Builder $query) use ($now) {
+               $query->whereNull('outcome_category')
+                   ->orWhere('outcome_category', '=', 'Later')
+                   ->orWhere('outcome_category', '=', 'Return')
+                   ->orWhere('outcome_category', '=', 'Maybe')
+                   ->orWhere('outcome_category', '=', 'Retry');
+           })
         //   // Only records that haven't been processed (no outcome_category set)
-           ->whereNull('outcome_category')
+        //    ->where(function (Builder $query) use ($now) {
+        //       $query->whereNull('outcome')
+        //           ->orWhere('outcome', '=', 'Ej Framkopplad')
+        //           ->orWhere('outcome', '=', 'Inget Svar')
+        //           ->orWhere('outcome', '=', 'Upptagen')
+        //           ->orWhere('outcome', '=', 'Telefonsvar');
+        //   })
         //   // Also ensure no outcome is set
-           ->whereNull('outcome')
             // Order by id ascending (lowest ID first)
-            ->orderBy('id', 'desc');
+            ->orderBy('id', 'asc');
 
         return $query;
     }

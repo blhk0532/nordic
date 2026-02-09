@@ -1,6 +1,6 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 export const conversion = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -14,7 +14,7 @@ conversion.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 conversion.url = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions) => {
@@ -39,7 +39,7 @@ conversion.url = (args: { mediaId: string | number, conversionName: string | num
 }
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 conversion.get = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -48,7 +48,7 @@ conversion.get = (args: { mediaId: string | number, conversionName: string | num
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 conversion.head = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -57,7 +57,7 @@ conversion.head = (args: { mediaId: string | number, conversionName: string | nu
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 const conversionForm = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -66,7 +66,7 @@ const conversionForm = (args: { mediaId: string | number, conversionName: string
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 conversionForm.get = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -75,7 +75,7 @@ conversionForm.get = (args: { mediaId: string | number, conversionName: string |
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:421
 * @route '/storage/product-images/{mediaId}/conversions/{conversionName}'
 */
 conversionForm.head = (args: { mediaId: string | number, conversionName: string | number } | [mediaId: string | number, conversionName: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -91,7 +91,7 @@ conversionForm.head = (args: { mediaId: string | number, conversionName: string 
 conversion.form = conversionForm
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 export const file = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -105,7 +105,7 @@ file.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 file.url = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions) => {
@@ -130,7 +130,7 @@ file.url = (args: { mediaId: string | number, filename: string | number } | [med
 }
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 file.get = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -139,7 +139,7 @@ file.get = (args: { mediaId: string | number, filename: string | number } | [med
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 file.head = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -148,7 +148,7 @@ file.head = (args: { mediaId: string | number, filename: string | number } | [me
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 const fileForm = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ const fileForm = (args: { mediaId: string | number, filename: string | number } 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 fileForm.get = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -166,7 +166,7 @@ fileForm.get = (args: { mediaId: string | number, filename: string | number } | 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/adultdate/filament-booking/src/FilamentBookingServiceProvider.php:435
 * @route '/storage/product-images/{mediaId}/{filename}'
 */
 fileForm.head = (args: { mediaId: string | number, filename: string | number } | [mediaId: string | number, filename: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

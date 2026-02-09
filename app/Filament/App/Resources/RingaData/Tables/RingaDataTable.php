@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 use Zvizvi\UserFields\Components\UserColumn;
+use App\Enums\OutcomeType;
+use Filament\Tables\Columns\IconColumn;
 
 class RingaDataTable
 {
@@ -43,37 +45,40 @@ class RingaDataTable
             ->columns([
                 UserColumn::make('user')
                     ->label('Användare'),
-                ActionableColumn::make('status')
+                ActionableColumn::make('outcome_category')
                     ->badge()
                     ->sortable()
                     ->default('...')
                     ->toggleable(false)
-                    ->label('Utfall')                                  // Display as badge (or remove for simple text)
+                    ->label('¯\_(ツ)_/¯')                                  // Display as badge (or remove for simple text)
                     ->color(
-                        static fn ($state) => $state instanceof Outcomes
+                        static fn ($state) => $state instanceof OutcomeType
                             ? $state->getColor()
-                            : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'success' : 'success')
+                            : (is_string($state) ? OutcomeType::tryFrom($state)?->getColor() ?? 'success' : 'success')
                     )                           // Badge/text color: success, danger, warning, info, primary
                     ->actionIcon(
-                        static fn ($state) => $state instanceof Outcomes
+                        static fn ($state) => $state instanceof OutcomeType
                             ? $state->getIcon()
-                            : (is_string($state) ? Outcomes::tryFrom($state)?->getIcon() ?? 'heroicon-o-clock' : 'heroicon-o-clock')
+                            : (is_string($state) ? OutcomeType::tryFrom($state)?->getIcon() ?? 'heroicon-o-clock' : 'heroicon-o-clock')
                     )         // Action button icon (Heroicon enum or string)
-                    ->actionIconColor('warning')                 // Icon color (independent from badge color)
+                    ->actionIconColor(                        static fn ($state) => $state instanceof OutcomeType
+                            ? $state->getColor()
+                            : (is_string($state) ? OutcomeType::tryFrom($state)?->getColor() ?? 'success' : 'success')
+                            )                 // Icon color (independent from badge color)
                     ->clickableColumn()                          // Make entire column clickable (or remove for button-only)
                     ->tapAction(
-                        Action::make('changeStatus')              // Any Filament Action: edit, delete, approve, etc.
-                            ->label('Change Status')
-                            ->tooltip('Click to change status')
+                        Action::make('changeOutcome')              // Any Filament Action: edit, delete, approve, etc.
+                            ->label('Change Outcome')
+                            ->tooltip('Click to change outcome')
                             ->schema([
-                                Select::make('status')
-                                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
-                                        fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
+                                Select::make('outcome')
+                                    ->options(fn () => collect(OutcomeType::cases())->mapWithKeys(
+                                        fn (OutcomeType $outcome) => [$outcome->value => $outcome->getLabel()]
                                     )->toArray())
                                     ->required(),
                             ])
                             ->fillForm(fn ($record) => [
-                                'status' => $record->status,
+                                'outcome' => $record->outcome,
                             ])
                             ->action(function ($record, array $data) {
                                 $record->update($data);
@@ -103,15 +108,18 @@ class RingaDataTable
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('outcome')
-                    ->label('Outcome')
+                IconColumn::make('outcome')
+                    ->label('🕻')
                     ->sortable()
-                    ->hidden()
-                    ->badge()
-                    ->color(
-                        static fn ($state) => $state instanceof Outcomes
-                            ? $state->getColor()
-                            : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
+    //               ->color(
+    //                   static fn ($state) => $state instanceof Outcomes
+    //                       ? $state->getColor()
+    //                       : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
+    //               )
+                        ->color('gray')
+                    ->tooltip(fn ($state) => $state instanceof Outcomes
+                        ? $state->getLabel()
+                        : (is_string($state) ? Outcomes::tryFrom($state)?->getLabel() ?? 'Unknown' : 'Unknown')
                     )
                     ->action(
                         Action::make('changeOutcome')
