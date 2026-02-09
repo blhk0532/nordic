@@ -63,27 +63,29 @@ class RingaDatasQueueTableWidget extends BaseWidget
                     $query->orWhere('team_id', filament()->getTenant()->id);
                 }
             })
-            ->where('is_active', true)
-            ->whereDate('started_at', '<=', now())
-            ->where(function ($query) {
-                $query->whereRaw('attempts < COALESCE((
-                    SELECT MAX(max_retry_count)
-                    FROM outcome_settings
-                    WHERE is_active = TRUE
-                ), 3)');
-            })
-            ->where(function ($query) {
-                $query->whereNull('available_at')
-                    ->orWhere('available_at', '<=', now());
-            })
-            ->where(function ($query) {
-                $query->whereNull('aterkom_at')
-                    ->orWhere('aterkom_at', '<=', now());
-            })
-            ->whereNull('outcome_category')
-            ->whereNull('outcome')
             ->orderBy('id', 'desc')
             ->first();
+        //    ->where('is_active', true)
+        //    ->whereDate('started_at', '<=', now())
+        //    ->where(function ($query) {
+        //        $query->whereRaw('attempts < COALESCE((
+        //            SELECT MAX(max_retry_count)
+        //            FROM outcome_settings
+        //            WHERE is_active = TRUE
+        //        ), 3)');
+        //    })
+        //    ->where(function ($query) {
+        //        $query->whereNull('available_at')
+        //            ->orWhere('available_at', '<=', now());
+        //    })
+        //    ->where(function ($query) {
+        //        $query->whereNull('aterkom_at')
+        //            ->orWhere('aterkom_at', '<=', now());
+        //    })
+        //    ->whereNull('outcome_category')
+        //    ->whereNull('outcome')
+        //    ->orderBy('id', 'desc')
+        //    ->first();
 
         $this->selectedRecordId = $record?->id;
         logger()->info('RingaDatasQueueTableWidget loaded initial record', ['recordId' => $this->selectedRecordId]);

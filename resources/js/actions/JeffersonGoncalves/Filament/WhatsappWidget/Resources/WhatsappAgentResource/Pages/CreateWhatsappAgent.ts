@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 const CreateWhatsappAgent = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: CreateWhatsappAgent.url(options),
@@ -11,13 +11,13 @@ const CreateWhatsappAgent = (options?: RouteQueryOptions): RouteDefinition<'get'
 
 CreateWhatsappAgent.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/whatsapp/whatsapp-agent/create',
+    url: '/nds/adm/whatsapp/whatsapp-agent/create',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 CreateWhatsappAgent.url = (options?: RouteQueryOptions) => {
     return CreateWhatsappAgent.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ CreateWhatsappAgent.url = (options?: RouteQueryOptions) => {
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 CreateWhatsappAgent.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: CreateWhatsappAgent.url(options),
@@ -36,7 +36,7 @@ CreateWhatsappAgent.get = (options?: RouteQueryOptions): RouteDefinition<'get'> 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 CreateWhatsappAgent.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: CreateWhatsappAgent.url(options),
@@ -46,7 +46,7 @@ CreateWhatsappAgent.head = (options?: RouteQueryOptions): RouteDefinition<'head'
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 const CreateWhatsappAgentForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: CreateWhatsappAgent.url(options),
@@ -56,7 +56,7 @@ const CreateWhatsappAgentForm = (options?: RouteQueryOptions): RouteFormDefiniti
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 CreateWhatsappAgentForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: CreateWhatsappAgent.url(options),
@@ -66,7 +66,7 @@ CreateWhatsappAgentForm.get = (options?: RouteQueryOptions): RouteFormDefinition
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/create'
+* @route '/nds/adm/whatsapp/whatsapp-agent/create'
 */
 CreateWhatsappAgentForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: CreateWhatsappAgent.url({

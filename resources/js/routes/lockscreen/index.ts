@@ -1,9 +1,9 @@
 import admin from './admin'
-import superMethod from './super'
+import adm from './adm'
 
 const lockscreen = {
     admin: Object.assign(admin, admin),
-    super: Object.assign(superMethod, superMethod),
+    adm: Object.assign(adm, adm),
 }
 
 export default lockscreen

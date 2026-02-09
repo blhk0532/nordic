@@ -1,8 +1,8 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: dashboard.url(options),
@@ -11,22 +11,22 @@ export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> =
 
 dashboard.definition = {
     methods: ["get","head"],
-    url: '/nds/admin',
+    url: '/admin',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
     return dashboard.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: dashboard.url(options),
@@ -34,9 +34,9 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: dashboard.url(options),
@@ -44,9 +44,9 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: dashboard.url(options),
@@ -54,9 +54,9 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: dashboard.url(options),
@@ -64,9 +64,9 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see \App\Filament\Admin\Pages\Dashboard::__invoke
-* @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @see \Filament\Pages\Dashboard::__invoke
+* @see vendor/filament/filament/src/Pages/Dashboard.php:7
+* @route '/admin'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: dashboard.url({
@@ -81,76 +81,76 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-export const sendWhatsapp = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: sendWhatsapp.url(options),
+export const calendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendar.url(options),
     method: 'get',
 })
 
-sendWhatsapp.definition = {
+calendar.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/send-whatsapp',
+    url: '/admin/calendar',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-sendWhatsapp.url = (options?: RouteQueryOptions) => {
-    return sendWhatsapp.definition.url + queryParams(options)
+calendar.url = (options?: RouteQueryOptions) => {
+    return calendar.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-sendWhatsapp.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: sendWhatsapp.url(options),
+calendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-sendWhatsapp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: sendWhatsapp.url(options),
+calendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: calendar.url(options),
     method: 'head',
 })
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-const sendWhatsappForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sendWhatsapp.url(options),
+const calendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-sendWhatsappForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sendWhatsapp.url(options),
+calendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @see \App\Filament\Pages\Calendar::__invoke
+* @see app/Filament/Pages/Calendar.php:7
+* @route '/admin/calendar'
 */
-sendWhatsappForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sendWhatsapp.url({
+calendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendar.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -159,79 +159,79 @@ sendWhatsappForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'
     method: 'get',
 })
 
-sendWhatsapp.form = sendWhatsappForm
+calendar.form = calendarForm
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-export const sanctum = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: sanctum.url(options),
+export const calendarSettingsPage = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendarSettingsPage.url(options),
     method: 'get',
 })
 
-sanctum.definition = {
+calendarSettingsPage.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/sanctum',
+    url: '/admin/calendar-settings-page',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-sanctum.url = (options?: RouteQueryOptions) => {
-    return sanctum.definition.url + queryParams(options)
+calendarSettingsPage.url = (options?: RouteQueryOptions) => {
+    return calendarSettingsPage.definition.url + queryParams(options)
 }
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-sanctum.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: sanctum.url(options),
+calendarSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendarSettingsPage.url(options),
     method: 'get',
 })
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-sanctum.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: sanctum.url(options),
+calendarSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: calendarSettingsPage.url(options),
     method: 'head',
 })
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-const sanctumForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sanctum.url(options),
+const calendarSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendarSettingsPage.url(options),
     method: 'get',
 })
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-sanctumForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sanctum.url(options),
+calendarSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendarSettingsPage.url(options),
     method: 'get',
 })
 
 /**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/nds/admin/sanctum'
+* @see \App\Filament\Pages\CalendarSettingsPage::__invoke
+* @see app/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/admin/calendar-settings-page'
 */
-sanctumForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: sanctum.url({
+calendarSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendarSettingsPage.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -240,79 +240,79 @@ sanctumForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
     method: 'get',
 })
 
-sanctum.form = sanctumForm
+calendarSettingsPage.form = calendarSettingsPageForm
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-export const generalSettingsPage = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: generalSettingsPage.url(options),
+export const pulseDashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: pulseDashboard.url(options),
     method: 'get',
 })
 
-generalSettingsPage.definition = {
+pulseDashboard.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/general-settings-page',
+    url: '/admin/dashboard',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-generalSettingsPage.url = (options?: RouteQueryOptions) => {
-    return generalSettingsPage.definition.url + queryParams(options)
+pulseDashboard.url = (options?: RouteQueryOptions) => {
+    return pulseDashboard.definition.url + queryParams(options)
 }
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-generalSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: generalSettingsPage.url(options),
+pulseDashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: pulseDashboard.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-generalSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: generalSettingsPage.url(options),
+pulseDashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: pulseDashboard.url(options),
     method: 'head',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-const generalSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: generalSettingsPage.url(options),
+const pulseDashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pulseDashboard.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-generalSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: generalSettingsPage.url(options),
+pulseDashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pulseDashboard.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
-* @route '/nds/admin/general-settings-page'
+* @see \App\Filament\Pages\PulseDashboard::__invoke
+* @see app/Filament/Pages/PulseDashboard.php:7
+* @route '/admin/dashboard'
 */
-generalSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: generalSettingsPage.url({
+pulseDashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pulseDashboard.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -321,79 +321,79 @@ generalSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefinitio
     method: 'get',
 })
 
-generalSettingsPage.form = generalSettingsPageForm
+pulseDashboard.form = pulseDashboardForm
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-export const myProfile = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: myProfile.url(options),
+export const schedulesCalendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: schedulesCalendar.url(options),
     method: 'get',
 })
 
-myProfile.definition = {
+schedulesCalendar.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/my-profile',
+    url: '/admin/schedules-calendar',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-myProfile.url = (options?: RouteQueryOptions) => {
-    return myProfile.definition.url + queryParams(options)
+schedulesCalendar.url = (options?: RouteQueryOptions) => {
+    return schedulesCalendar.definition.url + queryParams(options)
 }
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-myProfile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: myProfile.url(options),
+schedulesCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: schedulesCalendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-myProfile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: myProfile.url(options),
+schedulesCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: schedulesCalendar.url(options),
     method: 'head',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-const myProfileForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: myProfile.url(options),
+const schedulesCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: schedulesCalendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-myProfileForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: myProfile.url(options),
+schedulesCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: schedulesCalendar.url(options),
     method: 'get',
 })
 
 /**
-* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
-* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
-* @route '/nds/admin/my-profile'
+* @see \App\Filament\Pages\SchedulesCalendar::__invoke
+* @see app/Filament/Pages/SchedulesCalendar.php:7
+* @route '/admin/schedules-calendar'
 */
-myProfileForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: myProfile.url({
+schedulesCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: schedulesCalendar.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -402,7 +402,88 @@ myProfileForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
     method: 'get',
 })
 
-myProfile.form = myProfileForm
+schedulesCalendar.form = schedulesCalendarForm
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+export const taskBoard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: taskBoard.url(options),
+    method: 'get',
+})
+
+taskBoard.definition = {
+    methods: ["get","head"],
+    url: '/admin/task-board',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+taskBoard.url = (options?: RouteQueryOptions) => {
+    return taskBoard.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+taskBoard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: taskBoard.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+taskBoard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: taskBoard.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+const taskBoardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+taskBoardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Pages\TaskBoard::__invoke
+* @see app/Filament/Pages/TaskBoard.php:7
+* @route '/admin/task-board'
+*/
+taskBoardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+taskBoard.form = taskBoardForm
 
 /**
 * @see routes/web.php:148
@@ -480,10 +561,11 @@ chatDashboard.form = chatDashboardForm
 
 const pages = {
     dashboard: Object.assign(dashboard, dashboard),
-    sendWhatsapp: Object.assign(sendWhatsapp, sendWhatsapp),
-    sanctum: Object.assign(sanctum, sanctum),
-    generalSettingsPage: Object.assign(generalSettingsPage, generalSettingsPage),
-    myProfile: Object.assign(myProfile, myProfile),
+    calendar: Object.assign(calendar, calendar),
+    calendarSettingsPage: Object.assign(calendarSettingsPage, calendarSettingsPage),
+    pulseDashboard: Object.assign(pulseDashboard, pulseDashboard),
+    schedulesCalendar: Object.assign(schedulesCalendar, schedulesCalendar),
+    taskBoard: Object.assign(taskBoard, taskBoard),
     chatDashboard: Object.assign(chatDashboard, chatDashboard),
 }
 

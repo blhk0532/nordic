@@ -576,7 +576,7 @@ return [
             'false' => 'Nej',
         ],
 
-        'loading_message' => 'Laddar...',
+        'loading_message' => '',
 
         'max_items_message' => 'Kan endast välja :count st.',
 

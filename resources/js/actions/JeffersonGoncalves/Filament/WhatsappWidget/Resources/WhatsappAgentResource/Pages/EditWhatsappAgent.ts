@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 const EditWhatsappAgent = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditWhatsappAgent.url(args, options),
@@ -11,13 +11,13 @@ const EditWhatsappAgent = (args: { record: string | number } | [record: string |
 
 EditWhatsappAgent.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/whatsapp/whatsapp-agent/{record}/edit',
+    url: '/nds/adm/whatsapp/whatsapp-agent/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 EditWhatsappAgent.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -44,7 +44,7 @@ EditWhatsappAgent.url = (args: { record: string | number } | [record: string | n
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 EditWhatsappAgent.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditWhatsappAgent.url(args, options),
@@ -54,7 +54,7 @@ EditWhatsappAgent.get = (args: { record: string | number } | [record: string | n
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 EditWhatsappAgent.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditWhatsappAgent.url(args, options),
@@ -64,7 +64,7 @@ EditWhatsappAgent.head = (args: { record: string | number } | [record: string | 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 const EditWhatsappAgentForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditWhatsappAgent.url(args, options),
@@ -74,7 +74,7 @@ const EditWhatsappAgentForm = (args: { record: string | number } | [record: stri
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 EditWhatsappAgentForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditWhatsappAgent.url(args, options),
@@ -84,7 +84,7 @@ EditWhatsappAgentForm.get = (args: { record: string | number } | [record: string
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\EditWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/EditWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}/edit'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}/edit'
 */
 EditWhatsappAgentForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditWhatsappAgent.url(args, {

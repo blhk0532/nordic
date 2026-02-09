@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 const ListWhatsappAgents = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListWhatsappAgents.url(options),
@@ -11,13 +11,13 @@ const ListWhatsappAgents = (options?: RouteQueryOptions): RouteDefinition<'get'>
 
 ListWhatsappAgents.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/whatsapp/whatsapp-agent',
+    url: '/nds/adm/whatsapp/whatsapp-agent',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 ListWhatsappAgents.url = (options?: RouteQueryOptions) => {
     return ListWhatsappAgents.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ ListWhatsappAgents.url = (options?: RouteQueryOptions) => {
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 ListWhatsappAgents.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListWhatsappAgents.url(options),
@@ -36,7 +36,7 @@ ListWhatsappAgents.get = (options?: RouteQueryOptions): RouteDefinition<'get'> =
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 ListWhatsappAgents.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ListWhatsappAgents.url(options),
@@ -46,7 +46,7 @@ ListWhatsappAgents.head = (options?: RouteQueryOptions): RouteDefinition<'head'>
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 const ListWhatsappAgentsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListWhatsappAgents.url(options),
@@ -56,7 +56,7 @@ const ListWhatsappAgentsForm = (options?: RouteQueryOptions): RouteFormDefinitio
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 ListWhatsappAgentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListWhatsappAgents.url(options),
@@ -66,7 +66,7 @@ ListWhatsappAgentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ListWhatsappAgents::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ListWhatsappAgents.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent'
+* @route '/nds/adm/whatsapp/whatsapp-agent'
 */
 ListWhatsappAgentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListWhatsappAgents.url({

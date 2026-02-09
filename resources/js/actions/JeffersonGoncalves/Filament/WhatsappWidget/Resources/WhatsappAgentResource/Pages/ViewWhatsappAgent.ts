@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 const ViewWhatsappAgent = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewWhatsappAgent.url(args, options),
@@ -11,13 +11,13 @@ const ViewWhatsappAgent = (args: { record: string | number } | [record: string |
 
 ViewWhatsappAgent.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/whatsapp/whatsapp-agent/{record}',
+    url: '/nds/adm/whatsapp/whatsapp-agent/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 ViewWhatsappAgent.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -44,7 +44,7 @@ ViewWhatsappAgent.url = (args: { record: string | number } | [record: string | n
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 ViewWhatsappAgent.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewWhatsappAgent.url(args, options),
@@ -54,7 +54,7 @@ ViewWhatsappAgent.get = (args: { record: string | number } | [record: string | n
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 ViewWhatsappAgent.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ViewWhatsappAgent.url(args, options),
@@ -64,7 +64,7 @@ ViewWhatsappAgent.head = (args: { record: string | number } | [record: string | 
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 const ViewWhatsappAgentForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewWhatsappAgent.url(args, options),
@@ -74,7 +74,7 @@ const ViewWhatsappAgentForm = (args: { record: string | number } | [record: stri
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 ViewWhatsappAgentForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewWhatsappAgent.url(args, options),
@@ -84,7 +84,7 @@ ViewWhatsappAgentForm.get = (args: { record: string | number } | [record: string
 /**
 * @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\ViewWhatsappAgent::__invoke
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/ViewWhatsappAgent.php:7
-* @route '/nds/admin/whatsapp/whatsapp-agent/{record}'
+* @route '/nds/adm/whatsapp/whatsapp-agent/{record}'
 */
 ViewWhatsappAgentForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewWhatsappAgent.url(args, {

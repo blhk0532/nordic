@@ -3,14 +3,16 @@
         @php
             $recordId = $this->record?->id;
             $tenant = $this->tenant;
+            $filamentTenant = filament()->getTenant();
         @endphp
 
-        @if($recordId && $tenant)
+        @if($recordId)
             <livewire:ringa-data.outcome-recorder :record-id="$recordId" :tenant="$tenant" class="h-full" />
-        @elseif(!$tenant)
-            <div class="p-4 pt-12 text-center text-red-500">∘ ⴵ ∘</div>
         @else
-            <div class="p-4 text-center text-gray-500">zzz</div>
+            <div class="p-4 text-center text-gray-500">
+                <div class="text-sm mb-2">No record selected</div>
+                <div class="text-xs text-gray-400">Tenant: {{ $tenant ?? 'null' }} | Filament: {{ $filamentTenant?->slug ?? 'null' }}</div>
+            </div>
         @endif
     </x-filament::section>
 </x-filament-widgets::widget>

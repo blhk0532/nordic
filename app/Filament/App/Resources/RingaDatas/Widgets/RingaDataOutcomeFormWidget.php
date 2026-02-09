@@ -42,35 +42,17 @@ class RingaDataOutcomeFormWidget extends Widget
 
     private function loadInitialRecord(): void
     {
-        // Load the first unprocessed record using the same logic as the page
-        $this->record = RingaData::query()
+        // Use the same query logic as the page for consistency
+        $query = \App\Filament\App\Resources\RingaDatas\RingaDatasResource::getEloquentQuery()
             ->where(function ($query) {
                 $query->where('user_id', auth()->id());
                 if (filament()->getTenant()) {
                     $query->orWhere('team_id', filament()->getTenant()->id);
                 }
             })
-            ->where('is_active', true)
-            ->whereDate('started_at', '<=', now())
-            ->where(function ($query) {
-                $query->whereRaw('attempts < COALESCE((
-                    SELECT MAX(max_retry_count)
-                    FROM outcome_settings
-                    WHERE is_active = TRUE
-                ), 3)');
-            })
-            ->where(function ($query) {
-                $query->whereNull('available_at')
-                    ->orWhere('available_at', '<=', now());
-            })
-            ->where(function ($query) {
-                $query->whereNull('aterkom_at')
-                    ->orWhere('aterkom_at', '<=', now());
-            })
-            ->whereNull('outcome_category')
-            ->whereNull('outcome')
-            ->orderBy('id', 'desc')
-            ->first();
+            ->orderBy('id', 'desc');
+
+        $this->record = $query->first();
 
         logger('Widget loaded initial record', ['recordId' => $this->record?->id, 'user_id' => auth()->id(), 'tenant_id' => filament()->getTenant()?->id]);
     }

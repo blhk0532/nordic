@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 const SendWhatsapp = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: SendWhatsapp.url(options),
@@ -11,13 +11,13 @@ const SendWhatsapp = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 SendWhatsapp.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/send-whatsapp',
+    url: '/nds/adm/send-whatsapp',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 SendWhatsapp.url = (options?: RouteQueryOptions) => {
     return SendWhatsapp.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ SendWhatsapp.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 SendWhatsapp.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: SendWhatsapp.url(options),
@@ -36,7 +36,7 @@ SendWhatsapp.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 SendWhatsapp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: SendWhatsapp.url(options),
@@ -46,7 +46,7 @@ SendWhatsapp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 const SendWhatsappForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: SendWhatsapp.url(options),
@@ -56,7 +56,7 @@ const SendWhatsappForm = (options?: RouteQueryOptions): RouteFormDefinition<'get
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 SendWhatsappForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: SendWhatsapp.url(options),
@@ -66,7 +66,7 @@ SendWhatsappForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 /**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/admin/send-whatsapp'
+* @route '/nds/adm/send-whatsapp'
 */
 SendWhatsappForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: SendWhatsapp.url({

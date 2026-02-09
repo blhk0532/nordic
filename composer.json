@@ -42,7 +42,6 @@
         "deldius/filament-user-field": "^1.1.0",
         "devonab/filament-easy-footer": "@dev",
         "devtical/filament-sanctum": "^1.0",
-        "dotswan/filament-laravel-pulse": "^2.1",
         "eightynine/filament-excel-import": "^4.0",
         "fahiem/filament-pinpoint": "@dev",
         "filament/filament": ">=4.7",

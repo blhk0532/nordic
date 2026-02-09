@@ -1,5 +1,61 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
+* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
+* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
+* @route '/email/verification-notification'
+*/
+export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: store.url(options),
+    method: 'post',
+})
+
+store.definition = {
+    methods: ["post"],
+    url: '/email/verification-notification',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
+* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
+* @route '/email/verification-notification'
+*/
+store.url = (options?: RouteQueryOptions) => {
+    return store.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
+* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
+* @route '/email/verification-notification'
+*/
+store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: store.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
+* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
+* @route '/email/verification-notification'
+*/
+const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
+* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
+* @route '/email/verification-notification'
+*/
+storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
+
+store.form = storeForm
+
+/**
 * @see \App\Http\Controllers\UserEmailVerificationNotificationController::create
 * @see app/Http/Controllers/UserEmailVerificationNotificationController.php:17
 * @route '/verify-email'
@@ -79,62 +135,6 @@ createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 })
 
 create.form = createForm
-
-/**
-* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
-* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
-* @route '/email/verification-notification'
-*/
-export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: store.url(options),
-    method: 'post',
-})
-
-store.definition = {
-    methods: ["post"],
-    url: '/email/verification-notification',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
-* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
-* @route '/email/verification-notification'
-*/
-store.url = (options?: RouteQueryOptions) => {
-    return store.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
-* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
-* @route '/email/verification-notification'
-*/
-store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: store.url(options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
-* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
-* @route '/email/verification-notification'
-*/
-const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: store.url(options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\UserEmailVerificationNotificationController::store
-* @see app/Http/Controllers/UserEmailVerificationNotificationController.php:24
-* @route '/email/verification-notification'
-*/
-storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: store.url(options),
-    method: 'post',
-})
-
-store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\UserEmailVerificationNotificationController::update
@@ -234,6 +234,6 @@ updateForm.head = (args: { id: string | number, hash: string | number } | [id: s
 
 update.form = updateForm
 
-const UserEmailVerificationNotificationController = { create, store, update }
+const UserEmailVerificationNotificationController = { store, create, update }
 
 export default UserEmailVerificationNotificationController

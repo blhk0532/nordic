@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaDatas\Tables;
 
+use App\Models\RingaData;
 use Filament\Actions;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -22,24 +21,24 @@ class RingaDatasTable
 
             ])
             ->columns([
-                TextColumn::make('gatuadress')
-                    ->sortable(),
                 TextColumn::make('fornamn')
                     ->sortable(),
 
                 TextColumn::make('efternamn')
                     ->sortable(),
+                TextColumn::make('gatuadress')
+                    ->sortable(),
+                TextColumn::make('postort')
+                    ->sortable(),
                 TextColumn::make('telefon'),
-
                 TextColumn::make('outcome')
                     ->sortable()
                     ->badge(),
                 TextColumn::make('attempts')
                     ->sortable()
                     ->alignCenter(),
-                TextColumn::make('expires_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
-                    ->hidden()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -60,13 +59,7 @@ class RingaDatasTable
                     ->label('Ring')
                     ->icon('heroicon-o-phone-arrow-up-right')
                     ->color('primary')
-                    ->action(function ($record, $livewire) {
-                        if (method_exists($livewire, 'selectRecord')) {
-                            $livewire->selectRecord($record->id);
-                        }
-                    }),
-                ViewAction::make(),
-                EditAction::make(),
+                    ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
             ]);
     }
 

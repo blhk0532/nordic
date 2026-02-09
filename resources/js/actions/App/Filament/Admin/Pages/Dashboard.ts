@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 const Dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: Dashboard.url(options),
@@ -11,13 +11,13 @@ const Dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 Dashboard.definition = {
     methods: ["get","head"],
-    url: '/nds/admin',
+    url: '/nds/adm',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 Dashboard.url = (options?: RouteQueryOptions) => {
     return Dashboard.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ Dashboard.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 Dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: Dashboard.url(options),
@@ -36,7 +36,7 @@ Dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 Dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: Dashboard.url(options),
@@ -46,7 +46,7 @@ Dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 const DashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: Dashboard.url(options),
@@ -56,7 +56,7 @@ const DashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 DashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: Dashboard.url(options),
@@ -66,7 +66,7 @@ DashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 /**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
-* @route '/nds/admin'
+* @route '/nds/adm'
 */
 DashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: Dashboard.url({

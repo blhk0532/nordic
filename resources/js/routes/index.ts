@@ -137,6 +137,87 @@ logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 logout.form = logoutForm
 
 /**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+export const register = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: register.url(options),
+    method: 'get',
+})
+
+register.definition = {
+    methods: ["get","head"],
+    url: '/register',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+register.url = (options?: RouteQueryOptions) => {
+    return register.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+register.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+register.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: register.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+const registerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+registerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\UserController::register
+* @see app/Http/Controllers/UserController.php:20
+* @route '/register'
+*/
+registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+register.form = registerForm
+
+/**
 * @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
@@ -303,98 +384,6 @@ filamentExcelDownloadForm.head = (args: { path: string | number } | [path: strin
 filamentExcelDownload.form = filamentExcelDownloadForm
 
 /**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-export const laravelFolio = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: laravelFolio.url(args, options),
-    method: 'get',
-})
-
-laravelFolio.definition = {
-    methods: ["get","head"],
-    url: '/{fallbackPlaceholder}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-laravelFolio.url = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { fallbackPlaceholder: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            fallbackPlaceholder: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        fallbackPlaceholder: args.fallbackPlaceholder,
-    }
-
-    return laravelFolio.definition.url
-            .replace('{fallbackPlaceholder}', parsedArgs.fallbackPlaceholder.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-laravelFolio.get = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: laravelFolio.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-laravelFolio.head = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: laravelFolio.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-const laravelFolioForm = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: laravelFolio.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-laravelFolioForm.get = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: laravelFolio.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see vendor/laravel/folio/src/FolioManager.php:82
-* @route '/{fallbackPlaceholder}'
-*/
-laravelFolioForm.head = (args: { fallbackPlaceholder: string | number } | [fallbackPlaceholder: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: laravelFolio.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-laravelFolio.form = laravelFolioForm
-
-/**
 * @see routes/web.php:34
 * @route '/'
 */
@@ -469,7 +458,8 @@ homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 home.form = homeForm
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -483,7 +473,8 @@ dashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -491,7 +482,8 @@ dashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -500,7 +492,8 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -509,7 +502,8 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -518,7 +512,8 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -527,7 +522,8 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see routes/web.php:43
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
 * @route '/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1510,84 +1506,3 @@ bookingCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'g
 })
 
 bookingCalendar.form = bookingCalendarForm
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-export const register = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: register.url(options),
-    method: 'get',
-})
-
-register.definition = {
-    methods: ["get","head"],
-    url: '/register',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-register.url = (options?: RouteQueryOptions) => {
-    return register.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-register.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: register.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-register.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: register.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-const registerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: register.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-registerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: register.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\UserController::register
-* @see app/Http/Controllers/UserController.php:20
-* @route '/register'
-*/
-registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: register.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-register.form = registerForm

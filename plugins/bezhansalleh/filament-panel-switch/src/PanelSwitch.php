@@ -93,7 +93,7 @@ class PanelSwitch extends Component
         $static = static::make();
 
         FilamentView::registerRenderHook(
-            name: $static->getRenderHook(),
+            name: PanelsRenderHook::TOPBAR_LOGO_AFTER,
             hook: function () use ($static) {
 
                 if (! $static->isVisible()) {

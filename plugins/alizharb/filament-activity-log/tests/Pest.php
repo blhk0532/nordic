@@ -14,7 +14,7 @@ declare(strict_types=1);
 */
 
 pest()->extend(AlizHarb\ActivityLog\Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+    
     ->in('Unit', 'Feature');
 
 /*

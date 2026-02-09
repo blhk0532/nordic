@@ -18,21 +18,26 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class OutcomeRecorder extends Component implements HasActions, HasForms
+class OutcomeRecorder extends Component implements HasActions, HasForms, HasSchemas
 {
     use InteractsWithActions;
     use InteractsWithForms;
+    use InteractsWithSchemas;
 
     public ?int $recordId = null;
 
     public ?RingaData $record = null;
 
     public ?string $tenant = null;
+
+    public ?string $processingOutcome = null;
 
     protected $listeners = [
         'externalRecordOutcome' => 'recordOutcome',
@@ -69,10 +74,11 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 'class' => 'w-full',
                 'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
             ])
+            ->modal()
             ->modalHeading('Schemalägg återkommande samtal')
             ->modalSubmitActionLabel('Schemalägg')
             ->modalWidth('md')
-            ->schema([
+            ->form([
                 DateTimePicker::make('aterkom_at')
                     ->label('Datum och tid för återkommande samtal')
                     ->default(fn () => $default)
@@ -99,8 +105,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 'class' => 'w-full',
                 'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
             ])
+            ->modal()
             ->modalHeading('Bokad')
-            ->schema([
+            ->form([
                 \Filament\Forms\Components\Textarea::make('notes')
                     ->label('Anteckningar')
                     ->rows(3),
@@ -132,10 +139,11 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 'class' => 'w-full',
                 'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
             ])
+            ->modal()
             ->modalHeading('Schemalägg återkommande samtal')
             ->modalSubmitActionLabel('Schemalägg')
             ->modalWidth('md')
-            ->schema([
+            ->form([
                 DateTimePicker::make('aterkom_at')
                     ->label('Datum och tid för återkommande samtal')
                     ->default(fn () => $default)
@@ -162,10 +170,11 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 'class' => 'w-full',
                 'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
             ])
+            ->modal()
             ->modalHeading('Välj Nästa Gång')
             ->modalSubmitActionLabel('Spara')
             ->modalWidth('md')
-            ->schema([
+            ->form([
                 Select::make('outcome_value')
                     ->label('Resultat')
                     ->options(fn () => collect(\App\Enums\Outcomes3::cases())
@@ -191,10 +200,11 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 'class' => 'w-full',
                 'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
             ])
+            ->modal()
             ->modalHeading('Skapa Offert')
             ->modalSubmitActionLabel('Spara Offert')
             ->modalWidth('lg')
-            ->schema([
+            ->form([
                 TextInput::make('subject')
                     ->label('Ämne')
                     ->placeholder('Offert ämne')
@@ -269,6 +279,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
 
     public function recordOutcome($outcomeValue, $aterkom_at = null): void
     {
+        // Prevent double-clicks by tracking which outcome is being processed
+        $this->processingOutcome = $outcomeValue;
+
         if (empty($outcomeValue)) {
             Log::error('recordOutcome called with empty value');
             Notification::make()
@@ -276,6 +289,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 ->body('Empty outcome value received')
                 ->danger()
                 ->send();
+
+            $this->processingOutcome = null;
 
             return;
         }
@@ -288,6 +303,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 ->title('No record selected')
                 ->danger()
                 ->send();
+
+            $this->processingOutcome = null;
 
             return;
         }
@@ -481,6 +498,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms
                 ->body('An error occurred while saving the outcome: '.$e->getMessage())
                 ->danger()
                 ->send();
+        } finally {
+            $this->processingOutcome = null;
         }
     }
 

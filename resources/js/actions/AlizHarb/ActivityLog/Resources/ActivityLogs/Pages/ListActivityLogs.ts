@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 const ListActivityLogs = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListActivityLogs.url(options),
@@ -11,13 +11,13 @@ const ListActivityLogs = (options?: RouteQueryOptions): RouteDefinition<'get'> =
 
 ListActivityLogs.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/activity-logs',
+    url: '/nds/adm/activity-logs',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 ListActivityLogs.url = (options?: RouteQueryOptions) => {
     return ListActivityLogs.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ ListActivityLogs.url = (options?: RouteQueryOptions) => {
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 ListActivityLogs.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListActivityLogs.url(options),
@@ -36,7 +36,7 @@ ListActivityLogs.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => 
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 ListActivityLogs.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ListActivityLogs.url(options),
@@ -46,7 +46,7 @@ ListActivityLogs.head = (options?: RouteQueryOptions): RouteDefinition<'head'> =
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 const ListActivityLogsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListActivityLogs.url(options),
@@ -56,7 +56,7 @@ const ListActivityLogsForm = (options?: RouteQueryOptions): RouteFormDefinition<
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 ListActivityLogsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListActivityLogs.url(options),
@@ -66,7 +66,7 @@ ListActivityLogsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'g
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ListActivityLogs::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ListActivityLogs.php:7
-* @route '/nds/admin/activity-logs'
+* @route '/nds/adm/activity-logs'
 */
 ListActivityLogsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListActivityLogs.url({

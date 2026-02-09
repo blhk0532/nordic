@@ -23,7 +23,7 @@ class BaseProfileForm extends Component implements HasActions, HasForms
 
     public function getName(): string
     {
-        return Str::of(self::class)->afterLast('\\')->snake();
+        return Str::of(static::class)->afterLast('\\')->snake()->value();
     }
 
     public function render(): View

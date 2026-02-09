@@ -46,6 +46,8 @@ class QueueRingaData extends Page
 
     protected static string|BackedEnum|null $navigationIcon = Tabler::PhoneRinging;
 
+        protected Width|string|null $maxContentWidth = Width::Full;
+
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
     public static function shouldRegisterNavigation(array $parameters = []): bool
@@ -56,8 +58,8 @@ class QueueRingaData extends Page
     public static function getNavigationBadge(): ?string
     {
         $count = self::getResource()::getEloquentQuery()
-            ->whereNotNull('outcome')
-            ->where('outcome', false)
+        //    ->whereNotNull('outcome')
+        //    ->where('outcome', false)
             ->where('user_id', Auth::id())
         //    ->whereDate('updated_at', today())
             ->count();
@@ -180,17 +182,18 @@ class QueueRingaData extends Page
 
         $query = self::getResource()::getEloquentQuery()
             // Only records for current user or team
-            ->where(function (Builder $query) {
-                $query->where('user_id', Auth::id());
+        
+            ->where(function ($query) {
+                $query->where('user_id', auth()->id());
                 if (filament()->getTenant()) {
                     $query->orWhere('team_id', filament()->getTenant()->id);
                 }
             })
-            // Only active records
-            ->where('is_active', true)
-            // Only records where current date is between started_at and expires_at
-            ->whereDate('started_at', '<=', $now)
-        //    ->whereDate('expires_at', '>=', $now)
+        //  // Only active records
+          ->where('is_active', true)
+        //  // Only records where current date is between started_at and expires_at
+          ->whereDate('started_at', '<=', $now)
+          ->whereDate('expires_at', '<', $now)
             // Only records where attempts < max_retry_count from outcome_settings
             ->where(function (Builder $query) {
                 $query->whereRaw('attempts < COALESCE((
@@ -200,19 +203,19 @@ class QueueRingaData extends Page
                 ), 3)');
             })
             // Only records where current datetime is after available_at OR available_at is null
-            ->where(function (Builder $query) use ($now) {
-                $query->whereNull('available_at')
-                    ->orWhere('available_at', '<=', $now);
-            })
-            // Only records where current datetime is after aterkom_at OR aterkom_at is null
-            ->where(function (Builder $query) use ($now) {
-                $query->whereNull('aterkom_at')
-                    ->orWhere('aterkom_at', '<=', $now);
-            })
-            // Only records that haven't been processed (no outcome_category set)
-            ->whereNull('outcome_category')
-            // Also ensure no outcome is set
-            ->whereNull('outcome')
+           ->where(function (Builder $query) use ($now) {
+               $query->whereNull('available_at')
+                   ->orWhere('available_at', '<=', $now);
+           })
+        //   // Only records where current datetime is after aterkom_at OR aterkom_at is null
+           ->where(function (Builder $query) use ($now) {
+               $query->whereNull('aterkom_at')
+                   ->orWhere('aterkom_at', '<=', $now);
+           })
+        //   // Only records that haven't been processed (no outcome_category set)
+           ->whereNull('outcome_category')
+        //   // Also ensure no outcome is set
+           ->whereNull('outcome')
             // Order by id ascending (lowest ID first)
             ->orderBy('id', 'desc');
 

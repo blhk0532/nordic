@@ -237,9 +237,7 @@ class AppPanelProvider extends PanelProvider
                     ->shouldShowMultiFactorAuthentication()
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(true, 'attachments')
-                    ->customProfileComponents([
-                        \App\Livewire\CustomProfileComponent::class,
-                    ]),
+                    ->customProfileComponents([]),
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')

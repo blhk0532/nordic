@@ -49,9 +49,8 @@ class RingaDataTable
                 TextColumn::make('attempts')
                     ->sortable()
                     ->alignCenter(),
-                TextColumn::make('expires_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
-                    ->hidden()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

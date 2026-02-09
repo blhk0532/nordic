@@ -7,19 +7,13 @@ namespace App\Livewire;
 use App\Enums\UserActiveStatus;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasSort;
-use Livewire\Component;
+use Joaopaulolndev\FilamentEditProfile\Livewire\BaseProfileForm;
 
-class CustomProfileComponent extends Component implements HasSchemas
+class CustomProfileComponent extends BaseProfileForm
 {
-    use HasSort;
-    use InteractsWithSchemas;
-
     public ?array $data = [];
 
     protected static int $sort = 0;

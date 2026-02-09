@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 const ViewActivityLog = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewActivityLog.url(args, options),
@@ -11,13 +11,13 @@ const ViewActivityLog = (args: { record: string | number } | [record: string | n
 
 ViewActivityLog.definition = {
     methods: ["get","head"],
-    url: '/nds/admin/activity-logs/{record}',
+    url: '/nds/adm/activity-logs/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 ViewActivityLog.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -44,7 +44,7 @@ ViewActivityLog.url = (args: { record: string | number } | [record: string | num
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 ViewActivityLog.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewActivityLog.url(args, options),
@@ -54,7 +54,7 @@ ViewActivityLog.get = (args: { record: string | number } | [record: string | num
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 ViewActivityLog.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ViewActivityLog.url(args, options),
@@ -64,7 +64,7 @@ ViewActivityLog.head = (args: { record: string | number } | [record: string | nu
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 const ViewActivityLogForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewActivityLog.url(args, options),
@@ -74,7 +74,7 @@ const ViewActivityLogForm = (args: { record: string | number } | [record: string
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 ViewActivityLogForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewActivityLog.url(args, options),
@@ -84,7 +84,7 @@ ViewActivityLogForm.get = (args: { record: string | number } | [record: string |
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/admin/activity-logs/{record}'
+* @route '/nds/adm/activity-logs/{record}'
 */
 ViewActivityLogForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewActivityLog.url(args, {

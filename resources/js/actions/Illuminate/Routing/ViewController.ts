@@ -177,10 +177,91 @@ ViewControllere3edcbca657cb71ec8ce2b565efb3a79Form.head = (args: { conversation:
 })
 
 ViewControllere3edcbca657cb71ec8ce2b565efb3a79.form = ViewControllere3edcbca657cb71ec8ce2b565efb3a79Form
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+const ViewController42a740574ecbfbac32f8cc353fc32db9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewController42a740574ecbfbac32f8cc353fc32db9.url(options),
+    method: 'get',
+})
+
+ViewController42a740574ecbfbac32f8cc353fc32db9.definition = {
+    methods: ["get","head"],
+    url: '/dashboard',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+ViewController42a740574ecbfbac32f8cc353fc32db9.url = (options?: RouteQueryOptions) => {
+    return ViewController42a740574ecbfbac32f8cc353fc32db9.definition.url + queryParams(options)
+}
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+ViewController42a740574ecbfbac32f8cc353fc32db9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewController42a740574ecbfbac32f8cc353fc32db9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+ViewController42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewController42a740574ecbfbac32f8cc353fc32db9.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+const ViewController42a740574ecbfbac32f8cc353fc32db9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewController42a740574ecbfbac32f8cc353fc32db9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+ViewController42a740574ecbfbac32f8cc353fc32db9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewController42a740574ecbfbac32f8cc353fc32db9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+* @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+* @route '/dashboard'
+*/
+ViewController42a740574ecbfbac32f8cc353fc32db9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewController42a740574ecbfbac32f8cc353fc32db9.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewController42a740574ecbfbac32f8cc353fc32db9.form = ViewController42a740574ecbfbac32f8cc353fc32db9Form
 
 const ViewController = {
     '/chats': ViewController0d958d3c255923e9dcb1e53539810c55,
     '/chats/{conversation}': ViewControllere3edcbca657cb71ec8ce2b565efb3a79,
+    '/dashboard': ViewController42a740574ecbfbac32f8cc353fc32db9,
 }
 
 export default ViewController

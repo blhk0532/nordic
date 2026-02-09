@@ -1,3 +1,4 @@
+import V1 from './V1'
 import HittaSeController from './HittaSeController'
 import HittaDataController from './HittaDataController'
 import PersonerDataController from './PersonerDataController'
@@ -22,6 +23,7 @@ import CalendarBookingController from './CalendarBookingController'
 import CalendarDataController from './CalendarDataController'
 
 const Api = {
+    V1: Object.assign(V1, V1),
     HittaSeController: Object.assign(HittaSeController, HittaSeController),
     HittaDataController: Object.assign(HittaDataController, HittaDataController),
     PersonerDataController: Object.assign(PersonerDataController, PersonerDataController),

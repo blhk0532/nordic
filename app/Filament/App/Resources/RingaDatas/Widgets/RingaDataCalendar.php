@@ -39,6 +39,7 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema as FilamentSchema;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\Widget;
@@ -53,17 +54,18 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class RingaDataCalendar extends Widget implements HasCalendar
+class RingaDataCalendar extends Widget implements HasCalendar, HasSchemas
 {
-    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
+    use CanBeConfigured, CanRefreshCalendar, \Filament\Schemas\Concerns\InteractsWithSchemas, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
 
         // Keep the frontend-only refresh available under an alias if needed
         InteractsWithEvents::refreshRecords as refreshRecordsFrontend;
 
-        // Resolve __get collision: prefer InteractsWithPageFilters for pageFilters access
-        InteractsWithPageFilters::__get insteadof InteractsWithCalendar;
+        // Resolve __get collision: prefer InteractsWithSchemas for schema access
+        \Filament\Schemas\Concerns\InteractsWithSchemas::__get insteadof \Filament\Widgets\Concerns\InteractsWithPageFilters;
+        InteractsWithPageFilters::__get insteadof \Filament\Schemas\Concerns\InteractsWithSchemas;
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
@@ -563,6 +565,11 @@ class RingaDataCalendar extends Widget implements HasCalendar
             ->mountUsing(function (array $arguments) {
                 $this->calendarData = $arguments['data'];
             })
+            ->schema([
+                Section::make()
+                    ->schema([])
+                    ->hidden(),
+            ])
             ->modalFooterActions([
 
                 Action::make('createBooking')

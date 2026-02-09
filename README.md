@@ -545,9 +545,9 @@ docker compose run --rm app ./vendor/bin/pest --parallel
 ```php
 // tests/Feature/Api/V1/UserTest.php
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(RefreshDatabase::class);
+
+
 
 it('lists users for authenticated user', function () {
     $user = User::factory()->create();
@@ -781,7 +781,7 @@ Route::middleware('auth:sanctum')->group(function () {
 5. **Create Tests:**
 ```php
 // tests/Feature/Api/V1/PostTest.php
-uses(RefreshDatabase::class);
+
 
 it('lists posts', function () {
     $user = User::factory()->create();

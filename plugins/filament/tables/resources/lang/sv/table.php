@@ -30,7 +30,7 @@ return [
 
         'select' => [
 
-            'loading_message' => 'Laddar...',
+            'loading_message' => '',
 
             'no_search_results_message' => 'Inga alternativ matchar din sökning.',
 
