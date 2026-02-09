@@ -62,7 +62,6 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -186,27 +185,46 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                     ->color('success')
                     ->icon('heroicon-o-calendar-days')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
-                        $startVal = $this->calendarData['start_val'];
-                        $endVal = $this->calendarData['end_val'];
-                        $dateVal = $this->calendarData['date_val'];
+                        $startDateObj = Carbon::parse($this->calendarData['start'] ?? now());
+                        $startDate = $startDateObj->format('Y-m-d');
+                        $startVal = $this->calendarData['start_val'] ?? null;
+                        $endVal = $this->calendarData['end_val'] ?? null;
+                        $dateVal = $this->calendarData['date_val'] ?? null;
                         $timeStamp = time();
-                        $dateStamp = date('dmY', $timeStamp);
                         $bookingNumber = Str::upper(Auth::user()->name).$timeStamp;
-                        if ($this->calendarData['allDay']) {
+
+                        if (! empty($this->calendarData['allDay'])) {
                             $startTime = '00:00';
                             $endTime = '23:59';
                         } else {
-                            $startTime = Carbon::parse($this->calendarData['start_val'])->format('H:i');
-                            $endTime = Carbon::parse($this->calendarData['end_val'])->format('H:i');
+                            $startTime = $startVal ? Carbon::parse($startVal)->format('H:i') : null;
+                            $endTime = $endVal ? Carbon::parse($endVal)->format('H:i') : null;
                         }
+
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = $dateVal ? Carbon::parse($dateVal)->format('Y-m-d') : $startDate;
+                            $startTime = $startVal ? Carbon::parse($startVal)->format('H:i') : $startTime;
+                            $endTime = $endVal ? Carbon::parse($endVal)->format('H:i') : $endTime;
                         }
-                        $data = ['number' => $bookingNumber, 'notes' => '', 'service_user_id' => null, 'booking_client_id' => null, 'date' => $startDate->format('Y-m-d'), ...$data,
-                            'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
+
+                        $base = $this->calendarData ?? [];
+
+                        $data = array_merge($base, [
+                            'number' => $bookingNumber,
+                            'notes' => '',
+                            'service_user_id' => null,
+                            'booking_client_id' => null,
+                            'date' => $startDate,
+                            'start' => $startTime,
+                            'end' => $endTime,
+                            'service_date' => $startDate,
+                            'start_time' => $startTime,
+                            'end_time' => $endTime,
+                            'start_val' => $startVal,
+                            'end_val' => $endVal,
+                            'date_val' => $dateVal,
+                        ]);
+
                         logger()->info('BookingCalendarWidget: B BOOK DATA', $data);
                         $this->replaceMountedAction('create', ['data' => $data]);
                         $newIndex = max(0, count($this->mountedActions) - 1);
@@ -218,24 +236,40 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                     ->color('primary')
                     ->icon('heroicon-o-map-pin')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
-                        $startVal = $this->calendarData['start_val'];
-                        $endVal = $this->calendarData['end_val'];
-                        $dateVal = $this->calendarData['date_val'];
-                        if ($this->calendarData['allDay']) {
+                        $startDateObj = Carbon::parse($this->calendarData['start'] ?? now());
+                        $startDate = $startDateObj->format('Y-m-d');
+                        $startVal = $this->calendarData['start_val'] ?? null;
+                        $endVal = $this->calendarData['end_val'] ?? null;
+                        $dateVal = $this->calendarData['date_val'] ?? null;
+
+                        if (! empty($this->calendarData['allDay'])) {
                             $startTime = '00:00';
                             $endTime = '23:59';
                         } else {
-                            $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
-                            $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
+                            $startTime = isset($this->calendarData['start']) ? Carbon::parse($this->calendarData['start'])->format('H:i') : null;
+                            $endTime = isset($this->calendarData['end']) ? Carbon::parse($this->calendarData['end'])->format('H:i') : null;
                         }
+
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = $dateVal ? Carbon::parse($dateVal)->format('Y-m-d') : $startDate;
+                            $startTime = $startVal ? Carbon::parse($startVal)->format('H:i') : $startTime;
+                            $endTime = $endVal ? Carbon::parse($endVal)->format('H:i') : $endTime;
                         }
-                        $data = ['date' => $startDate->format('Y-m-d'), ...$data,
-                            'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
+
+                        $base = $this->calendarData ?? [];
+
+                        $data = array_merge($base, [
+                            'date' => $startDate,
+                            'start' => $startTime,
+                            'end' => $endTime,
+                            'service_date' => $startDate,
+                            'start_time' => $startTime,
+                            'end_time' => $endTime,
+                            'start_val' => $startVal,
+                            'end_val' => $endVal,
+                            'date_val' => $dateVal,
+                        ]);
+
                         logger()->info('BookingCalendarWidget: LOCATION DATA', $data);
                         $this->replaceMountedAction('createDailyLocation', ['data' => $data]);
                         $newIndex = max(0, count($this->mountedActions) - 1);
@@ -247,19 +281,34 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
-                        $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
-                        $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
-                        $startVal = $this->calendarData['start_val'];
-                        $endVal = $this->calendarData['end_val'];
-                        $dateVal = $this->calendarData['date_val'];
+                        $startDateObj = Carbon::parse($this->calendarData['start'] ?? now());
+                        $startDate = $startDateObj->format('Y-m-d');
+                        $startTime = isset($this->calendarData['start']) ? Carbon::parse($this->calendarData['start'])->format('H:i') : null;
+                        $endTime = isset($this->calendarData['end']) ? Carbon::parse($this->calendarData['end'])->format('H:i') : null;
+                        $startVal = $this->calendarData['start_val'] ?? null;
+                        $endVal = $this->calendarData['end_val'] ?? null;
+                        $dateVal = $this->calendarData['date_val'] ?? null;
+
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = $dateVal ? Carbon::parse($dateVal)->format('Y-m-d') : $startDate;
+                            $startTime = $startVal ? Carbon::parse($startVal)->format('H:i') : $startTime;
+                            $endTime = $endVal ? Carbon::parse($endVal)->format('H:i') : $endTime;
                         }
-                        $data = ['date' => $startDate->format('Y-m-d'), ...$data,
-                            'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
+
+                        $base = $this->calendarData ?? [];
+
+                        $data = array_merge($base, [
+                            'date' => $startDate,
+                            'start' => $startTime,
+                            'end' => $endTime,
+                            'service_date' => $startDate,
+                            'start_time' => $startTime,
+                            'end_time' => $endTime,
+                            'start_val' => $startVal,
+                            'end_val' => $endVal,
+                            'date_val' => $dateVal,
+                        ]);
+
                         logger()->info('BookingCalendarWidget: BLOCK PERIOD DATA', $data);
                         $this->replaceMountedAction('createServicePeriod', ['data' => $data]);
                         $newIndex = max(0, count($this->mountedActions) - 1);

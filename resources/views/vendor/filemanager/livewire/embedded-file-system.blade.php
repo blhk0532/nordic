@@ -173,7 +173,7 @@
                                 target="_blank"
                                 color="gray"
                                 size="sm"
-                                icon="heroicon-o-download"
+                                icon="heroicon-o-document"
                             >
                                 Download
                             </x-filament::button>

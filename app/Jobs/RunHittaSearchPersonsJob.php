@@ -72,7 +72,8 @@ class RunHittaSearchPersonsJob implements ShouldQueue
 
             // Build the optimized command (no SQLite)
             $scriptPath = base_path('jobs/hittaSearchPersonsOptimized.mjs');
-            $command = "node {$scriptPath} \"{$postNummer}\"";
+            $apiBase = config('app.url').':8000';
+            $command = "API_BASE={$apiBase} node {$scriptPath} \"{$postNummer}\"";
 
             // Add --ratsit flag if requested
             if ($this->includeRatsit) {
@@ -93,7 +94,6 @@ class RunHittaSearchPersonsJob implements ShouldQueue
             // Update the PostNum record to indicate completion
             $postNum->update([
                 'status' => 'complete',
-                'updated_at' => now(),
             ]);
 
         } catch (Exception $e) {

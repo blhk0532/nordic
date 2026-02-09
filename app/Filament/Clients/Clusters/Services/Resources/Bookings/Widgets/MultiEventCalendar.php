@@ -62,8 +62,6 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-
-
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onDateSelectLegacy insteadof InteractsWithCalendar;
@@ -204,7 +202,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
-                        $data = ['number' => $bookingNumber, 'notes' => '', 'service_user_id' => null, 'booking_client_id' => null, 'date' => $startDate->format('Y-m-d'), ...$data,
+                        $data = ['number' => $bookingNumber, 'notes' => '', 'service_user_id' => null, 'booking_client_id' => null, 'date' => $startDate->format('Y-m-d'), ...($this->calendarData ?? []),
                             'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: B BOOK DATA', $data);
                         $this->replaceMountedAction('create', ['data' => $data]);
@@ -233,7 +231,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
-                        $data = ['date' => $startDate->format('Y-m-d'), ...$data,
+                        $data = ['date' => $startDate->format('Y-m-d'), ...($this->calendarData ?? []),
                             'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: LOCATION DATA', $data);
                         $this->replaceMountedAction('createDailyLocation', ['data' => $data]);
@@ -257,7 +255,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
-                        $data = ['date' => $startDate->format('Y-m-d'), ...$data,
+                        $data = ['date' => $startDate->format('Y-m-d'), ...($this->calendarData ?? []),
                             'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: BLOCK PERIOD DATA', $data);
                         $this->replaceMountedAction('createServicePeriod', ['data' => $data]);

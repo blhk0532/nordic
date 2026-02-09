@@ -19,7 +19,7 @@ class ExportAction extends Action
         $this->parentSetUp();
 
         $this->defaultView(self::BUTTON_VIEW);
-        $this->icon('heroicon-o-download');
+        $this->icon('heroicon-o-document');
 
         $this->exports = collect([
             ExcelExport::make()->fromForm(),

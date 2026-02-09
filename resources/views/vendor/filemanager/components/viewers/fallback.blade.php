@@ -40,7 +40,7 @@ Variables:
             download="{{ $item?->name }}"
             class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition-colors"
         >
-            @svg('heroicon-o-download', 'w-5 h-5')
+            @svg('heroicon-o-document', 'w-5 h-5')
             Download file
         </a>
     @endif

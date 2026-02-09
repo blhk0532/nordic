@@ -22,7 +22,7 @@ trait ExportableAction
         $this->modalWidth('md');
 
         $this->label(__('filament-excel::actions.label'));
-        $this->icon('heroicon-o-download');
+        $this->icon('heroicon-o-document');
         $this->action(Closure::fromCallable([$this, 'handleExport']));
 
         $this->schema(function () {

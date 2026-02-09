@@ -123,7 +123,7 @@
                     </div>
                     <div class="flex gap-2">
                         <x-filament-support::icon-button
-                            :icon="'heroicon-o-download'"
+                            :icon="'heroicon-o-document'"
                             :size="'sm'"
                             wire:click="loadAttachment('{{$attachment}}')"/>
                     </div>

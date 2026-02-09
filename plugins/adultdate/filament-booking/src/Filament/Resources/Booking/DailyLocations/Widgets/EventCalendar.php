@@ -18,7 +18,6 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Adultdate\FilamentBooking\Filament\Widgets\EventCalendar as SimpleCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\BookingLocation;
 use Adultdate\FilamentBooking\Models\Booking\Client;
@@ -62,7 +61,6 @@ class EventCalendar extends BookingCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onDateSelectLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onEventDropLegacy insteadof InteractsWithCalendar;
@@ -71,6 +69,8 @@ class EventCalendar extends BookingCalendarWidget implements HasCalendar
 
     protected static ?int $sort = 1;
 
+    // Toggleable calendar interaction flags (only dateClickEnabled kept since traits don't define it)
+    protected bool $dateClickEnabled = false;
 
     public function schema(Schema $schema): Schema
     {
@@ -272,11 +272,8 @@ class EventCalendar extends BookingCalendarWidget implements HasCalendar
 
     public function mount(): void
     {
-        $this->eventClickEnabled = true;
         $this->dateClickEnabled = true;
-        $this->eventDragEnabled = true;
-        $this->eventResizeEnabled = true;
-        $this->dateSelectEnabled = true;
+        $this->setDateSelectEnabled(true);
     }
 
     #[CalendarSchema(model: DailyLocation::class)]

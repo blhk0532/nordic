@@ -56,7 +56,6 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -272,7 +271,7 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
                     ->color('success')
                     ->icon('heroicon-o-calendar-days')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
+                        $startDate = Carbon::parse($this->calendarData['start']);
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -287,7 +286,7 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
                             $endTime = Carbon::parse($this->calendarData['end_val'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
+                            $startDate = Carbon::parse($dateVal);
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -303,7 +302,7 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
                     ->color('primary')
                     ->icon('heroicon-o-map-pin')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
+                        $startDate = Carbon::parse($this->calendarData['start']);
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -315,7 +314,7 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
                             $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
+                            $startDate = Carbon::parse($dateVal);
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -331,14 +330,14 @@ class ServiceCalendar extends FullCalendarWidget implements HasCalendar
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
+                        $startDate = Carbon::parse($this->calendarData['start']);
                         $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
                         $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
+                            $startDate = Carbon::parse($dateVal);
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }

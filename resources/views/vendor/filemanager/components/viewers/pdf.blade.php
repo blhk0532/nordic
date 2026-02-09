@@ -63,7 +63,7 @@ Variables:
                 download="{{ $item?->getName() ?? 'document.pdf' }}"
                 class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition-colors text-sm"
             >
-                @svg('heroicon-o-download', 'w-4 h-4')
+                @svg('heroicon-o-document', 'w-4 h-4')
                 Download PDF
             </a>
             <a

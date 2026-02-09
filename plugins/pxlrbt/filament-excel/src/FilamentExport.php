@@ -60,7 +60,7 @@ class FilamentExport
             ->title(__('filament-excel::notifications.download_ready.title'))
             ->body(__('filament-excel::notifications.download_ready.body'))
             ->success()
-            ->icon('heroicon-o-download')
+            ->icon('heroicon-o-document')
             ->actions([
                 Action::make('download')
                     ->label(__('filament-excel::notifications.download_ready.download'))
@@ -79,7 +79,7 @@ class FilamentExport
             ->title(__('filament-excel::notifications.download_ready.title'))
             ->body(__('filament-excel::notifications.download_ready.body'))
             ->success()
-            ->icon('heroicon-o-download')
+            ->icon('heroicon-o-document')
             ->actions([
                 Action::make('download')
                     ->label(__('filament-excel::notifications.download_ready.download'))

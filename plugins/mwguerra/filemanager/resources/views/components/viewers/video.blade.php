@@ -46,7 +46,7 @@ Variables:
 
     {{-- Error State --}}
     <div x-show="error" x-cloak class="flex flex-col items-center justify-center text-center p-6 text-white">
-     
+
         <p class="font-medium">Video unavailable</p>
         <p class="text-sm text-gray-400 mt-1">
             This video could not be loaded. It may be inaccessible or the URL has expired.
@@ -57,7 +57,7 @@ Variables:
                 download="{{ $item?->getName() ?? 'download' }}"
                 class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition-colors text-sm"
             >
-                @svg('heroicon-o-download', 'w-4 h-4')
+                @svg('heroicon-o-document', 'w-4 h-4')
                 Download Video
             </a>
         @endif
