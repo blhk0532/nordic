@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Queue\SerializesAndRestoresModelIdentifiers;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 
-final class ModelSynth extends Synth
+class ModelSynth extends Synth
 {
     use IsLazy, SerializesAndRestoresModelIdentifiers;
 

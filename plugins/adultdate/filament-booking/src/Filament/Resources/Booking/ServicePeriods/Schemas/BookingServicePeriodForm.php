@@ -10,7 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Schemas\Schema;
 
-final class BookingServicePeriodForm
+class BookingServicePeriodForm
 {
     public static function configure(Schema $schema): Schema
     {

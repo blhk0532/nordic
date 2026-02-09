@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class PersonerData extends Model
+class PersonerData extends Model
 {
     // Disable automatic timestamps since we have custom timestamp columns
     public $timestamps = true;

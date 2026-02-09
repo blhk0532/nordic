@@ -17,7 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class MerinfoResource extends Resource
+class MerinfoResource extends Resource
 {
     protected static ?string $model = Merinfo::class;
 

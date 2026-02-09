@@ -8,7 +8,7 @@ use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Panel;
 use Illuminate\Contracts\Support\Htmlable;
 
-final class AdminDashboard extends BaseDashboard
+class AdminDashboard extends BaseDashboard
 {
     // A customizable admin dashboard that extends the vendor Dashboard.
     protected static bool $isDiscovered = false;

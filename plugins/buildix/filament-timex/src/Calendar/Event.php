@@ -9,7 +9,7 @@ use Buildix\Timex\Traits\TimexTrait;
 use Livewire\Component;
 use Str;
 
-final class Event extends Component
+class Event extends Component
 {
     use TimexTrait;
 

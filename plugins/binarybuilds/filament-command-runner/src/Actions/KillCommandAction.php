@@ -10,7 +10,7 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Facades\Process;
 use Throwable;
 
-final class KillCommandAction extends Action
+class KillCommandAction extends Action
 {
     protected function setUp(): void
     {

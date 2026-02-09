@@ -11,7 +11,7 @@ use Illuminate\Console\Prohibitable;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'shield:seeder', description: 'Create a seeder file from existing/configured roles and permission, that could be used within your deploy script.')]
-final class SeederCommand extends Command
+class SeederCommand extends Command
 {
     use CanManipulateFiles;
     use Prohibitable;

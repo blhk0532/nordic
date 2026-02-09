@@ -9,7 +9,7 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\Builder;
 
-final class TicketStatsWidget extends BaseWidget
+class TicketStatsWidget extends BaseWidget
 {
     protected function getStats(): array
     {

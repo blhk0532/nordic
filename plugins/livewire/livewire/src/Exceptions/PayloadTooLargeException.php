@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class PayloadTooLargeException extends Exception
+class PayloadTooLargeException extends Exception
 {
     public function __construct(int $size, int $maxSize)
     {

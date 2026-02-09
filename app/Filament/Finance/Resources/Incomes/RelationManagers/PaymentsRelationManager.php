@@ -14,7 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-final class PaymentsRelationManager extends RelationManager
+class PaymentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'payments';
 

@@ -10,7 +10,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-final class TicketTimeline extends Component implements HasForms
+class TicketTimeline extends Component implements HasForms
 {
     use InteractsWithForms, WithPagination;
 

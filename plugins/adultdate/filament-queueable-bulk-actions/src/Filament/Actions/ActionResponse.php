@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bytexr\QueueableBulkActions\Filament\Actions;
 
-final class ActionResponse
+class ActionResponse
 {
     public function __construct(private bool $success, private ?string $message) {}
 

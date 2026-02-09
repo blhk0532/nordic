@@ -10,7 +10,7 @@ use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
 use Illuminate\Support\Number;
 
-final class PostNumExporter extends Exporter
+class PostNumExporter extends Exporter
 {
     protected static ?string $model = PostNum::class;
 

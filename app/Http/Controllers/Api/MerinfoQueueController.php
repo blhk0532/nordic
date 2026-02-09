@@ -13,7 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-final class MerinfoQueueController extends Controller
+class MerinfoQueueController extends Controller
 {
     /**
      * List merinfo queue records with basic filtering & pagination.

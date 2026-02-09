@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\BookingOutcallQue
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class BookingOutcallQueueInfolist
+class BookingOutcallQueueInfolist
 {
     public static function configure(Schema $schema): Schema
     {

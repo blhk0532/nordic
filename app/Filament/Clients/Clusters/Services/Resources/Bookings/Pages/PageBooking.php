@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 use UnitEnum;
 
-final class PageBooking extends BasePage
+class PageBooking extends BasePage
 {
     use HasFiltersForm;
 

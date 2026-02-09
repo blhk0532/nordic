@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportLockedProperties\BaseLocked;
 
 #[Attribute]
-final class Locked extends BaseLocked
+class Locked extends BaseLocked
 {
     //
 }

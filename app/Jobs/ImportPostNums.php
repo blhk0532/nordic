@@ -17,7 +17,7 @@ use InvalidArgumentException;
 use Maatwebsite\Excel\Facades\Excel;
 use PDO;
 
-final class ImportPostNums implements ShouldQueue
+class ImportPostNums implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

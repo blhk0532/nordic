@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class BulkActionResource extends Resource
+class BulkActionResource extends Resource
 {
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-list';
 

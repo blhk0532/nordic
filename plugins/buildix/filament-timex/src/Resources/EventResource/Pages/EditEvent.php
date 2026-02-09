@@ -10,7 +10,7 @@ use Filament\Pages\Actions\DeleteAction;
 use Filament\Resources\Form;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditEvent extends EditRecord
+class EditEvent extends EditRecord
 {
     use TimexTrait;
 

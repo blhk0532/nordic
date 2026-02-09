@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportSlots extends ComponentHook
+class SupportSlots extends ComponentHook
 {
     public static function provide()
     {

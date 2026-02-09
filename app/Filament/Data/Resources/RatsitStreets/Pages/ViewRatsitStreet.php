@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\RatsitStreets\RatsitStreetResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewRatsitStreet extends ViewRecord
+class ViewRatsitStreet extends ViewRecord
 {
     protected static string $resource = RatsitStreetResource::class;
 

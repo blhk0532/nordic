@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar;
+namespace Adultdate\FilamentBooking;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class CalendarPlugin implements Plugin
+class CalendarPlugin implements Plugin
 {
     public static function make(): static
     {

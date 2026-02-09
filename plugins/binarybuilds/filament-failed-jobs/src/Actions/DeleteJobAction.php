@@ -8,7 +8,7 @@ use BinaryBuilds\FilamentFailedJobs\Models\FailedJob;
 use Filament\Actions\Action;
 use Filament\Support\Icons\Heroicon;
 
-final class DeleteJobAction extends Action
+class DeleteJobAction extends Action
 {
     use ManagesJobs;
 

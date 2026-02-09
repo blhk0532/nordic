@@ -7,7 +7,7 @@ namespace App\Filament\Data\Resources\PostNums\Pages;
 use App\Filament\Data\Resources\PostNums\PostNumResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreatePostNum extends CreateRecord
+class CreatePostNum extends CreateRecord
 {
     protected static string $resource = PostNumResource::class;
 }

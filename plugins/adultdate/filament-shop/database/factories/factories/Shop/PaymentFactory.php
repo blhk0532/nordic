@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends Factory<Payment>
  */
-final class PaymentFactory extends Factory
+class PaymentFactory extends Factory
 {
     protected $model = Payment::class;
 

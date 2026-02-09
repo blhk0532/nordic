@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Adultdate\FilamentShop\PhoneQueue;
 use Illuminate\Database\Seeder;
 
-final class PhoneQueueSeeder extends Seeder
+class PhoneQueueSeeder extends Seeder
 {
     public function run(): void
     {

@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\AutomationRules\AutomationR
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditAutomationRule extends EditRecord
+class EditAutomationRule extends EditRecord
 {
     protected static string $resource = AutomationRuleResource::class;
 

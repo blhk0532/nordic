@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-final class EnsureWirechatPanelAccess
+class EnsureWirechatPanelAccess
 {
     public function __construct(private PanelRegistry $panelRegistry) {}
 

@@ -6,7 +6,7 @@ namespace Buildix\Timex\Calendar;
 
 use Livewire\Component;
 
-final class Week extends Component
+class Week extends Component
 {
     public $name;
 

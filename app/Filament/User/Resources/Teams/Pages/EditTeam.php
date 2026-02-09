@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditTeam extends EditRecord
+class EditTeam extends EditRecord
 {
     protected static string $resource = TeamResource::class;
 

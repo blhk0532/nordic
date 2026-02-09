@@ -16,7 +16,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
-final class JobsTable
+class JobsTable
 {
     public static function configure(Table $table): Table
     {

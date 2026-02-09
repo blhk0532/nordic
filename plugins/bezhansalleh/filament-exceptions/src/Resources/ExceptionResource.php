@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use LogicException;
 
-final class ExceptionResource extends Resource
+class ExceptionResource extends Resource
 {
     public static function getCluster(): ?string
     {

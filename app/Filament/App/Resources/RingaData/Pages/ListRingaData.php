@@ -20,7 +20,7 @@ use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\Width;
 
-final class ListRingaData extends ListRecords
+class ListRingaData extends ListRecords
 {
     //  use PageHasContextMenu;
 

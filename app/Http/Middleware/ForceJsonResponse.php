@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ForceJsonResponse
+class ForceJsonResponse
 {
     /**
      * Ensure all responses are JSON and set proper Accept header.

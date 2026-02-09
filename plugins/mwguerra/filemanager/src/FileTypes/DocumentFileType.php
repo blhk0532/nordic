@@ -14,7 +14,7 @@ namespace MWGuerra\FileManager\FileTypes;
  * Consider integrating with Office Online or Google Docs Viewer
  * for preview functionality.
  */
-final class DocumentFileType extends AbstractFileType
+class DocumentFileType extends AbstractFileType
 {
     public function identifier(): string
     {

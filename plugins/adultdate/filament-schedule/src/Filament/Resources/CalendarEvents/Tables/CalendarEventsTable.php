@@ -17,7 +17,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-final class CalendarEventsTable
+class CalendarEventsTable
 {
     public static function configure(Table $table): Table
     {

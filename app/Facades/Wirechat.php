@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * Note: If you see "Cannot redeclare class" error, the plugin is installed
  * in multiple locations. See README.md troubleshooting section for solutions.
  */
-final class Wirechat extends Facade
+class Wirechat extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

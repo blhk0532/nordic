@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Events;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class TicketDeleted
+class TicketDeleted
 {
     use Dispatchable, SerializesModels;
 

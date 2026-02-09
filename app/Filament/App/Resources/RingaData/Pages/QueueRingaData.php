@@ -17,7 +17,7 @@ use Filament\Support\Enums\Width;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
 
-final class QueueRingaData extends Page
+class QueueRingaData extends Page
 {
     public ?int $selectedRecordId = null;
 

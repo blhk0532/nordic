@@ -17,7 +17,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
-final class TicketingServiceProvider extends ServiceProvider
+class TicketingServiceProvider extends ServiceProvider
 {
     public function register(): void
     {

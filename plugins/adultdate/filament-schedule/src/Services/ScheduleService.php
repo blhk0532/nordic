@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 
-final class ScheduleService
+class ScheduleService
 {
     public function __construct(
         private ValidationService $validator,

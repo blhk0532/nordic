@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Features\SupportRedirects\Redirector;
 
-final class EmailChangeVerificationResponse implements Responsable
+class EmailChangeVerificationResponse implements Responsable
 {
     public function toResponse($request): RedirectResponse|Redirector
     {

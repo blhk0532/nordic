@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Meetings\MeetingResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListMeetings extends ListRecords
+class ListMeetings extends ListRecords
 {
     protected static string $resource = MeetingResource::class;
 

@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\MerinfoDatas\MerinfoDataResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditMerinfoData extends EditRecord
+class EditMerinfoData extends EditRecord
 {
     protected static string $resource = MerinfoDataResource::class;
 

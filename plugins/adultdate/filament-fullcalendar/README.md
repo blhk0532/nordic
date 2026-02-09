@@ -87,7 +87,7 @@ php artisan make:filament-widget CalendarWidget
 
 <br>
 
-1. Your newly created widget should extends the `Saade\FilamentFullCalendar\Widgets\FullCalendarWidget` class of this package
+1. Your newly created widget should extends the `Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget` class of this package
 
 > **Warning**
 >
@@ -99,7 +99,7 @@ Your widget should look like this:
 
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 
 class CalendarWidget extends FullCalendarWidget
 {
@@ -126,7 +126,7 @@ The `fetchEvents` method should return an array of event-like objects. See: [Ful
 
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use App\Filament\Resources\EventResource;
 use App\Models\Event;
 
@@ -164,7 +164,7 @@ If you want a fluent way to return events, you can use the `Saade\FilamentFullCa
 
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use App\Filament\Resources\EventResource;
 use App\Models\Event;
 
@@ -235,7 +235,7 @@ class AdminPanelProvider extends PanelProvider
 <?php
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use App\Models\Event;
 
 class CalendarWidget extends FullCalendarWidget
@@ -308,7 +308,7 @@ To get started, you'll need to tell the widget which model it should use to perf
 
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use App\Models\Event;
 
 class CalendarWidget extends FullCalendarWidget
@@ -345,7 +345,7 @@ If you want to customize the actions, you can override the default actions that 
 
 namespace App\Filament\Widgets;
 
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Saade\FilamentFullCalendar\Actions;
 use App\Models\Event;
 

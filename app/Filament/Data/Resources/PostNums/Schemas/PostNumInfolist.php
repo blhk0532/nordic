@@ -7,7 +7,7 @@ namespace App\Filament\Data\Resources\PostNums\Schemas;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class PostNumInfolist
+class PostNumInfolist
 {
     public static function configure(Schema $schema): Schema
     {

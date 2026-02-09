@@ -8,7 +8,7 @@ use Adultdate\FilamentUser\Models\UserSetting;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class UserSettingFactory extends Factory
+class UserSettingFactory extends Factory
 {
     protected $model = UserSetting::class;
 

@@ -10,7 +10,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Table;
 
-final class AutomationRulesTable
+class AutomationRulesTable
 {
     public static function configure(Table $table): Table
     {

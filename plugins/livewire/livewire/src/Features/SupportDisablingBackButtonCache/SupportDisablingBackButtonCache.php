@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportDisablingBackButtonCache extends ComponentHook
+class SupportDisablingBackButtonCache extends ComponentHook
 {
     public static $disableBackButtonCache = false;
 

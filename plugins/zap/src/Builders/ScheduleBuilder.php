@@ -23,7 +23,7 @@ use Zap\Enums\ScheduleTypes;
 use Zap\Models\Schedule;
 use Zap\Services\ScheduleService;
 
-final class ScheduleBuilder
+class ScheduleBuilder
 {
     private ?Model $schedulable = null;
 

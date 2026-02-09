@@ -39,7 +39,7 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Auth;
 
-final class FilamentBookingPlugin implements Plugin
+class FilamentBookingPlugin implements Plugin
 {
     use EvaluatesClosures;
 

@@ -17,7 +17,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 
-final class IncomesTable
+class IncomesTable
 {
     public static function configure(Table $table): Table
     {

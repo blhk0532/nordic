@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class Invoice extends Model
+class Invoice extends Model
 {
     protected $table = 'invoices';
 

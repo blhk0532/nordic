@@ -7,7 +7,7 @@ namespace Adultdate\FilamentPostnummer\Resources\Postnummers\Pages;
 use Adultdate\FilamentPostnummer\Resources\Postnummers\PostnummerResource;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListPostnummers extends ListRecords
+class ListPostnummers extends ListRecords
 {
     protected static string $resource = PostnummerResource::class;
 

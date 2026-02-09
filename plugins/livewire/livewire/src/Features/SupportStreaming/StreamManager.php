@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Features\SupportStreaming;
 
-final class StreamManager
+class StreamManager
 {
     private $component;
 

@@ -7,7 +7,7 @@ namespace Livewire\Finder;
 use Exception;
 use Livewire\Component;
 
-final class Finder
+class Finder
 {
     private const ZAP = "\u{26A1}";
 

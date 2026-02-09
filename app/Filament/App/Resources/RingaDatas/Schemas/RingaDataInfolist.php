@@ -7,7 +7,7 @@ namespace App\Filament\App\Resources\RingaDatas\Schemas;
 use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 
-final class RingaDataInfolist
+class RingaDataInfolist
 {
     public static function configure(Schema $schema): Schema
     {

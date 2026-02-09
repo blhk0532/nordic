@@ -16,7 +16,7 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 
-final class ViewBulkAction extends ListRecords
+class ViewBulkAction extends ListRecords
 {
     use InteractsWithRecord;
 

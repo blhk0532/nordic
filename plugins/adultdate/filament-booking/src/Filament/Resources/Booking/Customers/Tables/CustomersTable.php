@@ -12,7 +12,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Squire\Models\Country;
 
-final class CustomersTable
+class CustomersTable
 {
     public static function configure(Table $table): Table
     {

@@ -14,7 +14,7 @@ use function Livewire\invade;
 use function Livewire\store;
 use function Livewire\wrap;
 
-final class SupportEvents extends ComponentHook
+class SupportEvents extends ComponentHook
 {
     public static function getListenerEventNames($component)
     {

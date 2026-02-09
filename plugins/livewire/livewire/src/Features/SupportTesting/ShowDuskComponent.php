@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Features\SupportTesting;
 
-final class ShowDuskComponent
+class ShowDuskComponent
 {
     public function __invoke($component)
     {

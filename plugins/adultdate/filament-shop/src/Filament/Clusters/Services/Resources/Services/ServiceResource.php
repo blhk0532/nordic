@@ -19,7 +19,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-final class ServiceResource extends Resource
+class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
 

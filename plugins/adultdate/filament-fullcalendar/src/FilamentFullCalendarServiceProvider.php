@@ -9,7 +9,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentFullCalendarServiceProvider extends PackageServiceProvider
+class FilamentFullCalendarServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-fullcalendar';
 

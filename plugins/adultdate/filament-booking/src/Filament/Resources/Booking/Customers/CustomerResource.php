@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-final class CustomerResource extends Resource
+class CustomerResource extends Resource
 {
     protected static ?string $model = Customer::class;
 

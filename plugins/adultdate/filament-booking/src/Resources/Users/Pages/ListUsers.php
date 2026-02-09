@@ -10,7 +10,7 @@ use Filament\Resources\Pages\ListRecords;
 use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
-final class ListUsers extends ListRecords
+class ListUsers extends ListRecords
 {
     protected static string $resource = UserResource::class;
 

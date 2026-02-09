@@ -15,7 +15,7 @@ use function Laravel\Prompts\info;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\warning;
 
-final class DiagnosePositionsCommand extends Command
+class DiagnosePositionsCommand extends Command
 {
     protected $signature = 'flowforge:diagnose-positions
                             {--model= : Model class to diagnose (e.g., App\\Models\\Task)}

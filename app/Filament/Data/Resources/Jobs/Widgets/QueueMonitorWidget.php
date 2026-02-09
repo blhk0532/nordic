@@ -11,7 +11,7 @@ use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Facades\DB;
 
-final class QueueMonitorWidget extends StatsOverviewWidget
+class QueueMonitorWidget extends StatsOverviewWidget
 {
     protected ?string $pollingInterval = '5s';
 

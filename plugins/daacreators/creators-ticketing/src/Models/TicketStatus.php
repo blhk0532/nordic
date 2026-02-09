@@ -6,7 +6,7 @@ namespace daacreators\CreatorsTicketing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class TicketStatus extends Model
+class TicketStatus extends Model
 {
     protected $guarded = [];
 

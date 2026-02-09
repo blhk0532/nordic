@@ -7,7 +7,7 @@ namespace Adultdate\Wirechat\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-final class SetCurrentPanel
+class SetCurrentPanel
 {
     /**
      * Handle an incoming request.

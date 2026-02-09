@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use RuntimeException;
 
-final class TelavoxSmsService
+class TelavoxSmsService
 {
     private readonly string $baseUrl;
 

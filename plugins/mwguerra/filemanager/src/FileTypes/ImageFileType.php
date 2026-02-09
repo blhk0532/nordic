@@ -9,7 +9,7 @@ namespace MWGuerra\FileManager\FileTypes;
  *
  * Supports common image formats: JPEG, PNG, GIF, WebP, SVG, etc.
  */
-final class ImageFileType extends AbstractFileType
+class ImageFileType extends AbstractFileType
 {
     public function identifier(): string
     {

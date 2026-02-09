@@ -15,7 +15,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
 use Throwable;
 
-final class BulkActionSetupJob implements ShouldQueue
+class BulkActionSetupJob implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

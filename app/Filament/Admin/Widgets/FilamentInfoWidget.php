@@ -6,7 +6,7 @@ namespace App\Filament\Admin\Widgets;
 
 use Filament\Widgets\Widget;
 
-final class FilamentInfoWidget extends Widget
+class FilamentInfoWidget extends Widget
 {
     protected static ?int $sort = -1;
 

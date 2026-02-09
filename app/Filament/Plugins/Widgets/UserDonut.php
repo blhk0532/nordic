@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserDonut extends ApexChartWidget
+class UserDonut extends ApexChartWidget
 {
     /**
      * Chart Id

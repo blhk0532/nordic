@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportIsolating;
 
 use Livewire\ComponentHook;
 
-final class SupportIsolating extends ComponentHook
+class SupportIsolating extends ComponentHook
 {
     public function dehydrate($context)
     {

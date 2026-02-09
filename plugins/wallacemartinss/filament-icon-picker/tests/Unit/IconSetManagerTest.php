@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Wallacemartinss\FilamentIconPicker\IconSetManager;
 use Wallacemartinss\FilamentIconPicker\Tests\TestCase;
 
-final class IconSetManagerTest extends TestCase
+class IconSetManagerTest extends TestCase
 {
     #[Test]
     public function it_can_be_instantiated(): void

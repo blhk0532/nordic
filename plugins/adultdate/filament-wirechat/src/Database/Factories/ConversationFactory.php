@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\AdultDate\FilamentWirechat\Models\Conversation>
  */
-final class ConversationFactory extends Factory
+class ConversationFactory extends Factory
 {
     protected $model = Conversation::class;
 

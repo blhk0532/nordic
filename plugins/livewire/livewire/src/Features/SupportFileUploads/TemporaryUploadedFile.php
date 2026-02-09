@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use League\MimeTypeDetection\FinfoMimeTypeDetector;
 
-final class TemporaryUploadedFile extends UploadedFile
+class TemporaryUploadedFile extends UploadedFile
 {
     protected $disk;
 
@@ -173,7 +173,7 @@ final class TemporaryUploadedFile extends UploadedFile
         // Flysystem V2.0+ removed guess mimeType from extension support, so it has been re-added back
         // in here to ensure the correct mimeType is returned when using faked files in tests
         if (in_array($mimeType, ['application/octet-stream', 'inode/x-empty', 'application/x-empty'])) {
-            $detector = new FinfoMimeTypeDetector();
+            $detector = new FinfoMimeTypeDetector;
 
             $mimeType = $detector->detectMimeTypeFromPath($this->path) ?: 'text/plain';
         }

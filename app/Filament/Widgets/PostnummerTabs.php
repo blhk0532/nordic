@@ -8,7 +8,7 @@ use SolutionForest\TabLayoutPlugin\Components\Tabs;
 use SolutionForest\TabLayoutPlugin\Components\Tabs\Tab as TabLayoutTab;
 use SolutionForest\TabLayoutPlugin\Widgets\TabsWidget as BaseWidget;
 
-final class PostnummerTabs extends BaseWidget
+class PostnummerTabs extends BaseWidget
 {
     public static function tabs(Tabs $tabs): Tabs
     {

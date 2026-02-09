@@ -11,7 +11,7 @@ use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class ProjectsTable
+class ProjectsTable
 {
     public static function configure(Table $table): Table
     {

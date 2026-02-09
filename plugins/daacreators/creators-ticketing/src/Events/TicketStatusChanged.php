@@ -9,7 +9,7 @@ use daacreators\CreatorsTicketing\Models\TicketStatus;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class TicketStatusChanged
+class TicketStatusChanged
 {
     use Dispatchable, SerializesModels;
 

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Customer extends Model
+class Customer extends Model
 {
     /** @use HasFactory<CustomerFactory> */
     use HasFactory;

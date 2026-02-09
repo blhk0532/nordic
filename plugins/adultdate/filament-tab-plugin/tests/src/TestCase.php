@@ -18,7 +18,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 use SolutionForest\TabLayoutPlugin\TabLayoutPluginServiceProvider;
 
-final class TestCase extends Orchestra
+class TestCase extends Orchestra
 {
     protected function setUp(): void
     {

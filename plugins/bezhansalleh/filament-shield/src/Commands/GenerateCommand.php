@@ -22,7 +22,7 @@ use function Laravel\Prompts\note;
 use function Laravel\Prompts\select;
 
 #[AsCommand(name: 'shield:generate', description: 'Generate Permissions and/or Policies for Filament entities.')]
-final class GenerateCommand extends Command
+class GenerateCommand extends Command
 {
     use CanGeneratePolicy;
     use CanGenerateRelationshipsForTenancy;

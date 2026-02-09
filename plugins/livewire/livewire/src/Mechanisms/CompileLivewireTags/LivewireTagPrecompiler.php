@@ -8,7 +8,7 @@ use Illuminate\View\Compilers\ComponentTagCompiler;
 use Livewire\Drawer\Regexes;
 use Livewire\Exceptions\ComponentAttributeMissingOnDynamicComponentException;
 
-final class LivewireTagPrecompiler extends ComponentTagCompiler
+class LivewireTagPrecompiler extends ComponentTagCompiler
 {
     public function __invoke($value)
     {

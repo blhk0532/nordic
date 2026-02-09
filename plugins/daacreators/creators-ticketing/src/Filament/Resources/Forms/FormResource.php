@@ -25,7 +25,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-final class FormResource extends Resource
+class FormResource extends Resource
 {
     use HasNavigationVisibility, HasTicketingNavGroup;
 

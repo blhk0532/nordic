@@ -10,7 +10,7 @@ use Filament\Filament;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentUserServiceProvider extends PackageServiceProvider
+class FilamentUserServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-user';
 

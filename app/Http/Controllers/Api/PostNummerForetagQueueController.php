@@ -10,7 +10,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class PostNummerForetagQueueController extends Controller
+class PostNummerForetagQueueController extends Controller
 {
     public function index(Request $request): JsonResponse
     {

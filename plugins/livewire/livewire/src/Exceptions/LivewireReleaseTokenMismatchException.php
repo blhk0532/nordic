@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-final class LivewireReleaseTokenMismatchException extends HttpException
+class LivewireReleaseTokenMismatchException extends HttpException
 {
     public function __construct()
     {

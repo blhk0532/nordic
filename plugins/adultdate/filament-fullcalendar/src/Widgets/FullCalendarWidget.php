@@ -14,7 +14,7 @@ use Filament\Pages\Concerns\InteractsWithHeaderActions;
 use Filament\Widgets\Widget;
 use Saade\FilamentFullCalendar\Actions;
 
-final class FullCalendarWidget extends Widget implements HasActions, HasForms
+class FullCalendarWidget extends Widget implements HasActions, HasForms
 {
     use Concerns\CanBeConfigured;
     use Concerns\InteractsWithEvents;

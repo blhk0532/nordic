@@ -9,7 +9,7 @@ use Livewire\Component;
 use Livewire\Exceptions\ComponentNotFoundException;
 use Livewire\Finder\Finder;
 
-final class Factory
+class Factory
 {
     private $missingComponentResolvers = [];
 

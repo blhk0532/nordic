@@ -7,7 +7,7 @@ namespace BinaryBuilds\CommandRunner\Commands;
 use BinaryBuilds\CommandRunner\Models\CommandRun;
 use Illuminate\Console\Command;
 
-final class CaptureCommandStatus extends Command
+class CaptureCommandStatus extends Command
 {
     /**
      * The name and signature of the console command.

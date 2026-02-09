@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
-final class RingaDataResource extends Resource
+class RingaDataResource extends Resource
 {
     protected static ?string $model = RingaData::class;
 

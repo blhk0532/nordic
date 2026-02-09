@@ -15,7 +15,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class CreateClientType extends Component implements HasActions, HasSchemas
+class CreateClientType extends Component implements HasActions, HasSchemas
 {
     use InteractsWithActions;
     use InteractsWithSchemas;

@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\BookingS
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewBookingServicePeriod extends ViewRecord
+class ViewBookingServicePeriod extends ViewRecord
 {
     protected static string $resource = BookingServicePeriodResource::class;
 

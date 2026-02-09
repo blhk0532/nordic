@@ -17,7 +17,7 @@ use InvalidArgumentException;
 use Maatwebsite\Excel\Facades\Excel;
 use PDO;
 
-final class ImportRatsitData implements ShouldQueue
+class ImportRatsitData implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

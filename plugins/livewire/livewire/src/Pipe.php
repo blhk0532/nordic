@@ -8,7 +8,7 @@ use ArrayAccess;
 use IteratorAggregate;
 use Stringable;
 
-final class Pipe implements ArrayAccess, IteratorAggregate, Stringable
+class Pipe implements ArrayAccess, IteratorAggregate, Stringable
 {
     use Transparency;
 

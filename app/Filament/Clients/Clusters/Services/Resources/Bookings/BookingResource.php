@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-final class BookingResource extends Resource
+class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
 

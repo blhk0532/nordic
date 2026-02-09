@@ -6,7 +6,7 @@ namespace daacreators\CreatorsTicketing\Support;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
-final class UserNameResolver
+class UserNameResolver
 {
     public static function resolve(?Authenticatable $user): string
     {

@@ -7,7 +7,7 @@ namespace Adultdate\FilamentShop\Filament\Resources\Shop\Customers\Pages;
 use Adultdate\FilamentShop\Filament\Resources\Shop\Customers\CustomerResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateCustomer extends CreateRecord
+class CreateCustomer extends CreateRecord
 {
     protected static string $resource = CustomerResource::class;
 }

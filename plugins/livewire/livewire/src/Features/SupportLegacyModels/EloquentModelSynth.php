@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 
-final class EloquentModelSynth extends Synth
+class EloquentModelSynth extends Synth
 {
     public static $key = 'elmdl';
 
@@ -222,7 +222,7 @@ final class EloquentModelSynth extends Synth
 
             $model = $query->first();
         } else {
-            $model = new $class();
+            $model = new $class;
         }
 
         return $model;

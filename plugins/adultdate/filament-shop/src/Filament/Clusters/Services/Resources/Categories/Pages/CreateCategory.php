@@ -7,7 +7,7 @@ namespace Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Categories
 use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Categories\CategoryResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateCategory extends CreateRecord
+class CreateCategory extends CreateRecord
 {
     protected static string $resource = CategoryResource::class;
 }

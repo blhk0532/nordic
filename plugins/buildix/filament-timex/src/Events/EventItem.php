@@ -6,7 +6,7 @@ namespace Buildix\Timex\Events;
 
 use Carbon\Carbon;
 
-final class EventItem
+class EventItem
 {
     public ?string $color = null;
 

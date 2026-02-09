@@ -15,7 +15,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class ProjectResource extends Resource
+class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
 

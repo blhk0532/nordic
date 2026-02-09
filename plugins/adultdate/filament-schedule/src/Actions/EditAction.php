@@ -7,7 +7,7 @@ namespace Adultdate\Schedule\Actions;
 use Adultdate\Schedule\Filament\Widgets\FullCalendarWidget;
 use Filament\Actions\EditAction as BaseEditAction;
 
-final class EditAction extends BaseEditAction
+class EditAction extends BaseEditAction
 {
     protected function setUp(): void
     {

@@ -22,7 +22,7 @@ use Livewire\Attributes\On;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 
-final class QueueRingaData extends Page
+class QueueRingaData extends Page
 {
     public ?int $selectedRecordId = null;
 

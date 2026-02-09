@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Services\Service
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditService extends EditRecord
+class EditService extends EditRecord
 {
     protected static string $resource = ServiceResource::class;
 

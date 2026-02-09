@@ -24,7 +24,7 @@ use Filament\Infolists\Components\Entry;
  *
  * @license MIT
  */
-final class PinpointEntry extends Entry
+class PinpointEntry extends Entry
 {
     protected string $view = 'filament-pinpoint::pinpoint-entry';
 

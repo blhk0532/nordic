@@ -12,7 +12,7 @@ use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewCommandRun extends ViewRecord
+class ViewCommandRun extends ViewRecord
 {
     protected static string $resource = CommandRunResource::class;
 

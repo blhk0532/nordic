@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Adultdate\FilamentShop\FilamentShop
  */
-final class FilamentShop extends Facade
+class FilamentShop extends Facade
 {
     protected static function getFacadeAccessor()
     {

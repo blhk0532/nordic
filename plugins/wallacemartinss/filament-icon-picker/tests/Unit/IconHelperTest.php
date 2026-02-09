@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Wallacemartinss\FilamentIconPicker\Enums\Icon;
 use Wallacemartinss\FilamentIconPicker\Tests\TestCase;
 
-final class IconHelperTest extends TestCase
+class IconHelperTest extends TestCase
 {
     #[Test]
     public function it_generates_heroicon_outlined(): void

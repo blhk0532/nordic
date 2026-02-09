@@ -14,7 +14,7 @@ use MWGuerra\FileManager\Livewire\EmbeddedFileManager;
  * This component embeds the database-mode file manager into any Filament form or page.
  * Extends Filament's built-in Livewire component for proper component isolation.
  */
-final class FileManagerEmbed extends Livewire
+class FileManagerEmbed extends Livewire
 {
     protected string|Closure $height = '500px';
 

@@ -8,7 +8,7 @@ use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 use Filament\Resources\Pages\Page;
 
-final class RingLista extends Page
+class RingLista extends Page
 {
     use InteractsWithRecord;
 

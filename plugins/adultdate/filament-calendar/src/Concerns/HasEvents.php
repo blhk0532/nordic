@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Contracts\Eventable;
-use Guava\Calendar\ValueObjects\CalendarEvent;
-use Guava\Calendar\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\Contracts\Eventable;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 

@@ -13,7 +13,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 
-final class NewMessageNotification extends Notification implements ShouldBroadcastNow
+class NewMessageNotification extends Notification implements ShouldBroadcastNow
 {
     // use Queueable;
 

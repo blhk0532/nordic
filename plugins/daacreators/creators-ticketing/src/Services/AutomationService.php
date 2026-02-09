@@ -13,7 +13,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-final class AutomationService
+class AutomationService
 {
     public function processAutomations(Ticket $ticket, string $event, array $context = []): void
     {

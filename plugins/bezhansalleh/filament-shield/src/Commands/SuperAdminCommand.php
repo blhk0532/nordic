@@ -20,7 +20,7 @@ use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
 #[AsCommand(name: 'shield:super-admin', description: 'Assign the super admin role to a user')]
-final class SuperAdminCommand extends Command
+class SuperAdminCommand extends Command
 {
     use Prohibitable;
 

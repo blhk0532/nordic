@@ -97,7 +97,7 @@ use Zap\Models\Concerns\HasSchedules;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-final class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
 {
     use Authenticatable;
     use Authorizable;

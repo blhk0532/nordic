@@ -6,7 +6,7 @@ namespace Adultdate\Wirechat\Console\Commands;
 
 use Illuminate\Console\Command;
 
-final class UpgradeNamespaceCommand extends Command
+class UpgradeNamespaceCommand extends Command
 {
     protected $signature = 'wirechat:upgrade-namespace-to-v0.3x {--dry-run : Show what would be done without making changes}';
 

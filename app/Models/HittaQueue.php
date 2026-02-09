@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class HittaQueue extends Model
+class HittaQueue extends Model
 {
     use HasFactory;
 

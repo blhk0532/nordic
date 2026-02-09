@@ -19,7 +19,7 @@ use Filament\Schemas\Schema;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 
-final class AppRingLista extends Page
+class AppRingLista extends Page
 {
     use HasFiltersForm;
 

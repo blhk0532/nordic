@@ -12,7 +12,7 @@ use Livewire\Component;
 use Livewire\Mechanisms\ComponentRegistry;
 use ReflectionProperty;
 
-final class Drawer extends Component
+class Drawer extends Component
 {
     public ?string $activeDrawerComponent;
 

@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportConsoleCommands\Commands;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:make')]
-final class LivewireMakeCommand extends MakeCommand
+class LivewireMakeCommand extends MakeCommand
 {
     protected $name = 'livewire:make';
 

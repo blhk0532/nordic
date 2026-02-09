@@ -9,7 +9,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportMultipleRootElementDetection extends ComponentHook
+class SupportMultipleRootElementDetection extends ComponentHook
 {
     public static function provide()
     {
@@ -35,7 +35,7 @@ final class SupportMultipleRootElementDetection extends ComponentHook
 
     public function getRootElementCount($html)
     {
-        $dom = new DOMDocument();
+        $dom = new DOMDocument;
 
         @$dom->loadHTML($html);
 

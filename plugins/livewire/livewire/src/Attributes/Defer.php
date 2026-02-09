@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportLazyLoading\BaseDefer;
 
 #[Attribute]
-final class Defer extends BaseDefer
+class Defer extends BaseDefer
 {
     //
 }

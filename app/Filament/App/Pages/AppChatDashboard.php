@@ -19,7 +19,7 @@ use UnitEnum;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseSlowRequests;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseUsage;
 
-final class AppChatDashboard extends BaseDashboard
+class AppChatDashboard extends BaseDashboard
 {
     protected static ?string $title = '';
 

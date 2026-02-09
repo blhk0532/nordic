@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
 use Log;
 
-final class RunAllCountsBulkAction extends BulkAction
+class RunAllCountsBulkAction extends BulkAction
 {
     public static function make(?string $name = 'runAllCounts'): static
     {

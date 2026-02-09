@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
-final class InertiaCalendar extends Page
+class InertiaCalendar extends Page
 {
     protected string $view = 'filament.booking.pages.inertia-calendar';
     //  protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDateRange;

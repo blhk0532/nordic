@@ -10,7 +10,7 @@ use Filament\Pages\Page;
 use Filament\Widgets\Widget;
 use UnitEnum;
 
-final class BookingCalendar extends Page
+class BookingCalendar extends Page
 {
     protected string $view = 'filament-booking::pages.booking-calendar';
 

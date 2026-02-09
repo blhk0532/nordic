@@ -6,7 +6,7 @@ namespace App\Filament\Panels\Resources\Searches\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class SearchInfolist
+class SearchInfolist
 {
     public static function configure(Schema $schema): Schema
     {

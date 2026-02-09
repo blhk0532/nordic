@@ -9,7 +9,7 @@ use Filament\Pages\Page;
 use Filament\Widgets\Widget;
 use UnitEnum;
 
-final class EventCalendarPage extends Page
+class EventCalendarPage extends Page
 {
     protected string $view = 'adultdate-schedule::pages.calendar';
 

@@ -11,7 +11,7 @@ use Filament\Schemas\Schema;
 
 use function filled;
 
-final class AdminForm
+class AdminForm
 {
     public static function configure(Schema $schema): Schema
     {

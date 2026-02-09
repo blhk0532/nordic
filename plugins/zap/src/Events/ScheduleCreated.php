@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Zap\Enums\Frequency;
 use Zap\Models\Schedule;
 
-final class ScheduleCreated
+class ScheduleCreated
 {
     use Dispatchable;
     use SerializesModels;

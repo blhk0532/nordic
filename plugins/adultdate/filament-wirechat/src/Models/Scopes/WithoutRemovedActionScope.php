@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-final class WithoutRemovedActionScope implements Scope
+class WithoutRemovedActionScope implements Scope
 {
     /**
      * Applies a scope to exclude particicipants removed from group by admins

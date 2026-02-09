@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Traits\SendsFilamentNotifications;
 use Illuminate\Console\Command;
 
-final class TestNotificationCommand extends Command
+class TestNotificationCommand extends Command
 {
     use SendsFilamentNotifications;
 

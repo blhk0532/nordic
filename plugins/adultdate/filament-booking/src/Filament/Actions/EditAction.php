@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Actions;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Filament\Schemas\Schema;
 
-final class EditAction extends \Filament\Actions\EditAction
+class EditAction extends \Filament\Actions\EditAction
 {
     protected function setUp(): void
     {

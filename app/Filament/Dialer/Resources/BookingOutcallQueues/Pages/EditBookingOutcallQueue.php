@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBookingOutcallQueue extends EditRecord
+class EditBookingOutcallQueue extends EditRecord
 {
     protected static string $resource = BookingOutcallQueueResource::class;
 

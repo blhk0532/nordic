@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Adultdate\Wirechat\Helpers;
 
-final class MorphClassResolver
+class MorphClassResolver
 {
     /**
      * Encodes the given raw type using hexadecimal encoding.

@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-final class EventWidget extends Component
+class EventWidget extends Component
 {
     use InteractWithEvents;
     use TimexTrait;

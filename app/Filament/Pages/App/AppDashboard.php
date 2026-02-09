@@ -6,7 +6,7 @@ namespace App\Filament\Pages\App;
 
 use Filament\Pages\Dashboard as BaseDashboard;
 
-final class AppDashboard extends BaseDashboard
+class AppDashboard extends BaseDashboard
 {
     // Compatibility shim for the alternate namespace that some
     // plugins / Livewire expect. Prevent this shim from registering

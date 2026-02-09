@@ -18,7 +18,7 @@ use Illuminate\Contracts\Support\Htmlable;
 use MWGuerra\FileManager\Schemas\Components\FileManagerEmbed;
 use MWGuerra\FileManager\Schemas\Components\FileSystemEmbed;
 
-final class SchemaExample extends Page implements HasActions, HasSchemas
+class SchemaExample extends Page implements HasActions, HasSchemas
 {
     use InteractsWithActions;
     use InteractsWithSchemas;

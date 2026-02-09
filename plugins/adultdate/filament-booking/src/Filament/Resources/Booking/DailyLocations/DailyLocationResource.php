@@ -20,7 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class DailyLocationResource extends Resource
+class DailyLocationResource extends Resource
 {
     protected static ?string $model = DailyLocation::class;
 

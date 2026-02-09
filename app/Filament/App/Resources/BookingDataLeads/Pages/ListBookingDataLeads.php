@@ -9,7 +9,7 @@ use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use UnitEnum;
 
-final class ListBookingDataLeads extends ListRecords
+class ListBookingDataLeads extends ListRecords
 {
     protected static string $resource = BookingDataLeadResource::class;
 

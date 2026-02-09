@@ -8,7 +8,7 @@ use App\Filament\App\Resources\CallingLogs\CallingLogResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditCallingLog extends EditRecord
+class EditCallingLog extends EditRecord
 {
     protected static string $resource = CallingLogResource::class;
 

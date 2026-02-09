@@ -9,7 +9,7 @@ use App\Models\Payment;
 use App\Services\IncomeStatusService;
 use Exception;
 
-final class PaymentObserver
+class PaymentObserver
 {
     public function creating(Payment $payment): void
     {

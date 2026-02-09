@@ -8,7 +8,7 @@ use AchyutN\FilamentLogViewer\Model\Log;
 use Exception;
 use Filament\Tables\Filters\SelectFilter;
 
-final class FileFilter
+class FileFilter
 {
     /** @throws Exception */
     public static function make(string $name = 'file'): SelectFilter

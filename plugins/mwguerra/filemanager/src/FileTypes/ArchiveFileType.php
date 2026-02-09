@@ -9,7 +9,7 @@ namespace MWGuerra\FileManager\FileTypes;
  *
  * Supports common archive formats: ZIP, RAR, 7z, TAR, GZIP, etc.
  */
-final class ArchiveFileType extends AbstractFileType
+class ArchiveFileType extends AbstractFileType
 {
     public function identifier(): string
     {

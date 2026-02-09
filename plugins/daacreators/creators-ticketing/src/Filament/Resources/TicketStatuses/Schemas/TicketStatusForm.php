@@ -6,7 +6,7 @@ namespace daacreators\CreatorsTicketing\Filament\Resources\TicketStatuses\Schema
 
 use Filament\Schemas\Schema;
 
-final class TicketStatusForm
+class TicketStatusForm
 {
     public static function configure(Schema $schema): Schema
     {

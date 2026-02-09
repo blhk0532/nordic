@@ -17,7 +17,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
-final class BookingsTable
+class BookingsTable
 {
     public static function configure(Table $table): Table
     {

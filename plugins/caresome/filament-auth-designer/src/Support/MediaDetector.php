@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Caresome\FilamentAuthDesigner\Support;
 
-final class MediaDetector
+class MediaDetector
 {
     private const VIDEO_EXTENSIONS = ['mp4', 'webm', 'mov', 'ogg', 'avi', 'mkv'];
 

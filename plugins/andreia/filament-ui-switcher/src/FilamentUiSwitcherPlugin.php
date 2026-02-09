@@ -13,7 +13,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Blade;
 
-final class FilamentUiSwitcherPlugin implements Plugin
+class FilamentUiSwitcherPlugin implements Plugin
 {
     private string $iconRenderHook = PanelsRenderHook::USER_MENU_BEFORE;
 

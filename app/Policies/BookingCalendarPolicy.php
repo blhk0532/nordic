@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\BookingCalendar;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class BookingCalendarPolicy
+class BookingCalendarPolicy
 {
     use HandlesAuthorization;
 

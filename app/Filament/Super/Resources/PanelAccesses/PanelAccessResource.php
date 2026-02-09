@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-final class PanelAccessResource extends Resource
+class PanelAccessResource extends Resource
 {
     protected static ?string $model = PanelAccess::class;
 

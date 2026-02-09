@@ -34,7 +34,7 @@ use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
 use MWGuerra\FileManager\FileManagerPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class FilesPanelProvider extends PanelProvider
+class FilesPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

@@ -18,7 +18,7 @@ use Filament\Tables\Filters\QueryBuilder\Constraints\NumberConstraint;
 use Filament\Tables\Filters\QueryBuilder\Constraints\TextConstraint;
 use Filament\Tables\Table;
 
-final class ProductsTable
+class ProductsTable
 {
     public static function configure(Table $table): Table
     {

@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class JobBatch extends Model
+class JobBatch extends Model
 {
     /**
      * Indicates if the IDs are auto-incrementing.

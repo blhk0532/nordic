@@ -9,7 +9,7 @@ use BackedEnum;
 use Filament\Pages\Page as BasePage;
 use UnitEnum;
 
-final class SchedulesCalendar extends BasePage
+class SchedulesCalendar extends BasePage
 {
     protected string $view = 'filament.pages.schedules-calendar';
 

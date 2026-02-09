@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use ReflectionClass;
 use ReflectionNamedType;
 
-final class ImplicitlyBoundMethod extends BoundMethod
+class ImplicitlyBoundMethod extends BoundMethod
 {
     public static function getParameterClassName($parameter)
     {

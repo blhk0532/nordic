@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use SolutionForest\FilamentTree\Concern\ModelTree;
 use Throwable;
 
-final class Tree extends Field
+class Tree extends Field
 {
     use BelongsToModel;
     use HasState;

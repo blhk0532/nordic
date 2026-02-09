@@ -16,7 +16,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 
-class BookingFullCalendarWidget extends Widget implements HasActions, HasForms
+class FullCalendarWidget extends Widget implements HasActions, HasForms
 {
     use CanBeConfigured, HasHeaderActions, InteractsWithRawJS;
     use InteractsWithActions;

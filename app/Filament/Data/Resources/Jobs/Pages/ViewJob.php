@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\Jobs\JobResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewJob extends ViewRecord
+class ViewJob extends ViewRecord
 {
     protected static string $resource = JobResource::class;
 

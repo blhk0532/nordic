@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Booking extends Model
+class Booking extends Model
 {
     /** @use HasFactory<BookingFactory> */
     use HasFactory;

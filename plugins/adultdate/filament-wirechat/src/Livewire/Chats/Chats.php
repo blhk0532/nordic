@@ -24,7 +24,7 @@ use Livewire\Component;
  *
  * @property \Illuminate\Contracts\Auth\Authenticatable|null $auth
  */
-final class Chats extends Component
+class Chats extends Component
 {
     use HasPanel;
     use Widget;

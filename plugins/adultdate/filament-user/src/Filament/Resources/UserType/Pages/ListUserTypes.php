@@ -7,7 +7,7 @@ namespace Adultdate\FilamentUser\Filament\Resources\UserType\Pages;
 use Adultdate\FilamentUser\Filament\Resources\UserType\UserTypeResource;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListUserTypes extends ListRecords
+class ListUserTypes extends ListRecords
 {
     protected static string $resource = UserTypeResource::class;
 }

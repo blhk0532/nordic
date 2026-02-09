@@ -9,7 +9,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 
-final class FilamentFullCalendarPlugin implements Plugin
+class FilamentFullCalendarPlugin implements Plugin
 {
     use EvaluatesClosures;
 

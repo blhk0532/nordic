@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
-final class PanelAccessesTable
+class PanelAccessesTable
 {
     public static function configure(Table $table): Table
     {

@@ -17,7 +17,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 
-final class BookingCalendarForm
+class BookingCalendarForm
 {
     public static function configure(Schema $schema): Schema
     {

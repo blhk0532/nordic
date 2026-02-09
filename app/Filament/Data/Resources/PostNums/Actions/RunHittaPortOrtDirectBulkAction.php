@@ -10,7 +10,7 @@ use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 
-final class RunHittaPortOrtDirectBulkAction extends BulkAction
+class RunHittaPortOrtDirectBulkAction extends BulkAction
 {
     public static function make(?string $name = 'runHittaPortOrtDirect'): static
     {

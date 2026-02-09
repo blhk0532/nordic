@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Relaticle\Flowforge\Tests\Fixtures\User;
 
-final class UserFactory extends Factory
+class UserFactory extends Factory
 {
     protected $model = User::class;
 

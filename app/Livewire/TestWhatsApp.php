@@ -11,7 +11,7 @@ use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 use WallaceMartinss\FilamentEvolution\Services\EvolutionClient;
 use WallaceMartinss\FilamentEvolution\Services\WhatsappService;
 
-final class TestWhatsApp extends Component
+class TestWhatsApp extends Component
 {
     public string $instanceId = '';
 

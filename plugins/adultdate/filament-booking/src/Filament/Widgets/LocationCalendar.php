@@ -29,7 +29,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\HtmlString;
 
-final class LocationCalendarWidget extends FullCalendarWidget implements HasActions, HasSchemas
+class LocationCalendarWidget extends FullCalendarWidget implements HasActions, HasSchemas
 {
     use InteractsWithActions;
     use InteractsWithSchemas;

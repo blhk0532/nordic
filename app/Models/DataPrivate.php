@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class DataPrivate extends Model
+class DataPrivate extends Model
 {
     /** @use HasFactory<\Database\Factories\DataPrivateFactory> */
     use HasFactory;

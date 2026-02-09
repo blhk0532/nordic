@@ -13,7 +13,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-final class ConversationsTable
+class ConversationsTable
 {
     public static function configure(Table $table): Table
     {

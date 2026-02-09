@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class CalendarEvent extends Model
+class CalendarEvent extends Model
 {
     protected $fillable = [
         'title',

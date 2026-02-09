@@ -32,7 +32,7 @@ use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseSlowRequests;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseUsage;
 
-final class ArbetslistaDashboard extends BasePage
+class ArbetslistaDashboard extends BasePage
 {
     use HasFiltersForm;
 

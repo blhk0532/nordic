@@ -15,7 +15,7 @@ use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-final class BookingsTable
+class BookingsTable
 {
     public static function configure(Table $table): Table
     {

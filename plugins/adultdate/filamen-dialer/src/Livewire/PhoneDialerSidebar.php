@@ -7,7 +7,7 @@ namespace AdultDate\FilamentDialer\Livewire;
 use Filament\Facades\Filament;
 use Livewire\Component;
 
-final class PhoneDialerSidebar extends Component
+class PhoneDialerSidebar extends Component
 {
     public string $phoneNumber = '';
 

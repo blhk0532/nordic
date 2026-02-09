@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class CarryData extends Model
+class CarryData extends Model
 {
     /** @use HasFactory<\Database\Factories\CarryDataFactory> */
     use HasFactory;

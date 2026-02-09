@@ -7,7 +7,7 @@ namespace Adultdate\FilamentUser\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class UserStat extends Model
+class UserStat extends Model
 {
     use HasFactory;
 

@@ -8,7 +8,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
 
-final class EditFileSystemItem extends EditRecord
+class EditFileSystemItem extends EditRecord
 {
     protected static string $resource = FileSystemItemResource::class;
 

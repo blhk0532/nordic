@@ -7,7 +7,7 @@ namespace Adultdate\Schedule\Actions;
 use Adultdate\Schedule\Filament\Widgets\FullCalendarWidget;
 use Filament\Actions\ViewAction as BaseViewAction;
 
-final class ViewAction extends BaseViewAction
+class ViewAction extends BaseViewAction
 {
     protected function setUp(): void
     {

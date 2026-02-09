@@ -9,7 +9,7 @@ use Adultdate\Wirechat\PanelProvider;
 use Adultdate\Wirechat\Support\Color;
 use Adultdate\Wirechat\Support\Enums\EmojiPickerPosition;
 
-final class ChatsPanelProvider extends PanelProvider
+class ChatsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

@@ -7,7 +7,7 @@ namespace Fahiem\FilamentPinpoint;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentPinpointServiceProvider extends PackageServiceProvider
+class FilamentPinpointServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-pinpoint';
 

@@ -12,7 +12,7 @@ use App\Models\RingaData;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Support\Enums\Width;
 
-final class ViewRingaData extends ViewRecord
+class ViewRingaData extends ViewRecord
 {
     public ?int $selectedRecordId = null;
 

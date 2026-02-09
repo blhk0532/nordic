@@ -17,7 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class OutcomeSettingResource extends Resource
+class OutcomeSettingResource extends Resource
 {
     protected static ?string $model = OutcomeSetting::class;
 

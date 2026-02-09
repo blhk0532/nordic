@@ -21,7 +21,7 @@ use MWGuerra\FileManager\Enums\FileSystemItemType;
 use MWGuerra\FileManager\Enums\FileType;
 use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource\Pages;
 
-final class FileSystemItemResource extends Resource
+class FileSystemItemResource extends Resource
 {
     protected static ?string $model = null;
 

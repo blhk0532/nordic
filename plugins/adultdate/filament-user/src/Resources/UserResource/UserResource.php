@@ -14,7 +14,7 @@ use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
 
-final class UserResource extends Resource
+class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 

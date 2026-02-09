@@ -6,7 +6,7 @@ namespace AdultDate\FilamentDialer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class PhoneQueue extends Model
+class PhoneQueue extends Model
 {
     protected $fillable = ['name', 'address', 'phone', 'status', 'user_id'];
 

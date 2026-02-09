@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportIsolating\BaseIsolate;
 
 #[Attribute]
-final class Isolate extends BaseIsolate
+class Isolate extends BaseIsolate
 {
     //
 }

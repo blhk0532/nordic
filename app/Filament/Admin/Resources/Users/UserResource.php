@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Cache;
 
 use function __;
 
-final class UserResource extends Resource
+class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 

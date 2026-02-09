@@ -32,7 +32,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class DevPanelProvider extends PanelProvider
+class DevPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

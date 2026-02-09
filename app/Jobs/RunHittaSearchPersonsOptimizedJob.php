@@ -12,7 +12,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 
-final class RunHittaSearchPersonsOptimizedJob implements ShouldQueue
+class RunHittaSearchPersonsOptimizedJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

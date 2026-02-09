@@ -18,7 +18,7 @@ use UnitEnum;
 use WallaceMartinss\FilamentEvolution\Exceptions\EvolutionApiException;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 
-final class SendWhatsapp extends Page
+class SendWhatsapp extends Page
 {
     use InteractsWithForms;
 

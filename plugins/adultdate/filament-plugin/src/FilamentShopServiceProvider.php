@@ -18,7 +18,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentShopServiceProvider extends PackageServiceProvider
+class FilamentShopServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-shop';
 

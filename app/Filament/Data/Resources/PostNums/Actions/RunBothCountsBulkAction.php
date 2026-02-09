@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
 
-final class RunBothCountsBulkAction extends BulkAction
+class RunBothCountsBulkAction extends BulkAction
 {
     public static function make(?string $name = 'runBothCounts'): static
     {

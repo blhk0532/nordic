@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Schemas\Concerns\InteractsWithSchemas;

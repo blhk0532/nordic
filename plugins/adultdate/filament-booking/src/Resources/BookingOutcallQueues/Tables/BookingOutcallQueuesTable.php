@@ -12,7 +12,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class BookingOutcallQueuesTable
+class BookingOutcallQueuesTable
 {
     public static function configure(Table $table): Table
     {

@@ -12,7 +12,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
-final class DataDashboard extends Dashboard
+class DataDashboard extends Dashboard
 {
     protected static ?string $navigationLabel = 'Database';
 

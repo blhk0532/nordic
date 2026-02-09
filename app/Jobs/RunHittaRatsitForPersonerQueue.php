@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use Throwable;
 
-final class RunHittaRatsitForPersonerQueue implements ShouldQueue
+class RunHittaRatsitForPersonerQueue implements ShouldQueue
 {
     use Dispatchable;
     use FoundationQueueable;

@@ -6,7 +6,7 @@ namespace Andreia\FilamentUiSwitcher\Support;
 
 use Illuminate\Support\Facades\Auth;
 
-final class UiPreferenceManager
+class UiPreferenceManager
 {
     public static function get(string $key, $default = null)
     {

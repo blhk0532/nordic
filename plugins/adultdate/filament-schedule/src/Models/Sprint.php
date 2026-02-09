@@ -10,7 +10,7 @@ use Adultdate\Schedule\ValueObjects\CalendarEvent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class Sprint extends Model implements Eventable
+class Sprint extends Model implements Eventable
 {
     /** @use HasFactory<\Database\Factories\SprintFactory> */
     use HasFactory;

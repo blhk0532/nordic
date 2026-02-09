@@ -16,7 +16,7 @@ use Livewire\Component;
 /**
  * @property-read Schema $form
  */
-final class Form extends Component implements HasForms
+class Form extends Component implements HasForms
 {
     use InteractsWithForms;
 

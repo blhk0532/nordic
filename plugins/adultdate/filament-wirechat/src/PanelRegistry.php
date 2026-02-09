@@ -10,7 +10,7 @@ use Exception;
 use Illuminate\Support\Facades\Log;
 use ReflectionClass;
 
-final class PanelRegistry
+class PanelRegistry
 {
     private array $panels = [];
 

@@ -9,7 +9,7 @@ use daacreators\CreatorsTicketing\Models\Form;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Storage;
 
-final class CreateTicket extends CreateRecord
+class CreateTicket extends CreateRecord
 {
     protected static string $resource = TicketResource::class;
 

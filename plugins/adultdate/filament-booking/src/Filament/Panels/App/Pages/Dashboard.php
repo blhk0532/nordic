@@ -15,7 +15,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-final class Dashboard extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     use HasFiltersForm;
 

@@ -31,7 +31,7 @@ use Illuminate\Support\Collection;
  *     file: string
  * }
  */
-final class Log
+class Log
 {
     use HasMailLog;
 

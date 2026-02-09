@@ -15,7 +15,7 @@ use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
 #[Lazy]
-final class BulkActionNotifications extends Component
+class BulkActionNotifications extends Component
 {
     public Collection $bulkActions;
 

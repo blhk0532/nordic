@@ -23,7 +23,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 
-final class RatsitDatasTable
+class RatsitDatasTable
 {
     public static function configure(Table $table): Table
     {

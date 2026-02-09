@@ -17,7 +17,7 @@ use SolutionForest\FilamentTree\Components\Tree as TreeComponent;
 use SolutionForest\FilamentTree\Concern\InteractWithTree;
 use SolutionForest\FilamentTree\Contract\HasTree;
 
-final class Tree extends BaseWidget implements HasTree
+class Tree extends BaseWidget implements HasTree
 {
     use InteractWithTree;
 

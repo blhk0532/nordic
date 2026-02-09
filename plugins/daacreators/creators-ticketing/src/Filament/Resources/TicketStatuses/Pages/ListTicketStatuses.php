@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\TicketStatuses\TicketStatus
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListTicketStatuses extends ListRecords
+class ListTicketStatuses extends ListRecords
 {
     protected static string $resource = TicketStatusResource::class;
 

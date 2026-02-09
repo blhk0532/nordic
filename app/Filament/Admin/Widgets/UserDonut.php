@@ -6,7 +6,7 @@ namespace App\Filament\Admin\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserDonut extends ApexChartWidget
+class UserDonut extends ApexChartWidget
 {
     // protected static bool $isCollapsible = true;
     protected static ?int $sort = 1;

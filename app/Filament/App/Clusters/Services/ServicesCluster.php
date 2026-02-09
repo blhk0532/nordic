@@ -8,7 +8,7 @@ use BackedEnum;
 use Filament\Clusters\Cluster;
 use UnitEnum;
 
-final class ServicesCluster extends Cluster
+class ServicesCluster extends Cluster
 {
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-wrench-screwdriver';
 

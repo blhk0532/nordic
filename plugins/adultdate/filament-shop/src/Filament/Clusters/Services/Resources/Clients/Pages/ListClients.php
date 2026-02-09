@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Clients\ClientRe
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListClients extends ListRecords
+class ListClients extends ListRecords
 {
     protected static string $resource = ClientResource::class;
 

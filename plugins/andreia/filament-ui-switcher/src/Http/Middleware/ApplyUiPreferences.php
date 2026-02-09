@@ -10,7 +10,7 @@ use Filament\Facades\Filament;
 use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\Request;
 
-final class ApplyUiPreferences
+class ApplyUiPreferences
 {
     public function handle(Request $request, Closure $next)
     {

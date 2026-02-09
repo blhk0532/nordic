@@ -15,7 +15,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Process;
 use RuntimeException;
 
-final class RunHittaCountForPostNummer implements ShouldQueue
+class RunHittaCountForPostNummer implements ShouldQueue
 {
     use Dispatchable;
     use FoundationQueueable;

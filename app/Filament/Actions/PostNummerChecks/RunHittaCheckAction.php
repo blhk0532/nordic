@@ -10,7 +10,7 @@ use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 
-final class RunHittaCheckAction extends Action
+class RunHittaCheckAction extends Action
 {
     protected function setUp(): void
     {

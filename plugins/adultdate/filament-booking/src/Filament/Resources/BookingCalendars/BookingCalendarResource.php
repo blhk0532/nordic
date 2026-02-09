@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class BookingCalendarResource extends Resource
+class BookingCalendarResource extends Resource
 {
     protected static ?string $model = BookingCalendar::class;
 

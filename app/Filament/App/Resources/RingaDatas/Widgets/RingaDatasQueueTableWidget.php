@@ -10,7 +10,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Livewire\Attributes\On;
 
-final class RingaDatasQueueTableWidget extends BaseWidget
+class RingaDatasQueueTableWidget extends BaseWidget
 {
     public ?int $selectedRecordId = null;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Drawer;
 
-final class Regexes
+class Regexes
 {
     public static $livewireOpeningTag = "
         <

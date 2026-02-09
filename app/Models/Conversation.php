@@ -54,7 +54,7 @@ use InvalidArgumentException;
  * @method static Builder|Conversation withoutCleared()
  * @method static Builder|Conversation withoutDeleted()
  */
-final class Conversation extends Model
+class Conversation extends Model
 {
     use Actionable;
     use HasDynamicIds;

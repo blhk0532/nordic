@@ -14,7 +14,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 
-final class FilamentAuthPlugin implements Plugin
+class FilamentAuthPlugin implements Plugin
 {
     public static function make(): static
     {

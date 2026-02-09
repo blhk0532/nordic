@@ -17,7 +17,7 @@ use Wallacemartinss\FilamentIconPicker\IconSetManager;
  *
  * @see IconSetManager
  */
-final class IconPicker extends Facade
+class IconPicker extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

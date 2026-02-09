@@ -8,7 +8,7 @@ use App\Models\RatsitData;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class RatsitDataStatsWidget extends StatsOverviewWidget
+class RatsitDataStatsWidget extends StatsOverviewWidget
 {
     protected static ?int $sort = -1;
 

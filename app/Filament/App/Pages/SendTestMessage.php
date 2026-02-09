@@ -8,7 +8,7 @@ use BackedEnum;
 use Filament\Pages\Page;
 use UnitEnum;
 
-final class SendTestMessage extends Page
+class SendTestMessage extends Page
 {
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
 

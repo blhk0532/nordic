@@ -8,7 +8,7 @@ use Filament\Actions\BulkAction;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Collection;
 
-final class RetryJobsBulkAction extends BulkAction
+class RetryJobsBulkAction extends BulkAction
 {
     use ManagesJobs;
 

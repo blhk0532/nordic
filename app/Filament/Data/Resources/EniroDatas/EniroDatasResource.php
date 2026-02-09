@@ -18,7 +18,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class EniroDatasResource extends Resource
+class EniroDatasResource extends Resource
 {
     protected static ?string $model = EniroData::class;
 

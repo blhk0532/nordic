@@ -6,7 +6,7 @@ namespace Adultdate\FilamentBooking\Filament\Widgets;
 
 use Filament\Widgets\Widget;
 
-final class FilamentInfosWidget extends Widget
+class FilamentInfosWidget extends Widget
 {
     protected static ?int $sort = -1;
 

@@ -9,7 +9,7 @@ namespace MWGuerra\FileManager\FileTypes;
  *
  * Supports common audio formats: MP3, WAV, OGG, FLAC, AAC, etc.
  */
-final class AudioFileType extends AbstractFileType
+class AudioFileType extends AbstractFileType
 {
     public function identifier(): string
     {

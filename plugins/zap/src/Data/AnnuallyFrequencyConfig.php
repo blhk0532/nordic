@@ -10,7 +10,7 @@ use Zap\Models\Schedule;
 /**
  * @property-read list<int>|null $daysOfMonth
  */
-final class AnnuallyFrequencyConfig extends FrequencyConfig
+class AnnuallyFrequencyConfig extends FrequencyConfig
 {
     public function __construct(
         public ?array $days_of_month = [],

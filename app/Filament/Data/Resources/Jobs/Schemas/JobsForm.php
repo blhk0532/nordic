@@ -6,7 +6,7 @@ namespace App\Filament\Data\Resources\Jobs\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class JobsForm
+class JobsForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -7,7 +7,7 @@ namespace App\Filament\Finance\Widgets;
 use App\Services\LineChartService;
 use Filament\Widgets\ChartWidget;
 
-final class DailyIncomeData extends ChartWidget
+class DailyIncomeData extends ChartWidget
 {
     protected static bool $isLazy = false;
 

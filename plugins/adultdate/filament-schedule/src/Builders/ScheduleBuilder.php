@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 use ValueError;
 
-final class ScheduleBuilder
+class ScheduleBuilder
 {
     private ?Model $schedulable = null;
 

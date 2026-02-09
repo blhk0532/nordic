@@ -63,7 +63,7 @@ use Illuminate\Support\Facades\DB;
  *
  * @mixin \Eloquent
  */
-final class Participant extends Model
+class Participant extends Model
 {
     use Actionable;
     use HasFactory;

@@ -6,7 +6,7 @@ namespace Relaticle\Flowforge\Exceptions;
 
 use RuntimeException;
 
-final class MaxRetriesExceededException extends RuntimeException
+class MaxRetriesExceededException extends RuntimeException
 {
     //
 }

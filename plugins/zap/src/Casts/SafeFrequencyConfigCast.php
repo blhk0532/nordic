@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Zap\Data\FrequencyConfig;
 use Zap\Models\Schedule;
 
-final class SafeFrequencyConfigCast implements CastsAttributes
+class SafeFrequencyConfigCast implements CastsAttributes
 {
     public function get(Model $model, string $key, mixed $value, array $attributes)
     {

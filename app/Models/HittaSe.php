@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class HittaSe extends Model
+class HittaSe extends Model
 {
     protected $table = 'hitta_se';
 

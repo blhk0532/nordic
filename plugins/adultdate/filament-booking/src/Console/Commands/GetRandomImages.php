@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-final class GetRandomImages extends Command
+class GetRandomImages extends Command
 {
     /**
      * The name and signature of the console command.

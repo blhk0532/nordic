@@ -7,7 +7,7 @@ namespace Adultdate\Wirechat\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-final class SetupNotifications extends Command
+class SetupNotifications extends Command
 {
     protected $signature = 'wirechat:setup-notifications';
 

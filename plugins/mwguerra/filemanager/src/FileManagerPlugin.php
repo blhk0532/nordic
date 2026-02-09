@@ -17,7 +17,7 @@ use MWGuerra\FileManager\Filament\Pages\FileSystem;
 use MWGuerra\FileManager\Filament\Pages\SchemaExample;
 use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
 
-final class FileManagerPlugin implements Plugin
+class FileManagerPlugin implements Plugin
 {
     /**
      * Singleton instance for accessing configuration from pages/components.

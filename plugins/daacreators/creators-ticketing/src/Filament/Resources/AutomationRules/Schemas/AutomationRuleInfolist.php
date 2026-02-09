@@ -6,7 +6,7 @@ namespace daacreators\CreatorsTicketing\Filament\Resources\AutomationRules\Schem
 
 use Filament\Schemas\Schema;
 
-final class AutomationRuleInfolist
+class AutomationRuleInfolist
 {
     public static function configure(Schema $schema): Schema
     {

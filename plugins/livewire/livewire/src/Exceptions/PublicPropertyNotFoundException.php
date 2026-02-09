@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class PublicPropertyNotFoundException extends Exception
+class PublicPropertyNotFoundException extends Exception
 {
     use BypassViewHandler;
 

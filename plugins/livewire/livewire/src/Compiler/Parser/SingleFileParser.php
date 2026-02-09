@@ -7,7 +7,7 @@ namespace Livewire\Compiler\Parser;
 use Exception;
 use Livewire\Compiler\Compiler;
 
-final class SingleFileParser extends Parser
+class SingleFileParser extends Parser
 {
     public function __construct(
         public string $path,

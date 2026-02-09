@@ -8,7 +8,7 @@ use App\Filament\Finance\Resources\Clients\ClientResource;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\App;
 
-final class CreateClient extends CreateRecord
+class CreateClient extends CreateRecord
 {
     protected static string $resource = ClientResource::class;
 

@@ -7,7 +7,7 @@ namespace App\Filament\Schemas\Components;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 
-final class AdditionalInformation
+class AdditionalInformation
 {
     public static function make(array $dates = ['created_at', 'updated_at'])
     {

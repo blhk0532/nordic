@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportReactiveProps\BaseReactive;
 
 #[Attribute]
-final class Reactive extends BaseReactive
+class Reactive extends BaseReactive
 {
     //
 }

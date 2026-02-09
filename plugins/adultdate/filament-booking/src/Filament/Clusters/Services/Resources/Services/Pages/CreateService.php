@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Service
 use Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Services\ServiceResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateService extends CreateRecord
+class CreateService extends CreateRecord
 {
     protected static string $resource = ServiceResource::class;
 }

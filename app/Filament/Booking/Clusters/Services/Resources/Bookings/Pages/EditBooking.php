@@ -10,7 +10,7 @@ use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBooking extends EditRecord
+class EditBooking extends EditRecord
 {
     protected static string $resource = BookingResource::class;
 

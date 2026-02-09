@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 
-final class BookingCalendar extends Model
+class BookingCalendar extends Model
 {
     protected $fillable = [
         'name',

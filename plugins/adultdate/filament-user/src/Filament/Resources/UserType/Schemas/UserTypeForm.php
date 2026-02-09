@@ -8,7 +8,7 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class UserTypeForm
+class UserTypeForm
 {
     public static function configure(Schema $schema): Schema
     {

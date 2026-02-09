@@ -13,7 +13,7 @@ use Filament\Schemas\Schema;
 
 use function filled;
 
-final class UserForm
+class UserForm
 {
     public static function configure(Schema $schema): Schema
     {

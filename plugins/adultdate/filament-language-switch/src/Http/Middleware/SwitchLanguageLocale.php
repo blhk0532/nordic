@@ -8,7 +8,7 @@ use BezhanSalleh\LanguageSwitch\LanguageSwitch;
 use Closure;
 use Illuminate\Http\Request;
 
-final class SwitchLanguageLocale
+class SwitchLanguageLocale
 {
     public function handle(Request $request, Closure $next): mixed
     {

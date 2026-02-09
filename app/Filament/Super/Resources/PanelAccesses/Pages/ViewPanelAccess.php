@@ -8,7 +8,7 @@ use App\Filament\Super\Resources\PanelAccesses\PanelAccessResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewPanelAccess extends ViewRecord
+class ViewPanelAccess extends ViewRecord
 {
     protected static string $resource = PanelAccessResource::class;
 

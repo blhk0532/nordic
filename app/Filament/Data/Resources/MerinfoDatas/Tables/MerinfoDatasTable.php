@@ -23,7 +23,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-final class MerinfoDatasTable
+class MerinfoDatasTable
 {
     public static function configure(Table $table): Table
     {

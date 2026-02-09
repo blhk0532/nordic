@@ -6,7 +6,7 @@ namespace Adultdate\Schedule\Data;
 
 use Adultdate\Schedule\Models\Schedule;
 
-final class DailyFrequencyConfig extends FrequencyConfig
+class DailyFrequencyConfig extends FrequencyConfig
 {
     public static function fromArray(array $data): FrequencyConfig
     {

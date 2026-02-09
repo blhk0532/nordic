@@ -40,7 +40,7 @@ use SensitiveParameter;
  * @property-read Schema $form
  * @property-read Schema $multiFactorChallengeForm
  */
-final class AppLogin extends Login
+class AppLogin extends Login
 {
     use WithRateLimiting;
 

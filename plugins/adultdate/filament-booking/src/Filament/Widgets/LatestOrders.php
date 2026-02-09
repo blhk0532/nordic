@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Squire\Models\Currency;
 
-final class LatestOrders extends BaseWidget
+class LatestOrders extends BaseWidget
 {
     protected int|string|array $columnSpan = 'full';
 

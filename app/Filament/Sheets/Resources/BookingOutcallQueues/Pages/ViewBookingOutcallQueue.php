@@ -9,7 +9,7 @@ use App\Filament\Sheets\Resources\BookingOutcallQueues\Widgets\BookingOutcallQue
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewBookingOutcallQueue extends ViewRecord
+class ViewBookingOutcallQueue extends ViewRecord
 {
     protected static string $resource = BookingOutcallQueueResource::class;
 

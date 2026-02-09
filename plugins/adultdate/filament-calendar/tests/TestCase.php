@@ -1,8 +1,8 @@
 <?php
 
-namespace Guava\Calendar\Tests;
+namespace Adultdate\FilamentBooking\Tests;
 
-use Guava\Calendar\CalendarServiceProvider;
+use Adultdate\FilamentBooking\CalendarServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

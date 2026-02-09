@@ -15,7 +15,7 @@ use MWGuerra\FileManager\Models\FileSystemItem as BaseFileSystemItem;
  * After creating this file, update config/filemanager.php:
  * 'model' => \App\Models\FileSystemItem::class,
  */
-final class FileSystemItem extends BaseFileSystemItem
+class FileSystemItem extends BaseFileSystemItem
 {
     // Add your custom methods, relationships, or overrides here
     //

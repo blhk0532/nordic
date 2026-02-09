@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Process;
 use Log;
 use RuntimeException;
 
-final class RunRatsitCheckCountsJob implements ShouldQueue
+class RunRatsitCheckCountsJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

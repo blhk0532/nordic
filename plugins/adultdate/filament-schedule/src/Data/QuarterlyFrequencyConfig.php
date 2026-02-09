@@ -10,7 +10,7 @@ use Carbon\CarbonInterface;
 /**
  * @property-read list<int>|null $daysOfMonth
  */
-final class QuarterlyFrequencyConfig extends FrequencyConfig
+class QuarterlyFrequencyConfig extends FrequencyConfig
 {
     public function __construct(
         public ?array $days_of_month = [],

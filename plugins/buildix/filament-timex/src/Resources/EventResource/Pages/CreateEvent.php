@@ -9,7 +9,7 @@ use Buildix\Timex\Traits\TimexTrait;
 use Filament\Resources\Form;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateEvent extends CreateRecord
+class CreateEvent extends CreateRecord
 {
     use TimexTrait;
 

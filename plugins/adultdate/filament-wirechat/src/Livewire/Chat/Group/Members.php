@@ -19,7 +19,7 @@ use Livewire\Attributes\Locked;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
-final class Members extends ModalComponent
+class Members extends ModalComponent
 {
     use HasPanel;
     use Widget;

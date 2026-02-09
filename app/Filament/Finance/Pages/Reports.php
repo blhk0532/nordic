@@ -21,7 +21,7 @@ use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 
-final class Reports extends Page implements HasForms, HasTable
+class Reports extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithTable;
 

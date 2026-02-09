@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * @mixin \Adultdate\Wirechat\Models\Attachment
  */
-final class AttachmentResource extends JsonResource
+class AttachmentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

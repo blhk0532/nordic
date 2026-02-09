@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Joaopaulolndev\FilamentWorldClock\Helpers\FlagsHelper;
 
 #[AllowDynamicProperties]
-final class WorldClockWidget extends Widget
+class WorldClockWidget extends Widget
 {
     protected static bool $isLazy = false;
 

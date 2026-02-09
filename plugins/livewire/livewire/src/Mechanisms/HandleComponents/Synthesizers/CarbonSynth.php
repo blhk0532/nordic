@@ -9,7 +9,7 @@ use Carbon\CarbonImmutable;
 use DateTimeImmutable;
 use DateTimeInterface;
 
-final class CarbonSynth extends Synth
+class CarbonSynth extends Synth
 {
     public static $types = [
         'native' => DateTimeImmutable::class,

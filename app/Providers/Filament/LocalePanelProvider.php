@@ -31,7 +31,7 @@ use Statikbe\FilamentTranslationManager\FilamentChainedTranslationManagerPlugin;
 use Statikbe\FilamentTranslationManager\Pages\TranslationManagerPage;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class LocalePanelProvider extends PanelProvider
+class LocalePanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

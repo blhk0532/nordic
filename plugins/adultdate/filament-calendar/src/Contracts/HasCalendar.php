@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Contracts;
+namespace Adultdate\FilamentBooking\Contracts;
 
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;

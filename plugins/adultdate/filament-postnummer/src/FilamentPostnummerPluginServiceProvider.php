@@ -6,7 +6,7 @@ namespace Adultdate\FilamentPostnummer;
 
 use Illuminate\Support\ServiceProvider;
 
-final class FilamentPostnummerPluginServiceProvider extends ServiceProvider
+class FilamentPostnummerPluginServiceProvider extends ServiceProvider
 {
     public function register(): void
     {

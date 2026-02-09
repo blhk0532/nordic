@@ -8,7 +8,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class JobBatchForm
+class JobBatchForm
 {
     public static function configure(Schema $schema): Schema
     {

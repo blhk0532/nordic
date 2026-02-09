@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-final class InstallCommand extends Command
+class InstallCommand extends Command
 {
     /**
      * The name and signature of the console command.

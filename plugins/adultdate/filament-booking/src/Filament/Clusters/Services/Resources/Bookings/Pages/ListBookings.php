@@ -10,7 +10,7 @@ use Filament\Pages\Concerns\ExposesTableToWidgets;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Schemas\Components\Tabs\Tab;
 
-final class ListBookings extends ListRecords
+class ListBookings extends ListRecords
 {
     use ExposesTableToWidgets;
 

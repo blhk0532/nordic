@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class MerinfoData extends Model
+class MerinfoData extends Model
 {
     // Use default connection; previously forced 'sqlite' which broke API tests under mysql.
 

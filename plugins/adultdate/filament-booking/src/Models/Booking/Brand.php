@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-final class Brand extends Model implements HasMedia
+class Brand extends Model implements HasMedia
 {
     /** @use HasFactory<BrandFactory> */
     use HasFactory;

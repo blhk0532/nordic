@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory<Post>
  */
-final class PostFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * @var string

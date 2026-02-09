@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use App\Models\Postnummer;
 use Illuminate\Console\Command;
 
-final class ImportFirst3PostNummer extends Command
+class ImportFirst3PostNummer extends Command
 {
     /**
      * The name and signature of the console command.

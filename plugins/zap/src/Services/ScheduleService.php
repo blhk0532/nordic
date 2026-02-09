@@ -14,7 +14,7 @@ use Zap\Events\ScheduleCreated;
 use Zap\Exceptions\ScheduleConflictException;
 use Zap\Models\Schedule;
 
-final class ScheduleService
+class ScheduleService
 {
     public function __construct(
         private ValidationService $validator,

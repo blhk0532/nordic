@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class HittaPersonerQueue extends Model
+class HittaPersonerQueue extends Model
 {
     protected $table = 'hitta_personer_queue';
 

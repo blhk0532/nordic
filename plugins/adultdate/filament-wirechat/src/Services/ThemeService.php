@@ -7,7 +7,7 @@ namespace AdultDate\FilamentWirechat\Services;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 
-final class ThemeService
+class ThemeService
 {
     /**
      * Render the theme CSS variables as a style tag.

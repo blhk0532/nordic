@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
-final class UpdatePassword extends Component
+class UpdatePassword extends Component
 {
     public string $current_password = '';
 

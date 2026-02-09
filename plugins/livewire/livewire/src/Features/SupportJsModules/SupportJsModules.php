@@ -10,7 +10,7 @@ use Livewire\ComponentHook;
 use Livewire\Drawer\Utils;
 use Livewire\Mechanisms\HandleRequests\EndpointResolver;
 
-final class SupportJsModules extends ComponentHook
+class SupportJsModules extends ComponentHook
 {
     public static function provide()
     {

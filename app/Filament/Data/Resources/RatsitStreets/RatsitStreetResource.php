@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
-final class RatsitStreetResource extends Resource
+class RatsitStreetResource extends Resource
 {
     protected static ?string $model = RatsitStreet::class;
 

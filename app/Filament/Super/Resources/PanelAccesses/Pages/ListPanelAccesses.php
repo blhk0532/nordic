@@ -8,7 +8,7 @@ use App\Filament\Super\Resources\PanelAccesses\PanelAccessResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListPanelAccesses extends ListRecords
+class ListPanelAccesses extends ListRecords
 {
     protected static string $resource = PanelAccessResource::class;
 

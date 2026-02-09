@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Brands\BrandReso
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBrands extends ListRecords
+class ListBrands extends ListRecords
 {
     protected static string $resource = BrandResource::class;
 

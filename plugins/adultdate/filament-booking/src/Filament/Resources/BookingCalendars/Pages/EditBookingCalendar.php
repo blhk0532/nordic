@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalenda
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBookingCalendar extends EditRecord
+class EditBookingCalendar extends EditRecord
 {
     protected static string $resource = BookingCalendarResource::class;
 

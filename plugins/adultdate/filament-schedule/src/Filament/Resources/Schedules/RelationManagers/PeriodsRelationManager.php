@@ -13,7 +13,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class PeriodsRelationManager extends RelationManager
+class PeriodsRelationManager extends RelationManager
 {
     protected static string $relationship = 'periods';
 

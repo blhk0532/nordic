@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends Factory<Customer>
  */
-final class CustomerFactory extends Factory
+class CustomerFactory extends Factory
 {
     /**
      * @var string

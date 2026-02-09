@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Spatie\Permission\Models\Role;
 
-final class AssignManualPermissions extends Command
+class AssignManualPermissions extends Command
 {
     protected $signature = 'permissions:assign-manual {role=super_admin}';
 

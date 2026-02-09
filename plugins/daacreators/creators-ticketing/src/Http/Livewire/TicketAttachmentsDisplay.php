@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Http\Livewire;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
-final class TicketAttachmentsDisplay extends Component
+class TicketAttachmentsDisplay extends Component
 {
     public $ticketId;
 

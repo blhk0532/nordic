@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportLocales;
 
 use Livewire\ComponentHook;
 
-final class SupportLocales extends ComponentHook
+class SupportLocales extends ComponentHook
 {
     public function hydrate($memo)
     {

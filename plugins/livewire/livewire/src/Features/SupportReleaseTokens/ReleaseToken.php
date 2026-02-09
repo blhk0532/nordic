@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportReleaseTokens;
 
 use Livewire\Exceptions\LivewireReleaseTokenMismatchException;
 
-final class ReleaseToken
+class ReleaseToken
 {
     // This token is stored client-side and sent along with each request to check
     // a users session to see if a new release has invalidated it. If there is

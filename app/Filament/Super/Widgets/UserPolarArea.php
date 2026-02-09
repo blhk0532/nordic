@@ -6,7 +6,7 @@ namespace App\Filament\Super\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserPolarArea extends ApexChartWidget
+class UserPolarArea extends ApexChartWidget
 {
     /**
      * Chart Id

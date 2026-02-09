@@ -15,7 +15,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-final class RunPostNummerChecksJob implements ShouldQueue
+class RunPostNummerChecksJob implements ShouldQueue
 {
     use Batchable;
     use Dispatchable;

@@ -8,7 +8,7 @@ use App\Filament\Panels\App\Resources\Searches\SearchResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListSearches extends ListRecords
+class ListSearches extends ListRecords
 {
     protected static string $resource = SearchResource::class;
 

@@ -13,7 +13,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Inerba\DbConfig\AbstractPageSettings;
 
-final class UserNotesWorking extends AbstractPageSettings implements HasSchemas
+class UserNotesWorking extends AbstractPageSettings implements HasSchemas
 {
     use InteractsWithSchemas;
 

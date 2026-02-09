@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Database\Seeders;
 use daacreators\CreatorsTicketing\Models\TicketStatus;
 use Illuminate\Database\Seeder;
 
-final class TicketStatusSeeder extends Seeder
+class TicketStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.

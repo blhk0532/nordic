@@ -9,7 +9,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\BookingCalendarWidget;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListDailyLocations extends ListRecords
+class ListDailyLocations extends ListRecords
 {
     protected static string $resource = DailyLocationResource::class;
 

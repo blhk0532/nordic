@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\CompileLivewireTags;
 
 use Livewire\Mechanisms\Mechanism;
 
-final class CompileLivewireTags extends Mechanism
+class CompileLivewireTags extends Mechanism
 {
     public function boot()
     {

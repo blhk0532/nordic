@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\ValueObjects;
+namespace Adultdate\FilamentBooking\ValueObjects;
 
-use Guava\Calendar\Contracts\ContextualInfo;
-use Guava\Calendar\Enums\Context;
+use Adultdate\FilamentBooking\Contracts\ContextualInfo;
+use Adultdate\FilamentBooking\Enums\Context;
 use Illuminate\Database\Eloquent\Model;
 
 final readonly class EventClickInfo implements ContextualInfo

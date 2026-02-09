@@ -14,7 +14,7 @@ use SolutionForest\TabLayoutPlugin\Widgets\TabWidget;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class TabLayoutPluginServiceProvider extends PackageServiceProvider
+class TabLayoutPluginServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'tab-layout-plugin';
 

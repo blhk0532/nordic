@@ -31,7 +31,7 @@ use Usamamuneerchaudhary\Notifier\FilamentNotifierPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class NotifyPanelProvider extends PanelProvider
+class NotifyPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

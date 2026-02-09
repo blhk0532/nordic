@@ -7,7 +7,7 @@ namespace Adultdate\Wirechat\Console\Commands;
 use Adultdate\Wirechat\Jobs\DeleteExpiredMessagesJob;
 use Illuminate\Console\Command;
 
-final class DeleteExpiredMessage extends Command
+class DeleteExpiredMessage extends Command
 {
     protected $signature = 'wirechat:delete-expired';
 

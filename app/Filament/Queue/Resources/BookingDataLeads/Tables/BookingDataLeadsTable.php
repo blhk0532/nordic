@@ -13,7 +13,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
-final class BookingDataLeadsTable
+class BookingDataLeadsTable
 {
     public static function configure(Table $table): Table
     {

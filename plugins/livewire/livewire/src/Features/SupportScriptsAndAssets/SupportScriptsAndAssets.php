@@ -10,7 +10,7 @@ use Livewire\ComponentHook;
 use function Livewire\on;
 use function Livewire\store;
 
-final class SupportScriptsAndAssets extends ComponentHook
+class SupportScriptsAndAssets extends ComponentHook
 {
     public static $alreadyRunAssetKeys = [];
 

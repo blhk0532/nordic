@@ -7,7 +7,7 @@ namespace Adultdate\FilamentPostnummer\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class Postnummer extends Model
+class Postnummer extends Model
 {
     use HasFactory;
 

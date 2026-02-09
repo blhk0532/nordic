@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserMixed extends ApexChartWidget
+class UserMixed extends ApexChartWidget
 {
     /**
      * Chart Id

@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\HittaDatas\HittaDataResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewHittaData extends ViewRecord
+class ViewHittaData extends ViewRecord
 {
     protected static string $resource = HittaDataResource::class;
 

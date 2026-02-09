@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Support\Facades\File;
 use Throwable;
 
-final class CacheManager
+class CacheManager
 {
     public function __construct(
         public string $cacheDirectory,

@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportWireModelingNestedComponents\BaseModelable;
 
 #[Attribute]
-final class Modelable extends BaseModelable
+class Modelable extends BaseModelable
 {
     //
 }

@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportReleaseTokens extends ComponentHook
+class SupportReleaseTokens extends ComponentHook
 {
     public static function provide()
     {

@@ -7,7 +7,7 @@ namespace App\Filament\App\Widgets;
 use App\Filament\Admin\Support\StackWidget;
 use Filament\Widgets\Widget;
 
-final class AccountInfoStackWidget extends Widget
+class AccountInfoStackWidget extends Widget
 {
     use StackWidget;
 

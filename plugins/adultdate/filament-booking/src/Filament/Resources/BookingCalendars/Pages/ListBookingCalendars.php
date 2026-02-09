@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalenda
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBookingCalendars extends ListRecords
+class ListBookingCalendars extends ListRecords
 {
     protected static string $resource = BookingCalendarResource::class;
 

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Contracts\ContextualInfo;
-use Guava\Calendar\Enums\Context;
-use Guava\Calendar\ValueObjects\DateClickInfo;
-use Guava\Calendar\ValueObjects\DateSelectInfo;
-use Guava\Calendar\ValueObjects\EventClickInfo;
-use Guava\Calendar\ValueObjects\EventDropInfo;
-use Guava\Calendar\ValueObjects\EventResizeInfo;
-use Guava\Calendar\ValueObjects\NoEventsClickInfo;
+use Adultdate\FilamentBooking\Contracts\ContextualInfo;
+use Adultdate\FilamentBooking\Enums\Context;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventDropInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventResizeInfo;
+use Adultdate\FilamentBooking\ValueObjects\NoEventsClickInfo;
 
 trait HasCalendarContextData
 {

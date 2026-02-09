@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\BookingDataLead;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class BookingDataLeadPolicy
+class BookingDataLeadPolicy
 {
     use HandlesAuthorization;
 

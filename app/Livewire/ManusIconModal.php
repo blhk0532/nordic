@@ -11,7 +11,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Schema;
 use Inerba\DbConfig\AbstractPageSettings;
 
-final class ManusIconModal extends AbstractPageSettings implements HasForms
+class ManusIconModal extends AbstractPageSettings implements HasForms
 {
     use InteractsWithForms;
 

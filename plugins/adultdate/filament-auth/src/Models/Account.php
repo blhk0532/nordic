@@ -22,7 +22,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-final class UserAccount extends Authenticatable implements FilamentUser, HasAvatar, HasDefaultTenant, HasName, HasTenants, MustVerifyEmail
+class UserAccount extends Authenticatable implements FilamentUser, HasAvatar, HasDefaultTenant, HasName, HasTenants, MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;

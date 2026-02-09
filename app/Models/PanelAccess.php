@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class PanelAccess extends Model
+class PanelAccess extends Model
 {
     protected $fillable = [
         'panel_id',

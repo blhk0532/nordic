@@ -12,7 +12,7 @@ use Filament\Panel;
 use Filament\Support\Icons\Heroicon;
 use UnitEnum;
 
-final class FilamentCacheManagerPlugin implements Plugin
+class FilamentCacheManagerPlugin implements Plugin
 {
     use AuthorizesPlugin;
 

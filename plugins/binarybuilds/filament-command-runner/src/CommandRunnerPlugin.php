@@ -9,7 +9,7 @@ use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class CommandRunnerPlugin implements Plugin
+class CommandRunnerPlugin implements Plugin
 {
     private $validationRule = null;
 

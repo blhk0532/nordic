@@ -15,7 +15,7 @@ use SolutionForest\FilamentTree\Macros\BlueprintMarcos;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentTreeServiceProvider extends PackageServiceProvider
+class FilamentTreeServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-tree';
 

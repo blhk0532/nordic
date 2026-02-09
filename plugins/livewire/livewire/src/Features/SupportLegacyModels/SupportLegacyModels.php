@@ -12,7 +12,7 @@ use function Livewire\on;
 /**
  * Depends on: SupportValidation for ->missingRuleFor() method on component. (inside ModelSynth)
  */
-final class SupportLegacyModels extends ComponentHook
+class SupportLegacyModels extends ComponentHook
 {
     protected static $rules;
 

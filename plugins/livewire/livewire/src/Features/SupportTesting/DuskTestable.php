@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 use function Livewire\invade;
 use function Livewire\on;
 
-final class DuskTestable
+class DuskTestable
 {
     public static $currentTestCase;
 
@@ -156,7 +156,7 @@ final class DuskTestable
                 if (\Orchestra\Testbench\phpunit_version_compare('10.0', '>=')) {
                     (new $testClass($method))->$method();
                 } else {
-                    (new $testClass())->$method();
+                    (new $testClass)->$method();
                 }
             } catch (Exception $e) {
                 if (! $e->isDuskShortcircuit) {
@@ -197,7 +197,7 @@ final class DuskTestable
 
     public function breakIntoATinkerShell($browsers, $e)
     {
-        $sh = new \Psy\Shell();
+        $sh = new \Psy\Shell;
 
         $sh->add(new \Laravel\Dusk\Console\DuskCommand($this, $e));
 

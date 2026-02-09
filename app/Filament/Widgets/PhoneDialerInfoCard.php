@@ -6,7 +6,7 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\Widget;
 
-final class PhoneDialerInfoCard extends Widget
+class PhoneDialerInfoCard extends Widget
 {
     protected string $view = 'filament.widgets.phone-dialer-info-card';
 }

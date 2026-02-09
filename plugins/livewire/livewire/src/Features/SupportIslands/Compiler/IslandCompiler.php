@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 
-final class IslandCompiler
+class IslandCompiler
 {
     private string $mutableContents;
 

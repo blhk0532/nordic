@@ -24,7 +24,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
-final class CommentsRelationManager extends RelationManager
+class CommentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'comments';
 

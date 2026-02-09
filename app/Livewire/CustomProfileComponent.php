@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasSort;
 use Livewire\Component;
 
-final class CustomProfileComponent extends Component implements HasSchemas
+class CustomProfileComponent extends Component implements HasSchemas
 {
     use HasSort;
     use InteractsWithSchemas;

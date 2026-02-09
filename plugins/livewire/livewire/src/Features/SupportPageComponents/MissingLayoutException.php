@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportPageComponents;
 
 use Exception;
 
-final class MissingLayoutException extends Exception
+class MissingLayoutException extends Exception
 {
     public function __construct(string $layout)
     {

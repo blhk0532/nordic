@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class OutcomeDelaySetting extends Model
+class OutcomeDelaySetting extends Model
 {
     protected $table = 'outcome_delay_settings';
 

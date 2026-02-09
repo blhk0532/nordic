@@ -8,7 +8,7 @@ use App\Filament\Admin\Resources\TeamInvitations\TeamInvitationResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
 
-final class ManageTeamInvitations extends ManageRecords
+class ManageTeamInvitations extends ManageRecords
 {
     protected static string $resource = TeamInvitationResource::class;
 

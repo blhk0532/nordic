@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportSlots;
 
 use Illuminate\Contracts\Support\Htmlable;
 
-final class Slot implements Htmlable
+class Slot implements Htmlable
 {
     public function __construct(
         public string $name,

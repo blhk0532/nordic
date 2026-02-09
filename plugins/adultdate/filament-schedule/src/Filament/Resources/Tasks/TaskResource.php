@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class TaskResource extends Resource
+class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 

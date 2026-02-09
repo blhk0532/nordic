@@ -8,7 +8,7 @@ use App\Models\HittaData;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class HittaDataStatsWidget extends StatsOverviewWidget
+class HittaDataStatsWidget extends StatsOverviewWidget
 {
     protected static ?int $sort = -1;
 

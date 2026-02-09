@@ -9,7 +9,7 @@ use Filament\Pages\Page;
 use Filament\Support\Enums\Width;
 use UnitEnum;
 
-final class GoogleCalendar extends Page
+class GoogleCalendar extends Page
 {
     protected string $view = 'filament.booking.pages.google-calendar';
 

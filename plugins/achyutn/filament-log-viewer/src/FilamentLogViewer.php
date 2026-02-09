@@ -10,7 +10,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use UnitEnum;
 
-final class FilamentLogViewer implements Plugin
+class FilamentLogViewer implements Plugin
 {
     use PluginVariables;
 

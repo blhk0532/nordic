@@ -10,7 +10,7 @@ use SolutionForest\TabLayoutPlugin\Concerns\Components\CanBeHidden;
 use SolutionForest\TabLayoutPlugin\Concerns\Components\HasColumns;
 use SolutionForest\TabLayoutPlugin\Concerns\Components\HasComponents;
 
-final class ComponentContainer extends ViewComponent
+class ComponentContainer extends ViewComponent
 {
     use BelongsToParentComponent;
     use CanBeHidden;

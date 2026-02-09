@@ -105,7 +105,7 @@ php artisan make:filament-widget
 
 The widget class should look like this:
 ```php
-use \Guava\Calendar\Filament\CalendarWidget;
+use \Adultdate\FilamentBooking\Filament\Widgets\CalendarWidget;
 
 class MyCalendarWidget extends CalendarWidget
 {
@@ -120,7 +120,7 @@ Congrats! You now have a working filament-calendar in filament!
 By default, we show the `DayGridMonth` view. You can customize the view by overriding the `calendarView` property on the widget class:
 
 ```php
-use Guava\Calendar\Enums\CalendarViewType;
+use Adultdate\FilamentBooking\Enums\CalendarViewType;
 
 protected CalendarViewType $calendarView = CalendarViewType::ResourceTimeGridWeek;
 ```
@@ -155,7 +155,7 @@ The easiest way to do that is to just return your Eloquent Query, and we will ha
 ```php
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Guava\Calendar\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 
 protected function getEvents(FetchInfo $info): Collection | array | Builder
 {
@@ -186,8 +186,8 @@ To do that, you can return an array or collection of `CalendarEvent` objects dir
 ```php
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Guava\Calendar\ValueObjects\CalendarEvent;
-use Guava\Calendar\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 
 protected function getEvents(FetchInfo $info): Collection | array | Builder
 {
@@ -210,8 +210,8 @@ In most cases, you will add this interface to your **eloquent models**, but you 
 Here is an example:
 
 ```php
-use Guava\Calendar\Contracts\Eventable;
-use Guava\Calendar\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\Contracts\Eventable;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 
 class Foo extends Model implements Eventable
 {
@@ -359,7 +359,7 @@ If you use resources in your filament-calendar, you need to tell your events whi
 
 To do this, pass an array of resource IDs to the event:
 ```php
-use Guava\Calendar\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 CalendarEvent::make()
     ->resourceId('foo') // Pass a single resource ID, you can repeat this call multiple times
     ->resourceIds(['bar', 'baz']); // Pass multiple resource IDs at once
@@ -411,8 +411,8 @@ To do that, you can return an array or collection of `CalendarResource` objects 
 ```php
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Guava\Calendar\ValueObjects\CalendarResource;
-use Guava\Calendar\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\ValueObjects\CalendarResource;
+use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 
 protected function getResources(): Collection | array | Builder
 {
@@ -441,8 +441,8 @@ In most cases, you will add this interface to your **eloquent models**, but you 
 Here is an example:
 
 ```php
-use Guava\Calendar\Contracts\Resourceable;
-use Guava\Calendar\ValueObjects\CalendarResource;
+use Adultdate\FilamentBooking\Contracts\Resourceable;
+use Adultdate\FilamentBooking\ValueObjects\CalendarResource;
 
 class Bar extends Model implements Resourceable
 {
@@ -525,7 +525,7 @@ In this section we will go through each of these options.
 The filament-calendar comes with a variety of views. You can the filament-calendar view per widget by overriding the `calendarView` property:
 
 ```php
-use Guava\Calendar\Enums\CalendarViewType;
+use Adultdate\FilamentBooking\Enums\CalendarViewType;
 
 protected CalendarViewType $calendarView = CalendarViewType::ListWeek;
 ```
@@ -630,7 +630,7 @@ We provide a few drop-in replacements of the regular Filament actions that alrea
 
 Whenever you want to use one of these actions, **make sure** you use the actions from our package. All they do is extend the regular filament action and add a few important setUp calls.
 
-So, instead of using `Filament\Actions\CreateAction` you would use `Guava\Calendar\Filament\Actions\CreateAction`.
+So, instead of using `Filament\Actions\CreateAction` you would use `Adultdate\FilamentBooking\Filament\Actions\CreateAction`.
 
 #### Defining actions
 Every action you use in the filament-calendar should be defined as a public method in the widget class, just as usual when adding an [Action to a Livewire component](https://filamentphp.com/docs/4.x/components/action#adding-the-action) in filament.
@@ -642,7 +642,7 @@ For create actions, you still need to create them, since for each model a differ
 For example, to add a `createFooAction` (where `Foo` is a model in your app), you would add this method:
 
 ```php
-use Guava\Calendar\Filament\Actions\CreateAction;
+use Adultdate\FilamentBooking\Filament\Actions\CreateAction;
 
 public function createFooAction(): CreateAction
 {
@@ -670,10 +670,10 @@ In the background, we pass a few more arguments to the mount method.
 Thanks to that, you can type hint the contextual info in your actions:
 
 ```php
-use Guava\Calendar\Enums\Context;
-use Guava\Calendar\Contracts\ContextualInfo;
-use Guava\Calendar\ValueObjects\DateClickInfo;
-use Guava\Calendar\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\Enums\Context;
+use Adultdate\FilamentBooking\Contracts\ContextualInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
 
 public function createFooAction(): CreateAction
 {
@@ -712,7 +712,7 @@ These are not only limited to `mountUsing`, almost all action methods will have 
 
 For example, to conditionally hide an action in the DateClick context:
 ```php
-use Guava\Calendar\Enums\Context;
+use Adultdate\FilamentBooking\Enums\Context;
 
 $this->createAction(Foo::class)
     ->hidden(function (?ContextualInfo $info) {
@@ -762,7 +762,7 @@ public function fooBarSchema(Schema $schema): Schema
 }
 
 // Variant 2
-use Guava\Calendar\Attributes\CalendarSchema;
+use Adultdate\FilamentBooking\Attributes\CalendarSchema;
 
 #[CalendarSchema(FooBar::class)]
 public function baz(Schema $schema): Schema
@@ -796,7 +796,7 @@ You can now choose to either:
 If you want to take full control over what happens when a date cell is clicked, override the `onDateClick` method and implement your own custom logic:
 
 ```php
-use Guava\Calendar\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
 
 protected function onDateClick(DateClickInfo $info): void
 {
@@ -847,7 +847,7 @@ You can now choose to either:
 If you want to take full control over what happens when a date selection is made, override the `onDateSelect` method and implement your own custom logic:
 
 ```php
-use Guava\Calendar\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
 
 protected function onDateSelect(DateSelectInfo $info): void
 {
@@ -906,7 +906,7 @@ If you want to take full control over what happens when an event is clicked, ove
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Guava\Calendar\ValueObjects\EventClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventClickInfo;
 
 protected function onEventClick(EventClickInfo $info, Model $event, ?string $action = null): void
 {
@@ -959,7 +959,7 @@ You can now choose to either:
 If you want to take full control over what happens when a click is made, override the `onNoEventsClick` method and implement your own custom logic:
 
 ```php
-use Guava\Calendar\ValueObjects\NoEventsClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\NoEventsClickInfo;
 
 protected function onNoEventsClick(NoEventsClickInfo $info): void
 {
@@ -1010,7 +1010,7 @@ To handle the callback, override the `onEventResize` method and implement your o
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Guava\Calendar\ValueObjects\EventResizeInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventResizeInfo;
 
 protected function onEventResize(EventResizeInfo $info, Model $event): void
 {
@@ -1042,7 +1042,7 @@ To handle the callback, override the `onEventDrop` method and implement your own
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Guava\Calendar\ValueObjects\EventDropInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventDropInfo;
 
 protected function onEventDrop(EventDropInfo $info, Model $event): bool
 {
@@ -1077,7 +1077,7 @@ Now it is enabled and a request will be sent to livewire each time the filament-
 To handle the callback, override the `onDatesSet` method and implement your own custom logic:
 
 ```php
-use Guava\Calendar\ValueObjects\DatesSetInfo;
+use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 
 protected function onDatesSet(DatesSetInfo $info): void
 {
@@ -1104,7 +1104,7 @@ Now it is enabled and a request will be sent to livewire right after the filamen
 To handle the callback, override the `onViewDidMount` method and implement your own custom logic:
 
 ```php
-use Guava\Calendar\ValueObjects\ViewDidMountInfo;
+use Adultdate\FilamentBooking\ValueObjects\ViewDidMountInfo;
 
 protected function onViewDidMount(ViewDidMountInfo $info): void
 {
@@ -1149,7 +1149,7 @@ Example of the `filament-calendar.event` view blade file:
 If you want to render events differently based on their model type, you can implement an Event Content method for each model, by using the `CalendarEventContent` attribute or by using a specific naming convention for the method - `camelCaseModelNameEventContent` such as `fooEventContent` (where Foo is your model):
 ```php
 use Illuminate\Support\HtmlString;
-use Guava\Calendar\Attributes\CalendarEventContent;
+use Adultdate\FilamentBooking\Attributes\CalendarEventContent;
 
 // Variant 1.
 #[CalendarEventContent(Foo::class)]
@@ -1199,7 +1199,7 @@ Example of the `filament-calendar.resource` view blade file:
 If you want to render resources differently based on their model type, you can implement a Resource Label Content method for each model, by using the `CalendarResourceLabelContent` attribute or by using a specific naming convention for the method - `camelCaseModelNameResourceLabelContent` such as `fooResourceLabelContent` (where Foo is your model):
 ```php
 use Illuminate\Support\HtmlString;
-use Guava\Calendar\Attributes\CalendarResourceLabelContent;
+use Adultdate\FilamentBooking\Attributes\CalendarResourceLabelContent;
 
 // Variant 1.
 #[CalendarResourceLabel(Foo::class)]
@@ -1226,7 +1226,7 @@ Since we use regular filament actions, adding authorizations is a breeze.
 For example to add authorization to the createTaskAction:
 
 ```php
-use Guava\Calendar\Filament\Actions\CreateAction;
+use Adultdate\FilamentBooking\Filament\Actions\CreateAction;
 
 public function createFooAction(): CreateAction
 {

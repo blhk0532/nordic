@@ -12,9 +12,9 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Saade\FilamentFullCalendar\Actions;
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 
-final class CalendarWidget extends FullCalendarWidget
+class CalendarWidget extends FullCalendarWidget
 {
     public Model|string|null $model = 'App\Models\CalendarEvent';
 

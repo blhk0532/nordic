@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
 use Exception;
-use Guava\Calendar\Enums\Context;
-use Guava\Calendar\ValueObjects\EventClickInfo;
+use Adultdate\FilamentBooking\Enums\Context;
+use Adultdate\FilamentBooking\ValueObjects\EventClickInfo;
 use Illuminate\Database\Eloquent\Model;
 
 trait HandlesEventClick

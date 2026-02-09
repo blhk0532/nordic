@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Process;
 use Log;
 use RuntimeException;
 
-final class RunMerinfoCheckCountsJob implements ShouldQueue
+class RunMerinfoCheckCountsJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

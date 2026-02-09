@@ -7,7 +7,7 @@ namespace App\Filament\Panels\Resources\Searches\Pages;
 use App\Filament\Panels\Resources\Searches\SearchResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateSearch extends CreateRecord
+class CreateSearch extends CreateRecord
 {
     protected static string $resource = SearchResource::class;
 }

@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Spatie\Permission\Models\Permission;
 
-final class GenerateManualPermissions extends Command
+class GenerateManualPermissions extends Command
 {
     protected $signature = 'permissions:generate-manual';
 

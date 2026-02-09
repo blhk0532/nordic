@@ -11,7 +11,7 @@ use Filament\Support\Enums\Width;
 use Illuminate\Contracts\Support\Htmlable;
 use Throwable;
 
-final class ViewException extends ViewRecord
+class ViewException extends ViewRecord
 {
     protected static string $resource = ExceptionResource::class;
 

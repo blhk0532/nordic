@@ -8,7 +8,7 @@ use Filament\Facades\Filament;
 use Filament\Pages\Page;
 use Filament\Panel;
 
-final class EditProfilePage extends Page
+class EditProfilePage extends Page
 {
     protected string $view = 'filament-edit-profile::filament.pages.edit-profile-page';
 

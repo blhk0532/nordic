@@ -8,7 +8,7 @@ use AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationReso
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewConversation extends ViewRecord
+class ViewConversation extends ViewRecord
 {
     protected static string $resource = ConversationResource::class;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Attributes;
+namespace Adultdate\FilamentBooking\Attributes;
 
 use Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 #[Attribute(Attribute::TARGET_METHOD)]
-final class CalendarEventContent
+class CalendarEventContent
 {
     /**
      * @param  class-string<Model>  $model

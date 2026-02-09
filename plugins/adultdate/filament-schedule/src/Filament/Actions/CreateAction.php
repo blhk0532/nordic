@@ -8,7 +8,7 @@ use Adultdate\Schedule\Concerns\CalendarAction;
 use Adultdate\Schedule\Contracts\HasCalendar;
 use Filament\Schemas\Schema;
 
-final class CreateAction extends \Filament\Actions\CreateAction
+class CreateAction extends \Filament\Actions\CreateAction
 {
     use CalendarAction;
 

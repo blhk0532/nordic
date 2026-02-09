@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Ac
 use Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Widgets\EventCalendar;
 use Filament\Actions\DeleteAction as BaseDeleteAction;
 
-final class DeleteAction extends BaseDeleteAction
+class DeleteAction extends BaseDeleteAction
 {
     protected function setUp(): void
     {

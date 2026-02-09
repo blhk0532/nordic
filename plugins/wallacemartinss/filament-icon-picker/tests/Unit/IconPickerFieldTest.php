@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
 use Wallacemartinss\FilamentIconPicker\Tests\TestCase;
 
-final class IconPickerFieldTest extends TestCase
+class IconPickerFieldTest extends TestCase
 {
     #[Test]
     public function it_can_be_instantiated(): void

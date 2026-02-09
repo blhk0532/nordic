@@ -9,20 +9,20 @@ use App\Models\Meeting;
 use App\Models\Sprint;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
-use Guava\Calendar\Attributes\CalendarEventContent;
-use Guava\Calendar\Filament\Actions\CreateAction;
-use Guava\Calendar\Filament\CalendarWidget;
-use Guava\Calendar\ValueObjects\DateClickInfo;
-use Guava\Calendar\ValueObjects\DateSelectInfo;
-use Guava\Calendar\ValueObjects\EventDropInfo;
-use Guava\Calendar\ValueObjects\EventResizeInfo;
-use Guava\Calendar\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\Attributes\CalendarEventContent;
+use Adultdate\FilamentBooking\Filament\Actions\CreateAction;
+use Adultdate\FilamentBooking\Filament\Widgets\CalendarWidget;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventDropInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventResizeInfo;
+use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 
-final class EventCalendar extends CalendarWidget
+class EventCalendar extends CalendarWidget
 {
     protected string|HtmlString|bool|null $heading = 'Calendar';
 

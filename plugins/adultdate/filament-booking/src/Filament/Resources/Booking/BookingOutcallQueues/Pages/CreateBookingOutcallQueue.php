@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\BookingOutcallQue
 use Adultdate\FilamentBooking\Filament\Resources\Booking\BookingOutcallQueues\BookingOutcallQueueResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateBookingOutcallQueue extends CreateRecord
+class CreateBookingOutcallQueue extends CreateRecord
 {
     protected static string $resource = BookingOutcallQueueResource::class;
 }

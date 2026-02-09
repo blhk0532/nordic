@@ -6,7 +6,7 @@ namespace daacreators\CreatorsTicketing\Filament\Resources\Tickets\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class TicketInfolist
+class TicketInfolist
 {
     public static function configure(Schema $schema): Schema
     {

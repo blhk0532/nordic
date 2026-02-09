@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\Departments\DepartmentResou
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListDepartments extends ListRecords
+class ListDepartments extends ListRecords
 {
     protected static string $resource = DepartmentResource::class;
 

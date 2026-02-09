@@ -9,7 +9,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Illuminate\Database\Eloquent\Model;
 
-final class AddressForm extends Field
+class AddressForm extends Field
 {
     /** @var string|callable|null */
     public $relationship = null;

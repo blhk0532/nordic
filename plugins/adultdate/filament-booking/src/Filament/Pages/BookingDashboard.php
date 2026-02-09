@@ -11,7 +11,7 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-final class BookingDashboard extends BaseAppDashboard
+class BookingDashboard extends BaseAppDashboard
 {
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartPie;
 

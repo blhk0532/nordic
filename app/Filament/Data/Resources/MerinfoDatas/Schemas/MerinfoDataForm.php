@@ -11,7 +11,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class MerinfoDataForm
+class MerinfoDataForm
 {
     public static function configure(Schema $schema): Schema
     {

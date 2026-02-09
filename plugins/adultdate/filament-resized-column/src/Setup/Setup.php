@@ -6,7 +6,7 @@ namespace Asmit\ResizedColumn\Setup;
 
 use Asmit\ResizedColumn\Setup\Concerns\CanResizedColumn;
 
-final class Setup
+class Setup
 {
     use CanResizedColumn;
 

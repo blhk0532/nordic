@@ -7,7 +7,7 @@ namespace AdultDate\FilamentDialer\Pages;
 use BackedEnum;
 use Filament\Pages\Page;
 
-final class AutoDialerPage extends Page
+class AutoDialerPage extends Page
 {
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-phone';
 

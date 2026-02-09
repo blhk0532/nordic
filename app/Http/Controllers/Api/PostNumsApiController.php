@@ -9,7 +9,7 @@ use App\Models\PostNum;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class PostNumsApiController extends Controller
+class PostNumsApiController extends Controller
 {
     /**
      * Display a listing of post numbers.

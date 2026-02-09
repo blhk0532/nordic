@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class CalendarResourceController extends Controller
+class CalendarResourceController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {

@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportPageComponents\BaseLayout;
 
 #[Attribute]
-final class Layout extends BaseLayout
+class Layout extends BaseLayout
 {
     //
 }

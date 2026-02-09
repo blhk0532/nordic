@@ -15,7 +15,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use League\Uri\Uri;
 
-final class PanelSwitch extends Component
+class PanelSwitch extends Component
 {
     use Concerns\HasPanelValidator;
 

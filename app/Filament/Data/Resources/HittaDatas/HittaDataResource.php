@@ -17,7 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class HittaDataResource extends Resource
+class HittaDataResource extends Resource
 {
     protected static ?string $model = HittaData::class;
 

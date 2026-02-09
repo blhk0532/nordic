@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \BezhanSalleh\PanelSwitch\PanelSwitch
  */
-final class PanelSwitch extends Facade
+class PanelSwitch extends Facade
 {
     protected static function getFacadeAccessor()
     {

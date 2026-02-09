@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Mechanisms\HandleComponents\BaseRenderless;
 
 #[Attribute]
-final class Renderless extends BaseRenderless
+class Renderless extends BaseRenderless
 {
     //
 }

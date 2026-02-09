@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class AdminPolicy
+class AdminPolicy
 {
     use HandlesAuthorization;
 

@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:config')]
-final class ConfigCommand extends Command
+class ConfigCommand extends Command
 {
     protected $signature = 'livewire:config';
 

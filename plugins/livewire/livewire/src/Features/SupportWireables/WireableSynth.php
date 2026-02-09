@@ -8,7 +8,7 @@ use Exception;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 use Livewire\Wireable;
 
-final class WireableSynth extends Synth
+class WireableSynth extends Synth
 {
     public static $key = 'wrbl';
 

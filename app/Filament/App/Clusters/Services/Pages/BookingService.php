@@ -10,7 +10,7 @@ use Filament\Pages\Page;
 use Filament\Widgets\Widget;
 use UnitEnum;
 
-final class BookingService extends Page
+class BookingService extends Page
 {
     protected string $view = 'filament-booking::pages.page';
 

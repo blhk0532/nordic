@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pa
 use Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\DailyLocationResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateDailyLocation extends CreateRecord
+class CreateDailyLocation extends CreateRecord
 {
     protected static string $resource = DailyLocationResource::class;
 }

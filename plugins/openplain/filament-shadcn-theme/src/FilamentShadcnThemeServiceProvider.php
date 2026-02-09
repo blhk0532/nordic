@@ -14,7 +14,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * Provides the Shadcn UI design system for Filament panels
  */
-final class FilamentShadcnThemeServiceProvider extends ServiceProvider
+class FilamentShadcnThemeServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {

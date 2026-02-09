@@ -10,7 +10,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\confirm;
 
 #[AsCommand(name: 'exceptions:install')]
-final class InstallCommand extends Command
+class InstallCommand extends Command
 {
     public $signature = 'exceptions:install {--F|force}';
 

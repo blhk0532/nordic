@@ -18,7 +18,7 @@ use daacreators\CreatorsTicketing\Services\AutomationService;
 use daacreators\CreatorsTicketing\Support\UserNameResolver;
 use Illuminate\Support\Str;
 
-final class TicketObserver
+class TicketObserver
 {
     public function creating(Ticket $ticket): void
     {

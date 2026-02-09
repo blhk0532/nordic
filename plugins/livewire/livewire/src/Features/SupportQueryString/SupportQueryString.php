@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\invade;
 
-final class SupportQueryString extends ComponentHook
+class SupportQueryString extends ComponentHook
 {
     public $queryString;
 

@@ -50,7 +50,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
 
-final class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
+class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar

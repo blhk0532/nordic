@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Wallacemartinss\FilamentIconPicker\Infolists\Components\IconPickerEntry;
 use Wallacemartinss\FilamentIconPicker\Tests\TestCase;
 
-final class IconPickerEntryTest extends TestCase
+class IconPickerEntryTest extends TestCase
 {
     #[Test]
     public function it_can_be_instantiated(): void

@@ -8,7 +8,7 @@ use Exception;
 use Livewire\Compiler\Parser\MultiFileParser;
 use Livewire\Compiler\Parser\SingleFileParser;
 
-final class Compiler
+class Compiler
 {
     private $prepareViewsForCompilationUsing = [];
 

@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\AdultDate\FilamentWirechat\Models\Action>
  */
-final class ActionFactory extends Factory
+class ActionFactory extends Factory
 {
     protected $model = Action::class;
 

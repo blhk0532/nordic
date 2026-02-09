@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class TicketActivity extends Model
+class TicketActivity extends Model
 {
     protected $guarded = [];
 

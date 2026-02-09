@@ -12,11 +12,11 @@ use daacreators\CreatorsTicketing\Filament\Resources\TicketStatuses\TicketStatus
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class TicketingPlugin implements Plugin
+class TicketingPlugin implements Plugin
 {
     public static function make(): static
     {
-        return new self();
+        return new self;
     }
 
     public function getId(): string

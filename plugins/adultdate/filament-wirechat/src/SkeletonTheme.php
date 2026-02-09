@@ -10,7 +10,7 @@ use Filament\Support\Assets\Theme;
 use Filament\Support\Color;
 use Filament\Support\Facades\FilamentAsset;
 
-final class Skeleton implements Plugin
+class Skeleton implements Plugin
 {
     public function getId(): string
     {

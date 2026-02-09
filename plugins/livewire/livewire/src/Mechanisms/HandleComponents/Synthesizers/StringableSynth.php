@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 
 use Illuminate\Support\Stringable;
 
-final class StringableSynth extends Synth
+class StringableSynth extends Synth
 {
     public static $key = 'str';
 

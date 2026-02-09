@@ -22,7 +22,7 @@ use MWGuerra\FileManager\Services\AuthorizationService;
  * This component displays the folder tree structure as a sidebar
  * that can be rendered in the Filament panel navigation.
  */
-final class FileManagerSidebar extends Component
+class FileManagerSidebar extends Component
 {
     /**
      * Currently selected folder path/ID.

@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-final class CategoryResource extends Resource
+class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 

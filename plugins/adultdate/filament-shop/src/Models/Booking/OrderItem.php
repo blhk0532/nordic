@@ -8,7 +8,7 @@ use Database\Factories\Booking\OrderItemFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class OrderItem extends Model
+class OrderItem extends Model
 {
     /** @use HasFactory<OrderItemFactory> */
     use HasFactory;

@@ -21,7 +21,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-final class PaymentsRelationManager extends RelationManager
+class PaymentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'payments';
 

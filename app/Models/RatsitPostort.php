@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class RatsitPostort extends Model
+class RatsitPostort extends Model
 {
     use HasFactory;
 

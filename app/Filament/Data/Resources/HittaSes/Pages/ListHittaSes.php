@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\HittaSes\HittaSeResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListHittaSes extends ListRecords
+class ListHittaSes extends ListRecords
 {
     protected static string $resource = HittaSeResource::class;
 

@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\TeamInvitation;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class TeamInvitationPolicy
+class TeamInvitationPolicy
 {
     use HandlesAuthorization;
 

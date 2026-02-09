@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-final class BookingComment extends Model
+class BookingComment extends Model
 {
     /** @use HasFactory<CommentFactory> */
     use HasFactory;

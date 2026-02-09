@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportValidation\BaseValidate;
 
 #[Attribute(Attribute::IS_REPEATABLE | Attribute::TARGET_ALL)]
-final class Validate extends BaseValidate
+class Validate extends BaseValidate
 {
     //
 }

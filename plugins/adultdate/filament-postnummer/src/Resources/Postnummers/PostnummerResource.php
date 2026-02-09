@@ -20,7 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class PostnummerResource extends Resource
+class PostnummerResource extends Resource
 {
     use Essentials\BelongsToParent;
     use Essentials\BelongsToTenant;

@@ -10,7 +10,7 @@ use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class BookingSprint extends Model implements Eventable
+class BookingSprint extends Model implements Eventable
 {
     /** @use HasFactory<\Database\Factories\SprintFactory> */
     use HasFactory;

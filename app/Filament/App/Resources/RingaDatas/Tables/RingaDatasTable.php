@@ -10,7 +10,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class RingaDatasTable
+class RingaDatasTable
 {
     public static function configure(Table $table): Table
     {

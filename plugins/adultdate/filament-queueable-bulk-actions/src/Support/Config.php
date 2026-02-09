@@ -8,7 +8,7 @@ use Bytexr\QueueableBulkActions\Enums\StatusEnum;
 use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
 use Filament\Facades\Filament;
 
-final class Config
+class Config
 {
     public static function isPluginRegister(): bool
     {

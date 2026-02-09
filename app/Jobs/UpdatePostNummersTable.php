@@ -12,7 +12,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
-final class UpdatePostNummersTable implements ShouldQueue
+class UpdatePostNummersTable implements ShouldQueue
 {
     use Queueable;
     use SendsFilamentNotifications;

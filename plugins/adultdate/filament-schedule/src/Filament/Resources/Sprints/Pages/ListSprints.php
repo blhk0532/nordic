@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Sprints\SprintResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListSprints extends ListRecords
+class ListSprints extends ListRecords
 {
     protected static string $resource = SprintResource::class;
 

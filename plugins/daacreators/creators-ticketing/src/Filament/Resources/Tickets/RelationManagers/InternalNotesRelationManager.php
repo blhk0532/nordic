@@ -14,7 +14,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Attributes\On;
 
-final class InternalNotesRelationManager extends RelationManager
+class InternalNotesRelationManager extends RelationManager
 {
     protected static string $relationship = 'internalNotes';
 

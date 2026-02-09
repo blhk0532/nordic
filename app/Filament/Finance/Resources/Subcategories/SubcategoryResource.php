@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\App;
 use UnitEnum;
 
-final class SubcategoryResource extends Resource
+class SubcategoryResource extends Resource
 {
     protected static ?string $model = Subcategory::class;
 

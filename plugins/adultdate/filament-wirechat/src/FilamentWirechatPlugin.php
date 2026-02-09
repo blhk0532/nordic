@@ -23,7 +23,7 @@ use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 
-final class FilamentWirechatPlugin implements Plugin
+class FilamentWirechatPlugin implements Plugin
 {
     private bool $showChatsIcon = true;
 

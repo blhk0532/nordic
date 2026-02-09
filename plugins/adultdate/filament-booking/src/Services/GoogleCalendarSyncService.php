@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use RuntimeException;
 use Spatie\GoogleCalendar\Event;
 
-final class GoogleCalendarSyncService
+class GoogleCalendarSyncService
 {
     /**
      * Sync a booking to Google Calendar

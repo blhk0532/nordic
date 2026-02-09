@@ -23,7 +23,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-final class TicketStatusResource extends Resource
+class TicketStatusResource extends Resource
 {
     use HasNavigationVisibility, HasTicketingNavGroup;
 

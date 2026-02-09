@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportSession\BaseSession;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
-final class Session extends BaseSession
+class Session extends BaseSession
 {
     //
 }

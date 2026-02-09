@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class RatsitStreet extends Model
+class RatsitStreet extends Model
 {
     protected $table = 'ratsit_streets';
 

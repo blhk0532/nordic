@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use lockscreen\FilamentLockscreen\Lockscreen;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -54,6 +55,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                Lockscreen::make()
+                    ->enableRateLimit() // Enable rate limit for the lockscreen. Default: Enable, 5 attempts in 1 minute.
+                    ->enableIdleTimeout() // Enable auto lock during idle time. Default: Enable, 30 minutes.
+                    ->disableDisplayName() // Display the name of the user based on the attribute supplied. Default: name
+                    ->enablePlugin(), // Enable the plugin.
             ]);
     }
 }

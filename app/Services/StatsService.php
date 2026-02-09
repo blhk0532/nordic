@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Database\Eloquent\Builder;
 
-final class StatsService
+class StatsService
 {
     public function getDashboardData(?string $from = null, ?string $to = null): array
     {

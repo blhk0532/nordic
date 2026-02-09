@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportFileUploads;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\WhitespacePathNormalizer;
 
-final class FileUploadConfiguration
+class FileUploadConfiguration
 {
     public static function storage()
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Filament\Support\Colors;
 
-final class Color
+class Color
 {
     public const Slate = [
         50 => 'oklch(0.984 0.003 247.858)',

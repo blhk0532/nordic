@@ -8,7 +8,7 @@ use Filament\Facades\Filament;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class PanelSwitchServiceProvider extends PackageServiceProvider
+class PanelSwitchServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-panel-switch';
 

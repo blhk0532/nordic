@@ -7,7 +7,7 @@ namespace App\Livewire;
 use Illuminate\View\View;
 use Livewire\Component;
 
-final class Notifications extends Component
+class Notifications extends Component
 {
     public function render(): View
     {

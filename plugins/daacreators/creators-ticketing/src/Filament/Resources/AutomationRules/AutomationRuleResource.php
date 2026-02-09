@@ -41,7 +41,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 
-final class AutomationRuleResource extends Resource
+class AutomationRuleResource extends Resource
 {
     use HasTicketingNavGroup, HasTicketPermissions;
 

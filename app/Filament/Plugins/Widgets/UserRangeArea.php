@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserRangeArea extends ApexChartWidget
+class UserRangeArea extends ApexChartWidget
 {
     /**
      * Chart Id

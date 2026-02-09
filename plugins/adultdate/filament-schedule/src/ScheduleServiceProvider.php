@@ -12,7 +12,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class ScheduleServiceProvider extends PackageServiceProvider
+class ScheduleServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'adultdate-schedule';
 

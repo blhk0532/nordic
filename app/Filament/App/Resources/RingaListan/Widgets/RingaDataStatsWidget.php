@@ -8,7 +8,7 @@ use App\Models\RingaData;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class RingaDataStatsWidget extends StatsOverviewWidget
+class RingaDataStatsWidget extends StatsOverviewWidget
 {
     protected static ?int $sort = -1;
 

@@ -31,7 +31,7 @@ use MWGuerra\FileManager\Services\FileUrlService;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FileManagerServiceProvider extends PackageServiceProvider
+class FileManagerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filemanager';
 

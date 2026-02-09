@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\UpplysningDatas\UpplysningDatasResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditUpplysningData extends EditRecord
+class EditUpplysningData extends EditRecord
 {
     protected static string $resource = UpplysningDatasResource::class;
 

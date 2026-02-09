@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-final class OutcomeSettingsTable
+class OutcomeSettingsTable
 {
     public static function configure(Table $table): Table
     {

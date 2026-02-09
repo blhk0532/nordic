@@ -7,7 +7,7 @@ namespace Livewire;
 use Livewire\Drawer\Utils;
 use WeakMap;
 
-final class ComponentHookRegistry
+class ComponentHookRegistry
 {
     private static $components;
 

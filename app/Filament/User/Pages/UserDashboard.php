@@ -19,7 +19,7 @@ use Illuminate\Support\Str;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseSlowRequests;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseUsage;
 
-final class UserDashboard extends BaseDashboard
+class UserDashboard extends BaseDashboard
 {
     protected static ?string $title = '';
 

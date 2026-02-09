@@ -6,7 +6,7 @@ namespace Adultdate\FilamentBooking\ValueObjects;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class CalendarResource
+class CalendarResource
 {
     private int|string $id;
 

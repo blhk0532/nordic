@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
  * direct web access (like the 'local' disk). It validates signed URLs
  * and checks authorization before streaming file contents.
  */
-final class FileStreamController extends Controller
+class FileStreamController extends Controller
 {
     protected FileUrlService $fileUrlService;
 

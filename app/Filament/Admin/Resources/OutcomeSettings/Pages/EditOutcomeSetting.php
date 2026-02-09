@@ -8,7 +8,7 @@ use App\Filament\Admin\Resources\OutcomeSettings\OutcomeSettingResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditOutcomeSetting extends EditRecord
+class EditOutcomeSetting extends EditRecord
 {
     protected static string $resource = OutcomeSettingResource::class;
 

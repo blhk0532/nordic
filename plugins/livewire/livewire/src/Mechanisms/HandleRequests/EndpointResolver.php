@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Mechanisms\HandleRequests;
 
-final class EndpointResolver
+class EndpointResolver
 {
     /**
      * Get the base path prefix for all Livewire endpoints.

@@ -9,7 +9,7 @@ use BinaryBuilds\FilamentFailedJobs\Actions\RetryJobAction;
 use BinaryBuilds\FilamentFailedJobs\Resources\FailedJobs\FailedJobResource;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewFailedJob extends ViewRecord
+class ViewFailedJob extends ViewRecord
 {
     protected static string $resource = FailedJobResource::class;
 

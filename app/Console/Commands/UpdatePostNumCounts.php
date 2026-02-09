@@ -9,7 +9,7 @@ use App\Models\PostNum;
 use Exception;
 use Illuminate\Console\Command;
 
-final class UpdatePostNumCounts extends Command
+class UpdatePostNumCounts extends Command
 {
     /**
      * The name and signature of the console command.

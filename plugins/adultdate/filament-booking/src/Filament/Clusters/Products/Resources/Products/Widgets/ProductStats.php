@@ -9,7 +9,7 @@ use Filament\Widgets\Concerns\InteractsWithPageTable;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class ProductStats extends BaseWidget
+class ProductStats extends BaseWidget
 {
     use InteractsWithPageTable;
 

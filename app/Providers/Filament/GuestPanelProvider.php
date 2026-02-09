@@ -21,7 +21,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-final class GuestPanelProvider extends PanelProvider
+class GuestPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

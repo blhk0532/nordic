@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportWireRef;
 use Livewire\ComponentHook;
 use Livewire\Drawer\Utils;
 
-final class SupportWireRef extends ComponentHook
+class SupportWireRef extends ComponentHook
 {
     public function mount($params)
     {

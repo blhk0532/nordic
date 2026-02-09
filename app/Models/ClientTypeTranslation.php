@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class ClientTypeTranslation extends Model
+class ClientTypeTranslation extends Model
 {
     //
 }

@@ -15,7 +15,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-final class MessagesRelationManager extends RelationManager
+class MessagesRelationManager extends RelationManager
 {
     protected static string $relationship = 'messages';
 

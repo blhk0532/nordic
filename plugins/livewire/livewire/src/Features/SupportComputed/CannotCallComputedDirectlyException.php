@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportComputed;
 
 use Exception;
 
-final class CannotCallComputedDirectlyException extends Exception
+class CannotCallComputedDirectlyException extends Exception
 {
     public function __construct($componentName, $methodName)
     {

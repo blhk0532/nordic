@@ -13,7 +13,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class RatsitQueueController extends Controller
+class RatsitQueueController extends Controller
 {
     /**
      * Get the first ratsit queue record where personer_queued = 1 and personer_scraped = 0

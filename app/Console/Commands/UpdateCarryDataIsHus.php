@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-final class UpdateCarryDataIsHus extends Command
+class UpdateCarryDataIsHus extends Command
 {
     /**
      * The name and signature of the console command.

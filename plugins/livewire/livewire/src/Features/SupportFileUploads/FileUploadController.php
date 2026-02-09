@@ -8,7 +8,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Validator;
 
-final class FileUploadController implements HasMiddleware
+class FileUploadController implements HasMiddleware
 {
     public static array $defaultMiddleware = ['web'];
 

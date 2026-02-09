@@ -13,7 +13,7 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\DB;
 
-final class ListJobs extends ListRecords
+class ListJobs extends ListRecords
 {
     protected static string $resource = JobResource::class;
 

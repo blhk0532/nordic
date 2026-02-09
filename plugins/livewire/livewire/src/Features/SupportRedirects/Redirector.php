@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportRedirects;
 use Illuminate\Routing\Redirector as BaseRedirector;
 use Livewire\Component;
 
-final class Redirector extends BaseRedirector
+class Redirector extends BaseRedirector
 {
     protected $component;
 

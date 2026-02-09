@@ -8,7 +8,7 @@ use App\Filament\Resources\AutomationRules\AutomationRuleResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewAutomationRule extends ViewRecord
+class ViewAutomationRule extends ViewRecord
 {
     protected static string $resource = AutomationRuleResource::class;
 

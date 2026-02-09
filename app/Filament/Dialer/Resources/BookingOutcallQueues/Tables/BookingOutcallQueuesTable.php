@@ -14,7 +14,7 @@ use Filament\Tables\Table;
 use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 use Ysfkaya\FilamentPhoneInput\Tables\PhoneColumn;
 
-final class BookingOutcallQueuesTable
+class BookingOutcallQueuesTable
 {
     public static function configure(Table $table): Table
     {

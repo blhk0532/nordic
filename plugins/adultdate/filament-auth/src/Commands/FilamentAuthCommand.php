@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-final class FilamentAuthCommand extends Command
+class FilamentAuthCommand extends Command
 {
     protected $signature = 'filamentAuth:install {--panel=}';
 

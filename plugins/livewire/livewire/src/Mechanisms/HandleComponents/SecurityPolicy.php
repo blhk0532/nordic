@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\HandleComponents;
 
 use Exception;
 
-final class SecurityPolicy
+class SecurityPolicy
 {
     /**
      * Classes that should never be instantiated by Livewire synthesizers.

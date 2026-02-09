@@ -7,7 +7,7 @@ namespace App\Filament\Admin\Widgets;
 use Filament\Facades\Filament;
 use Filament\Widgets\Widget;
 
-final class AccountWidget extends Widget
+class AccountWidget extends Widget
 {
     protected static ?int $sort = 2;
 

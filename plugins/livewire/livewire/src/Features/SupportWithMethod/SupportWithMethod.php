@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\wrap;
 
-final class SupportWithMethod extends ComponentHook
+class SupportWithMethod extends ComponentHook
 {
     public function render($view, $data)
     {

@@ -10,7 +10,7 @@ use Livewire\Mechanisms\Mechanism;
 use function Livewire\invade;
 use function Livewire\on;
 
-final class ExtendBlade extends Mechanism
+class ExtendBlade extends Mechanism
 {
     protected $directives = [];
 

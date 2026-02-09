@@ -17,7 +17,7 @@ use InvalidArgumentException;
 use Maatwebsite\Excel\Facades\Excel;
 use PDO;
 
-final class ImportMerinfoData implements ShouldQueue
+class ImportMerinfoData implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

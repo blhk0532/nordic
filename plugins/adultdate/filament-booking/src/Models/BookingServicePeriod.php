@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class BookingServicePeriod extends Model
+class BookingServicePeriod extends Model
 {
     use HasFactory;
 

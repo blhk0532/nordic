@@ -7,7 +7,7 @@ namespace Adultdate\FilamentUser\Database\Factories;
 use Adultdate\FilamentUser\Models\UserType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class UserTypeFactory extends Factory
+class UserTypeFactory extends Factory
 {
     protected $model = UserType::class;
 

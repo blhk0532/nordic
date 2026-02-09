@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportQueryString\BaseUrl;
 
 #[Attribute]
-final class PaginationUrl extends BaseUrl
+class PaginationUrl extends BaseUrl
 {
     // In the case of Lazy components, the paginator won't resolve and initialize
     // until the subsequent request. Therefore, we need to override "dehydrate"

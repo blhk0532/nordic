@@ -7,7 +7,7 @@ namespace Adultdate\Schedule\Casts;
 use Adultdate\Schedule\Enums\Frequency;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-final class SafeFrequencyCast implements CastsAttributes
+class SafeFrequencyCast implements CastsAttributes
 {
     public function get($model, string $key, $value, array $attributes)
     {

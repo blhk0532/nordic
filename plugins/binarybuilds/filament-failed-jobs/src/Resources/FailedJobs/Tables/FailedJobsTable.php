@@ -21,7 +21,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-final class FailedJobsTable
+class FailedJobsTable
 {
     public static function configure(Table $table): Table
     {

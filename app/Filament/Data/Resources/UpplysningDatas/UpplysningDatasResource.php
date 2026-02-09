@@ -18,7 +18,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class UpplysningDatasResource extends Resource
+class UpplysningDatasResource extends Resource
 {
     protected static ?string $model = UpplysningData::class;
 

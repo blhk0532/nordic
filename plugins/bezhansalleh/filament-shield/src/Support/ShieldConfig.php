@@ -6,7 +6,7 @@ namespace BezhanSalleh\FilamentShield\Support;
 
 use Illuminate\Support\Fluent;
 
-final class ShieldConfig extends Fluent
+class ShieldConfig extends Fluent
 {
     protected static ?self $instance = null;
 

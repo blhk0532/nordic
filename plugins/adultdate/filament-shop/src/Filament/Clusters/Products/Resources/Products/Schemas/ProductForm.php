@@ -18,7 +18,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
-final class ProductForm
+class ProductForm
 {
     public static function configure(Schema $schema): Schema
     {

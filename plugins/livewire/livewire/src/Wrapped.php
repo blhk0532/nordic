@@ -6,7 +6,7 @@ namespace Livewire;
 
 use Throwable;
 
-final class Wrapped
+class Wrapped
 {
     private $fallback;
 

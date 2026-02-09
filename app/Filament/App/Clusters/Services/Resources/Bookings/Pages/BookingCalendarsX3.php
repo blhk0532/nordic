@@ -20,7 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 use UnitEnum;
 
-final class BookingCalendarsX3 extends BaseDashboard
+class BookingCalendarsX3 extends BaseDashboard
 {
     use HasFiltersForm;
 

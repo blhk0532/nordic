@@ -19,7 +19,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-final class OutcomeDelaySettingResource extends Resource
+class OutcomeDelaySettingResource extends Resource
 {
     protected static ?string $model = OutcomeDelaySetting::class;
 

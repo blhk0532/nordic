@@ -7,7 +7,7 @@ namespace SolutionForest\FilamentTree\Actions;
 use Filament\Actions\DeleteAction as BaseDeleteAction;
 use SolutionForest\FilamentTree\Concern\Actions\TreeActionTrait;
 
-final class DeleteAction extends BaseDeleteAction
+class DeleteAction extends BaseDeleteAction
 {
     use TreeActionTrait;
 }

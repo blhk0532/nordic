@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-final class OutcomeRecorder extends Component implements HasActions, HasForms
+class OutcomeRecorder extends Component implements HasActions, HasForms
 {
     use InteractsWithActions;
     use InteractsWithForms;

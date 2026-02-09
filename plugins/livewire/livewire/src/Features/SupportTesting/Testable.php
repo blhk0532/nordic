@@ -16,7 +16,7 @@ use Livewire\Features\SupportValidation\TestsValidation;
  *
  * @mixin \Illuminate\Testing\TestResponse
  */
-final class Testable
+class Testable
 {
     use Macroable { Macroable::__call as macroCall; }
     use MakesAssertions,

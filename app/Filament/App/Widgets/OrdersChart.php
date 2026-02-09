@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\Auth;
 
-final class OrdersChart extends ChartWidget
+class OrdersChart extends ChartWidget
 {
     protected ?string $heading = 'Bokningar per månad';
 

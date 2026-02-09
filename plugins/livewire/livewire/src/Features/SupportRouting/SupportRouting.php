@@ -8,7 +8,7 @@ use Illuminate\Routing\Route as IlluminateRoute;
 use Illuminate\Support\Facades\Route;
 use Livewire\ComponentHook;
 
-final class SupportRouting extends ComponentHook
+class SupportRouting extends ComponentHook
 {
     public static function provide()
     {

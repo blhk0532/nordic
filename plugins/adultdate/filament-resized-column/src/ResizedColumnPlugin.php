@@ -9,7 +9,7 @@ use Filament\Contracts\Plugin;
 use Filament\FilamentManager;
 use Filament\Panel;
 
-final class ResizedColumnPlugin implements Plugin
+class ResizedColumnPlugin implements Plugin
 {
     use CanResizedColumn;
 

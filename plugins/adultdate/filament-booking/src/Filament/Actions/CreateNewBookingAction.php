@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Actions;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Filament\Actions\Action;
 
-final class CreateNewBookingAction extends Action
+class CreateNewBookingAction extends Action
 {
     protected function setUp(): void
     {

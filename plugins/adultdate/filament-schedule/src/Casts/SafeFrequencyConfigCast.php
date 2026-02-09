@@ -9,7 +9,7 @@ use Adultdate\Schedule\Models\Schedule;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
-final class SafeFrequencyConfigCast implements CastsAttributes
+class SafeFrequencyConfigCast implements CastsAttributes
 {
     public function get(Model $model, string $key, mixed $value, array $attributes)
     {

@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\AutomationRules\AutomationR
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListAutomationRules extends ListRecords
+class ListAutomationRules extends ListRecords
 {
     protected static string $resource = AutomationRuleResource::class;
 

@@ -12,7 +12,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-final class PublicTicketChat extends Component
+class PublicTicketChat extends Component
 {
     use WithFileUploads;
 

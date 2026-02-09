@@ -13,7 +13,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-final class OutcomesTable
+class OutcomesTable
 {
     public static function configure(Table $table): Table
     {

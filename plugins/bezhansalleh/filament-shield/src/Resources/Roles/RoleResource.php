@@ -29,7 +29,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 
-final class RoleResource extends Resource
+class RoleResource extends Resource
 {
     use Essentials\BelongsToParent;
     use Essentials\BelongsToTenant;

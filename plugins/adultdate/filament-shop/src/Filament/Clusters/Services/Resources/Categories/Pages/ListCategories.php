@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Categories\Categ
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListCategories extends ListRecords
+class ListCategories extends ListRecords
 {
     protected static string $resource = CategoryResource::class;
 

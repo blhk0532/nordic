@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class RootTagMissingFromViewException extends Exception
+class RootTagMissingFromViewException extends Exception
 {
     use BypassViewHandler;
 

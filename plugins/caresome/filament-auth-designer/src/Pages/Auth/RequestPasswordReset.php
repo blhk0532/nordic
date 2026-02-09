@@ -7,7 +7,7 @@ namespace Caresome\FilamentAuthDesigner\Pages\Auth;
 use Caresome\FilamentAuthDesigner\Concerns\HasAuthDesignerLayout;
 use Filament\Auth\Pages\PasswordReset\RequestPasswordReset as BaseRequestPasswordReset;
 
-final class RequestPasswordReset extends BaseRequestPasswordReset
+class RequestPasswordReset extends BaseRequestPasswordReset
 {
     use HasAuthDesignerLayout;
 

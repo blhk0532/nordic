@@ -13,7 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class MerinfoForm
+class MerinfoForm
 {
     public static function configure(Schema $schema): Schema
     {

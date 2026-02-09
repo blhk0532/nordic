@@ -18,7 +18,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class CommandRunResource extends Resource
+class CommandRunResource extends Resource
 {
     public static string|null|UnitEnum $navigationGroup = 'Settings';
 

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array|null palette(string $name)
  * @method static void register(array $map)
  */
-final class WirechatColor extends Facade
+class WirechatColor extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

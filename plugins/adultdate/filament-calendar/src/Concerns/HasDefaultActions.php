@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
 use Filament\Actions\Action;
-use Guava\Calendar\Filament\Actions\CreateAction;
-use Guava\Calendar\Filament\Actions\DeleteAction;
-use Guava\Calendar\Filament\Actions\EditAction;
-use Guava\Calendar\Filament\Actions\ViewAction;
+use Adultdate\FilamentBooking\Filament\Actions\CreateAction;
+use Adultdate\FilamentBooking\Filament\Actions\DeleteAction;
+use Adultdate\FilamentBooking\Filament\Actions\EditAction;
+use Adultdate\FilamentBooking\Filament\Actions\ViewAction;
 use Illuminate\Support\Str;
 
 trait HasDefaultActions

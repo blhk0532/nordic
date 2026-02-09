@@ -8,7 +8,7 @@ use App\Filament\Queue\Resources\BookingDataLeads\BookingDataLeadResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBookingDataLead extends EditRecord
+class EditBookingDataLead extends EditRecord
 {
     protected static string $resource = BookingDataLeadResource::class;
 

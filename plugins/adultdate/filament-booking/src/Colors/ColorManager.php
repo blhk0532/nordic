@@ -10,7 +10,7 @@ use Filament\Support\View\Components\Contracts\HasColor;
 use Filament\Support\View\Components\Contracts\HasDefaultGrayColor;
 use LogicException;
 
-final class ColorManager
+class ColorManager
 {
     use EvaluatesClosures;
 

@@ -13,7 +13,7 @@ use Livewire\Mechanisms\Mechanism;
 
 use function Livewire\on;
 
-final class FrontendAssets extends Mechanism
+class FrontendAssets extends Mechanism
 {
     public $hasRenderedScripts = false;
 

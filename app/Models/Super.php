@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Storage;
  * @mixin \Eloquent
  */
 #[ObservedBy(SuperObserver::class)]
-final class Super extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract
+class Super extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract
 {
     use Authenticatable;
     use Authorizable;

@@ -12,7 +12,7 @@ use Adultdate\Wirechat\Livewire\Concerns\ModalComponent;
 use Livewire\Attributes\Locked;
 use Livewire\WithFileUploads;
 
-final class Permissions extends ModalComponent
+class Permissions extends ModalComponent
 {
     use HasPanel;
     use WithFileUploads;

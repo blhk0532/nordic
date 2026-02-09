@@ -9,7 +9,7 @@ use Livewire\ComponentHook;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-final class SupportFileDownloads extends ComponentHook
+class SupportFileDownloads extends ComponentHook
 {
     public function call()
     {

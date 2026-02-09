@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Schedules\ScheduleResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListSchedules extends ListRecords
+class ListSchedules extends ListRecords
 {
     protected static string $resource = ScheduleResource::class;
 

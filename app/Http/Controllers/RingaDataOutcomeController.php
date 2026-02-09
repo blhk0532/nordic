@@ -9,7 +9,7 @@ use App\Models\RingaData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-final class RingaDataOutcomeController
+class RingaDataOutcomeController
 {
     public function store(Request $request, $tenant, $id)
     {

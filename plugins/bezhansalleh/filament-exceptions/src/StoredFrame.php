@@ -18,7 +18,7 @@ use function is_string;
  * A stored frame that provides Laravel 12-compatible interface for both L11 and L12.
  * This replaces direct usage of Laravel's Frame class to ensure cross-version compatibility.
  */
-final class StoredFrame
+class StoredFrame
 {
     use ResolvesDumpSource;
 

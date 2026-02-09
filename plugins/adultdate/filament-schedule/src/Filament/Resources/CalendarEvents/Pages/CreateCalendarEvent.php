@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\CalendarEvents\CalendarEventResource;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Auth;
 
-final class CreateCalendarEvent extends CreateRecord
+class CreateCalendarEvent extends CreateRecord
 {
     protected static string $resource = CalendarEventResource::class;
 

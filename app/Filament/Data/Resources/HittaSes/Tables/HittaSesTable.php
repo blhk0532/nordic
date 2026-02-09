@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Builder;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as FilamentExcelExportBulkAction;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
-final class HittaSesTable
+class HittaSesTable
 {
     public static function configure(Table $table): Table
     {

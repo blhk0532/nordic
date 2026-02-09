@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
 
-final class BookingOutcallQueueTable extends TableWidget
+class BookingOutcallQueueTable extends TableWidget
 {
     public function table(Table $table): Table
     {

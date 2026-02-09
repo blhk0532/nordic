@@ -10,7 +10,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportMorphAwareBladeCompilation extends ComponentHook
+class SupportMorphAwareBladeCompilation extends ComponentHook
 {
     protected static $shouldInjectConditionalMarkers = false;
 

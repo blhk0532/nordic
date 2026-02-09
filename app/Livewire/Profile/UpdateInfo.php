@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
-final class UpdateInfo extends Component implements HasForms
+class UpdateInfo extends Component implements HasForms
 {
     use InteractsWithForms;
 

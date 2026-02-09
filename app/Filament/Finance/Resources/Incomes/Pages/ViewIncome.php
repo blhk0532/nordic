@@ -8,7 +8,7 @@ use App\Filament\Finance\Resources\Incomes\IncomeResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewIncome extends ViewRecord
+class ViewIncome extends ViewRecord
 {
     protected static string $resource = IncomeResource::class;
 

@@ -10,7 +10,7 @@ use Livewire\Livewire;
 
 // use Relaticle\Flowforge\Livewire\KanbanBoard;
 
-final class FlowforgePlugin implements Plugin
+class FlowforgePlugin implements Plugin
 {
     public static function make(): static
     {

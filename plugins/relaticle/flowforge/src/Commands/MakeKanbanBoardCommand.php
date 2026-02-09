@@ -9,7 +9,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use RuntimeException;
 
-final class MakeKanbanBoardCommand extends Command
+class MakeKanbanBoardCommand extends Command
 {
     /**
      * The name and signature of the console command.

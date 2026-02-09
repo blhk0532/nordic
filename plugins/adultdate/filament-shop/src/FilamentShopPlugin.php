@@ -13,7 +13,7 @@ use Adultdate\FilamentShop\Filament\Widgets\StatsOverviewWidget;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class FilamentShopPlugin implements Plugin
+class FilamentShopPlugin implements Plugin
 {
     public static function make(): static
     {

@@ -25,7 +25,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\HtmlString;
 
-final class EventCalendar extends CalendarWidget
+class EventCalendar extends CalendarWidget
 {
     protected static string $viewIdentifier = 'adultdate-schedule::calendar-widget';
 

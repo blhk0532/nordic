@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\UpplysningDatas\UpplysningDatasResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListUpplysningDatas extends ListRecords
+class ListUpplysningDatas extends ListRecords
 {
     protected static string $resource = UpplysningDatasResource::class;
 

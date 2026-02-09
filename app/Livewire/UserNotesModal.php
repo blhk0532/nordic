@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
 
-final class UserNotesModal extends Component implements HasForms
+class UserNotesModal extends Component implements HasForms
 {
     use InteractsWithForms;
 

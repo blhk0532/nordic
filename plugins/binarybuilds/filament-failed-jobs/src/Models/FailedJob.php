@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $job
  * @property string $payload
  */
-final class FailedJob extends Model
+class FailedJob extends Model
 {
     public $timestamps = false;
 

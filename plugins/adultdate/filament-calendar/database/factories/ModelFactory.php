@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Database\Factories;
+namespace Adultdate\FilamentBooking\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

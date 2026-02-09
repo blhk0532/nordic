@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-final class Day extends Component
+class Day extends Component
 {
     public $day;
 

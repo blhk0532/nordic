@@ -12,7 +12,7 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 
-final class RingaDataPinpointWidget extends Widget implements HasForms
+class RingaDataPinpointWidget extends Widget implements HasForms
 {
     use InteractsWithForms;
 

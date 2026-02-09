@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 use Throwable;
 
-final class RunHittaPostOrtDirectJob implements ShouldQueue
+class RunHittaPostOrtDirectJob implements ShouldQueue
 {
     use Dispatchable;
     use Queueable;

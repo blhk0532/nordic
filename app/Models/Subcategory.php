@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Subcategory extends Model
+class Subcategory extends Model
 {
     use HasFactory, SoftDeletes, SubcategoryTranslations;
 

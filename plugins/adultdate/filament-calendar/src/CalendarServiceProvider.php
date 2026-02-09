@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar;
+namespace Adultdate\FilamentBooking;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Css;
@@ -11,7 +11,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class CalendarServiceProvider extends PackageServiceProvider
+class CalendarServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

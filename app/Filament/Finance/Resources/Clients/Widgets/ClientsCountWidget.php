@@ -8,7 +8,7 @@ use App\Models\Client;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class ClientsCountWidget extends StatsOverviewWidget
+class ClientsCountWidget extends StatsOverviewWidget
 {
     // re-render poll every 40s
     protected function getPollingInterval(): ?string

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Filament\Actions;
+namespace Adultdate\FilamentBooking\Filament\Actions;
 
 use Filament\Schemas\Schema;
-use Guava\Calendar\Concerns\CalendarAction;
-use Guava\Calendar\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Concerns\CalendarAction;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
 
-final class CreateAction extends \Filament\Actions\CreateAction
+class CreateAction extends \Filament\Actions\CreateAction
 {
     use CalendarAction;
 

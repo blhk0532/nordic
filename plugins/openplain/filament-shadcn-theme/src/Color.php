@@ -8,7 +8,7 @@ namespace Openplain\FilamentShadcnTheme;
  * Official Shadcn UI themes for Filament
  * Based on: https://ui.shadcn.com/themes
  */
-final class Color
+class Color
 {
     // Default theme with Shadcn's signature inverted effect
     public const Default = [

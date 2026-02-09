@@ -8,7 +8,7 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentDialerServiceProvider extends PackageServiceProvider
+class FilamentDialerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-dialer';
 

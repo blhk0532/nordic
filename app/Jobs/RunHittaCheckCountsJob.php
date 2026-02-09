@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Process;
 use Log;
 use RuntimeException;
 
-final class RunHittaCheckCountsJob implements ShouldQueue
+class RunHittaCheckCountsJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

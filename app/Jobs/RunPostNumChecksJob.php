@@ -13,7 +13,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
 
-final class RunPostNumChecksJob implements ShouldQueue
+class RunPostNumChecksJob implements ShouldQueue
 {
     use Batchable;
     use Dispatchable;

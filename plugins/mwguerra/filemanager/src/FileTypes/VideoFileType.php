@@ -9,7 +9,7 @@ namespace MWGuerra\FileManager\FileTypes;
  *
  * Supports common video formats: MP4, WebM, MOV, AVI, MKV, etc.
  */
-final class VideoFileType extends AbstractFileType
+class VideoFileType extends AbstractFileType
 {
     public function identifier(): string
     {

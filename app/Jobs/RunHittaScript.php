@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use Throwable;
 
-final class RunHittaScript implements ShouldQueue
+class RunHittaScript implements ShouldQueue
 {
     use Queueable;
 

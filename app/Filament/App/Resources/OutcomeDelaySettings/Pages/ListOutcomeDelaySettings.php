@@ -8,7 +8,7 @@ use App\Filament\App\Resources\OutcomeDelaySettings\OutcomeDelaySettingResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListOutcomeDelaySettings extends ListRecords
+class ListOutcomeDelaySettings extends ListRecords
 {
     protected static string $resource = OutcomeDelaySettingResource::class;
 

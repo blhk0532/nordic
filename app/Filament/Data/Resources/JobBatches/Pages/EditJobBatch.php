@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditJobBatch extends EditRecord
+class EditJobBatch extends EditRecord
 {
     protected static string $resource = JobBatchResource::class;
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:layout')]
-final class LayoutCommand extends FileManipulationCommand
+class LayoutCommand extends FileManipulationCommand
 {
     protected $signature = 'livewire:layout {--force} {--stub= : If you have several stubs, stored in subfolders }';
 

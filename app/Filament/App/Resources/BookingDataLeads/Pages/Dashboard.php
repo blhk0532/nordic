@@ -7,7 +7,7 @@ namespace App\Filament\App\Resources\BookingDataLeads\Pages;
 use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
 use Filament\Resources\Pages\Page;
 
-final class Dashboard extends Page
+class Dashboard extends Page
 {
     protected static string $resource = BookingDataLeadResource::class;
 

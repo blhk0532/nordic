@@ -20,7 +20,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-final class FieldsRelationManager extends RelationManager
+class FieldsRelationManager extends RelationManager
 {
     protected static string $relationship = 'fields';
 

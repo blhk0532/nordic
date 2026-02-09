@@ -14,7 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-final class HittaDataController extends Controller
+class HittaDataController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {

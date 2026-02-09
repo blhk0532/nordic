@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Exceptions;
+namespace Adultdate\FilamentBooking\Exceptions;
 
 use Exception;
 
-final class SchemaNotFoundException extends Exception {}
+class SchemaNotFoundException extends Exception {}

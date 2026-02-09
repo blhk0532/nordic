@@ -10,7 +10,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class FailedJobInfolist
+class FailedJobInfolist
 {
     public static function configure(Schema $schema): Schema
     {

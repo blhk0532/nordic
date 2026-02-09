@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @mixin \Eloquent
  */
 #[ObservedBy(TeamInvitationObserver::class)]
-final class TeamInvitation extends Model
+class TeamInvitation extends Model
 {
     protected $fillable = [
         'team_id',

@@ -12,7 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Artisan;
 
-final class ListFailedJobs extends ListRecords
+class ListFailedJobs extends ListRecords
 {
     protected static string $resource = FailedJobResource::class;
 

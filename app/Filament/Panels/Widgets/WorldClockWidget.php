@@ -12,7 +12,7 @@ use Joaopaulolndev\FilamentWorldClock\Helpers\FlagsHelper;
 use Joaopaulolndev\FilamentWorldClock\Widgets\WorldClockWidget as BaseWorldClockWidget;
 
 #[AllowDynamicProperties]
-final class WorldClockWidget extends BaseWorldClockWidget
+class WorldClockWidget extends BaseWorldClockWidget
 {
     protected static bool $isLazy = false;
 

@@ -10,7 +10,7 @@ use Filament\Pages\Page;
 use Filament\Widgets\Widget;
 use UnitEnum;
 
-final class Calendar extends Page
+class Calendar extends Page
 {
     protected string $view = 'filament.pages.calendar';
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 use LogicException;
 
-final class EloquentCollectionSynth extends Synth
+class EloquentCollectionSynth extends Synth
 {
     public static $key = 'elcl';
 
@@ -175,6 +175,6 @@ final class EloquentCollectionSynth extends Synth
             );
         }
 
-        return new $meta['class']();
+        return new $meta['class'];
     }
 }

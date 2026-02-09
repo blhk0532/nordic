@@ -8,7 +8,7 @@ use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\View\ComponentAttributeBag;
 use Stringable;
 
-final class WireDirective implements Htmlable, Stringable
+class WireDirective implements Htmlable, Stringable
 {
     public function __construct(
         public $name,

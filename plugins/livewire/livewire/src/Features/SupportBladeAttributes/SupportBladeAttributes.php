@@ -8,7 +8,7 @@ use Illuminate\View\ComponentAttributeBag;
 use Livewire\ComponentHook;
 use Livewire\WireDirective;
 
-final class SupportBladeAttributes extends ComponentHook
+class SupportBladeAttributes extends ComponentHook
 {
     public static function provide()
     {

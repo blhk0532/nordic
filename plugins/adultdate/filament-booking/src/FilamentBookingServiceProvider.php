@@ -21,7 +21,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-final class FilamentBookingServiceProvider extends PackageServiceProvider
+class FilamentBookingServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-booking';
 
@@ -160,9 +160,14 @@ final class FilamentBookingServiceProvider extends PackageServiceProvider
         // Register Filament resources when Filament is available
         if (class_exists(Filament::class)) {
             Filament::serving(function (): void {
-                Filament::registerResources([
-                    \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalendarResource::class,
-                ]);
+                $panel = Filament::getCurrentPanel();
+
+                // Only register BookingCalendarResource for specific panels
+                if ($panel && in_array($panel->getId(), ['super', 'booking', 'calendar', 'queue'])) {
+                    Filament::registerResources([
+                        \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalendarResource::class,
+                    ]);
+                }
 
                 // Ensure the app-level chat dashboard page is registered so the
                 // navigation item and route `filament.app.pages.chat-dashboard` exist.

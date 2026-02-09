@@ -8,7 +8,7 @@ use App\Filament\Clients\Clusters\Services\Resources\Categories\CategoryResource
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditCategory extends EditRecord
+class EditCategory extends EditRecord
 {
     protected static string $resource = CategoryResource::class;
 

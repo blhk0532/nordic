@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Log;
 
-final class CountMerinfoBulkAction extends BulkAction
+class CountMerinfoBulkAction extends BulkAction
 {
     public static function make(?string $name = 'countMerinfo'): static
     {

@@ -9,7 +9,7 @@ use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 
-final class RunRatsitCheckAction extends Action
+class RunRatsitCheckAction extends Action
 {
     protected function setUp(): void
     {

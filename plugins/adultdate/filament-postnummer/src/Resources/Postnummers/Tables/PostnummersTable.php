@@ -15,7 +15,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 
-final class PostnummersTable
+class PostnummersTable
 {
     public static function configure(Table $table): Table
     {

@@ -13,7 +13,7 @@ use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\text;
 
-final class RebalancePositionsCommand extends Command
+class RebalancePositionsCommand extends Command
 {
     protected $signature = 'flowforge:rebalance-positions
                             {--model= : Model class to rebalance (e.g., App\\Models\\Task)}

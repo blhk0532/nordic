@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class TooManyCallsException extends Exception
+class TooManyCallsException extends Exception
 {
     public function __construct(int $count, int $maxCalls)
     {

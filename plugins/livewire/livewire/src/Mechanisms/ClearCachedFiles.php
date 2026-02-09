@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Mechanisms;
 
-final class ClearCachedFiles extends Mechanism
+class ClearCachedFiles extends Mechanism
 {
     public function boot()
     {

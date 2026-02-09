@@ -8,7 +8,7 @@ use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Caresome\FilamentAuthDesigner\Support\MediaDetector;
 use Closure;
 
-final class AuthPageConfig
+class AuthPageConfig
 {
     private ?MediaPosition $position = null;
 

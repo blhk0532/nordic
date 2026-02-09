@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportTeleporting;
 use Illuminate\Support\Facades\Blade;
 use Livewire\ComponentHook;
 
-final class SupportTeleporting extends ComponentHook
+class SupportTeleporting extends ComponentHook
 {
     public static function provide()
     {

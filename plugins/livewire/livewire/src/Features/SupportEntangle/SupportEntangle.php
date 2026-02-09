@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportEntangle;
 use Illuminate\Support\Facades\Blade;
 use Livewire\ComponentHook;
 
-final class SupportEntangle extends ComponentHook
+class SupportEntangle extends ComponentHook
 {
     public static function provide()
     {

@@ -30,7 +30,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class PluginsPanelProvider extends PanelProvider
+class PluginsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

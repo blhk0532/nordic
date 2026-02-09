@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory<Product>
  */
-final class ProductFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * @var string

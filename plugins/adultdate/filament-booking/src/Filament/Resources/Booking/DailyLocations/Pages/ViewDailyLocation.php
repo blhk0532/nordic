@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\DailyLoc
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewDailyLocation extends ViewRecord
+class ViewDailyLocation extends ViewRecord
 {
     protected static string $resource = DailyLocationResource::class;
 

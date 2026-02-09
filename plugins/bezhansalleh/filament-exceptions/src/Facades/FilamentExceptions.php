@@ -24,7 +24,7 @@ use Throwable;
  *
  * @see \BezhanSalleh\FilamentExceptions\FilamentExceptions
  */
-final class FilamentExceptions extends Facade
+class FilamentExceptions extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

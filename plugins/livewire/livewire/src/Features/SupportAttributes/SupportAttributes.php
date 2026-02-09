@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportAttributes;
 use Livewire\ComponentHook;
 use Livewire\Features\SupportAttributes\Attribute as LivewireAttribute;
 
-final class SupportAttributes extends ComponentHook
+class SupportAttributes extends ComponentHook
 {
     public function boot(...$params)
     {

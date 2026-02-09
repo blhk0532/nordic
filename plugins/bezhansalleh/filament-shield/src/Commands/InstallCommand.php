@@ -19,7 +19,7 @@ use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\select;
 
 #[AsCommand(name: 'shield:install', description: 'Install and configure shield for the given Filament Panel')]
-final class InstallCommand extends Command implements PromptsForMissingInput
+class InstallCommand extends Command implements PromptsForMissingInput
 {
     use CanMakePanelTenantable;
     use CanManipulateFiles;

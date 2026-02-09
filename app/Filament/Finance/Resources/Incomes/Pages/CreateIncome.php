@@ -12,7 +12,7 @@ use Exception;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\App;
 
-final class CreateIncome extends CreateRecord
+class CreateIncome extends CreateRecord
 {
     protected static string $resource = IncomeResource::class;
 

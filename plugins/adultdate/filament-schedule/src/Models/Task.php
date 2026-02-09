@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class Task extends Model implements Eventable
+class Task extends Model implements Eventable
 {
     /** @use HasFactory<\Database\Factories\TaskFactory> */
     use HasFactory;

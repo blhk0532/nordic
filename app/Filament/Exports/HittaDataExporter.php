@@ -10,7 +10,7 @@ use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
 use Illuminate\Support\Number;
 
-final class HittaDataExporter extends Exporter
+class HittaDataExporter extends Exporter
 {
     protected static ?string $model = HittaData::class;
 

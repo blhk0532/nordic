@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Relaticle\Flowforge\Tests\Fixtures\Project;
 use Relaticle\Flowforge\Tests\Fixtures\User;
 
-final class ProjectFactory extends Factory
+class ProjectFactory extends Factory
 {
     protected $model = Project::class;
 

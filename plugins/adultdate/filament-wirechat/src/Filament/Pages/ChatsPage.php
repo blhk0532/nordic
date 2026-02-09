@@ -9,7 +9,7 @@ use BackedEnum;
 use Filament\Pages\Page;
 use UnitEnum;
 
-final class ChatsPage extends Page
+class ChatsPage extends Page
 {
     protected static ?string $slug = 'chats';
 

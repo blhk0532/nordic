@@ -13,7 +13,7 @@ use MWGuerra\FileManager\Contracts\FileManagerItemInterface;
  * This class does not use Eloquent - it's a simple PHP object that holds
  * file/folder information retrieved from Laravel's Storage facade.
  */
-final class StorageItem implements FileManagerItemInterface
+class StorageItem implements FileManagerItemInterface
 {
     private string $path;
 

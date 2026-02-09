@@ -9,7 +9,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportJson extends ComponentHook
+class SupportJson extends ComponentHook
 {
     public static function provide()
     {

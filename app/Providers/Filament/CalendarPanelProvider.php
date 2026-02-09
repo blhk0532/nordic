@@ -31,7 +31,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class CalendarPanelProvider extends PanelProvider
+class CalendarPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

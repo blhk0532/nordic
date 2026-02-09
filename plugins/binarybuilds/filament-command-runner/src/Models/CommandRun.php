@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $output
  * @property int $exit_code
  */
-final class CommandRun extends Model
+class CommandRun extends Model
 {
     protected $fillable = [
         'command', 'ran_by', 'started_at',

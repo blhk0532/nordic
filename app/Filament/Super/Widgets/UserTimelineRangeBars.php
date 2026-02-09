@@ -6,7 +6,7 @@ namespace App\Filament\Super\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserTimelineRangeBars extends ApexChartWidget
+class UserTimelineRangeBars extends ApexChartWidget
 {
     /**
      * Chart Id

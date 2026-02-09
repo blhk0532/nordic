@@ -9,7 +9,7 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction as BaseCreateAction;
 use Filament\Schemas\Schema as FilamentSchema;
 
-final class CreateAction extends BaseCreateAction
+class CreateAction extends BaseCreateAction
 {
     protected function setUp(): void
     {

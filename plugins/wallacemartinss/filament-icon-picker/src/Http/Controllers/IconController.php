@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Wallacemartinss\FilamentIconPicker\IconSetManager;
 
-final class IconController extends Controller
+class IconController extends Controller
 {
     public function __invoke(Request $request, IconSetManager $manager): JsonResponse
     {

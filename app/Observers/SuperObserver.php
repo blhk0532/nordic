@@ -8,7 +8,7 @@ use App\Models\Super;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class SuperObserver
+class SuperObserver
 {
     /**
      * Handle the Super "created" event.

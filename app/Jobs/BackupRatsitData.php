@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use PDO;
 
-final class BackupRatsitData implements ShouldQueue
+class BackupRatsitData implements ShouldQueue
 {
     use Queueable;
 

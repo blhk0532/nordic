@@ -18,7 +18,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-final class DeleteExpiredMessagesJob implements ShouldQueue
+class DeleteExpiredMessagesJob implements ShouldQueue
 {
     use Batchable;
     use Dispatchable;

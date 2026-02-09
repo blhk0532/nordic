@@ -16,7 +16,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-final class Service extends Model implements HasMedia
+class Service extends Model implements HasMedia
 {
     /** @use HasFactory<ServiceFactory> */
     use HasFactory;

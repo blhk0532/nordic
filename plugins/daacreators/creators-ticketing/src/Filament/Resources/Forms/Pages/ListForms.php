@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\Forms\FormResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListForms extends ListRecords
+class ListForms extends ListRecords
 {
     protected static string $resource = FormResource::class;
 

@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportTransitions;
 
 use Livewire\ComponentHook;
 
-final class SupportTransitions extends ComponentHook
+class SupportTransitions extends ComponentHook
 {
     public function dehydrate($context)
     {

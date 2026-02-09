@@ -10,7 +10,7 @@ use function Livewire\after;
 use function Livewire\on;
 use function Livewire\trigger;
 
-final class SupportReactiveProps extends ComponentHook
+class SupportReactiveProps extends ComponentHook
 {
     public static $pendingChildParams = [];
 

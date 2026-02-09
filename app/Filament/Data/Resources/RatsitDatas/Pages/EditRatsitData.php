@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditRatsitData extends EditRecord
+class EditRatsitData extends EditRecord
 {
     protected static string $resource = RatsitDataResource::class;
 

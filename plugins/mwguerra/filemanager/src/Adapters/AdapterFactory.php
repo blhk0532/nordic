@@ -12,7 +12,7 @@ use MWGuerra\FileManager\Contracts\FileManagerAdapterInterface;
  *
  * Resolves the appropriate adapter based on configuration.
  */
-final class AdapterFactory
+class AdapterFactory
 {
     /**
      * Create an adapter based on current configuration.

@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportPageComponents;
 use Illuminate\View\AnonymousComponent;
 use Livewire\Mechanisms\HandleComponents\ViewContext;
 
-final class PageComponentConfig
+class PageComponentConfig
 {
     public $slots = [];
 

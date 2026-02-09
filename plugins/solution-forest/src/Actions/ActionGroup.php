@@ -8,7 +8,7 @@ use Filament\Actions\ActionGroup as BaseActionGroup;
 use SolutionForest\FilamentTree\Components\Tree;
 use SolutionForest\FilamentTree\Concern\Actions\HasTree;
 
-final class ActionGroup extends BaseActionGroup implements HasTree
+class ActionGroup extends BaseActionGroup implements HasTree
 {
     public function getActions(): array
     {

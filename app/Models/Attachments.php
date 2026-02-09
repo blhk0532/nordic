@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Storage;
  *
  * @mixin \Eloquent
  */
-final class Attachments extends Model
+class Attachments extends Model
 {
     use HasFactory;
 

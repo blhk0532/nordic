@@ -50,7 +50,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  *
  * @mixin \Eloquent
  */
-final class Group extends Model
+class Group extends Model
 {
     use HasFactory;
 

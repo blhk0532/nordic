@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class MerinfoForetagQueue extends Model
+class MerinfoForetagQueue extends Model
 {
     protected $table = 'merinfo_foretag_queue';
 

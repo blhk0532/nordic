@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:form')]
-final class FormCommand extends GeneratorCommand
+class FormCommand extends GeneratorCommand
 {
     /**
      * The console command name.

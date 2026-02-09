@@ -13,7 +13,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentEditProfileServiceProvider extends PackageServiceProvider
+class FilamentEditProfileServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-edit-profile';
 

@@ -6,7 +6,7 @@ namespace App\Filament\Super\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserPie extends ApexChartWidget
+class UserPie extends ApexChartWidget
 {
     /**
      * Chart Id

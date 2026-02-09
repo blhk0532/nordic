@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 
-final class RunRatsitSearchPersonsJob implements ShouldQueue
+class RunRatsitSearchPersonsJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

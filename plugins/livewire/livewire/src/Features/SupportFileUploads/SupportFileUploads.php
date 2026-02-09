@@ -11,7 +11,7 @@ use Livewire\Mechanisms\HandleRequests\EndpointResolver;
 
 use function Livewire\on;
 
-final class SupportFileUploads extends ComponentHook
+class SupportFileUploads extends ComponentHook
 {
     public static function provide()
     {

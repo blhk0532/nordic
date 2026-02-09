@@ -20,7 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
 
-final class TeamResource extends Resource
+class TeamResource extends Resource
 {
     protected static ?string $model = Team::class;
 

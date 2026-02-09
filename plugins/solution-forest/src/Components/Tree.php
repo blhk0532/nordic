@@ -12,7 +12,7 @@ use SolutionForest\FilamentTree\Concern\BelongsToLivewire;
 use SolutionForest\FilamentTree\Contract\HasTree;
 use SolutionForest\FilamentTree\Support\Utils;
 
-final class Tree extends ViewComponent
+class Tree extends ViewComponent
 {
     use BelongsToLivewire;
 

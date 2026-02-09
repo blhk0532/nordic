@@ -1,6 +1,6 @@
 @php
     use Filament\Support\Facades\FilamentAsset;
-    use Guava\Calendar\Enums\Context;
+    use Adultdate\FilamentBooking\Enums\Context;
     use Filament\Support\Facades\FilamentColor;
     use Filament\Support\View\Components\ButtonComponent;
 @endphp

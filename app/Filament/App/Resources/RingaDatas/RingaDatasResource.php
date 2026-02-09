@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
-final class RingaDatasResource extends Resource
+class RingaDatasResource extends Resource
 {
     public static bool $shouldRegisterNavigation = false;
 

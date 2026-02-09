@@ -14,7 +14,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 
-final class AddMembers extends ModalComponent
+class AddMembers extends ModalComponent
 {
     use HasPanel;
     use WithFileUploads;

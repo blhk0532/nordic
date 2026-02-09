@@ -1,6 +1,6 @@
 @php
     use Filament\Support\Facades\FilamentAsset;
-    use Guava\Calendar\Enums\Context;
+    use Adultdate\FilamentBooking\Enums\Context;
 
     use function Filament\Support\generate_loading_indicator_html;
 @endphp

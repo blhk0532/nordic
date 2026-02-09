@@ -18,7 +18,7 @@ use Filament\Support\Icons\Heroicon;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseSlowRequests;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseUsage;
 
-final class ManagerDashboard extends BaseDashboard
+class ManagerDashboard extends BaseDashboard
 {
     protected static ?string $title = '';
 

@@ -10,7 +10,7 @@ use Carbon\CarbonInterface;
 /**
  * @property-read list<int>|null $daysOfMonth
  */
-final class BiMonthlyFrequencyConfig extends FrequencyConfig
+class BiMonthlyFrequencyConfig extends FrequencyConfig
 {
     public function __construct(
         public ?array $days_of_month = [],

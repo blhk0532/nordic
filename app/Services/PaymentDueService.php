@@ -8,7 +8,7 @@ use App\Enums\PaymentStatus;
 use App\Models\Payment;
 use Illuminate\Database\Eloquent\Builder;
 
-final class PaymentDueService
+class PaymentDueService
 {
     public function upcoming(): Builder
     {

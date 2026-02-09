@@ -9,7 +9,7 @@ use SolutionForest\FilamentTree\Concern\Actions\HasTree;
 use SolutionForest\FilamentTree\Concern\Actions\TreeActionTrait;
 use SolutionForest\FilamentTree\Concern\BelongsToTree;
 
-final class Action extends BaseAction implements HasTree
+class Action extends BaseAction implements HasTree
 {
     use BelongsToTree;
     use TreeActionTrait;

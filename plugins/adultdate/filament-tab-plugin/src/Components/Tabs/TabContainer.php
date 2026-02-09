@@ -9,4 +9,4 @@ use SolutionForest\TabLayoutPlugin\Schemas\Components\LivewireContainer;
 /**
  * @deprecated Use `SolutionForest\TabLayoutPlugin\Schemas\Components\LivewireContainer` instead.
  */
-final class TabContainer extends LivewireContainer {}
+class TabContainer extends LivewireContainer {}

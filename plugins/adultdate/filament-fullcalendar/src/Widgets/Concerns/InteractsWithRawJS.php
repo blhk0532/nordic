@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Saade\FilamentFullCalendar\Widgets\Concerns;
+namespace Adultdate\FilamentBooking\Filament\Widgets\Concerns;
 
 trait InteractsWithRawJS
 {

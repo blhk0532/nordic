@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditSearch extends EditRecord
+class EditSearch extends EditRecord
 {
     protected static string $resource = SearchResource::class;
 

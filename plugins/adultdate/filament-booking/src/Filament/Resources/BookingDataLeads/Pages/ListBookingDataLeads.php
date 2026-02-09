@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingDataLeads\BookingDataLea
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBookingDataLeads extends ListRecords
+class ListBookingDataLeads extends ListRecords
 {
     protected static string $resource = BookingDataLeadResource::class;
 

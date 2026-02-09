@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportFileUploads;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-final class FileNotPreviewableException extends Exception
+class FileNotPreviewableException extends Exception
 {
     use BypassViewHandler;
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Zap\Models\Concerns\HasSchedules;
 
-final class User extends Authenticatable
+class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, HasSchedules, Notifiable, TwoFactorAuthenticatable;

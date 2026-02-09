@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @see \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl
  */
-final class GenerateSignedUploadUrlFacade extends Facade
+class GenerateSignedUploadUrlFacade extends Facade
 {
     public static function getFacadeAccessor()
     {

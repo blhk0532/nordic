@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\EniroDatas\EniroDatasResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditEniroData extends EditRecord
+class EditEniroData extends EditRecord
 {
     protected static string $resource = EniroDatasResource::class;
 

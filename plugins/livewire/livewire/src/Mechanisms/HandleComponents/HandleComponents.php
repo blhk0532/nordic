@@ -23,7 +23,7 @@ use function Livewire\store;
 use function Livewire\trigger;
 use function Livewire\wrap;
 
-final class HandleComponents extends Mechanism
+class HandleComponents extends Mechanism
 {
     public static $renderStack = [];
 

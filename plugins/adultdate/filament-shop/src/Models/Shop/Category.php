@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-final class Category extends Model implements HasMedia
+class Category extends Model implements HasMedia
 {
     /** @use HasFactory<CategoryFactory> */
     use HasFactory;

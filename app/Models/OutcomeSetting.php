@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class OutcomeSetting extends Model
+class OutcomeSetting extends Model
 {
     use HasFactory;
 

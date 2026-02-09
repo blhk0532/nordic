@@ -14,7 +14,7 @@ use MWGuerra\FileManager\Policies\FileSystemItemPolicy;
  * This service wraps the policy checks and provides a clean API
  * for checking permissions throughout the file manager.
  */
-final class AuthorizationService
+class AuthorizationService
 {
     private FileSystemItemPolicy $policy;
 

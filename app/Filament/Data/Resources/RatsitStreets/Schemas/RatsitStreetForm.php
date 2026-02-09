@@ -6,7 +6,7 @@ namespace App\Filament\Data\Resources\RatsitStreets\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class RatsitStreetForm
+class RatsitStreetForm
 {
     public static function configure(Schema $schema): Schema
     {

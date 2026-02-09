@@ -8,7 +8,7 @@ use Adultdate\Schedule\Concerns\CalendarAction;
 use Adultdate\Schedule\Contracts\HasCalendar;
 use Illuminate\Database\Eloquent\Model;
 
-final class DeleteAction extends \Filament\Actions\DeleteAction
+class DeleteAction extends \Filament\Actions\DeleteAction
 {
     use CalendarAction;
 

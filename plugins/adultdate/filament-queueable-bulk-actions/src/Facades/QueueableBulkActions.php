@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Bytexr\QueueableBulkActions\QueueableBulkActions
  */
-final class QueueableBulkActions extends Facade
+class QueueableBulkActions extends Facade
 {
     protected static function getFacadeAccessor()
     {

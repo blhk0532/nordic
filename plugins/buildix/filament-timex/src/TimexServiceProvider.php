@@ -24,7 +24,7 @@ use Spatie\LaravelPackageTools\Package;
 
 use function view;
 
-final class TimexServiceProvider extends PluginServiceProvider
+class TimexServiceProvider extends PluginServiceProvider
 {
     protected array $scripts = [
         'timex' => __DIR__.'/../resources/dist/timex.js',

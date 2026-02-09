@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\ValueObjects;
+namespace Adultdate\FilamentBooking\ValueObjects;
 
 final readonly class ViewDidMountInfo
 {

@@ -19,7 +19,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class BookingOutcallQueueResource extends Resource
+class BookingOutcallQueueResource extends Resource
 {
     protected static ?string $model = BookingOutcallQueue::class;
 

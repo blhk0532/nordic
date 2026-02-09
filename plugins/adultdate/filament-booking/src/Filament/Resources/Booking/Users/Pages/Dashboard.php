@@ -14,7 +14,7 @@ use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
-final class Dashboard extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     use HasFiltersForm;
 

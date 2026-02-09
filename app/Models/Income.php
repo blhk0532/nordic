@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Income extends Model
+class Income extends Model
 {
     use HasFactory, IncomeTranslations, SoftDeletes;
 

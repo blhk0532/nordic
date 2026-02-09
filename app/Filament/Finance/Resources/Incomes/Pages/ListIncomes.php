@@ -13,7 +13,7 @@ use Filament\Resources\Pages\ListRecords;
 use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
-final class ListIncomes extends ListRecords
+class ListIncomes extends ListRecords
 {
     protected static string $resource = IncomeResource::class;
 

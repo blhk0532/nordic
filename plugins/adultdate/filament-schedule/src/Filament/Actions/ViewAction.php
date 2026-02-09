@@ -6,7 +6,7 @@ namespace Adultdate\Schedule\Filament\Actions;
 
 use Adultdate\Schedule\Contracts\HasCalendar;
 
-final class ViewAction extends \Filament\Actions\ViewAction
+class ViewAction extends \Filament\Actions\ViewAction
 {
     protected function setUp(): void
     {

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Adultdate\FilamentBooking\FilamentBooking
  */
-final class FilamentBooking extends Facade
+class FilamentBooking extends Facade
 {
     protected static function getFacadeAccessor()
     {

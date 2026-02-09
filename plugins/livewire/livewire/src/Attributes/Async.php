@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportAsync\BaseAsync;
 
 #[Attribute]
-final class Async extends BaseAsync
+class Async extends BaseAsync
 {
     //
 }

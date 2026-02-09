@@ -9,7 +9,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\FontWeight;
 
-final class SprintInfolist
+class SprintInfolist
 {
     public static function configure(Schema $schema): Schema
     {

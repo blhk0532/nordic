@@ -29,7 +29,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class SheetsPanelProvider extends PanelProvider
+class SheetsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

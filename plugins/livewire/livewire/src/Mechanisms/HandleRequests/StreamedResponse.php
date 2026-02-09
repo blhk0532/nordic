@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\HandleRequests;
 
 use Illuminate\Http\Response;
 
-final class StreamedResponse extends Response
+class StreamedResponse extends Response
 {
     /**
      * Override to prevent header modification after streaming has started.

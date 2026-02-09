@@ -12,7 +12,7 @@ use SolutionForest\FilamentTree\Commands\FileGenerators\Concerns\CanGenerateTree
 use SolutionForest\FilamentTree\Commands\FileGenerators\Concerns\CanGenerateTreeProperties;
 use SolutionForest\FilamentTree\Resources\Pages\TreePage;
 
-final class ResourceTreePageClassGenerator extends ClassGenerator
+class ResourceTreePageClassGenerator extends ClassGenerator
 {
     use CanGenerateResourceProperty;
     use CanGenerateTreeMethods;

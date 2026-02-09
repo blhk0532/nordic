@@ -15,7 +15,7 @@ use Livewire\WithPagination;
 
 use function Livewire\invade;
 
-final class SupportPagination extends ComponentHook
+class SupportPagination extends ComponentHook
 {
     protected $restoreOverriddenPaginationViews;
 

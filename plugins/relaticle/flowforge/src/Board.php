@@ -15,7 +15,7 @@ use Relaticle\Flowforge\Concerns\HasCardSchema;
 use Relaticle\Flowforge\Concerns\InteractsWithKanbanQuery;
 use Relaticle\Flowforge\Contracts\HasBoard;
 
-final class Board extends ViewComponent
+class Board extends ViewComponent
 {
     use BelongsToLivewire;
     use CanSearchBoardRecords;

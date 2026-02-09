@@ -9,7 +9,7 @@ use daacreators\CreatorsTicketing\Models\TicketReply;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class InternalNoteAdded
+class InternalNoteAdded
 {
     use Dispatchable, SerializesModels;
 

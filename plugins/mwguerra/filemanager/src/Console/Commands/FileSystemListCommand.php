@@ -11,7 +11,7 @@ use MWGuerra\FileManager\Adapters\AdapterFactory;
 use MWGuerra\FileManager\Contracts\FileManagerAdapterInterface;
 use MWGuerra\FileManager\Contracts\FileManagerItemInterface;
 
-final class FileSystemListCommand extends Command
+class FileSystemListCommand extends Command
 {
     /**
      * The name and signature of the console command.

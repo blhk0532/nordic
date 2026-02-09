@@ -26,7 +26,7 @@ use Filament\Forms\Components\Field;
  *
  * @license MIT
  */
-final class Pinpoint extends Field
+class Pinpoint extends Field
 {
     protected string $view = 'filament-pinpoint::pinpoint';
 

@@ -10,7 +10,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class MerinfoController extends Controller
+class MerinfoController extends Controller
 {
     /**
      * Display a listing of the resource.

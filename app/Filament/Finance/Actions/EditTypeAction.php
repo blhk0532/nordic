@@ -6,7 +6,7 @@ namespace App\Filament\Finance\Actions;
 
 use Filament\Actions\Action;
 
-final class EditTypeAction
+class EditTypeAction
 {
     public static function make(): Action
     {

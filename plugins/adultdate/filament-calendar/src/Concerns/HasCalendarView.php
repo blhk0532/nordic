@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Enums\CalendarViewType;
+use Adultdate\FilamentBooking\Enums\CalendarViewType;
 
 trait HasCalendarView
 {

@@ -14,7 +14,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class UserResource extends Resource
+class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 

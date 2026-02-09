@@ -6,7 +6,7 @@ namespace Asmit\ResizedColumn\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class TableSetting extends Model
+class TableSetting extends Model
 {
     protected $fillable = [
         'user_id',

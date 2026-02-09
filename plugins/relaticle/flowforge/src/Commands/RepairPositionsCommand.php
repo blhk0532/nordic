@@ -19,7 +19,7 @@ use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\warning;
 
-final class RepairPositionsCommand extends Command
+class RepairPositionsCommand extends Command
 {
     protected $signature = 'flowforge:repair-positions 
                             {--dry-run : Show what would be changed without applying}

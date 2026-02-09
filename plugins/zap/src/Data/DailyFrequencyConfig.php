@@ -6,7 +6,7 @@ namespace Zap\Data;
 
 use Zap\Models\Schedule;
 
-final class DailyFrequencyConfig extends FrequencyConfig
+class DailyFrequencyConfig extends FrequencyConfig
 {
     public static function fromArray(array $data): FrequencyConfig
     {

@@ -7,7 +7,7 @@ namespace Livewire\Mechanisms\HandleComponents;
 use AllowDynamicProperties;
 
 #[AllowDynamicProperties]
-final class ComponentContext
+class ComponentContext
 {
     public $effects = [];
 

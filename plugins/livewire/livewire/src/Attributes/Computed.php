@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportComputed\BaseComputed;
 
 #[Attribute]
-final class Computed extends BaseComputed
+class Computed extends BaseComputed
 {
     //
 }

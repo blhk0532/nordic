@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\HandleComponents;
 
 use function Livewire\invade;
 
-final class ViewContext
+class ViewContext
 {
     public function __construct(
         public $slots = [],

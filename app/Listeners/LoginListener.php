@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 use Rappasoft\LaravelAuthenticationLog\Notifications\NewDevice;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
-final class LoginListener
+class LoginListener
 {
     public Request $request;
 

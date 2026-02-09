@@ -8,7 +8,7 @@ use App\Jobs\RunHittaPostOrtDirectJob;
 use App\Models\PostNum;
 use Illuminate\Console\Command;
 
-final class RunHittaPostOrtDirectCommand extends Command
+class RunHittaPostOrtDirectCommand extends Command
 {
     /**
      * The name and signature of the console command.

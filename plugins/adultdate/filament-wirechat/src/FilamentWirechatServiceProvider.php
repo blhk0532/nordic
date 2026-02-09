@@ -20,7 +20,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentWirechatServiceProvider extends PackageServiceProvider
+class FilamentWirechatServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-wirechat';
 

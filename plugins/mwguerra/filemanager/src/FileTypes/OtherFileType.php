@@ -10,7 +10,7 @@ namespace MWGuerra\FileManager\FileTypes;
  * This type is used when no other registered type matches
  * the file's MIME type or extension.
  */
-final class OtherFileType extends AbstractFileType
+class OtherFileType extends AbstractFileType
 {
     public function identifier(): string
     {

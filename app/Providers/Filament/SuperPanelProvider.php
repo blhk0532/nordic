@@ -75,7 +75,7 @@ use Usamamuneerchaudhary\Notifier\FilamentNotifierPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class SuperPanelProvider extends PanelProvider
+class SuperPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

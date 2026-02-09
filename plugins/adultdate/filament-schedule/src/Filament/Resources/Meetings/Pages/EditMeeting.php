@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Meetings\MeetingResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditMeeting extends EditRecord
+class EditMeeting extends EditRecord
 {
     protected static string $resource = MeetingResource::class;
 

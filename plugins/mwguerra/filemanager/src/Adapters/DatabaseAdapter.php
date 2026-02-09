@@ -19,7 +19,7 @@ use MWGuerra\FileManager\Contracts\FileSystemItemInterface;
  * This adapter uses an Eloquent model to store file/folder metadata in a database.
  * File contents are stored on a configured storage disk.
  */
-final class DatabaseAdapter implements FileManagerAdapterInterface
+class DatabaseAdapter implements FileManagerAdapterInterface
 {
     private string $modelClass;
 

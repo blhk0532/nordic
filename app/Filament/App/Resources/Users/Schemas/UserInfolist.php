@@ -13,7 +13,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Enums\TextSize;
 use Illuminate\Support\Facades\Auth;
 
-final class UserInfolist
+class UserInfolist
 {
     public static function configure(Schema $schema): Schema
     {

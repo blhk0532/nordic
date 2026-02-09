@@ -11,7 +11,7 @@ use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 
-final class RunBothChecksAction extends Action
+class RunBothChecksAction extends Action
 {
     protected function setUp(): void
     {

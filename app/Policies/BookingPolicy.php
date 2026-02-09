@@ -7,7 +7,7 @@ namespace App\Policies;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class BookingPolicy
+class BookingPolicy
 {
     use HandlesAuthorization;
 

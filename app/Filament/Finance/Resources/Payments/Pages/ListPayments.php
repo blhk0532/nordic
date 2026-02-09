@@ -12,7 +12,7 @@ use Filament\Resources\Pages\ListRecords;
 use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
-final class ListPayments extends ListRecords
+class ListPayments extends ListRecords
 {
     protected static string $resource = PaymentResource::class;
 

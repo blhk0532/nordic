@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 
 // This synth exists solely to capture empty strings being set to float properties...
-final class FloatSynth extends Synth
+class FloatSynth extends Synth
 {
     public static $key = 'float';
 

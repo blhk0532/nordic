@@ -8,7 +8,7 @@ use Adultdate\Schedule\Enums\Frequency;
 use Adultdate\Schedule\Exceptions\InvalidScheduleException;
 use Illuminate\Database\Eloquent\Model;
 
-final class ValidationService
+class ValidationService
 {
     /**
      * Validate a schedule before creation.

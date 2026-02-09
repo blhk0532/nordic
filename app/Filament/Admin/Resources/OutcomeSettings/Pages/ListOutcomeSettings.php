@@ -8,7 +8,7 @@ use App\Filament\Admin\Resources\OutcomeSettings\OutcomeSettingResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListOutcomeSettings extends ListRecords
+class ListOutcomeSettings extends ListRecords
 {
     protected static string $resource = OutcomeSettingResource::class;
 

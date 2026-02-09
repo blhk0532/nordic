@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\RatsitStreets\RatsitStreetResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListRatsitStreets extends ListRecords
+class ListRatsitStreets extends ListRecords
 {
     protected static string $resource = RatsitStreetResource::class;
 

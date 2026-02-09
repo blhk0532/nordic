@@ -8,7 +8,7 @@ use App\Models\BookingOutcallQueue;
 use Filament\Notifications\Notification;
 use Filament\Widgets\Widget;
 
-final class BookingOutcallQueueActions extends Widget
+class BookingOutcallQueueActions extends Widget
 {
     public ?string $filter_name = null;
 

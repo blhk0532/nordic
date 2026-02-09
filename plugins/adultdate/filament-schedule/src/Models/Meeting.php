@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-final class Meeting extends Model implements Eventable
+class Meeting extends Model implements Eventable
 {
     /** @use HasFactory<\Database\Factories\MeetingFactory> */
     use HasFactory;

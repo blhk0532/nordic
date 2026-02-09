@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Auth;
 
-final class EditCalendarEvent extends EditRecord
+class EditCalendarEvent extends EditRecord
 {
     protected static string $resource = CalendarEventResource::class;
 

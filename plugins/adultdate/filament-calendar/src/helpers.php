@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar;
+namespace Adultdate\FilamentBooking;
 
 use Carbon\CarbonImmutable;
 use Filament\Support\Facades\FilamentTimezone;
 
-if (! function_exists('Guava\Calendar\browser_date_to_user_date')) {
+if (! function_exists('Adultdate\FilamentBooking\browser_date_to_user_date')) {
     /**
      * The underlying EventCalendar does not support timezones and thus all times in the calendar
      * are provided in either UTC or their local browser locale.
@@ -26,7 +26,7 @@ if (! function_exists('Guava\Calendar\browser_date_to_user_date')) {
     }
 }
 
-if (! function_exists('Guava\Calendar\browser_date_to_app_date')) {
+if (! function_exists('Adultdate\FilamentBooking\browser_date_to_app_date')) {
     /**
      * The underlying EventCalendar does not support timezones and thus all times in the calendar
      * are provided in either UTC or their local browser locale.
@@ -45,7 +45,7 @@ if (! function_exists('Guava\Calendar\browser_date_to_app_date')) {
     }
 }
 
-if (! function_exists('Guava\Calendar\utc_to_user_local_time')) {
+if (! function_exists('Adultdate\FilamentBooking\utc_to_user_local_time')) {
     /**
      * The underlying EventCalendar does not support timezones and thus all times in the calendar
      * are provided in either UTC or their local browser locale.

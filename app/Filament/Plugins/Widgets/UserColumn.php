@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserColumn extends ApexChartWidget
+class UserColumn extends ApexChartWidget
 {
     protected static bool $isCollapsible = true;
 

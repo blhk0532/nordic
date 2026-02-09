@@ -9,7 +9,7 @@ use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
 use Filament\Actions\Action;
 use Illuminate\Support\Facades\Auth;
 
-final class CreateDailyLocationAction extends Action
+class CreateDailyLocationAction extends Action
 {
     protected function setUp(): void
     {

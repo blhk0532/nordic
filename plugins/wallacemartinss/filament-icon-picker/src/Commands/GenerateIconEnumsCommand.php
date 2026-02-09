@@ -14,7 +14,7 @@ use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\warning;
 
-final class GenerateIconEnumsCommand extends Command
+class GenerateIconEnumsCommand extends Command
 {
     protected $signature = 'filament-icon-picker:generate-enums
                             {--all : Generate enums for all installed icon sets}

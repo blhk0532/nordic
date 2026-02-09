@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class BookingOutcallQueue extends Model
+class BookingOutcallQueue extends Model
 {
     use HasFactory;
 

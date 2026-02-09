@@ -7,7 +7,7 @@ namespace Zap\Casts;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Zap\Enums\Frequency;
 
-final class SafeFrequencyCast implements CastsAttributes
+class SafeFrequencyCast implements CastsAttributes
 {
     public function get($model, string $key, $value, array $attributes)
     {

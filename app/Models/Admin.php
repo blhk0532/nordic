@@ -65,7 +65,7 @@ use Illuminate\Support\Facades\Storage;
  * @mixin \Eloquent
  */
 #[ObservedBy(AdminObserver::class)]
-final class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract, WirechatUser
+class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract, WirechatUser
 {
     use Authenticatable;
     use Authorizable;

@@ -39,7 +39,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class ToolsPanelProvider extends PanelProvider
+class ToolsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

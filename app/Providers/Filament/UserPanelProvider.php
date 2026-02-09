@@ -32,7 +32,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use N3XT0R\FilamentPassportUi\FilamentPassportUiPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class UserPanelProvider extends PanelProvider
+class UserPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

@@ -6,7 +6,7 @@ namespace App\Filament\Finance\Pages;
 
 use Filament\Pages\Page;
 
-final class Profile extends Page
+class Profile extends Page
 {
     protected string $view = 'filament.pages.profile';
 

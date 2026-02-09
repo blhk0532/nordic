@@ -13,7 +13,7 @@ use Filament\Support\Components\Component;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
 
-final class LanguageSwitch extends Component
+class LanguageSwitch extends Component
 {
     protected ?string $displayLocale = null;
 

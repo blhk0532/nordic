@@ -12,7 +12,7 @@ beforeEach(function () {
 /**
  * Test user class that implements Authenticatable with can() method
  */
-final class TestUser implements Authenticatable
+class TestUser implements Authenticatable
 {
     private array $permissions;
 

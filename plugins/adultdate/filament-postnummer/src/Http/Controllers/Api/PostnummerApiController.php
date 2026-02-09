@@ -8,7 +8,7 @@ use Adultdate\FilamentPostnummer\Models\Postnummer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class PostnummerApiController
+class PostnummerApiController
 {
     /**
      * Display a listing of post numbers.

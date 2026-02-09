@@ -19,7 +19,7 @@ use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
 #[AsCommand(name: 'shield:translation', description: 'Generate a translation file for permission labels for the given locale.')]
-final class TranslationCommand extends Command implements PromptsForMissingInput
+class TranslationCommand extends Command implements PromptsForMissingInput
 {
     use CanManipulateFiles;
     use Prohibitable;

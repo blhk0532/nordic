@@ -30,7 +30,7 @@ use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 use Zvizvi\UserFields\Components\UserColumn;
 
-final class RingaDataTable
+class RingaDataTable
 {
     public static function configure(Table $table): Table
     {

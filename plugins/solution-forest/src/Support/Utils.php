@@ -6,7 +6,7 @@ namespace SolutionForest\FilamentTree\Support;
 
 use Illuminate\Support\Collection;
 
-final class Utils
+class Utils
 {
     public static function orderColumnName(): string
     {

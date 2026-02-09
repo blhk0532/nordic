@@ -8,7 +8,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class TeamForm
+class TeamForm
 {
     public static function configure(Schema $schema): Schema
     {

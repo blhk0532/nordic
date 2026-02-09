@@ -7,7 +7,7 @@ namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 use Closure;
 use Illuminate\Support\Collection;
 
-final class CollectionSynth extends ArraySynth
+class CollectionSynth extends ArraySynth
 {
     public static $key = 'clctn';
 

@@ -8,7 +8,7 @@ use App\Filament\Queue\Resources\BookingDataLeads\BookingDataLeadResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBookingDataLeads extends ListRecords
+class ListBookingDataLeads extends ListRecords
 {
     protected static string $resource = BookingDataLeadResource::class;
 

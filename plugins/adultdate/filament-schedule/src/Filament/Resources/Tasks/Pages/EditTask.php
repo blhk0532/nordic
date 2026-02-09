@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Tasks\TaskResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditTask extends EditRecord
+class EditTask extends EditRecord
 {
     protected static string $resource = TaskResource::class;
 

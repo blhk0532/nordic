@@ -12,7 +12,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 
-final class MultiFactorAuthentication extends BaseProfileForm
+class MultiFactorAuthentication extends BaseProfileForm
 {
     use HasUser;
 

@@ -14,7 +14,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-final class PanDash extends BaseDashboard
+class PanDash extends BaseDashboard
 {
     use BaseDashboard\Concerns\HasFiltersForm;
 

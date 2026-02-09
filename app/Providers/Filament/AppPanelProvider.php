@@ -73,7 +73,7 @@ use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class AppPanelProvider extends PanelProvider
+class AppPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

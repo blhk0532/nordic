@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 use function Livewire\trigger;
 
-final class Checksum
+class Checksum
 {
     private static $maxFailures = 10;
 

@@ -7,7 +7,7 @@ namespace App\Services;
 use App\Enums\IncomeStatus;
 use App\Models\Income;
 
-final class IncomeStatusService
+class IncomeStatusService
 {
     public static function recalculateIncomeStatusFor(int $incomeId): void
     {

@@ -8,7 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-final class PostnummerForm
+class PostnummerForm
 {
     public static function configure(Schema $schema): Schema
     {

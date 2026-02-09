@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Throwable;
 use WallaceMartinss\FilamentEvolution\Services\WhatsappService;
 
-final class BookingObserver
+class BookingObserver
 {
     public function __construct(
         private GoogleCalendarSyncService $syncService,

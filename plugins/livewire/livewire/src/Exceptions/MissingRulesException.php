@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class MissingRulesException extends Exception
+class MissingRulesException extends Exception
 {
     use BypassViewHandler;
 

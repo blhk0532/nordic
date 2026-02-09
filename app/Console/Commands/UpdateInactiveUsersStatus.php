@@ -8,7 +8,7 @@ use App\Enums\UserActiveStatus;
 use App\Models\User;
 use Illuminate\Console\Command;
 
-final class UpdateInactiveUsersStatus extends Command
+class UpdateInactiveUsersStatus extends Command
 {
     /**
      * The name and signature of the console command.

@@ -13,7 +13,7 @@ use Filament\Panel;
 use Filament\Tables\Enums\FiltersLayout;
 use UnitEnum;
 
-final class FilamentFailedJobsPlugin implements Plugin
+class FilamentFailedJobsPlugin implements Plugin
 {
     use PluginVariables;
 

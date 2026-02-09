@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\CalendarEvents\CalendarEventResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewCalendarEvent extends ViewRecord
+class ViewCalendarEvent extends ViewRecord
 {
     protected static string $resource = CalendarEventResource::class;
 

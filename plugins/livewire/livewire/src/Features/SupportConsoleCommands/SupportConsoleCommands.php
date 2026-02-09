@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportConsoleCommands;
 use Illuminate\Console\Application as Artisan;
 use Livewire\ComponentHook;
 
-final class SupportConsoleCommands extends ComponentHook
+class SupportConsoleCommands extends ComponentHook
 {
     public static function provide()
     {

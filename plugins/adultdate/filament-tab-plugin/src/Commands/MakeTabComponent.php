@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 use function Laravel\Prompts\text;
 
-final class MakeTabComponent extends Command
+class MakeTabComponent extends Command
 {
     use CanManipulateFiles;
 

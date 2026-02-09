@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Features\SupportTesting;
 
-final class SubsequentRender extends Render
+class SubsequentRender extends Render
 {
     public function __construct(
         protected RequestBroker $requestBroker,

@@ -19,7 +19,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class JobResource extends Resource
+class JobResource extends Resource
 {
     protected static ?string $model = Job::class;
 

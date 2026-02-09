@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\JobBatches\JobBatchResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewJobBatch extends ViewRecord
+class ViewJobBatch extends ViewRecord
 {
     protected static string $resource = JobBatchResource::class;
 

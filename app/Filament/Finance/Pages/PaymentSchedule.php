@@ -13,7 +13,7 @@ use Filament\Schemas\Components\Livewire;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 
-final class PaymentSchedule extends Page implements HasForms
+class PaymentSchedule extends Page implements HasForms
 {
     use InteractsWithForms;
 

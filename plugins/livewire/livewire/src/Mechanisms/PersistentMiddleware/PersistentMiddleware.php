@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use function Livewire\on;
 
-final class PersistentMiddleware extends Mechanism
+class PersistentMiddleware extends Mechanism
 {
     protected static $persistentMiddleware = [
         \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,

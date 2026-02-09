@@ -15,13 +15,13 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Throwable;
 use Zap\Enums\Frequency;
 use Zap\Enums\ScheduleTypes;
 use Zap\Models\Schedule;
 
-final class SchedulesCalendarWidget extends FullCalendarWidget
+class SchedulesCalendarWidget extends FullCalendarWidget
 {
     /**
      * Return FullCalendar config overrides for this widget.

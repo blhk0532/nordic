@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\TicketStatuses\TicketStatus
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditTicketStatus extends EditRecord
+class EditTicketStatus extends EditRecord
 {
     protected static string $resource = TicketStatusResource::class;
 

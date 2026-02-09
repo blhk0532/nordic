@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class RatsitData extends Model
+class RatsitData extends Model
 {
     /** @use HasFactory<\Database\Factories\RatsitDataFactory> */
     use HasFactory;

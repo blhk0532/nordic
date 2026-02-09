@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Throwable;
 
-final class JobQueueController extends Controller
+class JobQueueController extends Controller
 {
     /**
      * GET /api/job-queue/get-merinfo

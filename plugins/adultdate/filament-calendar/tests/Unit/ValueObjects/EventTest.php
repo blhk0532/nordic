@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Carbon\Carbon;
-use Guava\Calendar\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 
 beforeEach(function () {
     $this->event = CalendarEvent::make();

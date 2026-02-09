@@ -8,7 +8,7 @@ use App\Models\RingaData;
 use Filament\Widgets\Widget;
 use Livewire\Attributes\On;
 
-final class RingaDataOutcomeFormWidget extends Widget
+class RingaDataOutcomeFormWidget extends Widget
 {
     public ?RingaData $record = null;
 

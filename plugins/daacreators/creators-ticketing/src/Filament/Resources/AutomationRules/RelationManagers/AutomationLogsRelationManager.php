@@ -19,7 +19,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-final class AutomationLogsRelationManager extends RelationManager
+class AutomationLogsRelationManager extends RelationManager
 {
     use HasTicketPermissions;
 

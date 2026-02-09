@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-final class InstallWirechatCommand extends Command
+class InstallWirechatCommand extends Command
 {
     protected $signature = 'wirechat:install {--panel=}';
 

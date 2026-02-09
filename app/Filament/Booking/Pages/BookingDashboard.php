@@ -15,7 +15,7 @@ use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
-final class BookingDashboard extends BaseDashboard
+class BookingDashboard extends BaseDashboard
 {
     use BaseDashboard\Concerns\HasFiltersForm;
 

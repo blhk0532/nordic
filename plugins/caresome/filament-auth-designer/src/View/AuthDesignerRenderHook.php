@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Caresome\FilamentAuthDesigner\View;
 
-final class AuthDesignerRenderHook
+class AuthDesignerRenderHook
 {
     public const string CardBefore = 'auth-designer::card.before';
 

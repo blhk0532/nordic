@@ -9,7 +9,7 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Number;
 
-final class RatsitDataStatsWidget extends BaseWidget
+class RatsitDataStatsWidget extends BaseWidget
 {
     protected static bool $isDiscovered = false;
 

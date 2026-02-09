@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Cache;
 
 use function __;
 
-final class AdminResource extends Resource
+class AdminResource extends Resource
 {
     protected static ?string $model = Admin::class;
 

@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pa
 use Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\BookingServicePeriodResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateBookingServicePeriod extends CreateRecord
+class CreateBookingServicePeriod extends CreateRecord
 {
     protected static string $resource = BookingServicePeriodResource::class;
 }

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
 use Filament\Facades\Filament;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Guava\Calendar\Attributes\CalendarSchema;
-use Guava\Calendar\Exceptions\SchemaNotFoundException;
+use Adultdate\FilamentBooking\Attributes\CalendarSchema;
+use Adultdate\FilamentBooking\Exceptions\SchemaNotFoundException;
 use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionMethod;

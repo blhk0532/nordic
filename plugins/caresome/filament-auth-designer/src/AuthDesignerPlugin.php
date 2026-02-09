@@ -13,7 +13,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentView;
 
-final class AuthDesignerPlugin implements Plugin
+class AuthDesignerPlugin implements Plugin
 {
     use HasDefaults;
     use HasPages;

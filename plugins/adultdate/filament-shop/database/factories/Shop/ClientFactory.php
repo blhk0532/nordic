@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Adultdate\FilamentShop\Models\Shop\Client>
  */
-final class ClientFactory extends Factory
+class ClientFactory extends Factory
 {
     protected $model = Client::class;
 

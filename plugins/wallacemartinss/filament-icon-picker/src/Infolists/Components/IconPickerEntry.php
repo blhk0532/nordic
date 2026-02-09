@@ -10,7 +10,7 @@ use Wallacemartinss\FilamentIconPicker\Concerns\HasIconAnimation;
 use Wallacemartinss\FilamentIconPicker\Concerns\HasIconColor;
 use Wallacemartinss\FilamentIconPicker\Concerns\HasIconSize;
 
-final class IconPickerEntry extends Entry
+class IconPickerEntry extends Entry
 {
     use HasIconAnimation;
     use HasIconColor;

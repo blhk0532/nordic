@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-final class RestoreTelefon extends Command
+class RestoreTelefon extends Command
 {
     protected $signature = 'restore:telefon';
 

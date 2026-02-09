@@ -8,7 +8,7 @@ use Adultdate\Wirechat\Helpers\MorphClassResolver;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-final class ChatsIconButton extends Component
+class ChatsIconButton extends Component
 {
     public int $unreadCount = 0;
 

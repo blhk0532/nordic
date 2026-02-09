@@ -7,7 +7,7 @@ namespace VendorName\Skeleton;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class SkeletonPlugin implements Plugin
+class SkeletonPlugin implements Plugin
 {
     public static function make(): static
     {

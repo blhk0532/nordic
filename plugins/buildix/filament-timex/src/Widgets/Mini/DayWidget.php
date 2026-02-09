@@ -8,7 +8,7 @@ use Buildix\Timex\Traits\TimexTrait;
 use Livewire\Component;
 use Redirect;
 
-final class DayWidget extends Component
+class DayWidget extends Component
 {
     use TimexTrait;
 

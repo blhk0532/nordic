@@ -12,7 +12,7 @@ use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
 
-final class QueueableBulkActionsPlugin implements Plugin
+class QueueableBulkActionsPlugin implements Plugin
 {
     use EvaluatesClosures;
 

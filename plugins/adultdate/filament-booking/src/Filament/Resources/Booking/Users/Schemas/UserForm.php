@@ -11,7 +11,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class UserForm
+class UserForm
 {
     public static function configure(Schema $schema): Schema
     {

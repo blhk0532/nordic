@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserRadialbar extends ApexChartWidget
+class UserRadialbar extends ApexChartWidget
 {
     /**
      * Chart Id

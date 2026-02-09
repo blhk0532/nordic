@@ -10,7 +10,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\FontWeight;
 
-final class CalendarEventInfolist
+class CalendarEventInfolist
 {
     public static function configure(Schema $schema): Schema
     {

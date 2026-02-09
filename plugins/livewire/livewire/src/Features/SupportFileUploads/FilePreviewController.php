@@ -8,7 +8,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Livewire\Drawer\Utils;
 
-final class FilePreviewController implements HasMiddleware
+class FilePreviewController implements HasMiddleware
 {
     public static array $middleware = ['web'];
 

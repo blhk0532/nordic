@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-final class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {

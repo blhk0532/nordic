@@ -8,7 +8,7 @@ use App\Models\Postnummer;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class PostNummerStatusUpdated
+class PostNummerStatusUpdated
 {
     use Dispatchable;
     use SerializesModels;

@@ -10,7 +10,7 @@ use Filament\Support\Assets\Theme;
 use Filament\Support\Colors;
 use Filament\Support\Facades\FilamentAsset;
 
-final class FilamentBooking implements Plugin
+class FilamentBooking implements Plugin
 {
     public function getId(): string
     {

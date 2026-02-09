@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\BookingServicePeriod;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class BookingServicePeriodPolicy
+class BookingServicePeriodPolicy
 {
     use HandlesAuthorization;
 

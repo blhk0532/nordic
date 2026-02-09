@@ -24,7 +24,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-final class ListPayments extends Component implements HasActions, HasSchemas, HasTable
+class ListPayments extends Component implements HasActions, HasSchemas, HasTable
 {
     use InteractsWithActions;
     use InteractsWithSchemas;

@@ -23,7 +23,7 @@ use Filament\Tables\Table;
 use Zap\Enums\ScheduleTypes;
 use Zap\Facades\Zap;
 
-final class ManageServiceProviderSchedules extends Page implements HasForms, HasTable
+class ManageServiceProviderSchedules extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithRecord, InteractsWithTable;
 

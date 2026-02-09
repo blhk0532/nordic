@@ -9,7 +9,7 @@ use Buildix\Timex\Traits\TimexTrait;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
-final class Event extends Model
+class Event extends Model
 {
     use HasUuids;
     use TimexTrait;

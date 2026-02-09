@@ -9,7 +9,7 @@ use Filament\Pages\Page;
 use Filament\Support\Enums\Width;
 use UnitEnum;
 
-final class InertiaCalendar extends Page
+class InertiaCalendar extends Page
 {
     protected string $view = 'filament.booking.pages.inertia-calendar';
 

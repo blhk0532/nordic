@@ -11,7 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-final class BookingOutcallQueueForm
+class BookingOutcallQueueForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -19,7 +19,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-final class ClientsTable
+class ClientsTable
 {
     public static function configure(Table $table): Table
     {

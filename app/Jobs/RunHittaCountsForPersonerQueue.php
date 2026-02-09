@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use RuntimeException;
 
-final class RunHittaCountsForPersonerQueue implements ShouldQueue
+class RunHittaCountsForPersonerQueue implements ShouldQueue
 {
     use Dispatchable;
     use FoundationQueueable;

@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
 
 use function view;
 
-final class Timex extends Page
+class Timex extends Page
 {
     use InteractWithEvents;
     use TimexTrait;

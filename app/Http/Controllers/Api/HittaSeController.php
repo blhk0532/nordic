@@ -11,7 +11,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Log;
 
-final class HittaSeController extends Controller
+class HittaSeController extends Controller
 {
     public function store(Request $request)
     {

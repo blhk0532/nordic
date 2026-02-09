@@ -6,7 +6,7 @@ namespace App\Filament\Super\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserTreemap extends ApexChartWidget
+class UserTreemap extends ApexChartWidget
 {
     /**
      * Chart Id

@@ -10,7 +10,7 @@ use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Database\Eloquent\Model;
 
-final class ManageTeamUsers extends ManageRecords
+class ManageTeamUsers extends ManageRecords
 {
     protected static string $resource = TeamUserResource::class;
 

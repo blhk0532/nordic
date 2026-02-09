@@ -15,7 +15,7 @@ use function Livewire\off;
 use function Livewire\on;
 use function Livewire\once;
 
-final class SupportPageComponents extends ComponentHook
+class SupportPageComponents extends ComponentHook
 {
     public static function provide()
     {

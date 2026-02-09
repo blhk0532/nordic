@@ -12,7 +12,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 
-final class BookingStats extends BaseWidget
+class BookingStats extends BaseWidget
 {
     use InteractsWithPageTable;
 

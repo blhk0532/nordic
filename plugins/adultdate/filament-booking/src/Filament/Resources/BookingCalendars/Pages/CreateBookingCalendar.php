@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalenda
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Auth;
 
-final class CreateBookingCalendar extends CreateRecord
+class CreateBookingCalendar extends CreateRecord
 {
     protected static string $resource = BookingCalendarResource::class;
 

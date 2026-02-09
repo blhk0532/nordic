@@ -8,7 +8,7 @@ use Filament\Actions\Exports\Models\Export;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Bus;
 
-final class RequeuePendingExports extends Command
+class RequeuePendingExports extends Command
 {
     /**
      * The name and signature of the console command.

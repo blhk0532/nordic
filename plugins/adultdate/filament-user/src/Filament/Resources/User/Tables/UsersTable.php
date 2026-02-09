@@ -7,7 +7,7 @@ namespace Adultdate\FilamentUser\Filament\Resources\User\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class UsersTable
+class UsersTable
 {
     public static function configure(Table $table): Table
     {

@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Projects\ProjectResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListProjects extends ListRecords
+class ListProjects extends ListRecords
 {
     protected static string $resource = ProjectResource::class;
 

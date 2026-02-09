@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-final class Department extends Model
+class Department extends Model
 {
     protected $guarded = [];
 

@@ -9,7 +9,7 @@ use Adultdate\Wirechat\Livewire\Concerns\ModalComponent;
 use Adultdate\Wirechat\Livewire\Concerns\Widget;
 use Adultdate\Wirechat\Livewire\Widgets\Wirechat as WidgetsWirechat;
 
-final class Chat extends ModalComponent
+class Chat extends ModalComponent
 {
     use HasPanel;
     use Widget;

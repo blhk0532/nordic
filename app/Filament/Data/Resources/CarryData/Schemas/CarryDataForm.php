@@ -9,7 +9,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class CarryDataForm
+class CarryDataForm
 {
     public static function configure(Schema $schema): Schema
     {

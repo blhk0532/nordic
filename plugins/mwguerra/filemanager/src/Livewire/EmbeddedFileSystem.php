@@ -14,7 +14,7 @@ use MWGuerra\FileManager\Contracts\FileManagerAdapterInterface;
  * as an embeddable Livewire component for use in forms and pages.
  * Only browsing and downloading is allowed - no write operations.
  */
-final class EmbeddedFileSystem extends EmbeddedFileManager
+class EmbeddedFileSystem extends EmbeddedFileManager
 {
     public function mount(
         string $height = '500px',

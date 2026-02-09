@@ -11,7 +11,7 @@ use Filament\Panel;
 
 use function filament;
 
-final class FilamentErrorPagesPlugin implements Plugin
+class FilamentErrorPagesPlugin implements Plugin
 {
     private array $routes = [];
 

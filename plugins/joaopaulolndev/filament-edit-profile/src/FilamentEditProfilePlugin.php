@@ -23,7 +23,7 @@ use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
 
-final class FilamentEditProfilePlugin implements Plugin
+class FilamentEditProfilePlugin implements Plugin
 {
     use EvaluatesClosures;
 

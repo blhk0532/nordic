@@ -10,7 +10,7 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\ImportAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListCategories extends ListRecords
+class ListCategories extends ListRecords
 {
     protected static string $resource = CategoryResource::class;
 

@@ -46,7 +46,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder forDate(string $date)
  * @method static \Illuminate\Database\Eloquent\Builder forDateRange(string $startDate, string $endDate)
  */
-final class Schedule extends Model
+class Schedule extends Model
 {
     /**
      * The attributes that are mass assignable.

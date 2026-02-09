@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static \Illuminate\Database\Eloquent\Builder query()
  */
-final class DailyLocation extends Model implements Eventable
+class DailyLocation extends Model implements Eventable
 {
     protected $table = 'booking_daily_locations';
 

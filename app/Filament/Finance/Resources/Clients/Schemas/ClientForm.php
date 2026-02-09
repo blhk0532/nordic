@@ -10,7 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Schema;
 
-final class ClientForm
+class ClientForm
 {
     public static function configure(Schema $schema): Schema
     {

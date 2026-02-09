@@ -8,7 +8,7 @@ use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 
-final class MerinfoCountBulkAction extends BulkAction
+class MerinfoCountBulkAction extends BulkAction
 {
     public static function make(?string $name = 'merinfoCount'): static
     {

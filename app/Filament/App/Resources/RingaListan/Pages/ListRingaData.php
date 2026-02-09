@@ -12,7 +12,7 @@ use App\Models\RingaData;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\Width;
 
-final class ListRingaData extends ListRecords
+class ListRingaData extends ListRecords
 {
     public ?int $selectedRecordId = null;
 

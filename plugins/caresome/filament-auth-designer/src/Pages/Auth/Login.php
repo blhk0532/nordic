@@ -7,7 +7,7 @@ namespace Caresome\FilamentAuthDesigner\Pages\Auth;
 use Caresome\FilamentAuthDesigner\Concerns\HasAuthDesignerLayout;
 use Filament\Auth\Pages\Login as BaseLogin;
 
-final class Login extends BaseLogin
+class Login extends BaseLogin
 {
     use HasAuthDesignerLayout;
 

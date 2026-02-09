@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class UserObserver
+class UserObserver
 {
     /**
      * Handle the User "created" event.

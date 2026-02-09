@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 /**
  * @property \App\Models\User $ownerRecord
  */
-final class OwnedTeamsRelationManager extends RelationManager
+class OwnedTeamsRelationManager extends RelationManager
 {
     protected static string $relationship = 'ownedTeams';
 

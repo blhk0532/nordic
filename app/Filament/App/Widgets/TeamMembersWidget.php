@@ -12,7 +12,7 @@ use Filament\Actions\Action;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 
-final class TeamMembersWidget extends BaseWidget
+class TeamMembersWidget extends BaseWidget
 {
     protected int|string|array $columnSpan = 'full';
 

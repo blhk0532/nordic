@@ -8,7 +8,7 @@ use Adultdate\FilamentPostnummer\Resources\Postnummers\PostnummerResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-final class FilamentPostnummerPlugin implements Plugin
+class FilamentPostnummerPlugin implements Plugin
 {
     public static function make(): static
     {

@@ -14,7 +14,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class OutcomeSettingForm
+class OutcomeSettingForm
 {
     public static function configure(Schema $schema): Schema
     {

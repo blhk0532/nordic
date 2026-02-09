@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\HittaSes\HittaSeResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditHittaSe extends EditRecord
+class EditHittaSe extends EditRecord
 {
     protected static string $resource = HittaSeResource::class;
 

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Vite;
 use Livewire\ComponentHook;
 
-final class SupportNavigate extends ComponentHook
+class SupportNavigate extends ComponentHook
 {
     public static function provide()
     {

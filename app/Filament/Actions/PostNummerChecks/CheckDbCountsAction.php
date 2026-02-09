@@ -10,7 +10,7 @@ use App\Models\PostNum;
 use App\Models\RatsitData;
 use Filament\Notifications\Notification;
 
-final class CheckDbCountsAction
+class CheckDbCountsAction
 {
     /**
      * Count records in each data table for a given post_nummer and update the PostNum record.

@@ -11,7 +11,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentWorldClockServiceProvider extends PackageServiceProvider
+class FilamentWorldClockServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-world-clock';
 

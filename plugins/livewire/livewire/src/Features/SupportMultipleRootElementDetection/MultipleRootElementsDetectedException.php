@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportMultipleRootElementDetection;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-final class MultipleRootElementsDetectedException extends Exception
+class MultipleRootElementsDetectedException extends Exception
 {
     use BypassViewHandler;
 

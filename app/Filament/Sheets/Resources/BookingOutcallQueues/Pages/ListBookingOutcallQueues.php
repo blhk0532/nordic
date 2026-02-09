@@ -8,7 +8,7 @@ use App\Filament\Sheets\Resources\BookingOutcallQueues\BookingOutcallQueueResour
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBookingOutcallQueues extends ListRecords
+class ListBookingOutcallQueues extends ListRecords
 {
     protected static string $resource = BookingOutcallQueueResource::class;
 

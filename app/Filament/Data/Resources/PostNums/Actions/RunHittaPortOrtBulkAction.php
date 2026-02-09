@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
 
-final class RunHittaPortOrtBulkAction extends BulkAction
+class RunHittaPortOrtBulkAction extends BulkAction
 {
     public static function make(?string $name = 'runHittaPortOrt'): static
     {

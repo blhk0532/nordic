@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends Factory<Address>
  */
-final class AddressFactory extends Factory
+class AddressFactory extends Factory
 {
     protected $model = Address::class;
 

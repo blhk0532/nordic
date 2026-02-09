@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportModels;
 
 use Livewire\ComponentHook;
 
-final class SupportModels extends ComponentHook
+class SupportModels extends ComponentHook
 {
     public static function provide()
     {

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use MWGuerra\FileManager\Enums\FileSystemItemType;
 use MWGuerra\FileManager\Enums\FileType;
 
-final class FileSystemItemSeeder extends Seeder
+class FileSystemItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.

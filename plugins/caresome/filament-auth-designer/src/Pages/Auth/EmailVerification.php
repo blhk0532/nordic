@@ -11,7 +11,7 @@ use Filament\Facades\Filament;
 use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Schema;
 
-final class EmailVerification extends BaseEmailVerificationPrompt
+class EmailVerification extends BaseEmailVerificationPrompt
 {
     use HasAuthDesignerLayout;
 

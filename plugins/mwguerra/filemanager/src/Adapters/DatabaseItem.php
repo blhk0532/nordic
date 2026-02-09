@@ -13,7 +13,7 @@ use MWGuerra\FileManager\Contracts\FileSystemItemInterface;
  * This allows the FileManager to work with database models through the same
  * interface as storage items.
  */
-final class DatabaseItem implements FileManagerItemInterface
+class DatabaseItem implements FileManagerItemInterface
 {
     private FileSystemItemInterface $model;
 

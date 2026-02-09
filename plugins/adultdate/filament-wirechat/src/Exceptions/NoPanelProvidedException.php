@@ -6,7 +6,7 @@ namespace Adultdate\Wirechat\Exceptions;
 
 use Exception;
 
-final class NoPanelProvidedException extends Exception
+class NoPanelProvidedException extends Exception
 {
     public static function make(): self
     {

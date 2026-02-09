@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  *
  * @mixin \Eloquent
  */
-final class Membership extends Pivot
+class Membership extends Pivot
 {
     public $incrementing = true;
 

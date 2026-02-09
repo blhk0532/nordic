@@ -8,7 +8,7 @@ use App\Models\Partner;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class PartnerObserver
+class PartnerObserver
 {
     /**
      * Handle the Partner "created" event.

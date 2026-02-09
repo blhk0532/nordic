@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportMagicActions extends ComponentHook
+class SupportMagicActions extends ComponentHook
 {
     public static $magicActions = [
         '$refresh',

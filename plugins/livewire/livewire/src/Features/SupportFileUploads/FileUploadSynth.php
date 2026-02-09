@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportFileUploads;
 use Illuminate\Http\UploadedFile;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 
-final class FileUploadSynth extends Synth
+class FileUploadSynth extends Synth
 {
     public static $key = 'fil';
 

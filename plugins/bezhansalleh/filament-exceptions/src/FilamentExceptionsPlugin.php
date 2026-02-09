@@ -13,7 +13,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 
-final class FilamentExceptionsPlugin implements Plugin
+class FilamentExceptionsPlugin implements Plugin
 {
     use EvaluatesClosures;
     use HasLabels;

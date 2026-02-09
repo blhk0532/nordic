@@ -13,7 +13,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-final class BulkActionNotification extends Component
+class BulkActionNotification extends Component
 {
     public int $bulkActionId;
 

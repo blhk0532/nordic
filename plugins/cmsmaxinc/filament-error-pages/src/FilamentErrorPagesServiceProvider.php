@@ -13,7 +13,7 @@ use Throwable;
 
 use function filament;
 
-final class FilamentErrorPagesServiceProvider extends PackageServiceProvider
+class FilamentErrorPagesServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-error-pages';
 

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
-final class LanguageSwitcher extends Component
+class LanguageSwitcher extends Component
 {
     public string $currentLang = 'en';
 

@@ -14,7 +14,7 @@ use WallaceMartinss\FilamentEvolution\Enums\MessageTypeEnum;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappMessage;
 
-final class SyncWhatsappMessages extends Command
+class SyncWhatsappMessages extends Command
 {
     /**
      * The name and signature of the console command.

@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-final class SprintsTable
+class SprintsTable
 {
     public static function configure(Table $table): Table
     {

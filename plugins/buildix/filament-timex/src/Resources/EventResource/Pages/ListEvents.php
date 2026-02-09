@@ -12,7 +12,7 @@ use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Schema;
 
-final class ListEvents extends ListRecords
+class ListEvents extends ListRecords
 {
     use TimexTrait;
 

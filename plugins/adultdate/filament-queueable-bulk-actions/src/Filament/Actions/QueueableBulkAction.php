@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-final class QueueableBulkAction extends \Filament\Actions\BulkAction
+class QueueableBulkAction extends \Filament\Actions\BulkAction
 {
     private Closure|string|null $job = null;
 

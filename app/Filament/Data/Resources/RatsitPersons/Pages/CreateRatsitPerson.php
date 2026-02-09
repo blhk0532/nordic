@@ -7,7 +7,7 @@ namespace App\Filament\Data\Resources\RatsitPersons\Pages;
 use App\Filament\Data\Resources\RatsitPersons\RatsitPersonResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateRatsitPerson extends CreateRecord
+class CreateRatsitPerson extends CreateRecord
 {
     protected static string $resource = RatsitPersonResource::class;
 

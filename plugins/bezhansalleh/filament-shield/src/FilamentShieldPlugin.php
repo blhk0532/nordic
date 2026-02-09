@@ -13,7 +13,7 @@ use Filament\Contracts\Plugin as FilamentPlugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 
-final class FilamentShieldPlugin implements FilamentPlugin
+class FilamentShieldPlugin implements FilamentPlugin
 {
     use Essentials\BelongsToParent;
     use Essentials\BelongsToTenant;

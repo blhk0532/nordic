@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class Search extends Model
+class Search extends Model
 {
     /** @use HasFactory<\Database\Factories\SearchFactory> */
     use HasFactory;

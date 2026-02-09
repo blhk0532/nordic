@@ -15,7 +15,7 @@ use Symfony\Component\Process\Process;
 
 use function Illuminate\Support\php_binary;
 
-final class RunCommand extends CreateRecord
+class RunCommand extends CreateRecord
 {
     protected static bool $canCreateAnother = false;
 

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Notification;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use League\Uri\Components\Query;
 
-final class EditProfileForm extends BaseProfileForm
+class EditProfileForm extends BaseProfileForm
 {
     use HasUser;
 

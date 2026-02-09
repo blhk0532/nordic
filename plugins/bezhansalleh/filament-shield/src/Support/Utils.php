@@ -14,7 +14,7 @@ use RuntimeException;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
-final class Utils
+class Utils
 {
     private static ?array $psr4Cache = null;
 

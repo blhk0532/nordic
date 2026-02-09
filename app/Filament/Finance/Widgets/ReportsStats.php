@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class ReportsStats extends StatsOverviewWidget
+class ReportsStats extends StatsOverviewWidget
 {
     public ?string $from = null;
 

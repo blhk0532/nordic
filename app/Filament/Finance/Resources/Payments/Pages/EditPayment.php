@@ -10,7 +10,7 @@ use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditPayment extends EditRecord
+class EditPayment extends EditRecord
 {
     protected static string $resource = PaymentResource::class;
 

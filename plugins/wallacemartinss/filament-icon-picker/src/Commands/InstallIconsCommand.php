@@ -15,7 +15,7 @@ use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\warning;
 
-final class InstallIconsCommand extends Command
+class InstallIconsCommand extends Command
 {
     protected $signature = 'filament-icon-picker:install-icons
                             {--all : Install all available icon packages}

@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Log;
 
-final class PersonerDataController extends Controller
+class PersonerDataController extends Controller
 {
     public function bulkStore(Request $request): JsonResponse
     {

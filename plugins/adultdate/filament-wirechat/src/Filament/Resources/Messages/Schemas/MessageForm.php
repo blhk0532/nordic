@@ -10,7 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
-final class MessageForm
+class MessageForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -14,7 +14,7 @@ use MWGuerra\FileManager\Livewire\EmbeddedFileSystem;
  * This component embeds the storage-mode file browser into any Filament form or page.
  * Extends Filament's built-in Livewire component for proper component isolation.
  */
-final class FileSystemEmbed extends Livewire
+class FileSystemEmbed extends Livewire
 {
     protected string|Closure $height = '500px';
 

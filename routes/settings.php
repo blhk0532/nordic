@@ -6,14 +6,14 @@ use Laravel\Fortify\Features;
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
-    Route::livewire('settings/profile', 'pages::settings.profile')->name('profile.edit');
+    Route::get('settings/profile', \App\Livewire\Pages\Settings\Profile::class)->name('profile.edit');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::livewire('settings/password', 'pages::settings.password')->name('user-password.edit');
-    Route::livewire('settings/appearance', 'pages::settings.appearance')->name('appearance.edit');
+    Route::get('settings/password', \App\Livewire\Pages\Settings\Password::class)->name('user-password.edit');
+    Route::get('settings/appearance', \App\Livewire\Pages\Settings\Appearance::class)->name('appearance.edit');
 
-    Route::livewire('settings/two-factor', 'pages::settings.two-factor')
+    Route::get('settings/two-factor', \App\Livewire\Pages\Settings\TwoFactor::class)
         ->middleware(
             when(
                 Features::canManageTwoFactorAuthentication()

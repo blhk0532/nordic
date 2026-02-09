@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportTesting;
 
 use Livewire\Drawer\Utils;
 
-final class ComponentState
+class ComponentState
 {
     public function __construct(
         private $component,

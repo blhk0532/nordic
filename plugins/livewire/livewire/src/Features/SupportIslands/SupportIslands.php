@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Blade;
 use Livewire\ComponentHook;
 use Livewire\Features\SupportIslands\Compiler\IslandCompiler;
 
-final class SupportIslands extends ComponentHook
+class SupportIslands extends ComponentHook
 {
     public static function provide()
     {

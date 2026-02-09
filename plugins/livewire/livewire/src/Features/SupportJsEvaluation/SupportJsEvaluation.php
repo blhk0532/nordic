@@ -8,7 +8,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\store;
 
-final class SupportJsEvaluation extends ComponentHook
+class SupportJsEvaluation extends ComponentHook
 {
     public function dehydrate($context)
     {

@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use UnitEnum;
 
-final class ProductResource extends Resource
+class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 

@@ -8,7 +8,7 @@ use Adultdate\FilamentShop\Filament\Clusters\Services\Resources\Clients\ClientRe
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Str;
 
-final class CreateClient extends CreateRecord
+class CreateClient extends CreateRecord
 {
     protected static string $resource = ClientResource::class;
 

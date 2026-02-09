@@ -14,7 +14,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-final class BroadcastMessage implements ShouldQueue
+class BroadcastMessage implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithPanel;

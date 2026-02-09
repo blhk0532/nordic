@@ -19,7 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Squire\Models\Country;
 
-final class AddressesRelationManager extends RelationManager
+class AddressesRelationManager extends RelationManager
 {
     protected static string $relationship = 'addresses';
 

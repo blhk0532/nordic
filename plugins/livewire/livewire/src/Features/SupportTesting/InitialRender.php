@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportTesting;
 
 use Livewire\Drawer\Utils;
 
-final class InitialRender extends Render
+class InitialRender extends Render
 {
     public function __construct(
         protected RequestBroker $requestBroker,

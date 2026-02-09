@@ -11,7 +11,7 @@ use Adultdate\Schedule\Models\SchedulePeriod;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class ConflictDetectionService
+class ConflictDetectionService
 {
     /**
      * Check if a schedule has conflicts with existing schedules.

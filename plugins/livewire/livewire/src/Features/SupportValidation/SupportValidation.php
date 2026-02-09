@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\ComponentHook;
 use Livewire\Drawer\Utils;
 
-final class SupportValidation extends ComponentHook
+class SupportValidation extends ComponentHook
 {
     public function hydrate($memo)
     {

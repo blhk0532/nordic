@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-final class BulkActionRecord extends Model
+class BulkActionRecord extends Model
 {
     use HasStatus;
 

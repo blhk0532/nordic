@@ -7,7 +7,7 @@ namespace Caresome\FilamentAuthDesigner\Pages\Auth;
 use Caresome\FilamentAuthDesigner\Concerns\HasAuthDesignerLayout;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 
-final class EditProfile extends BaseEditProfile
+class EditProfile extends BaseEditProfile
 {
     use HasAuthDesignerLayout;
 

@@ -36,7 +36,7 @@ use function Laravel\Prompts\text;
     name: 'make:filament-tree-page',
     description: 'Creates a Filament tree page class',
 )]
-final class MakeTreePageCommand extends Command
+class MakeTreePageCommand extends Command
 {
     use CanAskForRelatedModel;
     use CanAskForRelatedResource;

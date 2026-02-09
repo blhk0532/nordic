@@ -7,7 +7,7 @@ namespace Adultdate\FilamentPostnummer;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentPostnummerServiceProvider extends PackageServiceProvider
+class FilamentPostnummerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-postnummer';
 

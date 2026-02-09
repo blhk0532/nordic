@@ -8,7 +8,7 @@ use App\Services\TelavoxSmsService;
 use Illuminate\Console\Command;
 use Throwable;
 
-final class SendTelavoxSms extends Command
+class SendTelavoxSms extends Command
 {
     /** @var string */
     protected $signature = 'telavox:sms {to : Destination number (e.g. 00467081234567 or 0701234567)} {message : Message text}';

@@ -7,7 +7,7 @@ namespace Buildix\Timex\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
-final class Category extends Model
+class Category extends Model
 {
     use HasUuids;
 

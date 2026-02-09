@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Enums\Context;
-use Guava\Calendar\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\Enums\Context;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
 
 trait HandlesDateSelect
 {

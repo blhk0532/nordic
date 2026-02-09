@@ -10,7 +10,7 @@ use Livewire\Features\SupportFileUploads\FileUploadConfiguration;
 
 use function Livewire\invade;
 
-final class Utils extends BaseUtils
+class Utils extends BaseUtils
 {
     public static function insertAttributesIntoHtmlRoot($html, $attributes)
     {
@@ -163,7 +163,7 @@ final class Utils extends BaseUtils
             ->send($request)
             ->through($middleware)
             ->then(function () {
-                return new \Illuminate\Http\Response();
+                return new \Illuminate\Http\Response;
             });
 
         if ($response instanceof \Illuminate\Http\RedirectResponse) {

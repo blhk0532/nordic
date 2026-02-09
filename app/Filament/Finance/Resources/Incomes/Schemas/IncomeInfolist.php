@@ -12,7 +12,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\FontWeight;
 
-final class IncomeInfolist
+class IncomeInfolist
 {
     public static function configure(Schema $schema): Schema
     {

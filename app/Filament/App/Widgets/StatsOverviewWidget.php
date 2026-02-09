@@ -12,7 +12,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Number;
 
-final class StatsOverviewWidget extends BaseWidget
+class StatsOverviewWidget extends BaseWidget
 {
     use InteractsWithPageFilters;
 

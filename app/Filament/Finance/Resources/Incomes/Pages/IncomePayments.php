@@ -17,7 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-final class IncomePayments extends ManageRelatedRecords
+class IncomePayments extends ManageRelatedRecords
 {
     protected static string|BackedEnum|null $navigationIcon = Heroicon::CurrencyDollar;
 

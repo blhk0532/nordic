@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Enums\Context;
-use Guava\Calendar\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\Enums\Context;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
 use phpDocumentor\Reflection\Types\This;
 
 trait HandlesDateClick

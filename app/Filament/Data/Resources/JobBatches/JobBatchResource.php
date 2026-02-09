@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class JobBatchResource extends Resource
+class JobBatchResource extends Resource
 {
     protected static ?string $model = JobBatch::class;
 

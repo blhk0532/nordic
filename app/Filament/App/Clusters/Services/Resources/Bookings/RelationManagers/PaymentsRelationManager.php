@@ -19,7 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-final class PaymentsRelationManager extends RelationManager
+class PaymentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'booking_payments';
 

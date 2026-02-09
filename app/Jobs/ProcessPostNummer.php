@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use Throwable;
 
-final class ProcessPostNummer implements ShouldQueue
+class ProcessPostNummer implements ShouldQueue
 {
     use Queueable;
 

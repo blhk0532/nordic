@@ -21,7 +21,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-final class AgentsRelationManager extends RelationManager
+class AgentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'agents';
 

@@ -14,7 +14,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class RatsitDataForm
+class RatsitDataForm
 {
     public static function configure(Schema $schema): Schema
     {

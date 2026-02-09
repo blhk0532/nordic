@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Client extends Model
+class Client extends Model
 {
     /** @use HasFactory<\Adultdate\FilamentShop\Database\Factories\Booking\ClientFactory> */
     use HasFactory;

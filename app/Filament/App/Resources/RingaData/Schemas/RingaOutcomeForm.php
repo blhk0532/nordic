@@ -10,7 +10,7 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class RingaOutcomeForm
+class RingaOutcomeForm
 {
     public static function configure(Schema $schema, $record = null, $component = null): Schema
     {

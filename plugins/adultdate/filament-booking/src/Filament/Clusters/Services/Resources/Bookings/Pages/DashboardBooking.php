@@ -19,7 +19,7 @@ use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 
-final class DashboardBooking extends BaseDashboard
+class DashboardBooking extends BaseDashboard
 {
     use HasFiltersForm;
 

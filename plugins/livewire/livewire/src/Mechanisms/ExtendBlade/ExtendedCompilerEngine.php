@@ -10,7 +10,7 @@ use Throwable;
 
 use function Livewire\trigger;
 
-final class ExtendedCompilerEngine extends \Illuminate\View\Engines\CompilerEngine
+class ExtendedCompilerEngine extends \Illuminate\View\Engines\CompilerEngine
 {
     public function get($path, array $data = [])
     {

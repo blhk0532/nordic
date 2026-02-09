@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserBoxplot extends ApexChartWidget
+class UserBoxplot extends ApexChartWidget
 {
     protected static bool $isCollapsible = true;
 

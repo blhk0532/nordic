@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AdultDate\FilamentWirechat\Services;
 
-final class ColorService
+class ColorService
 {
     // Base colors registered globally (not tied to any panel)
     private array $colors = [];

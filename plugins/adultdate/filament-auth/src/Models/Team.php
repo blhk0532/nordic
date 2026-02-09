@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 
-final class Team extends Model implements HasCurrentTenantLabel
+class Team extends Model implements HasCurrentTenantLabel
 {
     /** @use HasFactory<\Database\Factories\TeamFactory> */
     use HasFactory;

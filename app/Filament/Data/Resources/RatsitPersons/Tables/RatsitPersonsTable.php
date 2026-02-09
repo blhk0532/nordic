@@ -14,7 +14,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-final class RatsitPersonsTable
+class RatsitPersonsTable
 {
     public static function configure(Table $table): Table
     {

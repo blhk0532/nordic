@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Locked;
 use Livewire\WithFileUploads;
 
-final class Info extends ModalComponent
+class Info extends ModalComponent
 {
     use HasPanel;
     use Widget;

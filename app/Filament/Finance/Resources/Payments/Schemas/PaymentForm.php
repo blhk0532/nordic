@@ -12,7 +12,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class PaymentForm
+class PaymentForm
 {
     public static function configure(Schema $schema): Schema
     {

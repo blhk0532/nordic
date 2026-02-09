@@ -19,7 +19,7 @@ use Symfony\Component\Console\Input\InputOption;
 use function Laravel\Prompts\confirm;
 
 #[AsCommand(name: 'shield:publish', description: "Publish Shield's Resource.")]
-final class PublishCommand extends Command
+class PublishCommand extends Command
 {
     use CanAskForResource;
     use CanManipulateFiles;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Joaopaulolndev\FilamentWorldClock\Helpers;
 
-final class FlagsHelper
+class FlagsHelper
 {
     public static function get(string $timezone): string
     {

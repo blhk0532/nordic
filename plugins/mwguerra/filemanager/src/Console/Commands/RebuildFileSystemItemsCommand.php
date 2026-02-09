@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use MWGuerra\FileManager\Enums\FileSystemItemType;
 use MWGuerra\FileManager\Enums\FileType;
 
-final class RebuildFileSystemItemsCommand extends Command
+class RebuildFileSystemItemsCommand extends Command
 {
     /**
      * The name and signature of the console command.

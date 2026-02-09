@@ -8,7 +8,7 @@ use Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 #[Attribute(Attribute::TARGET_METHOD)]
-final class CalendarResourceLabelContent
+class CalendarResourceLabelContent
 {
     /**
      * @param  class-string<Model>  $model

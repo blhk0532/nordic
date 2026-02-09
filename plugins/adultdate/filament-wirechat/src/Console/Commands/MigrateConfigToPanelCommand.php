@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
-final class MigrateConfigToPanelCommand extends Command
+class MigrateConfigToPanelCommand extends Command
 {
     protected $signature = 'wirechat:upgrade-to-v0.3x {--dry-run : Show what would be done without making changes}';
 

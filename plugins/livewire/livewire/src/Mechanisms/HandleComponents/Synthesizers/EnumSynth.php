@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 
-final class EnumSynth extends Synth
+class EnumSynth extends Synth
 {
     public static $key = 'enm';
 

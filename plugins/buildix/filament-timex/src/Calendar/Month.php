@@ -8,7 +8,7 @@ use Buildix\Timex\Traits\TimexTrait;
 use Carbon\Carbon;
 use Livewire\Component;
 
-final class Month extends Component
+class Month extends Component
 {
     use TimexTrait;
 

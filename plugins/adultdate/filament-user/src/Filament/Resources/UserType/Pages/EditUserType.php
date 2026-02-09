@@ -7,7 +7,7 @@ namespace Adultdate\FilamentUser\Filament\Resources\UserType\Pages;
 use Adultdate\FilamentUser\Filament\Resources\UserType\UserTypeResource;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditUserType extends EditRecord
+class EditUserType extends EditRecord
 {
     protected static string $resource = UserTypeResource::class;
 }

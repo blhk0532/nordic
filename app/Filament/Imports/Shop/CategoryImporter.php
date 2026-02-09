@@ -9,7 +9,7 @@ use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
 
-final class CategoryImporter extends Importer
+class CategoryImporter extends Importer
 {
     protected static ?string $model = Category::class;
 

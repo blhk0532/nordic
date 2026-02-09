@@ -8,7 +8,7 @@ use App\Filament\Panels\Resources\Searches\SearchResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewSearch extends ViewRecord
+class ViewSearch extends ViewRecord
 {
     protected static string $resource = SearchResource::class;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Contracts\ContextualInfo;
-use Guava\Calendar\Contracts\HasCalendar;
-use Guava\Calendar\ValueObjects\DateClickInfo;
-use Guava\Calendar\ValueObjects\DateSelectInfo;
-use Guava\Calendar\ValueObjects\EventClickInfo;
-use Guava\Calendar\ValueObjects\NoEventsClickInfo;
+use Adultdate\FilamentBooking\Contracts\ContextualInfo;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\ValueObjects\DateClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
+use Adultdate\FilamentBooking\ValueObjects\EventClickInfo;
+use Adultdate\FilamentBooking\ValueObjects\NoEventsClickInfo;
 
 trait CalendarAction
 {

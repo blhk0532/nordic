@@ -24,7 +24,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Squire\Models\Currency;
 
-final class OrderForm
+class OrderForm
 {
     public static function configure(Schema $schema): Schema
     {

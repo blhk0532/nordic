@@ -19,7 +19,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class PostNumResource extends Resource
+class PostNumResource extends Resource
 {
     protected static ?string $model = PostNum::class;
 

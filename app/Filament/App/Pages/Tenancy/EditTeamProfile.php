@@ -15,7 +15,7 @@ use Filament\Schemas\Schema;
 /**
  * @property Team $tenant
  */
-final class EditTeamProfile extends EditTenantProfile
+class EditTeamProfile extends EditTenantProfile
 {
     public static function getLabel(): string
     {

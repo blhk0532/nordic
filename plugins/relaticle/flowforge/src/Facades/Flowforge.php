@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Relaticle\Flowforge\Flowforge
  */
-final class Flowforge extends Facade
+class Flowforge extends Facade
 {
     protected static function getFacadeAccessor()
     {

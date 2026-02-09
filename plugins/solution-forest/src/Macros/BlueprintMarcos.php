@@ -10,7 +10,7 @@ use SolutionForest\FilamentTree\Support\Utils;
 /**
  * @see Blueprint
  */
-final class BlueprintMarcos
+class BlueprintMarcos
 {
     public function treeColumns()
     {

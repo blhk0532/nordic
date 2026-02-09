@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
-final class ViewTicket extends ViewRecord
+class ViewTicket extends ViewRecord
 {
     use HasTicketPermissions;
 

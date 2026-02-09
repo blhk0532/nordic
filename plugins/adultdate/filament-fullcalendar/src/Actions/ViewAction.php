@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Saade\FilamentFullCalendar\Actions;
 
 use Filament\Actions\ViewAction as BaseViewAction;
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 
-final class ViewAction extends BaseViewAction
+class ViewAction extends BaseViewAction
 {
     protected function setUp(): void
     {

@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingDataLeads\BookingDataLea
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBookingDataLead extends EditRecord
+class EditBookingDataLead extends EditRecord
 {
     protected static string $resource = BookingDataLeadResource::class;
 

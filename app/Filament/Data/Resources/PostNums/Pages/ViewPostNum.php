@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\PostNums\PostNumResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewPostNum extends ViewRecord
+class ViewPostNum extends ViewRecord
 {
     protected static string $resource = PostNumResource::class;
 

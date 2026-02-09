@@ -9,7 +9,7 @@ use Filament\Forms\Contracts\HasForms;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-final class TicketChatMessages extends Component implements HasForms
+class TicketChatMessages extends Component implements HasForms
 {
     use InteractsWithForms;
 

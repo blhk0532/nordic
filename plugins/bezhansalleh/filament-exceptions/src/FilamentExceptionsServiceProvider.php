@@ -11,7 +11,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Throwable;
 
-final class FilamentExceptionsServiceProvider extends PackageServiceProvider
+class FilamentExceptionsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

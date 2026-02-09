@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 
 use function Adultdate\FilamentBooking\utc_to_user_local_time;
 
-final class CalendarEvent
+class CalendarEvent
 {
     private string|Htmlable $title;
 

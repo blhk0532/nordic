@@ -7,7 +7,7 @@ namespace AdultDate\FilamentWirechat\Filament\Resources\Messages\Pages;
 use AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateMessage extends CreateRecord
+class CreateMessage extends CreateRecord
 {
     protected static string $resource = MessageResource::class;
 }

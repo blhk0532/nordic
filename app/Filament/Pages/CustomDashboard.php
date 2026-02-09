@@ -6,7 +6,7 @@ namespace App\Filament\Pages;
 
 use Filament\Pages\Dashboard as BaseDashboard;
 
-final class CustomDashboard extends BaseDashboard
+class CustomDashboard extends BaseDashboard
 {
     // Deprecated shim kept for backward compatibility. Points to the new
     // AdminDashboard and avoids registering navigation or spotlight entries.

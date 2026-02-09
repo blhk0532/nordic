@@ -22,7 +22,7 @@ use Wallacemartinss\FilamentIconPicker\Enums\BootstrapIcons;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 
-final class Dashboard extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     // protected static ?string $navigationLabel = 'Dashboard';
 

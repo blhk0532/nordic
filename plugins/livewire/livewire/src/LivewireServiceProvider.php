@@ -11,7 +11,7 @@ use Livewire\Compiler\Compiler;
 use Livewire\Factory\Factory;
 use Livewire\Finder\Finder;
 
-final class LivewireServiceProvider extends \Illuminate\Support\ServiceProvider
+class LivewireServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function register()
     {

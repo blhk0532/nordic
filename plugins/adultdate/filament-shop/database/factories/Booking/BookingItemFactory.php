@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends Factory<BookingItem>
  */
-final class BookingItemFactory extends Factory
+class BookingItemFactory extends Factory
 {
     protected $model = BookingItem::class;
 

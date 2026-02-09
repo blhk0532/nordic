@@ -9,7 +9,7 @@ use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
-final class SwedishDateCast implements CastsAttributes
+class SwedishDateCast implements CastsAttributes
 {
     /**
      * Cast the given value.

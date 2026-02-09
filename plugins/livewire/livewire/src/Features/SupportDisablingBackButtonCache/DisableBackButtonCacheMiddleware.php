@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportDisablingBackButtonCache;
 use Closure;
 use Symfony\Component\HttpFoundation\Response;
 
-final class DisableBackButtonCacheMiddleware
+class DisableBackButtonCacheMiddleware
 {
     /**
      * Handle an incoming request.

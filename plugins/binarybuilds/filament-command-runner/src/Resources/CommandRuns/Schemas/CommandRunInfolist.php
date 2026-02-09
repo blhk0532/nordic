@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class CommandRunInfolist
+class CommandRunInfolist
 {
     public static function configure(Schema $schema): Schema
     {

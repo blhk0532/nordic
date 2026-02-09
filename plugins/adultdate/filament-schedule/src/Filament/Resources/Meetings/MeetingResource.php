@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class MeetingResource extends Resource
+class MeetingResource extends Resource
 {
     protected static ?string $model = Meeting::class;
 

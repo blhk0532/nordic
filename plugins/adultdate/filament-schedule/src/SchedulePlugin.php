@@ -24,7 +24,7 @@ use Filament\Navigation\NavigationGroup;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 
-final class SchedulePlugin implements Plugin
+class SchedulePlugin implements Plugin
 {
     use EvaluatesClosures;
 

@@ -9,7 +9,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 use Inerba\DbConfig\AbstractPageSettings;
 
-final class ManuSettings extends AbstractPageSettings
+class ManuSettings extends AbstractPageSettings
 {
     /**
      * @var array<string, mixed> | null

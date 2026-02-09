@@ -13,7 +13,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-final class HittaQueueController extends Controller
+class HittaQueueController extends Controller
 {
     /**
      * Get the first hitta queue record where personer_queued = 1 and personer_scraped = 0

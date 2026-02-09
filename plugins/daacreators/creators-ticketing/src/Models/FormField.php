@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class FormField extends Model
+class FormField extends Model
 {
     protected $fillable = [
         'form_id',

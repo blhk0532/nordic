@@ -9,7 +9,7 @@ use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Symfony\Component\Process\Process;
 
-final class BulkResetValuesBulkAction extends BulkAction
+class BulkResetValuesBulkAction extends BulkAction
 {
     public static function make(?string $name = 'bulkResetValues'): static
     {

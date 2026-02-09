@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Pluralizer;
 
-final class MakeAttachmentsTableCommand extends Command
+class MakeAttachmentsTableCommand extends Command
 {
     protected $table;
 

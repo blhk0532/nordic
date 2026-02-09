@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Actions;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Filament\Actions\Action;
 
-final class CreateBlockPeriodAction extends Action
+class CreateBlockPeriodAction extends Action
 {
     public ?array $calendarData = null;
 

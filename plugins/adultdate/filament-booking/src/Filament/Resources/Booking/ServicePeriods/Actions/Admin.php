@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Ac
 use Filament\Actions\Action;
 
 if (! class_exists(AdminAction::class)) {
-    final class AdminAction extends Action
+    class AdminAction extends Action
     {
         protected function setUp(): void
         {

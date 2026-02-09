@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Cmsmaxinc\FilamentErrorPages\FilamentErrorPages
  */
-final class FilamentErrorPages extends Facade
+class FilamentErrorPages extends Facade
 {
     protected static function getFacadeAccessor()
     {

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use PDO;
 
-final class BackupPostNums implements ShouldQueue
+class BackupPostNums implements ShouldQueue
 {
     use Queueable;
 

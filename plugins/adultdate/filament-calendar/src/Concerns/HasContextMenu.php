@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
 use Filament\Actions\Action;
-use Guava\Calendar\Enums\Context;
+use Adultdate\FilamentBooking\Enums\Context;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 

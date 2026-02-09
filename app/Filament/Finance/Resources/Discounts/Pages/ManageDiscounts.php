@@ -8,7 +8,7 @@ use App\Filament\Finance\Resources\Discounts\DiscountResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
 
-final class ManageDiscounts extends ManageRecords
+class ManageDiscounts extends ManageRecords
 {
     protected static string $resource = DiscountResource::class;
 

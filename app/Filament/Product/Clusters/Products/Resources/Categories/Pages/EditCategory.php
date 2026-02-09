@@ -8,7 +8,7 @@ use App\Filament\Product\Clusters\Products\Resources\Categories\CategoryResource
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditCategory extends EditRecord
+class EditCategory extends EditRecord
 {
     protected static string $resource = CategoryResource::class;
 

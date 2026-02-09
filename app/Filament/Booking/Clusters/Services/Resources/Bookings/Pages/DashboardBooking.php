@@ -20,7 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 use UnitEnum;
 
-final class DashboardBooking extends BaseDashboard
+class DashboardBooking extends BaseDashboard
 {
     use HasFiltersForm;
 

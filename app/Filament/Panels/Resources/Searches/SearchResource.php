@@ -17,7 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-final class SearchResource extends Resource
+class SearchResource extends Resource
 {
     protected static ?string $model = 'App\Models\Search';
 

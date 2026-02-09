@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class ComponentAttributeMissingOnDynamicComponentException extends Exception
+class ComponentAttributeMissingOnDynamicComponentException extends Exception
 {
     use BypassViewHandler;
 

@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\JobBatches\JobBatchResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListJobBatches extends ListRecords
+class ListJobBatches extends ListRecords
 {
     protected static string $resource = JobBatchResource::class;
 

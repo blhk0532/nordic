@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 
 use stdClass;
 
-final class StdClassSynth extends Synth
+class StdClassSynth extends Synth
 {
     public static $key = 'std';
 

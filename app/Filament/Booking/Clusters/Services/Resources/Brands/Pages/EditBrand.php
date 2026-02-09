@@ -8,7 +8,7 @@ use App\Filament\Booking\Clusters\Services\Resources\Brands\BrandResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBrand extends EditRecord
+class EditBrand extends EditRecord
 {
     protected static string $resource = BrandResource::class;
 

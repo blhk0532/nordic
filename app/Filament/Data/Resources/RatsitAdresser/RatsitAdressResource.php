@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class RatsitAdressResource extends Resource
+class RatsitAdressResource extends Resource
 {
     protected static ?string $model = RatsitAdress::class;
 

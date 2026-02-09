@@ -16,7 +16,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use RuntimeException;
 
-final class MessageCreated implements ShouldBroadcast
+class MessageCreated implements ShouldBroadcast
 {
     use Dispatchable;
     use InteractsWithPanel;

@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\RatsitStreets\RatsitStreetResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditRatsitStreet extends EditRecord
+class EditRatsitStreet extends EditRecord
 {
     protected static string $resource = RatsitStreetResource::class;
 

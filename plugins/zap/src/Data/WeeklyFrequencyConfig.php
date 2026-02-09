@@ -10,7 +10,7 @@ use Zap\Models\Schedule;
 /**
  * @property-read list<string> $daysOfWeek
  */
-final class WeeklyFrequencyConfig extends FrequencyConfig
+class WeeklyFrequencyConfig extends FrequencyConfig
 {
     public function __construct(
         public array $days = []

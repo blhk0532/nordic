@@ -7,7 +7,7 @@ namespace App\Livewire;
 use App\Models\BookingCalendar as BookingCalendarModel;
 use Livewire\Component;
 
-final class CalendarIconModal extends Component
+class CalendarIconModal extends Component
 {
     public ?int $selectedCalendar = null;
 

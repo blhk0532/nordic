@@ -56,7 +56,7 @@ abstract class BookingState extends State
     }
 }
 
-final class Pending extends BookingState
+class Pending extends BookingState
 {
     public function color(): string
     {
@@ -64,7 +64,7 @@ final class Pending extends BookingState
     }
 }
 
-final class Paid extends BookingState
+class Paid extends BookingState
 {
     public function color(): string
     {
@@ -72,7 +72,7 @@ final class Paid extends BookingState
     }
 }
 
-final class Failed extends BookingState
+class Failed extends BookingState
 {
     public function color(): string
     {

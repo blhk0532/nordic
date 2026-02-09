@@ -9,7 +9,7 @@ use Livewire\Features\SupportTesting\Testable;
 /**
  * @mixin Testable
  */
-final class TestsFilamentWirechat
+class TestsFilamentWirechat
 {
     //
 }

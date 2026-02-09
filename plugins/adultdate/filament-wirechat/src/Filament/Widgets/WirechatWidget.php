@@ -13,7 +13,7 @@ use Filament\Widgets\Widget;
  * This widget allows users to view and interact with their conversations
  * directly from any Filament dashboard or page.
  */
-final class WirechatWidget extends Widget
+class WirechatWidget extends Widget
 {
     protected string $view = 'filament-wirechat::filament.widgets.wirechat-widget';
 

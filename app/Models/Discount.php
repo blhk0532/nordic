@@ -7,7 +7,7 @@ namespace App\Models;
 use App\Enums\DiscountType;
 use Illuminate\Database\Eloquent\Model;
 
-final class Discount extends Model
+class Discount extends Model
 {
     protected $table = 'discounts';
 

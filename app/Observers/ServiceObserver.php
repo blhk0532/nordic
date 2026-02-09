@@ -8,7 +8,7 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class ServiceObserver
+class ServiceObserver
 {
     /**
      * Handle the Service "created" event.

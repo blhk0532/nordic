@@ -7,7 +7,7 @@ namespace Caresome\FilamentAuthDesigner;
 use Caresome\FilamentAuthDesigner\Data\AuthDesignerConfig;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 
-final class AuthDesignerConfigRepository
+class AuthDesignerConfigRepository
 {
     private ?AuthPageConfig $defaults = null;
 

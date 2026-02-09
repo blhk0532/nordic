@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Throwable;
 
-final class UpgradeMorphColumns extends Command
+class UpgradeMorphColumns extends Command
 {
     // Fixed lengths
     private const ID_LEN = 64;   // fits UUID/ULID/Bigint-as-string

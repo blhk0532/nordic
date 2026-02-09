@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class ScheduleResource extends Resource
+class ScheduleResource extends Resource
 {
     protected static ?string $model = ZapSchedule::class;
 

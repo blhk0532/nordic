@@ -18,7 +18,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 
-final class BrandResource extends Resource
+class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 

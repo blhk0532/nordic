@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Livewire\Component;
 
-final class EventList extends Component implements HasTable
+class EventList extends Component implements HasTable
 {
     use InteractsWithTable;
     use TimexTrait;

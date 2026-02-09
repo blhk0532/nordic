@@ -13,7 +13,7 @@ use Filament\Pages\Page;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 
-final class AppDataHistory extends Page
+class AppDataHistory extends Page
 {
     protected static ?string $title = 'Historik';
 

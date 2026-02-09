@@ -8,7 +8,7 @@ use Adultdate\Wirechat\Livewire\Concerns\HasPanel;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-final class Chats extends Component
+class Chats extends Component
 {
     use HasPanel;
 

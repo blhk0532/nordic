@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentShop\Filament\Pages\Auth;
 
-final class Login extends \Filament\Auth\Pages\Login
+class Login extends \Filament\Auth\Pages\Login
 {
     public function mount(): void
     {

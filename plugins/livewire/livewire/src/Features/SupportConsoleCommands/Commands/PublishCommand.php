@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:publish')]
-final class PublishCommand extends Command
+class PublishCommand extends Command
 {
     protected $signature = 'livewire:publish
         { --assets : Indicates if Livewire\'s front-end assets should be published }

@@ -7,7 +7,7 @@ namespace App\Policies;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class DailyLocationPolicy
+class DailyLocationPolicy
 {
     use HandlesAuthorization;
 

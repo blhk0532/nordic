@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Filament\Actions;
+namespace Adultdate\FilamentBooking\Filament\Actions;
 
-use Guava\Calendar\Concerns\CalendarAction;
-use Guava\Calendar\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Concerns\CalendarAction;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Illuminate\Database\Eloquent\Model;
 
-final class DeleteAction extends \Filament\Actions\DeleteAction
+class DeleteAction extends \Filament\Actions\DeleteAction
 {
     use CalendarAction;
 

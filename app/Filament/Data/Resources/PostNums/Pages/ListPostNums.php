@@ -17,7 +17,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListPostNums extends ListRecords
+class ListPostNums extends ListRecords
 {
     protected static string $resource = PostNumResource::class;
 

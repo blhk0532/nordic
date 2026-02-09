@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportValidation\BaseRule;
 
 #[Attribute(Attribute::IS_REPEATABLE | Attribute::TARGET_ALL)]
-final class Rule extends BaseRule
+class Rule extends BaseRule
 {
     //
 }

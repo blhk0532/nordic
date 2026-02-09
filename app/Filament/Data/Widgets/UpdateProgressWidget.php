@@ -8,7 +8,7 @@ use App\Models\Postnummer;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
-final class UpdateProgressWidget extends StatsOverviewWidget
+class UpdateProgressWidget extends StatsOverviewWidget
 {
     protected static ?int $sort = -1;
 

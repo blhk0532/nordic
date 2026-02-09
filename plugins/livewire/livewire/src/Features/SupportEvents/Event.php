@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Features\SupportEvents;
 
-final class Event
+class Event
 {
     private $name;
 

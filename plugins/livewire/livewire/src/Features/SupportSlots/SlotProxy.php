@@ -8,7 +8,7 @@ use ArrayAccess;
 use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Component;
 
-final class SlotProxy implements ArrayAccess, Htmlable
+class SlotProxy implements ArrayAccess, Htmlable
 {
     public function __construct(
         private Component $component,

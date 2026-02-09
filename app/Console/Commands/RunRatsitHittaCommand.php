@@ -8,7 +8,7 @@ use App\Jobs\ProcessPostNummer;
 use App\Models\Postnummer;
 use Illuminate\Console\Command;
 
-final class RunRatsitHittaCommand extends Command
+class RunRatsitHittaCommand extends Command
 {
     /**
      * The name and signature of the console command.

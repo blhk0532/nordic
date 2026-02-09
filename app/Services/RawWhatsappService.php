@@ -8,7 +8,7 @@ use WallaceMartinss\FilamentEvolution\Exceptions\EvolutionApiException;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 use WallaceMartinss\FilamentEvolution\Services\EvolutionClient;
 
-final class RawWhatsappService
+class RawWhatsappService
 {
     public function __construct(
         public EvolutionClient $client,

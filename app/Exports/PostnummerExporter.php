@@ -9,7 +9,7 @@ use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
 
-final class PostnummerExporter extends Exporter
+class PostnummerExporter extends Exporter
 {
     protected static ?string $model = Postnummer::class;
 

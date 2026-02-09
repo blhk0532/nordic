@@ -6,7 +6,7 @@ namespace Adultdate\FilamentBooking\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
 
-final class CustomersChart extends ChartWidget
+class CustomersChart extends ChartWidget
 {
     protected ?string $heading = 'Total customers';
 

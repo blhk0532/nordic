@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Adultdate\FilamentShop\Models\Shop\Order;
 use Illuminate\Database\Seeder;
 
-final class ShopOrderSeeder extends Seeder
+class ShopOrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.

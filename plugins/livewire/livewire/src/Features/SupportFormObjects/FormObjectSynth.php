@@ -11,7 +11,7 @@ use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 
 use function Livewire\wrap;
 
-final class FormObjectSynth extends Synth
+class FormObjectSynth extends Synth
 {
     public static $key = 'form';
 

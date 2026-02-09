@@ -10,7 +10,7 @@ use Filament\Pages\Page;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 
-final class FullWidthChatPage extends Page
+class FullWidthChatPage extends Page
 {
     public ?Conversation $conversation = null;
 

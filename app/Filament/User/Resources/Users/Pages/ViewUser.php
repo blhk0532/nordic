@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewUser extends ViewRecord
+class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;
 

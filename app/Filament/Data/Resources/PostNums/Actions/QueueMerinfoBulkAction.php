@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Log;
 
-final class QueueMerinfoBulkAction extends BulkAction
+class QueueMerinfoBulkAction extends BulkAction
 {
     public static function make(?string $name = 'queueMerinfo'): static
     {

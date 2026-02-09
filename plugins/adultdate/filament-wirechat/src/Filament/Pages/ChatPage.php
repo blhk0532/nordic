@@ -8,7 +8,7 @@ use AdultDate\FilamentWirechat\Models\Conversation;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Auth;
 
-final class ChatPage extends Page
+class ChatPage extends Page
 {
     public ?Conversation $conversation = null;
 

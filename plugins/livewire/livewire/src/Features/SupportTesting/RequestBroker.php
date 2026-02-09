@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
 use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-final class RequestBroker
+class RequestBroker
 {
     use InteractsWithExceptionHandling, MakesHttpRequests;
 

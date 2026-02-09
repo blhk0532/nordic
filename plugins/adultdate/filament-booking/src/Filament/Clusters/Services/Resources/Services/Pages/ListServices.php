@@ -9,7 +9,7 @@ use Filament\Actions;
 use Filament\Pages\Concerns\ExposesTableToWidgets;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListServices extends ListRecords
+class ListServices extends ListRecords
 {
     use ExposesTableToWidgets;
 

@@ -15,7 +15,7 @@ use SolutionForest\FilamentTree\Commands\FileGenerators\Concerns\CanGenerateTree
 use SolutionForest\FilamentTree\Commands\FileGenerators\Concerns\CanGenerateTreeProperties;
 use SolutionForest\FilamentTree\Pages\TreePage;
 
-final class TreePageClassGenerator extends ClassGenerator
+class TreePageClassGenerator extends ClassGenerator
 {
     use CanGenerateModelProperty;
     use CanGenerateTreeMethods;

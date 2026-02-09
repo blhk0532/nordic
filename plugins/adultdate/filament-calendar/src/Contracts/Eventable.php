@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Contracts;
+namespace Adultdate\FilamentBooking\Contracts;
 
-use Guava\Calendar\ValueObjects\CalendarEvent;
+use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 
 interface Eventable
 {

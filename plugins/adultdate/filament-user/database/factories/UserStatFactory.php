@@ -8,7 +8,7 @@ use Adultdate\FilamentUser\Models\UserStat;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class UserStatFactory extends Factory
+class UserStatFactory extends Factory
 {
     protected $model = UserStat::class;
 

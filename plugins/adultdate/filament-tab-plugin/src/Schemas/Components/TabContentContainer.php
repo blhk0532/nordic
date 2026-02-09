@@ -9,7 +9,7 @@ use Illuminate\View\Component as ViewComponent;
 use SolutionForest\TabLayoutPlugin\Concerns\Components\CanBeHidden;
 use SolutionForest\TabLayoutPlugin\Concerns\Components\CanSpanColumns;
 
-final class TabContentContainer extends ViewComponent
+class TabContentContainer extends ViewComponent
 {
     use CanBeHidden;
     use CanSpanColumns;

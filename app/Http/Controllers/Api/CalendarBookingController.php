@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Throwable;
 
-final class CalendarBookingController extends Controller
+class CalendarBookingController extends Controller
 {
     public function index(Request $request): JsonResponse
     {

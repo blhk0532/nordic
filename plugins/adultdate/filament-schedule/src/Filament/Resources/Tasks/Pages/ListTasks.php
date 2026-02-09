@@ -10,7 +10,7 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListTasks extends ListRecords
+class ListTasks extends ListRecords
 {
     protected static string $resource = TaskResource::class;
 

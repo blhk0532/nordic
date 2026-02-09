@@ -17,7 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class HittaSeResource extends Resource
+class HittaSeResource extends Resource
 {
     protected static ?string $model = HittaSe::class;
 

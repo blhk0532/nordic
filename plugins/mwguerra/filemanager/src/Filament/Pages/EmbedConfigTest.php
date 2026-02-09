@@ -18,7 +18,7 @@ use MWGuerra\FileManager\Schemas\Components\FileSystemEmbed;
  * Test page for E2E testing of embed component configurations.
  * This page is only registered in testing environment.
  */
-final class EmbedConfigTest extends Page implements HasSchemas
+class EmbedConfigTest extends Page implements HasSchemas
 {
     use InteractsWithSchemas;
 

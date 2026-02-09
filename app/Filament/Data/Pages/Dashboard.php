@@ -9,7 +9,7 @@ use Filament\Pages\Dashboard as BaseDashboard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-final class Dashboard extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     use BaseDashboard\Concerns\HasFiltersForm;
 

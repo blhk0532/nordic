@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\AdultDate\FilamentWirechat\Models\Group>
  */
-final class GroupFactory extends Factory
+class GroupFactory extends Factory
 {
     protected $model = Group::class;
 

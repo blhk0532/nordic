@@ -12,7 +12,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 
-final class ServicesRelationManager extends RelationManager
+class ServicesRelationManager extends RelationManager
 {
     protected static string $relationship = 'services';
 

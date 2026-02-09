@@ -8,7 +8,7 @@ use AdultDate\FilamentWirechat\Livewire\Chats\Chats as ChatsComponent;
 use Filament\Pages\Page;
 use Filament\Panel;
 
-final class WirechatChatsPage extends Page
+class WirechatChatsPage extends Page
 {
     protected static bool $shouldRegisterNavigation = false;
 

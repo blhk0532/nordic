@@ -11,7 +11,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Inerba\DbConfig\AbstractPageSettings;
 
-final class UserNotesSettings extends AbstractPageSettings
+class UserNotesSettings extends AbstractPageSettings
 {
     /**
      * @var array<string, mixed> | null

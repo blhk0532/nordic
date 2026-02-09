@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  */
-final class Exception extends Model
+class Exception extends Model
 {
     use MassPrunable;
 

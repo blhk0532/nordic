@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use UnitEnum;
 
-final class CacheManager extends Page implements HasInfolists
+class CacheManager extends Page implements HasInfolists
 {
     use InteractsWithInfolists;
 

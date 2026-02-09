@@ -10,7 +10,7 @@ namespace MWGuerra\FileManager\FileTypes;
  * PDF files get their own type because they can be previewed
  * in the browser using an iframe or PDF.js.
  */
-final class PdfFileType extends AbstractFileType
+class PdfFileType extends AbstractFileType
 {
     public function identifier(): string
     {

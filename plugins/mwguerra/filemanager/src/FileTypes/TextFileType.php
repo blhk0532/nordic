@@ -10,7 +10,7 @@ namespace MWGuerra\FileManager\FileTypes;
  * Supports plain text, markdown, JSON, XML, and various
  * programming language source files.
  */
-final class TextFileType extends AbstractFileType
+class TextFileType extends AbstractFileType
 {
     public function identifier(): string
     {

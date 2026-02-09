@@ -10,7 +10,7 @@ use Filament\Actions\ActionGroup;
 use Filament\Schemas\Components\Component;
 use Illuminate\Contracts\Support\Htmlable;
 
-final class CardFlex extends Component
+class CardFlex extends Component
 {
     protected string $view = 'flowforge::components.card-flex';
 

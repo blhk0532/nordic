@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-final class SetUserLocale
+class SetUserLocale
 {
     public function handle(Request $request, Closure $next, ?string $guard = null)
     {

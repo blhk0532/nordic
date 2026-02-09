@@ -9,7 +9,7 @@ use Exception;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-final class IconSvgController extends Controller
+class IconSvgController extends Controller
 {
     public function __invoke(string $icon, IconFactory $factory): Response
     {

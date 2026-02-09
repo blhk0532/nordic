@@ -8,7 +8,7 @@ use Closure;
 use Filament\Forms\Components\Field;
 use Filament\Schemas\Components\Utilities\Set;
 
-final class NumpadField extends Field
+class NumpadField extends Field
 {
     protected string $view = 'filament-numpad-field::numpad';
 

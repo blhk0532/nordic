@@ -6,7 +6,7 @@ namespace AchyutN\FilamentLogViewer;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-final class LogViewerProvider extends BaseServiceProvider
+class LogViewerProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap any application services.

@@ -11,7 +11,7 @@ use Filament\Auth\Pages\Login as BaseLogin;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class Login extends BaseLogin
+class Login extends BaseLogin
 {
     use HasAuthDesignerLayout;
 

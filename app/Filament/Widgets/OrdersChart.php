@@ -6,7 +6,7 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
 
-final class OrdersChart extends ChartWidget
+class OrdersChart extends ChartWidget
 {
     protected ?string $heading = 'Orders per month';
 

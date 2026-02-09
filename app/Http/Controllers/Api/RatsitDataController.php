@@ -16,7 +16,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Log;
 use Throwable;
 
-final class RatsitDataController extends Controller
+class RatsitDataController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {

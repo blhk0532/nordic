@@ -13,7 +13,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class NumpadFieldServiceProvider extends PackageServiceProvider
+class NumpadFieldServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-numpad-field';
 

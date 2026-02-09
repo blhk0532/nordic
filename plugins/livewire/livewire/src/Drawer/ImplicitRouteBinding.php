@@ -20,7 +20,7 @@ use ReflectionProperty;
 /**
  * This class mirrors the functionality of Laravel's Illuminate\Routing\ImplicitRouteBinding class.
  */
-final class ImplicitRouteBinding
+class ImplicitRouteBinding
 {
     private $container;
 
@@ -40,7 +40,7 @@ final class ImplicitRouteBinding
     public function resolveMountParameters(Route $route, Component $component)
     {
         if (! method_exists($component, 'mount')) {
-            return new Collection();
+            return new Collection;
         }
 
         // Cache the current route action (this callback actually), just to be safe.
@@ -125,7 +125,7 @@ final class ImplicitRouteBinding
         }
 
         if (! $model) {
-            throw (new ModelNotFoundException())->setModel(get_class($instance), [$parameterValue]);
+            throw (new ModelNotFoundException)->setModel(get_class($instance), [$parameterValue]);
         }
 
         return $model;

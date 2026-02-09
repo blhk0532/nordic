@@ -15,7 +15,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class QueueableBulkActionsServiceProvider extends PackageServiceProvider
+class QueueableBulkActionsServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'queueable-bulk-actions';
 

@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Clusters\Products\Resources\Products\Prod
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditProduct extends EditRecord
+class EditProduct extends EditRecord
 {
     protected static string $resource = ProductResource::class;
 

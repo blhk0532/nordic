@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * @property \App\Models\Team $ownerRecord
  */
-final class UsersRelationManager extends RelationManager
+class UsersRelationManager extends RelationManager
 {
     protected static string $relationship = 'users';
 

@@ -25,7 +25,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
 use UnitEnum;
 
-final class TeamInvitationResource extends Resource
+class TeamInvitationResource extends Resource
 {
     protected static ?string $model = TeamInvitation::class;
 

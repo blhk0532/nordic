@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Projects\ProjectResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditProject extends EditRecord
+class EditProject extends EditRecord
 {
     protected static string $resource = ProjectResource::class;
 

@@ -13,7 +13,7 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 
-final class RingaDataOutcomeWidget extends Widget implements HasForms
+class RingaDataOutcomeWidget extends Widget implements HasForms
 {
     use InteractsWithForms;
 

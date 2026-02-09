@@ -10,7 +10,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class AdminInfolist
+class AdminInfolist
 {
     public static function configure(Schema $schema): Schema
     {

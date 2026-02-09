@@ -12,7 +12,7 @@ use Relaticle\Flowforge\BoardPage;
 use Relaticle\Flowforge\Column;
 use UnitEnum;
 
-final class TaskBoard extends BoardPage
+class TaskBoard extends BoardPage
 {
     protected static string|null|BackedEnum $navigationIcon = 'heroicon-o-view-columns';
 

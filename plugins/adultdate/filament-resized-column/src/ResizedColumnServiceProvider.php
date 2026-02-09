@@ -10,7 +10,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class ResizedColumnServiceProvider extends PackageServiceProvider
+class ResizedColumnServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

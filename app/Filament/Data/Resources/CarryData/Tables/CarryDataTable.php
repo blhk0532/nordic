@@ -14,7 +14,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-final class CarryDataTable
+class CarryDataTable
 {
     public static function configure(Table $table): Table
     {

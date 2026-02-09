@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportReactiveProps;
 
 use Exception;
 
-final class CannotMutateReactivePropException extends Exception
+class CannotMutateReactivePropException extends Exception
 {
     public function __construct($componentName, $propName)
     {

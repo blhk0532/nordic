@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\AdultDate\FilamentWirechat\Models\Attachment>
  */
-final class AttachmentFactory extends Factory
+class AttachmentFactory extends Factory
 {
     protected $model = Attachment::class;
 

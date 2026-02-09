@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use App\Models\RatsitData;
 use Illuminate\Console\Command;
 
-final class UpdateRatsitIsQueuedCommand extends Command
+class UpdateRatsitIsQueuedCommand extends Command
 {
     /**
      * The name and signature of the console command.

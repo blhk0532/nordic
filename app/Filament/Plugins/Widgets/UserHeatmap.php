@@ -6,7 +6,7 @@ namespace App\Filament\Plugins\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserHeatmap extends ApexChartWidget
+class UserHeatmap extends ApexChartWidget
 {
     /**
      * Chart Id

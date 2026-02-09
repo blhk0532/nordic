@@ -7,7 +7,7 @@ namespace Cmsmaxinc\FilamentErrorPages\Filament\Pages;
 use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
 
-final class PageNotFoundPage extends Page
+class PageNotFoundPage extends Page
 {
     protected static ?string $slug = '404';
 

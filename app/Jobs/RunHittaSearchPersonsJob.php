@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 
-final class RunHittaSearchPersonsJob implements ShouldQueue
+class RunHittaSearchPersonsJob implements ShouldQueue
 {
     use Batchable;
     use Queueable;

@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class NotifyParticipant implements ShouldBroadcastNow
+class NotifyParticipant implements ShouldBroadcastNow
 {
     use Dispatchable;
     use InteractsWithPanel;

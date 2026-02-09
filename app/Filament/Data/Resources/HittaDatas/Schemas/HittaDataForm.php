@@ -11,7 +11,7 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class HittaDataForm
+class HittaDataForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\Departments\DepartmentResou
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditDepartment extends EditRecord
+class EditDepartment extends EditRecord
 {
     protected static string $resource = DepartmentResource::class;
 

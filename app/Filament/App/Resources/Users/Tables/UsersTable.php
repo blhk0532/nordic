@@ -20,7 +20,7 @@ use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
 use Mokhosh\FilamentRating\Columns\RatingColumn;
 use STS\FilamentImpersonate\Actions\Impersonate;
 
-final class UsersTable
+class UsersTable
 {
     public static function configure(Table $table): Table
     {

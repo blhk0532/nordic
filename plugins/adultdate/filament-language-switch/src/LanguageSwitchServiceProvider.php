@@ -13,7 +13,7 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class LanguageSwitchServiceProvider extends PackageServiceProvider
+class LanguageSwitchServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'language-switch';
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
 
-final class RunRatsitPersonerBulkAction extends BulkAction
+class RunRatsitPersonerBulkAction extends BulkAction
 {
     public static function make(?string $name = 'runRatsitPersoner'): static
     {

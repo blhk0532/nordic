@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportPageComponents\BaseTitle;
 
 #[Attribute]
-final class Title extends BaseTitle
+class Title extends BaseTitle
 {
     //
 }

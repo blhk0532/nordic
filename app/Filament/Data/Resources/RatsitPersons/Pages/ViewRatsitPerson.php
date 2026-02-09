@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\RatsitPersons\RatsitPersonResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewRatsitPerson extends ViewRecord
+class ViewRatsitPerson extends ViewRecord
 {
     protected static string $resource = RatsitPersonResource::class;
 

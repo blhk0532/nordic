@@ -19,7 +19,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class BookingServicePeriodResource extends Resource
+class BookingServicePeriodResource extends Resource
 {
     protected static ?string $model = BookingServicePeriod::class;
 

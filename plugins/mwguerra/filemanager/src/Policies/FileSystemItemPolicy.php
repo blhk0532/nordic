@@ -29,7 +29,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
  *     }
  * }
  */
-final class FileSystemItemPolicy
+class FileSystemItemPolicy
 {
     use HandlesAuthorization;
 

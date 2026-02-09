@@ -19,7 +19,7 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class RingaDataTable
+class RingaDataTable
 {
     public static function configure(Table $table): Table
     {

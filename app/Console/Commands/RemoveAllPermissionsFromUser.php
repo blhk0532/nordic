@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use App\Models\User;
 use Illuminate\Console\Command;
 
-final class RemoveAllPermissionsFromUser extends Command
+class RemoveAllPermissionsFromUser extends Command
 {
     protected $signature = 'permissions:remove-all {email=super_admin@ndsth.com}';
 

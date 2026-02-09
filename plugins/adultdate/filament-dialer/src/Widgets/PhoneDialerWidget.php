@@ -7,7 +7,7 @@ namespace AdultDate\FilamentDialer\Widgets;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
 
-final class PhoneDialerWidget extends Widget
+class PhoneDialerWidget extends Widget
 {
     public function render(): View
     {

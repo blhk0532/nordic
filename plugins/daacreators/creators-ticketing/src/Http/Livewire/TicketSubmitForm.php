@@ -14,7 +14,7 @@ use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-final class TicketSubmitForm extends Component
+class TicketSubmitForm extends Component
 {
     use WithFileUploads;
 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 
-final class EditPasswordForm extends BaseProfileForm
+class EditPasswordForm extends BaseProfileForm
 {
     use HasUser;
 

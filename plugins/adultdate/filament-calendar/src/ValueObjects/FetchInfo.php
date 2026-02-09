@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\ValueObjects;
+namespace Adultdate\FilamentBooking\ValueObjects;
 
 use Carbon\CarbonImmutable;
 
-use function Guava\Calendar\browser_date_to_app_date;
+use function Adultdate\FilamentBooking\browser_date_to_app_date;
 
 final readonly class FetchInfo
 {

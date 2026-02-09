@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use RuntimeException;
 
-final class RunHittaPersonsJob implements ShouldQueue
+class RunHittaPersonsJob implements ShouldQueue
 {
     use Batchable;
     use Dispatchable;

@@ -30,7 +30,7 @@ use Illuminate\Support\Collection;
 use Schema;
 use Str;
 
-final class EventResource extends Resource
+class EventResource extends Resource
 {
     use TimexTrait;
 

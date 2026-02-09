@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Throwable;
 
-final class CustomFieldsForm extends BaseProfileForm
+class CustomFieldsForm extends BaseProfileForm
 {
     use HasUser;
 

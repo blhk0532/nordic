@@ -9,7 +9,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Support\Colors\Color;
 use Filament\Support\Concerns\HasColor;
 
-final class Heading extends Component
+class Heading extends Component
 {
     use HasColor;
 

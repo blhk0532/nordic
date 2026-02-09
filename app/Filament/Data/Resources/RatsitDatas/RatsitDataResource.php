@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use UnitEnum;
 
-final class RatsitDataResource extends Resource
+class RatsitDataResource extends Resource
 {
     protected static ?string $model = RatsitData::class;
 

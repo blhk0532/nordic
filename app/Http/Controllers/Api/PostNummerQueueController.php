@@ -12,7 +12,7 @@ use App\Models\PostNummerQueue;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
-final class PostNummerQueueController extends Controller
+class PostNummerQueueController extends Controller
 {
     /**
      * Bulk update postnummer queue records.

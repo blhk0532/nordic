@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Resources\BookingDataLeads\BookingDataLea
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewBookingDataLead extends ViewRecord
+class ViewBookingDataLead extends ViewRecord
 {
     protected static string $resource = BookingDataLeadResource::class;
 

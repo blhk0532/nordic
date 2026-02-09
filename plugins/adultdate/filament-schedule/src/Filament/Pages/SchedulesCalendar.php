@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Widgets\SchedulesCalendarWidget;
 use Filament\Pages\Page as BasePage;
 use UnitEnum;
 
-final class SchedulesCalendar extends BasePage
+class SchedulesCalendar extends BasePage
 {
     protected string $view = 'adultdate-schedule::pages.schedules-calendar';
 

@@ -9,7 +9,7 @@ use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Support\Facades\App;
 
-final class ManageCategories extends ManageRecords
+class ManageCategories extends ManageRecords
 {
     protected static string $resource = CategoryResource::class;
 

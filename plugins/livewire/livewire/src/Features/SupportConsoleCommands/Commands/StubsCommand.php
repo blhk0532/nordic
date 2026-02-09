@@ -9,7 +9,7 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:stubs')]
-final class StubsCommand extends Command
+class StubsCommand extends Command
 {
     protected $signature = 'livewire:stubs';
 

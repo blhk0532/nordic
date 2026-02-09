@@ -15,7 +15,7 @@ use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-final class ListTickets extends ListRecords
+class ListTickets extends ListRecords
 {
     use HasTicketPermissions;
 

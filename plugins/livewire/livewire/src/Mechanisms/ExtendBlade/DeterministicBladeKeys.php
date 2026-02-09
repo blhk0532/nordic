@@ -7,7 +7,7 @@ namespace Livewire\Mechanisms\ExtendBlade;
 use Exception;
 use Illuminate\View\Compilers\BladeCompiler;
 
-final class DeterministicBladeKeys
+class DeterministicBladeKeys
 {
     private $countersByPath = [];
 

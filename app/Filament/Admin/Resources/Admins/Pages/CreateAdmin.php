@@ -7,7 +7,7 @@ namespace App\Filament\Admin\Resources\Admins\Pages;
 use App\Filament\Admin\Resources\Admins\AdminResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateAdmin extends CreateRecord
+class CreateAdmin extends CreateRecord
 {
     protected static string $resource = AdminResource::class;
 }

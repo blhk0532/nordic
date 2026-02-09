@@ -16,7 +16,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Wizard\Step;
 use Illuminate\Support\Facades\Auth;
 
-final class CreateOrder extends CreateRecord
+class CreateOrder extends CreateRecord
 {
     use HasWizard;
 

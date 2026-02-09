@@ -6,7 +6,7 @@ namespace Adultdate\FilamentShop\Commands;
 
 use Illuminate\Console\Command;
 
-final class FilamentShopCommand extends Command
+class FilamentShopCommand extends Command
 {
     public $signature = 'filament-shop';
 

@@ -50,7 +50,7 @@ use ReflectionException;
 use ReflectionObject;
 use stdClass;
 
-final class BookingPeriodsCalendar extends SimpleCalendarWidget implements HasCalendar
+class BookingPeriodsCalendar extends SimpleCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar

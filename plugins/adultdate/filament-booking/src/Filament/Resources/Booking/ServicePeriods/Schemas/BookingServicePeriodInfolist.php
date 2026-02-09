@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Sc
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class BookingServicePeriodInfolist
+class BookingServicePeriodInfolist
 {
     public static function configure(Schema $schema): Schema
     {

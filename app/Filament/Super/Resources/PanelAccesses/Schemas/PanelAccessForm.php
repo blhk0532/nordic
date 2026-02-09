@@ -9,7 +9,7 @@ use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class PanelAccessForm
+class PanelAccessForm
 {
     public static function configure(Schema $schema): Schema
     {

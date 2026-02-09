@@ -7,7 +7,7 @@ namespace BinaryBuilds\FilamentCacheManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentCacheManagerServiceProvider extends PackageServiceProvider
+class FilamentCacheManagerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-cache-manager';
 

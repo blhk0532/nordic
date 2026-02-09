@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire;
 
-final class EventBus
+class EventBus
 {
     private array $listeners = [];
 

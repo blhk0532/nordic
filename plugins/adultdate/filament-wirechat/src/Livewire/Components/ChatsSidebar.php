@@ -7,7 +7,7 @@ namespace AdultDate\FilamentWirechat\Livewire\Components;
 use Adultdate\Wirechat\Livewire\Widgets\Wirechat;
 use Filament\Facades\Filament;
 
-final class ChatsSidebar extends Wirechat
+class ChatsSidebar extends Wirechat
 {
     public function panelId(): ?string
     {

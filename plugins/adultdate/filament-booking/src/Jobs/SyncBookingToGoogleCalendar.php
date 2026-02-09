@@ -13,7 +13,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
-final class SyncBookingToGoogleCalendar implements ShouldQueue
+class SyncBookingToGoogleCalendar implements ShouldQueue
 {
     use Queueable;
 

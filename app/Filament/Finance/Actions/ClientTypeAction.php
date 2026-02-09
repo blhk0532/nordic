@@ -6,7 +6,7 @@ namespace App\Filament\Finance\Actions;
 
 use Filament\Actions\Action;
 
-final class ClientTypeAction
+class ClientTypeAction
 {
     public static function make(): Action
     {

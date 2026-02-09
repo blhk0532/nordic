@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Zap\Enums\Frequency;
 use Zap\Exceptions\InvalidScheduleException;
 
-final class ValidationService
+class ValidationService
 {
     /**
      * Validate a schedule before creation.

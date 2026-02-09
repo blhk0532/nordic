@@ -48,7 +48,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-final class TicketResource extends Resource
+class TicketResource extends Resource
 {
     use HasTicketingNavGroup, HasTicketPermissions;
 

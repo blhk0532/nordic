@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-final class Project extends Model implements Resourceable
+class Project extends Model implements Resourceable
 {
     /** @use HasFactory<\Database\Factories\ProjectFactory> */
     use HasFactory;

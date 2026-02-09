@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Filament\Clusters\Products\Resources\Categories\Ca
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditCategory extends EditRecord
+class EditCategory extends EditRecord
 {
     protected static string $resource = CategoryResource::class;
 

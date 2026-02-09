@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms;
 
 use WeakMap;
 
-final class DataStore extends Mechanism
+class DataStore extends Mechanism
 {
     protected $lookup;
 

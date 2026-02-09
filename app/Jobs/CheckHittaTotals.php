@@ -11,7 +11,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 
-final class CheckHittaTotals implements ShouldQueue
+class CheckHittaTotals implements ShouldQueue
 {
     use Queueable;
 

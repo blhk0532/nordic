@@ -6,7 +6,7 @@ namespace App\Filament\App\Resources\OutcomeDelaySettings\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class OutcomeDelaySettingInfolist
+class OutcomeDelaySettingInfolist
 {
     public static function configure(Schema $schema): Schema
     {

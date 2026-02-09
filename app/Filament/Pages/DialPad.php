@@ -8,7 +8,7 @@ use BackedEnum;
 use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Panel;
 
-final class DialPad extends BaseDashboard
+class DialPad extends BaseDashboard
 {
     protected static bool $isDiscovered = false;
 

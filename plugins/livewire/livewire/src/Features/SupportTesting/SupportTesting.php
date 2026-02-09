@@ -8,7 +8,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\ComponentHook;
 
-final class SupportTesting extends ComponentHook
+class SupportTesting extends ComponentHook
 {
     public static function provide()
     {

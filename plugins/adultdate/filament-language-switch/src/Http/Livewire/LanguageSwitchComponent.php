@@ -9,7 +9,7 @@ use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-final class LanguageSwitchComponent extends Component
+class LanguageSwitchComponent extends Component
 {
     #[On('language-switched')]
     public function changeLocale(string $locale): void

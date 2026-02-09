@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-final class ShopCategoryProductSeeder extends Seeder
+class ShopCategoryProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.

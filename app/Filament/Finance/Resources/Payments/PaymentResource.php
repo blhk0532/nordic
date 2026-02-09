@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-final class PaymentResource extends Resource
+class PaymentResource extends Resource
 {
     protected static ?string $model = Payment::class;
 

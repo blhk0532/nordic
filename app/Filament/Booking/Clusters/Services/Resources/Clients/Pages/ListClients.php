@@ -8,7 +8,7 @@ use App\Filament\Booking\Clusters\Services\Resources\Clients\ClientResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListClients extends ListRecords
+class ListClients extends ListRecords
 {
     protected static string $resource = ClientResource::class;
 

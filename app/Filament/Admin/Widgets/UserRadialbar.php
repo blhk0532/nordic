@@ -6,7 +6,7 @@ namespace App\Filament\Admin\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserRadialbar extends ApexChartWidget
+class UserRadialbar extends ApexChartWidget
 {
     protected static ?int $sort = 1;
 

@@ -14,7 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-final class PostNummerApiController extends Controller
+class PostNummerApiController extends Controller
 {
     /**
      * Display a listing of the resource.

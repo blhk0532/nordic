@@ -10,7 +10,7 @@ use SolutionForest\FilamentTree\Concern\BelongsToTree;
 /**
  * @deprecated Use `\Filament\Actions\StaticAction` instead.
  */
-final class Action extends \Filament\Actions\Action implements HasTree
+class Action extends \Filament\Actions\Action implements HasTree
 {
     use BelongsToTree;
 }

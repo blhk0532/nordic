@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Models\Ticket;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class TicketCreated
+class TicketCreated
 {
     use Dispatchable, SerializesModels;
 

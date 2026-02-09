@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportLegacyModels;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-final class CannotBindToModelDataWithoutValidationRuleException extends Exception
+class CannotBindToModelDataWithoutValidationRuleException extends Exception
 {
     use BypassViewHandler;
 

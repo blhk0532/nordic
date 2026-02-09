@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Filament;
+namespace Adultdate\FilamentBooking\Filament;
 
 use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Widget;
-use Guava\Calendar\Concerns\InteractsWithCalendar;
-use Guava\Calendar\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
 
 abstract class CalendarWidget extends Widget implements HasActions, HasCalendar, HasSchemas
 {

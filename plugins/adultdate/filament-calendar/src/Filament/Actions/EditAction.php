@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Filament\Actions;
+namespace Adultdate\FilamentBooking\Filament\Actions;
 
 use Filament\Schemas\Schema;
-use Guava\Calendar\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
 
-final class EditAction extends \Filament\Actions\EditAction
+class EditAction extends \Filament\Actions\EditAction
 {
     protected function setUp(): void
     {

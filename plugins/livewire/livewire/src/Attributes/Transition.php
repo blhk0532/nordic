@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportTransitions\BaseTransitionAttribute;
 
 #[Attribute(Attribute::TARGET_METHOD)]
-final class Transition extends BaseTransitionAttribute
+class Transition extends BaseTransitionAttribute
 {
     //
 }

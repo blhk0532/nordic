@@ -22,7 +22,7 @@ use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
-final class SingleCalendar extends BaseDashboard
+class SingleCalendar extends BaseDashboard
 {
     public ?string $calendarId = null;
 

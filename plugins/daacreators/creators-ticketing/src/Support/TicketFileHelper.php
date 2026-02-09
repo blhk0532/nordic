@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Support;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
-final class TicketFileHelper
+class TicketFileHelper
 {
     public static function processUploadedFiles(mixed $files, string $ticketId): array
     {

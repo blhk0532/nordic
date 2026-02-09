@@ -8,7 +8,7 @@ use daacreators\CreatorsTicketing\Filament\Resources\Forms\FormResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditForm extends EditRecord
+class EditForm extends EditRecord
 {
     protected static string $resource = FormResource::class;
 

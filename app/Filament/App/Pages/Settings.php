@@ -7,7 +7,7 @@ namespace App\Filament\App\Pages;
 use BackedEnum;
 use Filament\Pages\Page;
 
-final class Settings extends Page
+class Settings extends Page
 {
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 

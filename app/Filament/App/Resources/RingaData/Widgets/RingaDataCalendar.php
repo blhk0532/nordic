@@ -15,7 +15,6 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Filament\Widgets\Widget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -42,6 +41,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema as FilamentSchema;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
+use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -53,7 +53,7 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-final class RingaDataCalendar extends Widget implements HasCalendar
+class RingaDataCalendar extends Widget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
@@ -91,6 +91,8 @@ final class RingaDataCalendar extends Widget implements HasCalendar
     public ?string $endDate = null;
 
     public ?array $calendarData = null;
+
+    public ?string $selectedTechnician = null;
 
     protected $settings;
 

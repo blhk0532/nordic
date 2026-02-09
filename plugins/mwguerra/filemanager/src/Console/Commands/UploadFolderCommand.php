@@ -14,7 +14,7 @@ use MWGuerra\FileManager\Enums\FileType;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
-final class UploadFolderCommand extends Command
+class UploadFolderCommand extends Command
 {
     /**
      * The name and signature of the console command.

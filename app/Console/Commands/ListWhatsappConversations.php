@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappMessage;
 
-final class ListWhatsappConversations extends Command
+class ListWhatsappConversations extends Command
 {
     /**
      * The name and signature of the console command.

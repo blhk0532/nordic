@@ -12,7 +12,7 @@ use function Livewire\on;
 use function Livewire\store;
 use function Livewire\trigger;
 
-final class SupportNestingComponents extends ComponentHook
+class SupportNestingComponents extends ComponentHook
 {
     public static function provide()
     {

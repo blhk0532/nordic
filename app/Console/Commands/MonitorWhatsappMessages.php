@@ -13,7 +13,7 @@ use WallaceMartinss\FilamentEvolution\Enums\MessageTypeEnum;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappInstance;
 use WallaceMartinss\FilamentEvolution\Models\WhatsappMessage;
 
-final class MonitorWhatsappMessages extends Command
+class MonitorWhatsappMessages extends Command
 {
     /**
      * The name and signature of the console command.

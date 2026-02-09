@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class EventHandlerDoesNotExist extends Exception
+class EventHandlerDoesNotExist extends Exception
 {
     public function __construct(public readonly string $eventName)
     {

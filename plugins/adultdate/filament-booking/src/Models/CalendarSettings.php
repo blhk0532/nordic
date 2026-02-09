@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Enums\CalendarTheme;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class CalendarSettings extends Model
+class CalendarSettings extends Model
 {
     protected $fillable = [
         'user_id',

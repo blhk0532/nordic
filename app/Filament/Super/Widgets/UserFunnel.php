@@ -7,7 +7,7 @@ namespace App\Filament\Super\Widgets;
 use Filament\Support\RawJs;
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserFunnel extends ApexChartWidget
+class UserFunnel extends ApexChartWidget
 {
     /**
      * Chart Id

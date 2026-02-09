@@ -8,7 +8,7 @@ use App\Models\Team;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class TeamObserver
+class TeamObserver
 {
     /**
      * Handle the Team "created" event.

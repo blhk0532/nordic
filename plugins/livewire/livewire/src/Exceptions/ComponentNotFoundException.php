@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class ComponentNotFoundException extends Exception
+class ComponentNotFoundException extends Exception
 {
     use BypassViewHandler;
 }

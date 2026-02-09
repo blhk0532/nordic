@@ -7,7 +7,7 @@ namespace Livewire\Mechanisms\HandleComponents;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-final class CorruptComponentPayloadException extends Exception
+class CorruptComponentPayloadException extends Exception
 {
     use BypassViewHandler;
 

@@ -49,7 +49,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 #[ObservedBy(TeamObserver::class)]
 #[UsePolicy(TeamPolicy::class)]
-final class Team extends Model implements HasAvatar
+class Team extends Model implements HasAvatar
 {
     protected $fillable = [
         'user_id',

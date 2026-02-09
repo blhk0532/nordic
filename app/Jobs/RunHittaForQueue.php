@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 use Throwable;
 
-final class RunHittaForQueue implements ShouldQueue
+class RunHittaForQueue implements ShouldQueue
 {
     use Queueable;
 

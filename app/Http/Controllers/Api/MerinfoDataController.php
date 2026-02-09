@@ -13,7 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Log;
 
-final class MerinfoDataController extends Controller
+class MerinfoDataController extends Controller
 {
     /**
      * Display a listing of the resource.

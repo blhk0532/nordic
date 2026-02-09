@@ -11,7 +11,7 @@ use Livewire\Mechanisms\FrontendAssets\FrontendAssets;
 
 use function Livewire\on;
 
-final class SupportAutoInjectedAssets extends ComponentHook
+class SupportAutoInjectedAssets extends ComponentHook
 {
     public static $hasRenderedAComponentThisRequest = false;
 

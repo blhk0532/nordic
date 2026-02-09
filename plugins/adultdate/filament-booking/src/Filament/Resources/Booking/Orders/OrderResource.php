@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-final class OrderResource extends Resource
+class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 

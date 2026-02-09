@@ -32,7 +32,7 @@ use MWGuerra\FileManager\FileTypes\OtherFileType;
  * $type = $registry->get('video');
  * ```
  */
-final class FileTypeRegistry
+class FileTypeRegistry
 {
     /**
      * Registered file types indexed by identifier.

@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class NonPublicComponentMethodCall extends Exception
+class NonPublicComponentMethodCall extends Exception
 {
     use BypassViewHandler;
 

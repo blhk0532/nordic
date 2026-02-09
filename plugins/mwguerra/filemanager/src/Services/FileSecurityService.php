@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
  * are already mitigated since files cannot be executed on the object store.
  * This service provides additional validation for defense in depth.
  */
-final class FileSecurityService
+class FileSecurityService
 {
     /**
      * Validate an uploaded file for security issues.

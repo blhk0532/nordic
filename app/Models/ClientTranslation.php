@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class ClientTranslation extends Model
+class ClientTranslation extends Model
 {
     protected $table = 'clients_translations';
 

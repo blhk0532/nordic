@@ -9,7 +9,7 @@ use Adultdate\Schedule\Models\Schedule;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class ScheduleCreated
+class ScheduleCreated
 {
     use Dispatchable;
     use SerializesModels;

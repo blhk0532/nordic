@@ -9,7 +9,7 @@ use Adultdate\FilamentBooking\Filament\Resources\Booking\BookingOutcallQueues\Wi
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewBookingOutcallQueue extends ViewRecord
+class ViewBookingOutcallQueue extends ViewRecord
 {
     protected static string $resource = BookingOutcallQueueResource::class;
 

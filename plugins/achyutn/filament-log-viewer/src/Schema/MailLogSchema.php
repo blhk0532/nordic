@@ -11,7 +11,7 @@ use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 
-final class MailLogSchema
+class MailLogSchema
 {
     /**
      * @throws Exception

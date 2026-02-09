@@ -9,7 +9,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class RatsitPersonInfolist
+class RatsitPersonInfolist
 {
     public static function configure(Schema $schema): Schema
     {

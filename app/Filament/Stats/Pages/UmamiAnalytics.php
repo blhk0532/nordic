@@ -7,7 +7,7 @@ namespace App\Filament\Stats\Pages;
 use BackedEnum;
 use Filament\Pages\Page;
 
-final class UmamiAnalytics extends Page
+class UmamiAnalytics extends Page
 {
     protected string $view = 'filament.stats.pages.umami-analytics';
 

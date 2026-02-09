@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditDailyLocation extends EditRecord
+class EditDailyLocation extends EditRecord
 {
     protected static string $resource = DailyLocationResource::class;
 

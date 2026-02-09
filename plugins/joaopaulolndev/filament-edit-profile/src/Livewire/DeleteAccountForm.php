@@ -14,7 +14,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-final class DeleteAccountForm extends BaseProfileForm
+class DeleteAccountForm extends BaseProfileForm
 {
     protected string $view = 'filament-edit-profile::livewire.delete-account-form';
 

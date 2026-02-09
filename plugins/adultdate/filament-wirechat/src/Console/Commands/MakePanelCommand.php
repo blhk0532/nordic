@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\text;
 
-final class MakePanelCommand extends Command
+class MakePanelCommand extends Command
 {
     public string $stubPath;
 

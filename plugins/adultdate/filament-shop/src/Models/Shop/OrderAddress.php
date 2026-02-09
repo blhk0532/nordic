@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-final class OrderAddress extends Model
+class OrderAddress extends Model
 {
     /** @use HasFactory<OrderAddressFactory> */
     use HasFactory;

@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\URL;
  *
  * @mixin \Eloquent
  */
-final class WhatsappAgent extends Model
+class WhatsappAgent extends Model
 {
     protected $fillable = [
         'active',

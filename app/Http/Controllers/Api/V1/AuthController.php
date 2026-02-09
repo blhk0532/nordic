@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
-final class AuthController extends ApiController
+class AuthController extends ApiController
 {
     public function register(RegisterRequest $request): JsonResponse
     {

@@ -7,7 +7,7 @@ namespace daacreators\CreatorsTicketing\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class AutomationLog extends Model
+class AutomationLog extends Model
 {
     protected $guarded = [];
 

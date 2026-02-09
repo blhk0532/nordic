@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class TooManyComponentsException extends Exception
+class TooManyComponentsException extends Exception
 {
     public function __construct(int $count, int $maxComponents)
     {

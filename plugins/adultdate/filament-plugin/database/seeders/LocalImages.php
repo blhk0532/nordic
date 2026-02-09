@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Finder\SplFileInfo;
 
-final class LocalImages
+class LocalImages
 {
     public const SIZE_200x200 = '200x200';
 

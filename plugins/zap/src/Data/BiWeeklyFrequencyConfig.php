@@ -12,7 +12,7 @@ use Zap\Models\Schedule;
 /**
  * @property-read list<string> $daysOfWeek
  */
-final class BiWeeklyFrequencyConfig extends FrequencyConfig
+class BiWeeklyFrequencyConfig extends FrequencyConfig
 {
     public ?CarbonInterface $startsOn = null;
 

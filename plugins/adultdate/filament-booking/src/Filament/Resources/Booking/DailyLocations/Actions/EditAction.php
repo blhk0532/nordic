@@ -7,7 +7,7 @@ namespace Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Ac
 use Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Widgets\EventCalendar;
 use Filament\Actions\EditAction as BaseEditAction;
 
-final class EditAction extends BaseEditAction
+class EditAction extends BaseEditAction
 {
     protected function setUp(): void
     {

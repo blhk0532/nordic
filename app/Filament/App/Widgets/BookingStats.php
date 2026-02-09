@@ -7,7 +7,7 @@ namespace App\Filament\App\Widgets;
 use Illuminate\Contracts\View\View;
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class BookingStats extends ApexChartWidget
+class BookingStats extends ApexChartWidget
 {
     /**
      * Chart Id

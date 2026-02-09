@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\ValueObjects;
+namespace Adultdate\FilamentBooking\ValueObjects;
 
 use Carbon\CarbonImmutable;
-use Guava\Calendar\Enums\CalendarViewType;
+use Adultdate\FilamentBooking\Enums\CalendarViewType;
 
-use function Guava\Calendar\utc_to_user_local_time;
+use function Adultdate\FilamentBooking\utc_to_user_local_time;
 
 final readonly class CalendarView
 {

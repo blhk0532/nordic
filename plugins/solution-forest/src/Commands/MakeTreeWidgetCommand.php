@@ -32,7 +32,7 @@ use function Laravel\Prompts\text;
     name: 'make:filament-tree-widget',
     description: 'Creates a Filament tree widget class.',
 )]
-final class MakeTreeWidgetCommand extends Command
+class MakeTreeWidgetCommand extends Command
 {
     use CanAskForLivewireComponentLocation;
     use CanAskForResource;

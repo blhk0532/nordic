@@ -10,7 +10,7 @@ use SolutionForest\TabLayoutPlugin\Schemas\SimpleTabSchema;
 /**
  * @deprecated Use `SolutionForest\TabLayoutPlugin\Schemas\SimpleTabSchema` instead.
  */
-final class TabWidgetContentConfiguration extends SimpleTabSchema
+class TabWidgetContentConfiguration extends SimpleTabSchema
 {
     /**
      * @param  class-string<Component>  $component

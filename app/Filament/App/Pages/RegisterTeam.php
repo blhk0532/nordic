@@ -8,7 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Pages\Tenancy\RegisterTenant;
 use Filament\Schemas\Schema;
 
-final class RegisterTeam extends RegisterTenant
+class RegisterTeam extends RegisterTenant
 {
     public static function getLabel(): string
     {

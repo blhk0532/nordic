@@ -6,7 +6,7 @@ namespace App\Filament\Admin\Widgets;
 
 use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
-final class UserCandlestick extends ApexChartWidget
+class UserCandlestick extends ApexChartWidget
 {
     protected static bool $isCollapsible = true;
 

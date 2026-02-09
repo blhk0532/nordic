@@ -14,7 +14,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class ScheduleForm
+class ScheduleForm
 {
     public static function configure(Schema $schema): Schema
     {

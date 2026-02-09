@@ -8,7 +8,7 @@ use App\Filament\App\Resources\CallingLogs\CallingLogResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListCallingLogs extends ListRecords
+class ListCallingLogs extends ListRecords
 {
     protected static string $resource = CallingLogResource::class;
 

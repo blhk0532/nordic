@@ -7,7 +7,7 @@ namespace Cmsmaxinc\FilamentErrorPages\Filament\Pages;
 use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
 
-final class ForbiddenPage extends Page
+class ForbiddenPage extends Page
 {
     protected static ?string $slug = '403';
 

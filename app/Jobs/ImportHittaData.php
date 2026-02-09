@@ -18,7 +18,7 @@ use InvalidArgumentException;
 use Maatwebsite\Excel\Facades\Excel;
 use PDO;
 
-final class ImportHittaData implements ShouldQueue
+class ImportHittaData implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

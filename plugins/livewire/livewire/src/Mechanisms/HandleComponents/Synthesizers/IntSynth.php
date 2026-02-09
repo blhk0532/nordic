@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Livewire\Mechanisms\HandleComponents\Synthesizers;
 
 // This synth exists solely to capture empty strings being set to integer properties...
-final class IntSynth extends Synth
+class IntSynth extends Synth
 {
     public static $key = 'int';
 

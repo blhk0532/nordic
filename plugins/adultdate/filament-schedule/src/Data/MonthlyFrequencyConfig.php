@@ -9,7 +9,7 @@ use Adultdate\Schedule\Models\Schedule;
 /**
  * @property-read list<int>|null $daysOfMonth
  */
-final class MonthlyFrequencyConfig extends FrequencyConfig
+class MonthlyFrequencyConfig extends FrequencyConfig
 {
     public function __construct(
         public ?array $days_of_month

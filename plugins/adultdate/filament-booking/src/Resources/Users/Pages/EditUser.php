@@ -8,7 +8,7 @@ use Adultdate\FilamentBooking\Users\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditUser extends EditRecord
+class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;
 

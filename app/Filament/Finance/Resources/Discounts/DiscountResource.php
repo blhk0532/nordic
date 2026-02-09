@@ -26,7 +26,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class DiscountResource extends Resource
+class DiscountResource extends Resource
 {
     protected static ?string $model = Discount::class;
 

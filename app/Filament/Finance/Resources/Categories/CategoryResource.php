@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Rules\Enum;
 use UnitEnum;
 
-final class CategoryResource extends Resource
+class CategoryResource extends Resource
 {
     public ?string $activeTab = null;
 

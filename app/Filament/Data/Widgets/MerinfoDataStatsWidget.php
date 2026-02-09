@@ -9,7 +9,7 @@ use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\Builder;
 
-final class MerinfoDataStatsWidget extends StatsOverviewWidget
+class MerinfoDataStatsWidget extends StatsOverviewWidget
 {
     protected static ?int $sort = -1;
 

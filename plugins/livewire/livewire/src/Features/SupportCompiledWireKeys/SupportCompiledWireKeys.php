@@ -9,7 +9,7 @@ use Livewire\ComponentHook;
 
 use function Livewire\on;
 
-final class SupportCompiledWireKeys extends ComponentHook
+class SupportCompiledWireKeys extends ComponentHook
 {
     public static $loopStack = [];
 

@@ -9,7 +9,7 @@ use Livewire\Drawer\Utils;
 
 use function Livewire\store;
 
-final class SupportNestedComponentListeners extends ComponentHook
+class SupportNestedComponentListeners extends ComponentHook
 {
     public function mount($params, $parent)
     {

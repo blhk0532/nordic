@@ -9,7 +9,7 @@ use Zap\Services\ConflictDetectionService;
 use Zap\Services\ScheduleService;
 use Zap\Services\ValidationService;
 
-final class ZapServiceProvider extends ServiceProvider
+class ZapServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.

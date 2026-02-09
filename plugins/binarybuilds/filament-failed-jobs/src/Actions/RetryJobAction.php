@@ -8,7 +8,7 @@ use BinaryBuilds\FilamentFailedJobs\Models\FailedJob;
 use Filament\Actions\Action;
 use Filament\Support\Icons\Heroicon;
 
-final class RetryJobAction extends Action
+class RetryJobAction extends Action
 {
     use ManagesJobs;
 

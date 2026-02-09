@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-final class PostNummerQueController extends Controller
+class PostNummerQueController extends Controller
 {
     /**
      * Get the first postnummer value from the queue.

@@ -13,7 +13,7 @@ use Livewire\Mechanisms\HandleRequests\HandleRequests;
 
 use function Livewire\on;
 
-final class SupportRedirects extends ComponentHook
+class SupportRedirects extends ComponentHook
 {
     public static $redirectorCacheStack = [];
 

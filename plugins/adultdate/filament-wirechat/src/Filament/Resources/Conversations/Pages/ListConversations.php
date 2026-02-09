@@ -8,7 +8,7 @@ use AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationReso
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListConversations extends ListRecords
+class ListConversations extends ListRecords
 {
     protected static string $resource = ConversationResource::class;
 

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-final class Comment extends Model
+class Comment extends Model
 {
     /** @use HasFactory<CommentFactory> */
     use HasFactory;

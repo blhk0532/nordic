@@ -29,7 +29,7 @@ use UnitEnum;
 use Zap\Facades\Zap;
 use Zap\Models\Schedule;
 
-final class ManageAppointments extends Page implements HasForms, HasTable
+class ManageAppointments extends Page implements HasForms, HasTable
 {
     use HasTabs, InteractsWithForms, InteractsWithTable;
 

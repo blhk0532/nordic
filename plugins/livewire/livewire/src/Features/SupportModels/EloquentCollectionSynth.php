@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Queue\SerializesAndRestoresModelIdentifiers;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
 
-final class EloquentCollectionSynth extends Synth
+class EloquentCollectionSynth extends Synth
 {
     use IsLazy, SerializesAndRestoresModelIdentifiers;
 
@@ -84,7 +84,7 @@ final class EloquentCollectionSynth extends Synth
         $keys = $meta['keys'] ?? [];
 
         if (count($keys) === 0) {
-            return new $class();
+            return new $class;
         }
 
         return $this->makeLazyProxy($class, $meta, function () use ($modelClass, $keys, $meta) {

@@ -13,7 +13,7 @@ use Filament\Widgets\Widget;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 
-final class FilamentShield
+class FilamentShield
 {
     use Concerns\HasEntityDiscovery;
     use Concerns\HasEntityTransformers;

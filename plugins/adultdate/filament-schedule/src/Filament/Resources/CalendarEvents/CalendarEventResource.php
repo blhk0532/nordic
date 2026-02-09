@@ -17,7 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class CalendarEventResource extends Resource
+class CalendarEventResource extends Resource
 {
     protected static ?string $model = CalendarEvent::class;
 

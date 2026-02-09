@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory<User>
  */
-final class UserFactory extends Factory
+class UserFactory extends Factory
 {
     public function definition(): array
     {

@@ -10,7 +10,7 @@ use Filament\Support\Assets\Theme;
 use Filament\Support\Colors;
 use Filament\Support\Facades\FilamentAsset;
 
-final class FilamentShop implements Plugin
+class FilamentShop implements Plugin
 {
     public function getId(): string
     {

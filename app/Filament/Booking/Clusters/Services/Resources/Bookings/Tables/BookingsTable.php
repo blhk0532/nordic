@@ -16,7 +16,7 @@ use Filament\Tables\Table;
 use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
 use Illuminate\Database\Eloquent\Builder;
 
-final class BookingsTable
+class BookingsTable
 {
     public static function configure(Table $table): Table
     {

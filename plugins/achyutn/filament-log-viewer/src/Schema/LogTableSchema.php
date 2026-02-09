@@ -9,7 +9,7 @@ use Filament\Support\Colors\Color;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 
-final class LogTableSchema
+class LogTableSchema
 {
     /**
      * @return array<Column>

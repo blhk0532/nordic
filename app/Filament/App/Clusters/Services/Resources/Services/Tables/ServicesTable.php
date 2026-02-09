@@ -11,7 +11,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
-final class ServicesTable
+class ServicesTable
 {
     public static function configure(Table $table): Table
     {

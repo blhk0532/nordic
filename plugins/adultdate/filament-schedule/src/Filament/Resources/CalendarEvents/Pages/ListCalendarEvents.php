@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\CalendarEvents\CalendarEventResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListCalendarEvents extends ListRecords
+class ListCalendarEvents extends ListRecords
 {
     protected static string $resource = CalendarEventResource::class;
 

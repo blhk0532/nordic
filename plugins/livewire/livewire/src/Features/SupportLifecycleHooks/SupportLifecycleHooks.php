@@ -9,7 +9,7 @@ use Livewire\ComponentHook;
 use function Livewire\store;
 use function Livewire\wrap;
 
-final class SupportLifecycleHooks extends ComponentHook
+class SupportLifecycleHooks extends ComponentHook
 {
     // Performance optimization: Cache trait lookups per component class...
     protected static $traitCache = [];

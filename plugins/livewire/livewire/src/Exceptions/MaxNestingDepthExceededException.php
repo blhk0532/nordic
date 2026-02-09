@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class MaxNestingDepthExceededException extends Exception
+class MaxNestingDepthExceededException extends Exception
 {
     public function __construct(string $path, int $maxDepth)
     {

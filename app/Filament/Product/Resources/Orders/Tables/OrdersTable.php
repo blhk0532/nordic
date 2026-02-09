@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Squire\Models\Currency;
 
-final class OrdersTable
+class OrdersTable
 {
     public static function configure(Table $table): Table
     {

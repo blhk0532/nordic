@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportJson\BaseJson;
 
 #[Attribute(Attribute::TARGET_METHOD)]
-final class Json extends BaseJson
+class Json extends BaseJson
 {
     //
 }

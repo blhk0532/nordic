@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportChecksumErrorDebugging;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-final class SupportChecksumErrorDebugging
+class SupportChecksumErrorDebugging
 {
     public function boot()
     {

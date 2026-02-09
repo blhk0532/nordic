@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory<Brand>
  */
-final class BrandFactory extends Factory
+class BrandFactory extends Factory
 {
     /**
      * @var string

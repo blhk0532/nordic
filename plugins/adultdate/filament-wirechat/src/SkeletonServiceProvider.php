@@ -18,7 +18,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 use VendorName\Skeleton\Commands\SkeletonCommand;
 use VendorName\Skeleton\Testing\TestsSkeleton;
 
-final class SkeletonServiceProvider extends PackageServiceProvider
+class SkeletonServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'skeleton';
 

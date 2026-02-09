@@ -17,7 +17,7 @@ use Filament\Support\Facades\FilamentColor;
  * - Tailwind color names (red, blue, etc.)
  * - Hex colors (#ff0000)
  */
-final class ColorResolver
+class ColorResolver
 {
     /**
      * Resolve a color value to either a semantic name or color array.

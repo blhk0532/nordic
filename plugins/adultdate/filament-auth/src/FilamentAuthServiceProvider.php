@@ -16,7 +16,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentAuthServiceProvider extends PackageServiceProvider
+class FilamentAuthServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-auth';
 

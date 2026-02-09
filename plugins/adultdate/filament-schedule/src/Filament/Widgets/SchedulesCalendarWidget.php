@@ -30,7 +30,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
 
-final class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
+class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
 {
     use \Adultdate\Schedule\Concerns\HasOptions, \Adultdate\Schedule\Concerns\InteractsWithCalendar, CanBeConfigured, CanRefreshCalendar, HasHeaderActions, HasSchema, InteractsWithEventRecord, InteractsWithEvents, InteractsWithRawJS {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar

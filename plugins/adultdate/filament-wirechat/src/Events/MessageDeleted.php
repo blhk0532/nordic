@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-final class MessageDeleted implements ShouldBroadcastNow
+class MessageDeleted implements ShouldBroadcastNow
 {
     use Dispatchable;
     use InteractsWithPanel;

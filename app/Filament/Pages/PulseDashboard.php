@@ -18,7 +18,7 @@ use Filament\Actions\ActionGroup;
 use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Pages\Dashboard\Concerns\HasFiltersAction;
 
-final class PulseDashboard extends BaseDashboard
+class PulseDashboard extends BaseDashboard
 {
     use HasFiltersAction;
 

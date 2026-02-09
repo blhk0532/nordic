@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportHtmlAttributeForwarding;
 use Illuminate\View\ComponentAttributeBag;
 use Livewire\ComponentHook;
 
-final class SupportHtmlAttributeForwarding extends ComponentHook
+class SupportHtmlAttributeForwarding extends ComponentHook
 {
     public function render($view, $properties)
     {

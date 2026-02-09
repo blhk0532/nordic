@@ -8,7 +8,7 @@ use Adultdate\Schedule\Filament\Resources\Sprints\SprintResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditSprint extends EditRecord
+class EditSprint extends EditRecord
 {
     protected static string $resource = SprintResource::class;
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'livewire:attribute')]
-final class AttributeCommand extends GeneratorCommand
+class AttributeCommand extends GeneratorCommand
 {
     /**
      * The console command name.

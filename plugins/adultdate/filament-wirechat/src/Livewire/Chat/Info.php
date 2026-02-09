@@ -11,7 +11,7 @@ use Adultdate\Wirechat\Livewire\Concerns\ModalComponent;
 use Adultdate\Wirechat\Livewire\Concerns\Widget;
 use Livewire\Attributes\Locked;
 
-final class Info extends ModalComponent
+class Info extends ModalComponent
 {
     use HasPanel;
     use Widget;

@@ -12,7 +12,7 @@ use function Livewire\on;
 use function Livewire\store;
 use function Livewire\wrap;
 
-final class SupportLegacyComputedPropertySyntax extends ComponentHook
+class SupportLegacyComputedPropertySyntax extends ComponentHook
 {
     protected static array $computedPropertyNamesCache = [];
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Guava\Calendar\Concerns;
+namespace Adultdate\FilamentBooking\Concerns;
 
-use Guava\Calendar\Contracts\Resourceable;
-use Guava\Calendar\ValueObjects\CalendarResource;
+use Adultdate\FilamentBooking\Contracts\Resourceable;
+use Adultdate\FilamentBooking\ValueObjects\CalendarResource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 

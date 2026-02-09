@@ -7,7 +7,7 @@ namespace App\Policies;
 use App\Models\BookingOutcallQueue;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-final class BookingOutcallQueuePolicy
+class BookingOutcallQueuePolicy
 {
     use HandlesAuthorization;
 

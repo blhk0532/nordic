@@ -7,7 +7,7 @@ namespace App\Filament\App\Resources\RingaListan\Widgets;
 use App\Models\RingaData;
 use Filament\Widgets\Widget;
 
-final class RingaDataDisplayWidget extends Widget
+class RingaDataDisplayWidget extends Widget
 {
     public ?RingaData $record = null;
 

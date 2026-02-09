@@ -7,7 +7,7 @@ namespace Workbench\Adultdate\Schedule\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-final class WorkbenchServiceProvider extends ServiceProvider
+class WorkbenchServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

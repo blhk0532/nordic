@@ -15,7 +15,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 #[AsCommand(name: 'livewire:convert')]
-final class ConvertCommand extends Command
+class ConvertCommand extends Command
 {
     protected $name = 'livewire:convert';
 

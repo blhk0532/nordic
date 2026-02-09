@@ -8,7 +8,7 @@ use App\Filament\Data\Resources\CarryData\CarryDataResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditCarryData extends EditRecord
+class EditCarryData extends EditRecord
 {
     protected static string $resource = CarryDataResource::class;
 

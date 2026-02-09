@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use PDO;
 
-final class BackupHittaData implements ShouldQueue
+class BackupHittaData implements ShouldQueue
 {
     use Queueable;
 

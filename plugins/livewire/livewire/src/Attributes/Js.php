@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportJsEvaluation\BaseJs;
 
 #[Attribute]
-final class Js extends BaseJs
+class Js extends BaseJs
 {
     //
 }

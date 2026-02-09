@@ -7,7 +7,7 @@ namespace Caresome\FilamentAuthDesigner\Pages\Auth;
 use Caresome\FilamentAuthDesigner\Concerns\HasAuthDesignerLayout;
 use Filament\Auth\Pages\Register as BaseRegister;
 
-final class Register extends BaseRegister
+class Register extends BaseRegister
 {
     use HasAuthDesignerLayout;
 

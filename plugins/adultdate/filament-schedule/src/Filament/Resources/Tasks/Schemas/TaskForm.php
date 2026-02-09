@@ -11,7 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class TaskForm
+class TaskForm
 {
     public static function configure(Schema $schema): Schema
     {

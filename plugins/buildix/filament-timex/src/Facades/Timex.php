@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Buildix\Timex\Timex
  */
-final class Timex extends Facade
+class Timex extends Facade
 {
     protected static function getFacadeAccessor()
     {

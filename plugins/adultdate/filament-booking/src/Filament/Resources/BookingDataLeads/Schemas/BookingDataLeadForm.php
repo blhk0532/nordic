@@ -14,7 +14,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-final class BookingDataLeadForm
+class BookingDataLeadForm
 {
     public static function configure(Schema $schema): Schema
     {

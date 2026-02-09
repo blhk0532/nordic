@@ -35,7 +35,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\DB;
 
-final class PostNumsTable
+class PostNumsTable
 {
     public static function configure(Table $table): Table
     {

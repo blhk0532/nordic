@@ -8,7 +8,7 @@ use Filament\Pages\Dashboard as BaseDashboard;
 use Illuminate\Contracts\Support\Htmlable;
 use Shreejan\DashArrange\Traits\HasDashArrange;
 
-final class Dashboard extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     use HasDashArrange;
 

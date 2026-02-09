@@ -6,7 +6,7 @@ namespace Livewire\Mechanisms;
 
 use Illuminate\Support\Facades\Blade;
 
-final class RenderComponent extends Mechanism
+class RenderComponent extends Mechanism
 {
     public static function livewire($expression)
     {

@@ -12,7 +12,7 @@ use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 use Throwable;
 
-final class Group extends ModalComponent
+class Group extends ModalComponent
 {
     use HasPanel;
     use Widget;

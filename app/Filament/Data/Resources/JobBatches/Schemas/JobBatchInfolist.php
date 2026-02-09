@@ -7,7 +7,7 @@ namespace App\Filament\Data\Resources\JobBatches\Schemas;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class JobBatchInfolist
+class JobBatchInfolist
 {
     public static function configure(Schema $schema): Schema
     {

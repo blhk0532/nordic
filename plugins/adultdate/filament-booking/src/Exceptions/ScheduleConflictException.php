@@ -6,7 +6,7 @@ namespace Adultdate\FilamentBooking\Exceptions;
 
 use Throwable;
 
-final class ScheduleConflictException extends ZapException
+class ScheduleConflictException extends ZapException
 {
     /**
      * The conflicting schedules.

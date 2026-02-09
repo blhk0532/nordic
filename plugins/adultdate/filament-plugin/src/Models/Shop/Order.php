@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Order extends Model
+class Order extends Model
 {
     /** @use HasFactory<OrderFactory> */
     use HasFactory;

@@ -8,7 +8,7 @@ use App\Filament\Finance\Resources\Outcomes\OutcomesResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListOutcomes extends ListRecords
+class ListOutcomes extends ListRecords
 {
     protected static string $resource = OutcomesResource::class;
 

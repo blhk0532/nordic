@@ -14,7 +14,7 @@ use Filament\Support\Concerns\HasIconPosition;
 use Illuminate\Contracts\Support\Htmlable;
 use Relaticle\Flowforge\Concerns\BelongsToBoard;
 
-final class Column extends ViewComponent
+class Column extends ViewComponent
 {
     use BelongsToBoard;
     use HasColor;

@@ -8,7 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 
-final class BookingCreatedNotification extends Notification implements ShouldQueue
+class BookingCreatedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 

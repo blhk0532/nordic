@@ -16,7 +16,7 @@ use function is_string;
  * A stored exception that provides the same interface as Laravel's Exception renderer class.
  * This allows us to use Laravel's exception renderer components directly with stored exception data.
  */
-final class StoredException
+class StoredException
 {
     private Request $request;
 

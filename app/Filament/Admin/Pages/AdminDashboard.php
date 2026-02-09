@@ -20,7 +20,7 @@ use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\Layout;
 
-final class AdminDashboard extends BaseDashboard
+class AdminDashboard extends BaseDashboard
 {
     protected static ?string $title = 'a';
 

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-final class Client extends Model
+class Client extends Model
 {
     /** @use HasFactory<\Adultdate\FilamentBooking\Database\Factories\Booking\ClientFactory> */
     use HasFactory;

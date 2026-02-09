@@ -11,7 +11,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Jeffgreco13\FilamentBreezy\Livewire\MyProfileComponent;
 
-final class TeamInfo extends MyProfileComponent
+class TeamInfo extends MyProfileComponent
 {
     public array $data = [];
 

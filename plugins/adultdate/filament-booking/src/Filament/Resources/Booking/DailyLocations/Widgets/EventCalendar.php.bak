@@ -28,7 +28,7 @@ use Adultdate\FilamentBooking\Models\BookingMeeting;
 use Adultdate\FilamentBooking\Models\BookingSprint;
 use Adultdate\FilamentBooking\Enums\Priority;
 
-final class EventCalendar extends CalendarWidget
+class EventCalendar extends CalendarWidget
 {
  
     protected static string $viewIdentifier = 'adultdate/filament-booking::calendar-widget';

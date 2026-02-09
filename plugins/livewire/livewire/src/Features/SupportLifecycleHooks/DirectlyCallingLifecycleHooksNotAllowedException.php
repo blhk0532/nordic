@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportLifecycleHooks;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-final class DirectlyCallingLifecycleHooksNotAllowedException extends Exception
+class DirectlyCallingLifecycleHooksNotAllowedException extends Exception
 {
     use BypassViewHandler;
 

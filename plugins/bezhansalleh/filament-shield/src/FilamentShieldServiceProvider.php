@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentShieldServiceProvider extends PackageServiceProvider
+class FilamentShieldServiceProvider extends PackageServiceProvider
 {
     use HasAboutCommand;
 

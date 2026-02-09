@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class MessageResource extends Resource
+class MessageResource extends Resource
 {
     protected static ?string $model = Message::class;
 

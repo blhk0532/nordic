@@ -14,7 +14,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 
-final class CalendarEventForm
+class CalendarEventForm
 {
     public static function configure(Schema $schema): Schema
     {

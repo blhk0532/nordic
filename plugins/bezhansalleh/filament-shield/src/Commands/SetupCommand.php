@@ -22,7 +22,7 @@ use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
 #[AsCommand(name: 'shield:setup', description: 'Setup and install core requirements for Shield')]
-final class SetupCommand extends Command
+class SetupCommand extends Command
 {
     use CanManipulateFiles;
     use Prohibitable;

@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditRingaData extends EditRecord
+class EditRingaData extends EditRecord
 {
     protected static string $resource = RingaDataResource::class;
 

@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-final class Merinfo extends Model
+class Merinfo extends Model
 {
     /** @use HasFactory<\Database\Factories\MerinfoFactory> */
     use HasFactory;

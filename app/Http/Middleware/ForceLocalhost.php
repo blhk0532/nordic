@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ForceLocalhost
+class ForceLocalhost
 {
     /**
      * Redirect 127.0.0.1 requests to localhost to keep cookie domain consistent.

@@ -13,7 +13,7 @@ use Livewire\Mechanisms\Mechanism;
 
 use function Livewire\trigger;
 
-final class HandleRequests extends Mechanism
+class HandleRequests extends Mechanism
 {
     protected $updateRoute;
 

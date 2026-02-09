@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AdultDate\FilamentWirechat\Services;
 
-final class WirechatService
+class WirechatService
 {
     /**
      * Get the color used to be used in as theme

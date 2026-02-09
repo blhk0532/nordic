@@ -6,7 +6,7 @@ namespace AdultDate\FilamentDialer\Livewire;
 
 use Livewire\Component;
 
-final class PhoneIconButton extends Component
+class PhoneIconButton extends Component
 {
     public function render()
     {

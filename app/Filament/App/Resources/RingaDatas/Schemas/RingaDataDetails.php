@@ -7,7 +7,7 @@ namespace App\Filament\App\Resources\RingaDatas\Schemas;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-final class RingaDataDetails
+class RingaDataDetails
 {
     public static function configure(Schema $schema): Schema
     {

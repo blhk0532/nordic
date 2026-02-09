@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
-final class UpdatePostNummerFromSweden implements ShouldQueue
+class UpdatePostNummerFromSweden implements ShouldQueue
 {
     use Batchable;
     use Queueable;

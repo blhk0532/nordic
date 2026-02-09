@@ -15,7 +15,7 @@ use Filament\Schemas\Schema;
 use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
 use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 
-final class BookingOutcallQueueForm
+class BookingOutcallQueueForm
 {
     public static function configure(Schema $schema): Schema
     {

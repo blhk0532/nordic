@@ -11,7 +11,7 @@ use Zap\Enums\ScheduleTypes;
 use Zap\Models\Schedule;
 use Zap\Models\SchedulePeriod;
 
-final class ConflictDetectionService
+class ConflictDetectionService
 {
     /**
      * Check if a schedule has conflicts with existing schedules.

@@ -10,7 +10,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class AuthDesignerServiceProvider extends PackageServiceProvider
+class AuthDesignerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'auth-designer';
 

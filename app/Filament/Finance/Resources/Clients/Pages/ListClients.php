@@ -12,7 +12,7 @@ use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Icons\Heroicon;
 
-final class ListClients extends ListRecords
+class ListClients extends ListRecords
 {
     protected static string $resource = ClientResource::class;
 

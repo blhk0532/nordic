@@ -14,7 +14,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Widgets\Widget;
 
-final class DatabaseBackupWidget extends Widget implements HasActions, HasForms
+class DatabaseBackupWidget extends Widget implements HasActions, HasForms
 {
     use InteractsWithActions;
     use InteractsWithForms;

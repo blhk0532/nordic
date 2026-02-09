@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use League\Csv\Reader;
 
-final class ImportRatsitData extends Command
+class ImportRatsitData extends Command
 {
     protected $signature = 'ratsit:import {--streets} {--persons} {--all}';
 

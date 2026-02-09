@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 use ReflectionAttribute;
 use ReflectionObject;
 
-final class AttributeCollection extends Collection
+class AttributeCollection extends Collection
 {
     public static function fromComponent($component, $subTarget = null, $propertyNamePrefix = '')
     {

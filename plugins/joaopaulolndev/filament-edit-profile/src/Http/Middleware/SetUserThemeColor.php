@@ -9,7 +9,7 @@ use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-final class SetUserThemeColor
+class SetUserThemeColor
 {
     public function handle(Request $request, Closure $next, ?string $guard = null)
     {

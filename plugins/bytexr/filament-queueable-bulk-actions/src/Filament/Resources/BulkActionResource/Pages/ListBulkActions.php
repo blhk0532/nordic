@@ -7,7 +7,7 @@ namespace Bytexr\QueueableBulkActions\Filament\Resources\BulkActionResource\Page
 use Bytexr\QueueableBulkActions\Filament\Resources\BulkActionResource;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListBulkActions extends ListRecords
+class ListBulkActions extends ListRecords
 {
     protected static string $resource = BulkActionResource::class;
 

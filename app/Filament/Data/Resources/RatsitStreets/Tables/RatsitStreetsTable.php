@@ -12,7 +12,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-final class RatsitStreetsTable
+class RatsitStreetsTable
 {
     public static function configure(Table $table): Table
     {

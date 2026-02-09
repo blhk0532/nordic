@@ -9,7 +9,7 @@ use Filament\Widgets\WidgetConfiguration;
 use InvalidArgumentException;
 use SolutionForest\TabLayoutPlugin\Schemas\SimpleTabSchema;
 
-final class TabWidgetConfiguration extends WidgetConfiguration
+class TabWidgetConfiguration extends WidgetConfiguration
 {
     /**
      * @param  class-string<Widget>  $widget

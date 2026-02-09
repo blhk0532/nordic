@@ -6,7 +6,7 @@ namespace Adultdate\Schedule\Exceptions;
 
 use Throwable;
 
-final class InvalidScheduleException extends ZapException
+class InvalidScheduleException extends ZapException
 {
     /**
      * The validation errors.

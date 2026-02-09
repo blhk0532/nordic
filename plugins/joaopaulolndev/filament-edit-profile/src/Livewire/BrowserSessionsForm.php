@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
 
-final class BrowserSessionsForm extends BaseProfileForm
+class BrowserSessionsForm extends BaseProfileForm
 {
     protected string $view = 'filament-edit-profile::livewire.browser-sessions-form';
 

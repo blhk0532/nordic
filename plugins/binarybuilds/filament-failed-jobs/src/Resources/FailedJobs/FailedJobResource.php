@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class FailedJobResource extends Resource
+class FailedJobResource extends Resource
 {
     public static string|null|UnitEnum $navigationGroup = 'Settings';
 

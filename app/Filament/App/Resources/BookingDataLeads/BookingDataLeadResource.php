@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class BookingDataLeadResource extends Resource
+class BookingDataLeadResource extends Resource
 {
     public static bool $shouldRegisterNavigation = false;
 

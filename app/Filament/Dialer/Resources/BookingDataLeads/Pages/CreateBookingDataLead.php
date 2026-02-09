@@ -7,7 +7,7 @@ namespace App\Filament\Dialer\Resources\BookingDataLeads\Pages;
 use App\Filament\Dialer\Resources\BookingDataLeads\BookingDataLeadResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateBookingDataLead extends CreateRecord
+class CreateBookingDataLead extends CreateRecord
 {
     protected static string $resource = BookingDataLeadResource::class;
 }

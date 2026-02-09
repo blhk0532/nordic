@@ -14,7 +14,7 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Auth;
 use UnitEnum;
 
-final class CalendarSettingsPage extends Page implements HasForms
+class CalendarSettingsPage extends Page implements HasForms
 {
     use InteractsWithForms;
 

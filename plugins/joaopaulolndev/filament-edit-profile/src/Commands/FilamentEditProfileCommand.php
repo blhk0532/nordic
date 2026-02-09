@@ -12,7 +12,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\text;
 
 #[AsCommand(name: 'make:edit-profile-form')]
-final class FilamentEditProfileCommand extends Command
+class FilamentEditProfileCommand extends Command
 {
     use CanManipulateFiles;
 

@@ -11,7 +11,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 
-final class OutdatedPayment extends TableWidget
+class OutdatedPayment extends TableWidget
 {
     protected static bool $isLazy = false;
 

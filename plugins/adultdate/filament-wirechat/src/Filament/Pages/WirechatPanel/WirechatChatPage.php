@@ -9,7 +9,7 @@ use AdultDate\FilamentWirechat\Models\Conversation;
 use Filament\Pages\Page;
 use Illuminate\Contracts\View\View;
 
-final class WirechatChatPage extends Page
+class WirechatChatPage extends Page
 {
     public Conversation $conversation;
 

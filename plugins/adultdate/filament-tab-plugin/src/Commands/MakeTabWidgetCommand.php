@@ -28,7 +28,7 @@ use function Laravel\Prompts\text;
     name: 'make:filament-tab-widget',
     description: 'Creates a Filament tab widget class.'
 )]
-final class MakeTabWidgetCommand extends Command
+class MakeTabWidgetCommand extends Command
 {
     use CanAskForLivewireComponentLocation;
     use CanAskForResource;

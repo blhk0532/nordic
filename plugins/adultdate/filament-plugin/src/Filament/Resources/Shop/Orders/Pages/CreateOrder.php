@@ -15,7 +15,7 @@ use Filament\Resources\Pages\CreateRecord\Concerns\HasWizard;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Wizard\Step;
 
-final class CreateOrder extends CreateRecord
+class CreateOrder extends CreateRecord
 {
     use HasWizard;
 

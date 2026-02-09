@@ -12,7 +12,7 @@ use Illuminate\Foundation\Exceptions\Renderer\Mappers\BladeMapper;
 use Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;
 use Throwable;
 
-final class FilamentExceptions
+class FilamentExceptions
 {
     private static ?string $model = null;
 

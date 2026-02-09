@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportQueryString\BaseUrl;
 
 #[Attribute]
-final class Url extends BaseUrl
+class Url extends BaseUrl
 {
     //
 }

@@ -9,7 +9,7 @@ use MWGuerra\FileManager\Enums\FileSystemItemType;
 use MWGuerra\FileManager\Enums\FileType;
 use MWGuerra\FileManager\Models\FileSystemItem;
 
-final class FileSystemItemFactory extends Factory
+class FileSystemItemFactory extends Factory
 {
     protected $model = FileSystemItem::class;
 

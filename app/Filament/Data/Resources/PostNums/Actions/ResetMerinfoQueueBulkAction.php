@@ -9,7 +9,7 @@ use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-final class ResetMerinfoQueueBulkAction extends BulkAction
+class ResetMerinfoQueueBulkAction extends BulkAction
 {
     public static function make(?string $name = 'resetMerinfoQueue'): static
     {

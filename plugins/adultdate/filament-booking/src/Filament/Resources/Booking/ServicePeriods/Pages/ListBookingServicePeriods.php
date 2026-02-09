@@ -23,7 +23,7 @@ use Filament\Schemas\Components\FusedGroup;
 use Filament\Schemas\Components\Section;
 use Illuminate\Support\Facades\Auth;
 
-final class ListBookingServicePeriods extends ListRecords
+class ListBookingServicePeriods extends ListRecords
 {
     protected static ?int $sort = -1;
 

@@ -13,7 +13,7 @@ use Illuminate\Queue\Attributes\WithoutRelations;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-final class DeleteConversationJob implements ShouldQueue
+class DeleteConversationJob implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithPanel;

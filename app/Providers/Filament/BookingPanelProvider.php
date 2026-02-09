@@ -46,7 +46,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
-final class BookingPanelProvider extends PanelProvider
+class BookingPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

@@ -7,7 +7,7 @@ namespace BinaryBuilds\FilamentFailedJobs;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentFailedJobsServiceProvider extends PackageServiceProvider
+class FilamentFailedJobsServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'failed-jobs';
 

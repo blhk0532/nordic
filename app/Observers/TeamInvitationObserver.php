@@ -8,7 +8,7 @@ use App\Models\TeamInvitation;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class TeamInvitationObserver
+class TeamInvitationObserver
 {
     /**
      * Handle the TeamInvitation "created" event.

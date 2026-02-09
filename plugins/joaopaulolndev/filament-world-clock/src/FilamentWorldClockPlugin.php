@@ -10,7 +10,7 @@ use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Joaopaulolndev\FilamentWorldClock\Widgets\WorldClockWidget;
 
-final class FilamentWorldClockPlugin implements Plugin
+class FilamentWorldClockPlugin implements Plugin
 {
     use EvaluatesClosures;
 

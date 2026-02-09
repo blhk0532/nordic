@@ -36,7 +36,7 @@ use Throwable;
  *
  * @property \Illuminate\Contracts\Auth\Authenticatable|null $auth
  */
-final class Chat extends Component
+class Chat extends Component
 {
     use HasPanel;
     use Widget;

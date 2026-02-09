@@ -10,7 +10,7 @@ use ReflectionNamedType;
 
 use function Livewire\wrap;
 
-final class SupportFormObjects extends ComponentHook
+class SupportFormObjects extends ComponentHook
 {
     public static function provide()
     {

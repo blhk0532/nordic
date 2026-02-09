@@ -52,7 +52,7 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-final class MultiCalendar3 extends FullCalendarWidget implements HasCalendar
+class MultiCalendar3 extends FullCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar

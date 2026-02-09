@@ -7,7 +7,7 @@ namespace Andreia\FilamentUiSwitcher\Livewire;
 use Andreia\FilamentUiSwitcher\Support\UiPreferenceManager;
 use Livewire\Component;
 
-final class UiPreferences extends Component
+class UiPreferences extends Component
 {
     public bool $open = false;
 

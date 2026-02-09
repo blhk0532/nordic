@@ -6,7 +6,7 @@ namespace Adultdate\FilamentBooking\Commands;
 
 use Illuminate\Console\Command;
 
-final class NumpadFieldCommand extends Command
+class NumpadFieldCommand extends Command
 {
     public $signature = 'filament-booking';
 

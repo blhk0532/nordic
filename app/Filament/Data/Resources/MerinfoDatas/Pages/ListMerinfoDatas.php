@@ -18,7 +18,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListMerinfoDatas extends ListRecords
+class ListMerinfoDatas extends ListRecords
 {
     protected static string $resource = MerinfoDataResource::class;
 

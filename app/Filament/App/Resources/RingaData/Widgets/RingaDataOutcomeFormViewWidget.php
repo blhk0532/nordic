@@ -12,7 +12,7 @@ use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 use Livewire\Attributes\On;
 
-final class RingaDataOutcomeFormViewWidget extends Widget implements HasSchemas
+class RingaDataOutcomeFormViewWidget extends Widget implements HasSchemas
 {
     use InteractsWithSchemas;
 

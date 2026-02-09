@@ -6,7 +6,7 @@ namespace Livewire\Exceptions;
 
 use Exception;
 
-final class MethodNotFoundException extends Exception
+class MethodNotFoundException extends Exception
 {
     use BypassViewHandler;
 

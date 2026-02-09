@@ -7,7 +7,7 @@ namespace BezhanSalleh\PluginEssentials;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class PluginEssentialsServiceProvider extends PackageServiceProvider
+class PluginEssentialsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

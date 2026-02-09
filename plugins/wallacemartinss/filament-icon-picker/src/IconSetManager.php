@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use ReflectionClass;
 
-final class IconSetManager
+class IconSetManager
 {
     private IconFactory $iconFactory;
 

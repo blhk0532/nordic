@@ -20,7 +20,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-final class HittaDatasTable
+class HittaDatasTable
 {
     public static function configure(Table $table): Table
     {

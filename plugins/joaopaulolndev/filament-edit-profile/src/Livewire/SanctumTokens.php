@@ -21,7 +21,7 @@ use Filament\Tables\Table;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Laravel\Sanctum\Sanctum;
 
-final class SanctumTokens extends BaseProfileForm implements HasTable
+class SanctumTokens extends BaseProfileForm implements HasTable
 {
     use HasUser;
     use InteractsWithTable;

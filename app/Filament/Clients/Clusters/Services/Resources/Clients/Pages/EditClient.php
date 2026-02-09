@@ -10,7 +10,7 @@ use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditClient extends EditRecord
+class EditClient extends EditRecord
 {
     protected static string $resource = ClientResource::class;
 

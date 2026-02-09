@@ -18,7 +18,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListRatsitDatas extends ListRecords
+class ListRatsitDatas extends ListRecords
 {
     protected static string $resource = RatsitDataResource::class;
 

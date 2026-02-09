@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AdultDate\FilamentWirechat\Services;
 
-final class StorageService
+class StorageService
 {
     /**
      * Get the wirechat storage disk from the configuration.

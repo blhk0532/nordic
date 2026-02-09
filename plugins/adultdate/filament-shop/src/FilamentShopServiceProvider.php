@@ -20,7 +20,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-final class FilamentShopServiceProvider extends PackageServiceProvider
+class FilamentShopServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-shop';
 

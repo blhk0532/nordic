@@ -18,7 +18,7 @@ use function Livewire\store;
 use function Livewire\trigger;
 use function Livewire\wrap;
 
-final class SupportLazyLoading extends ComponentHook
+class SupportLazyLoading extends ComponentHook
 {
     public static $disableWhileTesting = false;
 

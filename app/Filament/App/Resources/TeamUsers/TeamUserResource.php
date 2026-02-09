@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
-final class TeamUserResource extends Resource
+class TeamUserResource extends Resource
 {
     protected static ?string $model = User::class;
 

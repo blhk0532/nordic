@@ -42,7 +42,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  *
  * @mixin \Eloquent
  */
-final class Action extends Model
+class Action extends Model
 {
     use HasFactory;
 

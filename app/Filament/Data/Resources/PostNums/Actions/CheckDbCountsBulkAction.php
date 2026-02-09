@@ -9,7 +9,7 @@ use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 
-final class CheckDbCountsBulkAction extends BulkAction
+class CheckDbCountsBulkAction extends BulkAction
 {
     public static function make(?string $name = 'checkDbCounts'): static
     {

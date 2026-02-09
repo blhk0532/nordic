@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Livewire\Features\SupportRouting;
 
-final class LivewirePageController
+class LivewirePageController
 {
     public function __invoke()
     {

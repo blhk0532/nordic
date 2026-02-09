@@ -8,7 +8,7 @@ use App\Models\Admin;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class AdminObserver
+class AdminObserver
 {
     /**
      * Handle the Admin "created" event.

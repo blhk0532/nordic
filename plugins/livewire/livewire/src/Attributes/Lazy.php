@@ -8,7 +8,7 @@ use Attribute;
 use Livewire\Features\SupportLazyLoading\BaseLazy;
 
 #[Attribute]
-final class Lazy extends BaseLazy
+class Lazy extends BaseLazy
 {
     //
 }

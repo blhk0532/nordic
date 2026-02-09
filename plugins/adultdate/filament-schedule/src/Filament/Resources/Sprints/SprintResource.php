@@ -16,7 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
-final class SprintResource extends Resource
+class SprintResource extends Resource
 {
     protected static ?string $model = Sprint::class;
 

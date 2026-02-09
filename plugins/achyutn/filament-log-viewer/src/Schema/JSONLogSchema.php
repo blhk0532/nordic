@@ -9,7 +9,7 @@ use Filament\Infolists\Components\CodeEntry;
 use Filament\Schemas\Schema;
 use Phiki\Grammar\Grammar;
 
-final class JSONLogSchema
+class JSONLogSchema
 {
     /**
      * @throws Exception

@@ -19,7 +19,7 @@ use RuntimeException;
  * This adapter reads files and folders directly from a Laravel Storage disk.
  * No database is used. Operations like move/rename actually affect the files.
  */
-final class StorageAdapter implements FileManagerAdapterInterface
+class StorageAdapter implements FileManagerAdapterInterface
 {
     /**
      * Maximum recursion depth for folder operations.

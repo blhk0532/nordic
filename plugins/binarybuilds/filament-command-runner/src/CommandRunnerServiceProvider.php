@@ -9,7 +9,7 @@ use BinaryBuilds\CommandRunner\Commands\PurgeCommandHistory;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class CommandRunnerServiceProvider extends PackageServiceProvider
+class CommandRunnerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'command-runner';
 

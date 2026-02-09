@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\URL;
  * - Public disk (with symlink): Use Storage::url() for direct access
  * - Local/other disks: Generate signed route to streaming controller
  */
-final class FileUrlService
+class FileUrlService
 {
     /**
      * Generate a URL for file preview/streaming.

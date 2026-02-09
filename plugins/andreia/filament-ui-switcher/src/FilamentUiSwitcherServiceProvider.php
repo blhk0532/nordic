@@ -9,7 +9,7 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class FilamentUiSwitcherServiceProvider extends PackageServiceProvider
+class FilamentUiSwitcherServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

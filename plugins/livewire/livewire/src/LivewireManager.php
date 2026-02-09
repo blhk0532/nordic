@@ -16,7 +16,7 @@ use Livewire\Mechanisms\HandleComponents\HandleComponents;
 use Livewire\Mechanisms\HandleRequests\HandleRequests;
 use Livewire\Mechanisms\PersistentMiddleware\PersistentMiddleware;
 
-final class LivewireManager
+class LivewireManager
 {
     public static $v4 = true;
 

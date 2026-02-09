@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportStreaming;
 
 use Livewire\ComponentHook;
 
-final class SupportStreaming extends ComponentHook
+class SupportStreaming extends ComponentHook
 {
     protected static $response;
 

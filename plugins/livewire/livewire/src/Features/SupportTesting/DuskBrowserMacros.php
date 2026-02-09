@@ -9,7 +9,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 
 use function Livewire\str;
 
-final class DuskBrowserMacros
+class DuskBrowserMacros
 {
     public function assertAttributeMissing()
     {

@@ -6,7 +6,7 @@ namespace Livewire\Features\SupportSingleAndMultiFileComponents;
 
 use Livewire\ComponentHook;
 
-final class SupportSingleAndMultiFileComponents extends ComponentHook
+class SupportSingleAndMultiFileComponents extends ComponentHook
 {
     public static function provide()
     {

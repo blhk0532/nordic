@@ -27,7 +27,7 @@ use PDO;
  * @property-read Carbon $start_date_time
  * @property-read Carbon $end_date_time
  */
-final class SchedulePeriod extends Model
+class SchedulePeriod extends Model
 {
     /**
      * The attributes that are mass assignable.

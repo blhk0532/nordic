@@ -9,7 +9,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
-final class Handler extends ExceptionHandler
+class Handler extends ExceptionHandler
 {
     /**
      * A list of the exception types that are not reported.

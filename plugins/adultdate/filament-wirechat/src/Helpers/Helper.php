@@ -6,7 +6,7 @@ namespace Adultdate\Wirechat\Helpers;
 
 use Carbon\Carbon;
 
-final class Helper
+class Helper
 {
     /**
      * Formats file extensions for use in the 'accept' attribute of an input element.

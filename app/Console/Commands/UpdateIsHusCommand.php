@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use App\Models\CarryData;
 use Illuminate\Console\Command;
 
-final class UpdateIsHusCommand extends Command
+class UpdateIsHusCommand extends Command
 {
     /**
      * The name and signature of the console command.
