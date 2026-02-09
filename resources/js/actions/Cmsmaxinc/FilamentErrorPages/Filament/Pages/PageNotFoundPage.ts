@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-const PageNotFoundPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: PageNotFoundPage.url(args, options),
+const PageNotFoundPageed7eccc0b796a62e281e95983c809007 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, options),
     method: 'get',
 })
 
-PageNotFoundPage.definition = {
+PageNotFoundPageed7eccc0b796a62e281e95983c809007.definition = {
     methods: ["get","head"],
     url: '/nds/app/team/{tenant}/404',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ PageNotFoundPage.definition = {
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-PageNotFoundPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+PageNotFoundPageed7eccc0b796a62e281e95983c809007.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ PageNotFoundPage.url = (args: { tenant: string | number | { slug: string | numbe
         : args.tenant,
     }
 
-    return PageNotFoundPage.definition.url
+    return PageNotFoundPageed7eccc0b796a62e281e95983c809007.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -52,8 +52,8 @@ PageNotFoundPage.url = (args: { tenant: string | number | { slug: string | numbe
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-PageNotFoundPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: PageNotFoundPage.url(args, options),
+PageNotFoundPageed7eccc0b796a62e281e95983c809007.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, options),
     method: 'get',
 })
 
@@ -62,8 +62,8 @@ PageNotFoundPage.get = (args: { tenant: string | number | { slug: string | numbe
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-PageNotFoundPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: PageNotFoundPage.url(args, options),
+PageNotFoundPageed7eccc0b796a62e281e95983c809007.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, options),
     method: 'head',
 })
 
@@ -72,8 +72,8 @@ PageNotFoundPage.head = (args: { tenant: string | number | { slug: string | numb
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-const PageNotFoundPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PageNotFoundPage.url(args, options),
+const PageNotFoundPageed7eccc0b796a62e281e95983c809007Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, options),
     method: 'get',
 })
 
@@ -82,8 +82,8 @@ const PageNotFoundPageForm = (args: { tenant: string | number | { slug: string |
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-PageNotFoundPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PageNotFoundPage.url(args, options),
+PageNotFoundPageed7eccc0b796a62e281e95983c809007Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, options),
     method: 'get',
 })
 
@@ -92,8 +92,8 @@ PageNotFoundPageForm.get = (args: { tenant: string | number | { slug: string | n
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
 * @route '/nds/app/team/{tenant}/404'
 */
-PageNotFoundPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PageNotFoundPage.url(args, {
+PageNotFoundPageed7eccc0b796a62e281e95983c809007Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPageed7eccc0b796a62e281e95983c809007.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,6 +102,91 @@ PageNotFoundPageForm.head = (args: { tenant: string | number | { slug: string | 
     method: 'get',
 })
 
-PageNotFoundPage.form = PageNotFoundPageForm
+PageNotFoundPageed7eccc0b796a62e281e95983c809007.form = PageNotFoundPageed7eccc0b796a62e281e95983c809007Form
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+const PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url(options),
+    method: 'get',
+})
+
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.definition = {
+    methods: ["get","head"],
+    url: '/nds/super/404',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url = (options?: RouteQueryOptions) => {
+    return PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.definition.url + queryParams(options)
+}
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+const PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6fForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6fForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\PageNotFoundPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/PageNotFoundPage.php:7
+* @route '/nds/super/404'
+*/
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6fForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f.form = PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6fForm
+
+const PageNotFoundPage = {
+    '/nds/app/team/{tenant}/404': PageNotFoundPageed7eccc0b796a62e281e95983c809007,
+    '/nds/super/404': PageNotFoundPagef8e6daeec6dd74f0f95daf92770e7b6f,
+}
 
 export default PageNotFoundPage

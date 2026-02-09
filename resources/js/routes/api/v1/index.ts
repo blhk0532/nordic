@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Api\V1\AuthController::register
 * @see app/Http/Controllers/Api/V1/AuthController.php:25
@@ -248,11 +248,256 @@ meForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 me.form = meForm
 
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailVerify
+* @see app/Http/Controllers/Api/V1/AuthController.php:73
+* @route '/api/v1/email/verify/{id}/{hash}'
+*/
+export const emailVerify = (args: { id: string | number, hash: string | number } | [id: string | number, hash: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailVerify.url(args, options),
+    method: 'post',
+})
+
+emailVerify.definition = {
+    methods: ["post"],
+    url: '/api/v1/email/verify/{id}/{hash}',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailVerify
+* @see app/Http/Controllers/Api/V1/AuthController.php:73
+* @route '/api/v1/email/verify/{id}/{hash}'
+*/
+emailVerify.url = (args: { id: string | number, hash: string | number } | [id: string | number, hash: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            id: args[0],
+            hash: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        id: args.id,
+        hash: args.hash,
+    }
+
+    return emailVerify.definition.url
+            .replace('{id}', parsedArgs.id.toString())
+            .replace('{hash}', parsedArgs.hash.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailVerify
+* @see app/Http/Controllers/Api/V1/AuthController.php:73
+* @route '/api/v1/email/verify/{id}/{hash}'
+*/
+emailVerify.post = (args: { id: string | number, hash: string | number } | [id: string | number, hash: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailVerify.url(args, options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailVerify
+* @see app/Http/Controllers/Api/V1/AuthController.php:73
+* @route '/api/v1/email/verify/{id}/{hash}'
+*/
+const emailVerifyForm = (args: { id: string | number, hash: string | number } | [id: string | number, hash: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailVerify.url(args, options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailVerify
+* @see app/Http/Controllers/Api/V1/AuthController.php:73
+* @route '/api/v1/email/verify/{id}/{hash}'
+*/
+emailVerifyForm.post = (args: { id: string | number, hash: string | number } | [id: string | number, hash: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailVerify.url(args, options),
+    method: 'post',
+})
+
+emailVerify.form = emailVerifyForm
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailResend
+* @see app/Http/Controllers/Api/V1/AuthController.php:89
+* @route '/api/v1/email/resend'
+*/
+export const emailResend = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailResend.url(options),
+    method: 'post',
+})
+
+emailResend.definition = {
+    methods: ["post"],
+    url: '/api/v1/email/resend',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailResend
+* @see app/Http/Controllers/Api/V1/AuthController.php:89
+* @route '/api/v1/email/resend'
+*/
+emailResend.url = (options?: RouteQueryOptions) => {
+    return emailResend.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailResend
+* @see app/Http/Controllers/Api/V1/AuthController.php:89
+* @route '/api/v1/email/resend'
+*/
+emailResend.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailResend.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailResend
+* @see app/Http/Controllers/Api/V1/AuthController.php:89
+* @route '/api/v1/email/resend'
+*/
+const emailResendForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailResend.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::emailResend
+* @see app/Http/Controllers/Api/V1/AuthController.php:89
+* @route '/api/v1/email/resend'
+*/
+emailResendForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailResend.url(options),
+    method: 'post',
+})
+
+emailResend.form = emailResendForm
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::forgotPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:106
+* @route '/api/v1/forgot-password'
+*/
+export const forgotPassword = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: forgotPassword.url(options),
+    method: 'post',
+})
+
+forgotPassword.definition = {
+    methods: ["post"],
+    url: '/api/v1/forgot-password',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::forgotPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:106
+* @route '/api/v1/forgot-password'
+*/
+forgotPassword.url = (options?: RouteQueryOptions) => {
+    return forgotPassword.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::forgotPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:106
+* @route '/api/v1/forgot-password'
+*/
+forgotPassword.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: forgotPassword.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::forgotPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:106
+* @route '/api/v1/forgot-password'
+*/
+const forgotPasswordForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: forgotPassword.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::forgotPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:106
+* @route '/api/v1/forgot-password'
+*/
+forgotPasswordForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: forgotPassword.url(options),
+    method: 'post',
+})
+
+forgotPassword.form = forgotPasswordForm
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::resetPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:119
+* @route '/api/v1/reset-password'
+*/
+export const resetPassword = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: resetPassword.url(options),
+    method: 'post',
+})
+
+resetPassword.definition = {
+    methods: ["post"],
+    url: '/api/v1/reset-password',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::resetPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:119
+* @route '/api/v1/reset-password'
+*/
+resetPassword.url = (options?: RouteQueryOptions) => {
+    return resetPassword.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::resetPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:119
+* @route '/api/v1/reset-password'
+*/
+resetPassword.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: resetPassword.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::resetPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:119
+* @route '/api/v1/reset-password'
+*/
+const resetPasswordForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: resetPassword.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\V1\AuthController::resetPassword
+* @see app/Http/Controllers/Api/V1/AuthController.php:119
+* @route '/api/v1/reset-password'
+*/
+resetPasswordForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: resetPassword.url(options),
+    method: 'post',
+})
+
+resetPassword.form = resetPasswordForm
+
 const v1 = {
     register: Object.assign(register, register),
     login: Object.assign(login, login),
     logout: Object.assign(logout, logout),
     me: Object.assign(me, me),
+    emailVerify: Object.assign(emailVerify, emailVerify),
+    emailResend: Object.assign(emailResend, emailResend),
+    forgotPassword: Object.assign(forgotPassword, forgotPassword),
+    resetPassword: Object.assign(resetPassword, resetPassword),
 }
 
 export default v1

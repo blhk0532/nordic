@@ -50,7 +50,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
 
-class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
+class EventCalendar extends BookingCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
@@ -62,7 +62,7 @@ class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-        InteractsWithEventRecord::getEloquentQuery insteadof InteractsWithRecords;
+
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onDateSelectLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onEventDropLegacy insteadof InteractsWithCalendar;
@@ -70,6 +70,7 @@ class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
     }
 
     protected static ?int $sort = 1;
+
 
     public function schema(Schema $schema): Schema
     {
@@ -356,7 +357,7 @@ class EventCalendar extends BookingSimpleCalendarWidget implements HasCalendar
         ]);
     }
 
-    protected function getEvents(FetchInfo $info): Collection|array|Builder
+    public function getEvents(FetchInfo $info): Collection|array|Builder
     {
         $start = $info->start->toMutable()->startOfDay();
         $end = $info->end->toMutable()->endOfDay();

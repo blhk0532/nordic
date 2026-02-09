@@ -183,10 +183,91 @@ EditProfilePage643d3a0198086a525b91c42ce911c3aaForm.head = (args: { tenant: stri
 })
 
 EditProfilePage643d3a0198086a525b91c42ce911c3aa.form = EditProfilePage643d3a0198086a525b91c42ce911c3aaForm
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+const EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url(options),
+    method: 'get',
+})
+
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.definition = {
+    methods: ["get","head"],
+    url: '/nds/super/my-profile',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url = (options?: RouteQueryOptions) => {
+    return EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.definition.url + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+const EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358eForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358eForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/super/my-profile'
+*/
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358eForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.form = EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358eForm
 
 const EditProfilePage = {
     '/nds/adm/my-profile': EditProfilePage31d707720a4387e9ae060220f41aaf2b,
     '/nds/app/team/{tenant}/my-profile': EditProfilePage643d3a0198086a525b91c42ce911c3aa,
+    '/nds/super/my-profile': EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e,
 }
 
 export default EditProfilePage

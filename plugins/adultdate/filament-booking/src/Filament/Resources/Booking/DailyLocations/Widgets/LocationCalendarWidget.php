@@ -54,7 +54,7 @@ class LocationCalendarWidget extends Widget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-        InteractsWithEventRecord::getEloquentQuery insteadof InteractsWithRecords;
+
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onDateSelectLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onEventDropLegacy insteadof InteractsWithCalendar;

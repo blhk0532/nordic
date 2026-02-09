@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 @php
     $currentPanel= \Adultdate\Wirechat\Facades\Wirechat::currentPanel();
-    $title = config('app.name', 'Laravel');
+    $title = config('app.name', 'Nordic Digital Solutions');
 @endphp
 <head>
     <meta charset="utf-8">

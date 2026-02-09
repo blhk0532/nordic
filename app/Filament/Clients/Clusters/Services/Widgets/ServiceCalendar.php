@@ -57,7 +57,7 @@ class ServiceCalendar extends Widget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-        InteractsWithEventRecord::getEloquentQuery insteadof InteractsWithRecords;
+
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;

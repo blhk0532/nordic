@@ -64,16 +64,17 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
-use MWGuerra\FileManager\Filament\Pages\FileManagerBase as FileManager;
-use MWGuerra\FileManager\Filament\Pages\FileSystem;
-use MWGuerra\FileManager\Filament\Pages\SchemaExample;
-use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
-use MWGuerra\FileManager\FileManagerPlugin;
+// use MWGuerra\FileManager\Filament\Pages\FileManagerBase as FileManager;
+// use MWGuerra\FileManager\Filament\Pages\FileSystem;
+// use MWGuerra\FileManager\Filament\Pages\SchemaExample;
+// use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
+// use MWGuerra\FileManager\FileManagerPlugin;
 use N3XT0R\FilamentPassportUi\FilamentPassportUiPlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Usamamuneerchaudhary\Notifier\FilamentNotifierPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+// use MWGuerra\FileManager\Filament\Pages\FileManagerBase;
 
 class SuperPanelProvider extends PanelProvider
 {
@@ -259,13 +260,7 @@ class SuperPanelProvider extends PanelProvider
                     ->disableDisplayName() // Display the name of the user based on the attribute supplied. Default: name
                     ->enablePlugin(), // Enable the plugin.
             ])
-            ->plugins([
-                FileManagerPlugin::make([
-                    FileManager::class,              // Database mode - full CRUD file manager
-                    FileSystem::class,               // Storage mode - read-only file browser
-                    FileSystemItemResource::class,   // Resource for direct database table editing
-                    SchemaExample::class,            // Demo page showing embed components usage
-                ]),
+            ->plugins($this->getFileManagerPlugin() + [
                 FilamentSpatieLaravelBackupPlugin::make(),
                 FilamentFailedJobsPlugin::make(),
                 FilamentIconPickerPlugin::make(),
@@ -334,5 +329,17 @@ class SuperPanelProvider extends PanelProvider
             ->passwordReset()
             ->databaseNotifications()
             ->databaseNotificationsPolling('30s');
+    }
+
+    /**
+     * Get FileManager plugin - disabled due to PSR-4 compliance issues with FileManagerBase.
+     *
+     * @return array<mixed>
+     */
+    private function getFileManagerPlugin(): array
+    {
+        // FileManager plugin disabled: FileManagerBase class doesn't exist as proper Livewire component
+        // This prevents "ComponentNotFoundException" errors when registering pages
+        return [];
     }
 }

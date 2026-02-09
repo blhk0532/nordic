@@ -46,13 +46,32 @@ trait HandlesEventClick
         // TODO: Similar to how Schemas work, allow users to define a method for each Event Model Type
         // TODO: using attributes. such as #[CalendarEventClick(Sprint::class)] above a method
         // TODO: such as onSprintEventClick would be only called for Sprint.
-        $this->onEventClick($this->getCalendarContextInfo(), $this->getEventRecord(), $action);
+        // If the concrete class defines a legacy `onEventClick(array $event)` method, prefer calling it.
+        if (is_callable([$this, 'onEventClick'])) {
+            try {
+                $ref = new \ReflectionMethod($this, 'onEventClick');
+                $params = $ref->getParameters();
+
+                // Legacy handlers typically accept a single array parameter.
+                if (count($params) === 1) {
+                    $this->onEventClick($data['event'] ?? []);
+
+                    return;
+                }
+            } catch (\ReflectionException $_) {
+                // ignore and fall back to trait handler
+            }
+        }
+
+        $this->handleEventClickInternal($this->getCalendarContextInfo(), $this->getEventRecord(), $action);
     }
 
     /**
+     * Internal handler for event clicks when using the new ValueObject-based API.
+     *
      * @throws Exception
      */
-    protected function onEventClick(EventClickInfo $info, Model $event, ?string $action = null): void
+    protected function handleEventClickInternal(EventClickInfo $info, Model $event, ?string $action = null): void
     {
         // No action to trigger
         if (! $action) {

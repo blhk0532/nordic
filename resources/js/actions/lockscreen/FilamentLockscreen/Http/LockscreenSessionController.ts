@@ -109,10 +109,66 @@ lockSession6ba1f349a5edc76a36f1f0fdd3a6a85bForm.post = (options?: RouteQueryOpti
 })
 
 lockSession6ba1f349a5edc76a36f1f0fdd3a6a85b.form = lockSession6ba1f349a5edc76a36f1f0fdd3a6a85bForm
+/**
+* @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
+* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @route '/nds/super/lock-session'
+*/
+const lockSessiondfba708ed98b7b3dc5b78db3439fb911 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: lockSessiondfba708ed98b7b3dc5b78db3439fb911.url(options),
+    method: 'post',
+})
+
+lockSessiondfba708ed98b7b3dc5b78db3439fb911.definition = {
+    methods: ["post"],
+    url: '/nds/super/lock-session',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
+* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @route '/nds/super/lock-session'
+*/
+lockSessiondfba708ed98b7b3dc5b78db3439fb911.url = (options?: RouteQueryOptions) => {
+    return lockSessiondfba708ed98b7b3dc5b78db3439fb911.definition.url + queryParams(options)
+}
+
+/**
+* @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
+* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @route '/nds/super/lock-session'
+*/
+lockSessiondfba708ed98b7b3dc5b78db3439fb911.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: lockSessiondfba708ed98b7b3dc5b78db3439fb911.url(options),
+    method: 'post',
+})
+
+/**
+* @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
+* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @route '/nds/super/lock-session'
+*/
+const lockSessiondfba708ed98b7b3dc5b78db3439fb911Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: lockSessiondfba708ed98b7b3dc5b78db3439fb911.url(options),
+    method: 'post',
+})
+
+/**
+* @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
+* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @route '/nds/super/lock-session'
+*/
+lockSessiondfba708ed98b7b3dc5b78db3439fb911Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: lockSessiondfba708ed98b7b3dc5b78db3439fb911.url(options),
+    method: 'post',
+})
+
+lockSessiondfba708ed98b7b3dc5b78db3439fb911.form = lockSessiondfba708ed98b7b3dc5b78db3439fb911Form
 
 export const lockSession = {
     '/admin/lock-session': lockSession9101e8e937ff331ad6e5c840c310e3db,
     '/nds/adm/lock-session': lockSession6ba1f349a5edc76a36f1f0fdd3a6a85b,
+    '/nds/super/lock-session': lockSessiondfba708ed98b7b3dc5b78db3439fb911,
 }
 
 const LockscreenSessionController = { lockSession }

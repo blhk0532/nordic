@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-const ForbiddenPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ForbiddenPage.url(args, options),
+const ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, options),
     method: 'get',
 })
 
-ForbiddenPage.definition = {
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.definition = {
     methods: ["get","head"],
     url: '/nds/app/team/{tenant}/403',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ ForbiddenPage.definition = {
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-ForbiddenPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ ForbiddenPage.url = (args: { tenant: string | number | { slug: string | number }
         : args.tenant,
     }
 
-    return ForbiddenPage.definition.url
+    return ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -52,8 +52,8 @@ ForbiddenPage.url = (args: { tenant: string | number | { slug: string | number }
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-ForbiddenPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ForbiddenPage.url(args, options),
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, options),
     method: 'get',
 })
 
@@ -62,8 +62,8 @@ ForbiddenPage.get = (args: { tenant: string | number | { slug: string | number }
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-ForbiddenPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ForbiddenPage.url(args, options),
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, options),
     method: 'head',
 })
 
@@ -72,8 +72,8 @@ ForbiddenPage.head = (args: { tenant: string | number | { slug: string | number 
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-const ForbiddenPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ForbiddenPage.url(args, options),
+const ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2eeForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, options),
     method: 'get',
 })
 
@@ -82,8 +82,8 @@ const ForbiddenPageForm = (args: { tenant: string | number | { slug: string | nu
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-ForbiddenPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ForbiddenPage.url(args, options),
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2eeForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, options),
     method: 'get',
 })
 
@@ -92,8 +92,8 @@ ForbiddenPageForm.get = (args: { tenant: string | number | { slug: string | numb
 * @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
 * @route '/nds/app/team/{tenant}/403'
 */
-ForbiddenPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ForbiddenPage.url(args, {
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2eeForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,6 +102,91 @@ ForbiddenPageForm.head = (args: { tenant: string | number | { slug: string | num
     method: 'get',
 })
 
-ForbiddenPage.form = ForbiddenPageForm
+ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee.form = ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2eeForm
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+const ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url(options),
+    method: 'get',
+})
+
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.definition = {
+    methods: ["get","head"],
+    url: '/nds/super/403',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url = (options?: RouteQueryOptions) => {
+    return ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.definition.url + queryParams(options)
+}
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+const ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3aeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3aeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Cmsmaxinc\FilamentErrorPages\Filament\Pages\ForbiddenPage::__invoke
+* @see plugins/cmsmaxinc/filament-error-pages/src/Filament/Pages/ForbiddenPage.php:7
+* @route '/nds/super/403'
+*/
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3aeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae.form = ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3aeForm
+
+const ForbiddenPage = {
+    '/nds/app/team/{tenant}/403': ForbiddenPage61d0ea9719f1e17327bf5246e6a0d2ee,
+    '/nds/super/403': ForbiddenPagee12a6fd6e5ac93fc3da1e751c84ca3ae,
+}
 
 export default ForbiddenPage

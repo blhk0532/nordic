@@ -1,6 +1,8 @@
+import Filament from './Filament'
 import Http from './Http'
 
 const Notifier = {
+    Filament: Object.assign(Filament, Filament),
     Http: Object.assign(Http, Http),
 }
 

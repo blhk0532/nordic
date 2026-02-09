@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace Adultdate\FilamentBooking\Concerns;
 
 use Illuminate\Support\HtmlString;
+use Illuminate\Contracts\Support\Htmlable;
 
 trait HasHeading
 {
-    protected string|HtmlString|null|bool $heading = true;
+    protected string|Htmlable|null|bool $heading = true;
 
-    public function getHeading(): null|string|HtmlString
+    public function getHeading(): string|Htmlable
     {
         if ($this->heading === false || is_null($this->heading)) {
-            return null;
+            return '';
         }
 
         if ($this->heading === true) {

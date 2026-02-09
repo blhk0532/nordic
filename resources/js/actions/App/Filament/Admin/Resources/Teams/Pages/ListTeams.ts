@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-const ListTeams = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListTeams.url(options),
+const ListTeams3ce2428c2c7bd22f89354f8b84de56b9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url(options),
     method: 'get',
 })
 
-ListTeams.definition = {
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9.definition = {
     methods: ["get","head"],
     url: '/nds/adm/teams',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,8 +19,8 @@ ListTeams.definition = {
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-ListTeams.url = (options?: RouteQueryOptions) => {
-    return ListTeams.definition.url + queryParams(options)
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url = (options?: RouteQueryOptions) => {
+    return ListTeams3ce2428c2c7bd22f89354f8b84de56b9.definition.url + queryParams(options)
 }
 
 /**
@@ -28,8 +28,8 @@ ListTeams.url = (options?: RouteQueryOptions) => {
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-ListTeams.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListTeams.url(options),
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url(options),
     method: 'get',
 })
 
@@ -38,8 +38,8 @@ ListTeams.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-ListTeams.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListTeams.url(options),
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url(options),
     method: 'head',
 })
 
@@ -48,8 +48,8 @@ ListTeams.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-const ListTeamsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListTeams.url(options),
+const ListTeams3ce2428c2c7bd22f89354f8b84de56b9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url(options),
     method: 'get',
 })
 
@@ -58,8 +58,8 @@ const ListTeamsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-ListTeamsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListTeams.url(options),
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url(options),
     method: 'get',
 })
 
@@ -68,8 +68,8 @@ ListTeamsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 * @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
 * @route '/nds/adm/teams'
 */
-ListTeamsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListTeams.url({
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeams3ce2428c2c7bd22f89354f8b84de56b9.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -78,6 +78,91 @@ ListTeamsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
     method: 'get',
 })
 
-ListTeams.form = ListTeamsForm
+ListTeams3ce2428c2c7bd22f89354f8b84de56b9.form = ListTeams3ce2428c2c7bd22f89354f8b84de56b9Form
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+const ListTeamsd656303a01fc2a64489cd0bac6021617 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListTeamsd656303a01fc2a64489cd0bac6021617.url(options),
+    method: 'get',
+})
+
+ListTeamsd656303a01fc2a64489cd0bac6021617.definition = {
+    methods: ["get","head"],
+    url: '/nds/super/teams',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+ListTeamsd656303a01fc2a64489cd0bac6021617.url = (options?: RouteQueryOptions) => {
+    return ListTeamsd656303a01fc2a64489cd0bac6021617.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+ListTeamsd656303a01fc2a64489cd0bac6021617.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListTeamsd656303a01fc2a64489cd0bac6021617.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+ListTeamsd656303a01fc2a64489cd0bac6021617.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListTeamsd656303a01fc2a64489cd0bac6021617.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+const ListTeamsd656303a01fc2a64489cd0bac6021617Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeamsd656303a01fc2a64489cd0bac6021617.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+ListTeamsd656303a01fc2a64489cd0bac6021617Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeamsd656303a01fc2a64489cd0bac6021617.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Teams\Pages\ListTeams::__invoke
+* @see app/Filament/Admin/Resources/Teams/Pages/ListTeams.php:7
+* @route '/nds/super/teams'
+*/
+ListTeamsd656303a01fc2a64489cd0bac6021617Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListTeamsd656303a01fc2a64489cd0bac6021617.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListTeamsd656303a01fc2a64489cd0bac6021617.form = ListTeamsd656303a01fc2a64489cd0bac6021617Form
+
+const ListTeams = {
+    '/nds/adm/teams': ListTeams3ce2428c2c7bd22f89354f8b84de56b9,
+    '/nds/super/teams': ListTeamsd656303a01fc2a64489cd0bac6021617,
+}
 
 export default ListTeams

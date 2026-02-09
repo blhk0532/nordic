@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-const EditBookingCalendar = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditBookingCalendar.url(args, options),
+const EditBookingCalendar5351fde785a858fe8b3b79d367416294 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, options),
     method: 'get',
 })
 
-EditBookingCalendar.definition = {
+EditBookingCalendar5351fde785a858fe8b3b79d367416294.definition = {
     methods: ["get","head"],
     url: '/nds/adm/booking-calendars/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ EditBookingCalendar.definition = {
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-EditBookingCalendar.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+EditBookingCalendar5351fde785a858fe8b3b79d367416294.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -36,7 +36,7 @@ EditBookingCalendar.url = (args: { record: string | number } | [record: string |
         record: args.record,
     }
 
-    return EditBookingCalendar.definition.url
+    return EditBookingCalendar5351fde785a858fe8b3b79d367416294.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -46,8 +46,8 @@ EditBookingCalendar.url = (args: { record: string | number } | [record: string |
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-EditBookingCalendar.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditBookingCalendar.url(args, options),
+EditBookingCalendar5351fde785a858fe8b3b79d367416294.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, options),
     method: 'get',
 })
 
@@ -56,8 +56,8 @@ EditBookingCalendar.get = (args: { record: string | number } | [record: string |
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-EditBookingCalendar.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditBookingCalendar.url(args, options),
+EditBookingCalendar5351fde785a858fe8b3b79d367416294.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, options),
     method: 'head',
 })
 
@@ -66,8 +66,8 @@ EditBookingCalendar.head = (args: { record: string | number } | [record: string 
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-const EditBookingCalendarForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendar.url(args, options),
+const EditBookingCalendar5351fde785a858fe8b3b79d367416294Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, options),
     method: 'get',
 })
 
@@ -76,8 +76,8 @@ const EditBookingCalendarForm = (args: { record: string | number } | [record: st
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-EditBookingCalendarForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendar.url(args, options),
+EditBookingCalendar5351fde785a858fe8b3b79d367416294Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, options),
     method: 'get',
 })
 
@@ -86,8 +86,8 @@ EditBookingCalendarForm.get = (args: { record: string | number } | [record: stri
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/adm/booking-calendars/{record}/edit'
 */
-EditBookingCalendarForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendar.url(args, {
+EditBookingCalendar5351fde785a858fe8b3b79d367416294Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar5351fde785a858fe8b3b79d367416294.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,6 +96,109 @@ EditBookingCalendarForm.head = (args: { record: string | number } | [record: str
     method: 'get',
 })
 
-EditBookingCalendar.form = EditBookingCalendarForm
+EditBookingCalendar5351fde785a858fe8b3b79d367416294.form = EditBookingCalendar5351fde785a858fe8b3b79d367416294Form
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+const EditBookingCalendar79a2da47ed53069862cf9376cf4506f5 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, options),
+    method: 'get',
+})
+
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.definition = {
+    methods: ["get","head"],
+    url: '/nds/super/booking-calendars/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+const EditBookingCalendar79a2da47ed53069862cf9376cf4506f5Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
+* @route '/nds/super/booking-calendars/{record}/edit'
+*/
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditBookingCalendar79a2da47ed53069862cf9376cf4506f5.form = EditBookingCalendar79a2da47ed53069862cf9376cf4506f5Form
+
+const EditBookingCalendar = {
+    '/nds/adm/booking-calendars/{record}/edit': EditBookingCalendar5351fde785a858fe8b3b79d367416294,
+    '/nds/super/booking-calendars/{record}/edit': EditBookingCalendar79a2da47ed53069862cf9376cf4506f5,
+}
 
 export default EditBookingCalendar

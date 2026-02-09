@@ -10,4 +10,9 @@ return [
     App\Providers\HorizonServiceProvider::class,
     App\Providers\VoltServiceProvider::class,
     App\Providers\Adultdate\ChatsPanelProvider::class,
+    App\Providers\Filament\ChatPanelProvider::class,
+    App\Providers\Filament\DataPanelProvider::class,
+    App\Providers\Filament\NotifyPanelProvider::class,
+    App\Providers\Filament\ToolsPanelProvider::class,
+    App\Providers\Filament\SuperPanelProvider::class,
 ];

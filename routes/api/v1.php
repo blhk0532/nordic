@@ -28,16 +28,16 @@ Route::middleware(['auth:sanctum', 'throttle:authenticated'])->group(function ()
     // Email verification
     Route::post('email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
         ->middleware('signed')
-        ->name('verification.verify');
+        ->name('api.v1.email-verify');
     Route::post('email/resend', [AuthController::class, 'resendVerificationEmail'])
         ->middleware('throttle:6,1')
-        ->name('verification.send');
+        ->name('api.v1.email-resend');
 });
 
 // Password reset routes (public with rate limiting)
 Route::middleware('throttle:6,1')->group(function (): void {
     Route::post('forgot-password', [AuthController::class, 'forgotPassword'])
-        ->name('password.email');
+        ->name('api.v1.forgot-password');
     Route::post('reset-password', [AuthController::class, 'resetPassword'])
-        ->name('password.reset');
+        ->name('api.v1.reset-password');
 });

@@ -66,7 +66,7 @@ class BookingCalendar extends FullCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-        InteractsWithEventRecord::getEloquentQuery insteadof InteractsWithRecords;
+
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;

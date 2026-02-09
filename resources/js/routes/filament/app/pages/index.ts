@@ -1890,7 +1890,7 @@ autoDialerPageForm.head = (args: { tenant: string | number | { slug: string | nu
 autoDialerPage.form = autoDialerPageForm
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 export const chatDashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1904,7 +1904,7 @@ chatDashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 chatDashboard.url = (options?: RouteQueryOptions) => {
@@ -1912,7 +1912,7 @@ chatDashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 chatDashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1921,7 +1921,7 @@ chatDashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 chatDashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1930,7 +1930,7 @@ chatDashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 })
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 const chatDashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1939,7 +1939,7 @@ const chatDashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 chatDashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1948,7 +1948,7 @@ chatDashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see routes/web.php:141
+* @see [serialized-closure]:2
 * @route '/filament/app/chat-dashboard'
 */
 chatDashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

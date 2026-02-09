@@ -1,172 +1,85 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 import confirmD7e05f from './confirm'
 /**
-* @see \App\Http\Controllers\Api\V1\AuthController::email
-* @see app/Http/Controllers/Api/V1/AuthController.php:106
-* @route '/api/v1/forgot-password'
-*/
-export const email = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: email.url(options),
-    method: 'post',
-})
-
-email.definition = {
-    methods: ["post"],
-    url: '/api/v1/forgot-password',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::email
-* @see app/Http/Controllers/Api/V1/AuthController.php:106
-* @route '/api/v1/forgot-password'
-*/
-email.url = (options?: RouteQueryOptions) => {
-    return email.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::email
-* @see app/Http/Controllers/Api/V1/AuthController.php:106
-* @route '/api/v1/forgot-password'
-*/
-email.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: email.url(options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::email
-* @see app/Http/Controllers/Api/V1/AuthController.php:106
-* @route '/api/v1/forgot-password'
-*/
-const emailForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: email.url(options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::email
-* @see app/Http/Controllers/Api/V1/AuthController.php:106
-* @route '/api/v1/forgot-password'
-*/
-emailForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: email.url(options),
-    method: 'post',
-})
-
-email.form = emailForm
-
-/**
-* @see \App\Http\Controllers\UserEmailResetNotification::email
-* @see app/Http/Controllers/UserEmailResetNotification.php:23
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
 * @route '/forgot-password'
 */
-export const email = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: email.url(options),
-    method: 'post',
+export const request = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: request.url(options),
+    method: 'get',
 })
 
-email.definition = {
-    methods: ["post"],
+request.definition = {
+    methods: ["get","head"],
     url: '/forgot-password',
-} satisfies RouteDefinition<["post"]>
+} satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::email
-* @see app/Http/Controllers/UserEmailResetNotification.php:23
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
 * @route '/forgot-password'
 */
-email.url = (options?: RouteQueryOptions) => {
-    return email.definition.url + queryParams(options)
+request.url = (options?: RouteQueryOptions) => {
+    return request.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::email
-* @see app/Http/Controllers/UserEmailResetNotification.php:23
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
 * @route '/forgot-password'
 */
-email.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: email.url(options),
-    method: 'post',
+request.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: request.url(options),
+    method: 'get',
 })
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::email
-* @see app/Http/Controllers/UserEmailResetNotification.php:23
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
 * @route '/forgot-password'
 */
-const emailForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: email.url(options),
-    method: 'post',
+request.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: request.url(options),
+    method: 'head',
 })
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::email
-* @see app/Http/Controllers/UserEmailResetNotification.php:23
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
 * @route '/forgot-password'
 */
-emailForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: email.url(options),
-    method: 'post',
-})
-
-email.form = emailForm
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::reset
-* @see app/Http/Controllers/Api/V1/AuthController.php:119
-* @route '/api/v1/reset-password'
-*/
-export const reset = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: reset.url(options),
-    method: 'post',
-})
-
-reset.definition = {
-    methods: ["post"],
-    url: '/api/v1/reset-password',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::reset
-* @see app/Http/Controllers/Api/V1/AuthController.php:119
-* @route '/api/v1/reset-password'
-*/
-reset.url = (options?: RouteQueryOptions) => {
-    return reset.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\Api\V1\AuthController::reset
-* @see app/Http/Controllers/Api/V1/AuthController.php:119
-* @route '/api/v1/reset-password'
-*/
-reset.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: reset.url(options),
-    method: 'post',
+const requestForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: request.url(options),
+    method: 'get',
 })
 
 /**
-* @see \App\Http\Controllers\Api\V1\AuthController::reset
-* @see app/Http/Controllers/Api/V1/AuthController.php:119
-* @route '/api/v1/reset-password'
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @route '/forgot-password'
 */
-const resetForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: reset.url(options),
-    method: 'post',
+requestForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: request.url(options),
+    method: 'get',
 })
 
 /**
-* @see \App\Http\Controllers\Api\V1\AuthController::reset
-* @see app/Http/Controllers/Api/V1/AuthController.php:119
-* @route '/api/v1/reset-password'
+* @see \App\Http\Controllers\UserEmailResetNotification::request
+* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @route '/forgot-password'
 */
-resetForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: reset.url(options),
-    method: 'post',
+requestForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: request.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
 })
 
-reset.form = resetForm
+request.form = requestForm
 
 /**
 * @see \App\Http\Controllers\UserPasswordController::reset
@@ -268,85 +181,60 @@ resetForm.head = (args: { token: string | number } | [token: string | number ] |
 reset.form = resetForm
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @see \App\Http\Controllers\UserEmailResetNotification::email
+* @see app/Http/Controllers/UserEmailResetNotification.php:23
 * @route '/forgot-password'
 */
-export const request = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: request.url(options),
-    method: 'get',
+export const email = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: email.url(options),
+    method: 'post',
 })
 
-request.definition = {
-    methods: ["get","head"],
+email.definition = {
+    methods: ["post"],
     url: '/forgot-password',
-} satisfies RouteDefinition<["get","head"]>
+} satisfies RouteDefinition<["post"]>
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @see \App\Http\Controllers\UserEmailResetNotification::email
+* @see app/Http/Controllers/UserEmailResetNotification.php:23
 * @route '/forgot-password'
 */
-request.url = (options?: RouteQueryOptions) => {
-    return request.definition.url + queryParams(options)
+email.url = (options?: RouteQueryOptions) => {
+    return email.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @see \App\Http\Controllers\UserEmailResetNotification::email
+* @see app/Http/Controllers/UserEmailResetNotification.php:23
 * @route '/forgot-password'
 */
-request.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: request.url(options),
-    method: 'get',
+email.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: email.url(options),
+    method: 'post',
 })
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @see \App\Http\Controllers\UserEmailResetNotification::email
+* @see app/Http/Controllers/UserEmailResetNotification.php:23
 * @route '/forgot-password'
 */
-request.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: request.url(options),
-    method: 'head',
+const emailForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: email.url(options),
+    method: 'post',
 })
 
 /**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
+* @see \App\Http\Controllers\UserEmailResetNotification::email
+* @see app/Http/Controllers/UserEmailResetNotification.php:23
 * @route '/forgot-password'
 */
-const requestForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: request.url(options),
-    method: 'get',
+emailForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: email.url(options),
+    method: 'post',
 })
 
-/**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
-* @route '/forgot-password'
-*/
-requestForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: request.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\UserEmailResetNotification::request
-* @see app/Http/Controllers/UserEmailResetNotification.php:16
-* @route '/forgot-password'
-*/
-requestForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: request.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-request.form = requestForm
+email.form = emailForm
 
 /**
 * @see \App\Http\Controllers\UserPasswordController::store
@@ -633,9 +521,9 @@ updateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => (
 update.form = updateForm
 
 const password = {
-    email: Object.assign(email, email),
-    reset: Object.assign(reset, reset),
     request: Object.assign(request, request),
+    reset: Object.assign(reset, reset),
+    email: Object.assign(email, email),
     store: Object.assign(store, store),
     confirm: Object.assign(confirm, confirmD7e05f),
     confirmation: Object.assign(confirmation, confirmation),
