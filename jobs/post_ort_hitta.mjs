@@ -1268,7 +1268,7 @@ async function main() {
     .argument('query', 'Search query')
     .option('--no-missing', 'Do not create separate CSV for missing phone numbers')
     .option('--no-db', 'Do not save to database')
-    .option('--api-url <url>', 'Laravel API URL (default: http://localhost:8000)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .option('--startPage <page>', 'Start from this page (for resume)', '0')
     .option('--startIndex <index>', 'Start from this item index (for resume)', '0')

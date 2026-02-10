@@ -1654,7 +1654,7 @@ async function main() {
   program
     .description('Process queued ratsit_data records: fetch from database, scrape Ratsit.se, update records, and mark as processed')
     .argument('[postnummer]', 'Optional postnummer to filter queued records (e.g., "15332" or "153 32")')
-    .option('--api-url <url>', 'Laravel API URL (default: http://localhost:8000)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .option('--limit <number>', 'Maximum number of queued records to process (default: 1000)')
     .parse();

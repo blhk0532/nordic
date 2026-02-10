@@ -1352,7 +1352,7 @@ async function main() {
   program
     .description('Scrape person data from Ratsit.se and save to ratsit_data')
     .argument('query', 'Ratsit search query (e.g., "Namn Gatuadress Stad")')
-    .option('--api-url <url>', 'Laravel API URL (default: http://localhost:8000)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .parse();
 

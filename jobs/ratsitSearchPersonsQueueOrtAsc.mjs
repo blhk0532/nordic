@@ -17,7 +17,7 @@ import Database from 'better-sqlite3';
 
 class RatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'http://localhost:8000';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://app.ndsth.com';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
@@ -1660,7 +1660,7 @@ async function main() {
   program
     .description('Process queued ratsit_data records: fetch from database, scrape Ratsit.se, update records, and mark as processed')
     .argument('[postnummer]', 'Optional postnummer to filter queued records (e.g., "15332" or "153 32")')
-    .option('--api-url <url>', 'Laravel API URL (default: http://localhost:8000)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .option('--limit <number>', 'Maximum number of queued records to process (default: 1000)')
     .option('--postort <postort>', 'Filter by postort (e.g., "Kristianstad")')

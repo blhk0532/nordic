@@ -34,7 +34,6 @@
         "bytexr/filament-queueable-bulk-actions": "^4.0",
         "caresome/filament-auth-designer": "@dev",
         "cmsmaxinc/filament-error-pages": "@dev",
-        "daacreators/creators-ticketing": "@dev",
         "dashed/filament-numpad-field": "@dev",
         "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "dedoc/scramble": "^0.12.36",
