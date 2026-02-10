@@ -66,6 +66,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
 
         // Resolve __get collision: prefer InteractsWithPageFilters for pageFilters access
         InteractsWithPageFilters::__get insteadof InteractsWithCalendar;
+        InteractsWithPageFilters::__get insteadof InteractsWithSchemas;
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
