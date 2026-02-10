@@ -50,7 +50,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schema as DBSchema;
 use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
@@ -1670,7 +1670,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
             ->where(function ($query) use ($start, $end) {
                 $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
                     ->when(
-                        Schema::hasColumn('booking_bookings', 'starts_at'),
+                        DBSchema::hasColumn('booking_bookings', 'starts_at'),
                         fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
                     );
             })
