@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.4.0",
+        "php": "^8.3.0",
         "achyutn/filament-log-viewer": "@dev",
         "adultdate/filament-booking": "@dev",
         "adultdate/filament-dialer": "dev-main",
