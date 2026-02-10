@@ -40,6 +40,8 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
@@ -52,9 +54,9 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class MultiCalendar extends Widget implements HasCalendar
+class MultiCalendar extends Widget implements HasCalendar, HasSchemas
 {
-    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
+    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords, InteractsWithSchemas {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
 
@@ -63,6 +65,7 @@ class MultiCalendar extends Widget implements HasCalendar
 
         // Resolve __get collision: prefer InteractsWithPageFilters for pageFilters access
         InteractsWithPageFilters::__get insteadof InteractsWithCalendar;
+        InteractsWithPageFilters::__get insteadof InteractsWithSchemas;
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;

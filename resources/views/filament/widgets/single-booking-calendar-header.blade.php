@@ -117,23 +117,23 @@
 </a>
     </div>
 
-</div>
-
-<script>
-    (function(){
-        try {
-            const params = new URLSearchParams(window.location.search);
-            const cal = params.get('booking_calendars');
-            if (cal) {
-                const sel = document.getElementById('single_selected_technician');
-                if (sel) {
-                    // set value and dispatch change so Livewire updates
-                    sel.value = cal;
-                    sel.dispatchEvent(new Event('change', { bubbles: true }));
+    <script>
+        (function(){
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const cal = params.get('booking_calendars');
+                if (cal) {
+                    const sel = document.getElementById('single_selected_technician');
+                    if (sel) {
+                        // set value and dispatch change so Livewire updates
+                        sel.value = cal;
+                        sel.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
                 }
+            } catch (e) {
+                // noop
             }
-        } catch (e) {
-            // noop
-        }
-    })();
-</script>
+        })();
+    </script>
+
+</div>

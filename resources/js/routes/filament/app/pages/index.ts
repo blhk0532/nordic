@@ -1785,111 +1785,6 @@ myProfileForm.head = (args: { tenant: string | number | { slug: string | number 
 myProfile.form = myProfileForm
 
 /**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-export const autoDialerPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: autoDialerPage.url(args, options),
-    method: 'get',
-})
-
-autoDialerPage.definition = {
-    methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/auto-dialer-page',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-autoDialerPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return autoDialerPage.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-autoDialerPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: autoDialerPage.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-autoDialerPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: autoDialerPage.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-const autoDialerPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: autoDialerPage.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-autoDialerPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: autoDialerPage.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \AdultDate\FilamentDialer\Pages\AutoDialerPage::__invoke
-* @see plugins/adultdate/filament-dialer/src/Pages/AutoDialerPage.php:7
-* @route '/nds/app/team/{tenant}/auto-dialer-page'
-*/
-autoDialerPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: autoDialerPage.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-autoDialerPage.form = autoDialerPageForm
-
-/**
 * @see routes/web.php:141
 * @route '/filament/app/chat-dashboard'
 */
@@ -1981,7 +1876,6 @@ const pages = {
     404: Object.assign(method404, method404),
     403: Object.assign(method403, method403),
     myProfile: Object.assign(myProfile, myProfile),
-    autoDialerPage: Object.assign(autoDialerPage, autoDialerPage),
     chatDashboard: Object.assign(chatDashboard, chatDashboard),
 }
 

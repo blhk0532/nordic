@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use Adultdate\FilamentBooking\FilamentBookingPlugin;
-use AdultDate\FilamentDialer\FilamentDialerPlugin;
+// use AdultDate\FilamentDialer\FilamentDialerPlugin;
 use AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
@@ -289,7 +289,7 @@ class AppPanelProvider extends PanelProvider
             )
             ->plugins([
                 FilamentBookingPlugin::make(),
-                FilamentDialerPlugin::make(),
+                //   FilamentDialerPlugin::make(),
 
             ])
             ->plugins([

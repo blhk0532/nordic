@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Filament\App\Clusters\Services\Resources\Bookings\Widgets;
 
 use Adultdate\FilamentBooking\Concerns\CanRefreshCalendar;
@@ -15,6 +13,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -26,7 +25,6 @@ use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
 use App\Models\User;
 use Carbon\Carbon;
-use Exception;
 use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
@@ -41,23 +39,42 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
-use Filament\Schemas\Schema;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
-use Filament\Widgets\Widget;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema as DBSchema;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Throwable;
-use UnitEnum;
 
-class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
+class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchemas
 {
+    public ?int $recordId = null;
+
+    public $selectedTechnician2 = 'all';
+
+    public ?array $lastMountedData = null;
+
+    public Model|int|string|null $record;
+
+    public ?Model $eventRecord = null;
+
+    public Model|string|null $model = null;
+
+    protected $settings;
+
+    protected $listeners = ['refreshCalendar' => 'refreshCalendar'];
+
+    //    protected bool $eventDragEnabled = true;
+    //    protected bool $eventResizeEnabled = true;
+    //    protected bool $dateClickEnabled = true;
+    //    protected bool $dateSelectEnabled = true;
+
+    protected static ?int $sort = -1;
+
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords, InteractsWithSchemas {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
@@ -79,31 +96,6 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         InteractsWithEvents::onEventResizeLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::refreshRecords insteadof InteractsWithCalendar;
     }
-
-    public ?int $recordId = null;
-
-    public $selectedTechnician2 = 'all';
-
-    public ?array $lastMountedData = null;
-
-    public Model|int|string|null $record;
-
-    public ?Model $eventRecord = null;
-
-    public Model|string|null $model = null;
-
-    public ?array $calendarData = null;
-
-    protected $settings;
-
-    protected $listeners = ['refreshCalendar' => 'refreshCalendar'];
-
-    //    protected bool $eventDragEnabled = true;
-    //    protected bool $eventResizeEnabled = true;
-    //    protected bool $dateClickEnabled = true;
-    //    protected bool $dateSelectEnabled = true;
-
-    protected static ?int $sort = -1;
 
     protected string $view = 'adultdate/filament-booking::multi-fullcalendar';
 
@@ -152,7 +144,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     BookingServicePeriod::whereKey($id)->update($data);
                 }
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Period updated successfully')
                     ->success()
                     ->send();
@@ -160,7 +152,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
             ->modalSubmitActionLabel('Update')
             ->modalCancelActionLabel('Cancel')
             ->extraModalFooterActions([
-                Action::make('deleteFromModal')
+                \Filament\Actions\Action::make('deleteFromModal')
                     ->label('Delete')
                     ->color('danger')
                     ->requiresConfirmation()
@@ -173,7 +165,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                             BookingServicePeriod::whereKey($id)->delete();
                         }
                         $this->refreshRecords();
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Period deleted successfully')
                             ->success()
                             ->send();
@@ -196,7 +188,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     BookingServicePeriod::whereKey($id)->delete();
                 }
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Period deleted successfully')
                     ->success()
                     ->send();
@@ -226,6 +218,11 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
     public function getEventRecord(): ?Model
     {
         return $this->record instanceof Model ? $this->record : null;
+    }
+
+    protected function getEloquentQuery(): Builder
+    {
+        return $this->getModel()::query();
     }
 
     public function config(): array
@@ -289,7 +286,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
     public function onDateClick(string $date, bool $allDay, ?array $view, ?array $resource): void
     {
-        $startDate = Carbon::parse($date);
+        $startDate = \Carbon\Carbon::parse($date);
 
         $action = $this->resolveDateSelectAction($allDay, $view);
 
@@ -351,7 +348,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
         $data['start_time'] = $startDate->format('H:i');
         if ($end) {
-            $data['end_time'] = Carbon::parse($end, $timezone)->format('H:i');
+            $data['end_time'] = \Carbon\Carbon::parse($end, $timezone)->format('H:i');
         }
 
         if ($allDay) {
@@ -480,7 +477,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 // bundle currently shipped with this plugin (which treats
                 // `true` as a revert signal).
                 return false;
-            } catch (Throwable $e) {
+            } catch (\Throwable $e) {
                 logger()->error('Error persisting resized booking', ['err' => $e->getMessage()]);
                 Notification::make()
                     ->title('Failed to update booking')
@@ -496,6 +493,8 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
         return false;
     }
+
+    public ?array $calendarData = null;
 
     public function adminAction(): Action
     {
@@ -516,7 +515,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     ->color('success')
                     ->icon('heroicon-o-calendar-days')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = \Carbon\Carbon::parse($this->calendarData['start']);
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -531,13 +530,13 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                             $data['start_time'] = '00:00';
                             $data['end_time'] = '23:59';
                         } else {
-                            $startTime = Carbon::parse($this->calendarData['start_val'])->format('H:i');
-                            $endTime = Carbon::parse($this->calendarData['end_val'])->format('H:i');
+                            $startTime = \Carbon\Carbon::parse($this->calendarData['start_val'])->format('H:i');
+                            $endTime = \Carbon\Carbon::parse($this->calendarData['end_val'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = \Carbon\Carbon::parse($dateVal);
+                            $startTime = \Carbon\Carbon::parse($startVal)->format('H:i');
+                            $endTime = \Carbon\Carbon::parse($endVal)->format('H:i');
                         }
                         $data = ['number' => $bookingNumber, 'notes' => '', 'service_user_id' => $serviceUserId, 'booking_client_id' => null, 'booking_calendar_id' => $this->calendarData['booking_calendar_id'] ?? null, 'date' => $startDate->format('Y-m-d'), 'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: B BOOK DATA', $data);
@@ -551,7 +550,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     ->color('primary')
                     ->icon('heroicon-o-map-pin')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = \Carbon\Carbon::parse($this->calendarData['start']);
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -561,13 +560,13 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                             $data['start_time'] = '00:00';
                             $data['end_time'] = '23:59';
                         } else {
-                            $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
-                            $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
+                            $startTime = \Carbon\Carbon::parse($this->calendarData['start'])->format('H:i');
+                            $endTime = \Carbon\Carbon::parse($this->calendarData['end'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = \Carbon\Carbon::parse($dateVal);
+                            $startTime = \Carbon\Carbon::parse($startVal)->format('H:i');
+                            $endTime = \Carbon\Carbon::parse($endVal)->format('H:i');
                         }
                         $data = ['date' => $startDate->format('Y-m-d'), 'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: LOCATION DATA', $data);
@@ -581,16 +580,16 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
-                        $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
-                        $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
+                        $startDate = \Carbon\Carbon::parse($this->calendarData['start']);
+                        $startTime = \Carbon\Carbon::parse($this->calendarData['start'])->format('H:i');
+                        $endTime = \Carbon\Carbon::parse($this->calendarData['end'])->format('H:i');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
-                            $startTime = Carbon::parse($startVal)->format('H:i');
-                            $endTime = Carbon::parse($endVal)->format('H:i');
+                            $startDate = \Carbon\Carbon::parse($dateVal);
+                            $startTime = \Carbon\Carbon::parse($startVal)->format('H:i');
+                            $endTime = \Carbon\Carbon::parse($endVal)->format('H:i');
                         }
                         $data = ['date' => $startDate->format('Y-m-d'), 'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: BLOCK PERIOD DATA', $data);
@@ -633,7 +632,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 $data['created_by'] = Auth::id();
                 DailyLocation::updateOrCreate(['date' => $data['date'], 'service_user_id' => $data['service_user_id']], $data);
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Location saved successfully')
                     ->success()
                     ->send();
@@ -667,7 +666,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     DailyLocation::whereKey($id)->update($data);
                 }
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Location updated successfully')
                     ->success()
                     ->send();
@@ -687,7 +686,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         ->action(function () use ($id) {
                             DailyLocation::whereKey($id)->delete();
                             $this->refreshRecords();
-                            Notification::make()
+                            \Filament\Notifications\Notification::make()
                                 ->title('Location deleted successfully')
                                 ->success()
                                 ->send();
@@ -732,7 +731,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     $data
                 );
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Period saved successfully')
                     ->success()
                     ->send();
@@ -753,7 +752,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 $defaults = $this->getDefaultFormData();
                 $merged = array_merge($defaults, $data);
                 $user = Auth::user();
-                $roleValue = $user && $user->role instanceof UnitEnum ? $user->role->value : (string) $user->role;
+                $roleValue = $user && $user->role instanceof \UnitEnum ? $user->role->value : (string) $user->role;
                 $isAdmin = in_array($roleValue, ['admin', 'super', 'super_admin'], true);
                 // Preserve service_user_id from data if provided (from calendar context), otherwise use current user
                 if (! isset($merged['service_user_id']) || empty($merged['service_user_id'])) {
@@ -784,13 +783,13 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
                 // Build proper starts_at and ends_at from service_date + times
                 if (isset($data['service_date'])) {
-                    $date = Carbon::parse($data['service_date'])->format('Y-m-d');
+                    $date = \Carbon\Carbon::parse($data['service_date'])->format('Y-m-d');
                     if (isset($data['start_time'])) {
-                        $startDateTime = Carbon::parse($date.' '.$data['start_time']);
+                        $startDateTime = \Carbon\Carbon::parse($date.' '.$data['start_time']);
                         $data['starts_at'] = $startDateTime->toDateTimeString();
                     }
                     if (isset($data['end_time'])) {
-                        $endDateTime = Carbon::parse($date.' '.$data['end_time']);
+                        $endDateTime = \Carbon\Carbon::parse($date.' '.$data['end_time']);
                         $data['ends_at'] = $endDateTime->toDateTimeString();
                     }
                 }
@@ -822,7 +821,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 // The Observer will handle Google Calendar sync and WhatsApp notification automatically
 
                 $this->refreshRecords();
-                Notification::make()
+                \Filament\Notifications\Notification::make()
                     ->title('Booking created successfully')
                     ->success()
                     ->send();
@@ -859,7 +858,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     ->action(function () use ($widget) {
                         $widget->record->delete();
                         $widget->refreshRecords();
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Service period deleted successfully')
                             ->success()
                             ->send();
@@ -884,8 +883,8 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         return null;
                     }
                     try {
-                        return Carbon::parse($raw)->format('H:i');
-                    } catch (Throwable $e) {
+                        return \Carbon\Carbon::parse($raw)->format('H:i');
+                    } catch (\Throwable $e) {
                         // Fallback: take first 5 characters if looks like HH:MM
                         return preg_match('/^(\d{2}:\d{2})/', (string) $raw, $m) ? $m[1] : (string) $raw;
                     }
@@ -899,9 +898,9 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 $serviceUser = data_get($data, 'service_user') ?: ($data['service_user_name'] ?? data_get($data, 'extendedProps.service_user'));
                 if (! $serviceUser && ! empty($data['service_user_id'])) {
                     try {
-                        $svcUser = User::find($data['service_user_id']);
+                        $svcUser = \App\Models\User::find($data['service_user_id']);
                         $serviceUser = $svcUser?->name ?: $serviceUser;
-                    } catch (Throwable $e) {
+                    } catch (\Throwable $e) {
                         // ignore
                     }
                 }
@@ -913,7 +912,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                 }
 
                 if ($start) {
-                    return $bookingUser ? "{$prefix}{$start} — {$bookingUser}" : ($prefix ? mb_trim($prefix) : $start);
+                    return $bookingUser ? "{$prefix}{$start} — {$bookingUser}" : ($prefix ? trim($prefix) : $start);
                 }
 
                 return 'Manage Update Booking';
@@ -937,7 +936,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         }
                         $name = $it['booking_service_name'] ?? $it['service_name'] ?? $it['name'] ?? null;
                         if (! $name && isset($it['booking_service_id'])) {
-                            $svc = Service::find($it['booking_service_id']);
+                            $svc = \Adultdate\FilamentBooking\Models\Booking\Service::find($it['booking_service_id']);
                             $name = $svc?->name;
                         }
                         $qty = isset($it['qty']) ? (int) $it['qty'] : (isset($it['quantity']) ? (int) $it['quantity'] : 1);
@@ -1145,7 +1144,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
                     if (! $this->record) {
                         logger()->error('BookingCalendarWidget: Record not found', ['id' => $recId]);
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Period not found')
                             ->danger()
                             ->send();
@@ -1159,7 +1158,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         $payload = $this->record->toArray();
                     } else {
                         logger()->error('BookingCalendarWidget: Record is not a valid Model instance', ['record' => $this->record]);
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Invalid record type')
                             ->danger()
                             ->send();
@@ -1170,7 +1169,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     $user = Auth::user();
                     if (! $user) {
                         logger()->error('BookingCalendarWidget: No authenticated user');
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Authentication required')
                             ->danger()
                             ->send();
@@ -1179,7 +1178,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                     }
 
                     $userRole = $user->role;
-                    if ($userRole instanceof UnitEnum) {
+                    if ($userRole instanceof \UnitEnum) {
                         $roleValue = $userRole->value;
                     } else {
                         $roleValue = (string) $userRole;
@@ -1201,18 +1200,18 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         logger()->info('BookingCalendarWidget: User does not have permission to edit blocking period', [
                             'userRole' => $roleValue,
                         ]);
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Permission denied')
                             ->body('You do not have permission to edit this period')
                             ->warning()
                             ->send();
                     }
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     logger()->error('BookingCalendarWidget: Exception in blocking case', [
                         'message' => $e->getMessage(),
                         'trace' => $e->getTraceAsString(),
                     ]);
-                    Notification::make()
+                    \Filament\Notifications\Notification::make()
                         ->title('Error loading period')
                         ->body($e->getMessage())
                         ->danger()
@@ -1227,7 +1226,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         $this->model = DailyLocation::class;
                         $this->record = DailyLocation::find($recId);
                         if (! $this->record) {
-                            throw new Exception("Location record not found: {$recId}");
+                            throw new \Exception("Location record not found: {$recId}");
                         }
                         if ($this->record instanceof Model) {
                             $this->eventRecord = $this->record;
@@ -1237,7 +1236,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         $user = Auth::user();
                         if (! $user) {
                             logger()->error('BookingCalendarWidget: No authenticated user for location');
-                            Notification::make()
+                            \Filament\Notifications\Notification::make()
                                 ->title('Authentication required')
                                 ->danger()
                                 ->send();
@@ -1246,7 +1245,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         }
 
                         $userRole = $user->role;
-                        if ($userRole instanceof UnitEnum) {
+                        if ($userRole instanceof \UnitEnum) {
                             $roleValue = $userRole->value;
                         } else {
                             $roleValue = (string) $userRole;
@@ -1259,7 +1258,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         // service-period editor here (copy/paste leftover).
 
                         $userRole = $user->role;
-                        if ($userRole instanceof UnitEnum) {
+                        if ($userRole instanceof \UnitEnum) {
                             $roleValue = $userRole->value;
                         } else {
                             $roleValue = (string) $userRole;
@@ -1277,12 +1276,12 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                                 'data' => $payload,
                             ]);
                         }
-                    } catch (Exception $e) {
+                    } catch (\Exception $e) {
                         \Illuminate\Support\Facades\Log::error('BookingCalendarWidget: Location error', [
                             'error' => $e->getMessage(),
                             'recId' => $recId,
                         ]);
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Error loading location')
                             ->body($e->getMessage())
                             ->danger()
@@ -1299,7 +1298,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         $this->model = Booking::class;
                         $this->record = Booking::find($recId);
                         if (! $this->record) {
-                            throw new Exception("Booking record not found: {$recId}");
+                            throw new \Exception("Booking record not found: {$recId}");
                         }
                         if ($this->record instanceof Model) {
                             $this->eventRecord = $this->record;
@@ -1320,7 +1319,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
 
                         if (! $user) {
                             logger()->error('BookingCalendarWidget: No authenticated user for booking');
-                            Notification::make()
+                            \Filament\Notifications\Notification::make()
                                 ->title('Authentication required')
                                 ->danger()
                                 ->send();
@@ -1329,7 +1328,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         }
 
                         $userRole = $user->role;
-                        if ($userRole instanceof UnitEnum) {
+                        if ($userRole instanceof \UnitEnum) {
                             $roleValue = $userRole->value;
                         } else {
                             $roleValue = (string) $userRole;
@@ -1340,16 +1339,16 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                         // (see the $action = $canEdit ? 'options' : '' logic).
 
                         $userRole = $user->role;
-                        if ($userRole instanceof UnitEnum) {
+                        if ($userRole instanceof \UnitEnum) {
                             $roleValue = $userRole->value;
                         } else {
                             $roleValue = (string) $userRole;
                         }
 
-                        $canEdit = $user->id === $booking->booking_user_id || in_array($roleValue, ['admin', 'super', 'super_admin'], true);
+                        $canEdit = $user->id == $booking->booking_user_id || in_array($roleValue, ['admin', 'super', 'super_admin'], true);
                         \Illuminate\Support\Facades\Log::info('BookingCalendarWidget: Booking click', [
                             'canEdit' => $canEdit,
-                            'isBookingOwner' => $user->id === $booking->booking_user_id,
+                            'isBookingOwner' => $user->id == $booking->booking_user_id,
                             'userRole' => $roleValue,
                             'recordId' => $recId,
                         ]);
@@ -1360,12 +1359,12 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
                                 'data' => $payload,
                             ]);
                         }
-                    } catch (Exception $e) {
+                    } catch (\Exception $e) {
                         \Illuminate\Support\Facades\Log::error('BookingCalendarWidget: Booking error', [
                             'error' => $e->getMessage(),
                             'recId' => $recId,
                         ]);
-                        Notification::make()
+                        \Filament\Notifications\Notification::make()
                             ->title('Error loading booking')
                             ->body($e->getMessage())
                             ->danger()
@@ -1407,7 +1406,7 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         $user = Auth::user();
         logger('BookingCalendarWidget: User authenticated', ['user_id' => $user->id, 'user_class' => get_class($user)]);
         $userRole = $user->role;
-        if ($userRole instanceof UnitEnum) {
+        if ($userRole instanceof \UnitEnum) {
             $roleValue = $userRole->value;
         } else {
             $roleValue = (string) $userRole;
@@ -1538,6 +1537,39 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         $this->eventDropped((string) $id, (string) $start, $end ? (string) $end : null, (string) $type, (bool) $allDay);
     }
 
+    protected function getDateClickContextMenuActions(): array
+    {
+        $user = Auth::user();
+
+        if (! $user || ! $this->isAdmin($user)) {
+            return [];
+        }
+
+        return [
+            $this->adminAction(),
+        ];
+    }
+
+    protected function isAdmin(Model|Authenticatable $user): bool
+    {
+        // If it's an Admin model, always return true
+        if ($user instanceof \App\Models\Admin) {
+            return true;
+        }
+
+        // For User model, check the role attribute
+        $userRole = $user->role;
+
+        // Handle enum instances
+        if ($userRole instanceof \UnitEnum) {
+            $roleValue = $userRole->value;
+        } else {
+            $roleValue = (string) $userRole;
+        }
+
+        return in_array($roleValue, ['admin', 'super', 'super_admin'], true);
+    }
+
     public function resolveDateSelectAction(bool $allDay, ?array $view): string
     {
         $user = Auth::user();
@@ -1632,192 +1664,6 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         ];
     }
 
-    public function getEvents(FetchInfo $info): Collection|array|Builder
-    {
-        $start = $info->start->toMutable()->startOfDay();
-        $end = $info->end->toMutable()->endOfDay();
-
-        $selectedCalendarId = $this->selectedTechnician2;
-
-        $serviceUserId = null;
-        if ($selectedCalendarId && $selectedCalendarId !== 'all') {
-            $calendar = \App\Models\BookingCalendar::find($selectedCalendarId);
-            $serviceUserId = $calendar?->owner_id;
-        }
-
-        $blockingPeriods = BookingServicePeriod::query()
-            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
-            ->where('period_type', '=', 'unavailable')
-            ->get();
-
-        $blockingEvents = $blockingPeriods->map(fn (BookingServicePeriod $blockingPeriod) => $blockingPeriod->toCalendarEvent())->toArray();
-
-        $bookings = Booking::query()
-            ->with(['client', 'service', 'serviceUser', 'bookingUser', 'location'])
-            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
-            ->where(function ($query) use ($start, $end) {
-                $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
-                    ->when(
-                        DBSchema::hasColumn('booking_bookings', 'starts_at'),
-                        fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
-                    );
-            })
-            ->where('is_active', true)
-            ->get();
-
-        // Transform bookings to calendar events
-        $bookingEvents = $bookings->map(fn (Booking $booking) => $booking->toCalendarEvent())->toArray();
-
-        // Also include DailyLocation entries as all-day events on calendar
-        $dailyLocations = DailyLocation::query()
-            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
-            ->whereBetween('date', [$start, $end])
-            ->with(['serviceUser'])
-            ->get();
-
-        $locationEvents = $dailyLocations->map(function (DailyLocation $loc) {
-            $title = $loc->location ?: ($loc->serviceUser?->name ?? 'Location');
-
-            return [
-                'id' => $loc->id,
-                'title' => $title,
-                'eventsType' => 'location',
-                'type' => 'location', 'start' => $loc->date?->toDateString(), 'number' => 0, 'allDay' => true, 'backgroundColor' => '#ffffff', 'borderColor' => '#e5e7eb', 'textColor' => '#111827',
-                'extendedProps' => [
-                    'is_location' => true,
-                    'type' => 'location',
-                    'daily_location_id' => $loc->id,
-                    'service_user_id' => $loc->service_user_id,
-                    'location' => $loc->location,
-                ],
-            ];
-        })->toArray();
-
-        return collect(array_merge($bookingEvents, $locationEvents, $blockingEvents));
-    }
-
-    public function fetchEvents(array $info): array
-    {
-        // FullCalendar may send `start`/`end` without `startStr`/`endStr`; ensure both for FetchInfo VO.
-        $info['startStr'] ??= $info['start'] ?? null;
-        $info['endStr'] ??= $info['end'] ?? null;
-
-        if (! ($info['startStr'] && $info['endStr'])) {
-            return [];
-        }
-
-        return $this->getEventsJs($info);
-    }
-
-    public function getDateSelectContextMenuActions(): array
-    {
-        return [
-            $this->adminAction(),
-        ];
-    }
-
-    public function refreshCalendar()
-    {
-        $this->selectedTechnician2 = $this->pageFilters['booking_calendars_2'] ?? $this->selectedTechnician2;
-        $this->refreshRecords();
-    }
-
-    public function onEventResizeLegacy(array $event, array $oldEvent, array $relatedEvents, array $startDelta, array $endDelta): bool
-    {
-        if ($this->getModel()) {
-            $this->record = $this->resolveRecord($event['id']);
-        }
-
-        // Handle the resize by updating the booking
-        if ($this->record instanceof Booking) {
-            $endDeltaMs = $endDelta['milliseconds'] ?? 0;
-            $newEnd = Carbon::parse($oldEvent['end'])->addMilliseconds($endDeltaMs);
-
-            $this->record->forceFill([
-                'ends_at' => $newEnd,
-            ])->save();
-
-            $this->refreshRecords();
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public function mount(): void
-    {
-        $calendars = \App\Models\BookingCalendar::all()->pluck('name', 'id');
-        $calendarIds = $calendars->keys();
-        $this->selectedTechnician2 = $calendarIds->get(1) ?? 'all';
-        $this->eventClickEnabled = true;
-        //    $this->dateClickEnabled = true;
-        $this->eventDragEnabled = true;
-        $this->eventResizeEnabled = true;
-        $this->dateSelectEnabled = true;
-    }
-
-    public function getCalendarClass(): string
-    {
-        return 'calendar-2';
-    }
-
-    public function getView(): string
-    {
-        return 'adultdate/filament-booking::calendar-widget';
-    }
-
-    public function schema(): Schema
-    {
-        return Schema::make($this)->components($this->getFormSchema());
-    }
-
-    public function navigateToSingleCalendar()
-    {
-        $currentUrl = request()->url();
-        $singleCalendarUrl = preg_replace('/\/service\/[^\/]+$/', '/single-calendar', $currentUrl);
-
-        return redirect($singleCalendarUrl.'?booking_calendars='.$this->selectedTechnician2);
-    }
-
-    protected function getEloquentQuery(): Builder
-    {
-        return $this->getModel()::query();
-    }
-
-    protected function getDateClickContextMenuActions(): array
-    {
-        $user = Auth::user();
-
-        if (! $user || ! $this->isAdmin($user)) {
-            return [];
-        }
-
-        return [
-            $this->adminAction(),
-        ];
-    }
-
-    protected function isAdmin(Model|Authenticatable $user): bool
-    {
-        // If it's an Admin model, always return true
-        if ($user instanceof \App\Models\Admin) {
-            return true;
-        }
-
-        // For User model, check the role attribute
-        $userRole = $user->role;
-
-        // Handle enum instances
-        if ($userRole instanceof UnitEnum) {
-            $roleValue = $userRole->value;
-        } else {
-            $roleValue = (string) $userRole;
-        }
-
-        return in_array($roleValue, ['admin', 'super', 'super_admin'], true);
-    }
-
     protected function getCalendarItemsRepeater(): Repeater
     {
         return Repeater::make('items')
@@ -1882,6 +1728,96 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         return 'BK-'.now()->format('Ymd').'-'.Str::upper(Str::random(6));
     }
 
+    public function getEvents(FetchInfo $info): Collection|array|Builder
+    {
+        $start = $info->start->toMutable()->startOfDay();
+        $end = $info->end->toMutable()->endOfDay();
+
+        $selectedCalendarId = $this->selectedTechnician2;
+
+        $serviceUserId = null;
+        if ($selectedCalendarId && $selectedCalendarId !== 'all') {
+            $calendar = \App\Models\BookingCalendar::find($selectedCalendarId);
+            $serviceUserId = $calendar?->owner_id;
+        }
+
+        $blockingPeriods = BookingServicePeriod::query()
+            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
+            ->where('period_type', '=', 'unavailable')
+            ->get();
+
+        $blockingEvents = $blockingPeriods->map(fn (BookingServicePeriod $blockingPeriod) => $blockingPeriod->toCalendarEvent())->toArray();
+
+        $bookings = Booking::query()
+            ->with(['client', 'service', 'serviceUser', 'bookingUser', 'location'])
+            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
+            ->where(function ($query) use ($start, $end) {
+                $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
+                    ->when(
+                        Schema::hasColumn('booking_bookings', 'starts_at'),
+                        fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
+                    );
+            })
+            ->where('is_active', true)
+            ->get();
+
+        // Transform bookings to calendar events
+        $bookingEvents = $bookings->map(fn (Booking $booking) => $booking->toCalendarEvent())->toArray();
+
+        // Also include DailyLocation entries as all-day events on calendar
+        $dailyLocations = DailyLocation::query()
+            ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
+            ->whereBetween('date', [$start, $end])
+            ->with(['serviceUser'])
+            ->get();
+
+        $locationEvents = $dailyLocations->map(function (DailyLocation $loc) {
+            $title = $loc->location ?: ($loc->serviceUser?->name ?? 'Location');
+
+            return [
+                'id' => $loc->id,
+                'title' => $title,
+                'eventsType' => 'location',
+                'type' => 'location', 'start' => $loc->date?->toDateString(), 'number' => 0, 'allDay' => true, 'backgroundColor' => '#ffffff', 'borderColor' => '#e5e7eb', 'textColor' => '#111827',
+                'extendedProps' => [
+                    'is_location' => true,
+                    'type' => 'location',
+                    'daily_location_id' => $loc->id,
+                    'service_user_id' => $loc->service_user_id,
+                    'location' => $loc->location,
+                ],
+            ];
+        })->toArray();
+
+        return collect(array_merge($bookingEvents, $locationEvents, $blockingEvents));
+    }
+
+    public function fetchEvents(array $info): array
+    {
+        // FullCalendar may send `start`/`end` without `startStr`/`endStr`; ensure both for FetchInfo VO.
+        $info['startStr'] ??= $info['start'] ?? null;
+        $info['endStr'] ??= $info['end'] ?? null;
+
+        if (! ($info['startStr'] && $info['endStr'])) {
+            return [];
+        }
+
+        return $this->getEventsJs($info);
+    }
+
+    public function getDateSelectContextMenuActions(): array
+    {
+        return [
+            $this->adminAction(),
+        ];
+    }
+
+    public function refreshCalendar()
+    {
+        $this->selectedTechnician2 = $this->pageFilters['booking_calendars_2'] ?? $this->selectedTechnician2;
+        $this->refreshRecords();
+    }
+
     protected function getSelectedServiceUserId(): ?int
     {
         $selectedCalendarId = $this->selectedTechnician2;
@@ -1915,5 +1851,58 @@ class MultiCalendar2 extends Widget implements HasCalendar, HasSchemas
         $calendar = \App\Models\BookingCalendar::where('owner_id', $serviceUserId)->first();
 
         return $calendar ? $calendar->id : null;
+    }
+
+    public function onEventResizeLegacy(array $event, array $oldEvent, array $relatedEvents, array $startDelta, array $endDelta): bool
+    {
+        if ($this->getModel()) {
+            $this->record = $this->resolveRecord($event['id']);
+        }
+
+        // Handle the resize by updating the booking
+        if ($this->record instanceof Booking) {
+            $endDeltaMs = $endDelta['milliseconds'] ?? 0;
+            $newEnd = Carbon::parse($oldEvent['end'])->addMilliseconds($endDeltaMs);
+
+            $this->record->forceFill([
+                'ends_at' => $newEnd,
+            ])->save();
+
+            $this->refreshRecords();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function mount(): void
+    {
+        $calendars = \App\Models\BookingCalendar::all()->pluck('name', 'id');
+        $calendarIds = $calendars->keys();
+        $this->selectedTechnician2 = $calendarIds->get(1) ?? 'all';
+        $this->eventClickEnabled = true;
+        //    $this->dateClickEnabled = true;
+        $this->eventDragEnabled = true;
+        $this->eventResizeEnabled = true;
+        $this->dateSelectEnabled = true;
+    }
+
+    public function getCalendarClass(): string
+    {
+        return 'calendar-2';
+    }
+
+    public function getView(): string
+    {
+        return 'adultdate/filament-booking::calendar-widget';
+    }
+
+    public function navigateToSingleCalendar()
+    {
+        $currentUrl = request()->url();
+        $singleCalendarUrl = preg_replace('/\/service\/[^\/]+$/', '/single-calendar', $currentUrl);
+
+        return redirect($singleCalendarUrl.'?booking_calendars='.$this->selectedTechnician2);
     }
 }

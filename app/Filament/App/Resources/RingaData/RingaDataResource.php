@@ -31,7 +31,7 @@ class RingaDataResource extends Resource
 
     protected static ?string $navigationLabel = 'Nummer';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Mina Sidor';
+    protected static UnitEnum|string|null $navigationGroup = 'Administration';
 
     protected static ?string $slug = 'nummer/lista';
 

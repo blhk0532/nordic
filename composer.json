@@ -12,7 +12,7 @@
         "php": "^8.4.0",
         "achyutn/filament-log-viewer": "@dev",
         "adultdate/filament-booking": "@dev",
-        "adultdate/filament-dialer": "@dev",
+        "adultdate/filament-dialer": "dev-main",
         "adultdate/filament-wirechat": "@dev",
         "alizharb/filament-activity-log": "2.0.5",
         "andreia/filament-ui-switcher": "@dev",

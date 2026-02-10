@@ -15,6 +15,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -40,9 +41,7 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
-use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -54,7 +53,7 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class SingleCalendars extends Widget implements HasCalendar, HasSchemas
+final class SingleCalendars extends FullCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
@@ -68,8 +67,6 @@ class SingleCalendars extends Widget implements HasCalendar, HasSchemas
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
-
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -535,11 +532,6 @@ class SingleCalendars extends Widget implements HasCalendar, HasSchemas
             ->mountUsing(function (array $arguments) {
                 $this->calendarData = $arguments['data'];
             })
-            ->schema([
-                Section::make()
-                    ->schema([])
-                    ->hidden(),
-            ])
             ->modalFooterActions([
 
                 Action::make('createBooking')

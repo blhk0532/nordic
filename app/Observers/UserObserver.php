@@ -6,6 +6,7 @@ namespace App\Observers;
 
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\InvalidArgumentException;
 
@@ -16,12 +17,24 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0]."'s Team",
-            'slug' => $user->ulid,
-            'personal_team' => true,
-        ]));
+        // Get the currently logged-in user
+        $currentUser = Auth::user();
+
+        if ($currentUser) {
+            // Find the current user's non-personal team
+            $nonPersonalTeam = $currentUser->ownedTeams()
+                ->where('personal_team', false)
+                ->first();
+
+            // If a non-personal team exists, add the new user to it
+            if ($nonPersonalTeam) {
+                $nonPersonalTeam->users()->attach($user);
+
+                // Set the new user's current team to this team
+                $user->forceFill(['current_team_id' => $nonPersonalTeam->id])->save();
+            }
+        }
+
         try {
             Cache::delete('users_count');
         } catch (InvalidArgumentException) {

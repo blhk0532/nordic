@@ -1,1 +1,3 @@
-@livewire('filament-wirechat.chats-icon-button', [], key('chats-icon-button'))
+<div>
+    @livewire('filament-wirechat.chats-icon-button', [], key('chats-icon-button'))
+</div>

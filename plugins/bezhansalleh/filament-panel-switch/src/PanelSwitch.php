@@ -137,6 +137,7 @@ class PanelSwitch extends Component
                 ]);
             },
         );
+
     }
 
     public function canSwitchPanels(bool|Closure $condition): static

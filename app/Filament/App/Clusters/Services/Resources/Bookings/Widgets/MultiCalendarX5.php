@@ -15,7 +15,6 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Filament\Widgets\Widget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -40,7 +39,9 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
+use Filament\Widgets\Widget;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
@@ -52,9 +53,9 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class MultiCalendarX5 extends Widget implements HasCalendar
+class MultiCalendarX5 extends Widget implements HasCalendar, HasSchemas
 {
-    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
+    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords, InteractsWithSchemas {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
 
@@ -63,11 +64,10 @@ class MultiCalendarX5 extends Widget implements HasCalendar
 
         // Resolve __get collision: prefer InteractsWithPageFilters for pageFilters access
         InteractsWithPageFilters::__get insteadof InteractsWithCalendar;
+        InteractsWithPageFilters::__get insteadof InteractsWithSchemas;
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
-
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;

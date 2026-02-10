@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\App\Resources\RingaData\Widgets;
+namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
 use Adultdate\FilamentBooking\Concerns\CanRefreshCalendar;
 use Adultdate\FilamentBooking\Concerns\HasOptions;
@@ -15,6 +15,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -41,7 +42,6 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema as FilamentSchema;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
-use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -53,7 +53,7 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class RingaDataCalendar extends Widget implements HasCalendar
+final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
@@ -67,8 +67,6 @@ class RingaDataCalendar extends Widget implements HasCalendar
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
-
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -86,13 +84,13 @@ class RingaDataCalendar extends Widget implements HasCalendar
 
     public Model|string|null $model = null;
 
+    public Model|int|string|null $record;
+
     public ?string $startDate = null;
 
     public ?string $endDate = null;
 
     public ?array $calendarData = null;
-
-    public ?string $selectedTechnician = null;
 
     protected $settings;
 
@@ -117,7 +115,7 @@ class RingaDataCalendar extends Widget implements HasCalendar
     public function getHeading(): string|Htmlable
     {
         $normalized = $this->normalizeTechnicianSelection($this->selectedTechnician);
-        logger()->info('RingaData calendar getHeading', ['selectedTechnician' => $this->selectedTechnician, 'normalized' => $normalized]);
+        logger()->info('RingaDatas calendar getHeading', ['selectedTechnician' => $this->selectedTechnician, 'normalized' => $normalized]);
 
         return new HtmlString(view('filament.app.widgets.single-booking-calendar-header', [
             'calendars' => \App\Models\BookingCalendar::all()->pluck('name', 'id'),
@@ -132,15 +130,17 @@ class RingaDataCalendar extends Widget implements HasCalendar
         $this->record = \App\Models\RingaData::find($recordId);
         $newTechnician = $this->normalizeTechnicianSelection($this->record?->calendar_id);
 
+        $prev = $this->selectedTechnician;
         $this->selectedTechnician = (string) $newTechnician;
 
         if (isset($this->pageFilters)) {
             $this->pageFilters['booking_calendars'] = $this->selectedTechnician;
         }
 
-        logger()->info('RingaData (Singular) calendar selected technician', [
+        logger()->info('RingaDatas calendar selected technician', [
             'recordId' => $recordId,
             'technician' => $this->selectedTechnician,
+            'prev' => $prev,
         ]);
 
         $this->refreshRecords();
@@ -1833,10 +1833,12 @@ class RingaDataCalendar extends Widget implements HasCalendar
 
     public function mount(): void
     {
+        $this->record = null;
+
         // Set initial selectedTechnician based on the current record's calendar_id
         $initialTechnician = $this->record?->calendar_id ?? $this->pageFilters['booking_calendars'] ?? 'all';
         $this->selectedTechnician = $this->normalizeTechnicianSelection($initialTechnician);
-        logger()->info('RingaData (Singular) calendar mount', [
+        logger()->info('RingaDatas calendar mount', [
             'hasRecord' => (bool) $this->record,
             'recordCalendarId' => $this->record?->calendar_id,
             'initial' => $initialTechnician,
@@ -1877,7 +1879,11 @@ class RingaDataCalendar extends Widget implements HasCalendar
 
     protected function getEloquentQuery(): Builder
     {
-        return $this->getModel()::query();
+        return \App\Filament\App\Resources\RingaDatas\RingaDatasResource::getEloquentQuery()
+            ->where(function ($query) {
+                $query->where('is_active', true);
+                //    ->orWhere('attempts', '<', 3);
+            });
     }
 
     protected function getDateClickContextMenuActions(): array
@@ -1946,8 +1952,6 @@ class RingaDataCalendar extends Widget implements HasCalendar
                     ->numeric()
                     ->required(),
             ])
-            ->addActionAlignment(\Filament\Support\Enums\Alignment::Start)
-            ->addActionLabel('Lägg till tjänst')
             ->orderColumn('sort')
             ->defaultItems(1)
             ->hiddenLabel();
