@@ -1,7 +1,7 @@
 {
     "mcpServers": {
         "laravel-boost": {
-            "command": "/usr/bin/php8.4",
+            "command": "/usr/bin/php8.3",
             "args": [
                 "/home/baba/apps/ndsth/admin/artisan",
                 "boost:mcp"
