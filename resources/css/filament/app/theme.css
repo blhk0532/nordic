@@ -498,3 +498,7 @@ html{
 .fi-dropdown-panel.fi-scrollable{
     min-width: 288px;
 }
+
+.fi-sidebar-nav {
+    scrollbar-gutter: auto!important;
+}
