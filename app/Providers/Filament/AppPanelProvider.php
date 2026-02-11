@@ -259,13 +259,13 @@ class AppPanelProvider extends PanelProvider
 
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
-                    ->visible(fn () => User::canRegisterTeam() !== false),
+                    ->visible(false),
                 'invitations' => Action::make('invitations')
                     ->label('Team Invitation')
                     ->url(fn (): string => TeamInvitationAccept::getUrl())
                     ->icon('heroicon-m-users')
-                    ->visible(fn () => User::canManageTeam() !== false),
-                'profile' => fn (Action $action) => $action->label('Edit team profile')
+                    ->visible(false),
+                'profile' => fn (Action $action) => $action->label('Team profile')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
                 'team-users' => Action::make('team-users')
