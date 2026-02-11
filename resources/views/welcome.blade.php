@@ -72,7 +72,7 @@ padding: 30%;
 
 
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col" style="background-image: url('{{ asset('/') }}'); background-size: cover; background-position: center;">
+    <body class="overflow-hidden bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col" style="background-image: url('{{ asset('/') }}'); background-size: cover; background-position: center;">
         <video autoplay muted loop id="bg-video" style="opacity: 0.2;">
             <source src="{{ asset('video/853963-hd_1920_1080_25fps.mp4') }}" type="video/mp4">
         </video>
