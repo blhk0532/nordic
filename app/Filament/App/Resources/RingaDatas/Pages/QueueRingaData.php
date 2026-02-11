@@ -169,6 +169,7 @@ class QueueRingaData extends Page
             })
         //  // Only active records
           ->where('is_active', true)
+          ->where('outcome', '!=', 'DMC')
         //  // Only records where current date is between started_at and expires_at
           ->whereDate('started_at', '<=', $now)
           ->whereDate('expires_at', '<=', $now)
@@ -198,13 +199,13 @@ class QueueRingaData extends Page
                    ->orWhere('outcome_category', '=', 'Retry');
            })
         //   // Only records that haven't been processed (no outcome_category set)
-        //    ->where(function (Builder $query) use ($now) {
-        //       $query->whereNull('outcome')
-        //           ->orWhere('outcome', '=', 'Ej Framkopplad')
-        //           ->orWhere('outcome', '=', 'Inget Svar')
-        //           ->orWhere('outcome', '=', 'Upptagen')
-        //           ->orWhere('outcome', '=', 'Telefonsvar');
-        //   })
+            ->where(function (Builder $query) use ($now) {
+               $query->whereNull('outcome')
+                   ->orWhere('outcome', '=', 'Ej Framkopplad')
+                   ->orWhere('outcome', '=', 'Inget Svar')
+                   ->orWhere('outcome', '=', 'Upptagen')
+                   ->orWhere('outcome', '=', 'Telefonsvar');
+           })
         //   // Also ensure no outcome is set
             // Order by id ascending (lowest ID first)
             ->orderBy('id', 'asc');

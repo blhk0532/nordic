@@ -34,19 +34,19 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-                        ->sidebarCollapsibleOnDesktop(true)
+            ->sidebarCollapsibleOnDesktop(true)
             ->brandLogo(fn () => view('filament.app.logo'))
             ->favicon(fn () => asset('favicon.svg'))
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
-             //   Dashboard::class,
+            // ->Dashboard::class,
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             // ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
             ->widgets([
-            //    AccountWidget::class,
-            //    FilamentInfoWidget::class,
+            //  AccountWidget::class,
+            //  FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
