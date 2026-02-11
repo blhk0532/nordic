@@ -2,104 +2,6 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
 * @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-const ViewUser4576cbd14fe0697d4916e1623b09174b = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, options),
-    method: 'get',
-})
-
-ViewUser4576cbd14fe0697d4916e1623b09174b.definition = {
-    methods: ["get","head"],
-    url: '/admin/users/{record}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-ViewUser4576cbd14fe0697d4916e1623b09174b.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return ViewUser4576cbd14fe0697d4916e1623b09174b.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-ViewUser4576cbd14fe0697d4916e1623b09174b.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-ViewUser4576cbd14fe0697d4916e1623b09174b.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-const ViewUser4576cbd14fe0697d4916e1623b09174bForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-ViewUser4576cbd14fe0697d4916e1623b09174bForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
-* @route '/admin/users/{record}'
-*/
-ViewUser4576cbd14fe0697d4916e1623b09174bForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewUser4576cbd14fe0697d4916e1623b09174b.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ViewUser4576cbd14fe0697d4916e1623b09174b.form = ViewUser4576cbd14fe0697d4916e1623b09174bForm
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/nds/adm/users/{record}'
 */
 const ViewUser0fcd15ddca945643502a26b18313c07d = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -295,7 +197,6 @@ ViewUser1e35ca77dde75925d5defd2f967269ddForm.head = (args: { record: string | nu
 ViewUser1e35ca77dde75925d5defd2f967269dd.form = ViewUser1e35ca77dde75925d5defd2f967269ddForm
 
 const ViewUser = {
-    '/admin/users/{record}': ViewUser4576cbd14fe0697d4916e1623b09174b,
     '/nds/adm/users/{record}': ViewUser0fcd15ddca945643502a26b18313c07d,
     '/nds/super/users/{record}': ViewUser1e35ca77dde75925d5defd2f967269dd,
 }

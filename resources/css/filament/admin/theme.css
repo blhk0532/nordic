@@ -20,6 +20,17 @@
 @import '../../../../vendor/bezhansalleh/filament-panel-switch/resources/css/panel-switch.css';
 @source '../../../../vendor/bezhansalleh/filament-panel-switch/resources/views/**/*.blade.php';
 
+/* Override panel switch modal to slide from left instead of right */
+.panel-switch-modal .fi-modal {
+    right: auto !important;
+    left: 0 !important;
+    transform: translateX(-100%) !important;
+}
+
+.panel-switch-modal.fi-modal-open .fi-modal {
+    transform: translateX(0%) !important;
+}
+
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 @source '../../../../vendor/awcodes/overlook/resources/**/*.blade.php';
 
