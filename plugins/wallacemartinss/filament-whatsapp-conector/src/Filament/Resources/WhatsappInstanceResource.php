@@ -40,12 +40,12 @@ class WhatsappInstanceResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('filament-evolution::resource.navigation_group');
+        return __('Settings');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('filament-evolution::resource.navigation_label');
+        return __('WhatsApp');
     }
 
     public static function getModelLabel(): string

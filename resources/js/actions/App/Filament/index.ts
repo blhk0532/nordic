@@ -1,4 +1,3 @@
-import Pages from './Pages'
 import Admin from './Admin'
 import App from './App'
 import Chat from './Chat'
@@ -9,7 +8,6 @@ import Tools from './Tools'
 import Super from './Super'
 
 const Filament = {
-    Pages: Object.assign(Pages, Pages),
     Admin: Object.assign(Admin, Admin),
     App: Object.assign(App, App),
     Chat: Object.assign(Chat, Chat),

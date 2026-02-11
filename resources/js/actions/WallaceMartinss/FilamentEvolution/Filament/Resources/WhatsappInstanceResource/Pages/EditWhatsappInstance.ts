@@ -2,6 +2,104 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+const EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, options),
+    method: 'get',
+})
+
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.definition = {
+    methods: ["get","head"],
+    url: '/admin/whatsapp-instances/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+const EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
+* @route '/admin/whatsapp-instances/{record}/edit'
+*/
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8.form = EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8Form
+/**
+* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
+* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
 * @route '/nds/adm/whatsapp-instances/{record}/edit'
 */
 const EditWhatsappInstanced8fda1a81c44f11fdf11861271fc13e8 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -295,6 +393,7 @@ EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288Form.head = (args: { record:
 EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288.form = EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288Form
 
 const EditWhatsappInstance = {
+    '/admin/whatsapp-instances/{record}/edit': EditWhatsappInstanced0e17a24cf62a280db9c7d40fd5c8ec8,
     '/nds/adm/whatsapp-instances/{record}/edit': EditWhatsappInstanced8fda1a81c44f11fdf11861271fc13e8,
     '/nds/notify/whatsapp-instances/{record}/edit': EditWhatsappInstance312e99f64f8417cd9747f582528c8b1e,
     '/nds/super/whatsapp-instances/{record}/edit': EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288,

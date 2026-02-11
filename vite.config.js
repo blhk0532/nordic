@@ -13,7 +13,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/css/filament/admin/theme.css',
+                'resources/css/filament/adm/theme.css',
                 'resources/css/filament/app/theme.css',
                 'resources/css/filament/booking/theme.css',
                 'resources/css/filament/data/theme.css',
@@ -29,6 +29,7 @@ export default defineConfig({
                 'resources/css/filament/files/theme.css',
                 'resources/css/filament/script/theme.css',
                 'resources/css/filament/plugins/theme.css',
+                'resources/css/filament/admin/theme.css',
             ],
             refresh: true,
         }),

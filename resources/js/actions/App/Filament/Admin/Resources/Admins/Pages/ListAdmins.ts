@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
 * @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+const ListAdminsa36e9195f4da6d4643ff8d8678018d1f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url(options),
+    method: 'get',
+})
+
+ListAdminsa36e9195f4da6d4643ff8d8678018d1f.definition = {
+    methods: ["get","head"],
+    url: '/admin/admins',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url = (options?: RouteQueryOptions) => {
+    return ListAdminsa36e9195f4da6d4643ff8d8678018d1f.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+ListAdminsa36e9195f4da6d4643ff8d8678018d1f.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+ListAdminsa36e9195f4da6d4643ff8d8678018d1f.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+const ListAdminsa36e9195f4da6d4643ff8d8678018d1fForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+ListAdminsa36e9195f4da6d4643ff8d8678018d1fForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
+* @route '/admin/admins'
+*/
+ListAdminsa36e9195f4da6d4643ff8d8678018d1fForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListAdminsa36e9195f4da6d4643ff8d8678018d1f.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListAdminsa36e9195f4da6d4643ff8d8678018d1f.form = ListAdminsa36e9195f4da6d4643ff8d8678018d1fForm
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\ListAdmins::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/ListAdmins.php:7
 * @route '/nds/adm/admins'
 */
 const ListAdmins591059bbd4a56ae06f84bdff917e8b5e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -161,6 +241,7 @@ ListAdmins5357cae38e08fe81d984649f532c1237Form.head = (options?: RouteQueryOptio
 ListAdmins5357cae38e08fe81d984649f532c1237.form = ListAdmins5357cae38e08fe81d984649f532c1237Form
 
 const ListAdmins = {
+    '/admin/admins': ListAdminsa36e9195f4da6d4643ff8d8678018d1f,
     '/nds/adm/admins': ListAdmins591059bbd4a56ae06f84bdff917e8b5e,
     '/nds/super/admins': ListAdmins5357cae38e08fe81d984649f532c1237,
 }

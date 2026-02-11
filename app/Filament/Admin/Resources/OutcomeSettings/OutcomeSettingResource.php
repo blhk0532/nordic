@@ -21,11 +21,13 @@ class OutcomeSettingResource extends Resource
 {
     protected static ?string $model = OutcomeSetting::class;
 
-    protected static ?string $navigationLabel = 'Outcome Settings';
+    protected static ?string $navigationLabel = 'Outcomes';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Configuration';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
+
+    protected static UnitEnum|string|null $navigationGroup = 'Settings';
 
     protected static ?int $navigationSort = 10;
 

@@ -84,8 +84,6 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public Model|string|null $model = null;
 
-    public Model|int|string|null $record;
-
     public ?string $startDate = null;
 
     public ?string $endDate = null;
@@ -127,6 +125,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function onRecordSelected(int $recordId): void
     {
+        $this->recordId = $recordId;
         $this->record = \App\Models\RingaData::find($recordId);
         $newTechnician = $this->normalizeTechnicianSelection($this->record?->calendar_id);
 
@@ -274,7 +273,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function getEventRecord(): ?Model
     {
-        return $this->record instanceof Model ? $this->record : null;
+        return (isset($this->record) && $this->record instanceof Model) ? $this->record : null;
     }
 
     public function config(): array
@@ -809,9 +808,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                     $merged['service_user_id'] = Auth::id();
                 }
 
+                // Initialize record if recordId is set
+                if ($this->recordId && (! isset($this->record) || ! $this->record instanceof Model)) {
+                    $this->record = \App\Models\RingaData::find($this->recordId);
+                }
+
                 return $merged;
             })
-            ->schema($this->getFormSchema())
+            ->schema(fn () => $this->getFormSchema())
             ->action(function (array $data) {
                 // Ensure number exists
                 if (! isset($data['number']) || empty($data['number'])) {
@@ -867,7 +871,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
                 $booking->updateTotalPrice();
 
-                if ($this->record instanceof \App\Models\RingaData) {
+                if (isset($this->record) && $this->record instanceof \App\Models\RingaData) {
                     $this->record->update(['outcome' => 'Bokad']);
                 }
 
@@ -1668,7 +1672,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
     public function getFormSchema(): array
     {
         $clientDefaults = [];
-        if ($this->record instanceof \App\Models\RingaData) {
+        if (isset($this->record) && $this->record instanceof \App\Models\RingaData) {
             $clientDefaults = [
                 'name' => mb_trim(($this->record->fornamn ?? '').' '.($this->record->efternamn ?? '')) ?: $this->record->personnamn,
                 'phone' => $this->record->telefon,

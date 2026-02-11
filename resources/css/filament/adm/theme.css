@@ -1,7 +1,9 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
 
-@source '../../../../app/Filament/Admin/**/*';
-@source '../../../../resources/views/filament/admin/**/*';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/components/**/*';
+@source '../../../../resources/views/filament/**/*';
 
 @source '../../../../vendor/wallacemartinss/filament-whatsapp-conector/resources/views/**/*';
 @source '../../../../vendor/wallacemartinss/filament-whatsapp-conector/src/**/*';
@@ -25,6 +27,7 @@
 
 @source '../../../../vendor/andreia/filament-ui-switcher';
 @source '../../../../vendor/awcodes/filament-badgeable-column/resources/**/*.blade.php';
+
 
 ::-webkit-scrollbar {
     width: .56vw !important;

@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+const CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url(options),
+    method: 'get',
+})
+
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.definition = {
+    methods: ["get","head"],
+    url: '/admin/outcome-delay-settings/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url = (options?: RouteQueryOptions) => {
+    return CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+const CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40dForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40dForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @route '/admin/outcome-delay-settings/create'
+*/
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40dForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d.form = CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40dForm
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/adm/outcome-delay-settings/create'
 */
 const CreateOutcomeDelaySetting29b3999432e04ab3f4af1b2a0fc5eb7f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -161,6 +241,7 @@ CreateOutcomeDelaySetting89e9c6b6f0b3bff345c69f599e7e8966Form.head = (options?: 
 CreateOutcomeDelaySetting89e9c6b6f0b3bff345c69f599e7e8966.form = CreateOutcomeDelaySetting89e9c6b6f0b3bff345c69f599e7e8966Form
 
 const CreateOutcomeDelaySetting = {
+    '/admin/outcome-delay-settings/create': CreateOutcomeDelaySetting7bd614a5aa34b70124d5472aa100b40d,
     '/nds/adm/outcome-delay-settings/create': CreateOutcomeDelaySetting29b3999432e04ab3f4af1b2a0fc5eb7f,
     '/nds/super/outcome-delay-settings/create': CreateOutcomeDelaySetting89e9c6b6f0b3bff345c69f599e7e8966,
 }
