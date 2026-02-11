@@ -108,6 +108,7 @@ class AppPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
             ->profile(null)
             ->spa()
+            ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->registerErrorNotification(
                 title: 'Oops! Något gick fel',
                 body: 'Vängligen försök igen senare...',
