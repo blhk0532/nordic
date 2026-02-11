@@ -97,3 +97,13 @@ div.panel-switch-grid {
     top: 100px;
     position: absolute;
 }
+
+.panel-switch-modal .fi-modal {
+    right: auto !important;
+    left: 0 !important;
+    transform: translateX(-100%) !important;
+}
+
+.panel-switch-modal.fi-modal-open .fi-modal {
+    transform: translateX(0%) !important;
+}

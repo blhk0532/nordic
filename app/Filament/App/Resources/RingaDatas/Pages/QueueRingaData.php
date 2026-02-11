@@ -50,14 +50,10 @@ class QueueRingaData extends Page
 
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
-
-
-
     public function mount(): void
     {
         try {
             // Always reset selectedRecordId on mount to avoid stale state
-
 
             // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
@@ -95,7 +91,6 @@ class QueueRingaData extends Page
             throw $e;
         }
     }
-
 
     public static function getNavigationBadge(): ?string
     {
@@ -137,10 +132,10 @@ class QueueRingaData extends Page
     }
 
     #[On('outcome-recorded')]
-    public function handleOutcomeRecorded(int $recordId): void
+    public function handleOutcomeRecorded(?int $recordId): void
     {
         // If a new record was loaded by OutcomeRecorder, select it
-        if ($recordId > 0) {
+        if ($recordId && $recordId > 0) {
             $this->selectedRecordId = $recordId;
         } else {
             // Otherwise get the first pending record
@@ -168,11 +163,11 @@ class QueueRingaData extends Page
                 }
             })
         //  // Only active records
-          ->where('is_active', true)
-          ->where('outcome', '!=', 'DMC')
+            ->where('is_active', true)
+        //  ->where('outcome', '!=', 'DMC')
         //  // Only records where current date is between started_at and expires_at
-          ->whereDate('started_at', '<=', $now)
-          ->whereDate('expires_at', '<=', $now)
+            ->whereDate('started_at', '<=', $now)
+        //    ->whereDate('expires_at', '<=', $now)
             // Only records where attempts < max_retry_count from outcome_settings
             ->where(function (Builder $query) {
                 $query->whereRaw('attempts < COALESCE((
@@ -182,30 +177,30 @@ class QueueRingaData extends Page
                 ), 3)');
             })
             // Only records where current datetime is after available_at OR available_at is null
-           ->where(function (Builder $query) use ($now) {
-               $query->whereNull('available_at')
-                   ->orWhere('available_at', '<=', $now);
-           })
-        //   // Only records where current datetime is after aterkom_at OR aterkom_at is null
-           ->where(function (Builder $query) use ($now) {
-               $query->whereNull('aterkom_at')
-                   ->orWhere('aterkom_at', '<=', $now);
-           })
             ->where(function (Builder $query) use ($now) {
-               $query->whereNull('outcome_category')
-                   ->orWhere('outcome_category', '=', 'Later')
-                   ->orWhere('outcome_category', '=', 'Return')
-                   ->orWhere('outcome_category', '=', 'Maybe')
-                   ->orWhere('outcome_category', '=', 'Retry');
-           })
-        //   // Only records that haven't been processed (no outcome_category set)
-            ->where(function (Builder $query) use ($now) {
-               $query->whereNull('outcome')
-                   ->orWhere('outcome', '=', 'Ej Framkopplad')
-                   ->orWhere('outcome', '=', 'Inget Svar')
-                   ->orWhere('outcome', '=', 'Upptagen')
-                   ->orWhere('outcome', '=', 'Telefonsvar');
-           })
+                $query->whereNull('available_at')
+                    ->orWhere('available_at', '<=', $now);
+            })
+          // Only records where current datetime is after aterkom_at OR aterkom_at is null
+        //   ->where(function (Builder $query) use ($now) {
+        //       $query->whereNull('aterkom_at')
+        //           ->orWhere('aterkom_at', '<=', $now);
+        //   })
+            ->where(function (Builder $query) {
+                $query->whereNull('outcome_category')
+                    ->orWhere('outcome_category', '=', 'Later')
+                    ->orWhere('outcome_category', '=', 'Return')
+                    ->orWhere('outcome_category', '=', 'Maybe')
+                    ->orWhere('outcome_category', '=', 'Retry');
+            })
+           // Only records that haven't been processed (no outcome_category set)
+            ->where(function (Builder $query) {
+                $query->whereNull('outcome')
+                    ->orWhere('outcome', '=', 'Ej Framkopplad')
+                    ->orWhere('outcome', '=', 'Inget Svar')
+                    ->orWhere('outcome', '=', 'Upptagen')
+                    ->orWhere('outcome', '=', 'Telefonsvar');
+            })
         //   // Also ensure no outcome is set
             // Order by id ascending (lowest ID first)
             ->orderBy('id', 'asc');

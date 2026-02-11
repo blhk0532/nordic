@@ -12,7 +12,6 @@ use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -73,15 +72,16 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->button()
             ->color('gray')
             ->size('sm')
+            ->disabled($this->processingOutcome === 'RingTillbaka')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'RingTillbaka' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Schemalägg återkommande samtal')
             ->modalSubmitActionLabel('Schemalägg')
             ->modalWidth('md')
-            ->form([
+            ->schema([
                 DateTimePicker::make('aterkom_at')
                     ->label('Datum och tid för återkommande samtal')
                     ->default(fn () => $default)
@@ -104,13 +104,14 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->button()
             ->color('gray')
             ->size('sm')
+            ->disabled($this->processingOutcome === 'Bokad')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Bokad' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Bokad')
-            ->form([
+            ->schema([
                 \Filament\Forms\Components\Textarea::make('notes')
                     ->label('Anteckningar')
                     ->rows(3),
@@ -138,15 +139,16 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->button()
             ->color('gray')
             ->size('sm')
+            ->disabled($this->processingOutcome === 'Aterkommer')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Aterkommer' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Schemalägg återkommande samtal')
             ->modalSubmitActionLabel('Schemalägg')
             ->modalWidth('md')
-            ->form([
+            ->schema([
                 DateTimePicker::make('aterkom_at')
                     ->label('Datum och tid för återkommande samtal')
                     ->default(fn () => $default)
@@ -169,15 +171,16 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->button()
             ->color('gray')
             ->size('sm')
+            ->disabled($this->processingOutcome === 'NyligenGjort')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'NyligenGjort' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Välj Nästa Gång')
             ->modalSubmitActionLabel('Spara')
             ->modalWidth('md')
-            ->form([
+            ->schema([
                 Select::make('outcome_value')
                     ->label('Resultat')
                     ->options(fn () => collect(\App\Enums\Outcomes3::cases())
@@ -199,23 +202,26 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->button()
             ->color('gray')
             ->size('sm')
+            ->disabled($this->processingOutcome === 'Offert')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;",
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Offert' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Skapa Offert')
             ->modalSubmitActionLabel('Spara Offert')
             ->modalWidth('lg')
-            ->form([
+            ->schema([
                 TextInput::make('subject')
                     ->label('Ämne')
                     ->placeholder('Offert ämne')
                     ->required(),
-                RichEditor::make('message')
+                \Filament\Forms\Components\Textarea::make('message')
                     ->label('Meddelande')
                     ->placeholder('Offert text...')
-                    ->required(),
+                    ->required()
+                    ->rows(8)
+                    ->columnSpanFull(),
             ])
             ->action(function (array $data): void {
                 // TODO: Save offer and send email
@@ -433,7 +439,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
                 $this->loadNextRecord();
                 // Dispatch event to page to load next record
-                $this->dispatch('outcome-recorded', recordId: $this->recordId);
+                $this->dispatch('outcome-recorded', recordId: $this->recordId ?? 0);
 
                 return;
             }

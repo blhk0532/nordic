@@ -69,6 +69,15 @@ x-show="$store.sidebar.isOpen"
         .fi-modal-slide-over-left {
             --tw-translate-x: -100%;
         }
+                .panel-switch-modal .fi-modal {
+    right: auto !important;
+    left: 0 !important;
+    transform: translateX(-100%) !important;
+}
+
+.panel-switch-modal.fi-modal-open .fi-modal {
+    transform: translateX(0%) !important;
+}
     </style>
 @php
     $currentPanelLabel = $labels[$currentPanel->getId()] ?? str($currentPanel->getId())->ucfirst();
@@ -111,7 +120,7 @@ x-show="$store.sidebar.isOpen"
 <x-filament::modal
     id="panel-switch"
     width="md"
-    alignment="end"
+    alignment="start"
     slide-over
     sticky-header
     :heading="$heading"

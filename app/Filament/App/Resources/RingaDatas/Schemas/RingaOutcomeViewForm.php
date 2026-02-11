@@ -47,7 +47,7 @@ class RingaOutcomeViewForm
 
                                                 Notification::make()
                                                     ->title('Outcome recorded')
-                                                    ->body("Recorded outcome: {$outcome->getLabel()}")
+                                                    ->body("➤ {$outcome->getLabel()}")
                                                     ->icon($outcome->getIcon())
                                                     ->color($outcome->getColor())
                                                     ->success()
@@ -90,7 +90,7 @@ class RingaOutcomeViewForm
 
                                                 Notification::make()
                                                     ->title('Outcome recorded')
-                                                    ->body("Recorded outcome: {$outcome->getLabel()}")
+                                                    ->body("➤ {$outcome->getLabel()}")
                                                     ->icon($outcome->getIcon())
                                                     ->color($outcome->getColor())
                                                     ->success()
@@ -133,7 +133,7 @@ class RingaOutcomeViewForm
 
                                                 Notification::make()
                                                     ->title('Outcome recorded')
-                                                    ->body("Recorded outcome: {$outcome->getLabel()}")
+                                                    ->body("➤ {$outcome->getLabel()}")
                                                     ->icon($outcome->getIcon())
                                                     ->color($outcome->getColor())
                                                     ->success()

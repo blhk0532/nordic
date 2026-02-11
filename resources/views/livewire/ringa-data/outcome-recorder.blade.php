@@ -29,7 +29,8 @@
                                         wire:click="recordOutcome('{{ $outcome->outcome }}')"
                                         wire:target="recordOutcome('{{ $outcome->outcome }}')"
                                         wire:loading.attr="disabled"
-                                        style="background-color: {{ $outcome->color }} !important; color: white !important;"
+                                        @if($processingOutcome === $outcome->outcome) disabled @endif
+                                        style="background-color: {{ $outcome->color }} !important; color: white !important;{{ $processingOutcome === $outcome->outcome ? ' opacity: 0.5;' : '' }}"
                                         class="whitespace-nowrap w-full h-full px-3 py-2 rounded-lg font-semibold text-sm shadow-sm hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         <span wire:loading.remove wire:target="recordOutcome('{{ $outcome->outcome }}')">{{ $outcome->title ?? $outcome->type }}</span>
@@ -54,7 +55,7 @@
             </div>
         @else
             <div class="p-4 text-center text-gray-500 flex-grow flex items-center justify-center">
-                No record loaded
+                ( -_•)╦̵̵̿╤─
             </div>
         @endif
     </div>

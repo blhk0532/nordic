@@ -34,7 +34,7 @@
     </x-filament::dropdown>
 @else
     <style>
-        .panel-switch-modal .fi-modal-content {
+           .panel-switch-modal .fi-modal-content {
             align-items: center !important;
             justify-content: center !important;
         }
@@ -56,7 +56,7 @@
 <x-filament::modal
     id="panel-switch"
     width="md"
-    alignment="end"
+    alignment="start"
     slide-over
     sticky-header
     :heading="$heading"

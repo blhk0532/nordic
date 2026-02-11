@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\RingaData\Tables;
 
 use App\Enums\Outcomes;
+use App\Enums\OutcomeType;
 use App\Models\BookingCalendar;
 use App\Models\RingaData;
 use Faker\Factory as Faker;
@@ -19,7 +20,9 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Grid;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
@@ -29,8 +32,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 use Zvizvi\UserFields\Components\UserColumn;
-use App\Enums\OutcomeType;
-use Filament\Tables\Columns\IconColumn;
 
 class RingaDataTable
 {
@@ -61,10 +62,10 @@ class RingaDataTable
                             ? $state->getIcon()
                             : (is_string($state) ? OutcomeType::tryFrom($state)?->getIcon() ?? 'heroicon-o-clock' : 'heroicon-o-clock')
                     )         // Action button icon (Heroicon enum or string)
-                    ->actionIconColor(                        static fn ($state) => $state instanceof OutcomeType
+                    ->actionIconColor(static fn ($state) => $state instanceof OutcomeType
                             ? $state->getColor()
                             : (is_string($state) ? OutcomeType::tryFrom($state)?->getColor() ?? 'success' : 'success')
-                            )                 // Icon color (independent from badge color)
+                    )                 // Icon color (independent from badge color)
                     ->clickableColumn()                          // Make entire column clickable (or remove for button-only)
                     ->tapAction(
                         Action::make('changeOutcome')              // Any Filament Action: edit, delete, approve, etc.
@@ -116,7 +117,7 @@ class RingaDataTable
     //                       ? $state->getColor()
     //                       : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
     //               )
-                        ->color('gray')
+                    ->color('gray')
                     ->tooltip(fn ($state) => $state instanceof Outcomes
                         ? $state->getLabel()
                         : (is_string($state) ? Outcomes::tryFrom($state)?->getLabel() ?? 'Unknown' : 'Unknown')
@@ -227,79 +228,86 @@ class RingaDataTable
                         ->label('Tilldela')
                         ->icon('heroicon-o-users')
                         ->schema([
-                            Select::make('users')
-                                ->label('Välj användare')
-                                ->multiple()
-                                ->searchable()
-                                ->options(function () {
-                                    $tenantId = filament()->getTenant()?->id
-                                        ?? auth()->user()?->current_team_id;
+                            Grid::make(2)
+                                ->schema([
+                                    Select::make('users')
+                                        ->label('Välj användare')
+                                        ->columnSpan(1)
+                                        ->multiple()
+                                        ->searchable()
+                                        ->options(function () {
+                                            $tenantId = filament()->getTenant()?->id
+                                                ?? auth()->user()?->current_team_id;
 
-                                    if (! $tenantId) {
-                                        return [];
-                                    }
+                                            if (! $tenantId) {
+                                                return [];
+                                            }
 
-                                    // Force fresh query evaluation
-                                    $users = \Illuminate\Support\Facades\DB::table('users')
-                                        ->where(function ($query) use ($tenantId) {
-                                            $query->where('current_team_id', $tenantId)
-                                                ->orWhereExists(function ($sub) use ($tenantId) {
-                                                    $sub->selectRaw(1)
-                                                        ->from('membership')
-                                                        ->whereColumn('membership.user_id', 'users.id')
-                                                        ->where('membership.team_id', $tenantId);
+                                            // Force fresh query evaluation
+                                            $users = \Illuminate\Support\Facades\DB::table('users')
+                                                ->where(function ($query) use ($tenantId) {
+                                                    $query->where('current_team_id', $tenantId)
+                                                        ->orWhereExists(function ($sub) use ($tenantId) {
+                                                            $sub->selectRaw(1)
+                                                                ->from('membership')
+                                                                ->whereColumn('membership.user_id', 'users.id')
+                                                                ->where('membership.team_id', $tenantId);
+                                                        })
+                                                        ->orWhereExists(function ($sub) use ($tenantId) {
+                                                            $sub->selectRaw(1)
+                                                                ->from('teams')
+                                                                ->whereColumn('teams.user_id', 'users.id')
+                                                                ->where('teams.id', $tenantId);
+                                                        });
                                                 })
-                                                ->orWhereExists(function ($sub) use ($tenantId) {
-                                                    $sub->selectRaw(1)
-                                                        ->from('teams')
-                                                        ->whereColumn('teams.user_id', 'users.id')
-                                                        ->where('teams.id', $tenantId);
-                                                });
-                                        })
-                                        ->orderBy('name')
-                                        ->pluck('name', 'id')
-                                        ->toArray();
+                                                ->orderBy('name')
+                                                ->pluck('name', 'id')
+                                                ->toArray();
 
-                                    return $users;
-                                })
-                                ->validationMessages([
-                                    'required' => 'Detta fält är obligatoriskt.',
-                                ])
-                                ->required(),
-                            Select::make('calendar_id')
-                                ->label('Välj kalender')
-                                ->searchable()
-                                ->options(BookingCalendar::all()->pluck('name', 'id'))
-                                ->validationMessages([
-                                    'required' => 'Detta fält är obligatoriskt.',
-                                ])
-                                ->required(),
-                            DatePicker::make('started_at')
-                                ->default(today())
-                                ->label('Startdatum')
-                                ->validationMessages([
-                                    'required' => 'Detta fält är obligatoriskt.',
-                                ])
-                                ->required(),
-                            DatePicker::make('expires_at')
-                                ->default(today()->addMonth())
-                                ->label('Slutdatum')
-                                ->validationMessages([
-                                    'required' => 'Detta fält är obligatoriskt.',
-                                ])
-                                ->required(),
+                                            return $users;
+                                        })
+                                        ->validationMessages([
+                                            'required' => 'Detta fält är obligatoriskt.',
+                                        ])
+                                        ->required(),
+                                    Select::make('calendar_id')
+                                        ->label('Välj kalender')
+                                        ->searchable()
+                                        ->options(BookingCalendar::all()->pluck('name', 'id'))
+                                        ->validationMessages([
+                                            'required' => 'Detta fält är obligatoriskt.',
+                                        ])
+                                        ->required(),
+                                    DatePicker::make('started_at')
+                                        ->default(today())
+                                        ->label('Startdatum')
+                                        ->validationMessages([
+                                            'required' => 'Detta fält är obligatoriskt.',
+                                        ])
+                                        ->required(),
+                                    DatePicker::make('expires_at')
+                                        ->default(today()->addMonth())
+                                        ->label('Slutdatum')
+                                        ->validationMessages([
+                                            'required' => 'Detta fält är obligatoriskt.',
+                                        ])
+                                        ->required(),
+                                ]),
                         ])
                         ->action(function (Collection $records, array $data): void {
+                            $recordIds = $records->pluck('id')->toArray();
                             $userIds = implode(',', $data['users']);
-                            foreach ($records as $record) {
-                                $record->update([
-                                    'user_id' => $userIds,
-                                    'calendar_id' => $data['calendar_id'],
-                                    // Reset attempts and outcome when assigning to new users
-                                    'attempts' => 0,
-                                    'outcome' => null,
-                                ]);
-                            }
+
+                            RingaData::whereIn('id', $recordIds)->update([
+                                'user_id' => $userIds,
+                                'calendar_id' => $data['calendar_id'],
+                                'started_at' => $data['started_at'],
+                                'expires_at' => $data['expires_at'],
+                                'is_active' => true,
+                                'outcome' => null,
+                                'outcome_category' => null,
+                                'attempts' => 0,
+                            ]);
 
                             Notification::make()
                                 ->title('Användare tilldelade')
