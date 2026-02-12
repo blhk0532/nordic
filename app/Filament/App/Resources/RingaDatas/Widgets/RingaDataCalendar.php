@@ -1887,12 +1887,11 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function mount(): void
     {
-        // Get initial recordId from parent page if provided
-        $page = $this->getPage();
-        if ($page && method_exists($page, 'selectedRecordId') && $page->selectedRecordId) {
-            $this->recordId = $page->selectedRecordId;
+        // Record data is automatically passed from getHeaderWidgetsData()
+        // If recordId is set, load the full record
+        if ($this->recordId && ! $this->record) {
             $this->record = \App\Models\RingaData::find($this->recordId);
-            logger()->info('RingaDatas calendar mount loaded record from page', [
+            logger()->info('RingaDatas calendar mount loaded record', [
                 'recordId' => $this->recordId,
                 'calendar_id' => $this->record?->calendar_id,
             ]);
