@@ -78,6 +78,7 @@ final class AdmPanelProvider extends PanelProvider
             ->passwordReset()
             ->emailChangeVerification()
             ->spa()
+            ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->navigationGroups([
                 NavigationGroup::make('Boknings Kalendrar')
                     ->icon('heroicon-o-calendar-days'),

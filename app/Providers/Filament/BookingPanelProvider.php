@@ -58,6 +58,8 @@ class BookingPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Gray,
             ])
+            ->spa()
+            ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->plugin(
                 AuthDesignerPlugin::make()
                     ->login(

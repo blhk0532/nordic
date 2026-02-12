@@ -23,7 +23,12 @@ class UserNotesWorking extends AbstractPageSettings implements HasSchemas
 
     protected string $view = 'livewire.user-notes-working';
 
-    protected $listeners = ['open-user-notes-working' => 'openModal'];
+    protected $listeners = [
+        'open-user-notes-working' => 'openModal',
+        // Listen for the global Filament `open-modal` dispatch so the slide-over
+        // will open when other UI code dispatches `open-modal` with our id.
+        'open-modal' => 'onOpenModal',
+    ];
 
     public function getDefaultData(): array
     {
@@ -32,12 +37,23 @@ class UserNotesWorking extends AbstractPageSettings implements HasSchemas
 
     public function openModal(): void
     {
+        logger()->debug('UserNotesWorking: openModal invoked', ['user_id' => Auth::id()]);
+
         $this->slideOverOpen = true;
     }
 
     public function closeModal(): void
     {
         $this->slideOverOpen = false;
+    }
+
+    public function onOpenModal($event = null): void
+    {
+        // Fired when any code dispatches `open-modal` globally. Only open if
+        // the payload targets this component's modal id.
+        if ($event && isset($event['id']) && $event['id'] === 'user-notes-working-modal') {
+            $this->openModal();
+        }
     }
 
     public function form(Schema $schema): Schema

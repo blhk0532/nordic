@@ -178,7 +178,7 @@ class Booking extends Model
         }
         $timeStamp = time();
         $dateStamp = date('m-d-Y', $timeStamp);
-        $bookingNumber = 'BK-'.strrev($timeStamp).'-NDS-'.$dateStamp.'-'.$timeStamp;
+        $bookingNumber = 'BK-'.strrev((string) $timeStamp).'-NDS-'.$dateStamp.'-'.$timeStamp;
         $baseTitle = ($this->client?->address ?? '').'  '.($this->client?->city ?? '');
 
         return [

@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 const EditRingaData = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditRingaData.url(args, options),
@@ -11,13 +11,13 @@ const EditRingaData = (args: { tenant: string | number | { slug: string | number
 
 EditRingaData.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/ringa/igen/{record}/edit',
+    url: '/nds/app/team/{tenant}/ringa/listor/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 EditRingaData.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
@@ -45,7 +45,7 @@ EditRingaData.url = (args: { tenant: string | number | { slug: string | number }
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 EditRingaData.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditRingaData.url(args, options),
@@ -55,7 +55,7 @@ EditRingaData.get = (args: { tenant: string | number | { slug: string | number }
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 EditRingaData.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditRingaData.url(args, options),
@@ -65,7 +65,7 @@ EditRingaData.head = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 const EditRingaDataForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditRingaData.url(args, options),
@@ -75,7 +75,7 @@ const EditRingaDataForm = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 EditRingaDataForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditRingaData.url(args, options),
@@ -85,7 +85,7 @@ EditRingaDataForm.get = (args: { tenant: string | number | { slug: string | numb
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}/edit'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}/edit'
 */
 EditRingaDataForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditRingaData.url(args, {

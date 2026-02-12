@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 const ViewRingaData = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewRingaData.url(args, options),
@@ -11,13 +11,13 @@ const ViewRingaData = (args: { tenant: string | number | { slug: string | number
 
 ViewRingaData.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/ringa/igen/{record}',
+    url: '/nds/app/team/{tenant}/ringa/listor/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 ViewRingaData.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
@@ -45,7 +45,7 @@ ViewRingaData.url = (args: { tenant: string | number | { slug: string | number }
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 ViewRingaData.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewRingaData.url(args, options),
@@ -55,7 +55,7 @@ ViewRingaData.get = (args: { tenant: string | number | { slug: string | number }
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 ViewRingaData.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ViewRingaData.url(args, options),
@@ -65,7 +65,7 @@ ViewRingaData.head = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 const ViewRingaDataForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewRingaData.url(args, options),
@@ -75,7 +75,7 @@ const ViewRingaDataForm = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 ViewRingaDataForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewRingaData.url(args, options),
@@ -85,7 +85,7 @@ ViewRingaDataForm.get = (args: { tenant: string | number | { slug: string | numb
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\ViewRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/ViewRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/{record}'
+* @route '/nds/app/team/{tenant}/ringa/listor/{record}'
 */
 ViewRingaDataForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewRingaData.url(args, {

@@ -57,6 +57,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
         if ($this->recordId !== $recordId) {
             $this->recordId = $recordId;
             $this->loadRecord();
+            // Reset processing state to enable buttons for the new record
+            $this->processingOutcome = null;
         }
     }
 
@@ -232,6 +234,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
     public function mount(): void
     {
         Log::info('OutcomeRecorder mount', ['recordId' => $this->recordId, 'tenant' => $this->tenant]);
+
+        // Initialize processingOutcome to null
+        $this->processingOutcome = null;
 
         // Load outcome colors ONCE
         $this->outcomeColors = \App\Models\OutcomeSetting::pluck('color', 'outcome')->toArray();

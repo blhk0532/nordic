@@ -112,12 +112,15 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function getHeading(): string|Htmlable
     {
-        $normalized = $this->normalizeTechnicianSelection($this->selectedTechnician);
-        logger()->info('RingaDatas calendar getHeading', ['selectedTechnician' => $this->selectedTechnician, 'normalized' => $normalized]);
+        // selectedTechnician is already normalized, no need to normalize again
+        logger()->info('RingaDatas calendar getHeading', [
+            'selectedTechnician' => $this->selectedTechnician,
+            'type' => gettype($this->selectedTechnician),
+        ]);
 
         return new HtmlString(view('filament.app.widgets.single-booking-calendar-header', [
             'calendars' => \App\Models\BookingCalendar::all()->pluck('name', 'id'),
-            'selectedTechnician' => $normalized,
+            'selectedTechnician' => $this->selectedTechnician,
             'startDate' => $this->startDate,
             'endDate' => $this->endDate,
         ])->render());
@@ -127,10 +130,13 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
     {
         $this->recordId = $recordId;
         $this->record = \App\Models\RingaData::find($recordId);
-        $newTechnician = $this->normalizeTechnicianSelection($this->record?->calendar_id);
+        $calendarId = $this->record?->calendar_id;
+
+        // Store as string to match HTML form values (HTML selects send strings)
+        $newTechnician = $calendarId ? (string) $calendarId : 'all';
 
         $prev = $this->selectedTechnician;
-        $this->selectedTechnician = (string) $newTechnician;
+        $this->selectedTechnician = $newTechnician;
 
         if (isset($this->pageFilters)) {
             $this->pageFilters['booking_calendars'] = $this->selectedTechnician;
@@ -139,6 +145,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
         logger()->info('RingaDatas calendar selected technician', [
             'recordId' => $recordId,
             'technician' => $this->selectedTechnician,
+            'calendar_id' => $calendarId,
             'prev' => $prev,
         ]);
 
@@ -811,12 +818,35 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                 // Initialize record if recordId is set
                 if ($this->recordId && (! isset($this->record) || ! $this->record instanceof Model)) {
                     $this->record = \App\Models\RingaData::find($this->recordId);
+                    logger()->info('Calendar fillForm loaded RingaData', [
+                        'recordId' => $this->recordId,
+                        'found' => (bool) $this->record,
+                        'name' => $this->record ? mb_trim(($this->record->fornamn ?? '').' '.($this->record->efternamn ?? '')) : null,
+                    ]);
                 }
+
+                logger()->info('Calendar fillForm data', [
+                    'hasRecordId' => (bool) $this->recordId,
+                    'hasRecord' => (bool) $this->record,
+                    'booking_calendar_id' => $merged['booking_calendar_id'] ?? 'NOT SET',
+                ]);
 
                 return $merged;
             })
-            ->schema(fn () => $this->getFormSchema())
+            ->schema(function () {
+                if ($this->recordId && (! isset($this->record) || ! $this->record instanceof \App\Models\RingaData)) {
+                    $this->record = \App\Models\RingaData::find($this->recordId);
+                }
+
+                return $this->getFormSchema();
+            })
             ->action(function (array $data) {
+                logger()->info('BookingCalendarWidget: action called', [
+                    'has_recordId' => (bool) $this->recordId,
+                    'has_record' => (bool) $this->record,
+                    'record_name' => $this->record ? mb_trim(($this->record->fornamn ?? '').' '.($this->record->efternamn ?? '')) : null,
+                ]);
+
                 // Ensure number exists
                 if (! isset($data['number']) || empty($data['number'])) {
                     $data['number'] = $this->generateNumber();
@@ -835,26 +865,46 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                 $items = $data['items'] ?? [];
                 unset($data['items']);
 
-                // Build proper starts_at and ends_at from service_date + times
-                if (isset($data['service_date']) && isset($data['start_time'])) {
-                    $date = Carbon::parse($data['service_date'])->format('Y-m-d');
-                    $startDateTime = Carbon::parse($date.' '.$data['start_time']);
-                    $data['starts_at'] = $startDateTime->toDateTimeString();
+                // Build proper starts_at and ends_at from service_date + times BEFORE removing them
+                if (isset($data['service_date'])) {
+                    // If we have service_date but not starts_at, build it from the components
+                    if (! isset($data['starts_at']) && isset($data['start_time'])) {
+                        $date = Carbon::parse($data['service_date'])->format('Y-m-d');
+                        $startDateTime = Carbon::parse($date.' '.$data['start_time']);
+                        $data['starts_at'] = $startDateTime->toDateTimeString();
+                    }
+                    if (! isset($data['ends_at']) && isset($data['end_time'])) {
+                        $date = Carbon::parse($data['service_date'])->format('Y-m-d');
+                        $endDateTime = Carbon::parse($date.' '.$data['end_time']);
+                        $data['ends_at'] = $endDateTime->toDateTimeString();
+                    }
                 }
-                if (isset($data['service_date']) && isset($data['end_time'])) {
-                    $date = Carbon::parse($data['service_date'])->format('Y-m-d');
-                    $endDateTime = Carbon::parse($date.' '.$data['end_time']);
-                    $data['ends_at'] = $endDateTime->toDateTimeString();
-                }
+
+                // Remove fields that aren't fillable but are used for building other fields
+                unset($data['allDay']);
+                unset($data['view']);
+                unset($data['resource']);
+                unset($data['timezone']);
+                unset($data['start_val']);
+                unset($data['end_val']);
+                unset($data['date_val']);
+                unset($data['date']);
+                unset($data['start']);
+                unset($data['end']);
 
                 logger()->info('BookingCalendarWidget: BEFORE Booking::create()', [
                     'booking_calendar_id' => $data['booking_calendar_id'] ?? 'NOT SET',
-                    'full_data' => $data,
+                    'booking_client_id' => $data['booking_client_id'] ?? 'NOT SET',
+                    'service_date' => $data['service_date'] ?? 'NOT SET',
+                    'starts_at' => $data['starts_at'] ?? 'NOT SET',
+                    'ends_at' => $data['ends_at'] ?? 'NOT SET',
+                    'keys' => array_keys($data),
                 ]);
                 $booking = Booking::create($data);
                 logger()->info('BookingCalendarWidget: AFTER Booking::create()', [
                     'booking_id' => $booking->id,
                     'booking_calendar_id_in_db' => $booking->booking_calendar_id,
+                    'booking_client_id_in_db' => $booking->booking_client_id,
                 ]);
 
                 if (is_array($items)) {
@@ -1837,15 +1887,31 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function mount(): void
     {
-        $this->record = null;
+        // Get initial recordId from parent page if provided
+        $page = $this->getPage();
+        if ($page && method_exists($page, 'selectedRecordId') && $page->selectedRecordId) {
+            $this->recordId = $page->selectedRecordId;
+            $this->record = \App\Models\RingaData::find($this->recordId);
+            logger()->info('RingaDatas calendar mount loaded record from page', [
+                'recordId' => $this->recordId,
+                'calendar_id' => $this->record?->calendar_id,
+            ]);
+        } elseif (! isset($this->record)) {
+            $this->record = null;
+        }
 
-        // Set initial selectedTechnician based on the current record's calendar_id
-        $initialTechnician = $this->record?->calendar_id ?? $this->pageFilters['booking_calendars'] ?? 'all';
+        // Set initial selectedTechnician based on record's calendar_id or page filters
+        if ($this->record?->calendar_id) {
+            $initialTechnician = $this->record->calendar_id;
+        } else {
+            $initialTechnician = $this->pageFilters['booking_calendars'] ?? 'all';
+        }
+
         $this->selectedTechnician = $this->normalizeTechnicianSelection($initialTechnician);
         logger()->info('RingaDatas calendar mount', [
             'hasRecord' => (bool) $this->record,
             'recordCalendarId' => $this->record?->calendar_id,
-            'initial' => $initialTechnician,
+            'pageFilters' => $this->pageFilters['booking_calendars'] ?? 'not set',
             'selected' => $this->selectedTechnician,
         ]);
 
@@ -2002,9 +2068,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     protected function getSelectedCalendarId(): ?int
     {
-        $id = $this->selectedTechnician ?? $this->pageFilters['booking_calendars'] ?? null;
+        // Prefer selectedTechnician if set, otherwise check pageFilters
+        $id = $this->selectedTechnician;
 
-        if ($id === 'all' || $id === null || $id === '') {
+        if (! $id && isset($this->pageFilters['booking_calendars'])) {
+            $id = $this->pageFilters['booking_calendars'];
+        }
+
+        if ($id === 'all' || $id === null || $id === '' || ! is_numeric($id)) {
             return null;
         }
 

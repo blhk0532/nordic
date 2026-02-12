@@ -20,9 +20,15 @@
             </div>
             <div class="fi-input-wrp flex rounded-lg shadow-sm ring-1 transition duration-75 focus-within:ring-2 fi-fo-select bg-white dark:bg-white/5 ring-gray-950/10 dark:ring-white/20 focus-within:ring-primary-600 dark:focus-within:ring-primary-500 overflow-hidden">
                 <div class="min-w-0 flex-1">
-                    <select wire:model.live="selectedTechnician" wire:key="tech-select-{{ $selectedTechnician }}" class="fi-select-input block w-full border-none bg-transparent py-1.5 pl-3 pr-10 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6 dark:text-white">
+                    <select wire:model.live="selectedTechnician" wire:key="tech-select-{{ (string)$selectedTechnician }}" class="fi-select-input block w-full border-none bg-transparent py-1.5 pl-3 pr-10 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6 dark:text-white">
                         @foreach($options as $id => $name)
-                            <option value="{{ (string)$id }}" @selected((string)$id === (string)$selectedTechnician)>{{ $name }}</option>
+                            @php
+                                $optionId = (string)$id;
+                                $selectedId = (string)$selectedTechnician;
+                                $isSelected = $optionId === $selectedId || 
+                                            ($optionId !== 'all' && $selectedId !== 'all' && (int)$optionId === (int)$selectedId);
+                            @endphp
+                            <option value="{{ $optionId }}" @selected($isSelected)>{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>

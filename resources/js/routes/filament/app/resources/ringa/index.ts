@@ -1,9 +1,9 @@
 import data from './data'
-import igen from './igen'
+import listor from './listor'
 
 const ringa = {
     data: Object.assign(data, data),
-    igen: Object.assign(igen, igen),
+    listor: Object.assign(listor, listor),
 }
 
 export default ringa

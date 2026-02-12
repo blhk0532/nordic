@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 const QueueRingaData = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: QueueRingaData.url(args, options),
@@ -11,13 +11,13 @@ const QueueRingaData = (args: { tenant: string | number | { slug: string | numbe
 
 QueueRingaData.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/ringa/igen/queue',
+    url: '/nds/app/team/{tenant}/ringa/listor/queue',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 QueueRingaData.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -50,7 +50,7 @@ QueueRingaData.url = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 QueueRingaData.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: QueueRingaData.url(args, options),
@@ -60,7 +60,7 @@ QueueRingaData.get = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 QueueRingaData.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: QueueRingaData.url(args, options),
@@ -70,7 +70,7 @@ QueueRingaData.head = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 const QueueRingaDataForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: QueueRingaData.url(args, options),
@@ -80,7 +80,7 @@ const QueueRingaDataForm = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 QueueRingaDataForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: QueueRingaData.url(args, options),
@@ -90,7 +90,7 @@ QueueRingaDataForm.get = (args: { tenant: string | number | { slug: string | num
 /**
 * @see \App\Filament\App\Resources\RingaListan\Pages\QueueRingaData::__invoke
 * @see app/Filament/App/Resources/RingaListan/Pages/QueueRingaData.php:7
-* @route '/nds/app/team/{tenant}/ringa/igen/queue'
+* @route '/nds/app/team/{tenant}/ringa/listor/queue'
 */
 QueueRingaDataForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: QueueRingaData.url(args, {

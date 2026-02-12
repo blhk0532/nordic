@@ -7,3 +7,6 @@
     :label="__('filament-panels::layout.actions.open_database_notifications.label')"
     class="fi-topbar-database-notifications-btn"
 />
+
+{{-- Mount user notes slide-over globally so it can receive open-modal/open events on any page --}}
+@livewire('user-notes-working', [], key('user-notes-working-' . Auth::id()))

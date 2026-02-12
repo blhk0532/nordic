@@ -36,7 +36,7 @@ class RingaListanResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = '';
 
-    protected static ?string $slug = 'ringa/igen';
+    protected static ?string $slug = 'ringa/listor';
 
     protected static ?int $navigationSort = 5;
 

@@ -9,20 +9,29 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 <div>
 <div class="fi-modal-trigger">
 <button
+    type="button"
     color="gray"
-    icon="heroicon-o-calendar-days"
+    icon="heroicon-o-clipboard-document-list"
     icon-size="lg"
-    label="Kalender"
+    label="Anteckningar"
     @if($anderia === 'sidebar-no-topbar')
     class="fi-sidebar-database-notifications-btn"
     @else
     class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
-    wire:click="$dispatch('open-modal', { id: 'calendar-modal' })"
+    onclick="(function(){
+        try { Livewire.emitTo('user-notes-working', 'openModal'); } catch(e) { console.debug('emitTo failed', e); }
+        try { Livewire.dispatch('open-modal', { id: 'user-notes-working-modal' }); } catch(e) { console.debug('dispatch failed', e); }
+        // retry once after a short delay in case of race conditions
+        setTimeout(function(){
+            try { Livewire.emitTo('user-notes-working', 'openModal'); } catch(e){}
+            try { Livewire.dispatch('open-modal', { id: 'user-notes-working-modal' }); } catch(e){}
+        }, 120);
+    })()"
 >
 
         <x-filament::icon
-            icon="heroicon-o-calendar-days"
+            icon="heroicon-o-clipboard-document-list"
             class="fi-icon fi-size-lg"
         />
 @php
@@ -42,7 +51,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 
         class="fi-sidebar-database-notifications-btn-label"
     >
-    NDS Kalender
+    Anteckningar
     </span>
 @endif
 
@@ -51,10 +60,42 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 </div>
 </div>
 
-<x-filament::modal id="calendar-modal" class="calendar-modal" slide-over width="3xl">
-    <x-slot name="heading">
-        Bokningskalener
-    </x-slot>
-     @livewire('calendar-icon-modal')
+{{-- User notes slide-over (per-user) --}}
+@livewire('user-notes-working', [], key('user-notes-working-' . Auth::id()))
 
-</x-filament::modal>
+<script>
+// Patch Livewire modal calls to avoid `showModal` DOMException when a non-modal dialog is open.
+document.addEventListener('livewire:load', function () {
+    if (!window.Livewire) return;
+
+    ['showHtmlModal', 'showFailureModal'].forEach(function (fn) {
+        if (typeof Livewire[fn] !== 'function') return;
+
+        const original = Livewire[fn].bind(Livewire);
+
+        Livewire[fn] = function () {
+            try {
+                // Close any non-modal <dialog open> that may block showModal()
+                document.querySelectorAll('dialog[open]').forEach(function (d) {
+                    try {
+                        // Filament/other libs may mark true modals with data-modal or aria-modal
+                        if (!d.hasAttribute('data-modal') && d.getAttribute('aria-modal') !== 'true') {
+                            d.close();
+                        }
+                    } catch (err) {
+                        // ignore
+                    }
+                });
+
+                return original.apply(null, arguments);
+            } catch (err) {
+                if (err instanceof DOMException) {
+                    console.warn('Livewire: suppressed showModal DOMException', err);
+                    return;
+                }
+                throw err;
+            }
+        };
+    });
+});
+</script>

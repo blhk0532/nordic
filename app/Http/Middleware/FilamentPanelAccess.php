@@ -43,7 +43,7 @@ final class FilamentPanelAccess
         }
 
         if (! $this->checkPanelAccess($panelId) && $panelId !== 'app' && $user->role !== 'super') {
-            abort(403, 'Not authorized to access '.$panelId.' panel');
+            abort(403, 'Unauthorized to access '.$panelId.' panel');
         }
 
         return $next($request);

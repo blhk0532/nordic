@@ -14,7 +14,15 @@ abstract class ModalComponent extends Component
 
     public bool $destroySkipped = false;
 
-    final public static function modalAttributes(): array
+    /**
+     * Return default modal attributes.
+     *
+     * NOTE: not final so individual components can override to provide
+     * their own modal configuration (keeps backward compatibility).
+     *
+     * @return array<string, mixed>
+     */
+    public static function modalAttributes(): array
     {
         return [
             'closeOnEscape' => true,
@@ -23,7 +31,6 @@ abstract class ModalComponent extends Component
             'destroyOnClose' => false,
             'closeOnClickAway' => true,
         ];
-
     }
 
     final public function destroySkippedModals(): self
