@@ -15,9 +15,29 @@
     }
     $state = strval($state);
 
-    $icon = $getIcon($state);
-    $color = $getColor($state);
-    $size = $getSize($state);
+    $icons = $getIcons();
+    $colors = $getColors();
+    $stateKey = $state;
+    if (! array_key_exists($stateKey, $icons) && ! array_key_exists($stateKey, $colors)) {
+        $normalizedState = str_replace('\\', '', $stateKey);
+        if (array_key_exists($normalizedState, $icons) || array_key_exists($normalizedState, $colors)) {
+            $stateKey = $normalizedState;
+        }
+    }
+
+    $icon = $icons[$stateKey] ?? null;
+    $color = $colors[$stateKey] ?? null;
+    if (is_string($color)) {
+        $color = ['display' => $color, 'dropdown' => $color];
+    }
+    if (! is_array($color)) {
+        $color = ['display' => 'gray-500', 'dropdown' => 'gray-500'];
+    } else {
+        $color['display'] = $color['display'] ?? ($color['dropdown'] ?? 'gray-500');
+        $color['dropdown'] = $color['dropdown'] ?? ($color['display'] ?? 'gray-500');
+    }
+
+    $size = $getSize($stateKey);
 
     $alignment = $getAlignment();
 @endphp
@@ -90,7 +110,7 @@
                 <x-filament::dropdown.list.item :icon="$icon"
                                                 :icon-color="$color['dropdown']"
                                                 :icon-size="$size"
-                                                x-on:click.prevent="state = '{{$key}}'"
+                                                x-on:click.prevent="state = {{ Js::from($key) }}"
                 >
                     {{$label}}
                 </x-filament::dropdown.list.item>
