@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\App\Clusters\Services\Resources\Bookings\Tables;
 
 use Adultdate\FilamentBooking\Enums\BookingState;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Notifications\Notification;
@@ -71,7 +72,12 @@ class BookingsTable
                     }),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->slideOver()
+                    ->extraModalFooterActions([
+                        DeleteAction::make()
+                            ->record(fn ($record) => $record),
+                    ]),
             ])
             ->groupedBulkActions([
                 DeleteBulkAction::make()

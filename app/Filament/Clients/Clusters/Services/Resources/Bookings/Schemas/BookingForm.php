@@ -218,6 +218,15 @@ class BookingForm
                 ->columnSpan('full'),
             RichEditor::make('notes')
                 ->label('Anteckningar')
+                ->toolbarButtons([
+                    'bold',
+                    'italic',
+                    'underline',
+                    'bulletList',
+                    'orderedList',
+                    'h2',
+                    'h3',
+                ])
                 ->columnSpan('full'),
         ];
     }

@@ -65,7 +65,12 @@ class BookingsTable
                     }),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->slideOver()
+                    ->extraModalFooterActions([
+                        DeleteAction::make()
+                            ->record(fn ($record) => $record),
+                    ]),
                 DeleteAction::make(),
             ])
             ->groupedBulkActions([
