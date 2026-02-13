@@ -22,6 +22,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
+use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -71,6 +72,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
             ])
+            ->plugin(FilamentUiSwitcherPlugin::make())
             ->plugins([
                 Lockscreen::make()
                     ->enableRateLimit() // Enable rate limit for the lockscreen. Default: Enable, 5 attempts in 1 minute.
