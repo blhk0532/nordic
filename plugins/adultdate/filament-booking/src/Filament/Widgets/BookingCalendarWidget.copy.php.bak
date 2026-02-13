@@ -47,7 +47,7 @@ class BookingCalendarWidget extends FullCalendarWidget implements \Adultdate\Fil
         InteractsWithCalendar::onEventResize insteadof InteractsWithEvents;
         InteractsWithCalendar::onDateSelect insteadof InteractsWithEvents;
         InteractsWithCalendar::refreshRecords insteadof InteractsWithEvents;
-        
+
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClick insteadof InteractsWithCalendar;
@@ -424,8 +424,8 @@ class BookingCalendarWidget extends FullCalendarWidget implements \Adultdate\Fil
         $this->mountAction('create', ['data' => $data]);
     }
 
-    
-    
+
+
 
     public function onEventClick(array $event): void
     {
@@ -480,7 +480,7 @@ class BookingCalendarWidget extends FullCalendarWidget implements \Adultdate\Fil
     protected function getActions(): array
     {
         return [
-            
+
 
             \Filament\Actions\Action::make('view')
                 ->label('View')

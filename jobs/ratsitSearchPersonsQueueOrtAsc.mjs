@@ -17,7 +17,7 @@ import Database from 'better-sqlite3';
 
 class RatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://app.ndsth.com';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://ndsth.com' ||  'http://localhost:8000';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');

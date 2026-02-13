@@ -26,7 +26,7 @@ import path from "path";
 import { execSync } from "child_process";
 
 // --- API Configuration ---
-const API_BASE = process.env.API_BASE || process.env.APP_URL || "http://127.0.0.1:8000";
+const API_BASE = process.env.API_BASE || process.env.APP_URL || 'https://ndsth.com' ||  'http://localhost:8000';
 const BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-se/batch`;
 const HITTA_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-data/bulk`;
 const RATSIT_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/ratsit-data/bulk`;

@@ -165,7 +165,7 @@ class Booking extends Model
 
         if ($this->service_date && $this->start_time) {
             // Handle start_time as Carbon datetime (due to 'datetime' cast)
-            $timeStr = is_object($this->start_time) 
+            $timeStr = is_object($this->start_time)
                 ? $this->start_time->format('H:i:s')
                 : str($this->start_time)->padRight(8, ':00');
             $start = $this->service_date->toDateString().'T'.$timeStr;
@@ -176,7 +176,7 @@ class Booking extends Model
         if ($this->service_date && $this->end_time) {
             // Handle end_time as Carbon datetime (due to 'datetime' cast)
             $timeStr = is_object($this->end_time)
-                ? $this->end_time->format('H:i:s') 
+                ? $this->end_time->format('H:i:s')
                 : str($this->end_time)->padRight(8, ':00');
             $end = $this->service_date->toDateString().'T'.$timeStr;
         } elseif ($this->ends_at) {

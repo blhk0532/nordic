@@ -205,7 +205,7 @@ async function updateDatabase(postNummer, personer, foretag, source) {
             port: '3306',
             user: 'root',
             password: 'bkkbkk',
-            database: 'filament',
+            database: 'nordic_new',
             charset: 'utf8mb4',
         });
 
@@ -258,16 +258,16 @@ async function updateDatabase(postNummer, personer, foretag, source) {
 
         const [result] = await connection.execute(
             `UPDATE post_nums SET ${updateFields}${additionalUpdateString}, updated_at = NOW() WHERE post_nummer = ?`,
-            [...[personer, foretag], ...additionalValues, formattedPostNummer],
+            [...[personer, foretag], ...additionalValues, formattedPostnummer],
         );
 
         if (result.affectedRows > 0) {
             console.log(
-                `Database updated: ${formattedPostNummer} -> ${source} personer: ${personer}, företag: ${foretag}`,
+                `Database updated: ${formattedPostnummer} -> ${source} personer: ${personer}, företag: ${foretag}`,
             );
         } else {
             console.log(
-                `No record found for postnummer: ${formattedPostNummer}`,
+                `No record found for postnummer: ${formattedPostnummer}`,
             );
         }
     } catch (error) {

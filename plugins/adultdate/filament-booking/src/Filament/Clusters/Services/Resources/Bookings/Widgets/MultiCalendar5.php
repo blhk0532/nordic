@@ -67,7 +67,7 @@ final class MultiCalendar5 extends BookingFullCalendarWidget implements HasCalen
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-        
+
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
