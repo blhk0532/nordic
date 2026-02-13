@@ -1727,7 +1727,9 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
             })->toArray();
         }
 
-        return collect(array_merge($bookingEvents, $locationEvents, $blockingEvents));
+        $allEvents = collect(array_merge($bookingEvents, $locationEvents, $blockingEvents));
+
+        return $allEvents;
     }
 
     public function fetchEvents(array $info): array
@@ -1797,7 +1799,6 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
         }
 
         $this->selectedTechnician = $urlParam ?? $this->data['calendar_id'] ?? $this->pageFilters['booking_calendars'] ?? BookingCalendarModel::first()?->id ?? 'all';
-        logger()->info('SingleCalendars mount resolved selectedTechnician', ['urlParam' => $urlParam, 'referer' => request()->headers->get('referer') ?? null, 'data_calendar_id' => $this->data['calendar_id'] ?? null, 'pageFilters' => $this->pageFilters['booking_calendars'] ?? null, 'resolved' => $this->selectedTechnician]);
         $this->startDate = $this->data['startDate'] ?? $this->pageFilters['startDate'] ?? now()->startOfWeek()->toDateString();
         $this->endDate = $this->data['endDate'] ?? $this->pageFilters['endDate'] ?? now()->endOfWeek()->toDateString();
         $this->eventClickEnabled = true;

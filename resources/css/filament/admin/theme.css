@@ -259,9 +259,6 @@ form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.f
 }
 }
 
-.fi-sidebar-nav{
-    padding-top: 0.6rem;
-}
 
 .filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack{
   min-height: 700px;
@@ -503,8 +500,12 @@ html{
 .fi-dropdown-panel.fi-scrollable{
     min-width: 288px;
 }
-/* Override panel switch modal to slide from left instead of right
-   — expanded to target Filament's runtime `.fi-modal-window` and common
-   utility classes that may be applied at runtime. RTL-safe and includes
-   transition/transform-origin for smooth animation. */
+
+
+/* Left slide modal */
+.fi-modal-slide-over-left {
+    --tw-translate-x: -100%!important;
+}
+
+
 

@@ -128,7 +128,7 @@ x-show="$store.sidebar.isOpen"
     display-classes="block"
     width="sm"
     class="panel-switch-modal fi-modal-slide-over-left"
-style="max-width: 348px;"
+style="max-width: 342px;"
 >
     <div
         class="panel-switch-grid"

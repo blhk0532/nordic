@@ -164,15 +164,21 @@ class Booking extends Model
         $end = null;
 
         if ($this->service_date && $this->start_time) {
-            $start = $this->service_date->toDateString().'T'.
-                str($this->start_time)->padRight(8, ':00');
+            // Handle start_time as Carbon datetime (due to 'datetime' cast)
+            $timeStr = is_object($this->start_time) 
+                ? $this->start_time->format('H:i:s')
+                : str($this->start_time)->padRight(8, ':00');
+            $start = $this->service_date->toDateString().'T'.$timeStr;
         } elseif ($this->starts_at) {
             $start = $this->starts_at->toIso8601String();
         }
 
         if ($this->service_date && $this->end_time) {
-            $end = $this->service_date->toDateString().'T'.
-                str($this->end_time)->padRight(8, ':00');
+            // Handle end_time as Carbon datetime (due to 'datetime' cast)
+            $timeStr = is_object($this->end_time)
+                ? $this->end_time->format('H:i:s') 
+                : str($this->end_time)->padRight(8, ':00');
+            $end = $this->service_date->toDateString().'T'.$timeStr;
         } elseif ($this->ends_at) {
             $end = $this->ends_at->toIso8601String();
         }
