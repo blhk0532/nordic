@@ -242,7 +242,7 @@ class Booking extends Model
 
     protected static function newFactory()
     {
-        return \Adultdate\FilamentBooking\Database\Factories\Booking\BookingFactory::new();
+        return \Adultdate\FilamentBooking\Factories\Booking\BookingFactory::new();
     }
 
     protected function registerStates(): void

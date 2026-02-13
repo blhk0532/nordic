@@ -13,4 +13,8 @@ return [
     App\Providers\Filament\NotifyPanelProvider::class,
     App\Providers\Filament\ToolsPanelProvider::class,
     App\Providers\Filament\SuperPanelProvider::class,
+    App\Providers\Filament\BookingPanelProvider::class,
+    App\Providers\Filament\CalendarPanelProvider::class,
+    App\Providers\Filament\EmailPanelProvider::class,
+    App\Providers\Filament\FilesPanelProvider::class,
 ];

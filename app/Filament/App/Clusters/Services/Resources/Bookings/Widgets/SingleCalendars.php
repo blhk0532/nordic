@@ -1610,7 +1610,7 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
                 ->native(false),
             Select::make('service_user_id')
                 ->label('Service User')
-                ->options($this->getServiceUserOptions())
+                ->relationship('serviceUser', 'name')
                 ->searchable()
                 ->preload()
                 ->afterStateUpdated(function ($state, callable $set, callable $get) {

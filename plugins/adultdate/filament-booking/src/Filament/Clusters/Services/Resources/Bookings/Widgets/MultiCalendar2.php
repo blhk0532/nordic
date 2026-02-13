@@ -17,6 +17,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
 use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -40,9 +41,6 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Contracts\HasSchemas;
-use Filament\Schemas\Schema;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
@@ -50,14 +48,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema as DBSchema;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchemas
+final class MultiCalendar2 extends BookingFullCalendarWidget implements HasCalendar
 {
-    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords, InteractsWithSchemas {
+    use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
 
@@ -66,11 +64,11 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
 
         // Resolve __get collision: prefer InteractsWithPageFilters for pageFilters access
         InteractsWithPageFilters::__get insteadof InteractsWithCalendar;
-        InteractsWithPageFilters::__get insteadof InteractsWithSchemas;
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
+        
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -527,14 +525,14 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
                     ->color('success')
                     ->icon('heroicon-o-calendar-days')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         $serviceUserId = $this->calendarData['service_user_id'] ?? null;
                         $timeStamp = time();
                         $dateStamp = date('Ymd', $timeStamp);
-                        $startStamp = $startDate->format('Ymd');
+                        $startStamp = date('Ymd', strtotime($startDate));
                         $bookingNumber = Str::upper(Auth::user()->name).$timeStamp;
                         if ($this->calendarData['allDay']) {
                             $startTime = '00:00';
@@ -544,7 +542,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
                             $endTime = Carbon::parse($this->calendarData['end_val'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -560,7 +558,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
                     ->color('primary')
                     ->icon('heroicon-o-map-pin')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -572,7 +570,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
                             $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -588,14 +586,14 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
                         $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -1671,7 +1669,7 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
             ->where(function ($query) use ($start, $end) {
                 $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
                     ->when(
-                        DBSchema::hasColumn('booking_bookings', 'starts_at'),
+                        Schema::hasColumn('booking_bookings', 'starts_at'),
                         fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
                     );
             })
@@ -1777,11 +1775,6 @@ class MultiCalendar2 extends FullCalendarWidget implements HasCalendar, HasSchem
     public function getView(): string
     {
         return 'adultdate/filament-booking::calendar-widget';
-    }
-
-    public function schema(): Schema
-    {
-        return Schema::make($this)->components($this->getFormSchema());
     }
 
     protected function getEloquentQuery(): Builder

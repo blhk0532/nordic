@@ -47,7 +47,7 @@ class BookingCalendarWidget extends FullCalendarWidget implements \Adultdate\Fil
         InteractsWithCalendar::onEventResize insteadof InteractsWithEvents;
         InteractsWithCalendar::onDateSelect insteadof InteractsWithEvents;
         InteractsWithCalendar::refreshRecords insteadof InteractsWithEvents;
-        InteractsWithEventRecord::getEloquentQuery insteadof InteractsWithRecords;
+        
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClick insteadof InteractsWithCalendar;

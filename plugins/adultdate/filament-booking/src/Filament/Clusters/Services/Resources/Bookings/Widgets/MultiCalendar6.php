@@ -16,7 +16,7 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -52,7 +52,7 @@ use Illuminate\Support\Str;
 use Throwable;
 use UnitEnum;
 
-class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
+final class MultiCalendar6 extends BookingFullCalendarWidget implements HasCalendar
 {
     use CanBeConfigured, CanRefreshCalendar, HasOptions, HasSchema, InteractsWithCalendar, InteractsWithEventRecord, InteractsWithEvents, InteractsWithPageFilters, InteractsWithRawJS, InteractsWithRecords {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
@@ -67,6 +67,7 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
+        
     }
     use InteractsWithEvents {
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -523,14 +524,14 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
                     ->color('success')
                     ->icon('heroicon-o-calendar-days')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         $serviceUserId = $this->calendarData['service_user_id'] ?? null;
                         $timeStamp = time();
                         $dateStamp = date('Ymd', $timeStamp);
-                        $startStamp = date('Ymd', strtotime($startDate->format('Y-m-d')));
+                        $startStamp = date('Ymd', strtotime($startDate));
                         $bookingNumber = Str::upper(Auth::user()->name).$timeStamp;
                         if ($this->calendarData['allDay']) {
                             $startTime = '00:00';
@@ -540,7 +541,7 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
                             $endTime = Carbon::parse($this->calendarData['end_val'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -556,7 +557,7 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
                     ->color('primary')
                     ->icon('heroicon-o-map-pin')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
@@ -568,7 +569,7 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
                             $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         }
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
@@ -584,14 +585,14 @@ class MultiCalendar6 extends FullCalendarWidget implements HasCalendar
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
                         $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
                         $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal);
+                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
