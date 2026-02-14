@@ -14,7 +14,7 @@ use function array_merge;
 use function Livewire\invade;
 
 #[AsCommand(name: 'livewire:configure-s3-upload-cleanup')]
-class S3CleanupCommand Command
+class S3CleanupCommand extends Command
 {
     protected $signature = 'livewire:configure-s3-upload-cleanup';
 

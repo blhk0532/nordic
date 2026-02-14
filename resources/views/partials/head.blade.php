@@ -12,3 +12,12 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 @fluxAppearance
+
+{{-- Fix for Laravel Debugbar + Livewire navigate: Remove debugbar before page swap --}}
+@if (config('debugbar.enabled'))
+    <script>
+        document.addEventListener('livewire:navigating', () => {
+            document.querySelectorAll('.phpdebugbar, .phpdebugbar-widget, .phpdebugbar-body').forEach(el => el.remove());
+        });
+    </script>
+@endif

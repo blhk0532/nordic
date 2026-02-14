@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-const CreateUser = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser.url(options),
+const CreateUserf7d09571119a4ba22224ad276df38dec = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUserf7d09571119a4ba22224ad276df38dec.url(options),
     method: 'get',
 })
 
-CreateUser.definition = {
+CreateUserf7d09571119a4ba22224ad276df38dec.definition = {
     methods: ["get","head"],
     url: '/nds/super/booking/users/create',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,8 +19,8 @@ CreateUser.definition = {
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-CreateUser.url = (options?: RouteQueryOptions) => {
-    return CreateUser.definition.url + queryParams(options)
+CreateUserf7d09571119a4ba22224ad276df38dec.url = (options?: RouteQueryOptions) => {
+    return CreateUserf7d09571119a4ba22224ad276df38dec.definition.url + queryParams(options)
 }
 
 /**
@@ -28,8 +28,8 @@ CreateUser.url = (options?: RouteQueryOptions) => {
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-CreateUser.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser.url(options),
+CreateUserf7d09571119a4ba22224ad276df38dec.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUserf7d09571119a4ba22224ad276df38dec.url(options),
     method: 'get',
 })
 
@@ -38,8 +38,8 @@ CreateUser.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-CreateUser.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateUser.url(options),
+CreateUserf7d09571119a4ba22224ad276df38dec.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateUserf7d09571119a4ba22224ad276df38dec.url(options),
     method: 'head',
 })
 
@@ -48,8 +48,8 @@ CreateUser.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-const CreateUserForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url(options),
+const CreateUserf7d09571119a4ba22224ad276df38decForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUserf7d09571119a4ba22224ad276df38dec.url(options),
     method: 'get',
 })
 
@@ -58,8 +58,8 @@ const CreateUserForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-CreateUserForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url(options),
+CreateUserf7d09571119a4ba22224ad276df38decForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUserf7d09571119a4ba22224ad276df38dec.url(options),
     method: 'get',
 })
 
@@ -68,8 +68,8 @@ CreateUserForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
 * @route '/nds/super/booking/users/create'
 */
-CreateUserForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url({
+CreateUserf7d09571119a4ba22224ad276df38decForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUserf7d09571119a4ba22224ad276df38dec.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -78,6 +78,91 @@ CreateUserForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
     method: 'get',
 })
 
-CreateUser.form = CreateUserForm
+CreateUserf7d09571119a4ba22224ad276df38dec.form = CreateUserf7d09571119a4ba22224ad276df38decForm
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+const CreateUser1d56c60dfe5c2c72a3881315251b3610 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUser1d56c60dfe5c2c72a3881315251b3610.url(options),
+    method: 'get',
+})
+
+CreateUser1d56c60dfe5c2c72a3881315251b3610.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/booking/users/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+CreateUser1d56c60dfe5c2c72a3881315251b3610.url = (options?: RouteQueryOptions) => {
+    return CreateUser1d56c60dfe5c2c72a3881315251b3610.definition.url + queryParams(options)
+}
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+CreateUser1d56c60dfe5c2c72a3881315251b3610.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUser1d56c60dfe5c2c72a3881315251b3610.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+CreateUser1d56c60dfe5c2c72a3881315251b3610.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateUser1d56c60dfe5c2c72a3881315251b3610.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+const CreateUser1d56c60dfe5c2c72a3881315251b3610Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser1d56c60dfe5c2c72a3881315251b3610.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+CreateUser1d56c60dfe5c2c72a3881315251b3610Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser1d56c60dfe5c2c72a3881315251b3610.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\CreateUser::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/CreateUser.php:7
+* @route '/nds/booking/booking/users/create'
+*/
+CreateUser1d56c60dfe5c2c72a3881315251b3610Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser1d56c60dfe5c2c72a3881315251b3610.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateUser1d56c60dfe5c2c72a3881315251b3610.form = CreateUser1d56c60dfe5c2c72a3881315251b3610Form
+
+const CreateUser = {
+    '/nds/super/booking/users/create': CreateUserf7d09571119a4ba22224ad276df38dec,
+    '/nds/booking/booking/users/create': CreateUser1d56c60dfe5c2c72a3881315251b3610,
+}
 
 export default CreateUser

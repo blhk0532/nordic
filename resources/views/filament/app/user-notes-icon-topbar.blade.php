@@ -48,6 +48,3 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
  </div>
 </div>
 </div>
-
-<!-- DISABLED TEMPORARILY FOR TESTING -->
-<!-- @livewire('user-notes-working', [], key('user-notes-working-' . Auth::id())) -->

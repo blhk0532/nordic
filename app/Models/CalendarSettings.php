@@ -8,6 +8,43 @@ use Adultdate\FilamentBooking\Enums\CalendarTheme;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property \Carbon\CarbonImmutable|null $opening_hour_start
+ * @property \Carbon\CarbonImmutable|null $opening_hour_end
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property string|null $confirmation_sms
+ * @property string|null $confirmation_email
+ * @property bool $calendar_weekends
+ * @property CalendarTheme $calendar_theme
+ * @property string|null $confirmation_sms_number
+ * @property string|null $confirmation_email_address
+ * @property string|null $telavox_jwt
+ * @property string $calendar_timezone
+ * @property-read \App\Models\User $user
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereCalendarTheme($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereCalendarTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereCalendarWeekends($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereConfirmationEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereConfirmationEmailAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereConfirmationSms($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereConfirmationSmsNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereOpeningHourEnd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereOpeningHourStart($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereTelavoxJwt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarSettings whereUserId($value)
+ *
+ * @mixin \Eloquent
+ */
 class CalendarSettings extends Model
 {
     protected $fillable = [

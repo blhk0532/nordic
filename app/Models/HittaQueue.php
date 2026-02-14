@@ -7,6 +7,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class HittaQueue extends Model
 {
     use HasFactory;

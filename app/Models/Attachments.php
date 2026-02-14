@@ -14,33 +14,34 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id
- * @property string $attachable_type
  * @property int $attachable_id
+ * @property string $attachable_type
  * @property string $file_path
  * @property string $file_name
  * @property string $original_name
  * @property string $url
  * @property string $mime_type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Model|Eloquent $attachable
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read Model|\Eloquent $attachable
  * @property-read string $clean_mime_type
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment query()
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereAttachableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereAttachableType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereFileName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereFilePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereMimeType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereOriginalName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereUrl($value)
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\AttachmentFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereAttachableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereAttachableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereFilePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereMimeType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereOriginalName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachments whereUrl($value)
  *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Attachments extends Model
 {

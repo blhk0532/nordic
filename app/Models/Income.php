@@ -14,6 +14,59 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property int $income_id
+ * @property int $subcategory_id
+ * @property int|null $discount_id
+ * @property int|null $client_id
+ * @property numeric $amount
+ * @property numeric $discount_amount
+ * @property numeric $final_amount
+ * @property IncomeStatus $status
+ * @property PaymentType $payment_type
+ * @property string|null $description
+ * @property \Carbon\CarbonImmutable|null $next_payment
+ * @property \Carbon\CarbonImmutable|null $date
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Client|null $client
+ * @property-read \App\Models\Discount|null $discount
+ * @property-read mixed $next_payment_amount
+ * @property-read mixed $remaining
+ * @property-read float $total_paid
+ * @property-read mixed $trans_description
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Payment> $payments
+ * @property-read int|null $payments_count
+ * @property-read \App\Models\Subcategory $subcategory
+ * @property-read \App\Models\IncomeTranslation|null $translation
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\IncomeTranslation> $translations
+ * @property-read int|null $translations_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereDiscountAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereDiscountId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereFinalAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereIncomeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereNextPayment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income wherePaymentType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereSubcategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Income withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Income extends Model
 {
     use HasFactory, IncomeTranslations, SoftDeletes;

@@ -40,6 +40,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -88,6 +89,8 @@ class MultiCalendarX5 extends Widget implements HasCalendar, HasSchemas
     public Model|string|null $model = null;
 
     public ?array $calendarData = null;
+
+    public ?int $selectedTechnician = null;
 
     protected $settings;
 
@@ -1770,7 +1773,7 @@ class MultiCalendarX5 extends Widget implements HasCalendar, HasSchemas
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_3'] ?? null;
+        $this->selectedTechnician = $this->pageFilters['booking_calendars_5'] ?? null;
         $this->refreshRecords();
     }
 

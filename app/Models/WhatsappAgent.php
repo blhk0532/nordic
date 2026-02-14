@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\URL;
  * @property string $phone
  * @property string|null $text
  * @property string|null $image
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read string|null $image_url
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|WhatsappAgent newModelQuery()

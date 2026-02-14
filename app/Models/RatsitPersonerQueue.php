@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPersonerQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPersonerQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPersonerQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class RatsitPersonerQueue extends Model
 {
     protected $table = 'ratsit_personer_queue';

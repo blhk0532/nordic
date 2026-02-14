@@ -20,12 +20,10 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
     onclick="(function(){
-        try { Livewire.emitTo('user-notes-working', 'openModal'); } catch(e) { console.debug('emitTo failed', e); }
-        try { Livewire.dispatch('open-modal', { id: 'user-notes-working-modal' }); } catch(e) { console.debug('dispatch failed', e); }
+        try { Livewire.dispatch('open-modal', { id: 'user-notes-modal' }); } catch(e) { console.debug('dispatch failed', e); }
         // retry once after a short delay in case of race conditions
         setTimeout(function(){
-            try { Livewire.emitTo('user-notes-working', 'openModal'); } catch(e){}
-            try { Livewire.dispatch('open-modal', { id: 'user-notes-working-modal' }); } catch(e){}
+            try { Livewire.dispatch('open-modal', { id: 'user-notes-modal' }); } catch(e){}
         }, 120);
     })()"
 >
@@ -60,8 +58,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 </div>
 </div>
 
-{{-- User notes slide-over (per-user) --}}
-@livewire('user-notes-working', [], key('user-notes-working-' . Auth::id()))
+{{-- Modal moved to BODY_START render hook to avoid Livewire entangle conflicts --}}
 
 <script>
 // Patch Livewire modal calls to avoid `showModal` DOMException when a non-modal dialog is open.

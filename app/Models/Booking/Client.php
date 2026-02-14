@@ -14,9 +14,63 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * @property int $id
+ * @property string $ulid
+ * @property string|null $name
+ * @property string|null $address
+ * @property string|null $street
+ * @property string|null $city
+ * @property string|null $zip
+ * @property string|null $phone
+ * @property string|null $email
+ * @property array<array-key, mixed>|null $phones
+ * @property string|null $dob
+ * @property \Carbon\CarbonImmutable|null $birthday
+ * @property string|null $photo
+ * @property string|null $notes
+ * @property string|null $type
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Address> $addresses
+ * @property-read int|null $addresses_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, BookingComment> $comments
+ * @property-read int|null $comments_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Booking\Payment> $payments
+ * @property-read int|null $payments_count
+ *
+ * @method static \Database\Factories\Booking\ClientFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereDob($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client wherePhones($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client wherePhoto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereUlid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereZip($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Client extends Model
 {
-    /** @use HasFactory<\Adultdate\FilamentBooking\Database\Factories\Booking\ClientFactory> */
+    /** @use HasFactory<\Database\Factories\Booking\ClientFactory> */
     use HasFactory;
 
     use SoftDeletes;
@@ -95,7 +149,7 @@ class Client extends Model
 
     protected static function newFactory()
     {
-        return \Adultdate\FilamentBooking\Database\Factories\Booking\ClientFactory::new();
+        return \Database\Factories\Booking\ClientFactory::new();
     }
 
     /**

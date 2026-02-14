@@ -8,6 +8,10 @@ import data from './data'
 import notify from './notify'
 import tools from './tools'
 import superMethod from './super'
+import booking from './booking'
+import calendar from './calendar'
+import email from './email'
+import files from './files'
 
 const filament = {
     exports: Object.assign(exports, exports),
@@ -20,6 +24,10 @@ const filament = {
     notify: Object.assign(notify, notify),
     tools: Object.assign(tools, tools),
     super: Object.assign(superMethod, superMethod),
+    booking: Object.assign(booking, booking),
+    calendar: Object.assign(calendar, calendar),
+    email: Object.assign(email, email),
+    files: Object.assign(files, files),
 }
 
 export default filament

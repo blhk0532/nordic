@@ -1,9 +1,0 @@
-<?php
-
-declare(strict_types=1);
-
-return [
-
-    'body' => '您有未儲存的變更。確定要離開此頁面嗎？',
-
-];

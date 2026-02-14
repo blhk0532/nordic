@@ -8,6 +8,31 @@ use Database\Factories\Booking\OrderItemFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property int|null $booking_order_id
+ * @property int|null $booking_product_id
+ * @property int $qty
+ * @property numeric $unit_price
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property int $sort
+ * @property-read \App\Models\Booking\Order|null $order
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereBookingOrderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereBookingProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereQty($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereUnitPrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItem whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class OrderItem extends Model
 {
     /** @use HasFactory<OrderItemFactory> */

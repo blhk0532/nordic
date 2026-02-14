@@ -13,6 +13,44 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string|null $website
+ * @property string|null $description
+ * @property int $position
+ * @property bool $is_visible
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property int|null $sort
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Address> $addresses
+ * @property-read int|null $addresses_count
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Booking\Product> $products
+ * @property-read int|null $products_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereIsVisible($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand wherePosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereSeoTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Brand whereWebsite($value)
+ *
+ * @mixin \Eloquent
+ */
 class Brand extends Model implements HasMedia
 {
     /** @use HasFactory<BrandFactory> */

@@ -24,44 +24,46 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * @property int $id
- * @property int|null $conversation_id
+ * @property string $conversation_id
  * @property int $sendable_id
  * @property string $sendable_type
  * @property int|null $reply_id
  * @property string|null $body
  * @property MessageType $type
- * @property \Illuminate\Support\Carbon|null $kept_at filled when a message is kept from disappearing
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $kept_at filled when a message is kept from disappearing
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Action> $actions
  * @property-read int|null $actions_count
- * @property-read \AdultDate\FilamentWirechat\Models\Attachment|null $attachment
- * @property-read \AdultDate\FilamentWirechat\Models\Conversation|null $conversation
+ * @property-read \App\Models\Conversation $conversation
+ * @property-read \App\Models\Participant $participant
  * @property-read Message|null $parent
  * @property-read Message|null $reply
- * @property-read Model|Eloquent $sendable
+ * @property-read Model|\Eloquent $sendable
+ * @property-read Model|\Eloquent $user
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Message newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Message newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Message onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Message query()
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereConversationId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereIsNotOwnedBy(\Illuminate\Database\Eloquent\Model|\Illuminate\Contracts\Auth\Authenticatable $user)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereKeptAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereReplyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereSendableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereSendableType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Message withoutTrashed()
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\MessageFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereConversationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereIsNotOwnedBy(\Illuminate\Database\Eloquent\Model|\Illuminate\Contracts\Auth\Authenticatable $user)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereKeptAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereReplyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereSendableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereSendableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Message withoutTrashed()
  *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Message extends Model
 {

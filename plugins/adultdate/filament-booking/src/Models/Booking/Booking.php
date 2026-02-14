@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Adultdate\FilamentBooking\Models\Booking;
 
 use Adultdate\FilamentBooking\Enums\BookingStatus;
+use Adultdate\FilamentBooking\Factories\Booking\BookingFactory;
 use App\Models\User;
-use Database\Factories\Booking\BookingFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,7 +18,6 @@ use Spatie\ModelStates\HasStates;
 
 class Booking extends Model
 {
-    /** @use HasFactory<BookingFactory> */
     use HasFactory;
 
     use HasStates;
@@ -242,7 +241,8 @@ class Booking extends Model
 
     protected static function newFactory()
     {
-        return \Adultdate\FilamentBooking\Factories\Booking\BookingFactory::new();
+        // Factory will be resolved automatically by HasFactory trait
+        return parent::newFactory();
     }
 
     protected function registerStates(): void

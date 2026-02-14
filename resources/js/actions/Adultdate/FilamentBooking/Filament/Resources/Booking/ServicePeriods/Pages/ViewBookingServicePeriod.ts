@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-const ViewBookingServicePeriod = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewBookingServicePeriod.url(args, options),
+const ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, options),
     method: 'get',
 })
 
-ViewBookingServicePeriod.definition = {
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.definition = {
     methods: ["get","head"],
     url: '/nds/super/booking/service-periods/booking-service-periods/{record}',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ ViewBookingServicePeriod.definition = {
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-ViewBookingServicePeriod.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -36,7 +36,7 @@ ViewBookingServicePeriod.url = (args: { record: string | number } | [record: str
         record: args.record,
     }
 
-    return ViewBookingServicePeriod.definition.url
+    return ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -46,8 +46,8 @@ ViewBookingServicePeriod.url = (args: { record: string | number } | [record: str
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-ViewBookingServicePeriod.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewBookingServicePeriod.url(args, options),
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, options),
     method: 'get',
 })
 
@@ -56,8 +56,8 @@ ViewBookingServicePeriod.get = (args: { record: string | number } | [record: str
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-ViewBookingServicePeriod.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewBookingServicePeriod.url(args, options),
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, options),
     method: 'head',
 })
 
@@ -66,8 +66,8 @@ ViewBookingServicePeriod.head = (args: { record: string | number } | [record: st
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-const ViewBookingServicePeriodForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewBookingServicePeriod.url(args, options),
+const ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, options),
     method: 'get',
 })
 
@@ -76,8 +76,8 @@ const ViewBookingServicePeriodForm = (args: { record: string | number } | [recor
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-ViewBookingServicePeriodForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewBookingServicePeriod.url(args, options),
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, options),
     method: 'get',
 })
 
@@ -86,8 +86,8 @@ ViewBookingServicePeriodForm.get = (args: { record: string | number } | [record:
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
 * @route '/nds/super/booking/service-periods/booking-service-periods/{record}'
 */
-ViewBookingServicePeriodForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewBookingServicePeriod.url(args, {
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,6 +96,109 @@ ViewBookingServicePeriodForm.head = (args: { record: string | number } | [record
     method: 'get',
 })
 
-ViewBookingServicePeriod.form = ViewBookingServicePeriodForm
+ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5.form = ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5Form
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+const ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, options),
+    method: 'get',
+})
+
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/booking/service-periods/booking-service-periods/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+const ViewBookingServicePeriod97713c8258d2adc21d74119b803f571aForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571aForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\ServicePeriods\Pages\ViewBookingServicePeriod::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/ServicePeriods/Pages/ViewBookingServicePeriod.php:7
+* @route '/nds/booking/booking/service-periods/booking-service-periods/{record}'
+*/
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571aForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a.form = ViewBookingServicePeriod97713c8258d2adc21d74119b803f571aForm
+
+const ViewBookingServicePeriod = {
+    '/nds/super/booking/service-periods/booking-service-periods/{record}': ViewBookingServicePeriodf950d26ebbc69dbdb630f368a90990d5,
+    '/nds/booking/booking/service-periods/booking-service-periods/{record}': ViewBookingServicePeriod97713c8258d2adc21d74119b803f571a,
+}
 
 export default ViewBookingServicePeriod

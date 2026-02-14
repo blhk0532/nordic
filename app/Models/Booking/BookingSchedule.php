@@ -8,6 +8,35 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property int $booking_location_id
+ * @property \Carbon\CarbonImmutable $date
+ * @property string|null $start_time
+ * @property string|null $end_time
+ * @property bool $is_available
+ * @property int $max_bookings
+ * @property string|null $notes
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Booking\BookingLocation $location
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereBookingLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereIsAvailable($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereMaxBookings($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereStartTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingSchedule whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class BookingSchedule extends Model
 {
     use HasFactory;

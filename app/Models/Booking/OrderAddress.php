@@ -9,6 +9,35 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
+/**
+ * @property int $id
+ * @property string $booking_addressable_type
+ * @property int $booking_addressable_id
+ * @property string|null $country
+ * @property string|null $street
+ * @property string|null $city
+ * @property string|null $state
+ * @property string|null $zip
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model $addressable
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereBookingAddressableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereBookingAddressableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderAddress whereZip($value)
+ *
+ * @mixin \Eloquent
+ */
 class OrderAddress extends Model
 {
     /** @use HasFactory<OrderAddressFactory> */

@@ -9,6 +9,35 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property int $outcome_id
+ * @property int $subcategory_id
+ * @property numeric $amount
+ * @property string|null $description
+ * @property string|null $date
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @property-read mixed $category
+ * @property-read \App\Models\Subcategory $subcategory
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereOutcomeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereSubcategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Outcome withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Outcome extends Model
 {
     use HasFactory, SoftDeletes;

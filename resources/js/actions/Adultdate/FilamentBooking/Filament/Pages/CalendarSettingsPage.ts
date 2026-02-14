@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-const CalendarSettingsPage = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CalendarSettingsPage.url(options),
+const CalendarSettingsPage41f117bd79543f0d84978afa5328987f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url(options),
     method: 'get',
 })
 
-CalendarSettingsPage.definition = {
+CalendarSettingsPage41f117bd79543f0d84978afa5328987f.definition = {
     methods: ["get","head"],
     url: '/nds/super/calendar-settings-page',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,8 +19,8 @@ CalendarSettingsPage.definition = {
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-CalendarSettingsPage.url = (options?: RouteQueryOptions) => {
-    return CalendarSettingsPage.definition.url + queryParams(options)
+CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url = (options?: RouteQueryOptions) => {
+    return CalendarSettingsPage41f117bd79543f0d84978afa5328987f.definition.url + queryParams(options)
 }
 
 /**
@@ -28,8 +28,8 @@ CalendarSettingsPage.url = (options?: RouteQueryOptions) => {
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-CalendarSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CalendarSettingsPage.url(options),
+CalendarSettingsPage41f117bd79543f0d84978afa5328987f.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url(options),
     method: 'get',
 })
 
@@ -38,8 +38,8 @@ CalendarSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'>
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-CalendarSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CalendarSettingsPage.url(options),
+CalendarSettingsPage41f117bd79543f0d84978afa5328987f.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url(options),
     method: 'head',
 })
 
@@ -48,8 +48,8 @@ CalendarSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-const CalendarSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CalendarSettingsPage.url(options),
+const CalendarSettingsPage41f117bd79543f0d84978afa5328987fForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url(options),
     method: 'get',
 })
 
@@ -58,8 +58,8 @@ const CalendarSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefinit
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-CalendarSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CalendarSettingsPage.url(options),
+CalendarSettingsPage41f117bd79543f0d84978afa5328987fForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url(options),
     method: 'get',
 })
 
@@ -68,8 +68,8 @@ CalendarSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinitio
 * @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
 * @route '/nds/super/calendar-settings-page'
 */
-CalendarSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CalendarSettingsPage.url({
+CalendarSettingsPage41f117bd79543f0d84978afa5328987fForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage41f117bd79543f0d84978afa5328987f.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -78,6 +78,91 @@ CalendarSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefiniti
     method: 'get',
 })
 
-CalendarSettingsPage.form = CalendarSettingsPageForm
+CalendarSettingsPage41f117bd79543f0d84978afa5328987f.form = CalendarSettingsPage41f117bd79543f0d84978afa5328987fForm
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+const CalendarSettingsPage670b3dc9494135f425873fd18435a23c = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url(options),
+    method: 'get',
+})
+
+CalendarSettingsPage670b3dc9494135f425873fd18435a23c.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/calendar-settings-page',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url = (options?: RouteQueryOptions) => {
+    return CalendarSettingsPage670b3dc9494135f425873fd18435a23c.definition.url + queryParams(options)
+}
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+CalendarSettingsPage670b3dc9494135f425873fd18435a23c.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+CalendarSettingsPage670b3dc9494135f425873fd18435a23c.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+const CalendarSettingsPage670b3dc9494135f425873fd18435a23cForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+CalendarSettingsPage670b3dc9494135f425873fd18435a23cForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Pages\CalendarSettingsPage::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Pages/CalendarSettingsPage.php:7
+* @route '/nds/booking/calendar-settings-page'
+*/
+CalendarSettingsPage670b3dc9494135f425873fd18435a23cForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CalendarSettingsPage670b3dc9494135f425873fd18435a23c.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CalendarSettingsPage670b3dc9494135f425873fd18435a23c.form = CalendarSettingsPage670b3dc9494135f425873fd18435a23cForm
+
+const CalendarSettingsPage = {
+    '/nds/super/calendar-settings-page': CalendarSettingsPage41f117bd79543f0d84978afa5328987f,
+    '/nds/booking/calendar-settings-page': CalendarSettingsPage670b3dc9494135f425873fd18435a23c,
+}
 
 export default CalendarSettingsPage

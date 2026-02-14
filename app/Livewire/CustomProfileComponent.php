@@ -8,8 +8,8 @@ use App\Enums\UserActiveStatus;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Joaopaulolndev\FilamentEditProfile\Livewire\BaseProfileForm;
 
 class CustomProfileComponent extends BaseProfileForm

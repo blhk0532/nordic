@@ -239,11 +239,92 @@ Sanctum91c5726998c839de35750eea81c6063cForm.head = (options?: RouteQueryOptions)
 })
 
 Sanctum91c5726998c839de35750eea81c6063c.form = Sanctum91c5726998c839de35750eea81c6063cForm
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+const Sanctumd329e1ada52ea18773c534265725f03e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Sanctumd329e1ada52ea18773c534265725f03e.url(options),
+    method: 'get',
+})
+
+Sanctumd329e1ada52ea18773c534265725f03e.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/sanctum',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+Sanctumd329e1ada52ea18773c534265725f03e.url = (options?: RouteQueryOptions) => {
+    return Sanctumd329e1ada52ea18773c534265725f03e.definition.url + queryParams(options)
+}
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+Sanctumd329e1ada52ea18773c534265725f03e.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Sanctumd329e1ada52ea18773c534265725f03e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+Sanctumd329e1ada52ea18773c534265725f03e.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Sanctumd329e1ada52ea18773c534265725f03e.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+const Sanctumd329e1ada52ea18773c534265725f03eForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Sanctumd329e1ada52ea18773c534265725f03e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+Sanctumd329e1ada52ea18773c534265725f03eForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Sanctumd329e1ada52ea18773c534265725f03e.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/nds/booking/sanctum'
+*/
+Sanctumd329e1ada52ea18773c534265725f03eForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Sanctumd329e1ada52ea18773c534265725f03e.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Sanctumd329e1ada52ea18773c534265725f03e.form = Sanctumd329e1ada52ea18773c534265725f03eForm
 
 const Sanctum = {
     '/nds/adm/sanctum': Sanctum1806168d47e6de20391b196fb28191f9,
     '/nds/chat/sanctum': Sanctume64f8eb57b38b4d674264fb743bee1bb,
     '/nds/super/sanctum': Sanctum91c5726998c839de35750eea81c6063c,
+    '/nds/booking/sanctum': Sanctumd329e1ada52ea18773c534265725f03e,
 }
 
 export default Sanctum

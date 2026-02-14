@@ -6,8 +6,8 @@ namespace AdultDate\FilamentWirechat\Filament\Resources\Messages\Schemas;
 
 use AdultDate\FilamentWirechat\Enums\MessageType;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class MessageForm
@@ -23,10 +23,8 @@ class MessageForm
                     ->searchable()
                     ->preload()
                     ->getOptionLabelFromRecordUsing(fn ($record) => "Conversation #{$record->id}"),
-                Textarea::make('body')
-                    ->label('Message Body')
-                    ->rows(4)
-                    ->maxLength(5000),
+                RichEditor::make('body')
+                    ->label('Message Body'),
                 Select::make('type')
                     ->label('Message Type')
                     ->options([

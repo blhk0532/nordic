@@ -7,6 +7,94 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string $id
+ * @property string $post_nummer
+ * @property string $post_ort
+ * @property string $post_lan
+ * @property int|null $merinfo_personer_total
+ * @property int|null $merinfo_personer_phone_total
+ * @property int|null $merinfo_personer_house_total
+ * @property int|null $merinfo_foretag_total
+ * @property int|null $merinfo_foretag_phone_total
+ * @property int|null $merinfo_personer_saved
+ * @property int|null $merinfo_personer_phone_saved
+ * @property int|null $merinfo_personer_house_saved
+ * @property int|null $merinfo_foretag_saved
+ * @property int|null $merinfo_foretag_phone_saved
+ * @property int|null $hitta_personer_total
+ * @property int|null $hitta_foretag_total
+ * @property int|null $hitta_personer_saved
+ * @property int|null $hitta_personer_phone_saved
+ * @property int|null $hitta_personer_house_saved
+ * @property int|null $hitta_foretag_saved
+ * @property int|null $ratsit_personer_total
+ * @property int|null $ratsit_foretag_total
+ * @property int|null $ratsit_personer_saved
+ * @property int|null $ratsit_foretag_saved
+ * @property int|null $ratsit_personer_phone_saved
+ * @property int|null $ratsit_personer_house_saved
+ * @property string|null $status
+ * @property bool $is_active
+ * @property int $is_personer_active
+ * @property int $is_foretag_active
+ * @property bool $merinfo_personer_queue
+ * @property bool $merinfo_foretag_queue
+ * @property bool $merinfo_personer_count
+ * @property int $merinfo_foretag_count
+ * @property bool $hitta_personer_queue
+ * @property bool $hitta_foretag_queue
+ * @property bool $ratsit_personer_queue
+ * @property bool $ratsit_foretag_queue
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaForetagQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaForetagSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaForetagTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaPersonerHouseSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaPersonerPhoneSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaPersonerQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaPersonerSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereHittaPersonerTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereIsForetagActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereIsPersonerActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagPhoneSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagPhoneTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoForetagTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerHouseSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerHouseTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerPhoneSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerPhoneTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereMerinfoPersonerTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer wherePostLan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer wherePostNummer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer wherePostOrt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitForetagQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitForetagSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitForetagTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitPersonerHouseSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitPersonerPhoneSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitPersonerQueue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitPersonerSaved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereRatsitPersonerTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Postnummer whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class Postnummer extends Model
 {
     use HasFactory;

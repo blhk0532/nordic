@@ -293,11 +293,308 @@ ViewSearch42c925e50350757508354d24b49ec126Form.head = (args: { record: string | 
 })
 
 ViewSearch42c925e50350757508354d24b49ec126.form = ViewSearch42c925e50350757508354d24b49ec126Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+const ViewSearch1457e2c48bc4996e06d2f95be512b6bd = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, options),
+    method: 'get',
+})
+
+ViewSearch1457e2c48bc4996e06d2f95be512b6bd.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/searches/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return ViewSearch1457e2c48bc4996e06d2f95be512b6bd.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+ViewSearch1457e2c48bc4996e06d2f95be512b6bd.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+ViewSearch1457e2c48bc4996e06d2f95be512b6bd.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+const ViewSearch1457e2c48bc4996e06d2f95be512b6bdForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+ViewSearch1457e2c48bc4996e06d2f95be512b6bdForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/booking/searches/{record}'
+*/
+ViewSearch1457e2c48bc4996e06d2f95be512b6bdForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch1457e2c48bc4996e06d2f95be512b6bd.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewSearch1457e2c48bc4996e06d2f95be512b6bd.form = ViewSearch1457e2c48bc4996e06d2f95be512b6bdForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+const ViewSearch617d0b3b23ebe9d5c76012697abb10b6 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, options),
+    method: 'get',
+})
+
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6.definition = {
+    methods: ["get","head"],
+    url: '/nds/email/searches/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return ViewSearch617d0b3b23ebe9d5c76012697abb10b6.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+const ViewSearch617d0b3b23ebe9d5c76012697abb10b6Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/email/searches/{record}'
+*/
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch617d0b3b23ebe9d5c76012697abb10b6.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewSearch617d0b3b23ebe9d5c76012697abb10b6.form = ViewSearch617d0b3b23ebe9d5c76012697abb10b6Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+const ViewSearch636a65f3579a2295a83bbf8be3ae90f5 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, options),
+    method: 'get',
+})
+
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5.definition = {
+    methods: ["get","head"],
+    url: '/nds/files/searches/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return ViewSearch636a65f3579a2295a83bbf8be3ae90f5.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+const ViewSearch636a65f3579a2295a83bbf8be3ae90f5Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/files/searches/{record}'
+*/
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch636a65f3579a2295a83bbf8be3ae90f5.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewSearch636a65f3579a2295a83bbf8be3ae90f5.form = ViewSearch636a65f3579a2295a83bbf8be3ae90f5Form
 
 const ViewSearch = {
     '/nds/chat/searches/{record}': ViewSearchfefe59097a80b5de71cc5c89986c3f77,
     '/nds/notify/searches/{record}': ViewSearch4af21ec6c42f540005910381a28c1d73,
     '/nds/tools/searches/{record}': ViewSearch42c925e50350757508354d24b49ec126,
+    '/nds/booking/searches/{record}': ViewSearch1457e2c48bc4996e06d2f95be512b6bd,
+    '/nds/email/searches/{record}': ViewSearch617d0b3b23ebe9d5c76012697abb10b6,
+    '/nds/files/searches/{record}': ViewSearch636a65f3579a2295a83bbf8be3ae90f5,
 }
 
 export default ViewSearch

@@ -239,11 +239,254 @@ CreateSearch4e61e5527d3af0cd0b98b827a3bd3f42Form.head = (options?: RouteQueryOpt
 })
 
 CreateSearch4e61e5527d3af0cd0b98b827a3bd3f42.form = CreateSearch4e61e5527d3af0cd0b98b827a3bd3f42Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+const CreateSearch41b2a0982134eabf380c25c508749aff = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch41b2a0982134eabf380c25c508749aff.url(options),
+    method: 'get',
+})
+
+CreateSearch41b2a0982134eabf380c25c508749aff.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/searches/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+CreateSearch41b2a0982134eabf380c25c508749aff.url = (options?: RouteQueryOptions) => {
+    return CreateSearch41b2a0982134eabf380c25c508749aff.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+CreateSearch41b2a0982134eabf380c25c508749aff.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch41b2a0982134eabf380c25c508749aff.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+CreateSearch41b2a0982134eabf380c25c508749aff.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateSearch41b2a0982134eabf380c25c508749aff.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+const CreateSearch41b2a0982134eabf380c25c508749affForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch41b2a0982134eabf380c25c508749aff.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+CreateSearch41b2a0982134eabf380c25c508749affForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch41b2a0982134eabf380c25c508749aff.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/booking/searches/create'
+*/
+CreateSearch41b2a0982134eabf380c25c508749affForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch41b2a0982134eabf380c25c508749aff.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateSearch41b2a0982134eabf380c25c508749aff.form = CreateSearch41b2a0982134eabf380c25c508749affForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+const CreateSearch65e7e64f76760db1788eb0c34d22674f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch65e7e64f76760db1788eb0c34d22674f.url(options),
+    method: 'get',
+})
+
+CreateSearch65e7e64f76760db1788eb0c34d22674f.definition = {
+    methods: ["get","head"],
+    url: '/nds/email/searches/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+CreateSearch65e7e64f76760db1788eb0c34d22674f.url = (options?: RouteQueryOptions) => {
+    return CreateSearch65e7e64f76760db1788eb0c34d22674f.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+CreateSearch65e7e64f76760db1788eb0c34d22674f.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch65e7e64f76760db1788eb0c34d22674f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+CreateSearch65e7e64f76760db1788eb0c34d22674f.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateSearch65e7e64f76760db1788eb0c34d22674f.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+const CreateSearch65e7e64f76760db1788eb0c34d22674fForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch65e7e64f76760db1788eb0c34d22674f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+CreateSearch65e7e64f76760db1788eb0c34d22674fForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch65e7e64f76760db1788eb0c34d22674f.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/email/searches/create'
+*/
+CreateSearch65e7e64f76760db1788eb0c34d22674fForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch65e7e64f76760db1788eb0c34d22674f.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateSearch65e7e64f76760db1788eb0c34d22674f.form = CreateSearch65e7e64f76760db1788eb0c34d22674fForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+const CreateSearch51c492d7e097d673821ede1dcd6af67a = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch51c492d7e097d673821ede1dcd6af67a.url(options),
+    method: 'get',
+})
+
+CreateSearch51c492d7e097d673821ede1dcd6af67a.definition = {
+    methods: ["get","head"],
+    url: '/nds/files/searches/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+CreateSearch51c492d7e097d673821ede1dcd6af67a.url = (options?: RouteQueryOptions) => {
+    return CreateSearch51c492d7e097d673821ede1dcd6af67a.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+CreateSearch51c492d7e097d673821ede1dcd6af67a.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch51c492d7e097d673821ede1dcd6af67a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+CreateSearch51c492d7e097d673821ede1dcd6af67a.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateSearch51c492d7e097d673821ede1dcd6af67a.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+const CreateSearch51c492d7e097d673821ede1dcd6af67aForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch51c492d7e097d673821ede1dcd6af67a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+CreateSearch51c492d7e097d673821ede1dcd6af67aForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch51c492d7e097d673821ede1dcd6af67a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/files/searches/create'
+*/
+CreateSearch51c492d7e097d673821ede1dcd6af67aForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch51c492d7e097d673821ede1dcd6af67a.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateSearch51c492d7e097d673821ede1dcd6af67a.form = CreateSearch51c492d7e097d673821ede1dcd6af67aForm
 
 const CreateSearch = {
     '/nds/chat/searches/create': CreateSearch7ddd2f8e13819d504d711cec74acfd76,
     '/nds/notify/searches/create': CreateSearchb26968091044647a915a8dd7c5b91c30,
     '/nds/tools/searches/create': CreateSearch4e61e5527d3af0cd0b98b827a3bd3f42,
+    '/nds/booking/searches/create': CreateSearch41b2a0982134eabf380c25c508749aff,
+    '/nds/email/searches/create': CreateSearch65e7e64f76760db1788eb0c34d22674f,
+    '/nds/files/searches/create': CreateSearch51c492d7e097d673821ede1dcd6af67a,
 }
 
 export default CreateSearch

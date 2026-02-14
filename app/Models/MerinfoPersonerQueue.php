@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoPersonerQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoPersonerQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoPersonerQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class MerinfoPersonerQueue extends Model
 {
     protected $table = 'merinfo_personer_queue';

@@ -239,11 +239,254 @@ ListSearches875b656d052065d45c2fd5ddbd2c8b1dForm.head = (options?: RouteQueryOpt
 })
 
 ListSearches875b656d052065d45c2fd5ddbd2c8b1d.form = ListSearches875b656d052065d45c2fd5ddbd2c8b1dForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+const ListSearches0b27a2039d6f08c78d83e0b03fb6d512 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url(options),
+    method: 'get',
+})
+
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/searches',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url = (options?: RouteQueryOptions) => {
+    return ListSearches0b27a2039d6f08c78d83e0b03fb6d512.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+const ListSearches0b27a2039d6f08c78d83e0b03fb6d512Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/booking/searches'
+*/
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches0b27a2039d6f08c78d83e0b03fb6d512.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListSearches0b27a2039d6f08c78d83e0b03fb6d512.form = ListSearches0b27a2039d6f08c78d83e0b03fb6d512Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+const ListSearches6efc96f1788b29f160513ae9e9ad2820 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches6efc96f1788b29f160513ae9e9ad2820.url(options),
+    method: 'get',
+})
+
+ListSearches6efc96f1788b29f160513ae9e9ad2820.definition = {
+    methods: ["get","head"],
+    url: '/nds/email/searches',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+ListSearches6efc96f1788b29f160513ae9e9ad2820.url = (options?: RouteQueryOptions) => {
+    return ListSearches6efc96f1788b29f160513ae9e9ad2820.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+ListSearches6efc96f1788b29f160513ae9e9ad2820.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches6efc96f1788b29f160513ae9e9ad2820.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+ListSearches6efc96f1788b29f160513ae9e9ad2820.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListSearches6efc96f1788b29f160513ae9e9ad2820.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+const ListSearches6efc96f1788b29f160513ae9e9ad2820Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches6efc96f1788b29f160513ae9e9ad2820.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+ListSearches6efc96f1788b29f160513ae9e9ad2820Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches6efc96f1788b29f160513ae9e9ad2820.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/email/searches'
+*/
+ListSearches6efc96f1788b29f160513ae9e9ad2820Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches6efc96f1788b29f160513ae9e9ad2820.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListSearches6efc96f1788b29f160513ae9e9ad2820.form = ListSearches6efc96f1788b29f160513ae9e9ad2820Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+const ListSearches9f23a05972b2ea1a4a8ca6fae373091a = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url(options),
+    method: 'get',
+})
+
+ListSearches9f23a05972b2ea1a4a8ca6fae373091a.definition = {
+    methods: ["get","head"],
+    url: '/nds/files/searches',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url = (options?: RouteQueryOptions) => {
+    return ListSearches9f23a05972b2ea1a4a8ca6fae373091a.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+ListSearches9f23a05972b2ea1a4a8ca6fae373091a.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+ListSearches9f23a05972b2ea1a4a8ca6fae373091a.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+const ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/files/searches'
+*/
+ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches9f23a05972b2ea1a4a8ca6fae373091a.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListSearches9f23a05972b2ea1a4a8ca6fae373091a.form = ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm
 
 const ListSearches = {
     '/nds/chat/searches': ListSearches0d679ef96ce513ca3873950998731deb,
     '/nds/notify/searches': ListSearchesc17433135a23af775220e3657f664cdf,
     '/nds/tools/searches': ListSearches875b656d052065d45c2fd5ddbd2c8b1d,
+    '/nds/booking/searches': ListSearches0b27a2039d6f08c78d83e0b03fb6d512,
+    '/nds/email/searches': ListSearches6efc96f1788b29f160513ae9e9ad2820,
+    '/nds/files/searches': ListSearches9f23a05972b2ea1a4a8ca6fae373091a,
 }
 
 export default ListSearches

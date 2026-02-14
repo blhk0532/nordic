@@ -6,6 +6,53 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string|null $personnamn
+ * @property string|null $alder
+ * @property string|null $kon
+ * @property string|null $gatuadress
+ * @property string|null $postnummer
+ * @property string|null $postort
+ * @property array<array-key, mixed>|null $telefon
+ * @property string|null $karta
+ * @property string|null $link
+ * @property string|null $bostadstyp
+ * @property string|null $bostadspris
+ * @property bool $is_active
+ * @property bool $is_telefon
+ * @property bool $is_ratsit
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property bool $is_hus
+ * @property array<array-key, mixed>|null $telefonnumer
+ * @property-read string $telefon_preview
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereAlder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereBostadspris($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereBostadstyp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereGatuadress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereIsHus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereIsRatsit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereIsTelefon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereKarta($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereKon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe wherePersonnamn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe wherePostnummer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe wherePostort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereTelefon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereTelefonnumer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaSe whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class HittaSe extends Model
 {
     protected $table = 'hitta_se';

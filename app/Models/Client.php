@@ -10,6 +10,43 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property int $client_id
+ * @property string $client_fname
+ * @property string $client_lname
+ * @property string|null $client_phone
+ * @property string|null $email
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @property-read mixed $f_name
+ * @property-read mixed $full_name
+ * @property-read mixed $l_name
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Income> $income
+ * @property-read int|null $income_count
+ * @property-read \App\Models\ClientTranslation|null $translation
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ClientTranslation> $translations
+ * @property-read int|null $translations_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ClientType> $types
+ * @property-read int|null $types_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereClientFname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereClientLname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereClientPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Client withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Client extends Model
 {
     use ClientTranslations, HasFactory, SoftDeletes;

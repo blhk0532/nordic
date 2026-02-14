@@ -479,6 +479,326 @@ Logine984e9f0c831b3e9b0cdf1ba2d7d3a65Form.head = (options?: RouteQueryOptions): 
 })
 
 Logine984e9f0c831b3e9b0cdf1ba2d7d3a65.form = Logine984e9f0c831b3e9b0cdf1ba2d7d3a65Form
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+const Logine3d7702d5c92df86176fa7c716eaede9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Logine3d7702d5c92df86176fa7c716eaede9.url(options),
+    method: 'get',
+})
+
+Logine3d7702d5c92df86176fa7c716eaede9.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+Logine3d7702d5c92df86176fa7c716eaede9.url = (options?: RouteQueryOptions) => {
+    return Logine3d7702d5c92df86176fa7c716eaede9.definition.url + queryParams(options)
+}
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+Logine3d7702d5c92df86176fa7c716eaede9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Logine3d7702d5c92df86176fa7c716eaede9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+Logine3d7702d5c92df86176fa7c716eaede9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Logine3d7702d5c92df86176fa7c716eaede9.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+const Logine3d7702d5c92df86176fa7c716eaede9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Logine3d7702d5c92df86176fa7c716eaede9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+Logine3d7702d5c92df86176fa7c716eaede9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Logine3d7702d5c92df86176fa7c716eaede9.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/booking/login'
+*/
+Logine3d7702d5c92df86176fa7c716eaede9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Logine3d7702d5c92df86176fa7c716eaede9.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Logine3d7702d5c92df86176fa7c716eaede9.form = Logine3d7702d5c92df86176fa7c716eaede9Form
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+const Login2ab0ebebc9cd021cbf24c68c1b4259ad = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url(options),
+    method: 'get',
+})
+
+Login2ab0ebebc9cd021cbf24c68c1b4259ad.definition = {
+    methods: ["get","head"],
+    url: '/nds/calendar/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+Login2ab0ebebc9cd021cbf24c68c1b4259ad.url = (options?: RouteQueryOptions) => {
+    return Login2ab0ebebc9cd021cbf24c68c1b4259ad.definition.url + queryParams(options)
+}
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+Login2ab0ebebc9cd021cbf24c68c1b4259ad.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+Login2ab0ebebc9cd021cbf24c68c1b4259ad.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+const Login2ab0ebebc9cd021cbf24c68c1b4259adForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+Login2ab0ebebc9cd021cbf24c68c1b4259adForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/calendar/login'
+*/
+Login2ab0ebebc9cd021cbf24c68c1b4259adForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login2ab0ebebc9cd021cbf24c68c1b4259ad.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Login2ab0ebebc9cd021cbf24c68c1b4259ad.form = Login2ab0ebebc9cd021cbf24c68c1b4259adForm
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+const Loginaa235dba092b3c842df89bcd1401f1b7 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Loginaa235dba092b3c842df89bcd1401f1b7.url(options),
+    method: 'get',
+})
+
+Loginaa235dba092b3c842df89bcd1401f1b7.definition = {
+    methods: ["get","head"],
+    url: '/nds/email/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+Loginaa235dba092b3c842df89bcd1401f1b7.url = (options?: RouteQueryOptions) => {
+    return Loginaa235dba092b3c842df89bcd1401f1b7.definition.url + queryParams(options)
+}
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+Loginaa235dba092b3c842df89bcd1401f1b7.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Loginaa235dba092b3c842df89bcd1401f1b7.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+Loginaa235dba092b3c842df89bcd1401f1b7.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Loginaa235dba092b3c842df89bcd1401f1b7.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+const Loginaa235dba092b3c842df89bcd1401f1b7Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Loginaa235dba092b3c842df89bcd1401f1b7.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+Loginaa235dba092b3c842df89bcd1401f1b7Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Loginaa235dba092b3c842df89bcd1401f1b7.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/email/login'
+*/
+Loginaa235dba092b3c842df89bcd1401f1b7Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Loginaa235dba092b3c842df89bcd1401f1b7.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Loginaa235dba092b3c842df89bcd1401f1b7.form = Loginaa235dba092b3c842df89bcd1401f1b7Form
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+const Login89c01f6e90696715780cbf74fe3ddebe = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login89c01f6e90696715780cbf74fe3ddebe.url(options),
+    method: 'get',
+})
+
+Login89c01f6e90696715780cbf74fe3ddebe.definition = {
+    methods: ["get","head"],
+    url: '/nds/files/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+Login89c01f6e90696715780cbf74fe3ddebe.url = (options?: RouteQueryOptions) => {
+    return Login89c01f6e90696715780cbf74fe3ddebe.definition.url + queryParams(options)
+}
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+Login89c01f6e90696715780cbf74fe3ddebe.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login89c01f6e90696715780cbf74fe3ddebe.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+Login89c01f6e90696715780cbf74fe3ddebe.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Login89c01f6e90696715780cbf74fe3ddebe.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+const Login89c01f6e90696715780cbf74fe3ddebeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login89c01f6e90696715780cbf74fe3ddebe.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+Login89c01f6e90696715780cbf74fe3ddebeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login89c01f6e90696715780cbf74fe3ddebe.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/nds/files/login'
+*/
+Login89c01f6e90696715780cbf74fe3ddebeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login89c01f6e90696715780cbf74fe3ddebe.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Login89c01f6e90696715780cbf74fe3ddebe.form = Login89c01f6e90696715780cbf74fe3ddebeForm
 
 const Login = {
     '/nds/adm/login': Login5cacbc5c3dad06975424a9bdc99ac737,
@@ -487,6 +807,10 @@ const Login = {
     '/nds/notify/login': Logincef8af70fbb617f49064eae4ba18b592,
     '/nds/tools/login': Login63a3562f0c6506fb1dbb47d26a527007,
     '/nds/super/login': Logine984e9f0c831b3e9b0cdf1ba2d7d3a65,
+    '/nds/booking/login': Logine3d7702d5c92df86176fa7c716eaede9,
+    '/nds/calendar/login': Login2ab0ebebc9cd021cbf24c68c1b4259ad,
+    '/nds/email/login': Loginaa235dba092b3c842df89bcd1401f1b7,
+    '/nds/files/login': Login89c01f6e90696715780cbf74fe3ddebe,
 }
 
 export default Login

@@ -17,19 +17,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
- * @property int $user_id
- * @property string $name
- * @property string $slug
  * @property string $ulid
- * @property string|null $avatar
+ * @property int $user_id
+ * @property int $is_active
+ * @property string $name
+ * @property string|null $slug
  * @property bool $personal_team
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read User|null $owner
- * @property-read Collection<int, TeamInvitation> $teamInvitations
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property string|null $avatar
+ * @property-read \App\Models\User|null $owner
+ * @property-read Collection<int, \App\Models\TeamInvitation> $teamInvitations
  * @property-read int|null $team_invitations_count
- * @property-read Membership|null $membership
- * @property-read Collection<int, User> $users
+ * @property-read \App\Models\Membership|null $membership
+ * @property-read Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team newModelQuery()
@@ -38,6 +39,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereAvatar($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team wherePersonalTeam($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team whereSlug($value)

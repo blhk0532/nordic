@@ -24,35 +24,38 @@ use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 
 /**
- * @property int $id
+ * @property string $id
  * @property ConversationType $type Private is 1-1 , group or channel
- * @property \Illuminate\Support\Carbon|null $disappearing_started_at
+ * @property \Carbon\CarbonImmutable|null $disappearing_started_at
  * @property int|null $disappearing_duration
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Action> $actions
  * @property-read int|null $actions_count
- * @property-read Group|null $group
- * @property-read Message|null $lastMessage
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Message> $messages
+ * @property-read \App\Models\Group|null $group
+ * @property-read \App\Models\Message|null $lastMessage
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Message> $messages
  * @property-read int|null $messages_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Participant> $participants
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Participant> $participants
  * @property-read int|null $participants_count
  *
- * @method static Builder|Conversation newModelQuery()
- * @method static Builder|Conversation newQuery()
- * @method static Builder|Conversation query()
- * @method static Builder|Conversation whereCreatedAt($value)
- * @method static Builder|Conversation whereDisappearingDuration($value)
- * @method static Builder|Conversation whereDisappearingStartedAt($value)
- * @method static Builder|Conversation whereHasParticipant($userId, $userType)
- * @method static Builder|Conversation whereId($value)
- * @method static Builder|Conversation whereType($value)
- * @method static Builder|Conversation whereUpdatedAt($value)
- * @method static Builder withDeleted()
- * @method static Builder|Conversation withoutBlanks()
- * @method static Builder|Conversation withoutCleared()
- * @method static Builder|Conversation withoutDeleted()
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\ConversationFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Conversation newModelQuery()
+ * @method static Builder<static>|Conversation newQuery()
+ * @method static Builder<static>|Conversation query()
+ * @method static Builder<static>|Conversation whereCreatedAt($value)
+ * @method static Builder<static>|Conversation whereDisappearingDuration($value)
+ * @method static Builder<static>|Conversation whereDisappearingStartedAt($value)
+ * @method static Builder<static>|Conversation whereHasParticipant($userId, $userType)
+ * @method static Builder<static>|Conversation whereId($value)
+ * @method static Builder<static>|Conversation whereType($value)
+ * @method static Builder<static>|Conversation whereUpdatedAt($value)
+ * @method static Builder<static>|Conversation withDeleted()
+ * @method static Builder<static>|Conversation withoutBlanks()
+ * @method static Builder<static>|Conversation withoutCleared()
+ * @method static Builder<static>|Conversation withoutDeleted()
+ *
+ * @mixin \Eloquent
  */
 class Conversation extends Model
 {

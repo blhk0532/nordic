@@ -7,7 +7,7 @@ namespace Livewire\Features\SupportFileUploads;
 use Exception;
 use Livewire\Exceptions\BypassViewHandler;
 
-class S3DoesntSupportMultipleFileUploads Exception
+class S3DoesntSupportMultipleFileUploads extends Exception
 {
     use BypassViewHandler;
 

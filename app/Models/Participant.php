@@ -20,48 +20,45 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * @property int $id
- * @property int $conversation_id
+ * @property string $conversation_id
  * @property ParticipantRole $role
  * @property int $participantable_id
  * @property string $participantable_type
- * @property \Illuminate\Support\Carbon|null $exited_at
- * @property \Illuminate\Support\Carbon|null $last_active_at
- * @property \Illuminate\Support\Carbon|null $conversation_cleared_at
- * @property \Illuminate\Support\Carbon|null $conversation_deleted_at
- * @property \Illuminate\Support\Carbon|null $conversation_read_at
+ * @property \Carbon\CarbonImmutable|null $exited_at
+ * @property \Carbon\CarbonImmutable|null $last_active_at
+ * @property \Carbon\CarbonImmutable|null $conversation_cleared_at
+ * @property \Carbon\CarbonImmutable|null $conversation_deleted_at
+ * @property \Carbon\CarbonImmutable|null $conversation_read_at
  * @property string|null $deleted_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Action> $actions
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Action> $actions
  * @property-read int|null $actions_count
- * @property-read Conversation $conversation
- * @property-read Model|Eloquent $participantable
+ * @property-read \App\Models\Conversation $conversation
+ * @property-read \Illuminate\Database\Eloquent\Model $participantable
  *
- * @method bool hasDeletedConversation(bool $checkDeletionExpired = false)
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\ParticipantFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Participant newModelQuery()
+ * @method static Builder<static>|Participant newQuery()
+ * @method static Builder<static>|Participant query()
+ * @method static Builder<static>|Participant whereConversationClearedAt($value)
+ * @method static Builder<static>|Participant whereConversationDeletedAt($value)
+ * @method static Builder<static>|Participant whereConversationId($value)
+ * @method static Builder<static>|Participant whereConversationReadAt($value)
+ * @method static Builder<static>|Participant whereCreatedAt($value)
+ * @method static Builder<static>|Participant whereDeletedAt($value)
+ * @method static Builder<static>|Participant whereExitedAt($value)
+ * @method static Builder<static>|Participant whereId($value)
+ * @method static Builder<static>|Participant whereLastActiveAt($value)
+ * @method static Builder<static>|Participant whereParticipantable(\Illuminate\Database\Eloquent\Model|\Illuminate\Contracts\Auth\Authenticatable $model)
+ * @method static Builder<static>|Participant whereParticipantableId($value)
+ * @method static Builder<static>|Participant whereParticipantableType($value)
+ * @method static Builder<static>|Participant whereRole($value)
+ * @method static Builder<static>|Participant whereUpdatedAt($value)
+ * @method static Builder<static>|Participant withExited()
+ * @method static Builder<static>|Participant withoutParticipantable(\Illuminate\Database\Eloquent\Model|\Illuminate\Contracts\Auth\Authenticatable $user)
  *
- * @property-read Model|null $participantable
- *
- * @method static Builder|Participant newModelQuery()
- * @method static Builder|Participant newQuery()
- * @method static Builder|Participant query()
- * @method static Builder|Participant whereConversationClearedAt($value)
- * @method static Builder|Participant whereConversationDeletedAt($value)
- * @method static Builder|Participant whereConversationId($value)
- * @method static Builder|Participant whereConversationReadAt($value)
- * @method static Builder|Participant whereCreatedAt($value)
- * @method static Builder|Participant whereDeletedAt($value)
- * @method static Builder|Participant whereExitedAt($value)
- * @method static Builder|Participant whereId($value)
- * @method static Builder|Participant whereLastActiveAt($value)
- * @method static Builder|Participant whereParticipantable(\Illuminate\Database\Eloquent\Model $model)
- * @method static Builder|Participant whereParticipantableId($value)
- * @method static Builder|Participant whereParticipantableType($value)
- * @method static Builder|Participant whereRole($value)
- * @method static Builder|Participant whereUpdatedAt($value)
- * @method static Builder|Participant withExited()
- * @method static Builder|Participant withoutParticipantable(\Illuminate\Database\Eloquent\Model|\Illuminate\Contracts\Auth\Authenticatable $user)
- *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Participant extends Model
 {

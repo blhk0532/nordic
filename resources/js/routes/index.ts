@@ -218,7 +218,7 @@ registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 register.form = registerForm
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 export const pulse = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -232,7 +232,7 @@ pulse.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 pulse.url = (options?: RouteQueryOptions) => {
@@ -240,7 +240,7 @@ pulse.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 pulse.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -249,7 +249,7 @@ pulse.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 pulse.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -258,7 +258,7 @@ pulse.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 const pulseForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -267,7 +267,7 @@ const pulseForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 pulseForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -276,7 +276,7 @@ pulseForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/laravel/pulse/src/PulseServiceProvider.php:106
 * @route '/pulse'
 */
 pulseForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -292,7 +292,7 @@ pulseForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 pulse.form = pulseForm
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 export const filamentExcelDownload = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -306,7 +306,7 @@ filamentExcelDownload.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 filamentExcelDownload.url = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -332,7 +332,7 @@ filamentExcelDownload.url = (args: { path: string | number } | [path: string | n
 }
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 filamentExcelDownload.get = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -341,7 +341,7 @@ filamentExcelDownload.get = (args: { path: string | number } | [path: string | n
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 filamentExcelDownload.head = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -350,7 +350,7 @@ filamentExcelDownload.head = (args: { path: string | number } | [path: string | 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 const filamentExcelDownloadForm = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -359,7 +359,7 @@ const filamentExcelDownloadForm = (args: { path: string | number } | [path: stri
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 filamentExcelDownloadForm.get = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -368,7 +368,7 @@ filamentExcelDownloadForm.get = (args: { path: string | number } | [path: string
 })
 
 /**
-* @see [serialized-closure]:2
+* @see plugins/pxlrbt/filament-excel/routes/web.php:8
 * @route '/filament-excel/{path}'
 */
 filamentExcelDownloadForm.head = (args: { path: string | number } | [path: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -384,7 +384,7 @@ filamentExcelDownloadForm.head = (args: { path: string | number } | [path: strin
 filamentExcelDownload.form = filamentExcelDownloadForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -398,7 +398,7 @@ home.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -406,7 +406,7 @@ home.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -415,7 +415,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -424,7 +424,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -433,7 +433,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -442,7 +442,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:34
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -539,7 +539,7 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 export const app = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -553,7 +553,7 @@ app.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 app.url = (options?: RouteQueryOptions) => {
@@ -561,7 +561,7 @@ app.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 app.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -570,7 +570,7 @@ app.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 app.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -579,7 +579,7 @@ app.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 const appForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -588,7 +588,7 @@ const appForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 appForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -597,7 +597,7 @@ appForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:44
 * @route '/app'
 */
 appForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -613,7 +613,7 @@ appForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 app.form = appForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 export const bokningar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -627,7 +627,7 @@ bokningar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 bokningar.url = (options?: RouteQueryOptions) => {
@@ -635,7 +635,7 @@ bokningar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 bokningar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -644,7 +644,7 @@ bokningar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 bokningar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -653,7 +653,7 @@ bokningar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 const bokningarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -662,7 +662,7 @@ const bokningarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 bokningarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -671,7 +671,7 @@ bokningarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:45
 * @route '/bokningar'
 */
 bokningarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -768,7 +768,7 @@ queueForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 queue.form = queueForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 export const calendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -782,7 +782,7 @@ calendar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 calendar.url = (options?: RouteQueryOptions) => {
@@ -790,7 +790,7 @@ calendar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 calendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -799,7 +799,7 @@ calendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 calendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -808,7 +808,7 @@ calendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 const calendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -817,7 +817,7 @@ const calendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 calendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -826,7 +826,7 @@ calendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:50
 * @route '/calendar'
 */
 calendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -842,7 +842,7 @@ calendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 calendar.form = calendarForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 export const calendars = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -856,7 +856,7 @@ calendars.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 calendars.url = (options?: RouteQueryOptions) => {
@@ -864,7 +864,7 @@ calendars.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 calendars.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -873,7 +873,7 @@ calendars.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 calendars.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -882,7 +882,7 @@ calendars.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 const calendarsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -891,7 +891,7 @@ const calendarsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 calendarsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -900,7 +900,7 @@ calendarsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:51
 * @route '/calendars'
 */
 calendarsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -916,7 +916,7 @@ calendarsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 calendars.form = calendarsForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 export const calendarOne = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -930,7 +930,7 @@ calendarOne.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 calendarOne.url = (options?: RouteQueryOptions) => {
@@ -938,7 +938,7 @@ calendarOne.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 calendarOne.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -947,7 +947,7 @@ calendarOne.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 calendarOne.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -956,7 +956,7 @@ calendarOne.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 const calendarOneForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -965,7 +965,7 @@ const calendarOneForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 calendarOneForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -974,7 +974,7 @@ calendarOneForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:52
 * @route '/calendar-one'
 */
 calendarOneForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -990,7 +990,7 @@ calendarOneForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 calendarOne.form = calendarOneForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 export const calendarTwo = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1004,7 +1004,7 @@ calendarTwo.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 calendarTwo.url = (options?: RouteQueryOptions) => {
@@ -1012,7 +1012,7 @@ calendarTwo.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 calendarTwo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1021,7 +1021,7 @@ calendarTwo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 calendarTwo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1030,7 +1030,7 @@ calendarTwo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 const calendarTwoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1039,7 +1039,7 @@ const calendarTwoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 calendarTwoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1048,7 +1048,7 @@ calendarTwoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:53
 * @route '/calendar-two'
 */
 calendarTwoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1064,7 +1064,7 @@ calendarTwoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 calendarTwo.form = calendarTwoForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 export const calendarMulti = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1078,7 +1078,7 @@ calendarMulti.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 calendarMulti.url = (options?: RouteQueryOptions) => {
@@ -1086,7 +1086,7 @@ calendarMulti.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 calendarMulti.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1095,7 +1095,7 @@ calendarMulti.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 calendarMulti.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1104,7 +1104,7 @@ calendarMulti.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 const calendarMultiForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1113,7 +1113,7 @@ const calendarMultiForm = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 calendarMultiForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1122,7 +1122,7 @@ calendarMultiForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:54
 * @route '/calendar-multi'
 */
 calendarMultiForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1138,7 +1138,7 @@ calendarMultiForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get
 calendarMulti.form = calendarMultiForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 export const calendarExample = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1152,7 +1152,7 @@ calendarExample.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 calendarExample.url = (options?: RouteQueryOptions) => {
@@ -1160,7 +1160,7 @@ calendarExample.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 calendarExample.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1169,7 +1169,7 @@ calendarExample.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 calendarExample.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1178,7 +1178,7 @@ calendarExample.head = (options?: RouteQueryOptions): RouteDefinition<'head'> =>
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 const calendarExampleForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1187,7 +1187,7 @@ const calendarExampleForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 calendarExampleForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1196,7 +1196,7 @@ calendarExampleForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:55
 * @route '/calendar-example'
 */
 calendarExampleForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1212,7 +1212,7 @@ calendarExampleForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'g
 calendarExample.form = calendarExampleForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 export const bigCalendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1226,7 +1226,7 @@ bigCalendar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 bigCalendar.url = (options?: RouteQueryOptions) => {
@@ -1234,7 +1234,7 @@ bigCalendar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 bigCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1243,7 +1243,7 @@ bigCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 bigCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1252,7 +1252,7 @@ bigCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 const bigCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1261,7 +1261,7 @@ const bigCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 bigCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1270,7 +1270,7 @@ bigCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:56
 * @route '/big-calendar'
 */
 bigCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1286,7 +1286,7 @@ bigCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 bigCalendar.form = bigCalendarForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 export const fullCalendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1300,7 +1300,7 @@ fullCalendar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 fullCalendar.url = (options?: RouteQueryOptions) => {
@@ -1308,7 +1308,7 @@ fullCalendar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 fullCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1317,7 +1317,7 @@ fullCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 fullCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1326,7 +1326,7 @@ fullCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 const fullCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1335,7 +1335,7 @@ const fullCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 fullCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1344,7 +1344,7 @@ fullCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:57
 * @route '/full-calendar'
 */
 fullCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1360,7 +1360,7 @@ fullCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 fullCalendar.form = fullCalendarForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 export const shadcnEventCalendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1374,7 +1374,7 @@ shadcnEventCalendar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 shadcnEventCalendar.url = (options?: RouteQueryOptions) => {
@@ -1382,7 +1382,7 @@ shadcnEventCalendar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 shadcnEventCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1391,7 +1391,7 @@ shadcnEventCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> 
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 shadcnEventCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1400,7 +1400,7 @@ shadcnEventCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 const shadcnEventCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1409,7 +1409,7 @@ const shadcnEventCalendarForm = (options?: RouteQueryOptions): RouteFormDefiniti
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 shadcnEventCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1418,7 +1418,7 @@ shadcnEventCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:58
 * @route '/shadcn-event-calendar'
 */
 shadcnEventCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1434,7 +1434,7 @@ shadcnEventCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinitio
 shadcnEventCalendar.form = shadcnEventCalendarForm
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 export const bookingCalendar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1448,7 +1448,7 @@ bookingCalendar.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 bookingCalendar.url = (options?: RouteQueryOptions) => {
@@ -1456,7 +1456,7 @@ bookingCalendar.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 bookingCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1465,7 +1465,7 @@ bookingCalendar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 bookingCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1474,7 +1474,7 @@ bookingCalendar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> =>
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 const bookingCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1483,7 +1483,7 @@ const bookingCalendarForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 bookingCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1492,7 +1492,7 @@ bookingCalendarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:59
 * @route '/booking-calendar'
 */
 bookingCalendarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

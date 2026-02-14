@@ -6,6 +6,38 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string $id
+ * @property string $name
+ * @property string|null $status
+ * @property int $total_jobs
+ * @property int $pending_jobs
+ * @property int $completed_jobs
+ * @property int $failed_jobs
+ * @property array<array-key, mixed> $failed_job_ids
+ * @property array<array-key, mixed>|null $options
+ * @property int|null $cancelled_at
+ * @property int $created_at
+ * @property int|null $finished_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereCancelledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereCompletedJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereFailedJobIds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereFailedJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereFinishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch wherePendingJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|JobBatch whereTotalJobs($value)
+ *
+ * @mixin \Eloquent
+ */
 class JobBatch extends Model
 {
     /**

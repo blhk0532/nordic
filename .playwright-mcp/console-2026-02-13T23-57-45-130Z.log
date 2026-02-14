@@ -1,0 +1,755 @@
+[   25583ms] [WARNING] Livewire ⚡ Detected: Inertia not initialized. @ http://localhost:8000/build/assets/app-Dyr71XH2.js:89
+[   25691ms] [WARNING] Alpine Expression Error: undefined
+
+Expression: "richEditorFormComponent({
+                        acceptedFileTypes: JSON.parse('[\u0022image\\\/png\u0022,\u0022image\\\/jpeg\u0022,\u0022image\\\/gif\u0022,\u0022image\\\/webp\u0022]'),
+                        acceptedFileTypesValidationMessage: 'Uploaded files must be of type: image\/png, image\/jpeg, image\/gif, image\/webp.',
+                        activePanel: null,
+                        canAttachFiles: true,
+                        deleteCustomBlockButtonIconHtml: '\u003Csvg class=\u0022fi-icon fi-size-md\u0022 xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 viewBox=\u00220 0 20 20\u0022 fill=\u0022currentColor\u0022 aria-hidden=\u0022true\u0022 data-slot=\u0022icon\u0022\u003E\n  \u003Cpath fill-rule=\u0022evenodd\u0022 d=\u0022M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z\u0022 clip-rule=\u0022evenodd\u0022\/\u003E\n\u003C\/svg\u003E',
+                        editCustomBlockButtonIconHtml: '\u003Csvg class=\u0022fi-icon fi-size-md\u0022 xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 viewBox=\u00220 0 20 20\u0022 fill=\u0022currentColor\u0022 aria-hidden=\u0022true\u0022 data-slot=\u0022icon\u0022\u003E\n  \u003Cpath d=\u0022m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z\u0022\/\u003E\n  \u003Cpath d=\u0022M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z\u0022\/\u003E\n\u003C\/svg\u003E',
+                        extensions: [],
+                        floatingToolbars: JSON.parse('{\u0022paragraph\u0022:[\u0022bold\u0022,\u0022italic\u0022,\u0022underline\u0022,\u0022strike\u0022,\u0022subscript\u0022,\u0022superscript\u0022],\u0022heading\u0022:[\u0022h1\u0022,\u0022h2\u0022,\u0022h3\u0022],\u0022table\u0022:[\u0022tableAddColumnBefore\u0022,\u0022tableAddColumnAfter\u0022,\u0022tableDeleteColumn\u0022,\u0022tableAddRowBefore\u0022,\u0022tableAddRowAfter\u0022,\u0022tableDeleteRow\u0022,\u0022tableMergeCells\u0022,\u0022tableSplitCell\u0022,\u0022tableToggleHeaderRow\u0022,\u0022tableToggleHeaderCell\u0022,\u0022tableDelete\u0022]}'),
+                        getMentionLabelsUsing: async (mentions) => {
+                            return await $wire.callSchemaComponentMethod(
+                                'form.content',
+                                'getMentionLabelsForJs',
+                                { mentions },
+                            )
+                        },
+                        getMentionSearchResultsUsing: async (query, char) => {
+                            return await $wire.callSchemaComponentMethod(
+                                'form.content',
+                                'getMentionSearchResultsForJs',
+                                { search: query, char },
+                            )
+                        },
+                        hasResizableImages: false,
+                        isDisabled: false,
+                        isLiveDebounced: false,
+                        isLiveOnBlur: false,
+                        key: 'form.content',
+                        linkProtocols: JSON.parse('[\u0022http\u0022,\u0022https\u0022,\u0022mailto\u0022]'),
+                        liveDebounce: null,
+                        livewireId: 'WSOdsbyEGpgdzxa8o3u4',
+                        maxFileSize: 12288,
+                        maxFileSizeValidationMessage: 'Uploaded files must not be greater than 12288 kilobytes.',
+                        mentions: [],
+                        mergeTags: [],
+                        noMergeTagSearchResultsMessage: 'No merge tag results.',
+                        placeholder: null,
+                        state: $wire.$entangle('data.content', false),
+                        statePath: 'data.content',
+                        textColors: JSON.parse('{\u0022slate\u0022:{\u0022color\u0022:\u0022oklch(0.446 0.043 257.281)\u0022,\u0022darkColor\u0022:\u0022oklch(0.704 0.04 256.788)\u0022},\u0022gray\u0022:{\u0022color\u0022:\u0022oklch(0.446 0.03 256.802)\u0022,\u0022darkColor\u0022:\u0022oklch(0.707 0.022 261.325)\u0022},\u0022zinc\u0022:{\u0022color\u0022:\u0022oklch(0.442 0.017 285.786)\u0022,\u0022darkColor\u0022:\u0022oklch(0.705 0.015 286.067)\u0022},\u0022neutral\u0022:{\u0022color\u0022:\u0022oklch(0.439 0 0)\u0022,\u0022darkColor\u0022:\u0022oklch(0.708 0 0)\u0022},\u0022stone\u0022:{\u0022color\u0022:\u0022oklch(0.444 0.011 73.639)\u0022,\u0022darkColor\u0022:\u0022oklch(0.709 0.01 56.259)\u0022},\u0022red\u0022:{\u0022color\u0022:\u0022oklch(0.577 0.245 27.325)\u0022,\u0022darkColor\u0022:\u0022oklch(0.704 0.191 22.216)\u0022},\u0022orange\u0022:{\u0022color\u0022:\u0022oklch(0.646 0.222 41.116)\u0022,\u0022darkColor\u0022:\u0022oklch(0.75 0.183 55.934)\u0022},\u0022amber\u0022:{\u0022color\u0022:\u0022oklch(0.666 0.179 58.318)\u0022,\u0022darkColor\u0022:\u0022oklch(0.828 0.189 84.429)\u0022},\u0022yellow\u0022:{\u0022color\u0022:\u0022oklch(0.681 0.162 75.834)\u0022,\u0022darkColor\u0022:\u0022oklch(0.852 0.199 91.936)\u0022},\u0022lime\u0022:{\u0022color\u0022:\u0022oklch(0.648 0.2 131.684)\u0022,\u0022darkColor\u0022:\u0022oklch(0.841 0.238 128.85)\u0022},\u0022green\u0022:{\u0022color\u0022:\u0022oklch(0.627 0.194 149.214)\u0022,\u0022darkColor\u0022:\u0022oklch(0.792 0.209 151.711)\u0022},\u0022emerald\u0022:{\u0022color\u0022:\u0022oklch(0.596 0.145 163.225)\u0022,\u0022darkColor\u0022:\u0022oklch(0.765 0.177 163.223)\u0022},\u0022teal\u0022:{\u0022color\u0022:\u0022oklch(0.6 0.118 184.704)\u0022,\u0022darkColor\u0022:\u0022oklch(0.777 0.152 181.912)\u0022},\u0022cyan\u0022:{\u0022color\u0022:\u0022oklch(0.609 0.126 221.723)\u0022,\u0022darkColor\u0022:\u0022oklch(0.789 0.154 211.53)\u0022},\u0022sky\u0022:{\u0022color\u0022:\u0022oklch(0.588 0.158 241.966)\u0022,\u0022darkColor\u0022:\u0022oklch(0.746 0.16 232.661)\u0022},\u0022blue\u0022:{\u0022color\u0022:\u0022oklch(0.546 0.245 262.881)\u0022,\u0022darkColor\u0022:\u0022oklch(0.707 0.165 254.624)\u0022},\u0022indigo\u0022:{\u0022color\u0022:\u0022oklch(0.511 0.262 276.966)\u0022,\u0022darkColor\u0022:\u0022oklch(0.673 0.182 276.935)\u0022},\u0022violet\u0022:{\u0022color\u0022:\u0022oklch(0.541 0.281 293.009)\u0022,\u0022darkColor\u0022:\u0022oklch(0.702 0.183 293.541)\u0022},\u0022purple\u0022:{\u0022color\u0022:\u0022oklch(0.558 0.288 302.321)\u0022,\u0022darkColor\u0022:\u0022oklch(0.714 0.203 305.504)\u0022},\u0022fuchsia\u0022:{\u0022color\u0022:\u0022oklch(0.591 0.293 322.896)\u0022,\u0022darkColor\u0022:\u0022oklch(0.74 0.238 322.16)\u0022},\u0022pink\u0022:{\u0022color\u0022:\u0022oklch(0.592 0.249 0.584)\u0022,\u0022darkColor\u0022:\u0022oklch(0.718 0.202 349.761)\u0022},\u0022rose\u0022:{\u0022color\u0022:\u0022oklch(0.586 0.253 17.585)\u0022,\u0022darkColor\u0022:\u0022oklch(0.712 0.194 13.428)\u0022}}'),
+                        uploadingFileMessage: 'Uploading file...',
+                    })"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: isUploadingFile is not defined
+
+Expression: "{
+                'fi-fo-rich-editor-uploading-file': isUploadingFile,
+            }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('bold', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('italic', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('underline', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('strike', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('subscript', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('superscript', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('link', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25691ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:2}')) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:3}')) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignStart', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignCenter', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignEnd', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('table', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('image', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('undo', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('redo', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: isUploadingFile is not defined
+
+Expression: "isUploadingFile"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: isUploadingFile is not defined
+
+Expression: "! isUploadingFile && fileValidationMessage"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: isUploadingFile is not defined
+
+Expression: "! isUploadingFile && fileValidationMessage"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: fileValidationMessage is not defined
+
+Expression: "fileValidationMessage"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25692ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('bold', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('italic', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('underline', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('strike', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('subscript', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('superscript', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:1}')) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:2}')) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:3}')) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddColumnBefore', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddColumnAfter', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDeleteColumn', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddRowBefore', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddRowAfter', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDeleteRow', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableMergeCells', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25693ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableSplitCell', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableToggleHeaderRow', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableToggleHeaderCell', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: editorUpdatedAt is not defined
+
+Expression: "{ 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDelete', []) }"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: isPanelActive is not defined
+
+Expression: "isPanelActive()"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: isPanelActive is not defined
+
+Expression: "isPanelActive('customBlocks')"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25694ms] [WARNING] Alpine Expression Error: isPanelActive is not defined
+
+Expression: "isPanelActive('mergeTags')"
+
+ JSHandle@node @ http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1132
+[   25718ms] ReferenceError: isUploadingFile is not defined
+    at [Alpine] {
+                'fi-fo-rich-editor-uploading-file': isUploadingFile,
+            } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:4:53)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25718ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('bold', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25719ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('italic', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25719ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('underline', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25719ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('strike', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25720ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('subscript', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25720ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('superscript', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25720ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('link', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25721ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:2}')) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25721ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:3}')) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25721ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignStart', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25722ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignCenter', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25722ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('alignEnd', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25722ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('table', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25723ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('image', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25723ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('undo', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25724ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('redo', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25724ms] ReferenceError: isUploadingFile is not defined
+    at [Alpine] isUploadingFile (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:32)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25725ms] ReferenceError: isUploadingFile is not defined
+    at [Alpine] ! isUploadingFile && fileValidationMessage (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:34)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25725ms] ReferenceError: isUploadingFile is not defined
+    at [Alpine] ! isUploadingFile && fileValidationMessage (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:34)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25725ms] ReferenceError: fileValidationMessage is not defined
+    at [Alpine] fileValidationMessage (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:32)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3548:7
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3547:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25725ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('bold', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25726ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('italic', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25726ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('underline', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25726ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('strike', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25726ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('subscript', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25727ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('superscript', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25727ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:1}')) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25728ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:2}')) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25729ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('heading', JSON.parse('{\u0022level\u0022:3}')) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25729ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddColumnBefore', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25729ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddColumnAfter', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25730ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDeleteColumn', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25730ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddRowBefore', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25731ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableAddRowAfter', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25731ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDeleteRow', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25732ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableMergeCells', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25732ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableSplitCell', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25732ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableToggleHeaderRow', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25733ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableToggleHeaderCell', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25733ms] ReferenceError: editorUpdatedAt is not defined
+    at [Alpine] { 'fi-active': editorUpdatedAt && $getEditor()?.isActive('tableDelete', []) } (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:47)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at handler2 (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3585:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25734ms] ReferenceError: isPanelActive is not defined
+    at [Alpine] isPanelActive() (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:16)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25734ms] ReferenceError: isPanelActive is not defined
+    at [Alpine] isPanelActive('customBlocks') (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:16)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)
+[   25734ms] ReferenceError: isPanelActive is not defined
+    at [Alpine] isPanelActive('mergeTags') (eval at safeAsyncFunction (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1192:21), <anonymous>:3:16)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1214:28
+    at tryCatch (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1119:14)
+    at http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:19
+    at reactiveEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2484:18)
+    at Object.effect2 [as effect] (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:2459:7)
+    at effect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:767:35)
+    at wrappedEffect (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:783:29)
+    at Function.<anonymous> (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:3678:5)
+    at flushHandlers (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:1325:48)

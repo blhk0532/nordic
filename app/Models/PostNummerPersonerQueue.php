@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PostNummerPersonerQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PostNummerPersonerQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PostNummerPersonerQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class PostNummerPersonerQueue extends Model
 {
     protected $table = 'post_nummer_personer_queue';

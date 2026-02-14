@@ -16,6 +16,57 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+/**
+ * @property int $id
+ * @property int|null $booking_brand_id
+ * @property string $name
+ * @property string|null $slug
+ * @property string|null $service_code
+ * @property string|null $description
+ * @property numeric|null $price
+ * @property numeric|null $cost
+ * @property bool $is_available
+ * @property int $time_duration
+ * @property ServiceStatus $status
+ * @property bool $featured
+ * @property bool $is_visible
+ * @property \Carbon\CarbonImmutable|null $published_at
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Booking\Brand|null $brand
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Booking\Category> $categories
+ * @property-read int|null $categories_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, BookingComment> $comments
+ * @property-read int|null $comments_count
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
+ * @property-read int|null $media_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereBookingBrandId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereFeatured($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereIsAvailable($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereIsVisible($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereSeoTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereServiceCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereTimeDuration($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Service whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class Service extends Model implements HasMedia
 {
     /** @use HasFactory<ServiceFactory> */

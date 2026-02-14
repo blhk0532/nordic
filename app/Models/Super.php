@@ -25,21 +25,25 @@ use Illuminate\Support\Facades\Storage;
 /**
  * @property int $id
  * @property bool $status
+ * @property string $role
  * @property string $name
  * @property string $email
- * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string|null $phone
+ * @property \Carbon\CarbonImmutable|null $email_verified_at
  * @property string $password
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
+ * @property string|null $two_factor_confirmed_at
  * @property string|null $remember_token
  * @property string|null $avatar_url
  * @property array<array-key, mixed>|null $custom_fields
  * @property string|null $locale
  * @property string|null $theme_color
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
- * @method static \Database\Factories\SuperFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super query()
@@ -52,9 +56,14 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Super wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereThemeColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereTwoFactorConfirmedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Super whereUpdatedAt($value)
  *
  * @mixin \Eloquent

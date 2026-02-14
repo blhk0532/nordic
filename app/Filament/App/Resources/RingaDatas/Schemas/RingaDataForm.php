@@ -18,6 +18,9 @@ class RingaDataForm
         return $schema
             ->components([
                 RichEditor::make('user_notes')
+                    ->label('Anteckningar')
+                    ->placeholder('Skriv anteckningar här...')
+                    ->live()
                     ->columnSpanFull()
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],

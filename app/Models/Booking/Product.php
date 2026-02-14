@@ -15,6 +15,85 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+/**
+ * @property int $id
+ * @property int|null $booking_brand_id
+ * @property string $name
+ * @property string|null $slug
+ * @property string|null $sku
+ * @property string|null $barcode
+ * @property string|null $description
+ * @property int $qty
+ * @property int $security_stock
+ * @property bool $featured
+ * @property bool $is_visible
+ * @property numeric|null $old_price
+ * @property numeric|null $price
+ * @property numeric|null $cost
+ * @property string|null $type
+ * @property bool $backorder
+ * @property bool $requires_shipping
+ * @property \Carbon\CarbonImmutable|null $published_at
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property numeric|null $weight_value
+ * @property string $weight_unit
+ * @property numeric|null $height_value
+ * @property string $height_unit
+ * @property numeric|null $width_value
+ * @property string $width_unit
+ * @property numeric|null $depth_value
+ * @property string $depth_unit
+ * @property numeric|null $volume_value
+ * @property string $volume_unit
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Booking\Brand|null $brand
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Booking\Category> $categories
+ * @property-read int|null $categories_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, BookingComment> $comments
+ * @property-read int|null $comments_count
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
+ * @property-read int|null $media_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereBackorder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereBarcode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereBookingBrandId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereDepthUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereDepthValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereFeatured($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereHeightUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereHeightValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereIsVisible($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereOldPrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereQty($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereRequiresShipping($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereSecurityStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereSeoTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereSku($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereVolumeUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereVolumeValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereWeightUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereWeightValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereWidthUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereWidthValue($value)
+ *
+ * @mixin \Eloquent
+ */
 class Product extends Model implements HasMedia
 {
     /** @use HasFactory<ProductFactory> */

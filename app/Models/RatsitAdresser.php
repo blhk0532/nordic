@@ -6,6 +6,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string $post_ort
+ * @property string $post_nummer
+ * @property string $gatuadress_namn
+ * @property int $personer_count
+ * @property int $foretag_count
+ * @property string|null $personer_link
+ * @property string|null $foretag_link
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereForetagCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereForetagLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereGatuadressNamn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser wherePersonerCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser wherePersonerLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser wherePostNummer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser wherePostOrt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitAdresser whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class RatsitAdresser extends Model
 {
     protected $table = 'ratsit_adresser';

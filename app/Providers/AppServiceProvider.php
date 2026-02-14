@@ -2,13 +2,16 @@
 
 namespace App\Providers;
 
+use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Carbon\CarbonImmutable;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
-use BezhanSalleh\PanelSwitch\PanelSwitch;
-use Filament\View\PanelsRenderHook;
+use Livewire\Livewire;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,8 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureDefaults();
 
-
-                PanelSwitch::configureUsing(function (PanelSwitch $switch): void {
+        PanelSwitch::configureUsing(function (PanelSwitch $switch): void {
             $switch
                 ->labels([
                     'admin' => 'Admin',
@@ -61,13 +63,16 @@ class AppServiceProvider extends ServiceProvider
                 ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                 ->sort('asc');
 
-
             $panels = [];
 
-
-
             $switch->panels($panels);
-            });
+        });
+
+        // Register UserNotes modal outside of Topbar to prevent Livewire entangle conflicts
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::BODY_START,
+            fn (): string => view('filament.app.user-notes-modal-container')->render(),
+        );
     }
 
     protected function configureDefaults(): void

@@ -20,27 +20,28 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property string $actor_type
  * @property Actions $type
  * @property string|null $data Some additional information about the action
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Model|Eloquent $actionable
- * @property-read Model|Eloquent $actor
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read Model|\Eloquent $actionable
+ * @property-read Model|\Eloquent $actor
  *
- * @method static Builder|Action newModelQuery()
- * @method static Builder|Action newQuery()
- * @method static Builder|Action query()
- * @method static Builder|Action whereActionableId($value)
- * @method static Builder|Action whereActionableType($value)
- * @method static Builder|Action whereActor(\Illuminate\Database\Eloquent\Model $actor)
- * @method static Builder|Action whereActorId($value)
- * @method static Builder|Action whereActorType($value)
- * @method static Builder|Action whereCreatedAt($value)
- * @method static Builder|Action whereData($value)
- * @method static Builder|Action whereId($value)
- * @method static Builder|Action whereType($value)
- * @method static Builder|Action whereUpdatedAt($value)
- * @method static Builder|Action withoutActor(\Illuminate\Database\Eloquent\Model $user)
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\ActionFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Action newModelQuery()
+ * @method static Builder<static>|Action newQuery()
+ * @method static Builder<static>|Action query()
+ * @method static Builder<static>|Action whereActionableId($value)
+ * @method static Builder<static>|Action whereActionableType($value)
+ * @method static Builder<static>|Action whereActor(\Illuminate\Database\Eloquent\Model $actor)
+ * @method static Builder<static>|Action whereActorId($value)
+ * @method static Builder<static>|Action whereActorType($value)
+ * @method static Builder<static>|Action whereCreatedAt($value)
+ * @method static Builder<static>|Action whereData($value)
+ * @method static Builder<static>|Action whereId($value)
+ * @method static Builder<static>|Action whereType($value)
+ * @method static Builder<static>|Action whereUpdatedAt($value)
+ * @method static Builder<static>|Action withoutActor(\Illuminate\Database\Eloquent\Model $user)
  *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Action extends Model
 {

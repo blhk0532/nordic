@@ -7,6 +7,65 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string|null $luid
+ * @property string|null $name
+ * @property string|null $address
+ * @property string|null $street
+ * @property string|null $city
+ * @property string|null $maps
+ * @property int|null $age
+ * @property string|null $sex
+ * @property \Carbon\CarbonImmutable|null $dob
+ * @property string|null $phone
+ * @property string|null $status
+ * @property string|null $type
+ * @property string|null $notes
+ * @property string|null $result
+ * @property int $attempts
+ * @property int|null $user_id
+ * @property int|null $service_user_id
+ * @property int|null $booking_user_id
+ * @property \Carbon\CarbonImmutable|null $start_time
+ * @property \Carbon\CarbonImmutable|null $end_time
+ * @property bool $is_active
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\User|null $bookingUser
+ * @property-read \App\Models\User|null $serviceUser
+ * @property-read \App\Models\User|null $user
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereAge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereAttempts($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereBookingUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereDob($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereLuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereMaps($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereResult($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereServiceUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereSex($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereStartTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingOutcallQueue whereUserId($value)
+ *
+ * @mixin \Eloquent
+ */
 class BookingOutcallQueue extends Model
 {
     use HasFactory;

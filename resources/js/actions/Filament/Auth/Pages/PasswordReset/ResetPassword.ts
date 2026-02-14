@@ -479,6 +479,246 @@ ResetPassword01e2dc01003e5970db905fba3bcb4643Form.head = (options?: RouteQueryOp
 })
 
 ResetPassword01e2dc01003e5970db905fba3bcb4643.form = ResetPassword01e2dc01003e5970db905fba3bcb4643Form
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+const ResetPassword4f89c44c35a7c227994d42b0f3b12f3c = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url(options),
+    method: 'get',
+})
+
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.definition = {
+    methods: ["get","head"],
+    url: '/nds/calendar/password-reset/reset',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url = (options?: RouteQueryOptions) => {
+    return ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+const ResetPassword4f89c44c35a7c227994d42b0f3b12f3cForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3cForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/calendar/password-reset/reset'
+*/
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3cForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ResetPassword4f89c44c35a7c227994d42b0f3b12f3c.form = ResetPassword4f89c44c35a7c227994d42b0f3b12f3cForm
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+const ResetPassword6124c04be7fd20421395a9b0dab3d314 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPassword6124c04be7fd20421395a9b0dab3d314.url(options),
+    method: 'get',
+})
+
+ResetPassword6124c04be7fd20421395a9b0dab3d314.definition = {
+    methods: ["get","head"],
+    url: '/nds/email/password-reset/reset',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+ResetPassword6124c04be7fd20421395a9b0dab3d314.url = (options?: RouteQueryOptions) => {
+    return ResetPassword6124c04be7fd20421395a9b0dab3d314.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+ResetPassword6124c04be7fd20421395a9b0dab3d314.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPassword6124c04be7fd20421395a9b0dab3d314.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+ResetPassword6124c04be7fd20421395a9b0dab3d314.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ResetPassword6124c04be7fd20421395a9b0dab3d314.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+const ResetPassword6124c04be7fd20421395a9b0dab3d314Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword6124c04be7fd20421395a9b0dab3d314.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+ResetPassword6124c04be7fd20421395a9b0dab3d314Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword6124c04be7fd20421395a9b0dab3d314.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/email/password-reset/reset'
+*/
+ResetPassword6124c04be7fd20421395a9b0dab3d314Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPassword6124c04be7fd20421395a9b0dab3d314.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ResetPassword6124c04be7fd20421395a9b0dab3d314.form = ResetPassword6124c04be7fd20421395a9b0dab3d314Form
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+const ResetPasswordffad7df53d54e0786e5600f20deebbcb = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url(options),
+    method: 'get',
+})
+
+ResetPasswordffad7df53d54e0786e5600f20deebbcb.definition = {
+    methods: ["get","head"],
+    url: '/nds/files/password-reset/reset',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+ResetPasswordffad7df53d54e0786e5600f20deebbcb.url = (options?: RouteQueryOptions) => {
+    return ResetPasswordffad7df53d54e0786e5600f20deebbcb.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+ResetPasswordffad7df53d54e0786e5600f20deebbcb.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+ResetPasswordffad7df53d54e0786e5600f20deebbcb.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+const ResetPasswordffad7df53d54e0786e5600f20deebbcbForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+ResetPasswordffad7df53d54e0786e5600f20deebbcbForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
+* @route '/nds/files/password-reset/reset'
+*/
+ResetPasswordffad7df53d54e0786e5600f20deebbcbForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordffad7df53d54e0786e5600f20deebbcb.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ResetPasswordffad7df53d54e0786e5600f20deebbcb.form = ResetPasswordffad7df53d54e0786e5600f20deebbcbForm
 
 const ResetPassword = {
     '/nds/adm/password-reset/reset': ResetPassword31fe3fcaa0c5da8fca25624f8be80b95,
@@ -487,6 +727,9 @@ const ResetPassword = {
     '/nds/notify/password-reset/reset': ResetPassword6a9da8deec0604263ef565cbc5eb49cd,
     '/nds/tools/password-reset/reset': ResetPassword323b58fa16900ccee73e10f6caf172a1,
     '/nds/super/password-reset/reset': ResetPassword01e2dc01003e5970db905fba3bcb4643,
+    '/nds/calendar/password-reset/reset': ResetPassword4f89c44c35a7c227994d42b0f3b12f3c,
+    '/nds/email/password-reset/reset': ResetPassword6124c04be7fd20421395a9b0dab3d314,
+    '/nds/files/password-reset/reset': ResetPasswordffad7df53d54e0786e5600f20deebbcb,
 }
 
 export default ResetPassword

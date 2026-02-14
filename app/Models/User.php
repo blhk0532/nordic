@@ -48,51 +48,126 @@ use Zap\Models\Concerns\HasSchedules;
 
 /**
  * @property int $id
+ * @property int|null $author_id
+ * @property int|null $assigned_to_id
  * @property string $ulid
  * @property bool $status
- * @property string $name
- * @property string $email
- * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string $role
+ * @property int|null $type_id
+ * @property string|null $name
+ * @property string|null $name_first
+ * @property string|null $name_last
+ * @property string|null $address
+ * @property string|null $email
+ * @property string|null $email_private
+ * @property string|null $phone
+ * @property string|null $team
+ * @property string|null $phone_private
+ * @property \Carbon\CarbonImmutable|null $email_verified_at
  * @property string $password
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
+ * @property string|null $two_factor_confirmed_at
  * @property string|null $remember_token
+ * @property int $is_active
  * @property string|null $avatar_url
  * @property array<array-key, mixed>|null $custom_fields
  * @property string|null $locale
  * @property string|null $theme_color
  * @property UserActiveStatus $active_status
- * @property \Illuminate\Support\Carbon|null $active_at
- * @property string|null $notes
+ * @property \Carbon\CarbonImmutable|null $active_at
  * @property int|null $current_team_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Team|null $currentTeam
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property array<array-key, mixed>|null $ui_preferences
+ * @property string|null $notes
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $activeSchedules
+ * @property-read int|null $active_schedules_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
+ * @property-read int|null $activities_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $appointmentSchedules
+ * @property-read int|null $appointment_schedules_count
+ * @property-read User|null $assignedTo
+ * @property-read User|null $author
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $availabilitySchedules
+ * @property-read int|null $availability_schedules_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $blockedSchedules
+ * @property-read int|null $blocked_schedules_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Conversation> $conversations
+ * @property-read int|null $conversations_count
+ * @property-read \App\Models\Team|null $currentTeam
+ * @property-read string|null $cover_url
+ * @property-read string|null $display_name
+ * @property-read string|null $profile_url
+ * @property-read string|null $wirechat_avatar_url
+ * @property-read string|null $wirechat_name
+ * @property-read string|null $wirechat_profile_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Team> $ownedTeams
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Client> $oauthApps
+ * @property-read int|null $oauth_apps_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Team> $ownedTeams
  * @property-read int|null $owned_teams_count
- * @property-read Membership|null $membership
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Team> $teams
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentDialer\Models\PhoneQueue> $phone_queues
+ * @property-read int|null $phone_queues_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $recurringSchedules
+ * @property-read int|null $recurring_schedules_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\RingaData> $ringaData
+ * @property-read int|null $ringa_data_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
+ * @property-read int|null $roles_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Zap\Models\Schedule> $schedules
+ * @property-read int|null $schedules_count
+ * @property-read \App\Models\Membership|null $membership
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Team> $teams
  * @property-read int|null $teams_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token> $tokens
+ * @property-read int|null $tokens_count
  *
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User permission($permissions, $without = false)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUlid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User role($roles, $guard = null, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereActiveAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereActiveStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAssignedToId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAuthorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAvatarUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCurrentTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCustomFields($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailPrivate($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereNameFirst($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereNameLast($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereNotes($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePhonePrivate($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTeam($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereThemeColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorConfirmedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUiPreferences($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUlid($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutRole($roles, $guard = null)
  *
  * @mixin \Eloquent
  */

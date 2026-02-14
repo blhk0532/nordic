@@ -1,4 +1,4 @@
-@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
 
 @source '../../../../app/Filament/Admin/**/*';
 @source '../../../../resources/views/filament/admin/**/*';
@@ -6,21 +6,18 @@
 @source '../../../../vendor/wallacemartinss/filament-whatsapp-conector/resources/views/**/*';
 @source '../../../../vendor/wallacemartinss/filament-whatsapp-conector/src/**/*';
 
-@import '../../../../vendor/adultdate/filament-wirechat/resources/css/filament-wirechat.css';
+@import "../../../../vendor/adultdate/filament-wirechat/resources/css/filament-wirechat.css";
 @source '../../../../vendor/adultdate/filament-wirechat/resources/**/*.blade.php';
 
-@import '../../../../plugins/adultdate/filament-booking/resources/css/calendar.css';
-@import '../../../../plugins/adultdate/filament-booking/resources/css/filament-fullcalendar.css';
-@import '../../../../plugins/adultdate/filament-booking/resources/css/theme.css';
+@import "../../../../plugins/adultdate/filament-booking/resources/css/calendar.css";
+@import "../../../../plugins/adultdate/filament-booking/resources/css/filament-fullcalendar.css";
+@import "../../../../plugins/adultdate/filament-booking/resources/css/theme.css";
 @source '../../../../plugins/adultdate/filament-booking/resources/views/**/*.blade.php';
 
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 
-
-@import '../../../../vendor/bezhansalleh/filament-panel-switch/resources/css/panel-switch.css';
+@import "../../../../vendor/bezhansalleh/filament-panel-switch/resources/css/panel-switch.css";
 @source '../../../../vendor/bezhansalleh/filament-panel-switch/resources/views/**/*.blade.php';
-
-
 
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 @source '../../../../vendor/awcodes/overlook/resources/**/*.blade.php';
@@ -28,11 +25,8 @@
 @source '../../../../vendor/andreia/filament-ui-switcher';
 @source '../../../../vendor/awcodes/filament-badgeable-column/resources/**/*.blade.php';
 
-
-
-
 ::-webkit-scrollbar {
-    width: .56vw !important;
+    width: 0.56vw !important;
     height: 8px !important;
 }
 
@@ -120,87 +114,83 @@
     text-decoration: none !important;
 }
 
-        @media screen and (min-width: 900px) {
-          .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
-    z-index: 10000 !important;
-min-width: 868px!important;;
-}
-form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
-    min-width: 868px!important;
-}
-        }
-
-
-div.fc-timegrid-event-harness .fc-timegrid-event-harness-inset{
-    margin-top: 2px!important;
-}
-.fc-timegrid-event-harness-inset{
-    margin-top: 2px!important;
+@media screen and (min-width: 900px) {
+    .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md {
+        z-index: 10000 !important;
+        min-width: 868px !important;
+    }
+    form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md {
+        min-width: 868px !important;
+    }
 }
 
-.fc-event-time{
-    font-size: 10px!important;
-     margin-bottom: 3px!important;
-  margin-top: -3px!important;
-  font-weight: bold!important;
+div.fc-timegrid-event-harness .fc-timegrid-event-harness-inset {
+    margin-top: 2px !important;
 }
-div.fc-event-time{
-    font-size: 10px!important;
-     margin-bottom: 3px!important;
-  margin-top: -3px!important;
-  font-weight: bold!important;
+.fc-timegrid-event-harness-inset {
+    margin-top: 2px !important;
 }
-.fc-timegrid-event .fc-event-time{
-    font-size: 10px!important;
-     margin-bottom: 3px!important;
-  margin-top: -3px!important;
-  font-weight: bold!important;
-}
-div.fc-timegrid-event .fc-event-time{
-    font-size: 10px!important;
-     margin-bottom: 3px!important;
-  margin-top: -3px!important;
-  font-weight: bold!important;
-}
-.fc-v-event .fc-event-time{
-     font-size: 10px!important;
-     margin-bottom: 3px!important;
-  margin-top: -3px!important;
-  font-weight: bold!important;
-}
-.fc-v-event .fc-event-title{
-    font-size: 12px!important;
-  margin-top: -4px!important;
 
+.fc-event-time {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+    margin-top: -3px !important;
+    font-weight: bold !important;
+}
+div.fc-event-time {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+    margin-top: -3px !important;
+    font-weight: bold !important;
+}
+.fc-timegrid-event .fc-event-time {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+    margin-top: -3px !important;
+    font-weight: bold !important;
+}
+div.fc-timegrid-event .fc-event-time {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+    margin-top: -3px !important;
+    font-weight: bold !important;
+}
+.fc-v-event .fc-event-time {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+    margin-top: -3px !important;
+    font-weight: bold !important;
+}
+.fc-v-event .fc-event-title {
+    font-size: 12px !important;
+    margin-top: -4px !important;
 }
 
 /* Hide event title text in month (dayGrid) view to show only dots/times */
 .fc-daygrid .fc-event-title,
 .fc-daygrid .fc-daygrid-event .fc-event-title {
-         font-weight: normal!important;
+    font-weight: normal !important;
 }
 
-a.fc-event.fc-event-draggable.fc-event-resizable.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygrid-dot-event{
-    display: none!important;
+a.fc-event.fc-event-draggable.fc-event-resizable.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygrid-dot-event {
+    display: none !important;
 }
 
-div.logo-before{
-   display:none!important;
+div.logo-before {
+    display: none !important;
 }
-
 
 #app-wirechat-widget {
-    position: relative!important;
+    position: relative !important;
 }
 #app-wirechat-widget .filament-widgets-widget {
-    height: calc(100vh - 4rem)!important;
-    max-height: calc(100vh - 4rem)!important;
+    height: calc(100vh - 4rem) !important;
+    max-height: calc(100vh - 4rem) !important;
 }
 
-.fi-pagination.fi-simple{
+.fi-pagination.fi-simple {
     display: flex;
     justify-content: end;
-
 }
 
 /*
@@ -215,100 +205,94 @@ header.fi-header.fi-header-has-breadcrumbs{
 
 */
 
-
 .filament-world-clock-header {
-    margin-bottom: 1.5rem!important;
+    margin-bottom: 1.5rem !important;
 }
 
 div.filament-world-clock-content-city-hour {
-    font-size: 1rem!important;
-    font-weight: 600!important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
 }
 div.filament-world-clock-content {
-    gap:1rem!important;
+    gap: 1rem !important;
 }
 
-
-div.fi-sc-tabs{
+div.fi-sc-tabs {
     position: absolute;
     top: 5rem;
-    height:2rem;
+    height: 2rem;
 }
 
-div.fi-header.fi-header-has-breadcrumbs{
-    display:none!important;
+div.fi-header.fi-header-has-breadcrumbs {
+    display: none !important;
 }
-.fi-header.fi-header-has-breadcrumbs{
-    display:none!important;
+.fi-header.fi-header-has-breadcrumbs {
+    display: none !important;
+}
+
+@media screen and (min-width: 900px) {
+    .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md {
+        z-index: 10000 !important;
+        min-width: 868px !important;
+    }
+    form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md {
+        min-width: 868px !important;
+    }
 }
 
 @media screen and (min-width: 900px) {
-.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
-    z-index: 10000 !important;
-min-width: 868px!important;;
-}
-form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
-    min-width: 868px!important;
-}
+    .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-lg {
+        min-width: 868px !important;
+    }
 }
 
-
-@media screen and (min-width: 900px) {
-.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-lg{
-   min-width: 868px!important;
-}
+.filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack {
+    min-height: 700px;
 }
 
-
-.filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack{
-  min-height: 700px;
+div.fi-modal-icon-bg {
+    margin-top: 6rem !important;
 }
 
-div.fi-modal-icon-bg{
-   margin-top:6rem!important;
+.fi-avatar.fi-size-md.fi-tenant-avatar {
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
 }
-
-.fi-avatar.fi-size-md.fi-tenant-avatar{
-overflow: hidden;
-width: 24px;
-  height: 24px;
-}
-
-
 
 .fc-y2.fc-Y2.fc-gI.fc-Es {
-  display: none!important;
+    display: none !important;
 }
 .items-center.hover\:bg-foreground\/5.mb-px.p-px.rounded-sm.mx-px {
-  display: none !important;
+    display: none !important;
 }
 
-.bg-gray-100{
-    background-color: #2b2b2b!important;
+.bg-gray-100 {
+    background-color: #2b2b2b !important;
 }
-.bg-gray-200{
-    background-color: #2b2b2b!important;
+.bg-gray-200 {
+    background-color: #2b2b2b !important;
 }
-.bg-gray-700{
-    background-color: #111111!important;
+.bg-gray-700 {
+    background-color: #111111 !important;
 }
 
-div.filament-fullcalendar.filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
-        width: 100% !important;
+div.filament-fullcalendar.filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+    width: 100% !important;
 }
 div.filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack {
     max-height: 760px;
 }
 
 .calendar-widget-wrapper {
-width: 100% !important;
-  height: 100% !important;
-  overflow: auto !important;
-  background: transparent;
-  /*
+    width: 100% !important;
+    height: 100% !important;
+    overflow: auto !important;
+    background: transparent;
+    /*
   border: 2px solid #80808080;
   */
-  border-radius: 12px;
+    border-radius: 12px;
 }
 
 .calendar-widget-wrapper > div {
@@ -316,46 +300,45 @@ width: 100% !important;
     height: 100% !important;
 }
 
-.left-side-topicons{
+.left-side-topicons {
     margin: 0 10px;
 }
-  /*
+/*
 .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-align-start.fi-width-3xl{
     min-width: 900px!important;
 }
 */
 
-#calendar-modal{
-    position:absolute;
+#calendar-modal {
+    position: absolute;
 }
 
-.fi-section{
-    --tw-ring-color:transparent!important;
+.fi-section {
+    --tw-ring-color: transparent !important;
 }
-.filament-fullcalendar{
-    overflow: hidden!important;
+.filament-fullcalendar {
+    overflow: hidden !important;
 }
 
 .fc-scroller {
     overflow: hidden auto !important;
 }
 
-.fi-text-color-950{
-    color:white!important;
+.fi-text-color-950 {
+    color: white !important;
 }
 
-
-.outcome-button svg{
-    color:white!important;
-    fill:#ffffff!important;
+.outcome-button svg {
+    color: white !important;
+    fill: #ffffff !important;
 }
-.outcome-buttons-section{
-    padding:4px!important;
+.outcome-buttons-section {
+    padding: 4px !important;
 }
-.outcome-button{
-    color:white!important;
-    fill:#ffffff!important;
-    margin:2px!important;
+.outcome-button {
+    color: white !important;
+    fill: #ffffff !important;
+    margin: 2px !important;
 }
 
 .outcome-buttons-section .fi-section-header-after-ctn .fi-sc {
@@ -382,34 +365,34 @@ width: 100% !important;
     padding: 0.5rem 0.5rem !important;
 }
 
-footer span.w-full{
-position: absolute;
-  left: 64px;
-  text-align: left;
-  top: 22px;
-  opacity: 0.8;
-  width: auto;
-  white-space: nowrap;
+footer span.w-full {
+    position: absolute;
+    left: 64px;
+    text-align: left;
+    top: 22px;
+    opacity: 0.8;
+    width: auto;
+    white-space: nowrap;
 }
 
-footer.fi-footer{
+footer.fi-footer {
     display: flex;
-  height: 50px;
+    height: 50px;
 }
-img.w-auto.object-contain{
+img.w-auto.object-contain {
     height: 24px;
-  position: absolute;
-  left: 24px;
-  top: 20px;
+    position: absolute;
+    left: 24px;
+    top: 20px;
 }
 .fi-badge-label-ctn {
-  max-height: 14px;
+    max-height: 14px;
 }
 
-.fc-dom-16{
+.fc-dom-16 {
     position: absolute;
-  left: 10rem;
-  top: 5px;
+    left: 10rem;
+    top: 5px;
 }
 .outcome-recorder .fi-btn,
 .outcome-recorder .fi-button,
@@ -443,7 +426,7 @@ img.w-auto.object-contain{
     height: 100% !important;
 }
 
-.text-queue-card{
+.text-queue-card {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -460,52 +443,52 @@ img.w-auto.object-contain{
 } */
 
 div.fi-fo-table-repeater-add {
-    display:content;
+    display: content;
 }
-  .fi-fo-table-repeater .fi-fo-table-repeater-add{
-    display: contents!important;
-  }
-
-h2.fc-dom-16{
-position: absolute;
-  left: 172px;
-  top: 6px;
-}
-#fc-dom-16{
-position: absolute;
-  left: 172px;
-  top: 6px;
+.fi-fo-table-repeater .fi-fo-table-repeater-add {
+    display: contents !important;
 }
 
-.fi-modal-footer.fi-align-start{
-        display: flex;
+h2.fc-dom-16 {
+    position: absolute;
+    left: 172px;
+    top: 6px;
+}
+#fc-dom-16 {
+    position: absolute;
+    left: 172px;
+    top: 6px;
+}
+
+.fi-modal-footer.fi-align-start {
+    display: flex;
     justify-content: right;
 }
-html{
-    scrollbar-gutter: auto!important;
-    overflow: hidden;
+html {
+    scrollbar-gutter: auto !important;
     max-height: 100vh;
-
 }
-.fi-sidebar.fi-main-sidebar.fi-sidebar-opened{
+.fi-sidebar.fi-main-sidebar.fi-sidebar-opened {
     overflow: hidden;
 }
-.fi-main-ctn.fi-main-ctn-sidebar-open{
-        display: flex;
+.fi-main-ctn.fi-main-ctn-sidebar-open {
+    display: flex;
     max-height: 90vh;
     opacity: 1;
     overflow: auto;
 }
 
-.fi-dropdown-panel.fi-scrollable{
+.fi-dropdown-panel.fi-scrollable {
     min-width: 288px;
 }
 
-
 /* Left slide modal */
 .fi-modal-slide-over-left {
-    --tw-translate-x: -100%!important;
+    --tw-translate-x: -100% !important;
 }
 
-
-
+/* Fix RichEditor pointer events */
+.fi-fo-rich-editor,
+.fi-fo-rich-editor * {
+    pointer-events: auto !important;
+}

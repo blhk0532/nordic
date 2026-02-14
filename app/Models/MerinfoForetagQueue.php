@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoForetagQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoForetagQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MerinfoForetagQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class MerinfoForetagQueue extends Model
 {
     protected $table = 'merinfo_foretag_queue';

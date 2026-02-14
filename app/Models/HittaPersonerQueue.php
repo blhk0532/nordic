@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaPersonerQueue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaPersonerQueue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|HittaPersonerQueue query()
+ *
+ * @mixin \Eloquent
+ */
 class HittaPersonerQueue extends Model
 {
     protected $table = 'hitta_personer_queue';

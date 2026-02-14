@@ -29,21 +29,34 @@ use Illuminate\Support\Facades\Storage;
  * @property int $id
  * @property string $ulid
  * @property bool $status
+ * @property int $is_super_admin
+ * @property string $role
  * @property string $name
  * @property string $email
- * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string|null $phone
+ * @property \Carbon\CarbonImmutable|null $email_verified_at
  * @property string $password
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
+ * @property string|null $two_factor_confirmed_at
  * @property string|null $remember_token
  * @property string|null $avatar_url
  * @property array<array-key, mixed>|null $custom_fields
  * @property string|null $locale
  * @property string|null $theme_color
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \AdultDate\FilamentWirechat\Models\Conversation> $conversations
+ * @property-read int|null $conversations_count
+ * @property-read string|null $cover_url
+ * @property-read string|null $display_name
+ * @property-read string|null $profile_url
+ * @property-read string|null $wirechat_avatar_url
+ * @property-read string|null $wirechat_name
+ * @property-read string|null $wirechat_profile_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
- * @method static \Database\Factories\AdminFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin query()
@@ -53,13 +66,19 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereUlid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereIsSuperAdmin($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereThemeColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereTwoFactorConfirmedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereTwoFactorSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereUlid($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereUpdatedAt($value)
  *
  * @mixin \Eloquent

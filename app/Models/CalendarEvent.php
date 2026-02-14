@@ -7,6 +7,35 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $title
+ * @property \Carbon\CarbonImmutable $start
+ * @property \Carbon\CarbonImmutable|null $end
+ * @property bool $all_day
+ * @property string|null $background_color
+ * @property string|null $description
+ * @property int|null $user_id
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\User|null $user
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereAllDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereBackgroundColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereEnd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereStart($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CalendarEvent whereUserId($value)
+ *
+ * @mixin \Eloquent
+ */
 class CalendarEvent extends Model
 {
     protected $fillable = [

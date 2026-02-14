@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * @property int $id
- * @property int $conversation_id
+ * @property string $conversation_id
  * @property string|null $name
  * @property string|null $description
  * @property string|null $avatar_url
@@ -25,28 +25,28 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @property bool $allow_members_to_edit_group_info
  * @property int $admins_must_approve_new_members when turned on, admins must approve anyone who wants to join group
  * @property string|null $deleted_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \AdultDate\FilamentWirechat\Models\Conversation $conversation
- * @property-read \AdultDate\FilamentWirechat\Models\Attachment|null $cover
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Conversation|null $conversation
  * @property-read string|null $cover_url
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Group newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Group newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Group query()
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereAdminsMustApproveNewMembers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereAllowMembersToAddOthers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereAllowMembersToEditGroupInfo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereAllowMembersToSendMessages($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereAvatarUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereConversationId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Group whereUpdatedAt($value)
+ * @method static \AdultDate\FilamentWirechat\Database\Factories\GroupFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereAdminsMustApproveNewMembers($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereAllowMembersToAddOthers($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereAllowMembersToEditGroupInfo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereAllowMembersToSendMessages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereAvatarUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereConversationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Group whereUpdatedAt($value)
  *
  * @mixin \Eloquent
  */

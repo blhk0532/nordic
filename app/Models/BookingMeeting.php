@@ -10,6 +10,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @property int $id
+ * @property string $title
+ * @property string|null $description
+ * @property \Carbon\CarbonImmutable $starts_at
+ * @property \Carbon\CarbonImmutable $ends_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereEndsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereStartsAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BookingMeeting whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class BookingMeeting extends Model implements Eventable
 {
     /** @use HasFactory<\Database\Factories\MeetingFactory> */

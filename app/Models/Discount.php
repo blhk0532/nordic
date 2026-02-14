@@ -7,6 +7,29 @@ namespace App\Models;
 use App\Enums\DiscountType;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $discount_id
+ * @property string $name
+ * @property numeric|null $rate
+ * @property numeric|null $fixed_amount
+ * @property DiscountType $type
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read string $display_label
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereDiscountId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereFixedAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereRate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Discount whereUpdatedAt($value)
+ *
+ * @mixin \Eloquent
+ */
 class Discount extends Model
 {
     protected $table = 'discounts';

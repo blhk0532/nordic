@@ -6,7 +6,7 @@ namespace App\Livewire;
 
 use Exception;
 use Filament\Actions\Action;
-use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
@@ -60,7 +60,7 @@ class UserNotesWorking extends AbstractPageSettings implements HasSchemas
     {
         return $schema
             ->components([
-                Forms\Components\RichEditor::make('notes')
+                RichEditor::make('notes')
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
                         ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
@@ -93,11 +93,6 @@ class UserNotesWorking extends AbstractPageSettings implements HasSchemas
                 ->body($e->getMessage())
                 ->send();
         }
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('livewire.user-notes-working');
     }
 
     protected function settingName(): string

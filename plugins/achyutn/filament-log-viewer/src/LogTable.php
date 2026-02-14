@@ -133,10 +133,10 @@ class LogTable extends Page implements HasTable
                 Action::make('view')
                     ->label(__('filament-log-viewer::log.table.actions.view.label'))
                     ->visible(
-                        fn (array $record): bool => $record['log_level'] !== LogLevel::MAIL
+                        fn (?array $record): bool => $record !== null && $record['log_level'] !== LogLevel::MAIL
                     )
                     ->hidden(
-                        fn (array $record): bool => count((array) $record['stack']) === 0
+                        fn (?array $record): bool => $record === null || count((array) ($record['stack'] ?? [])) === 0
                     )
                     ->icon(Heroicon::Eye)
                     ->color(Color::Gray)
@@ -144,46 +144,46 @@ class LogTable extends Page implements HasTable
                     ->modalSubmitAction(false)
                     ->modalCancelAction(false)
                     ->modalHeading(__('filament-log-viewer::log.table.actions.view.heading'))
-                    ->modalDescription(function (array $record): string {
+                    ->modalDescription(function (?array $record): string {
                         /** @var LogRow $record */
-                        return $record['message'];
+                        return $record['message'] ?? '';
                     })
                     ->slideOver(),
                 Action::make('view-json')
                     ->label(__('filament-log-viewer::log.table.actions.view.label'))
-                    ->visible(fn (array $record): bool => $record['log_level'] !== LogLevel::MAIL)
-                    ->hidden(fn (array $record): bool => $record['context'] === null)
+                    ->visible(fn (?array $record): bool => $record !== null && $record['log_level'] !== LogLevel::MAIL)
+                    ->hidden(fn (?array $record): bool => $record === null || $record['context'] === null)
                     ->icon(Heroicon::Eye)
                     ->color(Color::Gray)
                     ->schema(fn (Schema $schema): Schema => JSONLogSchema::configure($schema))
                     ->modalSubmitAction(false)
                     ->modalCancelAction(false)
                     ->modalHeading(__('filament-log-viewer::log.table.actions.view.heading'))
-                    ->modalDescription(function (array $record): string {
+                    ->modalDescription(function (?array $record): string {
                         /** @var LogRow $record */
-                        return $record['message'];
+                        return $record['message'] ?? '';
                     })
                     ->slideOver(),
                 Action::make('read')
                     ->label(__('filament-log-viewer::log.table.actions.read.label'))
-                    ->visible(fn (array $record): bool => $record['log_level'] === LogLevel::MAIL)
+                    ->visible(fn (?array $record): bool => $record !== null && $record['log_level'] === LogLevel::MAIL)
                     ->icon(Heroicon::Envelope)
                     ->color(Color::hex('#9C27B0'))
                     ->schema(fn (Schema $schema): Schema => MailLogSchema::configure($schema))
                     ->modalSubmitAction(false)
                     ->modalCancelAction(false)
-                    ->modalHeading(function (array $record): string {
+                    ->modalHeading(function (?array $record): string {
                         /** @var LogRow $record */
-                        $mail = $record['mail'];
+                        $mail = $record['mail'] ?? null;
                         if ($mail && isset($mail['subject']) && $mail['subject'] !== '') {
                             return __('filament-log-viewer::log.table.actions.read.subject').': '.$mail['subject'];
                         }
 
                         return __('filament-log-viewer::log.table.actions.read.mail_log');
                     })
-                    ->modalDescription(function (array $record): ?string {
+                    ->modalDescription(function (?array $record): ?string {
                         /** @var LogRow $record */
-                        $mail = $record['mail'];
+                        $mail = $record['mail'] ?? null;
                         if ($mail && isset($mail['sent_date']) && $mail['sent_date'] !== '') {
                             return __('filament-log-viewer::log.table.actions.read.sent_date').': '.$mail['sent_date'];
                         }

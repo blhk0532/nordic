@@ -6,6 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PersonerData newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PersonerData newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|PersonerData query()
+ *
+ * @mixin \Eloquent
+ */
 class PersonerData extends Model
 {
     // Disable automatic timestamps since we have custom timestamp columns
