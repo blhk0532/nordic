@@ -97,8 +97,9 @@ async function savePersonsViaApi(persons) {
 
   console.log(`💾 Saving ${persons.length} persons to Filament database via API...`);
 
-  // Process in larger batches for efficiency (100 instead of 50)
-  const batchSize = 100;
+  // Adaptive batch sizing - start with 50, reduce if timeouts occur
+  let batchSize = 50;
+  let timeoutCount = 0;
   let totalCreated = 0;
   let totalUpdated = 0;
   let totalFailed = 0;
@@ -121,11 +122,57 @@ async function savePersonsViaApi(persons) {
     try {
       console.log(`📤 Batch ${batchNum}/${totalBatches} (${batch.length} records)...`);
 
-      // Save to hitta_se table
-      const res = await axios.post(BATCH_ENDPOINT, payload, {
-        headers: { "Content-Type": "application/json" },
-        timeout: 45000, // Increased timeout for larger batches
-      });
+      // Retry logic for failed requests
+      let retries = 0;
+      const maxRetries = 2;
+      let res = null;
+      let lastError = null;
+
+      while (retries <= maxRetries) {
+        try {
+          // Save to hitta_se table
+          res = await axios.post(BATCH_ENDPOINT, payload, {
+            headers: { "Content-Type": "application/json" },
+            timeout: 90000, // Increased timeout to 90 seconds
+          });
+          break; // Success, exit retry loop
+        } catch (retryErr) {
+          lastError = retryErr;
+          retries++;
+          
+          // Log detailed error information
+          console.log(`   ⚠️  hitta_se Error Details:`);
+          console.log(`      - Status: ${retryErr.response?.status || 'N/A'}`);
+          console.log(`      - Code: ${retryErr.code || 'N/A'}`);
+          console.log(`      - Message: ${retryErr.message || 'N/A'}`);
+          if (retryErr.response?.data) {
+            console.log(`      - Response: ${JSON.stringify(retryErr.response.data).substring(0, 500)}`);
+          }
+          
+          if (retryErr.code === 'ECONNABORTED' || retryErr.message?.includes('timeout')) {
+            timeoutCount++;
+            if (retries <= maxRetries) {
+              console.log(`   ⏱️  Timeout on batch ${batchNum}, retry ${retries}/${maxRetries}...`);
+              await new Promise((r) => setTimeout(r, 2000)); // Wait 2s before retry
+            }
+          } else if (retries <= maxRetries) {
+            console.log(`   ⚠️  Error on batch ${batchNum}, retry ${retries}/${maxRetries}...`);
+            await new Promise((r) => setTimeout(r, 1000));
+          }
+        }
+      }
+
+      if (!res) {
+        console.log(`   ❌ hitta_se batch ${batchNum} failed after ${maxRetries} retries`);
+        console.log(`      - Endpoint: ${BATCH_ENDPOINT}`);
+        console.log(`      - Batch size: ${batch.length} records`);
+        console.log(`      - Last error: ${lastError?.message}`);
+        if (lastError?.response) {
+          console.log(`      - Response status: ${lastError.response.status}`);
+          console.log(`      - Response data: ${JSON.stringify(lastError.response.data).substring(0, 1000)}`);
+        }
+        throw lastError || new Error('Failed after retries');
+      }
 
       if (res.status === 200 && res.data) {
         totalCreated += res.data.hitta_se?.created || res.data.created || 0;
@@ -139,7 +186,7 @@ async function savePersonsViaApi(persons) {
         console.log(`   ❌ hitta_se: Unexpected status ${res.status}`);
       }
 
-      // Save to hitta_data table
+      // Save to hitta_data table with retry logic
       try {
         const hittaDataPayload = {
           records: batch.map((p) => {
@@ -156,10 +203,32 @@ async function savePersonsViaApi(persons) {
           }),
         };
 
-        const hittaDataRes = await axios.post(HITTA_DATA_BATCH_ENDPOINT, hittaDataPayload, {
-          headers: { "Content-Type": "application/json" },
-          timeout: 45000,
-        });
+        let hittaDataRetries = 0;
+        let hittaDataRes = null;
+        while (hittaDataRetries <= maxRetries) {
+          try {
+            hittaDataRes = await axios.post(HITTA_DATA_BATCH_ENDPOINT, hittaDataPayload, {
+              headers: { "Content-Type": "application/json" },
+              timeout: 90000,
+            });
+            break;
+          } catch (hdErr) {
+            hittaDataRetries++;
+            console.log(`   ⚠️  hitta_data Error Details:`);
+            console.log(`      - Status: ${hdErr.response?.status || 'N/A'}`);
+            console.log(`      - Code: ${hdErr.code || 'N/A'}`);
+            console.log(`      - Message: ${hdErr.message || 'N/A'}`);
+            if (hdErr.response?.data) {
+              console.log(`      - Response: ${JSON.stringify(hdErr.response.data).substring(0, 500)}`);
+            }
+            if (hittaDataRetries <= maxRetries) {
+              console.log(`   ⏱️  hitta_data timeout, retry ${hittaDataRetries}/${maxRetries}...`);
+              await new Promise((r) => setTimeout(r, 2000));
+            } else {
+              throw hdErr;
+            }
+          }
+        }
 
         if (hittaDataRes.status === 200 && hittaDataRes.data) {
           hittaDataCreated += hittaDataRes.data.summary?.created || 0;
@@ -174,7 +243,13 @@ async function savePersonsViaApi(persons) {
         }
       } catch (hittaDataErr) {
         hittaDataFailed += batch.length;
-        console.log(`   ❌ hitta_data batch failed: ${hittaDataErr.message}`);
+        console.log(`   ❌ hitta_data batch failed after retries`);
+        console.log(`      - Endpoint: ${HITTA_DATA_BATCH_ENDPOINT}`);
+        console.log(`      - Error: ${hittaDataErr.message}`);
+        if (hittaDataErr.response) {
+          console.log(`      - Response status: ${hittaDataErr.response.status}`);
+          console.log(`      - Response data: ${JSON.stringify(hittaDataErr.response.data).substring(0, 1000)}`);
+        }
       }
 
       // Save to ratsit_data table (only for records with is_hus = true and is_telefon = true)
@@ -211,10 +286,32 @@ async function savePersonsViaApi(persons) {
             }),
           };
 
-          const ratsitDataRes = await axios.post(RATSIT_DATA_BATCH_ENDPOINT, ratsitDataPayload, {
-            headers: { "Content-Type": "application/json" },
-            timeout: 45000,
-          });
+          let ratsitDataRetries = 0;
+          let ratsitDataRes = null;
+          while (ratsitDataRetries <= maxRetries) {
+            try {
+              ratsitDataRes = await axios.post(RATSIT_DATA_BATCH_ENDPOINT, ratsitDataPayload, {
+                headers: { "Content-Type": "application/json" },
+                timeout: 90000,
+              });
+              break;
+            } catch (rdErr) {
+              ratsitDataRetries++;
+              console.log(`   ⚠️  ratsit_data Error Details:`);
+              console.log(`      - Status: ${rdErr.response?.status || 'N/A'}`);
+              console.log(`      - Code: ${rdErr.code || 'N/A'}`);
+              console.log(`      - Message: ${rdErr.message || 'N/A'}`);
+              if (rdErr.response?.data) {
+                console.log(`      - Response: ${JSON.stringify(rdErr.response.data).substring(0, 500)}`);
+              }
+              if (ratsitDataRetries <= maxRetries) {
+                console.log(`   ⏱️  ratsit_data timeout, retry ${ratsitDataRetries}/${maxRetries}...`);
+                await new Promise((r) => setTimeout(r, 2000));
+              } else {
+                throw rdErr;
+              }
+            }
+          }
 
           if (ratsitDataRes.status === 200 && ratsitDataRes.data) {
             ratsitDataCreated += ratsitDataRes.data.summary?.created || 0;
@@ -234,22 +331,47 @@ async function savePersonsViaApi(persons) {
           return personPayload.is_hus === true && personPayload.is_telefon === true;
         });
         ratsitDataFailed += filteredBatch.length;
-        console.log(`   ❌ ratsit_data batch failed: ${ratsitDataErr.message}`);
+        console.log(`   ❌ ratsit_data batch failed after retries`);
+        console.log(`      - Endpoint: ${RATSIT_DATA_BATCH_ENDPOINT}`);
+        console.log(`      - Eligible records: ${filteredBatch.length}`);
+        console.log(`      - Error: ${ratsitDataErr.message}`);
+        if (ratsitDataErr.response) {
+          console.log(`      - Response status: ${ratsitDataErr.response.status}`);
+          console.log(`      - Response data: ${JSON.stringify(ratsitDataErr.response.data).substring(0, 1000)}`);
+        }
       }
     } catch (err) {
       totalFailed += batch.length;
       hittaDataFailed += batch.length;
       ratsitDataFailed += batch.length;
-      console.log(`   ❌ hitta_se batch ${batchNum} failed: ${err.message}`);
+      console.log(`   ❌ Batch ${batchNum} completely failed`);
+      console.log(`      - Error: ${err.message}`);
+      console.log(`      - Code: ${err.code || 'N/A'}`);
+      if (err.response) {
+        console.log(`      - Response status: ${err.response.status}`);
+        console.log(`      - Response headers: ${JSON.stringify(err.response.headers)}`);
+        console.log(`      - Response data: ${JSON.stringify(err.response.data).substring(0, 1000)}`);
+      }
+      if (err.request && !err.response) {
+        console.log(`      - Request made but no response received`);
+        console.log(`      - Request details: ${err.request._header ? err.request._header.substring(0, 300) : 'N/A'}`);
+      }
 
       if (err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT') {
         console.log(`   ⚠️  Connection error. Make sure Laravel server is running (php artisan serve)`);
       }
     }
 
-    // Reduced delay between batches for efficiency
+    // Adaptive batch sizing: reduce batch size if timeouts are frequent
+    if (timeoutCount >= 2 && batchSize > 25) {
+      batchSize = 25;
+      console.log(`   ⚡ Reducing batch size to ${batchSize} due to timeouts`);
+      timeoutCount = 0; // Reset counter
+    }
+
+    // Delay between batches
     if (i + batchSize < persons.length) {
-      await new Promise((r) => setTimeout(r, 200));
+      await new Promise((r) => setTimeout(r, 500));
     }
   }
 
