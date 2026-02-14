@@ -147,7 +147,6 @@ class PostNum extends Model
         'hitta_postort_last_page',
         'is_active',
         'status',
-        'updated_at',
     ];
 
     protected $casts = [

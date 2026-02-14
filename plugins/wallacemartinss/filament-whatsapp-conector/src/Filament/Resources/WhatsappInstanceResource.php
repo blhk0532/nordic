@@ -28,6 +28,8 @@ class WhatsappInstanceResource extends Resource
 {
     protected static ?string $model = WhatsappInstance::class;
 
+    protected static ?string $tenantOwnershipRelationshipName = 'user';
+
     public static function getNavigationSort(): ?int
     {
         return config('filament-evolution.filament.navigation_sort', 100);

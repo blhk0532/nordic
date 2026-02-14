@@ -1,9 +1,9 @@
-import RedirectToTenantController from './RedirectToTenantController'
 import RedirectToHomeController from './RedirectToHomeController'
+import RedirectToTenantController from './RedirectToTenantController'
 
 const Controllers = {
-    RedirectToTenantController: Object.assign(RedirectToTenantController, RedirectToTenantController),
     RedirectToHomeController: Object.assign(RedirectToHomeController, RedirectToHomeController),
+    RedirectToTenantController: Object.assign(RedirectToTenantController, RedirectToTenantController),
 }
 
 export default Controllers

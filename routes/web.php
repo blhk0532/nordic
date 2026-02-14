@@ -29,6 +29,11 @@ Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle)->name('livewire.update');
 });
 
+// Handle GET requests to livewire/update (prevent MethodNotAllowedHttpException)
+Route::get('/livewire/update', function () {
+    return redirect('/')->with('error', 'Invalid request method for Livewire update endpoint.');
+});
+
 // Route::get('/', fn () => Inertia::render('welcome'))->name('home');
 
 Route::get('/', function () {

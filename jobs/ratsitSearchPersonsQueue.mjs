@@ -929,11 +929,59 @@ class RatsitScraper {
         ]
       });
 
-      const context = await browser.newContext();
+      // Load cookies from ratsit_cookie.json
+      let cookies = [];
+      try {
+        const cookieFilePath = path.join(process.cwd(), 'cookies', 'ratsit.json');
+        const cookieData = await fs.readFile(cookieFilePath, 'utf8');
+        const rawCookies = JSON.parse(cookieData);
+        
+        // Normalize cookies for Playwright
+        cookies = rawCookies.map(cookie => {
+          const normalizedCookie = { ...cookie };
+          
+          // Normalize sameSite values to match Playwright's expectations
+          if (normalizedCookie.sameSite) {
+            const sameSite = String(normalizedCookie.sameSite).toLowerCase();
+            if (sameSite === 'lax') {
+              normalizedCookie.sameSite = 'Lax';
+            } else if (sameSite === 'strict') {
+              normalizedCookie.sameSite = 'Strict';
+            } else if (sameSite === 'none' || sameSite === 'no_restriction') {
+              normalizedCookie.sameSite = 'None';
+            } else {
+              // Default to Lax if unrecognized
+              normalizedCookie.sameSite = 'Lax';
+            }
+          } else {
+            // If sameSite is null or undefined, set to Lax
+            normalizedCookie.sameSite = 'Lax';
+          }
+          
+          return normalizedCookie;
+        });
+        
+        console.log(`  → Loaded ${cookies.length} cookie(s) from ratsit.json`);
+      } catch (cookieError) {
+        console.log(`  ⚠️  Could not load cookies: ${cookieError.message}`);
+      }
+
+      const context = await browser.newContext({
+        extraHTTPHeaders: {
+          'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
+
+      // Add cookies to context if loaded
+      if (cookies.length > 0) {
+        await context.addCookies(cookies);
+        console.log(`  → Added ${cookies.length} cookie(s) to browser context`);
+      }
+
       const page = await context.newPage();
 
       // Get search results
-      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await page.waitForTimeout(2000);
 
       // Find all person links
@@ -958,7 +1006,25 @@ class RatsitScraper {
         console.log(`  → [${i + 1}/${links.length}] Scraping: ${link}`);
 
         try {
-          await page.goto(link, { waitUntil: 'networkidle', timeout: 30000 });
+          // Try to load the page with retry logic
+          let pageLoaded = false;
+          let retries = 0;
+          const maxRetries = 2;
+          
+          while (!pageLoaded && retries <= maxRetries) {
+            try {
+              await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 60000 });
+              pageLoaded = true;
+            } catch (gotoError) {
+              retries++;
+              if (retries > maxRetries) {
+                throw gotoError;
+              }
+              console.log(`  ⚠️  Retry ${retries}/${maxRetries} for ${link}`);
+              await page.waitForTimeout(2000);
+            }
+          }
+          
           await page.waitForTimeout(1500);
 
           // Scroll to load lazy content
@@ -1149,15 +1215,30 @@ class RatsitScraper {
           return link.textContent?.trim() || null;
         }
 
-        // Otherwise, get the inner text
-        return p.innerText;
+        // Get the full inner text
+        let text = p.innerText;
+
+        // Special handling for Personnummer: remove ALL label occurrences
+        // Example: "Personnummer:Personnummer: 19690415-9073" -> "19690415-9073"
+        if (label === 'Personnummer:') {
+          // Remove all occurrences of the label (even multiple ones)
+          text = text.replace(/Personnummer:\s*/gi, '').trim();
+          return text;
+        }
+
+        // For other fields, just return the full text
+        return text;
       }, labelText);
 
       if (!result) {
         return null;
       }
 
-      let text = result.replace(labelText, '').trim();
+      // Clean up the text by removing the label if still present
+      let text = result;
+      if (!labelText.includes('Personnummer')) {
+        text = text.replace(labelText, '').trim();
+      }
       text = text.replace(/\s*Visas för medlemmar.*/gi, '');
 
       return text || null;

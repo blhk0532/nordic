@@ -9,7 +9,7 @@
         type="button"
         onclick="Livewire.dispatch('open-user-notes-slide-over')"
         class="flex items-center justify-center"
-        title="{{ __('My Notes') }}"
+        title="{{ __('') }}"
     >
         <x-filament::icon
             icon="heroicon-o-document-text"

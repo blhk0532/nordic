@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73bf05d3aa03053997b037334e51561e",
+    "content-hash": "331d6129aa1e6c4f4c767f916f8b2933",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -426,6 +426,82 @@
                 "source": "https://github.com/akaunting/laravel-money/tree/6.0.2"
             },
             "time": "2025-02-22T11:28:38+00:00"
+        },
+        {
+            "name": "alessandronuunes/filament-member",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alessandronuunes/filament-member.git",
+                "reference": "fa400fde80b3a74a96b421d17a17b5f83b7b1977"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alessandronuunes/filament-member/zipball/fa400fde80b3a74a96b421d17a17b5f83b7b1977",
+                "reference": "fa400fde80b3a74a96b421d17a17b5f83b7b1977",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "illuminate/contracts": "^11.0|^12.0",
+                "php": "^8.2|^8.3|^8.4",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "driftingly/rector-laravel": "^2.0",
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^8.0",
+                "orchestra/testbench": "^9.0",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "rector/rector": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AlessandroNuunes\\FilamentMember\\FilamentMemberServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AlessandroNuunes\\FilamentMember\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Nuunes",
+                    "email": "alessandronuunes@gmail.com",
+                    "homepage": "https://github.com/alessandronuunes"
+                }
+            ],
+            "description": "A comprehensive Filament plugin for managing tenant members, invitations, and role-based access control in multi-tenant applications.",
+            "homepage": "https://github.com/alessandronuunes/filament-member",
+            "keywords": [
+                "filament",
+                "filament-plugin",
+                "invitations",
+                "laravel",
+                "members",
+                "multi-tenancy",
+                "rbac"
+            ],
+            "support": {
+                "issues": "https://github.com/alessandronuunes/filament-member/issues",
+                "source": "https://github.com/alessandronuunes/filament-member"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/alessandronuunes",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-02-03T14:40:40+00:00"
         },
         {
             "name": "alizharb/filament-activity-log",
@@ -11293,16 +11369,16 @@
         },
         {
             "name": "mallardduck/blade-lucide-icons",
-            "version": "1.26.1",
+            "version": "1.26.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mallardduck/blade-lucide-icons.git",
-                "reference": "8d31520f0306c0c81e17fab229d9109dab78e940"
+                "reference": "e74ec0184ad93f04d1b3c70838acca06b013c55e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/8d31520f0306c0c81e17fab229d9109dab78e940",
-                "reference": "8d31520f0306c0c81e17fab229d9109dab78e940",
+                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/e74ec0184ad93f04d1b3c70838acca06b013c55e",
+                "reference": "e74ec0184ad93f04d1b3c70838acca06b013c55e",
                 "shasum": ""
             },
             "require": {
@@ -11347,9 +11423,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mallardduck/blade-lucide-icons/issues",
-                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/1.26.1"
+                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/1.26.2"
             },
-            "time": "2026-01-24T00:18:00+00:00"
+            "time": "2026-02-14T00:23:32+00:00"
         },
         {
             "name": "malzariey/filament-daterangepicker-filter",
@@ -11672,6 +11748,72 @@
                 "source": "https://github.com/MarkBaker/PHPMatrix/tree/3.0.1"
             },
             "time": "2022-12-02T22:17:43+00:00"
+        },
+        {
+            "name": "mddev31/filament-dynamic-dashboard",
+            "version": "v0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MDDev31/filament-dynamic-dashboard.git",
+                "reference": "86bf7f3fb9f8169ae93defe038b112aca19745ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MDDev31/filament-dynamic-dashboard/zipball/86bf7f3fb9f8169ae93defe038b112aca19745ad",
+                "reference": "86bf7f3fb9f8169ae93defe038b112aca19745ad",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "illuminate/contracts": "^11.0|^12.0",
+                "php": "^8.3",
+                "spatie/laravel-package-tools": "^1.92"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^4.0",
+                "pestphp/pest-plugin-laravel": "^4.0",
+                "phpunit/phpunit": "^12.5",
+                "spatie/pest-plugin-test-time": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MDDev\\DynamicDashboard\\FilamentDynamicDashboardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MDDev\\DynamicDashboard\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime DANJOU",
+                    "email": "maxime@mddev.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Dynamic dashboard for Laravel Filament.",
+            "homepage": "https://github.com/mddev31/filament-dynamic-dashboard",
+            "keywords": [
+                "dashboard",
+                "filament",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/mddev31/filament-dynamic-dashboard/issues",
+                "source": "https://github.com/mddev31/filament-dynamic-dashboard"
+            },
+            "time": "2026-02-09T08:33:22+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -30649,7 +30791,6 @@
         "pxlrbt/filament-spotlight": 20,
         "relaticle/flowforge": 20,
         "roave/security-advisories": 20,
-        "shreejan/dash-arrange": 20,
         "spatie/laravel-google-calendar": 20,
         "wallacemartinss/filament-icon-picker": 20,
         "wallacemartinss/filament-whatsapp-conector": 20

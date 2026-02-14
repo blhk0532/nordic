@@ -115,7 +115,7 @@ class UserNotes extends Component implements HasForms
                             'tableDelete',
                         ],
                     ])
-                    ->label('My Notes')
+                    ->label(' ')
                     ->extraAttributes(['spellcheck' => 'false'])
                     ->columnSpanFull(),
             ])

@@ -791,3 +791,13 @@ Expression: "isPanelActive('mergeTags')"
     at showFailureModal (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4414:5)
     at sendRequest (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4391:14)
     at async RequestPool.send (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4113:7)
+[ 3445504ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/livewire/update:0
+[ 3475503ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/livewire/update:0
+[ 3505503ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8000/livewire/update:0
+[ 5908692ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:8000/_debugbar/open?op=get&id=01KHCWQP328FPEMH9WDCN5BGFJ:0
+[ 7256730ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:8000/livewire/update:0
+[ 7257289ms] InvalidStateError: Failed to execute 'showModal' on 'HTMLDialogElement': The dialog is already open as a non-modal dialog, and therefore cannot be opened as a modal dialog.
+    at showHtmlModal (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4073:11)
+    at showFailureModal (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4414:5)
+    at sendRequest (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4391:14)
+    at async RequestPool.send (http://localhost:8000/vendor/livewire/livewire.js?id=5ef5bc0a:4113:7)

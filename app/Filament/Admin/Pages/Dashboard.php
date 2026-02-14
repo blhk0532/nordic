@@ -6,11 +6,11 @@ namespace App\Filament\Admin\Pages;
 
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
 use App\Filament\Admin\Widgets\WorldClockWidget;
-use Filament\Pages\Dashboard as BaseDashboard;
 use Illuminate\Contracts\Support\Htmlable;
+use MDDev\DynamicDashboard\Pages\DynamicDashboard;
 use Shreejan\DashArrange\Traits\HasDashArrange;
 
-class Dashboard extends BaseDashboard
+class Dashboard extends DynamicDashboard
 {
     use HasDashArrange;
 
@@ -45,6 +45,13 @@ class Dashboard extends BaseDashboard
     public function getTitle(): string|Htmlable
     {
         return '';
+    }
+
+    public function getWidgets(): array
+    {
+        return [
+
+        ];
     }
 
     public function getHeaderWidgets(): array

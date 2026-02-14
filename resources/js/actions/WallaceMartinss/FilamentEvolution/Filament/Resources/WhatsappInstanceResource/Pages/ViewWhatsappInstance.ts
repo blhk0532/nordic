@@ -2,41 +2,42 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-const ViewWhatsappInstance6afe85c7b48dd87915445428de7de633 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, options),
+const ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, options),
     method: 'get',
 })
 
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.definition = {
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.definition = {
     methods: ["get","head"],
-    url: '/admin/whatsapp-instances/{record}',
+    url: '/admin/tenant/{tenant}/whatsapp-instances/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
-            record: args[0],
+            tenant: args[0],
+            record: args[1],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
         record: args.record,
     }
 
-    return ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.definition.url
+    return ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -44,50 +45,50 @@ ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url = (args: { record: stri
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, options),
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, options),
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-const ViewWhatsappInstance6afe85c7b48dd87915445428de7de633Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, options),
+const ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, options),
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/whatsapp-instances/{record}'
+* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
 */
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.url(args, {
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,7 +97,7 @@ ViewWhatsappInstance6afe85c7b48dd87915445428de7de633Form.head = (args: { record:
     method: 'get',
 })
 
-ViewWhatsappInstance6afe85c7b48dd87915445428de7de633.form = ViewWhatsappInstance6afe85c7b48dd87915445428de7de633Form
+ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.form = ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062Form
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
@@ -393,7 +394,7 @@ ViewWhatsappInstance3cfb53917855120c5220569eb407f49eForm.head = (args: { record:
 ViewWhatsappInstance3cfb53917855120c5220569eb407f49e.form = ViewWhatsappInstance3cfb53917855120c5220569eb407f49eForm
 
 const ViewWhatsappInstance = {
-    '/admin/whatsapp-instances/{record}': ViewWhatsappInstance6afe85c7b48dd87915445428de7de633,
+    '/admin/tenant/{tenant}/whatsapp-instances/{record}': ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062,
     '/nds/adm/whatsapp-instances/{record}': ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb,
     '/nds/notify/whatsapp-instances/{record}': ViewWhatsappInstance4000635695f943fbf9995296ee29c986,
     '/nds/super/whatsapp-instances/{record}': ViewWhatsappInstance3cfb53917855120c5220569eb407f49e,

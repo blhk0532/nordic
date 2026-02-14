@@ -1,0 +1,93 @@
+[
+    {
+        "domain": ".ratsit.se",
+        "expirationDate": 1802543294.035575,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "gtm_upi",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "NEtoM01hYVV0dktzUm9LZExtRVhyT29qT2UyM3B2eWZLUnVtY05MNDFLUT"
+    },
+    {
+        "domain": "www.ratsit.se",
+        "expirationDate": 1773749058.01464,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": ".session",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "CfDJ8KEoNW8ej5hHtPx9KpmISiPbkpawOv71juBmIN6mnmM_eNJ_2gbrCBakWbXykl_jOgCYoHzPCwFsExs7mEPJ3_5iMk70TsqhSIGO01FcnxpbLrvySBnB7hqg9j-I-JIKEv0rWnx71KRecZVIvz8vMEZPaONQ5gYPLDVWs_EvS6ycoWpW5l-ZPCFDJTihZdZ534TxOxKMLCki5aD2bDr7o7vCdHA15S2spCr_Bqv99uh7cNvnlLPhcutb8iauYAD6jPqANQtHRmI1rxwHBW5IqBJUHiXoKQfkK0V0vYNXqhsvC-z4ZTbO-iykb_CrNqJxxrkpWHaptDUhPLMLLfzHsuiPMzq-aHeen-TztqutNZ8M0fHsavo7OE53OCoL1V-BQSNtMRtcXbr77KHE04gDTxDOwb9CZihFs3SGDEI8rv1BR1lcZI331tUml9he-ZV7vKKQWrvxFPC-RquIZ-7hp_3LrZpKPTNmrma7095IXg1rFfzXtlv5Bxqu2Iv1Tg-wiGXhQuX6eA5mVtTw_6rz8YzCA4FJuI8YphmZLeaZe4kchUpaaEFEutKSn6a0g2MjMGK19ruFBjKergO7xkiUu-B2l9lutljvjSw85uza5ZPQNIzXVyDtay7LMPB0GkHXB6lSa9sTij_nYa0H05u4bd9THYahbM0IIkESiRkXP4lVpFGD4AnLq1SssIY5jqqpSIwh6yqB2D02NQwhvnRP2fwGYZm2GHTM605SHzKSIKAA_pEbWXZfB7q2zdmvkBDoIVzTMpat7lxMvfCm8cpfqGxdG2HJZ3EHubwqulol2rcqme4DxQWXfyNEGHaa_9AM3RD4rk8HXTnqIVpek0IzLUwWE8W5hzBpSblToRzXPZXthU7wP_tP65HD1K8r_j2dwGTHIMWMxShlwxJ41mQ5xSAAFM789cE7c7Hmb3z8HhOVj9OQ6Vv38zemX0H7pM6ddHrbrXk2k2bIRjitzuEn9888cp5iOSOeM2rVlTHqkUM4"
+    },
+    {
+        "domain": ".ratsit.se",
+        "expirationDate": 1804703289,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "__gads",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "ID=07cd555a5648794d:T=1771007289:RT=1771071287:S=ALNI_Maw9HsP5s6npGEUW0eoGDsiyj-XLQ"
+    },
+    {
+        "domain": "www.ratsit.se",
+        "expirationDate": 1802543287,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "CookieConsent",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "{stamp:%27gUi6+i/3eNydQ/6joUE+BcV7kt9ADg2aaVMvX6uzN9ZeSc9xB5SVfA==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:3%2Cutc:1771007287348%2Cregion:%27th%27}"
+    },
+    {
+        "domain": ".ratsit.se",
+        "expirationDate": 1786559289,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "__eoi",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "ID=ce448ff733f2a641:T=1771007289:RT=1771071287:S=AA-AfjY8Yfel7MBpZ9zKyvBRyiV1"
+    },
+    {
+        "domain": ".ratsit.se",
+        "expirationDate": 1778846663,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "_rdt_uuid",
+        "path": "/",
+        "sameSite": "strict",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1771007287680.61a52cab-6dcf-4ed9-8123-8a8c35bbd81b"
+    },
+    {
+        "domain": ".www.ratsit.se",
+        "expirationDate": 1802543287.672912,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "_sharedID",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "%7B%22id%22%3A%224952baf9-1110-493e-b42b-df237b2ac297%22%2C%22ts%22%3A1771007287672%7D"
+    }
+]

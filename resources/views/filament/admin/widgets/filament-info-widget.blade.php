@@ -43,26 +43,25 @@ v1.1.8
 
         <div class="fi-filament-info-widget-links">
             <span class="pb-1">
-            <x-filament::link
+
+                        <x-filament::link
                 color="gray"
-                href="multi-calendars-3"
-                :icon="\Filament\Support\Icons\Heroicon::CalendarDateRange"
+                href="{{ $_SERVER['REQUEST_URI'] }}/my-profile"
+                :icon="\Filament\Support\Icons\Heroicon::Identification"
                 rel="noopener noreferrer"
-                target="_blank"
             >
-                {{ __('Schema') }}
+
+                  {{ auth()->user()?->name }}
             </x-filament::link>
 </span>
  <span class="whitespace-nowrap">
             <x-filament::link
                 color="gray"
-                href="bokning"
-                :icon="\Filament\Support\Icons\Heroicon::Identification"
+                href="{{ $_SERVER['REQUEST_URI'] }}/team-users"
+                :icon="\Filament\Support\Icons\Heroicon::UserGroup"
                 rel="noopener noreferrer"
-                target="_blank"
             >
-
-                {{ __('Bokningen') }}
+                {{ auth()->user()?->currentTeam->name }}
             </x-filament::link>
 </span>
         </div>

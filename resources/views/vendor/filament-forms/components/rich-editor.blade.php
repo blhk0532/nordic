@@ -35,52 +35,70 @@
                 activePanel: null,
                 isUploadingFile: false,
                 fileValidationMessage: null,
-                $getEditor: () => null,
+                $getEditor: () => this.editor || null,
+                init() {
+                    // Wait for component to load before initializing
+                    const checkComponent = () => {
+                        if (typeof richEditorFormComponent !== 'undefined') {
+                            // Replace this Alpine component with the loaded one
+                            const component = richEditorFormComponent({
+                                acceptedFileTypes: @js($fileAttachmentsAcceptedFileTypes),
+                                acceptedFileTypesValidationMessage: @js($fileAttachmentsAcceptedFileTypes ? __('filament-forms::components.rich_editor.file_attachments_accepted_file_types_message', ['values' => implode(', ', $fileAttachmentsAcceptedFileTypes)]) : null),
+                                activePanel: @js($getActivePanel()),
+                                canAttachFiles: @js($hasFileAttachments()),
+                                deleteCustomBlockButtonIconHtml: @js(\Filament\Support\generate_icon_html(\Filament\Support\Icons\Heroicon::Trash, alias: \Filament\Forms\View\FormsIconAlias::COMPONENTS_RICH_EDITOR_PANELS_CUSTOM_BLOCK_DELETE_BUTTON)->toHtml()),
+                                editCustomBlockButtonIconHtml: @js(\Filament\Support\generate_icon_html(\Filament\Support\Icons\Heroicon::PencilSquare, alias: \Filament\Forms\View\FormsIconAlias::COMPONENTS_RICH_EDITOR_PANELS_CUSTOM_BLOCK_EDIT_BUTTON)->toHtml()),
+                                extensions: @js($getTipTapJsExtensions()),
+                                floatingToolbars: @js($floatingToolbars),
+                                getMentionLabelsUsing: async (mentions) => {
+                                    return await $wire.callSchemaComponentMethod(
+                                        @js($key),
+                                        'getMentionLabelsForJs',
+                                        { mentions },
+                                    )
+                                },
+                                getMentionSearchResultsUsing: async (query, char) => {
+                                    return await $wire.callSchemaComponentMethod(
+                                        @js($key),
+                                        'getMentionSearchResultsForJs',
+                                        { search: query, char },
+                                    )
+                                },
+                                hasResizableImages: @js($hasResizableImages()),
+                                isDisabled: @js($isDisabled),
+                                isLiveDebounced: @js($isLiveDebounced()),
+                                isLiveOnBlur: @js($isLiveOnBlur()),
+                                key: @js($key),
+                                linkProtocols: @js($linkProtocols),
+                                liveDebounce: @js($getNormalizedLiveDebounce()),
+                                livewireId: @js($this->getId()),
+                                maxFileSize: @js($fileAttachmentsMaxSize),
+                                maxFileSizeValidationMessage: @js($fileAttachmentsMaxSize ? trans_choice('filament-forms::components.rich_editor.file_attachments_max_size_message', $fileAttachmentsMaxSize, ['max' => $fileAttachmentsMaxSize]) : null),
+                                mentions: @js($mentions),
+                                mergeTags: @js($mergeTags),
+                                noMergeTagSearchResultsMessage: @js($getNoMergeTagSearchResultsMessage()),
+                                placeholder: @js($getPlaceholder()),
+                                state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$statePath}')", isOptimisticallyLive: false) }},
+                                statePath: @js($statePath),
+                                textColors: @js($getTextColorsForJs()),
+                                uploadingFileMessage: @js($getUploadingFileMessage()),
+                            });
+                            // Replace all properties with the component
+                            Object.keys(component).forEach(key => {
+                                this[key] = component[key];
+                            });
+                            // Call init if it exists
+                            if (this.init && this.init !== arguments.callee) {
+                                this.init();
+                            }
+                        } else {
+                            // Retry after a short delay
+                            setTimeout(checkComponent, 10);
+                        }
+                    };
+                    checkComponent();
+                }
             }"
-            x-load
-            x-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('rich-editor', 'filament/forms') }}"
-            x-data="richEditorFormComponent({
-                        acceptedFileTypes: @js($fileAttachmentsAcceptedFileTypes),
-                        acceptedFileTypesValidationMessage: @js($fileAttachmentsAcceptedFileTypes ? __('filament-forms::components.rich_editor.file_attachments_accepted_file_types_message', ['values' => implode(', ', $fileAttachmentsAcceptedFileTypes)]) : null),
-                        activePanel: @js($getActivePanel()),
-                        canAttachFiles: @js($hasFileAttachments()),
-                        deleteCustomBlockButtonIconHtml: @js(\Filament\Support\generate_icon_html(\Filament\Support\Icons\Heroicon::Trash, alias: \Filament\Forms\View\FormsIconAlias::COMPONENTS_RICH_EDITOR_PANELS_CUSTOM_BLOCK_DELETE_BUTTON)->toHtml()),
-                        editCustomBlockButtonIconHtml: @js(\Filament\Support\generate_icon_html(\Filament\Support\Icons\Heroicon::PencilSquare, alias: \Filament\Forms\View\FormsIconAlias::COMPONENTS_RICH_EDITOR_PANELS_CUSTOM_BLOCK_EDIT_BUTTON)->toHtml()),
-                        extensions: @js($getTipTapJsExtensions()),
-                        floatingToolbars: @js($floatingToolbars),
-                        getMentionLabelsUsing: async (mentions) => {
-                            return await $wire.callSchemaComponentMethod(
-                                @js($key),
-                                'getMentionLabelsForJs',
-                                { mentions },
-                            )
-                        },
-                        getMentionSearchResultsUsing: async (query, char) => {
-                            return await $wire.callSchemaComponentMethod(
-                                @js($key),
-                                'getMentionSearchResultsForJs',
-                                { search: query, char },
-                            )
-                        },
-                        hasResizableImages: @js($hasResizableImages()),
-                        isDisabled: @js($isDisabled),
-                        isLiveDebounced: @js($isLiveDebounced()),
-                        isLiveOnBlur: @js($isLiveOnBlur()),
-                        key: @js($key),
-                        linkProtocols: @js($linkProtocols),
-                        liveDebounce: @js($getNormalizedLiveDebounce()),
-                        livewireId: @js($this->getId()),
-                        maxFileSize: @js($fileAttachmentsMaxSize),
-                        maxFileSizeValidationMessage: @js($fileAttachmentsMaxSize ? trans_choice('filament-forms::components.rich_editor.file_attachments_max_size_message', $fileAttachmentsMaxSize, ['max' => $fileAttachmentsMaxSize]) : null),
-                        mentions: @js($mentions),
-                        mergeTags: @js($mergeTags),
-                        noMergeTagSearchResultsMessage: @js($getNoMergeTagSearchResultsMessage()),
-                        placeholder: @js($getPlaceholder()),
-                        state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$statePath}')", isOptimisticallyLive: false) }},
-                        statePath: @js($statePath),
-                        textColors: @js($getTextColorsForJs()),
-                        uploadingFileMessage: @js($getUploadingFileMessage()),
-                    })"
             x-bind:class="{
                 'fi-fo-rich-editor-uploading-file': isUploadingFile,
             }"

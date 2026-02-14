@@ -26,6 +26,8 @@ class AdminDashboard extends BaseDashboard
 
     protected static ?string $slug = 'dashboard';
 
+    protected string $view = 'dash-arrange::dashboard';
+
     protected static ?int $navigationSort = 0;
 
     protected static ?int $sort = 0;
@@ -82,7 +84,7 @@ class AdminDashboard extends BaseDashboard
     {
         return [
             // Left column: stacked
-            Layout::column([
+            Grid::column([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])

@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use AlessandroNuunes\FilamentMember\MemberPlugin;
+use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 use App\Http\Middleware\FilamentPanelAccess;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -11,6 +13,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -22,7 +25,6 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
-use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -38,6 +40,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->spa()
+            ->maxContentWidth(Width::Full)
             ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->sidebarCollapsibleOnDesktop(true)
             ->brandLogo(fn () => view('filament.app.logo'))
@@ -71,6 +74,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
+                MemberPlugin::make(),
             ])
             ->plugin(FilamentUiSwitcherPlugin::make())
             ->plugins([

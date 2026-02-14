@@ -21,11 +21,11 @@ class InertiaCalendar extends Page
 
     protected static ?string $navigationLabel = 'Schema';
 
-    protected static ?string $title = '';
+    // protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 10;
 
-    protected static ?int $sort = 6;
+    protected static ?int $sort = 10;
 
     protected static ?string $slug = 'bokning-kalender';
 
@@ -40,7 +40,7 @@ class InertiaCalendar extends Page
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
-    protected static string|UnitEnum|null $navigationGroup = ' ';
+    protected static string|UnitEnum|null $navigationGroup = '';
 
     //    public static function getNavigationBadge(): ?string
     //    {

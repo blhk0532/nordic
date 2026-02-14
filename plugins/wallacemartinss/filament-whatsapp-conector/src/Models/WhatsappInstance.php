@@ -50,6 +50,14 @@ class WhatsappInstance extends Model
         return $this->hasMany(WhatsappWebhook::class, 'instance_id');
     }
 
+    /**
+     * Alias for tenant() relationship to satisfy filament-member package expectations.
+     */
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\Team::class, 'tenant_id');
+    }
+
     public function isConnected(): bool
     {
         return $this->status === StatusConnectionEnum::OPEN;

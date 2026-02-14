@@ -32,17 +32,17 @@ class QueueRingaData extends Page
 
     protected static ?string $model = RingaData::class;
 
-    protected static ?string $navigationLabel = 'Ringlistan';
+    protected static ?string $navigationLabel = 'Ringlista';
 
-    protected static ?string $title = 'Ringlistan';
+    protected static ?string $title = 'Ringlista';
 
     // public static bool $shouldRegisterNavigation = true;
 
-    protected static UnitEnum|string|null $navigationGroup = '';
+    // protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?int $navigationSort = 4;
 
-    protected static ?int $sort = 4;
+    protected static ?int $sort = 2;
 
     protected static string|BackedEnum|null $navigationIcon = Tabler::PhoneRinging;
 
