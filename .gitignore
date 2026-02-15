@@ -23,3 +23,12 @@ yarn-error.log
 /.zed
 *.csv
 /plugins/filament
+*.sqlite
+*.sql
+*.zip
+*.gz
+*.log
+*.cache
+*.bak
+*.tmp
+*.swp
