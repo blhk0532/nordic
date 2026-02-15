@@ -367,7 +367,7 @@ async function savePersonsViaApi(persons) {
       // First save to hitta_se table
       const res = await axios.post(BATCH_ENDPOINT, payload, {
         headers: { "Content-Type": "application/json" },
-        timeout: 30000,
+        timeout: 112000,
       });
 
       if (res.status === 200 && res.data) {
@@ -388,7 +388,7 @@ async function savePersonsViaApi(persons) {
       try {
         const personerRes = await axios.post(PERSONER_DATA_BATCH_ENDPOINT, payload, {
           headers: { "Content-Type": "application/json" },
-          timeout: 30000,
+          timeout: 112000,
         });
 
         if (personerRes.status === 200 && personerRes.data) {
@@ -431,7 +431,7 @@ async function savePersonsViaApi(persons) {
 
         const hittaDataRes = await axios.post(HITTA_DATA_BATCH_ENDPOINT, hittaDataPayload, {
           headers: { "Content-Type": "application/json" },
-          timeout: 30000,
+          timeout: 112000,
         });
 
         if (hittaDataRes.status === 200 && hittaDataRes.data) {

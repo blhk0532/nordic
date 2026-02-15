@@ -209,7 +209,7 @@ async function savePersonsViaApi(persons) {
           try {
             hittaDataRes = await axios.post(HITTA_DATA_BATCH_ENDPOINT, hittaDataPayload, {
               headers: { "Content-Type": "application/json" },
-              timeout: 90000,
+              timeout: 112000,
             });
             break;
           } catch (hdErr) {

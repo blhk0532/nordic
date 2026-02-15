@@ -703,7 +703,7 @@ class RatsitScraper {
       const page = await context.newPage();
 
       // Get search results
-      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 112000 });
       await page.waitForTimeout(2000);
 
       // Find all person links
@@ -728,7 +728,7 @@ class RatsitScraper {
         console.log(`  → [${i + 1}/${links.length}] Scraping: ${link}`);
 
         try {
-          await page.goto(link, { waitUntil: 'networkidle', timeout: 30000 });
+          await page.goto(link, { waitUntil: 'networkidle', timeout: 112000 });
           await page.waitForTimeout(1500);
 
           // Scroll to load lazy content

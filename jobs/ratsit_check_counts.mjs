@@ -55,7 +55,7 @@ async function getRatsitCounts(searchQuery) {
         // Navigate to page and wait for it to load
         await page.goto(url, {
             waitUntil: 'networkidle',
-            timeout: 30000,
+            timeout: 112000,
         });
 
         // Wait a bit for any dynamic content to load

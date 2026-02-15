@@ -687,7 +687,7 @@ class RatsitScraper {
         headers: {
           'Accept': 'application/json'
         },
-        timeout: 30000
+        timeout: 112000
       });
 
       if (response.status === 200 && response.data && response.data.data) {
@@ -800,7 +800,7 @@ class RatsitScraper {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        timeout: 30000,
+        timeout: 112000,
         maxRedirects: 0, // Don't follow redirects
         validateStatus: function (status) {
           return status >= 200 && status < 400; // Accept 2xx and 3xx
@@ -846,7 +846,7 @@ class RatsitScraper {
                   'Accept': 'application/json',
                   ...(this.api_token && { 'Authorization': `Bearer ${this.api_token}` }),
                 },
-                timeout: 30000,
+                timeout: 112000,
                 maxRedirects: 0,
                 validateStatus: function (status) { return status >= 200 && status < 400; }
               });
@@ -885,7 +885,7 @@ class RatsitScraper {
           'Accept': 'application/json',
           ...(this.api_token && { 'Authorization': `Bearer ${this.api_token}` })
         },
-        timeout: 30000
+        timeout: 112000
       });
 
       return response.status === 200;
@@ -933,7 +933,7 @@ class RatsitScraper {
       const page = await context.newPage();
 
       // Get search results
-      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 112000 });
       await page.waitForTimeout(2000);
 
       // Find all person links
@@ -958,7 +958,7 @@ class RatsitScraper {
         console.log(`  → [${i + 1}/${links.length}] Scraping: ${link}`);
 
         try {
-          await page.goto(link, { waitUntil: 'networkidle', timeout: 30000 });
+          await page.goto(link, { waitUntil: 'networkidle', timeout: 112000 });
           await page.waitForTimeout(1500);
 
           // Scroll to load lazy content
