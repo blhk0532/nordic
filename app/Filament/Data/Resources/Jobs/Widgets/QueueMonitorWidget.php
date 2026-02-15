@@ -70,9 +70,14 @@ class QueueMonitorWidget extends StatsOverviewWidget
     {
         // Check if queue:work process is running
         try {
+            // Only attempt exec if function exists and is not disabled
+            if (! function_exists('exec')) {
+                return false;
+            }
+
             $output = [];
             $return_var = 0;
-            exec('ps aux | grep "queue:work" | grep -v grep', $output, $return_var);
+            @exec('ps aux | grep "queue:work" | grep -v grep', $output, $return_var);
 
             return count($output) > 0;
         } catch (Exception $e) {

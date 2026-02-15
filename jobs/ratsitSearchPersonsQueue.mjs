@@ -935,11 +935,11 @@ class RatsitScraper {
         const cookieFilePath = path.join(process.cwd(), 'cookies', 'ratsit.json');
         const cookieData = await fs.readFile(cookieFilePath, 'utf8');
         const rawCookies = JSON.parse(cookieData);
-        
+
         // Normalize cookies for Playwright
         cookies = rawCookies.map(cookie => {
           const normalizedCookie = { ...cookie };
-          
+
           // Normalize sameSite values to match Playwright's expectations
           if (normalizedCookie.sameSite) {
             const sameSite = String(normalizedCookie.sameSite).toLowerCase();
@@ -957,10 +957,10 @@ class RatsitScraper {
             // If sameSite is null or undefined, set to Lax
             normalizedCookie.sameSite = 'Lax';
           }
-          
+
           return normalizedCookie;
         });
-        
+
         console.log(`  → Loaded ${cookies.length} cookie(s) from ratsit.json`);
       } catch (cookieError) {
         console.log(`  ⚠️  Could not load cookies: ${cookieError.message}`);
@@ -1010,7 +1010,7 @@ class RatsitScraper {
           let pageLoaded = false;
           let retries = 0;
           const maxRetries = 2;
-          
+
           while (!pageLoaded && retries <= maxRetries) {
             try {
               await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -1024,7 +1024,7 @@ class RatsitScraper {
               await page.waitForTimeout(2000);
             }
           }
-          
+
           await page.waitForTimeout(1500);
 
           // Scroll to load lazy content

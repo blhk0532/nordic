@@ -30,9 +30,14 @@ class ListJobs extends ListRecords
                 ->modalSubmitActionLabel('Start Worker')
                 ->action(function () {
                     try {
+                        // Check if exec function is available
+                        if (! function_exists('exec')) {
+                            throw new Exception('exec() function is disabled on this server');
+                        }
+
                         // Check if worker is already running
                         $output = [];
-                        exec('ps aux | grep "queue:work" | grep -v grep', $output);
+                        @exec('ps aux | grep "queue:work" | grep -v grep', $output);
 
                         if (count($output) > 0) {
                             Notification::make()
@@ -45,8 +50,12 @@ class ListJobs extends ListRecords
                         }
 
                         // Start queue worker in background
+                        if (! function_exists('shell_exec')) {
+                            throw new Exception('shell_exec() function is disabled on this server');
+                        }
+
                         $command = 'cd '.base_path().' && nohup php artisan queue:work --queue=postnummer-updates --tries=3 --timeout=300 > /dev/null 2>&1 & echo $!';
-                        $pid = shell_exec($command);
+                        $pid = @shell_exec($command);
 
                         if ($pid) {
                             Notification::make()
@@ -76,9 +85,14 @@ class ListJobs extends ListRecords
                 ->modalSubmitActionLabel('Stop Worker')
                 ->action(function () {
                     try {
+                        // Check if exec function is available
+                        if (! function_exists('exec')) {
+                            throw new Exception('exec() function is disabled on this server');
+                        }
+
                         // Find and kill queue worker processes
                         $output = [];
-                        exec('ps aux | grep "queue:work" | grep -v grep | awk \'{print $2}\'', $output);
+                        @exec('ps aux | grep "queue:work" | grep -v grep | awk \'\'{print $2}\'\' ', $output);
 
                         if (empty($output)) {
                             Notification::make()
@@ -91,7 +105,7 @@ class ListJobs extends ListRecords
                         }
 
                         foreach ($output as $pid) {
-                            exec("kill {$pid}");
+                            @exec("kill {$pid}");
                         }
 
                         Notification::make()

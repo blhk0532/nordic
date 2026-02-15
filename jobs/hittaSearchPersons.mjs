@@ -139,7 +139,7 @@ async function savePersonsViaApi(persons) {
         } catch (retryErr) {
           lastError = retryErr;
           retries++;
-          
+
           // Log detailed error information
           console.log(`   ⚠️  hitta_se Error Details:`);
           console.log(`      - Status: ${retryErr.response?.status || 'N/A'}`);
@@ -148,7 +148,7 @@ async function savePersonsViaApi(persons) {
           if (retryErr.response?.data) {
             console.log(`      - Response: ${JSON.stringify(retryErr.response.data).substring(0, 500)}`);
           }
-          
+
           if (retryErr.code === 'ECONNABORTED' || retryErr.message?.includes('timeout')) {
             timeoutCount++;
             if (retries <= maxRetries) {

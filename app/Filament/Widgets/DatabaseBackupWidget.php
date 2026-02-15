@@ -48,6 +48,11 @@ class DatabaseBackupWidget extends Widget implements HasActions, HasForms
 
                     $filepath = "{$backupPath}/{$filename}";
 
+                    // Check if exec function is available
+                    if (! function_exists('exec')) {
+                        throw new Exception('exec() function is disabled on this server');
+                    }
+
                     // Create mysqldump command
                     $command = sprintf(
                         'mysqldump -u%s -p%s %s > %s',
@@ -57,8 +62,8 @@ class DatabaseBackupWidget extends Widget implements HasActions, HasForms
                         escapeshellarg($filepath)
                     );
 
-                    // Execute backup
-                    exec($command, $output, $returnVar);
+                    // Execute backup with error suppression
+                    @exec($command, $output, $returnVar);
 
                     if ($returnVar !== 0) {
                         throw new Exception('Database backup failed');
