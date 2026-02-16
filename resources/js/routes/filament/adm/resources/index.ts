@@ -4,6 +4,7 @@ import outcomeSettings from './outcome-settings'
 import teamInvitations from './team-invitations'
 import teams from './teams'
 import users from './users'
+import whatsappAgents from './whatsapp-agents'
 import bookingCalendars from './booking-calendars'
 import whatsapp from './whatsapp'
 import whatsappInstances from './whatsapp-instances'
@@ -17,6 +18,7 @@ const resources = {
     teamInvitations: Object.assign(teamInvitations, teamInvitations),
     teams: Object.assign(teams, teams),
     users: Object.assign(users, users),
+    whatsappAgents: Object.assign(whatsappAgents, whatsappAgents),
     bookingCalendars: Object.assign(bookingCalendars, bookingCalendars),
     whatsapp: Object.assign(whatsapp, whatsapp),
     whatsappInstances: Object.assign(whatsappInstances, whatsappInstances),

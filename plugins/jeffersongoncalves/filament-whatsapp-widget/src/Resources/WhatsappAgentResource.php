@@ -32,6 +32,8 @@ use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 
 class WhatsappAgentResource extends Resource
 {
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     public static function form(Schema $schema): Schema
     {
         return $schema

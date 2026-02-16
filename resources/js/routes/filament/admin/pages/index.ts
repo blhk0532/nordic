@@ -210,6 +210,111 @@ sendWhatsappForm.head = (args: { tenant: string | number | { slug: string | numb
 sendWhatsapp.form = sendWhatsappForm
 
 /**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+export const sanctum = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: sanctum.url(args, options),
+    method: 'get',
+})
+
+sanctum.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/sanctum',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+sanctum.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return sanctum.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+sanctum.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: sanctum.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+sanctum.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: sanctum.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+const sanctumForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: sanctum.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+sanctumForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: sanctum.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
+* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @route '/admin/tenant/{tenant}/sanctum'
+*/
+sanctumForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: sanctum.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+sanctum.form = sanctumForm
+
+/**
 * @see \AlessandroNuunes\FilamentMember\Pages\TenantMembers::__invoke
 * @see vendor/alessandronuunes/filament-member/src/Pages/TenantMembers.php:7
 * @route '/admin/tenant/{tenant}/members'
@@ -315,7 +420,217 @@ membersForm.head = (args: { tenant: string | number | { slug: string | number } 
 members.form = membersForm
 
 /**
-* @see [serialized-closure]:2
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+export const generalSettingsPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: generalSettingsPage.url(args, options),
+    method: 'get',
+})
+
+generalSettingsPage.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/general-settings-page',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+generalSettingsPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return generalSettingsPage.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+generalSettingsPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: generalSettingsPage.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+generalSettingsPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: generalSettingsPage.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+const generalSettingsPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: generalSettingsPage.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+generalSettingsPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: generalSettingsPage.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/admin/tenant/{tenant}/general-settings-page'
+*/
+generalSettingsPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: generalSettingsPage.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+generalSettingsPage.form = generalSettingsPageForm
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+export const myProfile = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: myProfile.url(args, options),
+    method: 'get',
+})
+
+myProfile.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/my-profile',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+myProfile.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return myProfile.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+myProfile.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: myProfile.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+myProfile.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: myProfile.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+const myProfileForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+myProfileForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/admin/tenant/{tenant}/my-profile'
+*/
+myProfileForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+myProfile.form = myProfileForm
+
+/**
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 export const chatDashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +644,7 @@ chatDashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 chatDashboard.url = (options?: RouteQueryOptions) => {
@@ -337,7 +652,7 @@ chatDashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 chatDashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -346,7 +661,7 @@ chatDashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 chatDashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -355,7 +670,7 @@ chatDashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 const chatDashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -364,7 +679,7 @@ const chatDashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 chatDashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -373,7 +688,7 @@ chatDashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 /**
-* @see [serialized-closure]:2
+* @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
 chatDashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +706,10 @@ chatDashboard.form = chatDashboardForm
 const pages = {
     dashboard: Object.assign(dashboard, dashboard),
     sendWhatsapp: Object.assign(sendWhatsapp, sendWhatsapp),
+    sanctum: Object.assign(sanctum, sanctum),
     members: Object.assign(members, members),
+    generalSettingsPage: Object.assign(generalSettingsPage, generalSettingsPage),
+    myProfile: Object.assign(myProfile, myProfile),
     chatDashboard: Object.assign(chatDashboard, chatDashboard),
 }
 

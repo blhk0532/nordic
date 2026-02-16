@@ -21,7 +21,7 @@ class RunHittaPostOrtPageJob implements ShouldQueue
     use Dispatchable;
     use Queueable;
 
-    public int $timeout = 9600; // 1 hour timeout per post nummer
+    public int $timeout = 11200; // 1 hour timeout per post nummer
 
     public function __construct(
         protected int|string $postNumId,

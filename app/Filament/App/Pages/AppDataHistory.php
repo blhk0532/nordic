@@ -35,7 +35,7 @@ class AppDataHistory extends Page
 
     public static function shouldRegisterNavigation(): bool
     {
-        return true;
+        return false;
     }
 
     public static function getNavigationLabel(): string

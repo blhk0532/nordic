@@ -28,6 +28,8 @@ class TeamResource extends Resource
 
     protected static bool $isGloballySearchable = true;
 
+    protected static bool $isScopedToTenant = false;
+
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?int $navigationSort = 2;

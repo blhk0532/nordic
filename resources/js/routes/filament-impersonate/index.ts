@@ -1,6 +1,6 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 export const leave = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -14,7 +14,7 @@ leave.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 leave.url = (options?: RouteQueryOptions) => {
@@ -22,7 +22,7 @@ leave.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 leave.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -31,7 +31,7 @@ leave.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 leave.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -40,7 +40,7 @@ leave.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 const leaveForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -49,7 +49,7 @@ const leaveForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 leaveForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -58,7 +58,7 @@ leaveForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see [serialized-closure]:2
+* @see vendor/stechstudio/filament-impersonate/routes/web.php:6
 * @route '/filament-impersonate/leave'
 */
 leaveForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

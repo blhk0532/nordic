@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+const RequestPasswordReset4573691be485341bb598fc67251dcbfd = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url(options),
+    method: 'get',
+})
+
+RequestPasswordReset4573691be485341bb598fc67251dcbfd.definition = {
+    methods: ["get","head"],
+    url: '/admin/password-reset/request',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+RequestPasswordReset4573691be485341bb598fc67251dcbfd.url = (options?: RouteQueryOptions) => {
+    return RequestPasswordReset4573691be485341bb598fc67251dcbfd.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+RequestPasswordReset4573691be485341bb598fc67251dcbfd.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+RequestPasswordReset4573691be485341bb598fc67251dcbfd.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+const RequestPasswordReset4573691be485341bb598fc67251dcbfdForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+RequestPasswordReset4573691be485341bb598fc67251dcbfdForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
+* @route '/admin/password-reset/request'
+*/
+RequestPasswordReset4573691be485341bb598fc67251dcbfdForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RequestPasswordReset4573691be485341bb598fc67251dcbfd.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+RequestPasswordReset4573691be485341bb598fc67251dcbfd.form = RequestPasswordReset4573691be485341bb598fc67251dcbfdForm
+/**
+* @see \Filament\Auth\Pages\PasswordReset\RequestPasswordReset::__invoke
+* @see vendor/filament/filament/src/Auth/Pages/PasswordReset/RequestPasswordReset.php:7
 * @route '/nds/adm/password-reset/request'
 */
 const RequestPasswordReset8295e476bcb62a08eec5f7f847bac860 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -721,6 +801,7 @@ RequestPasswordResetb6f5727c107c06567868987d63dde2b8Form.head = (options?: Route
 RequestPasswordResetb6f5727c107c06567868987d63dde2b8.form = RequestPasswordResetb6f5727c107c06567868987d63dde2b8Form
 
 const RequestPasswordReset = {
+    '/admin/password-reset/request': RequestPasswordReset4573691be485341bb598fc67251dcbfd,
     '/nds/adm/password-reset/request': RequestPasswordReset8295e476bcb62a08eec5f7f847bac860,
     '/nds/app/password-reset/request': RequestPasswordResetb8fab1a77e24af051069c0cf486174c2,
     '/nds/chat/password-reset/request': RequestPasswordResetfc979a4e76dacd3d2ccac65f40e20683,

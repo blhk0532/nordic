@@ -23,7 +23,7 @@ class OutcomeSettingResource extends Resource
 
     protected static ?string $navigationLabel = 'Outcomes';
 
-
+    protected static bool $isScopedToTenant = false;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
 

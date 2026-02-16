@@ -160,3 +160,61 @@ a.fc-event.fc-event-draggable.fc-event-resizable.fc-event-start.fc-event-end.fc-
 div.logo-before{
    display:none!important;
 }
+
+h2.fc-dom-16{
+position: absolute;
+  left: 172px;
+  top: 6px;
+}
+#fc-dom-16{
+position: absolute;
+  left: 172px;
+  top: 6px;
+}
+
+.fi-modal-footer.fi-align-start{
+        display: flex;
+    justify-content: right;
+}
+html{
+    scrollbar-gutter: auto!important;
+    overflow: hidden;
+    max-height: 100vh;
+
+}
+.fi-sidebar.fi-main-sidebar.fi-sidebar-opened{
+    overflow: hidden;
+}
+.fi-main-ctn.fi-main-ctn-sidebar-open{
+        display: flex;
+    max-height: 90vh;
+    opacity: 1;
+    overflow: auto;
+}
+
+.fi-dropdown-panel.fi-scrollable{
+    min-width: 288px;
+}
+
+.fi-sidebar-nav {
+    scrollbar-gutter: auto!important;
+}
+
+div.logo-before{
+   display:none!important;
+}
+
+div.flex.flex-col.bg-background.rounded-lg.overflow-hidden.border-x.border-t.border-b.max-w-300.my-10.mx-auto{
+    width: 100%;
+  max-width: 100%;
+}
+
+svg.nordic-logo-frontend{
+ position: absolute;
+  top: 6px;
+  left: 30px;
+}
+
+.nordic-logo-frontend{
+    margin-left: -20px;
+}

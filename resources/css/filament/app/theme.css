@@ -230,12 +230,7 @@ div.fi-sc-tabs{
     height:2rem;
 }
 
-div.fi-header.fi-header-has-breadcrumbs{
-    display:none!important;
-}
-.fi-header.fi-header-has-breadcrumbs{
-    display:none!important;
-}
+
 
 @media screen and (min-width: 900px) {
 .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
@@ -501,4 +496,9 @@ html{
 
 .fi-sidebar-nav {
     scrollbar-gutter: auto!important;
+}
+
+.fi-main-ctn{
+    overflow: scroll;
+  height: 90vh;
 }

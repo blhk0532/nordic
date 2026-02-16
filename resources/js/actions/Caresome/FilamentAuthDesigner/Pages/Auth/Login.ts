@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
 * @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+const Login047f8ce2fdeb7128b2677a1dd45b96b8 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login047f8ce2fdeb7128b2677a1dd45b96b8.url(options),
+    method: 'get',
+})
+
+Login047f8ce2fdeb7128b2677a1dd45b96b8.definition = {
+    methods: ["get","head"],
+    url: '/admin/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+Login047f8ce2fdeb7128b2677a1dd45b96b8.url = (options?: RouteQueryOptions) => {
+    return Login047f8ce2fdeb7128b2677a1dd45b96b8.definition.url + queryParams(options)
+}
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+Login047f8ce2fdeb7128b2677a1dd45b96b8.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: Login047f8ce2fdeb7128b2677a1dd45b96b8.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+Login047f8ce2fdeb7128b2677a1dd45b96b8.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: Login047f8ce2fdeb7128b2677a1dd45b96b8.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+const Login047f8ce2fdeb7128b2677a1dd45b96b8Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login047f8ce2fdeb7128b2677a1dd45b96b8.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+Login047f8ce2fdeb7128b2677a1dd45b96b8Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login047f8ce2fdeb7128b2677a1dd45b96b8.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
+* @route '/admin/login'
+*/
+Login047f8ce2fdeb7128b2677a1dd45b96b8Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Login047f8ce2fdeb7128b2677a1dd45b96b8.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Login047f8ce2fdeb7128b2677a1dd45b96b8.form = Login047f8ce2fdeb7128b2677a1dd45b96b8Form
+/**
+* @see \Caresome\FilamentAuthDesigner\Pages\Auth\Login::__invoke
+* @see plugins/caresome/filament-auth-designer/src/Pages/Auth/Login.php:7
 * @route '/nds/adm/login'
 */
 const Login5cacbc5c3dad06975424a9bdc99ac737 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -801,6 +881,7 @@ Login89c01f6e90696715780cbf74fe3ddebeForm.head = (options?: RouteQueryOptions): 
 Login89c01f6e90696715780cbf74fe3ddebe.form = Login89c01f6e90696715780cbf74fe3ddebeForm
 
 const Login = {
+    '/admin/login': Login047f8ce2fdeb7128b2677a1dd45b96b8,
     '/nds/adm/login': Login5cacbc5c3dad06975424a9bdc99ac737,
     '/nds/app/login': Login3628b7c7cab1f5480a3d1a395a43a118,
     '/nds/chat/login': Logind5d11fdcc7fb4be97549d651efa630b6,

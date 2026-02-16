@@ -108,7 +108,7 @@ class UserNotesModal extends Component implements HasForms
                         ['undo', 'redo'],
                     ])
                     ->label('Mina Anteckningar!')
-                    ->extraAttributes(['spellcheck' => 'false', 'wire:ignore' => true])
+                    ->extraAttributes(['spellcheck' => 'false'])
                     ->columnSpanFull(),
             ])
             ->statePath('data');

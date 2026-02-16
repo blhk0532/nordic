@@ -257,7 +257,13 @@ class AppPanelProvider extends PanelProvider
                 CurrentTenant::class,
             ], isPersistent: true)
             ->tenantMenuItems([
-
+                'team-users' => Action::make('team-users')
+                    ->label('Dashboard')
+                    ->badge(fn () => now()->timezone('Asia/Bangkok')->format('H:i').' 🇹🇭')
+                    ->icon(Remix::RiDashboard2Line)
+                    ->url(fn () => TeamUserResource::getUrl())
+                    ->sort(-1)
+                    ->visible(true),
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
                     ->visible(false),
@@ -269,13 +275,6 @@ class AppPanelProvider extends PanelProvider
                 'profile' => fn (Action $action) => $action->label('Team profile')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
-                'team-users' => Action::make('team-users')
-                    ->label('Dashboard')
-                    ->badge(fn () => now()->timezone('Asia/Bangkok')->format('H:i').' 🇹🇭')
-                    ->icon(Remix::RiDashboard2Line)
-                    ->url(fn () => TeamUserResource::getUrl())
-                    ->sort(-1)
-                    ->visible(true),
             ])
             ->plugin(
                 AuthDesignerPlugin::make()

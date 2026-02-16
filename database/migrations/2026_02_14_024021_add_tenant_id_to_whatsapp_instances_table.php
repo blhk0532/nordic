@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('whatsapp_instances', function (Blueprint $table) {
-            $table->foreignId('tenant_id')->nullable()->constrained('teams')->nullOnDelete();
+            if (! Schema::hasColumn('whatsapp_instances', 'tenant_id')) {
+                $table->foreignId('tenant_id')->nullable()->constrained('teams')->nullOnDelete();
+            }
         });
     }
 

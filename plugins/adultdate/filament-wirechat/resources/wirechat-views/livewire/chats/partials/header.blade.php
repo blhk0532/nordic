@@ -1,10 +1,5 @@
 @use("Adultdate\Wirechat\Facades\Wirechat")
 <style>
-    h1.fi-header-heading {
-display:none!important;
-}
-
-
 div.w-full.h-full {
   border-radius: 0px!important;
   padding: 0px!important;

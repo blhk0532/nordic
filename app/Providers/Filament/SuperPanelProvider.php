@@ -51,6 +51,7 @@ use Filament\Navigation\NavigationGroup;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets;
 use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -74,6 +75,7 @@ use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Usamamuneerchaudhary\Notifier\FilamentNotifierPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+
 // use MWGuerra\FileManager\Filament\Pages\FileManagerBase;
 
 class SuperPanelProvider extends PanelProvider
@@ -95,6 +97,7 @@ class SuperPanelProvider extends PanelProvider
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->brandName('Noridic Digital')
+            ->maxContentWidth(Width::Full)
             ->defaultThemeMode(ThemeMode::Dark)
             ->revealablePasswords(true)
             ->passwordReset()

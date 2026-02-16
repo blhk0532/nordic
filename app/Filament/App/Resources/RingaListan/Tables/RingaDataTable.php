@@ -71,6 +71,7 @@ class RingaDataTable
                     ->sortable()
                     ->alignCenter(),
                 TextColumn::make('aterkom_at')
+                ->hidden()
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')
@@ -84,19 +85,20 @@ class RingaDataTable
                     ->hidden()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->emptyStateHeading('≽ ^⎚ ˕ ⎚^ ≼')
-            ->emptyStateDescription('Inga Återkomster')
+            ->emptyStateHeading('Inga Återkomster')
+            ->emptyStateDescription('Återkomstlistan är tom')
             ->emptyStateActions([
                 Actions\Action::make('RingaListan')
-                    ->label('Ringlista')
-                    ->url(route('dashboard'))
-                    ->icon('heroicon-m-phone-arrow-up-right')
+                    ->label(fn () => auth()->user()->name)
+                    ->url('https://ndsth.se/nds/app')
+                    ->icon('heroicon-o-user-circle')
                     ->button(),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
+                 ViewAction::make(),
                 Actions\Action::make('view_details')
                     ->label('Ring')
                     ->icon('heroicon-o-phone-arrow-up-right')
@@ -106,9 +108,6 @@ class RingaDataTable
                             $livewire->selectRecord($record->id);
                         }
                     }),
-
-                EditAction::make(),
-                ViewAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

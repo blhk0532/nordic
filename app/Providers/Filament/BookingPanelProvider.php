@@ -37,6 +37,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -101,6 +102,7 @@ class BookingPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop(true)
             ->databaseNotifications()
             ->databaseTransactions()
+            ->maxContentWidth(Width::Full)
             ->databaseNotificationsPolling('30s')
             ->brandLogo(fn () => view('filament.app.logo'))
             ->favicon(fn () => asset('favicon.svg'))

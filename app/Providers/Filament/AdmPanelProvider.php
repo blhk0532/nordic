@@ -33,6 +33,7 @@ use Filament\Navigation\NavigationGroup;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
@@ -75,6 +76,7 @@ final class AdmPanelProvider extends PanelProvider
             ->brandName('Noridic Digital')
             ->defaultThemeMode(ThemeMode::Dark)
             ->revealablePasswords(true)
+            ->maxContentWidth(Width::Full)
             ->passwordReset()
             ->emailChangeVerification()
             ->spa()

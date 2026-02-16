@@ -33,6 +33,8 @@ class AdminResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static bool $isScopedToTenant = false;
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['name', 'email'];

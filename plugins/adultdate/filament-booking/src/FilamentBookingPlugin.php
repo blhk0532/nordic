@@ -38,6 +38,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Auth;
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 
 class FilamentBookingPlugin implements Plugin
 {
@@ -144,6 +145,7 @@ HTML
 </script>
 HTML,
             scopes: [
+                QueueRingaData::class,
                 DashboardBooking::class,
                 DashboardBokning::class,
                 GoogleCalendar::class,

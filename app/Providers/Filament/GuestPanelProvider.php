@@ -13,6 +13,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -33,6 +34,7 @@ class GuestPanelProvider extends PanelProvider
             ])
             ->brandLogo(fn () => Vite::asset(config('teamkit.favicon.logo')))
             ->brandLogoHeight('50px')
+            ->maxContentWidth(Width::Full)
             ->viteTheme('resources/css/filament/guest/theme.css')
             ->defaultThemeMode(config('teamkit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/Guest/Clusters'), for: 'App\\Filament\\Guest\\Clusters')

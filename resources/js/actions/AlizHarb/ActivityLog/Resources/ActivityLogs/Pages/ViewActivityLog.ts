@@ -2,14 +2,113 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
-* @route '/nds/adm/activity-logs/{record}'
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
 */
-const ViewActivityLog = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewActivityLog.url(args, options),
+const ViewActivityLogd05064ee64ebcdb42fe23ae546619257 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, options),
     method: 'get',
 })
 
-ViewActivityLog.definition = {
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/activity-logs/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return ViewActivityLogd05064ee64ebcdb42fe23ae546619257.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+const ViewActivityLogd05064ee64ebcdb42fe23ae546619257Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/admin/tenant/{tenant}/activity-logs/{record}'
+*/
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLogd05064ee64ebcdb42fe23ae546619257.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewActivityLogd05064ee64ebcdb42fe23ae546619257.form = ViewActivityLogd05064ee64ebcdb42fe23ae546619257Form
+/**
+* @see \AlizHarb\ActivityLog\Resources\ActivityLogs\Pages\ViewActivityLog::__invoke
+* @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
+* @route '/nds/adm/activity-logs/{record}'
+*/
+const ViewActivityLoged8175989038782400a1c0f84bfd522f = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, options),
+    method: 'get',
+})
+
+ViewActivityLoged8175989038782400a1c0f84bfd522f.definition = {
     methods: ["get","head"],
     url: '/nds/adm/activity-logs/{record}',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +118,7 @@ ViewActivityLog.definition = {
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-ViewActivityLog.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+ViewActivityLoged8175989038782400a1c0f84bfd522f.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -36,7 +135,7 @@ ViewActivityLog.url = (args: { record: string | number } | [record: string | num
         record: args.record,
     }
 
-    return ViewActivityLog.definition.url
+    return ViewActivityLoged8175989038782400a1c0f84bfd522f.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -46,8 +145,8 @@ ViewActivityLog.url = (args: { record: string | number } | [record: string | num
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-ViewActivityLog.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewActivityLog.url(args, options),
+ViewActivityLoged8175989038782400a1c0f84bfd522f.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, options),
     method: 'get',
 })
 
@@ -56,8 +155,8 @@ ViewActivityLog.get = (args: { record: string | number } | [record: string | num
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-ViewActivityLog.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewActivityLog.url(args, options),
+ViewActivityLoged8175989038782400a1c0f84bfd522f.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, options),
     method: 'head',
 })
 
@@ -66,8 +165,8 @@ ViewActivityLog.head = (args: { record: string | number } | [record: string | nu
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-const ViewActivityLogForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewActivityLog.url(args, options),
+const ViewActivityLoged8175989038782400a1c0f84bfd522fForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, options),
     method: 'get',
 })
 
@@ -76,8 +175,8 @@ const ViewActivityLogForm = (args: { record: string | number } | [record: string
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-ViewActivityLogForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewActivityLog.url(args, options),
+ViewActivityLoged8175989038782400a1c0f84bfd522fForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, options),
     method: 'get',
 })
 
@@ -86,8 +185,8 @@ ViewActivityLogForm.get = (args: { record: string | number } | [record: string |
 * @see plugins/alizharb/filament-activity-log/src/Resources/ActivityLogs/Pages/ViewActivityLog.php:7
 * @route '/nds/adm/activity-logs/{record}'
 */
-ViewActivityLogForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewActivityLog.url(args, {
+ViewActivityLoged8175989038782400a1c0f84bfd522fForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewActivityLoged8175989038782400a1c0f84bfd522f.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,6 +195,11 @@ ViewActivityLogForm.head = (args: { record: string | number } | [record: string 
     method: 'get',
 })
 
-ViewActivityLog.form = ViewActivityLogForm
+ViewActivityLoged8175989038782400a1c0f84bfd522f.form = ViewActivityLoged8175989038782400a1c0f84bfd522fForm
+
+const ViewActivityLog = {
+    '/admin/tenant/{tenant}/activity-logs/{record}': ViewActivityLogd05064ee64ebcdb42fe23ae546619257,
+    '/nds/adm/activity-logs/{record}': ViewActivityLoged8175989038782400a1c0f84bfd522f,
+}
 
 export default ViewActivityLog

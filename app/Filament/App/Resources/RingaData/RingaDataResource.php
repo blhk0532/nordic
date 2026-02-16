@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
+
 class RingaDataResource extends Resource
 {
     protected static ?string $model = RingaData::class;
@@ -73,7 +74,7 @@ class RingaDataResource extends Resource
         $user = auth()->user();
 
         // Only super OR admin users see all records
-        if ($user && in_array($user->role, ['super', 'admin'])) {
+        if ($user && in_array($user->role, ['super'])) {
             return $query;
         }
 
@@ -81,16 +82,29 @@ class RingaDataResource extends Resource
         $userId = $user?->id;
         $tenantId = filament()->getTenant()?->id;
 
-        return $query->where(function (Builder $q) use ($userId, $tenantId) {
-            $q->where(function ($nested) use ($userId) {
-                $nested->where('user_id', (string) $userId)
-                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userId]);
+        // Filter by current tenant's team_id
+        if ($tenantId && $user && in_array($user->role, ['super', 'admin', 'manager'])) {
+            $query->where('team_id', $tenantId);
+
+            return $query;
+        }
+
+        if ($tenantId && $user && in_array($user->role, ['booking'])) {
+            $query->where(function (Builder $q) use ($userId, $tenantId) {
+                $q->where(function ($nested) use ($userId) {
+                    $nested->where('user_id', (string) $userId)
+                        ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userId]);
+                });
+
+                if ($tenantId) {
+                    $q->orWhere('team_id', $tenantId);
+                }
             });
 
-            if ($tenantId) {
-                $q->orWhere('team_id', $tenantId);
-            }
-        });
+            return $query;
+        }
+
+        return $query;
     }
 
     public static function getRelations(): array

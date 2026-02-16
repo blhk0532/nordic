@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
@@ -41,11 +42,17 @@ class WhatsappAgent extends Model
         'phone',
         'text',
         'image',
+        'team_id',
     ];
 
     protected $casts = [
         'active' => 'bool',
     ];
+
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(Team::class);
+    }
 
     public function getImageUrlAttribute(): ?string
     {

@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class QueueRingaData extends Page
 {
@@ -55,6 +57,9 @@ class QueueRingaData extends Page
         try {
             // Always reset selectedRecordId on mount to avoid stale state
 
+            FilamentAsset::register([
+    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
+]);
             // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
             logger('QueueRingaData mount', [
@@ -216,8 +221,8 @@ class QueueRingaData extends Page
             RingaDataDisplayWidget::class,
             RingaDataOutcomeFormWidget::class,
             RingaDataOutcomeWidget::class,
-            RingaDatasQueueTableWidget::class,
             RingaDataCalendar::class,
+            RingaDatasQueueTableWidget::class,
 
         ];
     }

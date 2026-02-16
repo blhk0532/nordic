@@ -93,7 +93,7 @@ class UserNotes extends Component implements HasForms
     {
         return $schema
             ->components([
-                Forms\Components\RichEditor::make('content')
+                Forms\Components\RichEditor::make('notes')
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
                         ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],

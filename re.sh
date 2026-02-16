@@ -14,6 +14,7 @@ php artisan route:clear
 php artisan view:clear
 php artisan event:clear
 php artisan optimize:clear
+php artisan filament:optimize-clear
 
 echo ""
 echo "Step 2: Installing Composer dependencies..."
@@ -25,7 +26,7 @@ echo "Step 3: Installing NPM dependencies..."
 if [ -f "package-lock.json" ]; then
     rm package-lock.json
 fi
-pnpm up
+pnpm install
 
 echo ""
 echo "Step 4: Building frontend assets..."

@@ -22,6 +22,8 @@ class OutcomeDelaySettingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static bool $isScopedToTenant = false;
+
     public static function shouldRegisterNavigation(): bool
     {
         return false;

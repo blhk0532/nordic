@@ -4,6 +4,7 @@ import OutcomeSettings from './OutcomeSettings'
 import TeamInvitations from './TeamInvitations'
 import Teams from './Teams'
 import Users from './Users'
+import WhatsappAgents from './WhatsappAgents'
 
 const Resources = {
     Admins: Object.assign(Admins, Admins),
@@ -12,6 +13,7 @@ const Resources = {
     TeamInvitations: Object.assign(TeamInvitations, TeamInvitations),
     Teams: Object.assign(Teams, Teams),
     Users: Object.assign(Users, Users),
+    WhatsappAgents: Object.assign(WhatsappAgents, WhatsappAgents),
 }
 
 export default Resources

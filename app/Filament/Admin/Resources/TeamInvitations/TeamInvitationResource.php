@@ -29,6 +29,8 @@ class TeamInvitationResource extends Resource
 {
     protected static ?string $model = TeamInvitation::class;
 
+    protected static bool $isScopedToTenant = false;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Ticket;
 
     protected static bool $isGloballySearchable = true;

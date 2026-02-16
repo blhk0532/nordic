@@ -1,4 +1,6 @@
 @php
+return;
+
 $isSidebarCollapsibleOnDesktop = filament()->isSidebarCollapsibleOnDesktop();
 $anderia = \Andreia\FilamentUiSwitcher\Support\UiPreferenceManager::get('ui.layout', 'sidebar');
 $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;

@@ -14,6 +14,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -41,6 +42,7 @@ class DataPanelProvider extends PanelProvider
             ->favicon(fn () => asset('favicon.svg'))
             ->unsavedChangesAlerts()
             ->databaseNotifications()
+            ->maxContentWidth(Width::Full)
             ->databaseNotificationsPolling('30s')
             ->discoverResources(in: app_path('Filament/Data/Resources'), for: 'App\Filament\Data\Resources')
             ->discoverPages(in: app_path('Filament/Data/Pages'), for: 'App\Filament\Data\Pages')

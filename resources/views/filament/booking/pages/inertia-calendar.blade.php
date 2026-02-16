@@ -13,6 +13,10 @@
                padding: 0rem !important;
                margin: 0rem !important;
         }
+        h1.fi-header-heading {
+display:none!important;
+}
+
     </style>
 <div class="h-full">
     <iframe

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JeffersonGoncalves\WhatsappWidget\Models\WhatsappAgent;
+use App\Models\WhatsappAgent;
 
 return [
     'whatsapp_agent_resource' => [

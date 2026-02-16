@@ -4,6 +4,7 @@ import outcomeSettings from './outcome-settings'
 import teamInvitations from './team-invitations'
 import teams from './teams'
 import users from './users'
+import whatsappAgents from './whatsapp-agents'
 import panelAccesses from './panel-accesses'
 import services from './services'
 import booking from './booking'
@@ -35,6 +36,7 @@ const resources = {
     teamInvitations: Object.assign(teamInvitations, teamInvitations),
     teams: Object.assign(teams, teams),
     users: Object.assign(users, users),
+    whatsappAgents: Object.assign(whatsappAgents, whatsappAgents),
     panelAccesses: Object.assign(panelAccesses, panelAccesses),
     services: Object.assign(services, services),
     booking: Object.assign(booking, booking),

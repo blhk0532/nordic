@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\RingaListan\Pages;
 
 use App\Filament\App\Resources\RingaListan\RingaListanResource;
+use App\Filament\App\Resources\RingaListan\Widgets\CallHistoryWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataDisplayWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataOutcomeWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataStatsWidget;
@@ -56,6 +57,13 @@ class ListRingaData extends ListRecords
     {
         return [
             'record' => $this->selectedRecordId ? RingaData::find($this->selectedRecordId) : null,
+        ];
+    }
+
+    protected function getFooterWidgets(): array
+    {
+        return [
+            CallHistoryWidget::class,
         ];
     }
 }

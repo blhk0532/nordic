@@ -19,6 +19,8 @@ use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\Width;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class ListRingaData extends ListRecords
 {
@@ -50,14 +52,12 @@ class ListRingaData extends ListRecords
     {
 
         return [
-            Action::make('Create user')
-                ->url(CreateRingaData::getUrl()),
-            ContextMenuDivider::make(),
-            Action::make('Trashed user')
-                ->url(QueueRingaData::getUrl()),
+
         ];
 
     }
+
+
 
     //  public static function getContextMenuActions(): array
     //  {
@@ -70,6 +70,10 @@ class ListRingaData extends ListRecords
 
     protected function getHeaderWidgets(): array
     {
+FilamentAsset::register([
+    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
+]);
+
         return [
             //    RingaDataPinpointWidget::class,
             //    RingaDataDisplayWidget::class,

@@ -1,4 +1,108 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+const ListBookingCalendarsf21baf353532b7d806613e622700e6ac = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, options),
+    method: 'get',
+})
+
+ListBookingCalendarsf21baf353532b7d806613e622700e6ac.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/booking-calendars',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return ListBookingCalendarsf21baf353532b7d806613e622700e6ac.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+ListBookingCalendarsf21baf353532b7d806613e622700e6ac.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+ListBookingCalendarsf21baf353532b7d806613e622700e6ac.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+const ListBookingCalendarsf21baf353532b7d806613e622700e6acForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+ListBookingCalendarsf21baf353532b7d806613e622700e6acForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
+* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
+* @route '/admin/tenant/{tenant}/booking-calendars'
+*/
+ListBookingCalendarsf21baf353532b7d806613e622700e6acForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendarsf21baf353532b7d806613e622700e6ac.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListBookingCalendarsf21baf353532b7d806613e622700e6ac.form = ListBookingCalendarsf21baf353532b7d806613e622700e6acForm
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
@@ -321,6 +425,7 @@ ListBookingCalendarsfe61409f596ebb2924374b0466a7243cForm.head = (options?: Route
 ListBookingCalendarsfe61409f596ebb2924374b0466a7243c.form = ListBookingCalendarsfe61409f596ebb2924374b0466a7243cForm
 
 const ListBookingCalendars = {
+    '/admin/tenant/{tenant}/booking-calendars': ListBookingCalendarsf21baf353532b7d806613e622700e6ac,
     '/nds/adm/booking-calendars': ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da,
     '/nds/super/booking-calendars': ListBookingCalendars4d6dba31c0186cf1716264dbdc263fdb,
     '/nds/booking/booking-calendars': ListBookingCalendars3a89e132ec6c8aec3cce8826dd7c293c,

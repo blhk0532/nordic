@@ -69,10 +69,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Register UserNotes modal outside of Topbar to prevent Livewire entangle conflicts
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::BODY_START,
-            fn (): string => view('filament.app.user-notes-modal-container')->render(),
-        );
+        // Disabled for now due to rich editor JS errors in the modal.
+        // FilamentView::registerRenderHook(
+        //     PanelsRenderHook::BODY_START,
+        //     fn (): string => view('filament.app.user-notes-modal-container')->render(),
+        // );
     }
 
     protected function configureDefaults(): void

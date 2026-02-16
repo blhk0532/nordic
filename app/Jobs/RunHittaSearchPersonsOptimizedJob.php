@@ -81,8 +81,8 @@ class RunHittaSearchPersonsOptimizedJob implements ShouldQueue
 
             // Execute the script with higher timeout
             $process = new Process(explode(' ', $command));
-            $process->setTimeout(1800); // 30 minutes
-            $process->setIdleTimeout(300); // 5 minutes idle timeout
+            $process->setTimeout(11200); //  minutes
+            $process->setIdleTimeout(1120); // 5 minutes idle timeout
             $process->run(function ($type, $buffer) {
                 if ($type === Process::ERR) {
                     Log::error('hittaSearchPersons error output: '.$buffer);

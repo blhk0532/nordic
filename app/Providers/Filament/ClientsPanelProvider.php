@@ -18,6 +18,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -82,6 +83,7 @@ class ClientsPanelProvider extends PanelProvider
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(true, 'attachments'),
             )
+            ->maxContentWidth(Width::Full)
             ->discoverResources(in: app_path('Filament/Clients/Resources'), for: 'App\Filament\Clients\Resources')
             ->discoverPages(in: app_path('Filament/Clients/Pages'), for: 'App\Filament\Clients\Pages')
             ->discoverResources(in: app_path('Filament/Panels/Resources'), for: 'App\Filament\Panels\Resources')

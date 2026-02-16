@@ -295,8 +295,6 @@ select:focus[data-flux-control] {
     @apply size-4;
 } */
 
-
-
 div.w-full.border.rounded-xl.flex.items-center.justify-center.h-96 {
     border-color: var(--color-border);
     min-height:800px;
@@ -337,4 +335,43 @@ svg.nordic-logo-frontend{
 
 .nordic-logo-frontend{
     margin-left: -20px;
+}
+
+h2.fc-dom-16{
+position: absolute;
+  left: 172px;
+  top: 6px;
+}
+#fc-dom-16{
+position: absolute;
+  left: 172px;
+  top: 6px;
+}
+
+.fi-modal-footer.fi-align-start{
+        display: flex;
+    justify-content: right;
+}
+html{
+    scrollbar-gutter: auto!important;
+    overflow: hidden;
+    max-height: 100vh;
+
+}
+.fi-sidebar.fi-main-sidebar.fi-sidebar-opened{
+    overflow: hidden;
+}
+.fi-main-ctn.fi-main-ctn-sidebar-open{
+        display: flex;
+    max-height: 90vh;
+    opacity: 1;
+    overflow: auto;
+}
+
+.fi-dropdown-panel.fi-scrollable{
+    min-width: 288px;
+}
+
+.fi-sidebar-nav {
+    scrollbar-gutter: auto!important;
 }

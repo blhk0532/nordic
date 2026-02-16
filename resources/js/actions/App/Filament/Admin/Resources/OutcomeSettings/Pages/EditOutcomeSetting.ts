@@ -2,6 +2,105 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
 * @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+const EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, options),
+    method: 'get',
+})
+
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/outcome-settings/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+const EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bbForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bbForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-settings/{record}/edit'
+*/
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bbForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.form = EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bbForm
+/**
+* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
 * @route '/nds/adm/outcome-settings/{record}/edit'
 */
 const EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -197,6 +296,7 @@ EditOutcomeSetting71183bdef82d450c12650cbe23a7199dForm.head = (args: { record: s
 EditOutcomeSetting71183bdef82d450c12650cbe23a7199d.form = EditOutcomeSetting71183bdef82d450c12650cbe23a7199dForm
 
 const EditOutcomeSetting = {
+    '/admin/tenant/{tenant}/outcome-settings/{record}/edit': EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb,
     '/nds/adm/outcome-settings/{record}/edit': EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b,
     '/nds/super/outcome-settings/{record}/edit': EditOutcomeSetting71183bdef82d450c12650cbe23a7199d,
 }

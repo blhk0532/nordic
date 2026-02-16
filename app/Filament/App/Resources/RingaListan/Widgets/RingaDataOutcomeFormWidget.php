@@ -11,6 +11,8 @@ class RingaDataOutcomeFormWidget extends Widget
 {
     public ?RingaData $record = null;
 
+    public ?string $tenant = null;
+
     protected static ?string $heading = 'Call Outcomes';
 
     protected int|string|array $columnSpan = '1/2';
@@ -21,6 +23,9 @@ class RingaDataOutcomeFormWidget extends Widget
 
     public function mount(): void
     {
+        // Set tenant from filament context
+        $this->tenant = filament()->getTenant()?->slug;
+
         // Load the first unprocessed record directly
         // This bypasses Filament's data-passing mechanism which isn't working
         $this->record = RingaData::whereNull('outcome')

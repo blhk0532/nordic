@@ -7,7 +7,9 @@ namespace App\Filament\App\Resources\RingaData\Tables;
 use App\Enums\Outcomes;
 use App\Enums\OutcomeType;
 use App\Models\BookingCalendar;
+use App\Models\Campaign;
 use App\Models\RingaData;
+use App\Models\Team;
 use Faker\Factory as Faker;
 use Filament\Actions;
 use Filament\Actions\Action;
@@ -40,8 +42,8 @@ class RingaDataTable
         return $table
             ->headerActions([
                 \EightyNine\ExcelImport\ExcelImportAction::make()
-                    ->color('primary'),
-                Actions\CreateAction::make(),
+                    ->color('primary')
+                    ->extraAttributes(['class' => 'absolute top-11 right-86 z-0']),
             ])
             ->columns([
                 UserColumn::make('user')
@@ -51,7 +53,7 @@ class RingaDataTable
                     ->sortable()
                     ->default('...')
                     ->toggleable(false)
-                    ->label('¯\_(ツ)_/¯')                                  // Display as badge (or remove for simple text)
+                    ->label('Utfall')                                  // Display as badge (or remove for simple text)
                     ->color(
                         static fn ($state) => $state instanceof OutcomeType
                             ? $state->getColor()
@@ -200,32 +202,133 @@ class RingaDataTable
                             fn ($q, $postnummer) => $q->where('postnummer', 'like', '%'.$postnummer.'%'),
                         );
                     }),
+                SelectFilter::make('campaign_id')
+                    ->label('Kampanj')
+                    ->options(function () {
+                        $tenantId = filament()->getTenant()?->id;
+                        if (!$tenantId) {
+                            return [];
+                        }
+                        return Campaign::where('team_id', $tenantId)
+                            ->pluck('title', 'id')
+                            ->toArray();
+                    })
+                    ->searchable(),
                 SelectFilter::make('outcome')
-                    ->label('Outcome'),
+                    ->label('Outcome')
+                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
+                        fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
+                    )->toArray())
+                    ->searchable(),
             ])
-            ->paginated([10, 25, 50, 100, 250, 500, 1000])
+            ->paginated([10, 25, 50, 100, 150, 200, 250, 300, 400, 500, 1000, 2000])
             ->defaultPaginationPageOption(25)
             ->recordAction('view')
-            ->actions([
+            ->recordActions([
                 EditAction::make()
                     ->label(''),
-                ViewAction::make('view')
-                    ->label('')
-                    ->icon('heroicon-o-eye')
-                    ->modalHeading('Info')
-                    ->modalWidth('xl'),
                 Action::make('view_details')
                     ->label('')
                     ->icon('heroicon-o-phone-arrow-up-right')
-                    ->color('primary')
+                    ->color('success')
                     ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
 
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                    ->label('Radera Uppgifterna'),
+                    BulkAction::make('transferCampaign')
+                        ->label('Kampanjöverföring')
+                        ->icon('heroicon-o-arrow-path')
+                        ->color('info')
+                        ->schema([
+                            Select::make('campaign_id')
+                                ->label('Välj Kampanj')
+                                ->searchable()
+                                ->options(function () {
+                                    $tenantId = filament()->getTenant()?->id;
+                                    if (!$tenantId) {
+                                        return [];
+                                    }
+                                    return Campaign::where('title', '!=', 'Unassigned')
+                                        ->pluck('title', 'id')
+                                        ->toArray();
+                                })
+                                ->required()
+                                ->validationMessages([
+                                    'required' => 'Please select a campaign.',
+                                ]),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            $records->each(function ($record) use ($data) {
+                                $record->update(['campaign_id' => $data['campaign_id']]);
+                            });
+
+                            Notification::make()
+                                ->title('Campaign transferred successfully')
+                                ->success()
+                                ->body(count($records) . ' record(s) transferred.')
+                                ->send();
+                        })
+                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
+                    BulkAction::make('resetResults')
+                        ->label('Nollställ Resultat')
+                        ->icon('heroicon-o-arrow-path-rounded-square')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->modalHeading('Nollställ Resultaten')
+                        ->modalDescription('Detta kommer att återställa user_id, outcome, attempts, started_at och expires_at för de valda posterna.')
+                        ->modalSubmitActionLabel('Nollställ')
+                        ->action(function (Collection $records): void {
+                            $records->each(function ($record) {
+                                $record->update([
+                                    'user_id' => null,
+                                    'outcome' => null,
+                                    'outcome_category' => null,
+                                    'attempts' => 0,
+                                    'started_at' => null,
+                                    'expires_at' => null,
+                                    'is_active' => false,
+                                ]);
+                            });
+
+                            Notification::make()
+                                ->title('Resultat nollställda')
+                                ->success()
+                                ->body(count($records) . ' post(er) har nollställts.')
+                                ->send();
+                        })
+                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
+                    BulkAction::make('selectTeam')
+                        ->label('Välj Arbetsgrupp')
+                        ->icon('heroicon-o-user-group')
+                        ->color('primary')
+                        ->schema([
+                            Select::make('team_id')
+                                ->label('Välj Arbetsgrupp')
+                                ->searchable()
+                                ->options(Team::pluck('name', 'id')->toArray())
+                                ->required()
+                                ->validationMessages([
+                                    'required' => 'Vänligen välj en arbetsgrupp.',
+                                ]),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            $records->each(function ($record) use ($data) {
+                                $record->update(['team_id' => $data['team_id']]);
+                            });
+
+                            Notification::make()
+                                ->title('Arbetsgrupp tilldelad')
+                                ->success()
+                                ->body(count($records) . ' post(er) har tilldelats en arbetsgrupp.')
+                                ->send();
+                        })
+                        ->visible(fn () => in_array(auth()->user()->role, ['super', 'super_admin', 'superadmin'])),
                     BulkAction::make('assignToUsers')
-                        ->label('Tilldela')
+                        ->label('Tilldela användare')
+                        ->color('gray')
                         ->icon('heroicon-o-users')
                         ->schema([
                             Grid::make(2)
@@ -316,6 +419,9 @@ class RingaDataTable
                         })
                         ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
                 ]),
+
+
+
             ]);
     }
 
