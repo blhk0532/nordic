@@ -224,14 +224,6 @@ div.filament-world-clock-content {
 }
 
 
-div.fi-sc-tabs{
-    position: absolute;
-    top: 5rem;
-    height:2rem;
-}
-
-
-
 @media screen and (min-width: 900px) {
 .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-modal-window-has-footer.fi-align-start.fi-width-md{
     z-index: 10000 !important;

@@ -40,7 +40,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 
         class="fi-sidebar-database-notifications-btn-label"
     >
-    Ateckningar
+    Ateckning
     </span>
 @endif
 

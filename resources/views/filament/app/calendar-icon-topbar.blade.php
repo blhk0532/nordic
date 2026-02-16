@@ -13,7 +13,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     color="gray"
     icon="heroicon-o-clipboard-document-list"
     icon-size="lg"
-    label="Anteckningar"
+    label="Anteckning"
     @if($anderia === 'sidebar-no-topbar')
     class="fi-sidebar-database-notifications-btn"
     @else
@@ -49,7 +49,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 
         class="fi-sidebar-database-notifications-btn-label"
     >
-    Anteckningar
+    Anteckning..
     </span>
 @endif
 

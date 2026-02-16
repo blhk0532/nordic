@@ -157,14 +157,14 @@ HTML,
             ],
         );
 
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::USER_MENU_BEFORE,
-            fn () => view('filament.app.calendar-icon-topbar')
-        );
-        //            FilamentView::registerRenderHook(
-        //        PanelsRenderHook::USER_MENU_BEFORE,
-        //        fn () => view('filament.app.manus-icon-topbar')
-        //    );
+    //    FilamentView::registerRenderHook(
+    //        PanelsRenderHook::USER_MENU_BEFORE,
+    //        fn () => view('filament.app.calendar-icon-topbar')
+    //    );
+                    FilamentView::registerRenderHook(
+                PanelsRenderHook::USER_MENU_BEFORE,
+                fn () => view('filament.app.manus-icon-topbar')
+            );
 
         //    FilamentView::registerRenderHook(
         //        PanelsRenderHook::CONTENT_BEFORE,
