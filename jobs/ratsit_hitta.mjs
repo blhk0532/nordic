@@ -58,11 +58,32 @@ class HittaRatsitScraper {
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
     this.results = [];
     this.base_url = 'https://www.hitta.se';
+    this.log_file = process.env.RATSIT_LOG_FILE || path.join(this.data_dir, 'ratsit_hitta.log');
 
     this.dbPool = null;
 
     // Ensure data directory exists
     fs.mkdir(this.data_dir, { recursive: true }).catch(() => {});
+
+    const originalLog = console.log;
+    console.log = (...args) => {
+      originalLog(...args);
+      try {
+        fsSync.appendFileSync(this.log_file, `${new Date().toISOString()} ${args.join(' ')}\n`);
+      } catch {
+        // Ignore logging failures
+      }
+    };
+
+    const originalError = console.error;
+    console.error = (...args) => {
+      originalError(...args);
+      try {
+        fsSync.appendFileSync(this.log_file, `${new Date().toISOString()} ${args.join(' ')}\n`);
+      } catch {
+        // Ignore logging failures
+      }
+    };
   }
 
   async getDbPool() {
@@ -200,48 +221,42 @@ class HittaRatsitScraper {
     try {
       const db = await this.getDbPool();
 
+      // Handle telefon properly - if it's an empty array, store null or empty string
+      let telefonValue = null;
+      if (Array.isArray(hittaData.telefon) && hittaData.telefon.length > 0) {
+        telefonValue = JSON.stringify(hittaData.telefon);
+      } else if (typeof hittaData.telefon === 'string' && hittaData.telefon.trim().length > 0) {
+        telefonValue = hittaData.telefon;
+      }
+
       const dbData = {
         personnamn: hittaData.personnamn || null,
-        // For person records (hitta_se) we still capture alder & kon
+        // For person records (hitta_se) we capture alder & kon
         alder: hittaData.alder || null,
         kon: hittaData.kon || null,
         gatuadress: hittaData.gatuadress || null,
         postnummer: hittaData.postnummer || null,
         postort: hittaData.postort || null,
-        telefon: Array.isArray(hittaData.telefon) ? JSON.stringify(hittaData.telefon) : '[]',
+        telefon: telefonValue,
         karta: hittaData.karta || null,
         link: hittaData.link || null,
         bostadstyp: hittaData.bostadstyp || null,
         bostadspris: hittaData.bostadspris || null,
         is_active: 1,
+        // Track if we found phone, if it was processed in ratsit, if it's a house
+        is_telefon: telefonValue ? 1 : 0,
+        is_hus: hittaData.bostadstyp === 'Hus' ? 1 : 0,
+        // CRITICAL: Enforce constraint - if is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+        is_ratsit: (hittaData.bostadstyp === 'Hus' && telefonValue) ? 1 : (hittaData.is_ratsit ? 1 : 0),
       };
 
-      // Determine which table to use based on whether kon exists
-      const tableName = dbData.kon ? 'hitta_se' : 'hitta_bolag';
+      // Always save to hitta_se table
+      const tableName = 'hitta_se';
 
-      // If we are saving a company (hitta_bolag), adapt field names to new schema.
-      if (tableName === 'hitta_bolag') {
-        // Move alder -> registreringsdatum
-        dbData.registreringsdatum = dbData.alder || null;
-        delete dbData.alder;
-        // Map juridiskt_namn: prefer personnamn scraped value
-        dbData.juridiskt_namn = dbData.personnamn || null;
-        // Initialize new columns if not scraped yet
-        dbData.org_nr = hittaData.org_nr || null; // placeholder, scraper may extend later
-        dbData.bolagsform = hittaData.bolagsform || null;
-        dbData.sni_branch = Array.isArray(hittaData.sni_branch) ? JSON.stringify(hittaData.sni_branch) : '[]';
-        // Remove kon column (should be null anyway for companies)
-        delete dbData.kon;
-      }
-
-      // Check if record exists based on personnamn, gatuadress, and telefon
-      // Build uniqueness check; for companies use juridiskt_namn if available
-      const identityName = tableName === 'hitta_bolag' ? (dbData.juridiskt_namn || dbData.personnamn) : dbData.personnamn;
+      // Check if record exists based on personnamn, gatuadress and postnummer
       const [existingRows] = await db.execute(
-        `SELECT id FROM ${tableName} WHERE ${
-          tableName === 'hitta_bolag' ? 'juridiskt_namn' : 'personnamn'
-        } = ? AND gatuadress = ? AND telefon = ? LIMIT 1`,
-        [identityName, dbData.gatuadress, dbData.telefon],
+        `SELECT id FROM ${tableName} WHERE personnamn = ? AND gatuadress = ? AND postnummer = ? LIMIT 1`,
+        [dbData.personnamn, dbData.gatuadress, dbData.postnummer],
       );
       const existing = Array.isArray(existingRows) && existingRows.length > 0 ? existingRows[0] : null;
 
@@ -268,94 +283,119 @@ class HittaRatsitScraper {
       }
 
       if (result.affectedRows > 0) {
-        console.log(`  ✓ Hitta data saved to ${tableName} table (${action})`);
+        console.log(`    ✓ ${tableName}: ${result.affectedRows} row(s) ${action}`);
         return true;
       } else {
-        console.log(`  ⚠ No changes made to ${tableName} table`);
+        console.log(`    ⚠ No changes (${tableName})`);
         return false;
       }
 
     } catch (error) {
-      console.log('  ✗ Error saving Hitta data:', error.message);
+      console.log(`    ✗ DB Error: ${error.message}`);
       return false;
     }
   }
 
-  async saveToPrivateData(hittaData, ratsitData) {
+  async saveToPrivateData(hittaData, ratsitData = null) {
     /**
-     * Save combined Hitta + Ratsit data to private_data table
-     * Only saves if BOTH hitta and ratsit data are available
+     * Save data to private_data table - works with JUST Hitta or combined Hitta + Ratsit
+     * ALL records should be saved to private_data, not just when both sources exist
      */
-    if (!hittaData || !ratsitData) {
-      console.log('  ⊘ Skipping private_data save (need both Hitta and Ratsit data)');
+    if (!hittaData) {
       return false;
     }
 
     try {
       const db = await this.getDbPool();
 
-      // Combine data from both sources
+      // Combine data from both sources (or just Hitta if Ratsit is missing)
       const dbData = {
-        // Address fields (prefer Ratsit)
-        gatuadress: ratsitData.bo_gatuadress || hittaData.gatuadress || null,
-        postnummer: ratsitData.bo_postnummer || hittaData.postnummer || null,
-        postort: ratsitData.bo_postort || hittaData.postort || null,
-        forsamling: ratsitData.bo_forsamling || null,
-        kommun: ratsitData.bo_kommun || null,
-        lan: ratsitData.bo_lan || null,
-        adressandring: ratsitData.adressandring || null,
+        // Address fields (prefer Ratsit if available)
+        gatuadress: (ratsitData?.bo_gatuadress) || hittaData.gatuadress || null,
+        postnummer: (ratsitData?.bo_postnummer) || hittaData.postnummer || null,
+        postort: (ratsitData?.bo_postort) || hittaData.postort || null,
+        forsamling: ratsitData?.bo_forsamling || null,
+        kommun: ratsitData?.bo_kommun || null,
+        lan: ratsitData?.bo_lan || null,
+        adressandring: ratsitData?.adressandring || null,
 
         // Phone arrays
-        telfonnummer: Array.isArray(ratsitData.telefonnummer) ? JSON.stringify(ratsitData.telefonnummer) : '[]',
-        telefon: Array.isArray(ratsitData.ps_telefon) ? JSON.stringify(ratsitData.ps_telefon) : (Array.isArray(hittaData.telefon) ? JSON.stringify(hittaData.telefon) : '[]'),
+        telfonnummer: ratsitData && Array.isArray(ratsitData.telefonnummer) ? JSON.stringify(ratsitData.telefonnummer) : '[]',
+        telefon: ratsitData && Array.isArray(ratsitData.ps_telefon) ? JSON.stringify(ratsitData.ps_telefon) : (Array.isArray(hittaData.telefon) ? JSON.stringify(hittaData.telefon) : '[]'),
 
-        // Person fields (Ratsit)
-        stjarntacken: ratsitData.stjarntacken || null,
-        fodelsedag: ratsitData.ps_fodelsedag || null,
-        personnummer: ratsitData.ps_personnummer || null,
-        alder: ratsitData.ps_alder || hittaData.alder || null,
-        kon: ratsitData.ps_kon || hittaData.kon || null,
-        civilstand: ratsitData.ps_civilstand || null,
-        fornamn: ratsitData.ps_fornamn || null,
-        efternamn: ratsitData.ps_efternamn || null,
-        personnamn: ratsitData.ps_personnamn || hittaData.personnamn || null,
+        // Person fields (prefer Ratsit)
+        stjarntacken: ratsitData?.stjarntacken || null,
+        fodelsedag: ratsitData?.ps_fodelsedag || null,
+        personnummer: ratsitData?.ps_personnummer || null,
+        alder: ratsitData?.ps_alder || hittaData.alder || null,
+        kon: ratsitData?.ps_kon || hittaData.kon || null,
+        civilstand: ratsitData?.ps_civilstand || null,
+        fornamn: ratsitData?.ps_fornamn || null,
+        efternamn: ratsitData?.ps_efternamn || null,
+        personnamn: ratsitData?.ps_personnamn || hittaData.personnamn || null,
 
-        // Dwelling fields (Ratsit)
-        agandeform: ratsitData.bo_agandeform || null,
-        bostadstyp: ratsitData.bo_bostadstyp || null,
-        boarea: ratsitData.bo_boarea || null,
-        byggar: ratsitData.bo_byggar || null,
+        // Dwelling fields (prefer Ratsit)
+        agandeform: ratsitData?.bo_agandeform || null,
+        bostadstyp: ratsitData?.bo_bostadstyp || null,
+        boarea: ratsitData?.bo_boarea || null,
+        byggar: ratsitData?.bo_byggar || null,
 
-        // Collections (Ratsit)
-        personer: Array.isArray(ratsitData.bo_personer) ? JSON.stringify(ratsitData.bo_personer) : '[]',
-        foretag: Array.isArray(ratsitData.bo_foretag) ? JSON.stringify(ratsitData.bo_foretag) : '[]',
-        grannar: Array.isArray(ratsitData.bo_grannar) ? JSON.stringify(ratsitData.bo_grannar) : '[]',
-        fordon: Array.isArray(ratsitData.bo_fordon) ? JSON.stringify(ratsitData.bo_fordon) : '[]',
-        hundar: Array.isArray(ratsitData.bo_hundar) ? JSON.stringify(ratsitData.bo_hundar) : '[]',
-        bolagsengagemang: Array.isArray(ratsitData.ps_bolagsengagemang) ? JSON.stringify(ratsitData.ps_bolagsengagemang) : '[]',
+        // Collections (Ratsit only)
+        personer: ratsitData && Array.isArray(ratsitData.bo_personer) ? JSON.stringify(ratsitData.bo_personer) : '[]',
+        foretag: ratsitData && Array.isArray(ratsitData.bo_foretag) ? JSON.stringify(ratsitData.bo_foretag) : '[]',
+        grannar: ratsitData && Array.isArray(ratsitData.bo_grannar) ? JSON.stringify(ratsitData.bo_grannar) : '[]',
+        fordon: ratsitData && Array.isArray(ratsitData.bo_fordon) ? JSON.stringify(ratsitData.bo_fordon) : '[]',
+        hundar: ratsitData && Array.isArray(ratsitData.bo_hundar) ? JSON.stringify(ratsitData.bo_hundar) : '[]',
+        bolagsengagemang: ratsitData && Array.isArray(ratsitData.ps_bolagsengagemang) ? JSON.stringify(ratsitData.ps_bolagsengagemang) : '[]',
 
-        // Geo & Links (combined)
-        longitude: ratsitData.bo_longitude || null,
-        latitud: ratsitData.latitud || null,
-        google_maps: ratsitData.google_maps || null,
-        google_streetview: ratsitData.google_streetview || null,
-        ratsit_link: ratsitData.ratsit_se || null,
+        // Geo & Links (Ratsit preferred)
+        longitude: ratsitData?.bo_longitude || null,
+        latitud: ratsitData?.latitud || null,
+        google_maps: ratsitData?.google_maps || null,
+        google_streetview: ratsitData?.google_streetview || null,
+        ratsit_link: ratsitData?.ratsit_se || null,
 
         // Hitta specific fields
         hitta_link: hittaData.link || null,
         hitta_karta: hittaData.karta || null,
+        hitta_bostadstyp: hittaData.bostadstyp || null,
+        hitta_alder: hittaData.alder || null,
+        hitta_telefon: Array.isArray(hittaData.telefon) ? JSON.stringify(hittaData.telefon) : (hittaData.telefon || null),
         bostad_typ: hittaData.bostadstyp || null,
         bostad_pris: hittaData.bostadspris || null,
 
+        // IDs
+        hitta_id: null, // Will be fetched from hitta_se table
+        ratsit_id: ratsitData?.id || null,
+        luid: `${hittaData.personnamn || 'unknown'}|${hittaData.gatuadress || 'unknown'}|${hittaData.postnummer || 'unknown'}`,
+
+        // Queue flag
+        ratsit_queue: ratsitData ? true : false,
+
         // Flags
         is_active: 1,
-        is_update: 0,
+        is_update: ratsitData ? 1 : 0,
       };
 
+      // Get hitta_id if it exists
+      if (hittaData.personnamn && hittaData.gatuadress && hittaData.postnummer) {
+        const [hittaRows] = await db.execute(
+          'SELECT id FROM hitta_se WHERE personnamn = ? AND gatuadress = ? AND postnummer = ? LIMIT 1',
+          [hittaData.personnamn, hittaData.gatuadress, hittaData.postnummer],
+        );
+        if (Array.isArray(hittaRows) && hittaRows.length > 0) {
+          dbData.hitta_id = hittaRows[0].id;
+        }
+      }
+
       // Check if record exists
+      const uniqueKey = dbData.personnummer || dbData.personnamn;
+      const uniqueAddr = dbData.gatuadress;
+      const uniquePostal = dbData.postnummer;
+
       const [existingRows] = await db.execute(
-        'SELECT id FROM private_data WHERE personnummer = ? AND gatuadress = ? AND postnummer = ? LIMIT 1',
-        [dbData.personnummer, dbData.gatuadress, dbData.postnummer],
+        'SELECT id FROM private_data WHERE personnamn = ? AND gatuadress = ? AND postnummer = ? LIMIT 1',
+        [dbData.personnamn, uniqueAddr, uniquePostal],
       );
       const existing = Array.isArray(existingRows) && existingRows.length > 0 ? existingRows[0] : null;
 
@@ -365,7 +405,7 @@ class HittaRatsitScraper {
       if (existing) {
         const updateFields = Object.keys(dbData).map((f) => `${f} = ?`).join(', ');
         const [updateResult] = await db.execute(
-          `UPDATE private_data SET ${updateFields}, updated_at = NOW(), is_update = 1 WHERE id = ?`,
+          `UPDATE private_data SET ${updateFields}, updated_at = NOW() WHERE id = ?`,
           [...Object.values(dbData), existing.id],
         );
         result = updateResult;
@@ -382,7 +422,8 @@ class HittaRatsitScraper {
       }
 
       if (result.affectedRows > 0) {
-        console.log(`  ✓ Combined data saved to private_data table (${action})`);
+        const source = ratsitData ? 'Hitta + Ratsit' : 'Hitta only';
+        console.log(`  ✓ Data saved to private_data (${source}, ${action})`);
         return true;
       } else {
         console.log('  ⚠ No changes made to private_data table');
@@ -391,7 +432,6 @@ class HittaRatsitScraper {
 
     } catch (error) {
       console.log('  ✗ Error saving to private_data:', error.message);
-      console.log('  ✗ Stack:', error.stack);
       return false;
     }
   }
@@ -981,72 +1021,72 @@ class HittaRatsitScraper {
         const ratsitQueue = []; // Queue houses for ratsit processing after page scraping
         
         for (let i = 0; i < pageTotal; i++) {
-          try {
-            // Re-query items each iteration to avoid stale references
-            const currentItems = await page.$$('li[data-test="person-item"]');
-            if (i >= currentItems.length) break;
+          let personData = null;
+          const idx = i + 1;
 
-            const item = currentItems[i];
-            const idx = i + 1;
-            const personData = await this.extractPersonData(item, page);
+          for (let attempt = 1; attempt <= 2; attempt++) {
+            try {
+              // Re-query items each attempt to avoid stale references
+              const currentItems = await page.$$('li[data-test="person-item"]');
+              if (i >= currentItems.length) break;
 
-            if (personData) {
-              pageResults.push(personData);
-              this.results.push(personData);
-              pendingToSave.push(personData);
-              console.log(`[Page ${currentPage}] Extracted ${idx}/${pageTotal}: ${personData.personnamn || 'Unknown'}`);
-              
-              // Check if we should queue for ratsit processing (after page extraction completes)
-              const hasPhone = Array.isArray(personData.telefon)
-                ? personData.telefon.some((n) => n && !String(n).includes('Lägg till telefonnummer'))
-                : (typeof personData.telefon === 'string' ? personData.telefon && !personData.telefon.includes('Lägg till telefonnummer') : false);
+              const item = currentItems[i];
+              personData = await this.extractPersonData(item, page);
+              if (personData) {
+                break;
+              }
 
-              if (hasPhone) {
-                const hasFullAddress = !!(personData.personnamn && personData.gatuadress && personData.postort);
-                const isHouse = personData.bostadstyp === 'Hus';
-                if (isHouse && hasFullAddress) {
-                  ratsitQueue.push(personData);
-                }
+              if (attempt < 2) {
+                await page.waitForTimeout(300);
+              }
+            } catch (error) {
+              if (attempt >= 2) {
+                console.log(`Error extracting person ${idx} (attempt ${attempt}): ${error.message}`);
               }
             }
-          } catch (error) {
-            console.log(`Error extracting person ${i + 1}:`, error);
-            continue;
+          }
+
+          if (personData) {
+            pageResults.push(personData);
+            this.results.push(personData);
+            pendingToSave.push(personData);
+            console.log(`[Page ${currentPage}] Extracted ${idx}/${pageTotal}: ${personData.personnamn || 'Unknown'} (${personData.bostadstyp || 'N/A'})`);
+
+            // Queue for ratsit processing if it's a house with full address
+            // CRITICAL: If is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+            // So queue if: (is house with full address) OR (has phone with full address)
+            const hasFullAddress = !!(personData.personnamn && personData.gatuadress && personData.postort);
+            const isHouse = personData.bostadstyp === 'Hus';
+            const hasPhone = personData.telefon && Array.isArray(personData.telefon) && personData.telefon.length > 0;
+            if (hasFullAddress && (isHouse || hasPhone)) {
+              ratsitQueue.push(personData);
+            }
+          } else {
+            console.log(`✗ Skipped person ${idx}/${pageTotal} after 2 attempts`);
           }
         }
 
-        // Save all pending results to DB before doing ratsit (don't block on ratsit)
+        // STEP 1: Save all basic hitta_se results to database immediately
         if (pendingToSave.length > 0) {
           try {
-            console.log(`\n→ Saving ${pendingToSave.length} record(s) from page ${currentPage} to database...`);
+            console.log(`\n→ [STEP 1] Saving ${pendingToSave.length} record(s) to hitta_se...`);
             await this.saveToDatabase(pendingToSave);
-            pendingToSave = [];
+            console.log(`✓ Saved ${pendingToSave.length} records to hitta_se`);
           } catch (e) {
-            console.log(`→ Error saving records:`, e.message);
+            console.log(`✗ Error saving to hitta_se: ${e.message}`);
           }
         }
 
-        // Process ratsit queue after page scraping (optional, can be deferred)
+        // STEP 2: Process ratsit for houses (this saves to ratsit_data and private_data)
         if (ratsitQueue.length > 0) {
-          console.log(`\n→ Queued ${ratsitQueue.length} house(s) for Ratsit processing...`);
+          console.log(`\n→ [STEP 2] Processing Ratsit for ${ratsitQueue.length} house(s)...`);
           for (const houseData of ratsitQueue) {
             try {
-              console.log(`  → Processing Ratsit for ${houseData.personnamn}...`);
+              console.log(`  → Ratsit: ${houseData.personnamn}...`);
               await this.runRatsitForPerson(houseData);
             } catch (e) {
-              console.log(`  → Ratsit error for ${houseData.personnamn}: ${e.message}`);
+              console.log(`  ✗ Ratsit error for ${houseData.personnamn}: ${e.message}`);
             }
-          }
-        }
-
-        // After finishing this page: save any remaining pending results to DB
-        if (pendingToSave.length > 0) {
-          try {
-            console.log(`\n→ Saving remaining ${pendingToSave.length} pending record(s) for page ${currentPage} to database...`);
-            await this.saveToDatabase(pendingToSave);
-            pendingToSave = [];
-          } catch (e) {
-            console.log(`→ Error saving remaining pending records for page ${currentPage}:`, e);
           }
         }
 
@@ -1206,6 +1246,7 @@ class HittaRatsitScraper {
         // Ignore errors
       }
 
+      // EXTRACT KARTA AND LINK BEFORE PHONE EXTRACTION (to avoid stale references after navigation)
       // Extract map link
       try {
         const mapLink = await item.$('a[data-test="show-on-map-button"]');
@@ -1232,7 +1273,7 @@ class HittaRatsitScraper {
         // Ignore errors
       }
 
-      // Extract phone number - click button to reveal full number
+      // CRITICAL: Extract phone number BY CLICKING BUTTON during pagination
       try {
         const phoneButton = await item.$('button[data-test="phone-link"]');
         if (phoneButton) {
@@ -1300,20 +1341,11 @@ class HittaRatsitScraper {
 
                 data.telefon = deduped;
                 if (deduped.length > 0) {
-                  console.log(`  → Revealed phone(s): ${deduped.join(', ')}`);
+                  console.log(`    ✓ Phone(s) found: ${deduped.join(', ')}`);
                 }
 
                 // Extract house type and price information from person-intro-section
                 try {
-                  
-  const isHusFalsePattern = /lgh|1 tr|2 tr|3 tr|4 tr|5 tr|6 tr| nb| bv|\bBox\b|\b([1-9][0-9]?|100)\s*[A-Z]\b/i;
-  if (data.gatuadress && isHusFalsePattern.test(data.gatuadress)) {
-     data.bostadstyp = '';
-  }else {
-    data.bostadstyp = 'Hus';
-  }
-                        console.log(`  → Gatuadress: ${data.gatuadress}, House: ${data.bostadstyp}`);
-
                   const introSpan = await page.$('span[data-test="person-intro-section"]');
                   if (introSpan) {
                     const introText = await introSpan.textContent();
@@ -1323,38 +1355,23 @@ class HittaRatsitScraper {
                       data.bostadstyp = 'Hus';
 
                       // Extract price range (format: "2 800 000 – 4 200 000 kr" or similar)
-                      // Pattern matches numbers with spaces and range indicators
                       const pricePattern = /(\d[\d\s]*\d)\s*[–-]\s*(\d[\d\s]*\d)\s*kr/;
                       const priceMatch = introText.match(pricePattern);
                       if (priceMatch) {
-                        // Get the matched price range and clean it up
-                        const minPrice = priceMatch[1].replace(/\s+/g, ' '); // Normalize spaces
+                        const minPrice = priceMatch[1].replace(/\s+/g, ' ');
                         const maxPrice = priceMatch[2].replace(/\s+/g, ' ');
                         data.bostadspris = `${minPrice} – ${maxPrice} kr`;
-                        console.log(`  → House info: ${data.bostadstyp}, Price: ${data.bostadspris}`);
                       }
                     }
                   }
                 } catch (error) {
-                  console.log(`  → Error extracting house info:`, error);
+                  // Ignore
                 }
 
                 // Navigate back to search results
-                try {
-                  await page.goBack({ waitUntil: 'networkidle', timeout: 15000 });
-                } catch (backError) {
-                  console.log(`  ⚠ goBack() failed: ${backError.message}, reloading page...`);
-                  await page.goto(page.url(), { waitUntil: 'networkidle', timeout: 15000 });
-                }
-                
+                await page.goBack();
                 // Wait for results list to be available again
-                try {
-                  await page.waitForSelector('li[data-test="person-item"]', { timeout: 5000 });
-                } catch {
-                  console.log(`  ⚠ Results list not found after goBack, attempting reload...`);
-                  await page.reload({ waitUntil: 'networkidle' });
-                  await page.waitForSelector('li[data-test="person-item"]', { timeout: 10000 });
-                }
+                await page.waitForSelector('li[data-test="person-item"]', { timeout: 10000 });
                 await page.waitForTimeout(200);
               } else {
                 // No redirect, try to extract from updated button text
@@ -1370,7 +1387,7 @@ class HittaRatsitScraper {
                 }
               }
             } catch (error) {
-              console.log(`  → Error clicking phone button:`, error);
+              console.log(`    ⚠ Error clicking phone button: ${error.message}`);
               // Fallback to extracting from text
               const phoneMatches = phoneText?.match(/(\+?\d[\d\s-]{7,})/g);
               if (phoneMatches) {
@@ -1385,6 +1402,23 @@ class HittaRatsitScraper {
         // Ignore errors
       }
 
+      // Detect house type from address pattern
+      try {
+        const isApartmentAddress = /lgh|1 tr|2 tr|3 tr|4 tr|5 tr|6 tr| nb| bv|\bBox\b|\b\d+\s*[A-Z]\b/i.test(data.gatuadress || '');
+
+        // Mark as Hus if:
+        // 1. Address does NOT match apartment pattern, OR
+        // 2. We found a price on the reveal page
+        // In both cases, mark as Hus
+        if (!isApartmentAddress || data.bostadspris) {
+          data.bostadstyp = 'Hus';
+        } else {
+          data.bostadstyp = null;
+        }
+      } catch {
+        // Ignore
+      }
+
     } catch (error) {
       console.log('Error extracting data:', error);
       return null;
@@ -1393,10 +1427,120 @@ class HittaRatsitScraper {
     return data;
   }
 
+  async extractPhoneFromProfileLink(profileLink, browser = null) {
+    /**
+     * Extract phone number from a person's profile page
+     * Creates temporary page, clicks phone button, extracts number, closes page
+     */
+    if (!profileLink) {
+      return [];
+    }
+
+    let profilePage = null;
+    try {
+      // Use provided browser or create a new one
+      let browserInstance = browser;
+      let shouldClose = false;
+      
+      if (!browserInstance) {
+        browserInstance = await chromium.launch({
+          headless: true,
+          executablePath: '/usr/bin/google-chrome',
+          args: [
+            '--no-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--window-size=1920,1080',
+            '--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+          ]
+        });
+        shouldClose = true;
+      }
+
+      const ctx = await browserInstance.newContext();
+      profilePage = await ctx.newPage();
+
+      await profilePage.goto(profileLink, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      await profilePage.waitForTimeout(800);
+
+      // Find and click phone button
+      const phoneButton = await profilePage.$('button[data-test="phone-link"]');
+      if (!phoneButton) {
+        await ctx.close();
+        if (shouldClose && browserInstance) {
+          await browserInstance.close();
+        }
+        return [];
+      }
+
+      const phoneText = await phoneButton.textContent();
+      if (phoneText && phoneText.includes('Lägg till telefonnummer')) {
+        await ctx.close();
+        if (shouldClose && browserInstance) {
+          await browserInstance.close();
+        }
+        return [];
+      }
+
+      // Click to reveal phone
+      try {
+        await phoneButton.scrollIntoViewIfNeeded();
+        await phoneButton.waitForElementState('stable', { timeout: 3000 });
+        await phoneButton.click();
+      } catch {
+        await profilePage.evaluate((el) => el.click(), phoneButton);
+      }
+
+      await profilePage.waitForTimeout(800);
+
+      // Extract phone from button or URL
+      const numbers = [];
+      const newUrl = profilePage.url();
+      
+      if (newUrl.includes('revealNumber')) {
+        const urlObj = new URL(newUrl);
+        const phoneParam = urlObj.searchParams.get('revealNumber');
+        if (phoneParam) {
+          numbers.push(phoneParam);
+        }
+      }
+
+      // Also try to extract from page content
+      try {
+        const phoneSpans = await profilePage.$$('button[data-test="show-number"] span, [class*="phone"] span');
+        for (const span of phoneSpans) {
+          const txt = await span.textContent();
+          if (txt && txt.match(/\d/)) {
+            const cleaned = txt.trim();
+            if (!numbers.includes(cleaned)) {
+              numbers.push(cleaned);
+            }
+          }
+        }
+      } catch {
+        // Ignore
+      }
+
+      await ctx.close();
+      if (shouldClose && browserInstance) {
+        await browserInstance.close();
+      }
+      return numbers;
+    } catch (error) {
+      if (profilePage) {
+        try {
+          await profilePage.context().close();
+        } catch {}
+      }
+      return [];
+    }
+  }
+
   async runRatsitForPerson(personData) {
     /**
      * Run inline Ratsit scraping for a specific person and save to database
-     * Saves to ratsit_data, hitta_se, and private_data (if both exist)
+     * Saves to ratsit_data and private_data (with or without Ratsit data)
+     * NOTE: Hitta data is already saved to hitta_se in STEP 1, don't re-save it here
      */
     try {
       // Validate that ALL required arguments are present
@@ -1409,9 +1553,8 @@ class HittaRatsitScraper {
         return;
       }
 
-      // First, save Hitta data to hitta_se table
-      console.log(`  → Saving Hitta data for ${personData.personnamn}`);
-      await this.saveHittaToDatabase(personData);
+      // NOTE: Don't re-save Hitta data here - it was already saved in STEP 1 (scrapeSearchResults)
+      // Calling saveHittaToDatabase again would UPDATE the record and potentially overwrite good data
 
       // Build search query for ratsit: "personnamn gatuadress postort"
       const ratsitQuery = `${personData.personnamn} ${personData.gatuadress} ${personData.postort}`;
@@ -1420,7 +1563,7 @@ class HittaRatsitScraper {
       // Scrape Ratsit data inline
       const ratsitResults = await this.scrapeRatsitData(ratsitQuery);
 
-      // Save each result to databases
+      // Save results to databases
       if (ratsitResults && ratsitResults.length > 0) {
         console.log(`  → Processing ${ratsitResults.length} Ratsit record(s)...`);
 
@@ -1428,17 +1571,42 @@ class HittaRatsitScraper {
           // Save to ratsit_data table
           await this.saveRatsitToDatabase(ratsitData);
 
-          // Save combined data to private_data table (only if both Hitta and Ratsit data exist)
+          // Save combined data to private_data table with Ratsit data
           await this.saveToPrivateData(personData, ratsitData);
         }
+
+        // Mark this Hitta record as having been processed in Ratsit
+        await this.markHittaAsRatsitProcessed(personData);
 
         console.log(`  → ✓ Completed processing for ${personData.personnamn}`);
       } else {
         console.log(`  → No Ratsit data found for ${personData.personnamn}`);
+        // Still save Hitta data to private_data even without Ratsit results
+        await this.saveToPrivateData(personData, null);
       }
 
     } catch (error) {
       console.log(`  → Error processing ${personData.personnamn}:`, error.message);
+    }
+  }
+
+  async markHittaAsRatsitProcessed(personData) {
+    /**
+     * Update hitta_se record to mark it as having been processed by Ratsit
+     */
+    try {
+      const db = await this.getDbPool();
+
+      const [result] = await db.execute(
+        'UPDATE hitta_se SET is_ratsit = 1 WHERE personnamn = ? AND gatuadress = ? AND postnummer = ?',
+        [personData.personnamn, personData.gatuadress, personData.postnummer],
+      );
+
+      if (result.affectedRows > 0) {
+        console.log(`  → ✓ Marked as Ratsit processed`);
+      }
+    } catch (error) {
+      console.log(`  → ⚠ Error marking as Ratsit processed:`, error.message);
     }
   }
 

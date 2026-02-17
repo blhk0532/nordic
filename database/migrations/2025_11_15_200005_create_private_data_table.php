@@ -109,12 +109,19 @@ return new class extends Migration
             // Hitta specific fields
             $table->text('hitta_link')->nullable();
             $table->text('hitta_karta')->nullable();
+            $table->text('hitta_bostadstyp')->nullable();
+            $table->text('hitta_alder')->nullable();
+            $table->longText('hitta_telefon')->nullable();
             $table->text('bostad_typ')->nullable();
             $table->text('bostad_pris')->nullable();
 
-            // Flags
-            $table->boolean('is_active')->default(true);
-            $table->boolean('is_update')->default(false);
+            // IDs for cross-reference
+            $table->bigInteger('hitta_id')->nullable();
+            $table->bigInteger('ratsit_id')->nullable();
+            $table->string('luid')->nullable();
+
+            // Queue flags
+            $table->boolean('ratsit_queue')->default(false);
 
             // Timestamps
             $table->timestamp('created_at')->useCurrent();
