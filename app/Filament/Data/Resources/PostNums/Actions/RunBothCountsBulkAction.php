@@ -41,9 +41,6 @@ class RunBothCountsBulkAction extends BulkAction
                         ->update(['merinfo_personer_count' => 1]);
                 }
 
-                // Get current max job ID before dispatching
-                $maxJobIdBefore = DB::table('jobs')->max('id') ?? 0;
-
                 // Create a batch with both types of jobs
                 $batch = Bus::batch($jobs)
                     ->name(str_replace(' ', '', $records->first()->post_nummer).' - 🖩H&R '.now()->format('Y-m-d H:i:s'))
@@ -61,37 +58,7 @@ class RunBothCountsBulkAction extends BulkAction
                     ->where('id', $batch->id)
                     ->update(['status' => 'pending']);
 
-                // Update job names for newly created jobs
-                $newJobs = DB::table('jobs')
-                    ->where('queue', 'scrape')
-                    ->where('id', '>', $maxJobIdBefore)
-                    ->orderBy('id')
-                    ->get();
-
-                // Update names: alternating Hitta/Ratsit for each record
-                $jobIndex = 0;
-                foreach ($records as $record) {
-
-                    DB::table('post_nums')
-                        ->where('post_nummer', $records->first()->post_nummer)
-                        ->update(['merinfo_personer_count' => 1]);
-
-                    // Update Hitta job name
-                    if (isset($newJobs[$jobIndex])) {
-                        DB::table('jobs')
-                            ->where('id', $newJobs[$jobIndex]->id)
-                            ->update(['name' => str_replace(' ', '', $records->first()->post_nummer).' 📟 Hitta', 'status' => 'pending']);
-                        $jobIndex++;
-                    }
-
-                    // Update Ratsit job name
-                    if (isset($newJobs[$jobIndex])) {
-                        DB::table('jobs')
-                            ->where('id', $newJobs[$jobIndex]->id)
-                            ->update(['name' => str_replace(' ', '', $records->first()->post_nummer).' 📟 Ratsit', 'status' => 'pending']);
-                        $jobIndex++;
-                    }
-                }
+                // Note: avoid updating `jobs` table directly; rely on batch metadata instead.
 
                 Notification::make()
                     ->title('Both Count Checks Started')

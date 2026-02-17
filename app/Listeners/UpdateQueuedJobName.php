@@ -20,10 +20,23 @@ class UpdateQueuedJobName
             // Get the display name from the payload
             $displayName = $event->payload()['displayName'] ?? null;
 
+            // Only attempt to update the `jobs` table when the job id is
+            // stored in the same format as the `jobs.id` column. Many queue
+            // drivers (e.g. redis, database with UUIDs) may emit string ids
+            // which will cause MySQL to attempt truncation if `jobs.id` is
+            // numeric. Skip in that case.
             if ($displayName && $event->id) {
+                $id = (string) $event->id;
+
+                if (! ctype_digit($id)) {
+                    Log::debug('Skipping job name update: non-numeric job id', ['job_id' => $id, 'displayName' => $displayName]);
+
+                    return;
+                }
+
                 // Update the jobs table with the display name
                 DB::table('jobs')
-                    ->where('id', $event->id)
+                    ->where('id', $id)
                     ->update(['name' => $displayName]);
             }
         } catch (Throwable $e) {

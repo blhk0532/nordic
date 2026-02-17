@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filament\Data\Resources\PostNums\Actions;
 
 use App\Console\Commands\RunRatsitHittaCommand;
-use App\Jobs\RunRatsitCheckCountsJob;
 use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
@@ -34,9 +33,6 @@ class RunRatsitHittaBulkAction extends BulkAction
                     return new RunRatsitHittaCommand($record->post_nummer);
                 })->toArray();
 
-                // Get current max job ID before dispatching
-                $maxJobIdBefore = DB::table('jobs')->max('id') ?? 0;
-
                 // Create job batch
                 $batch = Bus::batch($jobs)
                     ->name('Bulk Ratsit Hitta - '.now()->format('Y-m-d H:i:s'))
@@ -54,20 +50,9 @@ class RunRatsitHittaBulkAction extends BulkAction
                     ->where('id', $batch->id)
                     ->update(['status' => 'pending']);
 
-                // Update job names for newly created jobs
-                $newJobs = DB::table('jobs')
-                    ->where('queue', 'default')
-                    ->where('id', '>', $maxJobIdBefore)
-                    ->orderBy('id')
-                    ->get();
-
-                foreach ($records as $index => $record) {
-                    if (isset($newJobs[$index])) {
-                        DB::table('jobs')
-                            ->where('id', $newJobs[$index]->id)
-                            ->update(['name' => $record->post_nummer.' - Ratsit Hitta', 'status' => 'pending']);
-                    }
-                }
+                // Note: we intentionally avoid manipulating the `jobs` table directly
+                // because queue drivers and job id formats may vary (numeric vs UUID).
+                // The batch is created and its `job_batches` entry is updated above.
 
                 Notification::make()
                     ->title('Bulk Ratsit.se Hitta Started')

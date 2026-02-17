@@ -33,9 +33,6 @@ class RunHittaSearchBulkAction extends BulkAction
                     return new RunHittaSearchPersonsJob($record->id, false); // false = no ratsit
                 })->toArray();
 
-                // Get current max job ID before dispatching
-                $maxJobIdBefore = DB::table('jobs')->max('id') ?? 0;
-
                 // Create job batch
                 $batch = Bus::batch($jobs)
                     ->name('Bulk Hitta Search - '.now()->format('Y-m-d H:i:s'))
@@ -53,20 +50,7 @@ class RunHittaSearchBulkAction extends BulkAction
                     ->where('id', $batch->id)
                     ->update(['status' => 'pending']);
 
-                // Update job names for newly created jobs
-                $newJobs = DB::table('jobs')
-                    ->where('queue', 'scrape')
-                    ->where('id', '>', $maxJobIdBefore)
-                    ->orderBy('id')
-                    ->get();
-
-                foreach ($records as $index => $record) {
-                    if (isset($newJobs[$index])) {
-                        DB::table('jobs')
-                            ->where('id', $newJobs[$index]->id)
-                            ->update(['name' => 'Postnummer: '.$record->post_nummer]);
-                    }
-                }
+                // Note: avoid direct `jobs` table manipulation — batch metadata is used instead.
 
                 Notification::make()
                     ->title('Bulk Hitta.se Search Started')

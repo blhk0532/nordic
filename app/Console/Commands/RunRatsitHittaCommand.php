@@ -4,39 +4,31 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Jobs\ProcessPostNummer;
 use App\Models\Postnummer;
-use Illuminate\Console\Command;
-
-use App\Models\PostNum;
 use Exception;
 use Illuminate\Bus\Batchable;
+use Illuminate\Console\Command;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 
 class RunRatsitHittaCommand extends Command implements ShouldQueue
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-
     use Batchable;
     use Queueable;
 
-    protected $postNumId;
+    /**
+     * When the command is queued (instantiated programmatically) we store
+     * any provided post numbers here because the Console input is not
+     * available when the job is processed.
+     *
+     * @var array<int,string>
+     */
+    protected array $queuedPostNummers = [];
 
     protected $signature = 'ratsit:hitta {post_nummer* : One or more post nummer to search for} {--sync : Run synchronously instead of queuing}';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Queue ratsit_hitta.mjs script for a specific post nummer';
-
+    protected $description = 'Run ratsit_hitta.mjs script for specific post nummer';
 
     /**
      * Custom serialization for PHP 8.1+ compatibility
@@ -44,7 +36,7 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
     public function __serialize(): array
     {
         return [
-            'postNumId' => $this->postNumId,
+            'queuedPostNummers' => $this->queuedPostNummers,
         ];
     }
 
@@ -53,7 +45,22 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
      */
     public function __unserialize(array $data): void
     {
-        $this->postNumId = $data['postNumId'];
+        $this->queuedPostNummers = $data['queuedPostNummers'] ?? [];
+    }
+
+    /**
+     * Accept optional post nummer(s) when instantiating programmatically
+     * (for example when creating jobs via a UI). Always call parent::__construct().
+     *
+     * @param  string|array<string>|null  $postNummers
+     */
+    public function __construct($postNummers = null)
+    {
+        parent::__construct();
+
+        if ($postNummers !== null) {
+            $this->queuedPostNummers = is_array($postNummers) ? $postNummers : [(string) $postNummers];
+        }
     }
 
     /**
@@ -62,8 +69,13 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
     public function handle(): int
     {
         /** @var array<int, string> $postNummers */
-        $postNummers = (array) $this->argument('post_nummer');
-        $sync = $this->option('sync');
+        if ($this->input !== null) {
+            $postNummers = (array) $this->argument('post_nummer');
+        } else {
+            // When executed from the queue the Console input is not available,
+            // use any stored post numbers provided at instantiation instead.
+            $postNummers = $this->queuedPostNummers ?? [];
+        }
 
         $dispatched = 0;
 
@@ -74,88 +86,54 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
                 continue;
             }
 
-            $record = Postnummer::where('post_nummer', $postNummer)->first();
+            try {
+                Log::info("Starting ratsit_hitta script for: {$postNummer}");
 
-            if (! $record) {
-                $this->error("Post nummer {$postNummer} not found");
+                // Build and execute the command
+                $scriptPath = base_path('scripts/ratsit_hitta.mjs');
+                $command = "node {$scriptPath} \"{$postNummer}\"";
 
-                continue;
-            }
+                Log::info("Executing command: {$command}");
 
-            if ($record->status === 'running') {
-                $this->warn("Post nummer {$postNummer} is already running");
+                $output = shell_exec($command);
 
-                continue;
-            }
+                Log::info('ratsit_hitta script completed', [
+                    'output' => $output,
+                    'postNummer' => $postNummer,
+                ]);
 
-            if ($sync) {
-                $this->info("Running synchronously for post nummer: {$postNummer}");
-                ProcessPostNummer::dispatchSync($postNummer);
-                $this->info('Job completed');
+                // Update the Postnummer record
+                $record = Postnummer::where('post_nummer', $postNummer)->first();
+                if ($record) {
+                    $record->update([
+                        'status' => 'complete',
+                        'updated_at' => now(),
+                    ]);
+                }
+
                 $dispatched++;
-            } else {
-                $this->info("Queuing job for post nummer: {$postNummer}");
-                ProcessPostNummer::dispatch($postNummer);
-                $dispatched++;
+            } catch (Exception $e) {
+                Log::error('ratsit_hitta script failed', [
+                    'postNummer' => $postNummer,
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString(),
+                ]);
+
+                // Update status to failed
+                $record = Postnummer::where('post_nummer', $postNummer)->first();
+                if ($record) {
+                    $record->update(['status' => 'failed']);
+                }
             }
-        }
-
-                try {
-            // Find the PostNum record
-            $postNum = PostNum::find($this->postNumId);
-            if (! $postNum) {
-                throw new Exception("PostNum with ID {$this->postNumId} not found");
-            }
-
-            $postNummer = $postNum->post_nummer;
-
-            Log::info("Starting ratsitSearchPersonsQueue job for: {$postNummer}");
-
-            // Build the command
-            $scriptPath = base_path('jobs/ratsit_hitta.mjs');
-            $command = "node {$scriptPath} \"{$postNummer}\"";
-
-            Log::info("Executing ratsitSearchPersonsQueue command: {$command}");
-
-            // Execute the script
-            $output = shell_exec($command);
-
-            Log::info('ratsitSearchPersonsQueue script completed', [
-                'output' => $output,
-                'postNummer' => $postNummer,
-            ]);
-
-            // Update the PostNum record to indicate completion
-            $postNum->update([
-                'status' => 'complete',
-                'ratsit_personer_queue' => true,
-                'updated_at' => now(),
-            ]);
-
-        } catch (Exception $e) {
-            Log::error('RunRatsitSearchPersonsJob failed', [
-                'postNumId' => $this->postNumId,
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-
-            // Update status to failed
-            if ($postNum = PostNum::find($this->postNumId)) {
-                $postNum->update(['status' => 'failed']);
-            }
-
-            throw $e;
         }
 
         if ($dispatched === 0) {
-            $this->warn('No jobs dispatched.');
+            Log::warning('No post nummers processed');
 
             return self::FAILURE;
         }
 
-        if (! $sync) {
-            $this->info("Queued {$dispatched} job(s) successfully");
-        }
+        Log::info("Processed {$dispatched} post nummer(s) successfully");
 
         return self::SUCCESS;
     }

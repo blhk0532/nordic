@@ -39,9 +39,6 @@ class RunRatsitPersonerBulkAction extends BulkAction
                     return new RunRatsitSearchPersonsJob($record->id);
                 })->toArray();
 
-                // Get current max job ID before dispatching
-                $maxJobIdBefore = DB::table('jobs')->max('id') ?? 0;
-
                 // Create job batch
                 $batch = Bus::batch($jobs)
                     ->name('Bulk Ratsit Personer - '.now()->format('Y-m-d H:i:s'))
@@ -59,20 +56,7 @@ class RunRatsitPersonerBulkAction extends BulkAction
                     ->where('id', $batch->id)
                     ->update(['status' => 'pending']);
 
-                // Update job names for newly created jobs
-                $newJobs = DB::table('jobs')
-                    ->where('queue', 'scrape')
-                    ->where('id', '>', $maxJobIdBefore)
-                    ->orderBy('id')
-                    ->get();
-
-                foreach ($records as $index => $record) {
-                    if (isset($newJobs[$index])) {
-                        DB::table('jobs')
-                            ->where('id', $newJobs[$index]->id)
-                            ->update(['name' => '👤 Ratsit: '.$record->post_nummer, 'status' => 'pending']);
-                    }
-                }
+                // Note: avoid direct `jobs` table manipulation — batch metadata is used instead.
 
                 Notification::make()
                     ->title('Bulk Ratsit Personer Started')

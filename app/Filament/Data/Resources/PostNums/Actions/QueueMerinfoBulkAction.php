@@ -44,10 +44,7 @@ class QueueMerinfoBulkAction extends BulkAction
                         continue; // active batch exists
                     }
 
-                    // Get max job ID before dispatching
-                    $maxJobIdBefore = DB::table('jobs')->max('id') ?? 0;
-
-                    Log::info('About to dispatch merinfo batch', ['postnummer' => $normalized, 'max_job_id_before' => $maxJobIdBefore]);
+                    Log::info('About to dispatch merinfo batch', ['postnummer' => $normalized]);
 
                     $batch = Bus::batch([
                         new RunMerinfoScript($normalized, 'merinfo'),
@@ -66,15 +63,8 @@ class QueueMerinfoBulkAction extends BulkAction
                         ->where('id', $batch->id)
                         ->update(['status' => 'pending']);
 
-                    // Update the newly created job's status to "pending"
-                    DB::table('jobs')
-                        ->where('id', '>', $maxJobIdBefore)
-                        ->where('payload', 'like', '%RunMerinfoScript%')
-                        ->where('payload', 'like', '%merinfo%')
-                        ->update([
-                            'name' => $normalized,
-                            'status' => 'pending',
-                        ]);
+                    // Note: we avoid trying to update the DB `jobs` table directly
+                    // because different queue drivers and id formats make this fragile.
 
                     // Update record status
                     $record->update([
