@@ -185,7 +185,7 @@ return [
     |
     */
 
-    'memory_limit' => 256,
+    'memory_limit' => (int) env('HORIZON_MEMORY_LIMIT', 256),
 
     /*
     |--------------------------------------------------------------------------
@@ -204,12 +204,12 @@ return [
             'queue' => ['export', 'scrape', 'default', 'hitta-counts', 'ratsit-counts', 'hitta-postort', 'hitta-personer', 'ratsit-personer', 'merinfo-queue', 'merinfo-count'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
-            'maxProcesses' => 3,
+            'maxProcesses' => (int) env('HORIZON_MAX_PROCESSES', 3),
             'maxTime' => 0,
             'maxJobs' => 0,
-            'memory' => 512,
-            'tries' => 3,
-            'timeout' => 3600,
+            'memory' => (int) env('HORIZON_WORKER_MEMORY', 512),
+            'tries' => (int) env('HORIZON_WORKER_TRIES', 3),
+            'timeout' => (int) env('HORIZON_WORKER_TIMEOUT', 3600),
             'nice' => 0,
         ],
     ],
