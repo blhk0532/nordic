@@ -39,7 +39,7 @@ class ManusIconModal extends AbstractPageSettings implements HasForms
                         ['undo', 'redo'],
                     ])
                     ->label('Anteckningar')
-                    ->extraAttributes(['spellcheck' => 'false', 'wire:ignore' => true, 'style' => 'height:80vh;width: 100%;'])
+                    ->extraAttributes(['spellcheck' => 'false', 'wire:ignore' => true])
                     ->columnSpanFull(),
             ])
             ->statePath('data');

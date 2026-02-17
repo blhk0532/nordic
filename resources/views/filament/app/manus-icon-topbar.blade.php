@@ -18,11 +18,11 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     @else
     class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
-    wire:click="$dispatch('open-modal', { id: 'manus-notes-modal' })"
+    wire:click="$dispatch('open-modal', { id: 'manus-calendar-modal' })"
 >
 
         <x-filament::icon
-            icon="heroicon-o-document-text"
+            icon="heroicon-o-clipboard-document-list"
             class="fi-icon fi-size-lg"
         />
 @php
@@ -42,7 +42,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 
         class="fi-sidebar-database-notifications-btn-label"
     >
-
+    Manus
     </span>
 @endif
 
@@ -51,19 +51,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 </div>
 </div>
 
-<x-filament::modal
-id="manus-notes-modal"
-class="manus-notes-modal"
-slide-over
-width="4xl"
-teleport="body"
-    x-transition:enter="ease-out duration-300"
-    x-transition:enter-start="opacity-0 translate-x-full"
-    x-transition:enter-end="opacity-100 translate-x-0"
-    x-transition:leave="ease-in-out duration-300"
-    x-transition:leave-start="opacity-100 translate-x-0"
-    x-transition:leave-end="opacity-0 translate-x-full"
-            >
+<x-filament::modal id="manus-calendar-modal" class="manus-modal" slide-over width="4xl">
     <x-slot name="heading">
 
     </x-slot>

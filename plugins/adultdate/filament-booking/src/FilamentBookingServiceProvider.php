@@ -20,6 +20,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\Livewire\ManusIconModal;
 
 class FilamentBookingServiceProvider extends PackageServiceProvider
 {
@@ -391,6 +392,11 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
         // If storage link failed, try to create the links manually
         $this->createStorageLinks();
     }
+
+    protected function registerLivewireComponents(): void
+    {
+       \Livewire\Livewire::component('manus-icon-modal', \App\Livewire\ManusIconModal::class);
+  }
 
     protected function createStorageLinks(): void
     {

@@ -17,11 +17,11 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     @else
     class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
-    onclick="alert('Testing - component disabled')"
+     wire:click="$dispatch('open-modal', { id: 'test-whats-app' })"
 >
 
         <x-filament::icon
-            icon="heroicon-o-clipboard-document-list"
+            icon="heroicon-o-document"
             class="fi-icon fi-size-lg"
         />
 @php

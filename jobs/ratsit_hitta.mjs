@@ -58,12 +58,14 @@ class HittaRatsitScraper {
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
     this.results = [];
     this.base_url = 'https://www.hitta.se';
-    this.log_file = process.env.RATSIT_LOG_FILE || path.join(this.data_dir, 'ratsit_hitta.log');
+    this.log_dir = path.resolve(scriptDir, '..', 'storage', 'logs');
+    this.log_file = process.env.RATSIT_LOG_FILE || path.join(this.log_dir, 'ratsit.log');
 
     this.dbPool = null;
 
     // Ensure data directory exists
     fs.mkdir(this.data_dir, { recursive: true }).catch(() => {});
+    fsSync.mkdirSync(this.log_dir, { recursive: true });
 
     const originalLog = console.log;
     console.log = (...args) => {
@@ -444,6 +446,34 @@ class HittaRatsitScraper {
     }
   }
 
+  async gotoWithRetry(page, url, options, retries = 2) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= retries + 1; attempt++) {
+      try {
+        await page.goto(url, options);
+        return true;
+      } catch (error) {
+        lastError = error;
+        const message = error?.message || '';
+        const retryable = message.includes('ERR_NETWORK_CHANGED')
+          || message.includes('chrome-error://chromewebdata/')
+          || message.includes('interrupted by another navigation');
+
+        if (!retryable || attempt > retries) {
+          throw error;
+        }
+
+        await page.waitForTimeout(500 * attempt);
+      }
+    }
+
+    if (lastError) {
+      throw lastError;
+    }
+
+    return false;
+  }
+
   async scrapeRatsitData(query) {
     /**
      * Scrape Ratsit data with complete extraction (all fields from ratsit_data.mjs)
@@ -474,7 +504,7 @@ class HittaRatsitScraper {
       const page = await context.newPage();
 
       // Get search results
-      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 30000 });
+      await this.gotoWithRetry(page, searchUrl, { waitUntil: 'networkidle', timeout: 30000 });
       await page.waitForTimeout(2000);
 
       // Find all person links
@@ -499,7 +529,7 @@ class HittaRatsitScraper {
         console.log(`  → [${i + 1}/${links.length}] Scraping: ${link}`);
 
         try {
-          await page.goto(link, { waitUntil: 'networkidle', timeout: 30000 });
+          await this.gotoWithRetry(page, link, { waitUntil: 'networkidle', timeout: 30000 });
           await page.waitForTimeout(1500);
 
           // Scroll to load lazy content
@@ -964,11 +994,11 @@ class HittaRatsitScraper {
         console.log(`\nPage ${currentPage}: ${pageUrl}`);
 
         try {
-          await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+          await this.gotoWithRetry(page, pageUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
         } catch (navError) {
           console.log(`⚠ Navigation timeout/error: ${navError.message}, retrying...`);
           try {
-            await page.goto(pageUrl, { waitUntil: 'networkidle', timeout: 45000 });
+            await this.gotoWithRetry(page, pageUrl, { waitUntil: 'networkidle', timeout: 45000 });
           } catch (retryError) {
             console.log(`✗ Failed to load page after retry: ${retryError.message}`);
             break;
@@ -1460,7 +1490,7 @@ class HittaRatsitScraper {
       const ctx = await browserInstance.newContext();
       profilePage = await ctx.newPage();
 
-      await profilePage.goto(profileLink, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      await this.gotoWithRetry(profilePage, profileLink, { waitUntil: 'domcontentloaded', timeout: 20000 });
       await profilePage.waitForTimeout(800);
 
       // Find and click phone button
@@ -1659,7 +1689,7 @@ class HittaRatsitScraper {
     try {
       const context = page.context();
       detailPage = await context.newPage();
-      await detailPage.goto(personData.link, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      await this.gotoWithRetry(detailPage, personData.link, { waitUntil: 'domcontentloaded', timeout: 20000 });
 
       try { await this.dismissConsentOverlay(detailPage); } catch {}
 

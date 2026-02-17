@@ -27,6 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        //    FilamentView::registerRenderHook(
+        //        PanelsRenderHook::USER_MENU_BEFORE,
+        //        fn () => view('filament.app.manus-icon-topbar')
+        //    );
+
         $this->configureDefaults();
 
         PanelSwitch::configureUsing(function (PanelSwitch $switch): void {
