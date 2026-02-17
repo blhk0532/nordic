@@ -75,8 +75,6 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
-
     public function packageBooted(): void
     {
         // Register observers

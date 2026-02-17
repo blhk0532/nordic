@@ -18,6 +18,27 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
     use Queueable;
 
     /**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */
+    public $timeout = 3600;
+
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 3;
+
+    /**
+     * Indicate if the job should be marked as failed on timeout.
+     *
+     * @var bool
+     */
+    public $failOnTimeout = false;
+
+    /**
      * When the command is queued (instantiated programmatically) we store
      * any provided post numbers here because the Console input is not
      * available when the job is processed.
@@ -90,7 +111,7 @@ class RunRatsitHittaCommand extends Command implements ShouldQueue
                 Log::info("Starting ratsit_hitta script for: {$postNummer}");
 
                 // Build and execute the command
-                $scriptPath = base_path('scripts/ratsit_hitta.mjs');
+                $scriptPath = base_path('jobs/ratsit_hitta.mjs');
                 $command = "node {$scriptPath} \"{$postNummer}\"";
 
                 Log::info("Executing command: {$command}");

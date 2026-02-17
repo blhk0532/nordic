@@ -1049,7 +1049,7 @@ class HittaRatsitScraper {
         const pageResults = [];
         let pendingToSave = [];
         const ratsitQueue = []; // Queue houses for ratsit processing after page scraping
-        
+
         for (let i = 0; i < pageTotal; i++) {
           let personData = null;
           const idx = i + 1;
@@ -1471,7 +1471,7 @@ class HittaRatsitScraper {
       // Use provided browser or create a new one
       let browserInstance = browser;
       let shouldClose = false;
-      
+
       if (!browserInstance) {
         browserInstance = await chromium.launch({
           headless: true,
@@ -1526,7 +1526,7 @@ class HittaRatsitScraper {
       // Extract phone from button or URL
       const numbers = [];
       const newUrl = profilePage.url();
-      
+
       if (newUrl.includes('revealNumber')) {
         const urlObj = new URL(newUrl);
         const phoneParam = urlObj.searchParams.get('revealNumber');
