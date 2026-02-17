@@ -17,7 +17,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     @else
     class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
-     wire:click="$dispatch('open-modal', { id: 'test-whats-app' })"
+     wire:click="$dispatch('open-modal', { id: 'manus-calendar-modal' })"
 >
 
         <x-filament::icon
@@ -29,6 +29,8 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 @endphp
 
   @if($anderia === 'sidebar-no-topbar')
+
+
 
 
 
@@ -49,3 +51,11 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
  </div>
 </div>
 </div>
+
+<x-filament::modal id="manus-calendar-modal" class="manus-modal" slide-over width="4xl">
+    <x-slot name="heading">
+
+    </x-slot>
+     @livewire('manus-icon-modal', [], key('user-notes-modal-' . Auth::id()))
+
+</x-filament::modal>

@@ -19,6 +19,7 @@ use App\Filament\Data\Resources\PostNums\Actions\RunHittaPortOrtBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunHittaPortOrtDirectBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunHittaSearchBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunRatsitCountsBulkAction;
+use App\Filament\Data\Resources\PostNums\Actions\RunRatsitHittaBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunRatsitPersonerBulkAction;
 use App\Filament\Exports\PostNumExporter;
 use App\Models\PostNum;
@@ -396,7 +397,7 @@ class PostNumsTable
                     //    RunHittaPersonsBulkAction::make(),
                     // ResetMerinfoQueueBulkAction::make(),
                     RunRatsitPersonerBulkAction::make(),
-                    // RunRatsitPersonerBulkAction::make(),
+                    RunRatsitHittaBulkAction::make(),
 
                 ]),
 
