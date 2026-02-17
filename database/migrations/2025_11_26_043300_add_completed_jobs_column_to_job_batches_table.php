@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (! Schema::hasTable('job_batches')) {
+            return;
+        }
+
         Schema::table('job_batches', function (Blueprint $table) {
             $table->integer('completed_jobs')->default(0)->after('pending_jobs');
         });
@@ -21,6 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        if (! Schema::hasTable('job_batches')) {
+            return;
+        }
+
         Schema::table('job_batches', function (Blueprint $table) {
             $table->dropColumn('completed_jobs');
         });

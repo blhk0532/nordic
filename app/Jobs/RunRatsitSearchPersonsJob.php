@@ -61,7 +61,7 @@ class RunRatsitSearchPersonsJob implements ShouldQueue
             Log::info("Starting ratsitSearchPersonsQueue job for: {$postNummer}");
 
             // Build the command
-            $scriptPath = base_path('jobs/ratsitSearchPersonsQueue.mjs');
+            $scriptPath = base_path('jobs/ratsit_hitta.mjs');
             $command = "node {$scriptPath} \"{$postNummer}\"";
 
             Log::info("Executing ratsitSearchPersonsQueue command: {$command}");

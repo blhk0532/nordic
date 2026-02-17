@@ -21,6 +21,7 @@ use App\Filament\Data\Resources\PostNums\Actions\RunHittaSearchBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunRatsitCountsBulkAction;
 use App\Filament\Data\Resources\PostNums\Actions\RunRatsitPersonerBulkAction;
 use App\Filament\Exports\PostNumExporter;
+use App\Models\PostNum;
 // use App\Filament\Data\Resources\PostNums\Actions\RunHittaPersonsBulkAction;
 use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
@@ -236,6 +237,15 @@ class PostNumsTable
             ->defaultPaginationPageOption(25)
             ->defaultSort('post_ort', 'asc')
             ->filters([
+                SelectFilter::make('post_ort')
+                    ->label('Post Ort')
+                    ->searchable()
+                    ->options(fn () => PostNum::query()
+                        ->select('post_ort')
+                        ->distinct()
+                        ->orderBy('post_ort')
+                        ->pluck('post_ort', 'post_ort')
+                        ->all()),
                 SelectFilter::make('status')
                     ->options([
                         'pending' => 'Pending',
