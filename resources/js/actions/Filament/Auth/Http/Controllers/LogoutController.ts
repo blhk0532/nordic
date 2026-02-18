@@ -57,58 +57,58 @@ LogoutController0bf9725898bf54069779505e96ede62a.form = LogoutController0bf97258
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/adm/logout'
+* @route '/nds/queue/logout'
 */
-const LogoutController2b04e35eda79e1673a4c6ffa77b610e3 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController2b04e35eda79e1673a4c6ffa77b610e3.url(options),
+const LogoutControllerf37681deee5f912497ff6b81f0c75663 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
     method: 'post',
 })
 
-LogoutController2b04e35eda79e1673a4c6ffa77b610e3.definition = {
+LogoutControllerf37681deee5f912497ff6b81f0c75663.definition = {
     methods: ["post"],
-    url: '/nds/adm/logout',
+    url: '/nds/queue/logout',
 } satisfies RouteDefinition<["post"]>
 
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/adm/logout'
+* @route '/nds/queue/logout'
 */
-LogoutController2b04e35eda79e1673a4c6ffa77b610e3.url = (options?: RouteQueryOptions) => {
-    return LogoutController2b04e35eda79e1673a4c6ffa77b610e3.definition.url + queryParams(options)
+LogoutControllerf37681deee5f912497ff6b81f0c75663.url = (options?: RouteQueryOptions) => {
+    return LogoutControllerf37681deee5f912497ff6b81f0c75663.definition.url + queryParams(options)
 }
 
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/adm/logout'
+* @route '/nds/queue/logout'
 */
-LogoutController2b04e35eda79e1673a4c6ffa77b610e3.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController2b04e35eda79e1673a4c6ffa77b610e3.url(options),
+LogoutControllerf37681deee5f912497ff6b81f0c75663.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
     method: 'post',
 })
 
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/adm/logout'
+* @route '/nds/queue/logout'
 */
-const LogoutController2b04e35eda79e1673a4c6ffa77b610e3Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController2b04e35eda79e1673a4c6ffa77b610e3.url(options),
+const LogoutControllerf37681deee5f912497ff6b81f0c75663Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
     method: 'post',
 })
 
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/adm/logout'
+* @route '/nds/queue/logout'
 */
-LogoutController2b04e35eda79e1673a4c6ffa77b610e3Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController2b04e35eda79e1673a4c6ffa77b610e3.url(options),
+LogoutControllerf37681deee5f912497ff6b81f0c75663Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
     method: 'post',
 })
 
-LogoutController2b04e35eda79e1673a4c6ffa77b610e3.form = LogoutController2b04e35eda79e1673a4c6ffa77b610e3Form
+LogoutControllerf37681deee5f912497ff6b81f0c75663.form = LogoutControllerf37681deee5f912497ff6b81f0c75663Form
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
@@ -662,7 +662,7 @@ LogoutControllerb447e18e3f7d72c385564caf398bb5d7.form = LogoutControllerb447e18e
 
 const LogoutController = {
     '/admin/logout': LogoutController0bf9725898bf54069779505e96ede62a,
-    '/nds/adm/logout': LogoutController2b04e35eda79e1673a4c6ffa77b610e3,
+    '/nds/queue/logout': LogoutControllerf37681deee5f912497ff6b81f0c75663,
     '/nds/app/logout': LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0,
     '/nds/chat/logout': LogoutController6d99f95171113852cdc5e550e9357ae3,
     '/nds/data/logout': LogoutControllere848646e390171f04c4c32e122013cb4,

@@ -9,6 +9,7 @@ use App\Http\Requests\StoreRatsitDataRequest;
 use App\Http\Requests\UpdateRatsitDataRequest;
 use App\Http\Resources\RatsitDataResource;
 use App\Models\RatsitData;
+use App\Models\PrivateData;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -307,12 +308,103 @@ class RatsitDataController extends Controller
                     $record = RatsitData::create($recordData);
                     $created++;
                 }
+
+                // Also upsert into private_data for combined Hitta+Ratsit storage.
+                try {
+                    $privatePayload = $recordData;
+
+                    // Normalize common field names used by PrivateData
+                    if (! empty($recordData['personnummer'])) {
+                        $privatePayload['ps_personnummer'] = $recordData['personnummer'];
+                    }
+                    if (! empty($recordData['personnamn'])) {
+                        $privatePayload['ps_personnamn'] = $recordData['personnamn'];
+                    }
+                    if (! empty($recordData['gatuadress'])) {
+                        $privatePayload['bo_gatuadress'] = $recordData['gatuadress'];
+                    }
+                    if (! empty($recordData['postnummer'])) {
+                        $privatePayload['bo_postnummer'] = $recordData['postnummer'];
+                    }
+                    if (! empty($recordData['postort'])) {
+                        $privatePayload['bo_postort'] = $recordData['postort'];
+                    }
+                    if (! empty($recordData['ratsit_se'])) {
+                        $privatePayload['ratsit_link'] = $recordData['ratsit_se'];
+                    }
+
+                    // Ensure arrays remain arrays (validation above may have converted pipes)
+                    $arrayFields = ['telfonnummer', 'epost_adress', 'bolagsengagemang', 'personer', 'foretag', 'grannar', 'fordon', 'hundar'];
+                    foreach ($arrayFields as $field) {
+                        if (isset($privatePayload[$field]) && is_string($privatePayload[$field])) {
+                            $parts = array_filter(array_map('trim', explode('|', $privatePayload[$field])));
+                            $privatePayload[$field] = array_values($parts);
+                        }
+                    }
+
+                    // Upsert by ps_personnummer when available
+                    if (! empty($privatePayload['ps_personnummer'])) {
+                        PrivateData::updateOrCreate(
+                            ['ps_personnummer' => $privatePayload['ps_personnummer']],
+                            $privatePayload
+                        );
+                    } elseif (! empty($privatePayload['bo_gatuadress']) && ! empty($privatePayload['ps_personnamn'])) {
+                        // Try match by gatuadress + personnamn
+                        $existingPrivate = PrivateData::query()
+                            ->where('bo_gatuadress', $privatePayload['bo_gatuadress'])
+                            ->where('ps_personnamn', $privatePayload['ps_personnamn'])
+                            ->first();
+
+                        if ($existingPrivate) {
+                            $existingPrivate->update($privatePayload);
+                        } else {
+                            PrivateData::create($privatePayload);
+                        }
+                    } else {
+                        // Best-effort create
+                        PrivateData::create($privatePayload);
+                    }
+                } catch (Throwable $_e) {
+                    // Log and continue — PrivateData upsert failure should not break the bulk ratsit import
+                    Log::warning('private_data upsert failed', ['error' => $_e->getMessage(), 'record' => $recordData['personnummer'] ?? null]);
+                }
             } catch (Exception $e) {
+                $msg = $e->getMessage();
+
+                // Attempt to resolve duplicate key errors by locating the existing record
+                if (str_contains($msg, 'Duplicate entry') || str_contains(mb_strtolower($msg), 'unique') || str_contains(mb_strtolower($msg), 'duplicate')) {
+                    try {
+                        $candidate = null;
+
+                        if (! empty($recordData['personnummer'])) {
+                            $candidate = RatsitData::query()
+                                ->where('personnummer', $recordData['personnummer'])
+                                ->first();
+                        }
+
+                        if (! $candidate && ! empty($recordData['gatuadress']) && ! empty($recordData['personnamn'])) {
+                            $candidate = RatsitData::query()
+                                ->where('gatuadress', $recordData['gatuadress'])
+                                ->where('personnamn', $recordData['personnamn'])
+                                ->first();
+                        }
+
+                        if ($candidate) {
+                            $candidate->update($recordData);
+                            $updated++;
+                            continue;
+                        }
+                    } catch (Exception $_e) {
+                        // fall through to record as failed below
+                        $msg = $_e->getMessage();
+                    }
+                }
+
                 $failed++;
                 $errors[] = [
                     'index' => $index,
                     'personnummer' => $recordData['personnummer'] ?? 'unknown',
-                    'error' => $e->getMessage(),
+                    'error' => $msg,
                 ];
             }
         }

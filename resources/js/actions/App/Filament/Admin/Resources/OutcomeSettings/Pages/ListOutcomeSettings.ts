@@ -106,86 +106,6 @@ ListOutcomeSettingse10b7a48bac55095cbfbd25dc4282664.form = ListOutcomeSettingse1
 /**
 * @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
 * @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-const ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url(options),
-    method: 'get',
-})
-
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/outcome-settings',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url = (options?: RouteQueryOptions) => {
-    return ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-const ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
-* @route '/nds/adm/outcome-settings'
-*/
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4.form = ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4Form
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\ListOutcomeSettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/ListOutcomeSettings.php:7
 * @route '/nds/super/outcome-settings'
 */
 const ListOutcomeSettings30ee2a5d561592b2ef6eb87e6ad3c86d = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ ListOutcomeSettings30ee2a5d561592b2ef6eb87e6ad3c86d.form = ListOutcomeSettings30
 
 const ListOutcomeSettings = {
     '/admin/tenant/{tenant}/outcome-settings': ListOutcomeSettingse10b7a48bac55095cbfbd25dc4282664,
-    '/nds/adm/outcome-settings': ListOutcomeSettings6f4b7370b4d0769ce8ee945d458d9aa4,
     '/nds/super/outcome-settings': ListOutcomeSettings30ee2a5d561592b2ef6eb87e6ad3c86d,
 }
 

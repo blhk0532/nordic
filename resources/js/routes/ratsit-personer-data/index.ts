@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::index
-* @see app/Http/Controllers/Api/RatsitDataController.php:21
+* @see app/Http/Controllers/Api/RatsitDataController.php:22
 * @route '/api/ratsit-personer-data'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::store
-* @see app/Http/Controllers/Api/RatsitDataController.php:67
+* @see app/Http/Controllers/Api/RatsitDataController.php:68
 * @route '/api/ratsit-personer-data'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,7 +97,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::store
-* @see app/Http/Controllers/Api/RatsitDataController.php:67
+* @see app/Http/Controllers/Api/RatsitDataController.php:68
 * @route '/api/ratsit-personer-data'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::store
-* @see app/Http/Controllers/Api/RatsitDataController.php:67
+* @see app/Http/Controllers/Api/RatsitDataController.php:68
 * @route '/api/ratsit-personer-data'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +116,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::store
-* @see app/Http/Controllers/Api/RatsitDataController.php:67
+* @see app/Http/Controllers/Api/RatsitDataController.php:68
 * @route '/api/ratsit-personer-data'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +126,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::store
-* @see app/Http/Controllers/Api/RatsitDataController.php:67
+* @see app/Http/Controllers/Api/RatsitDataController.php:68
 * @route '/api/ratsit-personer-data'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -138,7 +138,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 export const show = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -153,7 +153,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 show.url = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -180,7 +180,7 @@ show.url = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 show.get = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -190,7 +190,7 @@ show.get = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 show.head = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -200,7 +200,7 @@ show.head = (args: { ratsit_personer_datum: string | number } | [ratsit_personer
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 const showForm = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,7 +210,7 @@ const showForm = (args: { ratsit_personer_datum: string | number } | [ratsit_per
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 showForm.get = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ showForm.get = (args: { ratsit_personer_datum: string | number } | [ratsit_perso
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::show
-* @see app/Http/Controllers/Api/RatsitDataController.php:111
+* @see app/Http/Controllers/Api/RatsitDataController.php:112
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 showForm.head = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -237,7 +237,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 export const update = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -252,7 +252,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 update.url = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -279,7 +279,7 @@ update.url = (args: { ratsit_personer_datum: string | number } | [ratsit_persone
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 update.put = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -289,7 +289,7 @@ update.put = (args: { ratsit_personer_datum: string | number } | [ratsit_persone
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 update.patch = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -299,7 +299,7 @@ update.patch = (args: { ratsit_personer_datum: string | number } | [ratsit_perso
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 const updateForm = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -314,7 +314,7 @@ const updateForm = (args: { ratsit_personer_datum: string | number } | [ratsit_p
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 updateForm.put = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -329,7 +329,7 @@ updateForm.put = (args: { ratsit_personer_datum: string | number } | [ratsit_per
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::update
-* @see app/Http/Controllers/Api/RatsitDataController.php:116
+* @see app/Http/Controllers/Api/RatsitDataController.php:117
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 updateForm.patch = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -346,7 +346,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::destroy
-* @see app/Http/Controllers/Api/RatsitDataController.php:210
+* @see app/Http/Controllers/Api/RatsitDataController.php:211
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 export const destroy = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -361,7 +361,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::destroy
-* @see app/Http/Controllers/Api/RatsitDataController.php:210
+* @see app/Http/Controllers/Api/RatsitDataController.php:211
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 destroy.url = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -388,7 +388,7 @@ destroy.url = (args: { ratsit_personer_datum: string | number } | [ratsit_person
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::destroy
-* @see app/Http/Controllers/Api/RatsitDataController.php:210
+* @see app/Http/Controllers/Api/RatsitDataController.php:211
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 destroy.delete = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -398,7 +398,7 @@ destroy.delete = (args: { ratsit_personer_datum: string | number } | [ratsit_per
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::destroy
-* @see app/Http/Controllers/Api/RatsitDataController.php:210
+* @see app/Http/Controllers/Api/RatsitDataController.php:211
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 const destroyForm = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -413,7 +413,7 @@ const destroyForm = (args: { ratsit_personer_datum: string | number } | [ratsit_
 
 /**
 * @see \App\Http\Controllers\Api\RatsitDataController::destroy
-* @see app/Http/Controllers/Api/RatsitDataController.php:210
+* @see app/Http/Controllers/Api/RatsitDataController.php:211
 * @route '/api/ratsit-personer-data/{ratsit_personer_datum}'
 */
 destroyForm.delete = (args: { ratsit_personer_datum: string | number } | [ratsit_personer_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

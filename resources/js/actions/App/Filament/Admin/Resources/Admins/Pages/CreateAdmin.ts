@@ -106,86 +106,6 @@ CreateAdmin2afae0c935729887282d59891d47c7c7.form = CreateAdmin2afae0c93572988728
 /**
 * @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
 * @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-const CreateAdmine4266bb0825c7b6da5040a5f5e291f37 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url(options),
-    method: 'get',
-})
-
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/admins/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url = (options?: RouteQueryOptions) => {
-    return CreateAdmine4266bb0825c7b6da5040a5f5e291f37.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-const CreateAdmine4266bb0825c7b6da5040a5f5e291f37Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
-* @route '/nds/adm/admins/create'
-*/
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateAdmine4266bb0825c7b6da5040a5f5e291f37.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateAdmine4266bb0825c7b6da5040a5f5e291f37.form = CreateAdmine4266bb0825c7b6da5040a5f5e291f37Form
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\CreateAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/CreateAdmin.php:7
 * @route '/nds/super/admins/create'
 */
 const CreateAdmin0a791b37b2bd42bd1ddb47a0d5fd4349 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateAdmin0a791b37b2bd42bd1ddb47a0d5fd4349.form = CreateAdmin0a791b37b2bd42bd1d
 
 const CreateAdmin = {
     '/admin/tenant/{tenant}/admins/create': CreateAdmin2afae0c935729887282d59891d47c7c7,
-    '/nds/adm/admins/create': CreateAdmine4266bb0825c7b6da5040a5f5e291f37,
     '/nds/super/admins/create': CreateAdmin0a791b37b2bd42bd1ddb47a0d5fd4349,
 }
 

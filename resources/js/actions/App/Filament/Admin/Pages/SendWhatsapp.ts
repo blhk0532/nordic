@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-const SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, options),
+const SendWhatsapp = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: SendWhatsapp.url(args, options),
     method: 'get',
 })
 
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.definition = {
+SendWhatsapp.definition = {
     methods: ["get","head"],
     url: '/admin/tenant/{tenant}/send-whatsapp',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.definition = {
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+SendWhatsapp.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url = (args: { tenant: string | num
         : args.tenant,
     }
 
-    return SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.definition.url
+    return SendWhatsapp.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -52,8 +52,8 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url = (args: { tenant: string | num
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, options),
+SendWhatsapp.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: SendWhatsapp.url(args, options),
     method: 'get',
 })
 
@@ -62,8 +62,8 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.get = (args: { tenant: string | num
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, options),
+SendWhatsapp.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: SendWhatsapp.url(args, options),
     method: 'head',
 })
 
@@ -72,8 +72,8 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.head = (args: { tenant: string | nu
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-const SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, options),
+const SendWhatsappForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SendWhatsapp.url(args, options),
     method: 'get',
 })
 
@@ -82,8 +82,8 @@ const SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm = (args: { tenant: string
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, options),
+SendWhatsappForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SendWhatsapp.url(args, options),
     method: 'get',
 })
 
@@ -92,8 +92,8 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm.get = (args: { tenant: string |
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
 */
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.url(args, {
+SendWhatsappForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SendWhatsapp.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,91 +102,6 @@ SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm.head = (args: { tenant: string 
     method: 'get',
 })
 
-SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d.form = SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5dForm
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-const SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url(options),
-    method: 'get',
-})
-
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/send-whatsapp',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url = (options?: RouteQueryOptions) => {
-    return SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-const SendWhatsapp27c371f84f31584adafa9bfab5cf3d0eForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0eForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
-* @see app/Filament/Admin/Pages/SendWhatsapp.php:7
-* @route '/nds/adm/send-whatsapp'
-*/
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0eForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e.form = SendWhatsapp27c371f84f31584adafa9bfab5cf3d0eForm
-
-const SendWhatsapp = {
-    '/admin/tenant/{tenant}/send-whatsapp': SendWhatsapp76e0b2a3d9bb811560763a68cfdb1d5d,
-    '/nds/adm/send-whatsapp': SendWhatsapp27c371f84f31584adafa9bfab5cf3d0e,
-}
+SendWhatsapp.form = SendWhatsappForm
 
 export default SendWhatsapp

@@ -12,11 +12,11 @@ use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
+use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -66,7 +66,6 @@ final class MultiCalendar1 extends BookingFullCalendarWidget implements HasCalen
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
 
     }
     use InteractsWithEvents {
@@ -278,7 +277,7 @@ final class MultiCalendar1 extends BookingFullCalendarWidget implements HasCalen
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
                     'slotMinTime' => '07:00:00',
@@ -286,7 +285,7 @@ final class MultiCalendar1 extends BookingFullCalendarWidget implements HasCalen
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
         ];
@@ -1734,7 +1733,7 @@ final class MultiCalendar1 extends BookingFullCalendarWidget implements HasCalen
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_1'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_1']) ? (int) $this->pageFilters['booking_calendars_1'] : null;
         $this->refreshRecords();
     }
 
@@ -1763,7 +1762,7 @@ final class MultiCalendar1 extends BookingFullCalendarWidget implements HasCalen
 
     public function mount(): void
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_1'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_1']) ? (int) $this->pageFilters['booking_calendars_1'] : null;
         $this->eventClickEnabled = true;
         //    $this->dateClickEnabled = true;
         $this->eventDragEnabled = true;

@@ -101,104 +101,6 @@ EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb.form = EditOutcomeSetting34cf
 /**
 * @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
 * @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-const EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, options),
-    method: 'get',
-})
-
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/outcome-settings/{record}/edit',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-const EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05bForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05bForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/{record}/edit'
-*/
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05bForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b.form = EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05bForm
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\EditOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/EditOutcomeSetting.php:7
 * @route '/nds/super/outcome-settings/{record}/edit'
 */
 const EditOutcomeSetting71183bdef82d450c12650cbe23a7199d = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -297,7 +199,6 @@ EditOutcomeSetting71183bdef82d450c12650cbe23a7199d.form = EditOutcomeSetting7118
 
 const EditOutcomeSetting = {
     '/admin/tenant/{tenant}/outcome-settings/{record}/edit': EditOutcomeSetting34cfaefcb6a6550bfe3c593071f822bb,
-    '/nds/adm/outcome-settings/{record}/edit': EditOutcomeSettingf7f9a32cdb92ee736388507f9176e05b,
     '/nds/super/outcome-settings/{record}/edit': EditOutcomeSetting71183bdef82d450c12650cbe23a7199d,
 }
 

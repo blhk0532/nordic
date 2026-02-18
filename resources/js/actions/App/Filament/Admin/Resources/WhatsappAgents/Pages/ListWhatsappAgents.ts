@@ -106,86 +106,6 @@ ListWhatsappAgentsb9cbc8d8460b7da3a160bb2d7f0e6b92.form = ListWhatsappAgentsb9cb
 /**
 * @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
 * @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-const ListWhatsappAgents8d51c8e48b11269da86942fd787e872a = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url(options),
-    method: 'get',
-})
-
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/whatsapp-agents',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url = (options?: RouteQueryOptions) => {
-    return ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-const ListWhatsappAgents8d51c8e48b11269da86942fd787e872aForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872aForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
-* @route '/nds/adm/whatsapp-agents'
-*/
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872aForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ListWhatsappAgents8d51c8e48b11269da86942fd787e872a.form = ListWhatsappAgents8d51c8e48b11269da86942fd787e872aForm
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\ListWhatsappAgents::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/ListWhatsappAgents.php:7
 * @route '/nds/super/whatsapp-agents'
 */
 const ListWhatsappAgents9115b66387d393fe2c21cdf6fb7938c4 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ ListWhatsappAgents9115b66387d393fe2c21cdf6fb7938c4.form = ListWhatsappAgents9115
 
 const ListWhatsappAgents = {
     '/admin/tenant/{tenant}/whatsapp-agents': ListWhatsappAgentsb9cbc8d8460b7da3a160bb2d7f0e6b92,
-    '/nds/adm/whatsapp-agents': ListWhatsappAgents8d51c8e48b11269da86942fd787e872a,
     '/nds/super/whatsapp-agents': ListWhatsappAgents9115b66387d393fe2c21cdf6fb7938c4,
 }
 

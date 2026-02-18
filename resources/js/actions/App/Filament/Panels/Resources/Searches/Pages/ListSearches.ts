@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
 * @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+const ListSearches548c615b669dfb46e86cb1a21cb1d2bf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url(options),
+    method: 'get',
+})
+
+ListSearches548c615b669dfb46e86cb1a21cb1d2bf.definition = {
+    methods: ["get","head"],
+    url: '/nds/queue/searches',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url = (options?: RouteQueryOptions) => {
+    return ListSearches548c615b669dfb46e86cb1a21cb1d2bf.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+ListSearches548c615b669dfb46e86cb1a21cb1d2bf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+ListSearches548c615b669dfb46e86cb1a21cb1d2bf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+const ListSearches548c615b669dfb46e86cb1a21cb1d2bfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+ListSearches548c615b669dfb46e86cb1a21cb1d2bfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
+* @route '/nds/queue/searches'
+*/
+ListSearches548c615b669dfb46e86cb1a21cb1d2bfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListSearches548c615b669dfb46e86cb1a21cb1d2bf.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ListSearches548c615b669dfb46e86cb1a21cb1d2bf.form = ListSearches548c615b669dfb46e86cb1a21cb1d2bfForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ListSearches::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ListSearches.php:7
 * @route '/nds/chat/searches'
 */
 const ListSearches0d679ef96ce513ca3873950998731deb = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -481,6 +561,7 @@ ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm.head = (options?: RouteQueryOpt
 ListSearches9f23a05972b2ea1a4a8ca6fae373091a.form = ListSearches9f23a05972b2ea1a4a8ca6fae373091aForm
 
 const ListSearches = {
+    '/nds/queue/searches': ListSearches548c615b669dfb46e86cb1a21cb1d2bf,
     '/nds/chat/searches': ListSearches0d679ef96ce513ca3873950998731deb,
     '/nds/notify/searches': ListSearchesc17433135a23af775220e3657f664cdf,
     '/nds/tools/searches': ListSearches875b656d052065d45c2fd5ddbd2c8b1d,

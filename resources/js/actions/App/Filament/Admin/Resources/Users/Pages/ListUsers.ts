@@ -106,86 +106,6 @@ ListUsers1ce1b653f15922f49f9de0f446c3aaae.form = ListUsers1ce1b653f15922f49f9de0
 /**
 * @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
 * @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-const ListUsers1593aea3b4286ed017086b43dd4ba608 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListUsers1593aea3b4286ed017086b43dd4ba608.url(options),
-    method: 'get',
-})
-
-ListUsers1593aea3b4286ed017086b43dd4ba608.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/users',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-ListUsers1593aea3b4286ed017086b43dd4ba608.url = (options?: RouteQueryOptions) => {
-    return ListUsers1593aea3b4286ed017086b43dd4ba608.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-ListUsers1593aea3b4286ed017086b43dd4ba608.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListUsers1593aea3b4286ed017086b43dd4ba608.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-ListUsers1593aea3b4286ed017086b43dd4ba608.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListUsers1593aea3b4286ed017086b43dd4ba608.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-const ListUsers1593aea3b4286ed017086b43dd4ba608Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListUsers1593aea3b4286ed017086b43dd4ba608.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-ListUsers1593aea3b4286ed017086b43dd4ba608Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListUsers1593aea3b4286ed017086b43dd4ba608.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
-* @route '/nds/adm/users'
-*/
-ListUsers1593aea3b4286ed017086b43dd4ba608Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListUsers1593aea3b4286ed017086b43dd4ba608.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ListUsers1593aea3b4286ed017086b43dd4ba608.form = ListUsers1593aea3b4286ed017086b43dd4ba608Form
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/nds/super/users'
 */
 const ListUsers3967b78d234b6c596ee24968d3182b6f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ ListUsers3967b78d234b6c596ee24968d3182b6f.form = ListUsers3967b78d234b6c596ee249
 
 const ListUsers = {
     '/admin/tenant/{tenant}/users': ListUsers1ce1b653f15922f49f9de0f446c3aaae,
-    '/nds/adm/users': ListUsers1593aea3b4286ed017086b43dd4ba608,
     '/nds/super/users': ListUsers3967b78d234b6c596ee24968d3182b6f,
 }
 

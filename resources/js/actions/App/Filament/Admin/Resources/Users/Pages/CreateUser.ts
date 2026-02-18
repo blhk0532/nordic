@@ -106,86 +106,6 @@ CreateUser957a11ae149ed22b7ea55a9e5dd9cb5b.form = CreateUser957a11ae149ed22b7ea5
 /**
 * @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
 * @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-const CreateUser2b107b630bb5d49d0728eb746ee73b92 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser2b107b630bb5d49d0728eb746ee73b92.url(options),
-    method: 'get',
-})
-
-CreateUser2b107b630bb5d49d0728eb746ee73b92.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/users/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-CreateUser2b107b630bb5d49d0728eb746ee73b92.url = (options?: RouteQueryOptions) => {
-    return CreateUser2b107b630bb5d49d0728eb746ee73b92.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-CreateUser2b107b630bb5d49d0728eb746ee73b92.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser2b107b630bb5d49d0728eb746ee73b92.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-CreateUser2b107b630bb5d49d0728eb746ee73b92.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateUser2b107b630bb5d49d0728eb746ee73b92.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-const CreateUser2b107b630bb5d49d0728eb746ee73b92Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser2b107b630bb5d49d0728eb746ee73b92.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-CreateUser2b107b630bb5d49d0728eb746ee73b92Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser2b107b630bb5d49d0728eb746ee73b92.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
-* @route '/nds/adm/users/create'
-*/
-CreateUser2b107b630bb5d49d0728eb746ee73b92Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser2b107b630bb5d49d0728eb746ee73b92.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateUser2b107b630bb5d49d0728eb746ee73b92.form = CreateUser2b107b630bb5d49d0728eb746ee73b92Form
-/**
-* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/nds/super/users/create'
 */
 const CreateUser7a4044a8bd2b99077d9852507876b355 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateUser7a4044a8bd2b99077d9852507876b355.form = CreateUser7a4044a8bd2b99077d98
 
 const CreateUser = {
     '/admin/tenant/{tenant}/users/create': CreateUser957a11ae149ed22b7ea55a9e5dd9cb5b,
-    '/nds/adm/users/create': CreateUser2b107b630bb5d49d0728eb746ee73b92,
     '/nds/super/users/create': CreateUser7a4044a8bd2b99077d9852507876b355,
 }
 

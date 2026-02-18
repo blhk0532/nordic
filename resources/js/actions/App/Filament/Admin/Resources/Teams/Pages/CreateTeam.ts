@@ -106,86 +106,6 @@ CreateTeam7f60a6076bede60c62760049f5f3eb9f.form = CreateTeam7f60a6076bede60c6276
 /**
 * @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
 * @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-const CreateTeamdd5fce126bb8ab97a884241d64bad7e4 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url(options),
-    method: 'get',
-})
-
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/teams/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url = (options?: RouteQueryOptions) => {
-    return CreateTeamdd5fce126bb8ab97a884241d64bad7e4.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-const CreateTeamdd5fce126bb8ab97a884241d64bad7e4Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
-* @route '/nds/adm/teams/create'
-*/
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateTeamdd5fce126bb8ab97a884241d64bad7e4.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateTeamdd5fce126bb8ab97a884241d64bad7e4.form = CreateTeamdd5fce126bb8ab97a884241d64bad7e4Form
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\CreateTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/CreateTeam.php:7
 * @route '/nds/super/teams/create'
 */
 const CreateTeam438b874aed1800c0be75ebcb9601be12 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateTeam438b874aed1800c0be75ebcb9601be12.form = CreateTeam438b874aed1800c0be75
 
 const CreateTeam = {
     '/admin/tenant/{tenant}/teams/create': CreateTeam7f60a6076bede60c62760049f5f3eb9f,
-    '/nds/adm/teams/create': CreateTeamdd5fce126bb8ab97a884241d64bad7e4,
     '/nds/super/teams/create': CreateTeam438b874aed1800c0be75ebcb9601be12,
 }
 

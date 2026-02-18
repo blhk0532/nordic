@@ -9,11 +9,13 @@ use Exception;
 use Illuminate\Bus\Batchable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
 
 class RunHittaSearchPersonsJob implements ShouldQueue
 {
     use Batchable;
+    use InteractsWithQueue;
     use Queueable;
 
     /**

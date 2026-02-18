@@ -106,86 +106,6 @@ RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.form = RedirectToHomeCo
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-const RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url(options),
-    method: 'get',
-})
-
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url = (options?: RouteQueryOptions) => {
-    return RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url(options),
-    method: 'head',
-})
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-const RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/nds/adm'
-*/
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe.form = RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efeForm
-/**
-* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
-* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
 * @route '/nds/chat'
 */
 const RedirectToHomeController8c64bc6fca39405dd2e574c532b93366 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ RedirectToHomeController8c64bc6fca39405dd2e574c532b93366.form = RedirectToHomeCo
 
 const RedirectToHomeController = {
     '/admin/tenant/{tenant}': RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c,
-    '/nds/adm': RedirectToHomeController0aadf6e031dee37bd5bbb3fe17382efe,
     '/nds/chat': RedirectToHomeController8c64bc6fca39405dd2e574c532b93366,
 }
 

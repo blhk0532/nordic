@@ -12,6 +12,14 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use App\Jobs\RunRatsitPersonAdressJob;
+use App\Jobs\RunRatsitPersonsSearchJob;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
+use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Support\Collection;
 use UnitEnum;
 
 class RatsitAdressResource extends Resource
@@ -30,14 +38,53 @@ class RatsitAdressResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('post_ort')->searchable()->sortable(),
-                TextColumn::make('post_nummer')->searchable()->sortable(),
                 TextColumn::make('gatuadress_namn')->label('Gatuadress')->searchable()->sortable(),
+                TextColumn::make('post_nummer')->searchable()->sortable(),
+                TextColumn::make('post_ort')->searchable()->sortable(),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
                 TextColumn::make('personer_link')->label('Personer Link')->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
+            ])
+            ->filters([
+                Filter::make('post_ort')
+                    ->schema([
+                        TextInput::make('post_ort')->label('Post Ort'),
+                    ])
+                    ->query(fn ($query, $data) => $query->when($data['post_ort'] ?? null, fn ($q, $value) => $q->where('post_ort', 'like', "%{$value}%"))),
+
+                Filter::make('post_nummer')
+                    ->schema([
+                        TextInput::make('post_nummer')->label('Postnummer'),
+                    ])
+                    ->query(fn ($query, $data) => $query->when($data['post_nummer'] ?? null, fn ($q, $value) => $q->where('post_nummer', 'like', "%{$value}%"))),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    BulkAction::make('run_ratsit_persons')
+                        ->label('Run Ratsit Persons')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records) {
+                            foreach ($records as $record) {
+                                // Build exact search string: "gatuadress_namn,  post_nummer post_ort"
+                                $gatuadress = $record->gatuadress_namn ?? '';
+                                $postnummer = $record->post_nummer ?? '';
+                                $postort = $record->post_ort ?? '';
+                                $search = sprintf('"%s,  %s %s"', $gatuadress, str_replace(' ', '', $postnummer), $postort);
+
+                                // Dispatch a queued job to run the Node scraper with the exact search param
+                                RunRatsitPersonsSearchJob::dispatch($search)->onQueue('ratsit');
+                            }
+
+                            Notification::make()
+                                ->title('Queued Ratsit Persons jobs')
+                                ->body('Ratsit persons scraping jobs have been queued for selected rows.')
+                                ->success()
+                                ->send();
+                        })
+                        ->color('primary'),
+                ]),
             ])
             ->defaultSort('updated_at', 'desc')
             ->paginated([10, 25, 50, 100])

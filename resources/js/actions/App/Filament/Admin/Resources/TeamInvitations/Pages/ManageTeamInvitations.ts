@@ -106,86 +106,6 @@ ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.form = ManageTeamInvitatio
 /**
 * @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-const ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url(options),
-    method: 'get',
-})
-
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/team-invitations',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url = (options?: RouteQueryOptions) => {
-    return ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-const ManageTeamInvitationsf711b307a143e294616fd30f8a4f79ebForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79ebForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/nds/adm/team-invitations'
-*/
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79ebForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb.form = ManageTeamInvitationsf711b307a143e294616fd30f8a4f79ebForm
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
 const ManageTeamInvitations011364a502edf6236977c6a55de0f08b = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08b.form = ManageTeamInvitatio
 
 const ManageTeamInvitations = {
     '/admin/tenant/{tenant}/team-invitations': ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e,
-    '/nds/adm/team-invitations': ManageTeamInvitationsf711b307a143e294616fd30f8a4f79eb,
     '/nds/super/team-invitations': ManageTeamInvitations011364a502edf6236977c6a55de0f08b,
 }
 

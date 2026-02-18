@@ -1754,7 +1754,7 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars'] ?? $this->selectedTechnician;
+        $this->selectedTechnician = (isset($this->pageFilters['booking_calendars']) && is_numeric($this->pageFilters['booking_calendars'])) ? (int) $this->pageFilters['booking_calendars'] : $this->selectedTechnician;
         $this->startDate = $this->pageFilters['startDate'] ?? $this->startDate;
         $this->endDate = $this->pageFilters['endDate'] ?? $this->endDate;
         $this->refreshRecords();

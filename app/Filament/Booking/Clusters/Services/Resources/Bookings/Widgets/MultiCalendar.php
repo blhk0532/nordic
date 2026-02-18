@@ -90,6 +90,8 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
 
     public ?array $calendarData = null;
 
+    public ?int $selectedTechnician = null;
+
     protected $settings;
 
     protected $listeners = ['refreshCalendar' => 'refreshCalendar'];
@@ -102,13 +104,13 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
     protected static ?int $sort = -1;
 
     protected string $view = 'adultdate/filament-booking::multi-fullcalendar';
-    // protected int | string | array $columnSpan = 3;
+    protected int | string | array $columnSpan = 'full';
 
     public function getHeading(): string|Htmlable
     {
         $technician = $this->selectedTechnician ? \App\Models\BookingCalendar::with('owner')->find($this->selectedTechnician)?->owner?->name : 'All Tekniker';
 
-        return 'Calendar - '.$technician;
+        return '#1 ◴ '.$technician;
     }
 
     public function getFooterActions(): array
@@ -252,13 +254,15 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
             'initialView' => 'timeGridWeek',
             // Start week on Monday (0 = Sunday, 1 = Monday)
             'firstDay' => 1,
+            'dayCount' => 5,
+            'weekends' => false,
             'dayHeaderFormat' => [
                 'weekday' => 'short',
                 'day' => 'numeric',
             ],
             'headerToolbar' => [
                 'start' => 'prev,next',
-                'center' => '',
+                'center' => 'title',
                 'end' => 'timeGridWeek,timeGridDay',
             ],
             'nowIndicator' => true,
@@ -272,20 +276,20 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
             'eventDrop' => 'onEventDrop',
             'timeZone' => 'Europe/Stockholm',
             'now' => now()->setTimezone('Europe/Stockholm')->addHour()->toISOString(),
-            'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-            'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+            'slotMinTime' => '07:00:00',
+            'slotMaxTime' => '20:00:00',
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
-                    'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMinTime' => '07:00:00',
+                    'slotMaxTime' => '20:00:00',
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
         ];
@@ -329,7 +333,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
         ]);
 
         $timezone = config('app.timezone');
-        $startDate = Carbon::parse($start, $timezone);
+        $startDate = $allDay ? Carbon::parse($start) : Carbon::parse($start, $timezone);
 
         $startVal = $start;
         $endVal = $end;
@@ -1375,7 +1379,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
                 } else {
                     // All-day click for creating location
                     $timezone = config('app.timezone');
-                    $startDate = Carbon::parse($start, $timezone);
+                    $startDate = $allDay ? Carbon::parse($start) : Carbon::parse($start, $timezone);
                     $this->mountAction('createDailyLocation', [
                         'date' => $startDate->format('Y-m-d'),
                         'service_date' => $startDate->format('Y-m-d'),
@@ -1639,7 +1643,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
         $end = $info->end->toMutable()->endOfDay();
 
         $filters = $this->pageFilters;
-        $selectedCalendarId = $filters['booking_calendars'] ?? null;
+        $selectedCalendarId = $filters['booking_calendars_1'] ?? null;
 
         $serviceUserId = null;
         if ($selectedCalendarId) {
@@ -1720,6 +1724,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
 
     public function refreshCalendar()
     {
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_1']) ? (int) $this->pageFilters['booking_calendars_1'] : null;
         $this->refreshRecords();
     }
 
@@ -1748,11 +1753,17 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
 
     public function mount(): void
     {
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_1']) ? (int) $this->pageFilters['booking_calendars_1'] : null;
         $this->eventClickEnabled = true;
         //    $this->dateClickEnabled = true;
         $this->eventDragEnabled = true;
         $this->eventResizeEnabled = true;
         $this->dateSelectEnabled = true;
+    }
+
+    public function getCalendarClass(): string
+    {
+        return 'calendar-1';
     }
 
     public function getView(): string
@@ -1865,7 +1876,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
     protected function getSelectedServiceUserId(): ?int
     {
         $filters = $this->pageFilters ?? [];
-        $selectedCalendarId = $filters['booking_calendars'] ?? null;
+        $selectedCalendarId = $filters['booking_calendars_1'] ?? null;
 
         if ($selectedCalendarId) {
             $calendar = \App\Models\BookingCalendar::find($selectedCalendarId);
@@ -1880,7 +1891,7 @@ class MultiCalendar extends Widget implements HasCalendar, HasSchemas
     {
         $filters = $this->pageFilters ?? [];
 
-        $value = $filters['booking_calendars'] ?? null;
+        $value = $filters['booking_calendars_1'] ?? null;
 
         return $value ? (int) $value : null;
     }

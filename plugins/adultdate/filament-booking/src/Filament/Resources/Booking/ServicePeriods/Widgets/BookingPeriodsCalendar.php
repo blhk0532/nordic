@@ -150,19 +150,19 @@ class BookingPeriodsCalendar extends SimpleCalendarWidget implements HasCalendar
             'dateClick' => true,
             'eventClick' => true,
             'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-            'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+            'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
         ];

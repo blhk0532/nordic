@@ -5,6 +5,7 @@ import jobBatches from './job-batches'
 import jobs from './jobs'
 import merinfos from './merinfos'
 import postNums from './post-nums'
+import privateData from './private-data'
 import ratsitAdresser from './ratsit-adresser'
 import ratsitKommuner from './ratsit-kommuner'
 import ratsitPostorter from './ratsit-postorter'
@@ -17,6 +18,7 @@ const resources = {
     jobs: Object.assign(jobs, jobs),
     merinfos: Object.assign(merinfos, merinfos),
     postNums: Object.assign(postNums, postNums),
+    privateData: Object.assign(privateData, privateData),
     ratsitAdresser: Object.assign(ratsitAdresser, ratsitAdresser),
     ratsitKommuner: Object.assign(ratsitKommuner, ratsitKommuner),
     ratsitPostorter: Object.assign(ratsitPostorter, ratsitPostorter),

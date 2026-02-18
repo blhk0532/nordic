@@ -2,6 +2,86 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
 * @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+const CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url(options),
+    method: 'get',
+})
+
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.definition = {
+    methods: ["get","head"],
+    url: '/nds/queue/searches/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url = (options?: RouteQueryOptions) => {
+    return CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+const CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2bForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2bForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
+* @route '/nds/queue/searches/create'
+*/
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2bForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b.form = CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2bForm
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\CreateSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/CreateSearch.php:7
 * @route '/nds/chat/searches/create'
 */
 const CreateSearch7ddd2f8e13819d504d711cec74acfd76 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -481,6 +561,7 @@ CreateSearch51c492d7e097d673821ede1dcd6af67aForm.head = (options?: RouteQueryOpt
 CreateSearch51c492d7e097d673821ede1dcd6af67a.form = CreateSearch51c492d7e097d673821ede1dcd6af67aForm
 
 const CreateSearch = {
+    '/nds/queue/searches/create': CreateSearch0ce5d5a87b68d45355bfcba5a3be8f2b,
     '/nds/chat/searches/create': CreateSearch7ddd2f8e13819d504d711cec74acfd76,
     '/nds/notify/searches/create': CreateSearchb26968091044647a915a8dd7c5b91c30,
     '/nds/tools/searches/create': CreateSearch4e61e5527d3af0cd0b98b827a3bd3f42,

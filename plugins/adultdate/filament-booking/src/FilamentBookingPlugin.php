@@ -25,6 +25,7 @@ use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalenders
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\DashboardBokning;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\MultiCalendars3;
 use App\Filament\App\Pages\InertiaCalendar as AppInertiaCalendar;
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\Booking\Pages\GoogleCalendar;
 use App\Filament\Booking\Pages\InertiaCalendar;
 use Closure;
@@ -38,7 +39,6 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Auth;
-use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 
 class FilamentBookingPlugin implements Plugin
 {
@@ -157,15 +157,15 @@ HTML,
             ],
         );
 
-    //    FilamentView::registerRenderHook(
-    //        PanelsRenderHook::USER_MENU_BEFORE,
-    //        fn () => view('filament.app.calendar-icon-topbar')
-    //    );
+        //    FilamentView::registerRenderHook(
+        //        PanelsRenderHook::USER_MENU_BEFORE,
+        //        fn () => view('filament.app.calendar-icon-topbar')
+        //    );
 
-            FilamentView::registerRenderHook(
-                PanelsRenderHook::USER_MENU_BEFORE,
-                fn () => view('filament.app.user-notes-icon-topbar')
-            );
+        //    FilamentView::registerRenderHook(
+        //        PanelsRenderHook::USER_MENU_BEFORE,
+        //        fn () => view('filament.app.user-notes-icon-topbar')
+        //    );
 
         //    FilamentView::registerRenderHook(
         //        PanelsRenderHook::USER_MENU_BEFORE,

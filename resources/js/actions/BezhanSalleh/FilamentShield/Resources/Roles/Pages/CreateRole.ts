@@ -106,86 +106,6 @@ CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.form = CreateRole2dc8b84baaaef3bae51d
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-const CreateRolec9129910c3a39b2ff95685bc4bb4843f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url(options),
-    method: 'get',
-})
-
-CreateRolec9129910c3a39b2ff95685bc4bb4843f.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/shield/roles/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-CreateRolec9129910c3a39b2ff95685bc4bb4843f.url = (options?: RouteQueryOptions) => {
-    return CreateRolec9129910c3a39b2ff95685bc4bb4843f.definition.url + queryParams(options)
-}
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-CreateRolec9129910c3a39b2ff95685bc4bb4843f.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url(options),
-    method: 'get',
-})
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-CreateRolec9129910c3a39b2ff95685bc4bb4843f.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url(options),
-    method: 'head',
-})
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-const CreateRolec9129910c3a39b2ff95685bc4bb4843fForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url(options),
-    method: 'get',
-})
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-CreateRolec9129910c3a39b2ff95685bc4bb4843fForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url(options),
-    method: 'get',
-})
-
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/nds/adm/shield/roles/create'
-*/
-CreateRolec9129910c3a39b2ff95685bc4bb4843fForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRolec9129910c3a39b2ff95685bc4bb4843f.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateRolec9129910c3a39b2ff95685bc4bb4843f.form = CreateRolec9129910c3a39b2ff95685bc4bb4843fForm
-/**
-* @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/nds/super/shield/roles/create'
 */
 const CreateRole11e055d7abeddef45d22dea3c46b678f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateRole11e055d7abeddef45d22dea3c46b678f.form = CreateRole11e055d7abeddef45d22
 
 const CreateRole = {
     '/admin/tenant/{tenant}/shield/roles/create': CreateRole2dc8b84baaaef3bae51d8a32bcf1431f,
-    '/nds/adm/shield/roles/create': CreateRolec9129910c3a39b2ff95685bc4bb4843f,
     '/nds/super/shield/roles/create': CreateRole11e055d7abeddef45d22dea3c46b678f,
 }
 

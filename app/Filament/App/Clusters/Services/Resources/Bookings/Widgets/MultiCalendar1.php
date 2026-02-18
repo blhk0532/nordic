@@ -37,8 +37,6 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
@@ -1811,7 +1809,7 @@ class MultiCalendar1 extends FullCalendarWidget implements HasCalendar
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_1'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_1']) ? (int) $this->pageFilters['booking_calendars_1'] : null;
         $this->refreshRecords();
     }
 

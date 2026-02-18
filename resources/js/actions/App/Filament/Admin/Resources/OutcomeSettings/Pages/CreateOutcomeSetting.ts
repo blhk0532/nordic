@@ -106,86 +106,6 @@ CreateOutcomeSettingd0a96997dfa6278ac765e10523621b75.form = CreateOutcomeSetting
 /**
 * @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
 * @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-const CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url(options),
-    method: 'get',
-})
-
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/outcome-settings/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url = (options?: RouteQueryOptions) => {
-    return CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-const CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
-* @route '/nds/adm/outcome-settings/create'
-*/
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3.form = CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3Form
-/**
-* @see \App\Filament\Admin\Resources\OutcomeSettings\Pages\CreateOutcomeSetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeSettings/Pages/CreateOutcomeSetting.php:7
 * @route '/nds/super/outcome-settings/create'
 */
 const CreateOutcomeSetting96e11db29d41c7c0427c6fa980838f18 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateOutcomeSetting96e11db29d41c7c0427c6fa980838f18.form = CreateOutcomeSetting
 
 const CreateOutcomeSetting = {
     '/admin/tenant/{tenant}/outcome-settings/create': CreateOutcomeSettingd0a96997dfa6278ac765e10523621b75,
-    '/nds/adm/outcome-settings/create': CreateOutcomeSettingc73f679b3b962b658bb25266c5694dc3,
     '/nds/super/outcome-settings/create': CreateOutcomeSetting96e11db29d41c7c0427c6fa980838f18,
 }
 

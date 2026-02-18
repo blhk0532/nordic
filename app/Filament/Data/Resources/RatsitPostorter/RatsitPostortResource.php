@@ -12,6 +12,11 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\SelectFilter;
+use App\Jobs\RunRatsitPersonAdressJob;
+use Filament\Notifications\Notification;
+use Filament\Actions\BulkAction;
+use Illuminate\Support\Collection;
 use UnitEnum;
 
 class RatsitPostortResource extends Resource
@@ -38,6 +43,35 @@ class RatsitPostortResource extends Resource
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
                 TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
+            ])
+            ->filters([
+                SelectFilter::make('post_ort')
+                    ->label('Post Ort')
+                    ->searchable()
+                    ->options(fn () => RatsitPostort::query()
+                        ->select('post_ort')
+                        ->distinct()
+                        ->orderBy('post_ort')
+                        ->pluck('post_ort', 'post_ort')
+                        ->all()),
+            ])
+            ->bulkActions([
+                BulkAction::make('run_ratsit_person_adresser')
+                    ->label('Run Ratsit Scraper')
+                    ->requiresConfirmation()
+                    ->action(function (Collection $records) {
+                        foreach ($records as $record) {
+                            $url = $record->personer_link ?: null;
+                            RunRatsitPersonAdressJob::dispatch($record->id, $url)->onQueue('ratsit');
+                        }
+
+                        Notification::make()
+                            ->title('Queued Ratsit jobs')
+                            ->body('Ratsit scraping jobs have been queued for selected rows.')
+                            ->success()
+                            ->send();
+                    })
+                    ->color('primary'),
             ])
             ->defaultSort('updated_at', 'desc')
             ->paginated([10, 25, 50, 100])

@@ -4,12 +4,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-const CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, options),
+const CreateWhatsappAgent = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateWhatsappAgent.url(args, options),
     method: 'get',
 })
 
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.definition = {
+CreateWhatsappAgent.definition = {
     methods: ["get","head"],
     url: '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +19,7 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.definition = {
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+CreateWhatsappAgent.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url = (args: { tenant: strin
         : args.tenant,
     }
 
-    return CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.definition.url
+    return CreateWhatsappAgent.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -52,8 +52,8 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url = (args: { tenant: strin
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, options),
+CreateWhatsappAgent.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateWhatsappAgent.url(args, options),
     method: 'get',
 })
 
@@ -62,8 +62,8 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.get = (args: { tenant: strin
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, options),
+CreateWhatsappAgent.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateWhatsappAgent.url(args, options),
     method: 'head',
 })
 
@@ -72,8 +72,8 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.head = (args: { tenant: stri
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-const CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, options),
+const CreateWhatsappAgentForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateWhatsappAgent.url(args, options),
     method: 'get',
 })
 
@@ -82,8 +82,8 @@ const CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form = (args: { tenant:
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, options),
+CreateWhatsappAgentForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateWhatsappAgent.url(args, options),
     method: 'get',
 })
 
@@ -92,8 +92,8 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form.get = (args: { tenant: s
 * @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
 * @route '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create'
 */
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.url(args, {
+CreateWhatsappAgentForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateWhatsappAgent.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,91 +102,6 @@ CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form.head = (args: { tenant: 
     method: 'get',
 })
 
-CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58.form = CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58Form
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-const CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url(options),
-    method: 'get',
-})
-
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/whatsapp/whatsapp-agent/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url = (options?: RouteQueryOptions) => {
-    return CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.definition.url + queryParams(options)
-}
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url(options),
-    method: 'get',
-})
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url(options),
-    method: 'head',
-})
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-const CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url(options),
-    method: 'get',
-})
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url(options),
-    method: 'get',
-})
-
-/**
-* @see \JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource\Pages\CreateWhatsappAgent::__invoke
-* @see plugins/jeffersongoncalves/filament-whatsapp-widget/src/Resources/WhatsappAgentResource/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp/whatsapp-agent/create'
-*/
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87.form = CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87Form
-
-const CreateWhatsappAgent = {
-    '/admin/tenant/{tenant}/whatsapp/whatsapp-agent/create': CreateWhatsappAgent360b0618e27f420f6d120589f9f3dc58,
-    '/nds/adm/whatsapp/whatsapp-agent/create': CreateWhatsappAgentc257d0a98f261c41bfc34f5f763e0b87,
-}
+CreateWhatsappAgent.form = CreateWhatsappAgentForm
 
 export default CreateWhatsappAgent

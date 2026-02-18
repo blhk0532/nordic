@@ -264,25 +264,66 @@ class RatsitScraper {
       const context = await browser.newContext();
       const page = await context.newPage();
 
-      // Get search results
-      await page.goto(searchUrl, { waitUntil: 'networkidle', timeout: 112000 });
-      await page.waitForTimeout(2000);
-
-      // Find all person links
+      // Get search results (handle pagination)
       const links = [];
-      const resultList = await page.$('ul.search-result-list');
+      const linkSet = new Set();
+      let nextUrl = searchUrl;
+      let pageNum = 0;
+      const maxPages = 100; // safety cap to avoid infinite loops (user requested)
 
-      if (resultList) {
-        const linkElements = await resultList.$$('li a[href^="https://www.ratsit.se/"]');
-        for (const linkElement of linkElements) {
-          const href = await linkElement.getAttribute('href');
-          if (href && href.startsWith('https://www.ratsit.se/')) {
-            links.push(href);
+      while (nextUrl && pageNum < maxPages) {
+        pageNum += 1;
+        await page.goto(nextUrl, { waitUntil: 'networkidle', timeout: 112000 });
+        await page.waitForTimeout(1500);
+
+        // Collect person links on this results page (inspect <li> to reduce false positives)
+        const resultList = await page.$('ul.search-result-list');
+        if (resultList) {
+          const items = await resultList.$$('li');
+          for (const li of items) {
+            const linkElement = await li.$('a[href^="https://www.ratsit.se/"], a[href^="/"]');
+            if (!linkElement) continue;
+
+            let href = await linkElement.getAttribute('href');
+            if (!href) continue;
+            if (href.startsWith('/')) href = 'https://www.ratsit.se' + href;
+            if (!href.includes('ratsit.se')) continue;
+
+            if (!linkSet.has(href)) {
+              linkSet.add(href);
+              links.push(href);
+            }
           }
         }
+
+        // Prefer finding a "next page" anchor specifically. Do NOT treat a
+        // disabled "previous" arrow as end-of-results (previously caused an
+        // early break on page 1).
+        const nextEl = await page.$(
+          'a[rel="next"], a.btn-arrow[rel="next"], a.btn-arrow[title^="Nästa"], a:has-text("Nästa"), button:has-text("Nästa")'
+        );
+
+        if (nextEl) {
+          // If it's an anchor with an href -> follow it
+          const href = await nextEl.getAttribute('href');
+          if (href && (href.startsWith('/') || href.startsWith('http'))) {
+            nextUrl = href.startsWith('/') ? 'https://www.ratsit.se' + href : href;
+            continue; // load next page in loop
+          }
+
+          // If the next control is present but disabled, stop pagination
+          const disabled = await nextEl.evaluate((el) => el.matches('.btn-arrow--disabled') || el.getAttribute('aria-disabled') === 'true' || el.disabled === true);
+          if (disabled) break;
+
+          // No usable href and not explicitly disabled — give up safely
+          break;
+        }
+
+        // No next control found => stop
+        break;
       }
 
-      console.log(`  → Found ${links.length} Ratsit result(s)`);
+      console.log(`  → Found ${links.length} Ratsit result(s) (scanned ${pageNum} page(s)${pageNum >= maxPages ? ', reached maxPages cap' : ''})`);
 
       // Scrape each person page
       for (let i = 0; i < links.length; i++) {
@@ -292,6 +333,17 @@ class RatsitScraper {
         try {
           await page.goto(link, { waitUntil: 'networkidle', timeout: 112000 });
           await page.waitForTimeout(1500);
+
+          // Extra safeguard: skip person pages whose extracted address matches isIgnorePattern
+          try {
+            const scrapedAddress = await this.extractRatsitTextAfterLabel(page, 'Gatuadress:');
+            if (scrapedAddress && /lgh|1 tr|2 tr|3 tr|4 tr|5 tr|6 tr| nb| bv|\bBox\b|\b([1-9][0-9]?|100)\s*[A-Z]\b/i.test(scrapedAddress)) {
+              console.log(`  → Skipping person page (address matches ignore-pattern): ${scrapedAddress} — ${link}`);
+              continue; // skip this person page
+            }
+          } catch (e) {
+            // ignore extraction errors and proceed
+          }
 
           // Scroll to load lazy content
           await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));

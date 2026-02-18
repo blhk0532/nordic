@@ -258,25 +258,25 @@ class BookingCalendar extends Widget implements HasCalendar
             'timeZone' => 'Europe/Stockholm',
             'now' => now()->setTimezone('Europe/Stockholm')->addHour()->toISOString(),
             'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-            'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+            'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'resourceTimelineFourDays' => [
                     'type' => 'resourceTimeline',
                     'duration' => ['days' => 4],
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
             'resources' => $this->getResources(),

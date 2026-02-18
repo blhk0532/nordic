@@ -101,104 +101,6 @@ ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062.form = ViewWhatsappInstance
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-const ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, options),
-    method: 'get',
-})
-
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/whatsapp-instances/{record}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-const ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccbForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccbForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/nds/adm/whatsapp-instances/{record}'
-*/
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccbForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb.form = ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccbForm
-/**
-* @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
-* @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
 * @route '/nds/notify/whatsapp-instances/{record}'
 */
 const ViewWhatsappInstance4000635695f943fbf9995296ee29c986 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -395,7 +297,6 @@ ViewWhatsappInstance3cfb53917855120c5220569eb407f49e.form = ViewWhatsappInstance
 
 const ViewWhatsappInstance = {
     '/admin/tenant/{tenant}/whatsapp-instances/{record}': ViewWhatsappInstance274d55a61c3eb5f4b652dd4036959062,
-    '/nds/adm/whatsapp-instances/{record}': ViewWhatsappInstance2fab7987434fb5d2e614ecd91fc45ccb,
     '/nds/notify/whatsapp-instances/{record}': ViewWhatsappInstance4000635695f943fbf9995296ee29c986,
     '/nds/super/whatsapp-instances/{record}': ViewWhatsappInstance3cfb53917855120c5220569eb407f49e,
 }

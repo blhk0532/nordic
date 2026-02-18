@@ -9,12 +9,14 @@ use Exception;
 use Illuminate\Bus\Batchable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 
 class RunHittaSearchPersonsOptimizedJob implements ShouldQueue
 {
     use Batchable;
+    use InteractsWithQueue;
     use Queueable;
 
     public $timeout = 1000000; //  minutes

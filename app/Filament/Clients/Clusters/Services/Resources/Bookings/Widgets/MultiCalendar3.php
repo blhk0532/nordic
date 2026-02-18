@@ -1767,7 +1767,7 @@ class MultiCalendar3 extends Widget implements HasCalendar, HasSchemas
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_3'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_3']) ? (int) $this->pageFilters['booking_calendars_3'] : null;
         $this->refreshRecords();
     }
 
@@ -1796,7 +1796,7 @@ class MultiCalendar3 extends Widget implements HasCalendar, HasSchemas
 
     public function mount(): void
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_3'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_3']) ? (int) $this->pageFilters['booking_calendars_3'] : null;
         $this->eventClickEnabled = true;
         //    $this->dateClickEnabled = true;
         $this->eventDragEnabled = true;

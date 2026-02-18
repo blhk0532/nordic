@@ -1,6 +1,7 @@
 import RingaDatas from './RingaDatas'
 import BookingDataLeads from './BookingDataLeads'
 import Bookings from './Bookings'
+import Campaigns from './Campaigns'
 import OutcomeDelaySettings from './OutcomeDelaySettings'
 import RingaData from './RingaData'
 import RingaListan from './RingaListan'
@@ -11,6 +12,7 @@ const Resources = {
     RingaDatas: Object.assign(RingaDatas, RingaDatas),
     BookingDataLeads: Object.assign(BookingDataLeads, BookingDataLeads),
     Bookings: Object.assign(Bookings, Bookings),
+    Campaigns: Object.assign(Campaigns, Campaigns),
     OutcomeDelaySettings: Object.assign(OutcomeDelaySettings, OutcomeDelaySettings),
     RingaData: Object.assign(RingaData, RingaData),
     RingaListan: Object.assign(RingaListan, RingaListan),

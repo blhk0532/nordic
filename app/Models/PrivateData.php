@@ -100,6 +100,8 @@ class PrivateData extends Model
         'google_maps',
         'google_streetview',
         'ratsit_link',
+        'ratsit_se',
+        'kommun_ratsit',
         'bo_longitude',
         'bo_latitud',
         'hitta_link',

@@ -12,12 +12,11 @@ use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
+use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
-use Adultdate\FilamentBooking\Filament\Widgets\BookingFullCalendarWidget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -67,7 +66,6 @@ final class MultiCalendar extends BookingFullCalendarWidget implements HasCalend
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
 
     }
     use InteractsWithEvents {
@@ -273,19 +271,19 @@ final class MultiCalendar extends BookingFullCalendarWidget implements HasCalend
             'timeZone' => 'Europe/Stockholm',
             'now' => now()->setTimezone('Europe/Stockholm')->addHour()->toISOString(),
             'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-            'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+            'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
         ];
@@ -584,18 +582,19 @@ final class MultiCalendar extends BookingFullCalendarWidget implements HasCalend
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
-                        $startDate = Carbon::parse($this->calendarData['start'])->format('Y-m-d');
-                        $startTime = Carbon::parse($this->calendarData['start'])->format('H:i');
+                        $startDate = Carbon::parse($this->calendarData['start']);
+                        $startTime = $startDate->format('H:i');
                         $endTime = Carbon::parse($this->calendarData['end'])->format('H:i');
                         $startVal = $this->calendarData['start_val'];
                         $endVal = $this->calendarData['end_val'];
                         $dateVal = $this->calendarData['date_val'];
                         if ($endTime === $startTime) {
-                            $startDate = Carbon::parse($dateVal)->format('Y-m-d');
+                            $startDate = Carbon::parse($dateVal);
                             $startTime = Carbon::parse($startVal)->format('H:i');
                             $endTime = Carbon::parse($endVal)->format('H:i');
                         }
-                        $data = ['date' => $startDate->format('Y-m-d'), 'start' => $startTime, 'end' => $endTime, 'service_date' => $startDate->format('Y-m-d'), 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
+                        $formattedDate = $startDate instanceof Carbon ? $startDate->format('Y-m-d') : (string) $startDate;
+                        $data = ['date' => $formattedDate, 'start' => $startTime, 'end' => $endTime, 'service_date' => $formattedDate, 'start_time' => $startTime, 'end_time' => $endTime, 'start_val' => $startVal, 'end_val' => $endVal, 'date_val' => $dateVal];
                         logger()->info('BookingCalendarWidget: BLOCK PERIOD DATA', $data);
                         $this->replaceMountedAction('createServicePeriod', ['data' => $data]);
                         $newIndex = max(0, count($this->mountedActions) - 1);

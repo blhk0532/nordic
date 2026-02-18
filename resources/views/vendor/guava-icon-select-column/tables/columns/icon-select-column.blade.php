@@ -25,8 +25,8 @@
         }
     }
 
-    $icon = $icons[$stateKey] ?? null;
-    $color = $colors[$stateKey] ?? null;
+    $icon = ($icons[$stateKey] ?? null) ?? null;
+    $color = ($colors[$stateKey] ?? null) ?? null;
     if (is_string($color)) {
         $color = ['display' => $color, 'dropdown' => $color];
     }
@@ -102,8 +102,17 @@
         <x-filament::dropdown.list>
             @foreach($getOptions() as $key => $label)
                 @php
-                    $icon = $getIcon($key);
-                    $color = $getColor($key);
+                    $icon = $icons[$key] ?? null;
+                    $color = $colors[$key] ?? null;
+                    if (is_string($color)) {
+                        $color = ['display' => $color, 'dropdown' => $color];
+                    }
+                    if (! is_array($color)) {
+                        $color = ['display' => 'gray-500', 'dropdown' => 'gray-500'];
+                    } else {
+                        $color['display'] = $color['display'] ?? ($color['dropdown'] ?? 'gray-500');
+                        $color['dropdown'] = $color['dropdown'] ?? ($color['display'] ?? 'gray-500');
+                    }
                     $size = $getSize($key);
                 @endphp
 

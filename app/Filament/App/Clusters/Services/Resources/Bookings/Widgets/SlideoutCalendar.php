@@ -1739,7 +1739,7 @@ class SlideoutCalendar extends Widget implements HasCalendar
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars'] ?? $this->selectedTechnician;
+        $this->selectedTechnician = (isset($this->pageFilters['booking_calendars']) && is_numeric($this->pageFilters['booking_calendars'])) ? (int) $this->pageFilters['booking_calendars'] : $this->selectedTechnician;
         $this->startDate = $this->pageFilters['startDate'] ?? $this->startDate;
         $this->endDate = $this->pageFilters['endDate'] ?? $this->endDate;
         $this->refreshRecords();
@@ -1770,7 +1770,8 @@ class SlideoutCalendar extends Widget implements HasCalendar
 
     public function mount(): void
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars'] ?? 'all';
+        $val = $this->pageFilters['booking_calendars'] ?? null;
+        $this->selectedTechnician = is_numeric($val) ? (int) $val : null;
         $this->startDate = $this->pageFilters['startDate'] ?? null;
         $this->endDate = $this->pageFilters['endDate'] ?? null;
         $this->eventClickEnabled = true;

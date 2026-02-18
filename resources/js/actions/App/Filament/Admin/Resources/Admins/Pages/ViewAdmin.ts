@@ -101,104 +101,6 @@ ViewAdmine8f4c21150e443dbd43dae689b485c44.form = ViewAdmine8f4c21150e443dbd43dae
 /**
 * @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
 * @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-const ViewAdmineaa653143aa924372321a5230a987be5 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewAdmineaa653143aa924372321a5230a987be5.url(args, options),
-    method: 'get',
-})
-
-ViewAdmineaa653143aa924372321a5230a987be5.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/admins/{record}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-ViewAdmineaa653143aa924372321a5230a987be5.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return ViewAdmineaa653143aa924372321a5230a987be5.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-ViewAdmineaa653143aa924372321a5230a987be5.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewAdmineaa653143aa924372321a5230a987be5.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-ViewAdmineaa653143aa924372321a5230a987be5.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewAdmineaa653143aa924372321a5230a987be5.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-const ViewAdmineaa653143aa924372321a5230a987be5Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewAdmineaa653143aa924372321a5230a987be5.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-ViewAdmineaa653143aa924372321a5230a987be5Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewAdmineaa653143aa924372321a5230a987be5.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
-* @route '/nds/adm/admins/{record}'
-*/
-ViewAdmineaa653143aa924372321a5230a987be5Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewAdmineaa653143aa924372321a5230a987be5.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ViewAdmineaa653143aa924372321a5230a987be5.form = ViewAdmineaa653143aa924372321a5230a987be5Form
-/**
-* @see \App\Filament\Admin\Resources\Admins\Pages\ViewAdmin::__invoke
-* @see app/Filament/Admin/Resources/Admins/Pages/ViewAdmin.php:7
 * @route '/nds/super/admins/{record}'
 */
 const ViewAdmin3120d2275478ec7a6c2cbee79589ce99 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -297,7 +199,6 @@ ViewAdmin3120d2275478ec7a6c2cbee79589ce99.form = ViewAdmin3120d2275478ec7a6c2cbe
 
 const ViewAdmin = {
     '/admin/tenant/{tenant}/admins/{record}': ViewAdmine8f4c21150e443dbd43dae689b485c44,
-    '/nds/adm/admins/{record}': ViewAdmineaa653143aa924372321a5230a987be5,
     '/nds/super/admins/{record}': ViewAdmin3120d2275478ec7a6c2cbee79589ce99,
 }
 

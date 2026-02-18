@@ -7,6 +7,7 @@ import Jobs from './Jobs'
 import MerinfoDatas from './MerinfoDatas'
 import Merinfos from './Merinfos'
 import PostNums from './PostNums'
+import PrivateData from './PrivateData'
 import RatsitAdresser from './RatsitAdresser'
 import RatsitDatas from './RatsitDatas'
 import RatsitKommuner from './RatsitKommuner'
@@ -25,6 +26,7 @@ const Resources = {
     MerinfoDatas: Object.assign(MerinfoDatas, MerinfoDatas),
     Merinfos: Object.assign(Merinfos, Merinfos),
     PostNums: Object.assign(PostNums, PostNums),
+    PrivateData: Object.assign(PrivateData, PrivateData),
     RatsitAdresser: Object.assign(RatsitAdresser, RatsitAdresser),
     RatsitDatas: Object.assign(RatsitDatas, RatsitDatas),
     RatsitKommuner: Object.assign(RatsitKommuner, RatsitKommuner),

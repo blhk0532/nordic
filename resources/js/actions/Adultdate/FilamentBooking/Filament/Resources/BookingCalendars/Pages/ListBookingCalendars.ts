@@ -106,74 +106,74 @@ ListBookingCalendarsf21baf353532b7d806613e622700e6ac.form = ListBookingCalendars
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-const ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url(options),
+const ListBookingCalendars13b36af287da47ed8348c412e9340242 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListBookingCalendars13b36af287da47ed8348c412e9340242.url(options),
     method: 'get',
 })
 
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.definition = {
+ListBookingCalendars13b36af287da47ed8348c412e9340242.definition = {
     methods: ["get","head"],
-    url: '/nds/adm/booking-calendars',
+    url: '/nds/queue/booking-calendars',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url = (options?: RouteQueryOptions) => {
-    return ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.definition.url + queryParams(options)
+ListBookingCalendars13b36af287da47ed8348c412e9340242.url = (options?: RouteQueryOptions) => {
+    return ListBookingCalendars13b36af287da47ed8348c412e9340242.definition.url + queryParams(options)
 }
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url(options),
+ListBookingCalendars13b36af287da47ed8348c412e9340242.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListBookingCalendars13b36af287da47ed8348c412e9340242.url(options),
     method: 'get',
 })
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url(options),
+ListBookingCalendars13b36af287da47ed8348c412e9340242.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListBookingCalendars13b36af287da47ed8348c412e9340242.url(options),
     method: 'head',
 })
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-const ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29daForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url(options),
+const ListBookingCalendars13b36af287da47ed8348c412e9340242Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendars13b36af287da47ed8348c412e9340242.url(options),
     method: 'get',
 })
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29daForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url(options),
+ListBookingCalendars13b36af287da47ed8348c412e9340242Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendars13b36af287da47ed8348c412e9340242.url(options),
     method: 'get',
 })
 
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
-* @route '/nds/adm/booking-calendars'
+* @route '/nds/queue/booking-calendars'
 */
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29daForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.url({
+ListBookingCalendars13b36af287da47ed8348c412e9340242Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListBookingCalendars13b36af287da47ed8348c412e9340242.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -182,7 +182,7 @@ ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29daForm.head = (options?: Route
     method: 'get',
 })
 
-ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da.form = ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29daForm
+ListBookingCalendars13b36af287da47ed8348c412e9340242.form = ListBookingCalendars13b36af287da47ed8348c412e9340242Form
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\ListBookingCalendars::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/ListBookingCalendars.php:7
@@ -426,7 +426,7 @@ ListBookingCalendarsfe61409f596ebb2924374b0466a7243c.form = ListBookingCalendars
 
 const ListBookingCalendars = {
     '/admin/tenant/{tenant}/booking-calendars': ListBookingCalendarsf21baf353532b7d806613e622700e6ac,
-    '/nds/adm/booking-calendars': ListBookingCalendarsb0f024150fccbe92f89ecbf0e1ff29da,
+    '/nds/queue/booking-calendars': ListBookingCalendars13b36af287da47ed8348c412e9340242,
     '/nds/super/booking-calendars': ListBookingCalendars4d6dba31c0186cf1716264dbdc263fdb,
     '/nds/booking/booking-calendars': ListBookingCalendars3a89e132ec6c8aec3cce8826dd7c293c,
     '/nds/calendar/booking-calendars': ListBookingCalendarsfe61409f596ebb2924374b0466a7243c,

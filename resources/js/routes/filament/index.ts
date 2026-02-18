@@ -1,7 +1,7 @@
 import exports from './exports'
 import imports from './imports'
 import admin from './admin'
-import adm from './adm'
+import queue from './queue'
 import app from './app'
 import chat from './chat'
 import data from './data'
@@ -17,7 +17,7 @@ const filament = {
     exports: Object.assign(exports, exports),
     imports: Object.assign(imports, imports),
     admin: Object.assign(admin, admin),
-    adm: Object.assign(adm, adm),
+    queue: Object.assign(queue, queue),
     app: Object.assign(app, app),
     chat: Object.assign(chat, chat),
     data: Object.assign(data, data),

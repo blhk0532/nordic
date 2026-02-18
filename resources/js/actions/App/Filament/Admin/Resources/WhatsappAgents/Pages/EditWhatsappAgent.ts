@@ -101,104 +101,6 @@ EditWhatsappAgentf962327c9297bee18faaef55a52ae6e1.form = EditWhatsappAgentf96232
 /**
 * @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
 * @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-const EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, options),
-    method: 'get',
-})
-
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/whatsapp-agents/{record}/edit',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-const EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0cForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0cForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/{record}/edit'
-*/
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0cForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c.form = EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0cForm
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\EditWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/EditWhatsappAgent.php:7
 * @route '/nds/super/whatsapp-agents/{record}/edit'
 */
 const EditWhatsappAgent98c5d4fc231a88024e62f03f1fcd4973 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -297,7 +199,6 @@ EditWhatsappAgent98c5d4fc231a88024e62f03f1fcd4973.form = EditWhatsappAgent98c5d4
 
 const EditWhatsappAgent = {
     '/admin/tenant/{tenant}/whatsapp-agents/{record}/edit': EditWhatsappAgentf962327c9297bee18faaef55a52ae6e1,
-    '/nds/adm/whatsapp-agents/{record}/edit': EditWhatsappAgent69b71f25b1aa990d5cfeb3bc057f6f0c,
     '/nds/super/whatsapp-agents/{record}/edit': EditWhatsappAgent98c5d4fc231a88024e62f03f1fcd4973,
 }
 

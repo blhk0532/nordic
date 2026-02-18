@@ -82,74 +82,74 @@ ResetPasswordd096dc006a997099292c2039656ab754.form = ResetPasswordd096dc006a9970
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-const ResetPassword31fe3fcaa0c5da8fca25624f8be80b95 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url(options),
+const ResetPasswordcf521fc621685c836f501a4befdd5e86 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPasswordcf521fc621685c836f501a4befdd5e86.url(options),
     method: 'get',
 })
 
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.definition = {
+ResetPasswordcf521fc621685c836f501a4befdd5e86.definition = {
     methods: ["get","head"],
-    url: '/nds/adm/password-reset/reset',
+    url: '/nds/queue/password-reset/reset',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url = (options?: RouteQueryOptions) => {
-    return ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.definition.url + queryParams(options)
+ResetPasswordcf521fc621685c836f501a4befdd5e86.url = (options?: RouteQueryOptions) => {
+    return ResetPasswordcf521fc621685c836f501a4befdd5e86.definition.url + queryParams(options)
 }
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url(options),
+ResetPasswordcf521fc621685c836f501a4befdd5e86.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ResetPasswordcf521fc621685c836f501a4befdd5e86.url(options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url(options),
+ResetPasswordcf521fc621685c836f501a4befdd5e86.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ResetPasswordcf521fc621685c836f501a4befdd5e86.url(options),
     method: 'head',
 })
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-const ResetPassword31fe3fcaa0c5da8fca25624f8be80b95Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url(options),
+const ResetPasswordcf521fc621685c836f501a4befdd5e86Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordcf521fc621685c836f501a4befdd5e86.url(options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url(options),
+ResetPasswordcf521fc621685c836f501a4befdd5e86Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordcf521fc621685c836f501a4befdd5e86.url(options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
-* @route '/nds/adm/password-reset/reset'
+* @route '/nds/queue/password-reset/reset'
 */
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.url({
+ResetPasswordcf521fc621685c836f501a4befdd5e86Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ResetPasswordcf521fc621685c836f501a4befdd5e86.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -158,7 +158,7 @@ ResetPassword31fe3fcaa0c5da8fca25624f8be80b95Form.head = (options?: RouteQueryOp
     method: 'get',
 })
 
-ResetPassword31fe3fcaa0c5da8fca25624f8be80b95.form = ResetPassword31fe3fcaa0c5da8fca25624f8be80b95Form
+ResetPasswordcf521fc621685c836f501a4befdd5e86.form = ResetPasswordcf521fc621685c836f501a4befdd5e86Form
 /**
 * @see \Filament\Auth\Pages\PasswordReset\ResetPassword::__invoke
 * @see vendor/filament/filament/src/Auth/Pages/PasswordReset/ResetPassword.php:7
@@ -802,7 +802,7 @@ ResetPasswordffad7df53d54e0786e5600f20deebbcb.form = ResetPasswordffad7df53d54e0
 
 const ResetPassword = {
     '/admin/password-reset/reset': ResetPasswordd096dc006a997099292c2039656ab754,
-    '/nds/adm/password-reset/reset': ResetPassword31fe3fcaa0c5da8fca25624f8be80b95,
+    '/nds/queue/password-reset/reset': ResetPasswordcf521fc621685c836f501a4befdd5e86,
     '/nds/app/password-reset/reset': ResetPassworde958504616843ced0a5bec0ef9eee292,
     '/nds/chat/password-reset/reset': ResetPassword570063cd6633a1432398e8411983d0ed,
     '/nds/notify/password-reset/reset': ResetPassword6a9da8deec0604263ef565cbc5eb49cd,

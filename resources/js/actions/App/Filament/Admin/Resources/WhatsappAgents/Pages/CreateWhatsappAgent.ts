@@ -106,86 +106,6 @@ CreateWhatsappAgent8c80b2ead95feeffb60f45de599057f5.form = CreateWhatsappAgent8c
 /**
 * @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
 * @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-const CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url(options),
-    method: 'get',
-})
-
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.definition = {
-    methods: ["get","head"],
-    url: '/nds/adm/whatsapp-agents/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url = (options?: RouteQueryOptions) => {
-    return CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-const CreateWhatsappAgent94fe8071a974082605a9a742d0a2563bForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563bForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
-* @route '/nds/adm/whatsapp-agents/create'
-*/
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563bForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b.form = CreateWhatsappAgent94fe8071a974082605a9a742d0a2563bForm
-/**
-* @see \App\Filament\Admin\Resources\WhatsappAgents\Pages\CreateWhatsappAgent::__invoke
-* @see app/Filament/Admin/Resources/WhatsappAgents/Pages/CreateWhatsappAgent.php:7
 * @route '/nds/super/whatsapp-agents/create'
 */
 const CreateWhatsappAgent5bb0bf238232d773dbcfed17a8461f4f = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -266,7 +186,6 @@ CreateWhatsappAgent5bb0bf238232d773dbcfed17a8461f4f.form = CreateWhatsappAgent5b
 
 const CreateWhatsappAgent = {
     '/admin/tenant/{tenant}/whatsapp-agents/create': CreateWhatsappAgent8c80b2ead95feeffb60f45de599057f5,
-    '/nds/adm/whatsapp-agents/create': CreateWhatsappAgent94fe8071a974082605a9a742d0a2563b,
     '/nds/super/whatsapp-agents/create': CreateWhatsappAgent5bb0bf238232d773dbcfed17a8461f4f,
 }
 

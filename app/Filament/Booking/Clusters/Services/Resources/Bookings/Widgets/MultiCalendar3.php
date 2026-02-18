@@ -39,9 +39,9 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
-use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
@@ -277,19 +277,19 @@ class MultiCalendar3 extends Widget implements HasCalendar, HasSchemas
             'timeZone' => 'Europe/Stockholm',
             'now' => now()->setTimezone('Europe/Stockholm')->addHour()->toISOString(),
             'slotMinTime' => '07:00:00',
-            'slotMaxTime' => '18:00:00',
+            'slotMaxTime' => '20:00:00',
             'views' => [
                 'timeGridDay' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
                 'timeGridWeek' => [
                     'slotMinTime' => '07:00:00',
-                    'slotMaxTime' => '18:00:00',
+                    'slotMaxTime' => '20:00:00',
                 ],
                 'timeGridMonth' => [
                     'slotMinTime' => $openingStart ? $openingStart : '08:00:00',
-                    'slotMaxTime' => $openingEnd ? $openingEnd : '18:00:00',
+                    'slotMaxTime' => $openingEnd ? $openingEnd : '20:00:00',
                 ],
             ],
         ];
@@ -1724,7 +1724,7 @@ class MultiCalendar3 extends Widget implements HasCalendar, HasSchemas
 
     public function refreshCalendar()
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_3'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_3']) ? (int) $this->pageFilters['booking_calendars_3'] : null;
         $this->refreshRecords();
     }
 
@@ -1753,12 +1753,17 @@ class MultiCalendar3 extends Widget implements HasCalendar, HasSchemas
 
     public function mount(): void
     {
-        $this->selectedTechnician = $this->pageFilters['booking_calendars_3'] ?? null;
+        $this->selectedTechnician = isset($this->pageFilters['booking_calendars_3']) ? (int) $this->pageFilters['booking_calendars_3'] : null;
         $this->eventClickEnabled = true;
         //    $this->dateClickEnabled = true;
         $this->eventDragEnabled = true;
         $this->eventResizeEnabled = true;
         $this->dateSelectEnabled = true;
+    }
+
+    public function getCalendarClass(): string
+    {
+        return 'calendar-3';
     }
 
     public function getView(): string
