@@ -99,7 +99,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
     public function bokadAction(): Action
     {
-        $color = $this->outcomeColors['Bokad'] ?? '#16a34a';
+        $color = $this->outcomeColors['Bokad'] ?? '#05df72';
 
         return Action::make('bokad')
             ->label('Bokad')
@@ -134,17 +134,17 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ? Carbon::parse($this->defaultReturnCallAt)
             : now()->addHour();
 
-        $color = $this->outcomeColors['Aterkommer'] ?? '#6b7280';
+        $color = $this->outcomeColors['Aterkommer'] ?? '#606060';
 
         return Action::make('aterkommer')
-            ->label('Återkommer')
+            ->label('Ring Tillabaka')
             ->button()
             ->color('gray')
             ->size('sm')
             ->disabled($this->processingOutcome === 'Aterkommer')
             ->extraAttributes([
                 'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Aterkommer' ? ' opacity: 0.5;' : ''),
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Aterkommer' ? ' opacity: 0.9;' : ''),
             ])
             ->modal()
             ->modalHeading('Schemalägg återkommande samtal')
@@ -197,7 +197,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
     public function offertAction(): Action
     {
-        $color = $this->outcomeColors['Offert'] ?? '#16a34a';
+        $color = $this->outcomeColors['Offert'] ?? '#606060';
 
         return Action::make('offert')
             ->label('Offert')

@@ -185,7 +185,7 @@ return [
     |
     */
 
-    'memory_limit' => (int) env('HORIZON_MEMORY_LIMIT', 256),
+    'memory_limit' => (int) env('HORIZON_MEMORY_LIMIT', 555),
 
     /*
     |--------------------------------------------------------------------------
@@ -201,7 +201,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['export', 'scrape', 'default', 'hitta-counts', 'ratsit-counts', 'hitta-postort', 'hitta-personer', 'ratsit-personer', 'merinfo-queue', 'merinfo-count'],
+            'queue' => ['export', 'scrape', 'ratsit', 'default', 'hitta-counts', 'ratsit-counts', 'hitta-postort', 'hitta-personer', 'ratsit-personer', 'merinfo-queue', 'merinfo-count'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
             'maxProcesses' => (int) env('HORIZON_MAX_PROCESSES', 3),
