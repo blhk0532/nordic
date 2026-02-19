@@ -135,16 +135,17 @@ class BookingForm
                                 ->default($clientDefaults['name'] ?? null)
                                 ->required()
                                 ->maxLength(255),
-                            TextInput::make('phone')
-                                ->default($clientDefaults['phone'] ?? null)
-                                ->maxLength(255)
-                                ->required(),
-                            TextInput::make('email')
+                             TextInput::make('email')
                                 ->label('Email address')
                                 ->default($clientDefaults['email'] ?? null)
                                 ->email()
                                 ->maxLength(255)
                                 ->unique(),
+                            TextInput::make('phone')
+                                ->default($clientDefaults['phone'] ?? null)
+                                ->maxLength(255)
+                                ->required(),
+
 
                             TextInput::make('street')
                                 ->label('Street address')
@@ -208,18 +209,7 @@ class BookingForm
     public static function getDetailsComponents2(array $clientDefaults = []): array
     {
         return [
-            ToggleButtons::make('status')
-                ->options(BookingStatus::restrictedOptions())
-                ->colors([
-                    'booked' => 'gray',
-                    'confirmed' => 'gray',
-                    'problem' => 'gray',
-                    'complete' => 'gray',
-                ])
-                ->inline()
-                ->required()
-                ->hidden(fn (?Booking $record) => ! self::canShowStatus($record))
-                ->columnSpan('full'),
+
             RichEditor::make('notes')
                 ->label('Anteckningar')
                 ->toolbarButtons([
@@ -231,6 +221,18 @@ class BookingForm
                     'h2',
                     'h3',
                 ])
+                ->columnSpan('full'),
+            ToggleButtons::make('status')
+                ->options(BookingStatus::restrictedOptions())
+                ->colors([
+                    'booked' => 'gray',
+                    'confirmed' => 'gray',
+                    'problem' => 'gray',
+                    'complete' => 'gray',
+                ])
+                ->inline()
+                ->required()
+                ->hidden(Auth::user()->name === 'admin') // Only show status field to admin users
                 ->columnSpan('full'),
         ];
     }
