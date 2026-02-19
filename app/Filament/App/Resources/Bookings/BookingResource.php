@@ -75,7 +75,7 @@ class BookingResource extends Resource
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['number', 'customer.name'];
+        return ['number', 'client.name'];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array
@@ -83,14 +83,14 @@ class BookingResource extends Resource
         /** @var Booking $record */
 
         return [
-            'Customer' => optional($record->customer)->name,
+            'Customer' => optional($record->client)->name,
         ];
     }
 
     /** @return Builder<Booking> */
     public static function getGlobalSearchEloquentQuery(): Builder
     {
-        return parent::getGlobalSearchEloquentQuery()->with(['customer', 'items']);
+        return parent::getGlobalSearchEloquentQuery()->with(['client', 'items']);
     }
 
     public static function getNavigationBadge(): ?string
