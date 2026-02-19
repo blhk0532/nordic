@@ -1,5 +1,5 @@
 <x-filament-widgets::widget class="fi-filament-info-widget">
-    <x-filament::section>    
+    <x-filament::section>
     <style>
 #nordic{
     position: relative;
@@ -13,7 +13,7 @@
 	display: block;
 	">
             <a
-                href="https://ndsth.com"
+                href="https://nordicdigitalthailand.com"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="fi-filament-info-widget-logo-link pt-1 "
@@ -21,7 +21,7 @@
             >
 <svg id="nordic"  version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 336" width="200" height="36" fill="currentColor">
 	<style>
-		.s0 { fill: currentColor } 
+		.s0 { fill: currentColor }
 	</style>
 	<g>
 		<path fill-rule="evenodd" class="s0" d="m1245.5 13.5q39 0 78 0 0.25 104-0.5 208-7.73 69.72-72.5 96.5-81.51 23.59-131.5-44.5-35.41-60.78 1-121 47.62-63.63 125.5-45 0-47 0-94zm-73 200q4.85 39.91 45 39.5 31.97-6.41 35-39-5.71-41.96-48-39.5-29.03 8.55-32 39z"/>

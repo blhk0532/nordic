@@ -18,7 +18,7 @@ export function Header() {
             <p className="text-sm text-foreground">
               Built with Next.js and Tailwind by{" "}
               <Link
-                href="https://ndsth.com"
+                href="https://nordicdigitalthailand.com"
                 target="_blank"
                 className="inline-flex gap-0.5 text-sm underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
@@ -31,7 +31,7 @@ export function Header() {
 
         <div className="hidden items-center gap-4 md:flex">
           <Link
-            href="https://ndsth.com"
+            href="https://nordicdigitalthailand.com"
             target="_blank"
             className="inline-flex gap-0.5 text-sm hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
           >
