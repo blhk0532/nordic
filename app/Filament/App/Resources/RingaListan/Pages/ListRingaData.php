@@ -12,6 +12,8 @@ use App\Filament\App\Resources\RingaListan\Widgets\RingaDataStatsWidget;
 use App\Models\RingaData;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\Width;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class ListRingaData extends ListRecords
 {
@@ -37,6 +39,9 @@ class ListRingaData extends ListRecords
 
     protected function getHeaderActions(): array
     {
+        FilamentAsset::register([
+    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
+]);
         return [
 
         ];

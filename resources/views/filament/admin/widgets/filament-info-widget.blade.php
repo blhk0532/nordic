@@ -58,7 +58,6 @@ v1.1.8
             <x-filament::link
                 color="gray"
                 href="{{ $_SERVER['REQUEST_URI'] }}/team-users"
-                :icon="\Filament\Support\Icons\Heroicon::UserGroup"
                 rel="noopener noreferrer"
             >
                 {{ auth()->user()?->currentTeam->name }}
