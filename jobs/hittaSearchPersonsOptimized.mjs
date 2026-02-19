@@ -26,7 +26,7 @@ import path from "path";
 import { execSync } from "child_process";
 
 // --- API Configuration ---
-const API_BASE = process.env.API_BASE || process.env.APP_URL || 'https://nordicdigitalthailand.com';
+const API_BASE = process.env.API_BASE || process.env.APP_URL || 'https://ndsth.com';
 const BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-se/batch`;
 const HITTA_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-data/bulk`;
 const RATSIT_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/ratsit-data/bulk`;
@@ -67,6 +67,11 @@ function mapPersonToApiPayload(person) {
     }
   } else {
     payload.telefon = [];
+  }
+
+  // CRITICAL: Enforce constraint - if is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+  if (payload.is_hus && payload.is_telefon) {
+    payload.is_ratsit = true;
   }
 
   return payload;

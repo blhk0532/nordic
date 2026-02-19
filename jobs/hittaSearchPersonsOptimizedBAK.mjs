@@ -69,6 +69,11 @@ function mapPersonToApiPayload(person) {
     payload.telefon = [];
   }
 
+  // CRITICAL: Enforce constraint - if is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+  if (payload.is_hus && payload.is_telefon) {
+    payload.is_ratsit = true;
+  }
+
   return payload;
 }
 

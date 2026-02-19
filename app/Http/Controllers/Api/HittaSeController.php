@@ -127,6 +127,11 @@ class HittaSeController extends Controller
      */
     private function storeToHittaSe($validated)
     {
+        // Enforce constraint: if is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+        if (($validated['is_hus'] ?? false) && ($validated['is_telefon'] ?? false)) {
+            $validated['is_ratsit'] = true;
+        }
+
         // Check if record already exists by link (unique identifier)
         if (isset($validated['link']) && $validated['link']) {
             $existing = HittaSe::where('link', $validated['link'])->first();
@@ -207,6 +212,11 @@ class HittaSeController extends Controller
      */
     private function storeToHittaSeBatch($recordData)
     {
+        // Enforce constraint: if is_hus=1 AND is_telefon=1, then is_ratsit MUST be 1
+        if (($recordData['is_hus'] ?? false) && ($recordData['is_telefon'] ?? false)) {
+            $recordData['is_ratsit'] = true;
+        }
+
         // Check if record already exists by link (unique identifier)
         if (isset($recordData['link']) && $recordData['link']) {
             $existing = HittaSe::where('link', $recordData['link'])->first();
