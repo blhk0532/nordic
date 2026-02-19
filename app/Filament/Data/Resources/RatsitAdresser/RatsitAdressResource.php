@@ -41,6 +41,7 @@ class RatsitAdressResource extends Resource
                 TextColumn::make('gatuadress_namn')->label('Gatuadress')->searchable()->sortable(),
                 TextColumn::make('post_nummer')->searchable()->sortable(),
                 TextColumn::make('post_ort')->searchable()->sortable(),
+                TextColumn::make('kommun')->searchable()->sortable()->toggleable(),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
                 TextColumn::make('personer_link')->label('Personer Link')->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
@@ -59,6 +60,12 @@ class RatsitAdressResource extends Resource
                         TextInput::make('post_nummer')->label('Postnummer'),
                     ])
                     ->query(fn ($query, $data) => $query->when($data['post_nummer'] ?? null, fn ($q, $value) => $q->where('post_nummer', 'like', "%{$value}%"))),
+
+                Filter::make('kommun')
+                    ->schema([
+                        TextInput::make('kommun')->label('Kommun'),
+                    ])
+                    ->query(fn ($query, $data) => $query->when($data['kommun'] ?? null, fn ($q, $value) => $q->where('kommun', 'like', "%{$value}%"))),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

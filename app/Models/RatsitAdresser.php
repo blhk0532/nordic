@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $foretag_count
  * @property string|null $personer_link
  * @property string|null $foretag_link
+ * @property string|null $kommun
  * @property \Carbon\CarbonImmutable|null $created_at
  * @property \Carbon\CarbonImmutable|null $updated_at
  *
@@ -46,8 +47,9 @@ class RatsitAdresser extends Model
         'foretag_count',
         'personer_link',
         'foretag_link',
+        'kommun',
     ];
-
+ 
     protected function casts(): array
     {
         return [

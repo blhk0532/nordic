@@ -12,6 +12,7 @@ async function savePersonAdressData(
     gatuadressNamn,
     personCount,
     ratsitLink,
+    kommun = null,
 ) {
     try {
         const { exec } = await import('child_process');
@@ -25,9 +26,10 @@ async function savePersonAdressData(
         const pNum = esc(postNummer);
         const gAddr = esc(gatuadressNamn);
         const rLink = esc(ratsitLink);
+        const k = esc(kommun);
 
-        // Use artisan tinker to save data. Increase maxBuffer to handle larger output.
-        const cmd = `cd ${projectRoot} && php artisan tinker --execute="\\App\\Models\\RatsitAdresser::create(['post_ort' => '${pOrt}', 'post_nummer' => '${pNum}', 'gatuadress_namn' => '${gAddr}', 'personer_count' => ${personCount}, 'personer_link' => '${rLink}']); echo 'Saved person address: ${gAddr}, ${pNum} ${pOrt}, Count: ${personCount}';"`;
+        // Use artisan tinker to save data via updateOrCreate to avoid duplicate-key errors
+        const cmd = `cd ${projectRoot} && php artisan tinker --execute="\\App\\Models\\RatsitAdresser::updateOrCreate(['post_ort' => '${pOrt}', 'post_nummer' => '${pNum}', 'gatuadress_namn' => '${gAddr}'], ['personer_count' => ${personCount}, 'personer_link' => '${rLink}', 'kommun' => '${k}']); echo 'Saved/Updated person address: ${gAddr}, ${pNum} ${pOrt}, Count: ${personCount}, Kommun: ${k}';"`;
 
         const { stdout, stderr } = await execAsync(cmd, { maxBuffer: 10 * 1024 * 1024 });
 
@@ -114,17 +116,17 @@ async function scrapeRatsitPersonAdresser(url) {
         }
 
         const headingText = await headingElement.textContent();
-        console.log('Heading found:', headingText.trim());
+        // normalize non-breaking / narrow spaces to regular spaces so regex works reliably
+        const normalizedHeading = headingText.replace(/\u00A0|\u202F|\u2009/g, ' ').trim();
+        console.log('Heading found:', normalizedHeading);
 
-        // Extract post_ort and post_nummer from heading
-        // Example: "Privatpersoner i Surte på postnummer 445 55 (528 st)"
-        const headingMatch = headingText
-            .trim()
-            .match(/i\s+(\w+)\s+på\s+postnummer\s+(\d+\s+\d+)/);
+        // Extract post_ort and post_nummer from heading (Unicode-safe, multi-word kommun names)
+        // Example: "Privatpersoner i Surte på postnummer 445 55 (528 st)" or "Privatpersoner i Åled på postnummer 313 95 (327 st)"
+        const headingMatch = normalizedHeading.match(/i\s+(.+?)\s+på\s+postnummer\s+([\d\s]+)/i);
 
         if (!headingMatch) {
             console.error('Could not extract post_ort and post_nummer from heading');
-            console.log('Heading text:', headingText.trim());
+            console.log('Heading text:', normalizedHeading);
             console.error('Current page URL:', page.url());
             console.error('Response status:', response ? response.status() : 'no response');
             try {
@@ -137,12 +139,31 @@ async function scrapeRatsitPersonAdresser(url) {
             return;
         }
 
-        const postOrt = headingMatch[1];
-        const postNummer = headingMatch[2];
+        const postOrt = headingMatch[1].replace(/\s+/g, ' ').trim();
+        const postNummer = headingMatch[2].replace(/\s+/g, ' ').trim();
+
+        // Determine kommun from URL path if available (e.g. /personer/halmstads-kommun/ugglarp-31169)
+        let kommunValue = null;
+        try {
+            const u = new URL(url);
+            const parts = u.pathname.split('/').filter(Boolean);
+            const pIndex = parts.indexOf('personer');
+            if (pIndex !== -1 && parts.length > pIndex + 1) {
+                const k = parts[pIndex + 1];
+                if (k) {
+                    kommunValue = decodeURIComponent(k).replace(/-kommun$/i, '').replace(/-/g, ' ');
+                }
+            }
+        } catch (e) {
+            // ignore URL parse errors
+        }
 
         console.log(
             `Extracted - Post ort: ${postOrt}, Post nummer: ${postNummer}`,
         );
+        if (kommunValue) {
+            console.log(`Detected kommun: ${kommunValue}`);
+        }
 
         // Find all tree-structure__ul elements and extract address data
         const addressElements = await page.$$('.tree-structure__ul');
@@ -196,6 +217,7 @@ async function scrapeRatsitPersonAdresser(url) {
                         gatuadressNamn,
                         personCount,
                         fullLink,
+                        kommunValue,
                     );
 
                     if (saved) {
