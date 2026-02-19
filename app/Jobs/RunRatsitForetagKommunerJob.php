@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
+use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -12,9 +13,9 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
 
-class RunRatsitKommunerScraperJob implements ShouldQueue
+class RunRatsitForetagKommunerJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
 
     /**
      * @param array<int,string>|null $kommuner
@@ -25,7 +26,7 @@ class RunRatsitKommunerScraperJob implements ShouldQueue
 
     public function handle(): void
     {
-        $script = base_path('jobs/ratsit_person_postorter.mjs');
+        $script = base_path('jobs/ratsit_foretag_postorter.mjs');
 
         $command = ['node', $script];
         if (is_array($this->kommuner) && count($this->kommuner) > 0) {
@@ -40,14 +41,14 @@ class RunRatsitKommunerScraperJob implements ShouldQueue
 
         $exitCode = $process->run(function (string $type, string $buffer): void {
             if ($type === Process::ERR) {
-                Log::error('RunRatsitKommunerScraperJob stderr: '.$buffer);
+                Log::error('RunRatsitForetagKommunerJob stderr: '.$buffer);
             } else {
-                Log::info('RunRatsitKommunerScraperJob stdout: '.$buffer);
+                Log::info('RunRatsitForetagKommunerJob stdout: '.$buffer);
             }
         });
 
         if ($exitCode !== 0 || !$process->isSuccessful()) {
-            Log::error('RunRatsitKommunerScraperJob failed', [
+            Log::error('RunRatsitForetagKommunerJob failed', [
                 'exit_code' => $process->getExitCode(),
                 'output' => $process->getErrorOutput() ?: $process->getOutput(),
             ]);
@@ -55,6 +56,6 @@ class RunRatsitKommunerScraperJob implements ShouldQueue
             throw new \RuntimeException('Ratsit kommuner scraper process failed with exit code '.$process->getExitCode());
         }
 
-        Log::info('RunRatsitKommunerScraperJob finished successfully.');
+        Log::info('RunRatsitForetagKommunerJob finished successfully.');
     }
 }

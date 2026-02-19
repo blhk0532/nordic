@@ -94,15 +94,30 @@ async function scrapeRatsitKommuner() {
             console.log(`  ${m.kommun}: ${m.count} persons`);
         });
 
-        // Database connection
-        connection = await mysql.createConnection({
-            host: '127.0.0.1',
-            port: '3306',
-            user: 'root',
-            password: 'bkkbkk',
-            database: 'nuno',
-            charset: 'utf8mb4',
-        });
+        // Database connection - use environment variables with sensible defaults
+        const dbHost = process.env.DB_HOST || '127.0.0.1';
+        const dbPort = process.env.DB_PORT || '3306';
+        const dbUser = process.env.DB_USERNAME || process.env.DB_USER || 'root';
+        const dbPassword = process.env.DB_PASSWORD || '';
+        const dbName = process.env.DB_DATABASE || 'nuno';
+        const dbCharset = process.env.DB_CHARSET || 'utf8mb4';
+        const dbSocket = process.env.DB_SOCKET || process.env.DB_UNIX_SOCKET || null;
+
+        const connOptions = {
+            user: dbUser,
+            password: dbPassword,
+            database: dbName,
+            charset: dbCharset,
+        };
+
+        if (dbSocket) {
+            connOptions.socketPath = dbSocket;
+        } else {
+            connOptions.host = dbHost;
+            connOptions.port = dbPort;
+        }
+
+        connection = await mysql.createConnection(connOptions);
 
         // Save to database
         for (const municipality of municipalities) {

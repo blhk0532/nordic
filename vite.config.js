@@ -54,5 +54,5 @@ export default defineConfig({
             ignored: ['**/storage/framework/views/**'],
         },
     },
-    envPrefix: ['VITE_', 'APP_'],
+    envPrefix: ['VITE_', 'APP_', 'DB_'],
 });

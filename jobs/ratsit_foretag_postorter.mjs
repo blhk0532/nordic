@@ -7,7 +7,7 @@ async function scrapeRatsitPostorter(url) {
     if (!url) {
         console.error('Error: URL is required');
         console.log(
-            'Usage: node ratsit_postorter_playwright.mjs "https://www.ratsit.se/personer/Ydre-kommun/Bruzaholm-57599"',
+            'Usage: node ratsit_postorter_playwright.mjs "https://www.ratsit.se/foretag/Ydre-kommun/Bruzaholm-57599"',
         );
         process.exit(1);
     }
@@ -108,7 +108,7 @@ async function scrapeRatsitPostorter(url) {
 
                 // Look for postal area links - try broader approach
                 const allLinks = document.querySelectorAll(
-                    'a[href*="/personer/"]',
+                    'a[href*="/foretag/"]',
                 );
                 const postalAreaLinks = Array.from(allLinks).filter((link) => {
                     const text = link.textContent.trim();
@@ -223,8 +223,8 @@ async function scrapeRatsitPostorter(url) {
         try {
             const u = new URL(url);
             const parts = u.pathname.split('/').filter(Boolean);
-            // look for segment like '<kommun>-kommun' after 'personer'
-            const pIndex = parts.indexOf('personer');
+            // look for segment like '<kommun>-kommun' after 'foretag'
+            const pIndex = parts.indexOf('foretag');
             if (pIndex !== -1 && parts.length > pIndex + 1) {
                 const k = parts[pIndex + 1];
                 if (k) {
@@ -235,7 +235,7 @@ async function scrapeRatsitPostorter(url) {
             // ignore URL parse errors
         }
 
-        // Database connection - read from environment with sensible defaults
+        // Database connection - use environment variables with sensible defaults
         const dbHost = process.env.DB_HOST || '127.0.0.1';
         const dbPort = process.env.DB_PORT || '3306';
         const dbUser = process.env.DB_USERNAME || process.env.DB_USER || 'root';
@@ -277,7 +277,7 @@ async function scrapeRatsitPostorter(url) {
                 // Insert or update postal area
                 if (existingId) {
                     await connection.execute(
-                        'UPDATE ratsit_postorter SET personer_count = ?, personer_link = ?, kommun = ? WHERE id = ?',
+                        'UPDATE ratsit_postorter SET foretag_count = ?, foretag_link = ?, kommun = ? WHERE id = ?',
                         [
                             postort.post_nummer_count,
                             postort.post_nummer_link,
@@ -290,7 +290,7 @@ async function scrapeRatsitPostorter(url) {
                     );
                 } else {
                     await connection.execute(
-                        'INSERT INTO ratsit_postorter (post_ort, post_nummer, personer_count, personer_link, kommun) VALUES (?, ?, ?, ?, ?)',
+                        'INSERT INTO ratsit_postorter (post_ort, post_nummer, foretag_count, foretag_link, kommun) VALUES (?, ?, ?, ?, ?)',
                         [
                             postort.post_ort,
                             postort.post_nummer,

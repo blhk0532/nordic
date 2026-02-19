@@ -47,6 +47,7 @@ class RatsitPostorter extends Model
     protected $fillable = [
         'post_ort',
         'post_nummer',
+        'kommun',
         'personer_count',
         'foretag_count',
         'personer_link',

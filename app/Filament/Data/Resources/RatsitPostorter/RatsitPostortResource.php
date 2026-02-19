@@ -35,16 +35,29 @@ class RatsitPostortResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('post_ort')->searchable()->sortable(),
+                                TextColumn::make('post_ort')->searchable()->sortable(),
                 TextColumn::make('post_nummer')->searchable()->sortable(),
+ TextColumn::make('kommun')->searchable()->sortable(),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
                 TextColumn::make('personer_link')->label('Personer Link')->sortable()->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
-                                TextColumn::make('personer_link_status')->label('P Adress')->sortable(),
+                TextColumn::make('personer_link_status')->label('P Adress')->sortable()->hidden(),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
             ])
             ->filters([
+                SelectFilter::make('kommun')
+                    ->label('Kommun')
+                    ->searchable()
+                    ->options(fn () => RatsitPostort::query()
+                        ->whereNotNull('kommun')
+                        ->where('kommun', '<>', '')
+                        ->select('kommun')
+                        ->distinct()
+                        ->orderBy('kommun')
+                        ->pluck('kommun', 'kommun')
+                        ->filter()
+                        ->all()),
                 SelectFilter::make('post_ort')
                     ->label('Post Ort')
                     ->searchable()
@@ -74,7 +87,7 @@ class RatsitPostortResource extends Resource
                     ->color('primary'),
             ])
             ->defaultSort('updated_at', 'desc')
-            ->paginated([10, 25, 50, 100])
+            ->paginated([10, 25, 50, 100, 200, 500, 1000])
             ->defaultPaginationPageOption(25);
     }
 
