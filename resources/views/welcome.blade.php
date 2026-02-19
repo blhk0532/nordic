@@ -154,8 +154,9 @@ padding: 30%;
 		<path fill-rule="evenodd" class="s0" d="m1385.5 106.5q42 0 84 0 0 105 0 210-42 0-84 0 0-105 0-210z"/>
 	</g>
 </svg>
-                    <h1 class="mb-1 font-medium">Nordic Digital Solutions</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">The system is currently in development. <br>Please notify admins with any feedback.</p>
+                    <h1 class="mb-1 font-medium">Nordic Digital Solutions TH
+                    </h1>
+                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">The system is currently in development. <br>Please notify admin if have any problem.</p>
                     <ul class="flex flex-col mb-4 lg:mb-6">
                         <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
                             <span class="relative py-1 bg-white dark:bg-[#161615]">
@@ -165,7 +166,7 @@ padding: 30%;
                             </span>
                             <span>
                                 Login for administrators
-                                <a href="nds/admin/login" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ms-1">
+                                <a href="admin" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ms-1">
                                     <span>Admin</span>
                                     <svg
                                         width="10"
@@ -211,33 +212,7 @@ padding: 30%;
                                 </a>
                             </span>
                         </li>
-                                                <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:start-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Login to booking panel
-                                <a href="nds/booking" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ms-1">
-                                    <span>Bokning</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
+
                     </ul>
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
