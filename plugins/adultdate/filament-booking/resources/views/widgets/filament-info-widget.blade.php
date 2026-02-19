@@ -23,7 +23,7 @@
 	display: block;
 	">
             <a
-                href="https://nordicdigitalthailand.com"
+                href="https://ndsth.com"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="fi-filament-info-widget-logo-link pt-1 "
