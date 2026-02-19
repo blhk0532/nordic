@@ -494,3 +494,6 @@ html{
     overflow: scroll;
   height: 90vh;
 }
+div.fi-modal-window{
+    overflow: hidden;
+}

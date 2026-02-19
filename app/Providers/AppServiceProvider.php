@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Livewire;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -35,11 +36,22 @@ class AppServiceProvider extends ServiceProvider
 
         $this->configureDefaults();
 
-        PanelSwitch::configureUsing(function (PanelSwitch $switch): void {
-            $switch
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+
+        PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
+
+            $user = Auth::user();
+
+         $panelSwitch
+        ->panels(['admin', 'app'])
+        ->modalWidth('sm')
+        ->slideOver()
                 ->labels([
                     'admin' => 'Admin',
-                    'app' => 'App',
+                    'app' => 'Appen',
                     'booking' => 'Booking',
                     'calendar' => 'Calendar',
                     'chat' => 'Chat',
@@ -65,13 +77,29 @@ class AppServiceProvider extends ServiceProvider
                     'super' => 'heroicon-m-fire',
                     'tools' => 'heroicon-s-bolt',
                 ])
-                ->iconSize(20)
                 ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                 ->sort('asc');
 
-            $panels = [];
+        if ($user?->role && $user?->role === 'admin') {
+        $panelSwitch
+        ->panels(['admin', 'app', 'booking', 'chat'])
+            ->iconSize(32)
+              ->modalWidth('sm')
+                ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
+                ->sort('asc');
+            }
 
-            $switch->panels($panels);
+
+        if($user?->role && $user?->role === 'super'){
+         $panelSwitch
+        ->panels(['admin', 'app', 'booking', 'calendar', 'chat', 'data', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
+            ->iconSize(20)
+                ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
+                ->sort('asc')
+        ->modalWidth('sm');
+
+        }
+
         });
 
         // Register UserNotes modal outside of Topbar to prevent Livewire entangle conflicts
@@ -85,11 +113,9 @@ class AppServiceProvider extends ServiceProvider
     protected function configureDefaults(): void
     {
         Date::use(CarbonImmutable::class);
-
         DB::prohibitDestructiveCommands(
             app()->isProduction(),
         );
-
         Password::defaults(fn (): ?Password => app()->isProduction()
             ? Password::min(12)
                 ->mixedCase()
