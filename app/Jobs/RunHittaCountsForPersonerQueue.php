@@ -29,7 +29,7 @@ class RunHittaCountsForPersonerQueue implements ShouldQueue
 
     public function __construct(public HittaPersonerQueue $hittaPersonerQueue)
     {
-        $this->onQueue('hitta-personer');
+        $this->onQueue('hitta');
     }
 
     public function handle(): void

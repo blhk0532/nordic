@@ -28,7 +28,7 @@ class RunHittaPostOrtPageJob implements ShouldQueue
         protected int $page,
         protected int $totalPages
     ) {
-        $this->onQueue('hitta-postort');
+        $this->onQueue('hitta');
     }
 
     /**

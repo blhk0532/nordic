@@ -62,7 +62,7 @@ class RunAllCountsBulkAction extends BulkAction
                     Log::info('About to dispatch merinfo-count batch', ['postnummer' => $normalized]);
 
                     $batch = Bus::batch([
-                        new RunMerinfoScript($normalized, 'merinfo-count'),
+                        new RunMerinfoScript($normalized, 'merinfo'),
                     ])->name($normalized)
                         ->onQueue('scrape')
                         ->then(function ($batch) {

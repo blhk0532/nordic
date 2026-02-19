@@ -23,7 +23,7 @@ class RunHittaCheckCountsJob implements ShouldQueue
 
     public function __construct(public string $postNummer)
     {
-        $this->onQueue('hitta-counts');
+        $this->onQueue('hitta');
     }
 
     /**

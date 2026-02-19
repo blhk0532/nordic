@@ -30,7 +30,7 @@ class RunHittaPostOrtDirectJob implements ShouldQueue
         protected int|string $postNumId,
         protected ?int $maxPages = null
     ) {
-        $this->onQueue('hitta-postort');
+        $this->onQueue('hitta');
     }
 
     /**

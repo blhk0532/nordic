@@ -23,7 +23,7 @@ class RunRatsitCheckCountsJob implements ShouldQueue
 
     public function __construct(public string $postNummer)
     {
-        $this->onQueue('ratsit-counts');
+        $this->onQueue('ratsit');
     }
 
     /**

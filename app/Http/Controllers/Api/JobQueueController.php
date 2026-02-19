@@ -282,8 +282,8 @@ class JobQueueController extends Controller
     public function getMerinfoPostnummerCount(Request $request)
     {
         $job = DB::table('jobs')
-            ->where('queue', 'merinfo-count')
-            ->orWhere('queue', 'merinfo-queue')
+            ->where('queue', 'merinfo')
+            ->orWhere('queue', 'merinfo')
             ->orderBy('id', 'asc')
             ->first();
 
@@ -411,8 +411,8 @@ class JobQueueController extends Controller
 
         $deleted = DB::table('jobs')
             ->where('queue', 'merinfo')
-            ->orWhere('queue', 'merinfo-queue')
-            ->orWhere('queue', 'merinfo-count')
+            ->orWhere('queue', 'merinfo')
+            ->orWhere('queue', 'merinfo')
             ->where('name', $normalized)
             ->delete();
 

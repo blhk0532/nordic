@@ -27,7 +27,7 @@ class RunHittaPostOrtSplitJob implements ShouldQueue
 
     public function __construct(protected int|string $postNumId)
     {
-        $this->onQueue('hitta-postort');
+        $this->onQueue('hitta');
     }
 
     /**
@@ -145,7 +145,7 @@ class RunHittaPostOrtSplitJob implements ShouldQueue
 
         $batch = Bus::batch($jobs)
             ->name($batchName)
-            ->onQueue('hitta-postort')
+            ->onQueue('hitta')
             ->then(function (Batch $batch) use ($postNum) {
                 // When sub-batch completes, update counts and set status complete
                 try {
@@ -226,7 +226,7 @@ class RunHittaPostOrtSplitJob implements ShouldQueue
         try {
             // Get all jobs that are part of this batch
             $jobs = DB::table('jobs')
-                ->where('queue', 'hitta-postort')
+                ->where('queue', 'hitta')
                 ->whereRaw("JSON_EXTRACT(payload, '$.batchId') = ?", [$batchId])
                 ->orderBy('id')
                 ->get();
