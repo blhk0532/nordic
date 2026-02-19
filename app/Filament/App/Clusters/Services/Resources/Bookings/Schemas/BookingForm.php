@@ -9,6 +9,7 @@ use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\Service;
 use App\Models\User;
+use Dom\Text;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -21,6 +22,9 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Icons\Heroicon;
 
 class BookingForm
 {
@@ -30,13 +34,14 @@ class BookingForm
             ->components([
                 Group::make()
                     ->schema([
-                        Section::make()
-                            ->schema(self::getDetailsComponents())
-                            ->columns(2),
                         Section::make('Tjänster')
                             ->schema([
                                 self::getItemsRepeater(),
                             ]),
+                        Section::make()
+                            ->schema(self::getDetailsComponents())
+                            ->columns(2),
+
                         Section::make()
                             ->schema(self::getDetailsComponents2())
                             ->columns(2),
@@ -60,9 +65,11 @@ class BookingForm
         }
 
         if (is_object($user) && method_exists($user, 'hasRole')) {
-            if (call_user_func([$user, 'hasRole'], 'admin') ||
+            if (
+                call_user_func([$user, 'hasRole'], 'admin') ||
                 call_user_func([$user, 'hasRole'], 'super') ||
-                call_user_func([$user, 'hasRole'], 'manager')) {
+                call_user_func([$user, 'hasRole'], 'manager')
+            ) {
                 return true;
             }
         }
@@ -77,9 +84,7 @@ class BookingForm
     /** @return array<Component> */
     public static function getClientComponents(): array
     {
-        return [
-
-        ];
+        return [];
     }
 
     /** @return array<Component> */
@@ -87,7 +92,7 @@ class BookingForm
     {
         return [
             TextInput::make('number')
-                ->default('OR-'.random_int(100000, 999999))
+                ->default('OR-' . random_int(100000, 999999))
                 ->disabled()
                 ->dehydrated()
                 ->required()
@@ -135,7 +140,7 @@ class BookingForm
                                 ->default($clientDefaults['name'] ?? null)
                                 ->required()
                                 ->maxLength(255),
-                             TextInput::make('email')
+                            TextInput::make('email')
                                 ->label('Email address')
                                 ->default($clientDefaults['email'] ?? null)
                                 ->email()
@@ -190,10 +195,22 @@ class BookingForm
                     return $client->id;
                 }),
             Select::make('service_user_id')
-                ->label('Service User')
+                ->label('Service Tekniker')
                 ->options(User::where('role', 'service')->pluck('name', 'id'))
                 ->searchable()
                 ->required(),
+
+            TextInput::make('personnummer')
+                ->label('Personnummer')
+                ->prefix('Pnr: ')
+                ->prefixIcon(Heroicon::UserCircle)
+                ->placeholder('YYYYMMDDXXXX'),
+
+            TextInput::make('fastighetsbeteckning')
+                ->label('Fastighetsbeteckning')
+                ->prefixIcon(Heroicon::Home)
+                ->placeholder('-- https://minkarta.lantmateriet.se --'),
+
             TextInput::make('booking_user_id')
                 ->hidden()
                 ->dehydrated(),
@@ -201,14 +218,6 @@ class BookingForm
             TextInput::make('admin_id')
                 ->hidden()
                 ->dehydrated(),
-
-        ];
-    }
-
-    /** @return array<Component> */
-    public static function getDetailsComponents2(array $clientDefaults = []): array
-    {
-        return [
 
             RichEditor::make('notes')
                 ->label('Anteckningar')
@@ -222,6 +231,14 @@ class BookingForm
                     'h3',
                 ])
                 ->columnSpan('full'),
+
+        ];
+    }
+
+    /** @return array<Component> */
+    public static function getDetailsComponents2(array $clientDefaults = []): array
+    {
+        return [
             ToggleButtons::make('status')
                 ->options(BookingStatus::restrictedOptions())
                 ->colors([
@@ -241,6 +258,7 @@ class BookingForm
     {
         return Repeater::make('items')
             ->label('Tjänster')
+            ->extraAttributes(['class' => 'mt-0 mb-0'])
             ->relationship()
             ->schema([
                 Select::make('booking_service_id')
@@ -248,7 +266,7 @@ class BookingForm
                     ->options(Service::query()->pluck('name', 'id'))
                     ->required()
                     ->reactive()
-                    ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
+                    ->afterStateUpdated(fn($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                     ->searchable()

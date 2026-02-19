@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
-
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 final class UserNotesModal extends Component implements HasForms
 {
     use InteractsWithForms;
@@ -100,13 +101,15 @@ final class UserNotesModal extends Component implements HasForms
                 Forms\Components\RichEditor::make('anteckningar')
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
-                        ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
-                        ['blockquote', 'codeBlock', 'customBlocks', 'mergeTags', 'bulletList', 'orderedList'],
+                        ['h1', 'h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['customBlocks', 'mergeTags'],
+                        ['blockquote', 'codeBlock'],
                         ['table', 'attachFiles'],
                         ['undo', 'redo'],
                     ])
                     ->label('Mina Anteckningar!')
-                    ->extraAttributes(['spellcheck' => 'false', 'wire:ignore' => true])
+                    ->extraAttributes(['spellcheck' => 'false', 'wire:ignore' => true, 'style' => 'min-height: 800px;'])
                     ->columnSpanFull(),
             ])
             ->statePath('data');
@@ -162,6 +165,9 @@ final class UserNotesModal extends Component implements HasForms
 
     public function render(): \Illuminate\Contracts\View\View
     {
+                                            FilamentAsset::register([
+    Css::make('notes', __DIR__ . '/../../resources/css/notes.css'),
+]);
         return view('livewire.user-notes-modal');
     }
 

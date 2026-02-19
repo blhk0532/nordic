@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'super@ndsth.com'],
             [
                 'name' => 'super',
-                'role' => 'super_admin',
+                'role' => 'super',
                 'password' => 'bkkbkk',
                 'email_verified_at' => now(),
             ]
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'admin@ndsth.com'],
             [
                 'name' => 'admin',
-                'role' => 'super_admin',
+                'role' => 'super',
                 'password' => 'bkkbkk',
                 'email_verified_at' => now(),
             ]

@@ -1619,7 +1619,7 @@ class BookingCalendar extends Widget implements HasCalendar
                         ])
                         ->columns(2),
 
-                    Section::make('Tjänster')
+                    Section::make('Tjäns')
                         ->schema([
                             $this->getCalendarItemsRepeater(),
                         ]),

@@ -40,7 +40,7 @@ class QueueRingaData extends Page
 
     // public static bool $shouldRegisterNavigation = true;
 
-    // protected static UnitEnum|string|null $navigationGroup = '';
+    protected static UnitEnum|string|null $navigationGroup = ' ';
 
     protected static ?int $navigationSort = 4;
 
@@ -102,6 +102,11 @@ class QueueRingaData extends Page
         return (string) self::getQuery()->count();
         // return (string) (auth()->user()?->name ?? '');
     }
+
+public static function getNavigationBadgeColor(): ?string
+{
+    return (string) self::getQuery()->count() > 100 ? 'danger' : 'warning';
+}
 
     public function getHeaderWidgetsData(): array
     {

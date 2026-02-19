@@ -162,10 +162,10 @@ HTML,
         //        fn () => view('filament.app.calendar-icon-topbar')
         //    );
 
-        //    FilamentView::registerRenderHook(
-        //        PanelsRenderHook::USER_MENU_BEFORE,
-        //        fn () => view('filament.app.user-notes-icon-topbar')
-        //    );
+            FilamentView::registerRenderHook(
+                PanelsRenderHook::TOPBAR_LOGO_AFTER,
+                fn () => view('filament.app.user-notes-icon-topbar')
+            );
 
         //    FilamentView::registerRenderHook(
         //        PanelsRenderHook::USER_MENU_BEFORE,

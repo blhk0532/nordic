@@ -45,12 +45,17 @@ class RingaDataResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
+        $teneant = filament()->getTenant();
+
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return false;
+        }
+
         if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
             return true;
         }
 
         return false;
-
     }
 
     public static function form(Schema $schema): Schema

@@ -1,3 +1,8 @@
+<style>
+    div.fi-input-wrp.fi-fo-rich-editor{
+        min-height: 80vh;
+    }
+</style>
 <div
     class="w-full"
     x-init="$nextTick(() => window.dispatchEvent(new Event('resize')))"
@@ -10,7 +15,7 @@
 
                 <div class="flex justify-end">
                     <x-filament::button type="submit">
-                        Spara Anteckningar
+                        Spara
                     </x-filament::button>
                 </div>
             </form>

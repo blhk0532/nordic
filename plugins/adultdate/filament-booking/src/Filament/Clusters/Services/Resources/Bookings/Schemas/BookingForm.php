@@ -33,7 +33,7 @@ class BookingForm
                         Section::make()
                             ->schema(self::getDetailsComponents())
                             ->columns(2),
-                        Section::make('Tjänster')
+                        Section::make('Tjänst')
                             ->schema([
                                 self::getItemsRepeater(),
                             ]),
@@ -225,7 +225,7 @@ class BookingForm
     public static function getItemsRepeater(): Repeater
     {
         return Repeater::make('items')
-            ->label('Tjänster')
+            ->label('Tjänst')
             ->relationship()
             ->schema([
                 Select::make('booking_service_id')

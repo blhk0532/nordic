@@ -10,18 +10,18 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 <button
     color="gray"
     icon="heroicon-c-information-circle"
-    icon-size="lg"
+    icon-size="xl"
     label="Kalender"
     @if($anderia === 'sidebar-no-topbar')
     class="fi-sidebar-database-notifications-btn"
     @else
-    class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
+    class="ml-0.5 fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
     @endif
      wire:click="$dispatch('open-modal', { id: 'manus-calendar-modal' })"
 >
 
         <x-filament::icon
-            icon="heroicon-o-document"
+            icon="heroicon-o-star"
             class="fi-icon fi-size-lg"
         />
 @php
@@ -52,7 +52,12 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 </div>
 </div>
 
-<x-filament::modal id="manus-calendar-modal" class="manus-modal" slide-over width="4xl">
+<x-filament::modal
+id="manus-calendar-modal"
+class="manus-modal"
+slide-over width="lg"
+class="fi-modal-slide-over-left"
+    >
     <x-slot name="heading">
 
     </x-slot>

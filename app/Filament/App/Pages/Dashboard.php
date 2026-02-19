@@ -42,7 +42,7 @@ class Dashboard extends BaseDashboard
     //   protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string|UnitEnum|null $navigationGroup = ' ';
-    protected static ?int $navigationSort = -2;
+    protected static ?int $navigationSort = -20;
 
     public static function getNavigationLabel(): string
     {

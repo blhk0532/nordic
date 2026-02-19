@@ -49,7 +49,7 @@ class DataPanelProvider extends PanelProvider
             ->pages([
                 //    Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Data/Widgets'), for: 'App\Filament\Data\Widgets')
+           // ->discoverWidgets(in: app_path('Filament/Data/Widgets'), for: 'App\Filament\Data\Widgets')
             ->widgets([
                 //    AccountWidget::class,
                 //    FilamentInfoWidget::class,

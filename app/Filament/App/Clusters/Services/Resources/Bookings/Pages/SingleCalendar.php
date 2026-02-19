@@ -21,6 +21,8 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class SingleCalendar extends BaseDashboard
 {
@@ -39,21 +41,26 @@ class SingleCalendar extends BaseDashboard
 
     protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 12;
+    protected static ?int $navigationSort = 10;
 
-    protected static ?int $sort = 12;
+    protected static ?int $sort = 10;
 
     protected static string $routePath = 'single-calendar';
 
     protected static string|UnitEnum|null $navigationGroup = '';
 
+
+
     //   use HasFiltersForm;
     //  protected static ?string $slug = 'dashboard';
 
-    protected string $view = 'filament-booking::pages.page';
+    // protected string $view = 'filament.app.pages.ring-lista';
 
     public static function shouldRegisterNavigation(): bool
     {
+                                FilamentAsset::register([
+    Css::make('booking', __DIR__ . '/../../../../resources/css/booking.css'),
+]);
         return true;
     }
 
@@ -83,14 +90,14 @@ class SingleCalendar extends BaseDashboard
     //       return 2;
     //   }
 
-    //   public static function getNavigationBadge(): ?string
-    //   {
-    //       //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
-    //       Carbon::setLocale('sv');
-    //       return now()
-    //           ->timezone('Europe/Stockholm')
-    //           ->translatedFormat('d M');
-    //   }
+       public static function getNavigationBadge(): ?string
+       {
+           //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
+           Carbon::setLocale('sv');
+           return now()
+               ->timezone('Europe/Stockholm')
+               ->translatedFormat('d M');
+       }
 
     public static function getNavigationBadgeColor(): ?string
     {

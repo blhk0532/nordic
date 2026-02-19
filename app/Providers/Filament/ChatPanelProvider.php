@@ -45,7 +45,7 @@ class ChatPanelProvider extends PanelProvider
             ->spa()
          // ->profile()
             ->sidebarFullyCollapsibleOnDesktop()
-
+                ->navigation(false)
             ->passwordReset()
             ->unsavedChangesAlerts()
             ->databaseNotifications()

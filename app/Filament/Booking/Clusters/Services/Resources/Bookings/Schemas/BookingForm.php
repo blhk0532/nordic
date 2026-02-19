@@ -26,6 +26,8 @@ class BookingForm
 {
     public static function configure(Schema $schema): Schema
     {
+
+
         return $schema
             ->components([
                 Group::make()
@@ -103,6 +105,12 @@ class BookingForm
                 ->options(User::where('role', 'service')->pluck('name', 'id'))
                 ->searchable()
                 ->required(),
+            TextInput::make('fastighetsbeteckning')
+                ->label('Fastighetsbeteckning')
+                ->maxLength(255),
+            TextInput::make('personnummer')
+                ->label('Personnummer')
+                ->maxLength(255),
 
             \Filament\Forms\Components\DatePicker::make('service_date')
                 ->label('Datum')
@@ -225,7 +233,7 @@ class BookingForm
     public static function getItemsRepeater(): Repeater
     {
         return Repeater::make('items')
-            ->label('Tjänster')
+            ->label('Tjänst')
             ->relationship()
             ->schema([
                 Select::make('booking_service_id')

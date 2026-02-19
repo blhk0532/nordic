@@ -204,6 +204,11 @@ div.logo-before{
     display:none!important;
 }
 
+
+.fi-sidebar-nav{
+    padding-top: 0.6rem;
+}
+
 header.fi-header.fi-header-has-breadcrumbs{
     display:none!important;
 }
@@ -241,9 +246,6 @@ form.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.f
 }
 }
 
-.fi-sidebar-nav{
-    padding-top: 0.6rem;
-}
 
 .filament-fullcalendar.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack{
   min-height: 700px;

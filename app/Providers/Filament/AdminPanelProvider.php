@@ -90,7 +90,7 @@ class AdminPanelProvider extends PanelProvider
             ])
 
             ->defaultThemeMode(config('teamkit.theme_mode', ThemeMode::Dark))
-
+        ->sidebarFullyCollapsibleOnDesktop()
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')

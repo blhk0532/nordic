@@ -1,4 +1,4 @@
-  <div className="ml-4 grid flex-1 text-left text-sm" style="width: 126px;
+  <div className="ml-1 grid flex-1 text-left text-sm" style="width: 118px;
   display: flex;
   padding-top: 2px;
   padding-left: 0px;
