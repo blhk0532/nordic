@@ -172,7 +172,7 @@ final class AdmPanelProvider extends PanelProvider
                         24                                                   // Logo height in pixels
                     )
                     ->withLinks([
-                        ['title' => 'ndsth.com', 'url' => ''https://nordicdigitalthailand.com'', 'target' => '_blank'],
+                        ['title' => 'ndsth.com', 'url' => 'https://nordicdigitalthailand.com', 'target' => '_blank'],
                     ]),
             ])
             ->plugin(
