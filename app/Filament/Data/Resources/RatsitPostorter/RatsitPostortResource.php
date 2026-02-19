@@ -38,10 +38,10 @@ class RatsitPostortResource extends Resource
                 TextColumn::make('post_ort')->searchable()->sortable(),
                 TextColumn::make('post_nummer')->searchable()->sortable(),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
-                TextColumn::make('personer_link_status')->label('P Adress')->sortable(),
-                TextColumn::make('personer_link')->label('Personer Link')->sortable()->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
+                TextColumn::make('personer_link')->label('Personer Link')->sortable()->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
                 TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
+                                TextColumn::make('personer_link_status')->label('P Adress')->sortable(),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
             ])
             ->filters([

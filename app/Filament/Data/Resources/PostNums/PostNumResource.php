@@ -29,7 +29,7 @@ class PostNumResource extends Resource
 
     protected static ?string $navigationLabel = 'Post Nummer';
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 3;
 
     protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
 

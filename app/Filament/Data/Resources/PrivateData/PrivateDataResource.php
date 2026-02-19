@@ -38,7 +38,10 @@ class PrivateDataResource extends Resource
             //
         ];
     }
-
+    public static function getNavigationBadge(): ?string
+    {
+        return (string) self::getModel()::count();
+    }
     public static function getPages(): array
     {
         return [

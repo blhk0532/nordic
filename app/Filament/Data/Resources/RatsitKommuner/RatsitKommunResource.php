@@ -12,13 +12,20 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Notifications\Notification;
+use Illuminate\Database\Eloquent\Collection;
+use Symfony\Component\Process\Process;
+use Throwable;
 use UnitEnum;
 
 class RatsitKommunResource extends Resource
 {
     protected static ?string $model = RatsitKommun::class;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 0;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice2;
 
@@ -39,7 +46,36 @@ class RatsitKommunResource extends Resource
             ])
             ->defaultSort('updated_at', 'desc')
             ->paginated([10, 25, 50, 100])
-            ->defaultPaginationPageOption(25);
+            ->defaultPaginationPageOption(25)
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    BulkAction::make('run_ratsit_person_kommuner')
+                        ->label('Run Ratsit Kommuner')
+                        ->icon('heroicon-o-play')
+                        ->color('primary')
+                        ->requiresConfirmation()
+                        ->modalHeading('Run Ratsit kommuner scraper')
+                        ->modalDescription('This will start the background Node scraper that fetches municipality data from Ratsit. The process runs asynchronously.')
+                        ->action(function (Collection $records): void {
+                            try {
+                                // Dispatch a queued job that will run the Node scraper and wait for it to finish.
+                                \App\Jobs\RunRatsitKommunerScraperJob::dispatch($records->pluck('personer_link')->values()->all())->onQueue('ratsit');
+
+                                Notification::make()
+                                    ->title('Ratsit kommuner scraper job dispatched')
+                                    ->success()
+                                    ->body('The scraper job has been queued to the "ratsit" queue.')
+                                    ->send();
+                            } catch (Throwable $e) {
+                                Notification::make()
+                                    ->title('Failed to dispatch scraper job')
+                                    ->danger()
+                                    ->body($e->getMessage())
+                                    ->send();
+                            }
+                        }),
+                ]),
+            ]);
     }
 
     public static function form(Schema $schema): Schema

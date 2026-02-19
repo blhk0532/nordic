@@ -57,7 +57,7 @@ async function scrapeRatsitPostorter(url) {
         // Wait for cookie dialog to potentially appear and handle it
         try {
             await page.waitForSelector('#CybotCookiebotDialog', {
-                timeout: 5000,
+                timeout: 2000,
             });
             console.log('Cookie dialog found, trying to accept...');
 
