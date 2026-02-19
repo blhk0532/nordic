@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Button variant="outline" size="sm" asChild>
             <a
-              href="https://ndsth.com"
+              href="'https://nordicdigitalthailand.com'"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
