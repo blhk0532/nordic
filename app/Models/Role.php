@@ -33,6 +33,8 @@ use Spatie\Permission\Models\Role as SpatieRole;
  */
 class Role extends SpatieRole
 {
+    protected static ?string $tenantOwnershipRelationshipName = null;
+
     public function team()
     {
         return $this->belongsTo(Team::class);

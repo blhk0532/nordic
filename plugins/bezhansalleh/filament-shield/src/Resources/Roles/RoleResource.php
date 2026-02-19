@@ -44,6 +44,16 @@ class RoleResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
+    // Disable tenant scoping for the Shield Role resource by default because
+    // the Spatie Role model does not implement an ownership relationship
+    // like `user`. Disabling scoping prevents Filament from trying to
+    // resolve a non-existent relationship.
+    protected static bool $isScopedToTenant = false;
+
+    // Ensure Filament does not attempt to resolve an ownership relationship
+    // for this resource (Spatie\Permission\Models\Role has no `user` relation).
+    protected static ?string $tenantOwnershipRelationshipName = 'users';
+
     public static function form(Schema $schema): Schema
     {
         return $schema
@@ -190,6 +200,14 @@ class RoleResource extends Resource
     public static function getNavigationBadgeColor(): ?string
     {
         return self::getEssentialsPlugin()?->getNavigationBadgeColor();
+    }
+
+    public static function isScopedToTenant(): bool
+    {
+        // This resource represents Spatie's Role model which does not map to
+        // a tenant ownership relationship — ensure Filament does not try to
+        // scope or resolve ownership for it.
+        return false;
     }
 
     public static function shouldRegisterNavigation(): bool

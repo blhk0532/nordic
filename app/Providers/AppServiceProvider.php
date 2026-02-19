@@ -13,6 +13,8 @@ use Illuminate\Validation\Rules\Password;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -44,61 +46,77 @@ class AppServiceProvider extends ServiceProvider
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
 
             $user = Auth::user();
+            $name = $user?->name ? $user?->name : 'App';
 
-         $panelSwitch
-        ->panels(['admin', 'app'])
-        ->modalWidth('sm')
-        ->slideOver()
+            $panelSwitch
+                ->panels(['admin', 'app'])
+                ->modalWidth('sm')
+                ->slideOver()
                 ->labels([
+                    'app' => Str::ucfirst(Str::limit($name, 10)),
                     'admin' => 'Admin',
-                    'app' => 'Appen',
-                    'booking' => 'Booking',
-                    'calendar' => 'Calendar',
+                    'booking' => 'Bokning',
+                    'calendar' => 'Kalender',
                     'chat' => 'Chat',
                     'data' => 'Data',
                     'email' => 'Email',
-                    'files' => 'Files',
+                    'files' => 'Filer',
                     'notify' => 'Notify',
                     'queue' => 'Queue',
                     'super' => 'Super',
                     'tools' => 'Tools',
                 ])
                 ->icons([
-                    'admin' => 'heroicon-o-shield-check',
                     'app' => 'heroicon-o-user-circle',
-                    'booking' => 'heroicon-o-clipboard-document-check',
+                    'admin' => 'heroicon-o-shield-check',
+                    'booking' => 'heroicon-o-check-circle',
                     'calendar' => 'heroicon-o-calendar-days',
                     'chat' => 'heroicon-o-chat-bubble-left-right',
                     'data' => 'heroicon-o-list-bullet',
                     'email' => 'heroicon-m-at-symbol',
                     'files' => 'heroicon-m-server-stack',
-                    'notify' => 'heroicon-m-megaphone',
+                    'notify' => 'heroicon-o-megaphone',
                     'queue' => 'heroicon-c-queue-list',
                     'super' => 'heroicon-m-fire',
                     'tools' => 'heroicon-s-bolt',
-                ])
-                ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
-                ->sort('asc');
+                ]);
 
-        if ($user?->role && $user?->role === 'admin') {
-        $panelSwitch
-        ->panels(['admin', 'app', 'booking', 'chat'])
-            ->iconSize(32)
-              ->modalWidth('sm')
-                ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
-                ->sort('asc');
+            if ($user?->role && $user?->role === 'booking') {
+                $panelSwitch
+                    ->panels(['app', 'booking', 'calendar', 'chat'])
+                    ->iconSize(32)
+                    ->modalWidth('sm')
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->sort('asc');
+            }
+
+            if ($user?->role && $user?->role === 'manager') {
+                $panelSwitch
+                    ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'email',  'notify', 'queue'])
+                    ->iconSize(32)
+                    ->modalWidth('sm')
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->sort('asc');
             }
 
 
-        if($user?->role && $user?->role === 'super'){
-         $panelSwitch
-        ->panels(['admin', 'app', 'booking', 'calendar', 'chat', 'data', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
-            ->iconSize(20)
-                ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
-                ->sort('asc')
-        ->modalWidth('sm');
+            if ($user?->role && $user?->role === 'admin') {
+                $panelSwitch
+                    ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'email',  'notify', 'queue'])
+                    ->iconSize(32)
+                    ->modalWidth('sm')
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->sort('asc');
+            }
 
-        }
+
+            if ($user?->role && $user?->role === 'super') {
+                $panelSwitch
+                    ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'data', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
+                    ->iconSize(20)
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->modalWidth('sm');
+            }
 
         });
 
@@ -116,14 +134,15 @@ class AppServiceProvider extends ServiceProvider
         DB::prohibitDestructiveCommands(
             app()->isProduction(),
         );
-        Password::defaults(fn (): ?Password => app()->isProduction()
-            ? Password::min(12)
+        Password::defaults(
+            fn(): ?Password => app()->isProduction()
+                ? Password::min(12)
                 ->mixedCase()
                 ->letters()
                 ->numbers()
                 ->symbols()
                 ->uncompromised()
-            : null
+                : null
         );
     }
 }

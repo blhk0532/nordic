@@ -1,7 +1,7 @@
   <div className="ml-4 grid flex-1 text-left text-sm" style="width: 126px;
   display: flex;
   padding-top: 2px;
-  padding-left: 2px;
+  padding-left: 0px;
   margin-right: 0px;">
 <span className="mb-0.5 truncate leading-tight font-semibold">
                     <svg

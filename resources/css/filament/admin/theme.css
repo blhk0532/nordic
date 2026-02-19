@@ -495,3 +495,7 @@ html {
 .fi-fo-rich-editor * {
     pointer-events: auto !important;
 }
+
+div.fi-dropdown.fi-tenant-menu{
+    display:none!important;
+}

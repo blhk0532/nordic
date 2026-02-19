@@ -24,6 +24,8 @@ class TeamForm
                 TextInput::make('slug')
                     ->required(),
                 Toggle::make('personal_team'),
+                Toggle::make('is_admin')
+                    ->label(__('Admin team')),
             ]);
     }
 }

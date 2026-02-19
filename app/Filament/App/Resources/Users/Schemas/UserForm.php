@@ -74,6 +74,7 @@ class UserForm
                         Select::make('author_id')
                             ->label('Skapad av')
                             ->options(fn () => Auth::user()?->id ? [Auth::user()->id => Auth::user()->name] : [])
+                            ->default(fn () => Auth::user()?->id)
                             ->required()
                             ->default('user'),
                         Toggle::make('status')

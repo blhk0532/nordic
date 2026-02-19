@@ -60,6 +60,7 @@ class Team extends Model implements HasAvatar
         'personal_team',
         'ulid',
         'avatar',
+        'is_admin',
     ];
 
     public function owner(): BelongsTo
@@ -128,6 +129,7 @@ class Team extends Model implements HasAvatar
     {
         return [
             'personal_team' => 'boolean',
+            'is_admin' => 'boolean',
         ];
     }
 }

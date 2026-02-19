@@ -31,6 +31,7 @@ use App\Filament\App\Resources\TeamUsers\TeamUserResource;
 use App\Filament\App\Widgets\RatsitDataStatsWidget;
 use App\Http\Middleware\ApplyTenantScopes;
 use App\Http\Middleware\CurrentTenant;
+use App\Http\Middleware\EnforceUserResourceNavigation;
 use App\Http\Middleware\FilamentPanelAccess;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Models\Team;
@@ -161,6 +162,7 @@ class AppPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
                 FilamentPanelAccess::class,
+                EnforceUserResourceNavigation::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
