@@ -201,7 +201,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['export', 'scrape', 'ratsit', 'default', 'hitta', 'merinfo', 'merinfo'],
+            'queue' => ['export', 'scrape', 'ratsit', 'default', 'hitta', 'merinfo'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
             'maxProcesses' => (int) env('HORIZON_MAX_PROCESSES', 3),
