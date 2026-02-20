@@ -51,7 +51,7 @@ function loadEnvFile(envPath) {
 
 class HittaRatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || ''https://nordicdigitalthailand.com'';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://nordicdigitalthailand.com';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');

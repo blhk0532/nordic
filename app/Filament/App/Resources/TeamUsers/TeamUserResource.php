@@ -17,6 +17,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class TeamUserResource extends Resource
 {
@@ -26,11 +28,11 @@ class TeamUserResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Users;
 
-    protected static ?string $navigationLabel = 'Teammedlemmar';
+    protected static ?string $navigationLabel = 'Teammedlemmars';
 
     protected static ?string $modelLabel = 'Teammedlem';
 
-    protected static ?string $pluralModelLabel = 'Teammedlemmar';
+    protected static ?string $pluralModelLabel = 'Teammedlemmars';
 
     protected static string|UnitEnum|null $navigationGroup = 'Projekt';
 
@@ -43,6 +45,9 @@ class TeamUserResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
+                                        FilamentAsset::register([
+    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
+]);
         return false;
     }
 
@@ -111,6 +116,6 @@ class TeamUserResource extends Resource
     {
         $tenantName = filament()->getTenant()?->name ?? 'Team';
 
-        return "{$tenantName} - Teammedlemmar";
+        return "{$tenantName} - Teammedlemmars";
     }
 }

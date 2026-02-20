@@ -58,7 +58,7 @@ const mainNavItems: NavItem[] = [
 const rightNavItems: NavItem[] = [
     {
         title: 'Repository',
-        href: ''https://nordicdigitalthailand.com'',
+        href: 'https://nordicdigitalthailand.com',
         icon: Folder,
     },
     {

@@ -20,7 +20,7 @@ class InertiaCalendar extends Page
     //  protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDateRange;
     // protected static string|BackedEnum|null $navigationIcon = 'heroicon-c-clipboard-document-check';
 
-    protected static ?string $navigationLabel = 'Scheman';
+    protected static ?string $navigationLabel = 'Schema';
 
     // protected static ?string $title = '';
 

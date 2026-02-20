@@ -31,11 +31,11 @@ class BookingResource extends Resource
 
     protected static ?string $navigationLabel = 'Bokningar';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
+    protected static string|UnitEnum|null $navigationGroup = '    ';
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-c-calendar-days';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-check-circle';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 100;
 
     /**
      * Disable Filament tenant scoping for this resource to avoid

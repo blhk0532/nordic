@@ -53,7 +53,7 @@
         @if(url()->previous() === url()->current())
             <script>
                 setTimeout(() => {
-                    window.location.href = ''https://nordicdigitalthailand.com'';
+                    window.location.href = 'https://nordicdigitalthailand.com';
                 }, 1000);
             </script>
         @endif

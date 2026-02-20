@@ -41,9 +41,9 @@ class SingleCalendar extends BaseDashboard
 
     protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 3;
 
-    protected static ?int $sort = 10;
+    protected static ?int $sort = 3;
 
     protected static string $routePath = 'single-calendar';
 
