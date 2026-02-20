@@ -246,7 +246,7 @@ dashboardBooking.form = dashboardBookingForm
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 export const sanctum = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -261,7 +261,7 @@ sanctum.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 sanctum.url = (options?: RouteQueryOptions) => {
@@ -270,7 +270,7 @@ sanctum.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 sanctum.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -280,7 +280,7 @@ sanctum.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 sanctum.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -290,7 +290,7 @@ sanctum.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 const sanctumForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -300,7 +300,7 @@ const sanctumForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 sanctumForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -310,7 +310,7 @@ sanctumForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 sanctumForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -813,7 +813,7 @@ logs.form = logsForm
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 export const generalSettingsPage = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -828,7 +828,7 @@ generalSettingsPage.definition = {
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 generalSettingsPage.url = (options?: RouteQueryOptions) => {
@@ -837,7 +837,7 @@ generalSettingsPage.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 generalSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -847,7 +847,7 @@ generalSettingsPage.get = (options?: RouteQueryOptions): RouteDefinition<'get'> 
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 generalSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -857,7 +857,7 @@ generalSettingsPage.head = (options?: RouteQueryOptions): RouteDefinition<'head'
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 const generalSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -867,7 +867,7 @@ const generalSettingsPageForm = (options?: RouteQueryOptions): RouteFormDefiniti
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 generalSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -877,7 +877,7 @@ generalSettingsPageForm.get = (options?: RouteQueryOptions): RouteFormDefinition
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 generalSettingsPageForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 const Sanctum2128f37f20a590b1ff0195c75ef6250f = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250f.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 Sanctum2128f37f20a590b1ff0195c75ef6250f.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250f.url = (args: { tenant: string | number |
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 Sanctum2128f37f20a590b1ff0195c75ef6250f.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250f.get = (args: { tenant: string | number |
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 Sanctum2128f37f20a590b1ff0195c75ef6250f.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -69,7 +69,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250f.head = (args: { tenant: string | number 
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 const Sanctum2128f37f20a590b1ff0195c75ef6250fForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ const Sanctum2128f37f20a590b1ff0195c75ef6250fForm = (args: { tenant: string | nu
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 Sanctum2128f37f20a590b1ff0195c75ef6250fForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -89,7 +89,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250fForm.get = (args: { tenant: string | numb
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 Sanctum2128f37f20a590b1ff0195c75ef6250fForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -105,7 +105,7 @@ Sanctum2128f37f20a590b1ff0195c75ef6250fForm.head = (args: { tenant: string | num
 Sanctum2128f37f20a590b1ff0195c75ef6250f.form = Sanctum2128f37f20a590b1ff0195c75ef6250fForm
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 const Sanctume64f8eb57b38b4d674264fb743bee1bb = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,7 +120,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bb.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 Sanctume64f8eb57b38b4d674264fb743bee1bb.url = (options?: RouteQueryOptions) => {
@@ -129,7 +129,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bb.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 Sanctume64f8eb57b38b4d674264fb743bee1bb.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -139,7 +139,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bb.get = (options?: RouteQueryOptions): Rou
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 Sanctume64f8eb57b38b4d674264fb743bee1bb.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -149,7 +149,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bb.head = (options?: RouteQueryOptions): Ro
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 const Sanctume64f8eb57b38b4d674264fb743bee1bbForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -159,7 +159,7 @@ const Sanctume64f8eb57b38b4d674264fb743bee1bbForm = (options?: RouteQueryOptions
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 Sanctume64f8eb57b38b4d674264fb743bee1bbForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -169,7 +169,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bbForm.get = (options?: RouteQueryOptions):
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/chat/sanctum'
 */
 Sanctume64f8eb57b38b4d674264fb743bee1bbForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -185,7 +185,7 @@ Sanctume64f8eb57b38b4d674264fb743bee1bbForm.head = (options?: RouteQueryOptions)
 Sanctume64f8eb57b38b4d674264fb743bee1bb.form = Sanctume64f8eb57b38b4d674264fb743bee1bbForm
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 const Sanctum91c5726998c839de35750eea81c6063c = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -200,7 +200,7 @@ Sanctum91c5726998c839de35750eea81c6063c.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 Sanctum91c5726998c839de35750eea81c6063c.url = (options?: RouteQueryOptions) => {
@@ -209,7 +209,7 @@ Sanctum91c5726998c839de35750eea81c6063c.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 Sanctum91c5726998c839de35750eea81c6063c.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -219,7 +219,7 @@ Sanctum91c5726998c839de35750eea81c6063c.get = (options?: RouteQueryOptions): Rou
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 Sanctum91c5726998c839de35750eea81c6063c.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -229,7 +229,7 @@ Sanctum91c5726998c839de35750eea81c6063c.head = (options?: RouteQueryOptions): Ro
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 const Sanctum91c5726998c839de35750eea81c6063cForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -239,7 +239,7 @@ const Sanctum91c5726998c839de35750eea81c6063cForm = (options?: RouteQueryOptions
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 Sanctum91c5726998c839de35750eea81c6063cForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -249,7 +249,7 @@ Sanctum91c5726998c839de35750eea81c6063cForm.get = (options?: RouteQueryOptions):
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/super/sanctum'
 */
 Sanctum91c5726998c839de35750eea81c6063cForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -265,7 +265,7 @@ Sanctum91c5726998c839de35750eea81c6063cForm.head = (options?: RouteQueryOptions)
 Sanctum91c5726998c839de35750eea81c6063c.form = Sanctum91c5726998c839de35750eea81c6063cForm
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 const Sanctumd329e1ada52ea18773c534265725f03e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -280,7 +280,7 @@ Sanctumd329e1ada52ea18773c534265725f03e.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 Sanctumd329e1ada52ea18773c534265725f03e.url = (options?: RouteQueryOptions) => {
@@ -289,7 +289,7 @@ Sanctumd329e1ada52ea18773c534265725f03e.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 Sanctumd329e1ada52ea18773c534265725f03e.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -299,7 +299,7 @@ Sanctumd329e1ada52ea18773c534265725f03e.get = (options?: RouteQueryOptions): Rou
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 Sanctumd329e1ada52ea18773c534265725f03e.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -309,7 +309,7 @@ Sanctumd329e1ada52ea18773c534265725f03e.head = (options?: RouteQueryOptions): Ro
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 const Sanctumd329e1ada52ea18773c534265725f03eForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -319,7 +319,7 @@ const Sanctumd329e1ada52ea18773c534265725f03eForm = (options?: RouteQueryOptions
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 Sanctumd329e1ada52ea18773c534265725f03eForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -329,7 +329,7 @@ Sanctumd329e1ada52ea18773c534265725f03eForm.get = (options?: RouteQueryOptions):
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 Sanctumd329e1ada52ea18773c534265725f03eForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

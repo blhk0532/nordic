@@ -211,7 +211,7 @@ sendWhatsapp.form = sendWhatsappForm
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 export const sanctum = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -226,7 +226,7 @@ sanctum.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 sanctum.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -259,7 +259,7 @@ sanctum.url = (args: { tenant: string | number | { slug: string | number } } | [
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 sanctum.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ sanctum.get = (args: { tenant: string | number | { slug: string | number } } | [
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 sanctum.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ sanctum.head = (args: { tenant: string | number | { slug: string | number } } | 
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 const sanctumForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ const sanctumForm = (args: { tenant: string | number | { slug: string | number }
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 sanctumForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -299,7 +299,7 @@ sanctumForm.get = (args: { tenant: string | number | { slug: string | number } }
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/admin/tenant/{tenant}/sanctum'
 */
 sanctumForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -421,7 +421,7 @@ members.form = membersForm
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 export const generalSettingsPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -436,7 +436,7 @@ generalSettingsPage.definition = {
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 generalSettingsPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -469,7 +469,7 @@ generalSettingsPage.url = (args: { tenant: string | number | { slug: string | nu
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 generalSettingsPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -479,7 +479,7 @@ generalSettingsPage.get = (args: { tenant: string | number | { slug: string | nu
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 generalSettingsPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -489,7 +489,7 @@ generalSettingsPage.head = (args: { tenant: string | number | { slug: string | n
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 const generalSettingsPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -499,7 +499,7 @@ const generalSettingsPageForm = (args: { tenant: string | number | { slug: strin
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 generalSettingsPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -509,7 +509,7 @@ generalSettingsPageForm.get = (args: { tenant: string | number | { slug: string 
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 generalSettingsPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

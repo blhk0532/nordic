@@ -1,75 +1,75 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-const returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url(options),
+const returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url(options),
     method: 'get',
 })
 
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.definition = {
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.definition = {
     methods: ["get","head"],
-    url: '/livewire/livewire.js',
+    url: '/livewire-86207cf2/livewire.js',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url = (options?: RouteQueryOptions) => {
-    return returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.definition.url + queryParams(options)
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url = (options?: RouteQueryOptions) => {
+    return returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.definition.url + queryParams(options)
 }
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url(options),
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url(options),
     method: 'get',
 })
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url(options),
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url(options),
     method: 'head',
 })
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-const returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url(options),
+const returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url(options),
     method: 'get',
 })
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url(options),
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url(options),
     method: 'get',
 })
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
-* @route '/livewire/livewire.js'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
 */
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.url({
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -78,10 +78,10 @@ returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0Form.head = (options?: Rou
     method: 'get',
 })
 
-returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0.form = returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0Form
+returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621.form = returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621Form
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 const returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -96,7 +96,7 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.definition = {
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.url = (options?: RouteQueryOptions) => {
@@ -105,7 +105,7 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.url = (options?: RouteQue
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -115,7 +115,7 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.get = (options?: RouteQue
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -125,7 +125,7 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.head = (options?: RouteQu
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 const returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -135,7 +135,7 @@ const returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form = (options?: Ro
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -145,7 +145,7 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form.get = (options?: Rout
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::returnJavaScriptAsFile
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:79
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
 * @route '/livewire/livewire.min.js'
 */
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -161,14 +161,14 @@ returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form.head = (options?: Rou
 returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5.form = returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5Form
 
 export const returnJavaScriptAsFile = {
-    '/livewire/livewire.js': returnJavaScriptAsFilea71d666b14368e66fefdc9c70cb5e5b0,
+    '/livewire-86207cf2/livewire.js': returnJavaScriptAsFilec38f3eac0d2125e5844b5948dfba5621,
     '/livewire/livewire.min.js': returnJavaScriptAsFileb6b9fa30505bfec6f7e9137a73e290b5,
 }
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 export const maps = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: maps.url(options),
@@ -177,13 +177,13 @@ export const maps = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 maps.definition = {
     methods: ["get","head"],
-    url: '/livewire/livewire.min.js.map',
+    url: '/livewire-86207cf2/livewire.min.js.map',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 maps.url = (options?: RouteQueryOptions) => {
     return maps.definition.url + queryParams(options)
@@ -191,8 +191,8 @@ maps.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 maps.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: maps.url(options),
@@ -201,8 +201,8 @@ maps.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 maps.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: maps.url(options),
@@ -211,8 +211,8 @@ maps.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 const mapsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: maps.url(options),
@@ -221,8 +221,8 @@ const mapsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 mapsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: maps.url(options),
@@ -231,8 +231,8 @@ mapsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::maps
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:88
-* @route '/livewire/livewire.min.js.map'
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:94
+* @route '/livewire-86207cf2/livewire.min.js.map'
 */
 mapsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: maps.url({
@@ -246,6 +246,87 @@ mapsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 maps.form = mapsForm
 
-const FrontendAssets = { returnJavaScriptAsFile, maps }
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+export const cspMaps = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cspMaps.url(options),
+    method: 'get',
+})
+
+cspMaps.definition = {
+    methods: ["get","head"],
+    url: '/livewire-86207cf2/livewire.csp.min.js.map',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+cspMaps.url = (options?: RouteQueryOptions) => {
+    return cspMaps.definition.url + queryParams(options)
+}
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+cspMaps.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cspMaps.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+cspMaps.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: cspMaps.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+const cspMapsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cspMaps.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+cspMapsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cspMaps.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::cspMaps
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:103
+* @route '/livewire-86207cf2/livewire.csp.min.js.map'
+*/
+cspMapsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cspMaps.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+cspMaps.form = cspMapsForm
+
+const FrontendAssets = { returnJavaScriptAsFile, maps, cspMaps }
 
 export default FrontendAssets

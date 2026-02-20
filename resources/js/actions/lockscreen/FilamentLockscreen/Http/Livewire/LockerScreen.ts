@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 const LockerScreen2af6eaf045511c32f91d156fc6601986 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986.definition = {
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 LockerScreen2af6eaf045511c32f91d156fc6601986.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986.url = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 LockerScreen2af6eaf045511c32f91d156fc6601986.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986.get = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 LockerScreen2af6eaf045511c32f91d156fc6601986.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986.head = (options?: RouteQueryOptions
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 const LockerScreen2af6eaf045511c32f91d156fc6601986Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const LockerScreen2af6eaf045511c32f91d156fc6601986Form = (options?: RouteQueryOp
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 LockerScreen2af6eaf045511c32f91d156fc6601986Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986Form.get = (options?: RouteQueryOpti
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/admin/screen/lock'
 */
 LockerScreen2af6eaf045511c32f91d156fc6601986Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -81,7 +81,7 @@ LockerScreen2af6eaf045511c32f91d156fc6601986Form.head = (options?: RouteQueryOpt
 LockerScreen2af6eaf045511c32f91d156fc6601986.form = LockerScreen2af6eaf045511c32f91d156fc6601986Form
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 const LockerScreenf2c8f56cc9febb63da7843379b08d472 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -96,7 +96,7 @@ LockerScreenf2c8f56cc9febb63da7843379b08d472.definition = {
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 LockerScreenf2c8f56cc9febb63da7843379b08d472.url = (options?: RouteQueryOptions) => {
@@ -105,7 +105,7 @@ LockerScreenf2c8f56cc9febb63da7843379b08d472.url = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 LockerScreenf2c8f56cc9febb63da7843379b08d472.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -115,7 +115,7 @@ LockerScreenf2c8f56cc9febb63da7843379b08d472.get = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 LockerScreenf2c8f56cc9febb63da7843379b08d472.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -125,7 +125,7 @@ LockerScreenf2c8f56cc9febb63da7843379b08d472.head = (options?: RouteQueryOptions
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 const LockerScreenf2c8f56cc9febb63da7843379b08d472Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -135,7 +135,7 @@ const LockerScreenf2c8f56cc9febb63da7843379b08d472Form = (options?: RouteQueryOp
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 LockerScreenf2c8f56cc9febb63da7843379b08d472Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -145,7 +145,7 @@ LockerScreenf2c8f56cc9febb63da7843379b08d472Form.get = (options?: RouteQueryOpti
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\Livewire\LockerScreen::__invoke
-* @see vendor/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
+* @see plugins/marjose123/filament-lockscreen/src/Http/Livewire/LockerScreen.php:7
 * @route '/nds/super/screen/lock'
 */
 LockerScreenf2c8f56cc9febb63da7843379b08d472Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -51,16 +51,3 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
  </div>
 </div>
 </div>
-
-<x-filament::modal
-id="manus-calendar-modal"
-class="manus-modal"
-slide-over width="lg"
-class="fi-modal-slide-over-left"
-    >
-    <x-slot name="heading">
-
-    </x-slot>
-     @livewire('manus-icon-modal', [], key('user-notes-modal-' . Auth::id()))
-
-</x-filament::modal>

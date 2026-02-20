@@ -973,7 +973,7 @@ calendarSettingsPage.form = calendarSettingsPageForm
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 export const sanctum = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -988,7 +988,7 @@ sanctum.definition = {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 sanctum.url = (options?: RouteQueryOptions) => {
@@ -997,7 +997,7 @@ sanctum.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 sanctum.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1007,7 +1007,7 @@ sanctum.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 sanctum.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1017,7 +1017,7 @@ sanctum.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 const sanctumForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1027,7 +1027,7 @@ const sanctumForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 sanctumForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1037,7 +1037,7 @@ sanctumForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see vendor/devtical/filament-sanctum/src/Pages/Sanctum.php:7
+* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
 * @route '/nds/booking/sanctum'
 */
 sanctumForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

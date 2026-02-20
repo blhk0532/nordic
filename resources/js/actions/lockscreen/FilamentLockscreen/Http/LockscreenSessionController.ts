@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/admin/lock-session'
 */
 const lockSession9101e8e937ff331ad6e5c840c310e3db = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ lockSession9101e8e937ff331ad6e5c840c310e3db.definition = {
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/admin/lock-session'
 */
 lockSession9101e8e937ff331ad6e5c840c310e3db.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ lockSession9101e8e937ff331ad6e5c840c310e3db.url = (options?: RouteQueryOptions) 
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/admin/lock-session'
 */
 lockSession9101e8e937ff331ad6e5c840c310e3db.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ lockSession9101e8e937ff331ad6e5c840c310e3db.post = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/admin/lock-session'
 */
 const lockSession9101e8e937ff331ad6e5c840c310e3dbForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const lockSession9101e8e937ff331ad6e5c840c310e3dbForm = (options?: RouteQueryOpt
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/admin/lock-session'
 */
 lockSession9101e8e937ff331ad6e5c840c310e3dbForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -56,7 +56,7 @@ lockSession9101e8e937ff331ad6e5c840c310e3dbForm.post = (options?: RouteQueryOpti
 lockSession9101e8e937ff331ad6e5c840c310e3db.form = lockSession9101e8e937ff331ad6e5c840c310e3dbForm
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/nds/super/lock-session'
 */
 const lockSessiondfba708ed98b7b3dc5b78db3439fb911 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -71,7 +71,7 @@ lockSessiondfba708ed98b7b3dc5b78db3439fb911.definition = {
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/nds/super/lock-session'
 */
 lockSessiondfba708ed98b7b3dc5b78db3439fb911.url = (options?: RouteQueryOptions) => {
@@ -80,7 +80,7 @@ lockSessiondfba708ed98b7b3dc5b78db3439fb911.url = (options?: RouteQueryOptions) 
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/nds/super/lock-session'
 */
 lockSessiondfba708ed98b7b3dc5b78db3439fb911.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -90,7 +90,7 @@ lockSessiondfba708ed98b7b3dc5b78db3439fb911.post = (options?: RouteQueryOptions)
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/nds/super/lock-session'
 */
 const lockSessiondfba708ed98b7b3dc5b78db3439fb911Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -100,7 +100,7 @@ const lockSessiondfba708ed98b7b3dc5b78db3439fb911Form = (options?: RouteQueryOpt
 
 /**
 * @see \lockscreen\FilamentLockscreen\Http\LockscreenSessionController::lockSession
-* @see vendor/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
+* @see plugins/marjose123/filament-lockscreen/src/Http/LockscreenSessionController.php:14
 * @route '/nds/super/lock-session'
 */
 lockSessiondfba708ed98b7b3dc5b78db3439fb911Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

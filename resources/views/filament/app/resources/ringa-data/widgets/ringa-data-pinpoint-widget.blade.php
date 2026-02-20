@@ -4,9 +4,9 @@
 
         </style>
         @if($record && ($record->latitud || $record->longitude))
-            <form wire:submit="save" class="space-y-4" wire:key="pinpoint-form-{{ $record->id }}">
+            <div class="space-y-4" wire:key="pinpoint-form-{{ $record->id }}">
                 {{ $this->form }}
-            </form>
+            </div>
         @else
             <div class="flex items-center justify-center h-64 text-gray-500">
                 <div class="text-center">

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 const GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.definition = {
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.url = (args: { tenant: strin
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.get = (args: { tenant: strin
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -69,7 +69,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.head = (args: { tenant: stri
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 const GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ const GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form = (args: { tenant:
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -89,7 +89,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form.get = (args: { tenant: s
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/admin/tenant/{tenant}/general-settings-page'
 */
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -105,7 +105,7 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form.head = (args: { tenant: 
 GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.form = GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9Form
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 const GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,7 +120,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.definition = {
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.url = (options?: RouteQueryOptions) => {
@@ -129,7 +129,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.url = (options?: RouteQueryO
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -139,7 +139,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.get = (options?: RouteQueryO
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -149,7 +149,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.head = (options?: RouteQuery
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 const GeneralSettingsPageaf862ec695393231f1ae7268ddc791aeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -159,7 +159,7 @@ const GeneralSettingsPageaf862ec695393231f1ae7268ddc791aeForm = (options?: Route
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 GeneralSettingsPageaf862ec695393231f1ae7268ddc791aeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -169,7 +169,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791aeForm.get = (options?: RouteQu
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
-* @see vendor/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 GeneralSettingsPageaf862ec695393231f1ae7268ddc791aeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
