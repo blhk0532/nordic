@@ -43,6 +43,7 @@ class RatsitKommunResource extends Resource
     {
         return $table
             ->columns([
+            TextColumn::make('id'),
                 TextColumn::make('kommun')
                     ->searchable()
                     ->sortable()
