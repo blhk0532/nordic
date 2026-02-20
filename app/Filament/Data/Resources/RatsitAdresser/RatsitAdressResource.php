@@ -94,7 +94,9 @@ class RatsitAdressResource extends Resource
                 ]),
             ])
             ->defaultSort('updated_at', 'desc')
-            ->paginated([10, 25, 50, 100])
+                     ->deferFilters()
+            ->defaultSort('created_at', 'desc')
+            ->paginated([10, 25, 50, 100, 250, 500, 1000])
             ->defaultPaginationPageOption(25);
     }
 
