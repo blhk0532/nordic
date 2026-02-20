@@ -30,6 +30,10 @@ return RectorConfig::configure()
         cacheDirectory: '/tmp/rector',
         cacheClass: FileCacheStorage::class,
     )
+    // avoid parallel worker timeouts when running on large directories
+    ->parallel(
+        processTimeout: 300,
+    )
     ->withPaths([
         __DIR__.'/app',
         __DIR__.'/bootstrap/app.php',
@@ -42,6 +46,8 @@ return RectorConfig::configure()
     ->withSkip([
         AddOverrideAttributeToOverriddenMethodsRector::class,
         __DIR__.'/config/database.php',
+        // never touch third‑party code
+        __DIR__.'/vendor',
     ])
     ->withPreparedSets(
         deadCode: true,
