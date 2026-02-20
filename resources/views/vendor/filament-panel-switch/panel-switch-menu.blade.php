@@ -264,6 +264,7 @@ x-show="$store.sidebar.isOpen"
 
 <x-filament::modal
     id="panel-switch"
+    style="max-width: 320px;"
     width="md"
     alignment="start"
     slide-over
@@ -273,7 +274,7 @@ x-show="$store.sidebar.isOpen"
     display-classes="block"
     width="sm"
     class="panel-switch-modal fi-modal-slide-over-left"
-style="max-width: 348px;"
+style="max-width: 320px;"
 >
     <div
         class="panel-switch-grid"

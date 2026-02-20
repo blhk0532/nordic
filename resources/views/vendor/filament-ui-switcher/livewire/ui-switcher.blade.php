@@ -53,6 +53,8 @@ $anderia = \Andreia\FilamentUiSwitcher\Support\UiPreferenceManager::get('ui.layo
         id="ui-switcher-modal"
         slide-over
         close-button
+        id="ui-switcher-modal"
+        style="max-width: 320px;"
         width="sm"
         :visible="$open"
         class="fi-modal-slide-over-left"
