@@ -27,3 +27,7 @@ it('can render activity log resource page', function () {
     $this->get(ActivityLogResource::getUrl('index'))
         ->assertSuccessful();
 });
+
+it('defaults tenant ownership relationship to causer', function () {
+    expect(ActivityLogResource::getTenantOwnershipRelationshipName())->toBe('causer');
+});

@@ -502,11 +502,8 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                     ->color('gray')
                     ->close(true)
                     ->icon('heroicon-o-arrow-down-circle')
-                    ->action(function () {
-                        $data = $arguments['data'] ?? [];
-                        $this->replaceMountedAction('', ['data' => $data]);
-                        $newIndex = max(0, count($this->mountedActions) - 1);
-                        $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => $newIndex]);
+                    ->action(function (): void {
+                        $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => 0]);
                     }),
 
             ]);

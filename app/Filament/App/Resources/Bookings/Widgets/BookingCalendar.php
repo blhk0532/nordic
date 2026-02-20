@@ -66,8 +66,6 @@ class BookingCalendar extends Widget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
 
-
-
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
         InteractsWithEvents::onDateSelectLegacy insteadof InteractsWithCalendar;
@@ -829,7 +827,8 @@ class BookingCalendar extends Widget implements HasCalendar
 
                 logger()->info('BookingCalendarWidget: BEFORE Booking::create()', [
                     'booking_calendar_id' => $data['booking_calendar_id'] ?? 'NOT SET',
-                    'full_data' => $data,
+                    'service_date' => $data['service_date'] ?? null,
+                    'service_user_id' => $data['service_user_id'] ?? null,
                 ]);
                 $booking = Booking::create($data);
                 logger()->info('BookingCalendarWidget: AFTER Booking::create()', [
@@ -1104,7 +1103,7 @@ class BookingCalendar extends Widget implements HasCalendar
                     ->label('Edit')
                     ->color('primary')
                     ->icon('heroicon-o-pencil-square')
-                    ->action(function () {
+                    ->action(function (array $arguments): void {
                         $data = $arguments['data'] ?? [];
                         $this->replaceMountedAction('editServicePeriod', ['data' => $data]);
                         $newIndex = max(0, count($this->mountedActions) - 1);
@@ -1115,7 +1114,7 @@ class BookingCalendar extends Widget implements HasCalendar
                     ->color('danger')
                     ->icon('heroicon-o-trash')
                     ->requiresConfirmation()
-                    ->action(function () {
+                    ->action(function (array $arguments): void {
                         $data = $arguments['data'] ?? [];
                         $id = $data['id'] ?? null;
                         if ($id) {

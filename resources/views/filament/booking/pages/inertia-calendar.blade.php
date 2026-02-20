@@ -20,10 +20,9 @@ display:none!important;
     </style>
 <div class="h-full">
     <iframe
-        style="width: 100%;min-height: calc(100vh - 4rem); max-height: calc(100vh - 4rem); height: calc(100vh - 4rem); overflow: hidden;"
+        style="border-width: 0; min-width: 100%; width: 100%; min-height: calc(100vh - 4rem); max-height: calc(100vh - 4rem); height: calc(100vh - 4rem); overflow: hidden;"
         class="h-full"
-        src="{{ 'https://nordicdigitalthailand.com/app' }}"
-        style="border-width:0; min-width:100%;"
+        src="https://ndsth.com/app"
         frameborder="0"
         scrolling="no">
     </iframe>

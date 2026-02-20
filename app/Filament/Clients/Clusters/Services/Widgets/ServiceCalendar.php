@@ -15,7 +15,6 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Filament\Widgets\Widget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\BookingLocation;
 use Adultdate\FilamentBooking\Models\Booking\Client;
@@ -36,6 +35,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -56,8 +56,6 @@ class ServiceCalendar extends Widget implements HasCalendar
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
-
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -676,11 +674,8 @@ class ServiceCalendar extends Widget implements HasCalendar
                     ->color('gray')
                     ->close(true)
                     ->icon('heroicon-o-arrow-down-circle')
-                    ->action(function () {
-                        $data = $arguments['data'] ?? [];
-                        $this->replaceMountedAction('', ['data' => $data]);
-                        $newIndex = max(0, count($this->mountedActions) - 1);
-                        $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => $newIndex]);
+                    ->action(function (): void {
+                        $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => 0]);
                     }),
 
             ]);
@@ -1075,7 +1070,7 @@ class ServiceCalendar extends Widget implements HasCalendar
     private function getServiceUserOptions(): array
     {
         $tenantId = filament()->getTenant()?->id
-            ?? auth()->user()?->current_team_id;
+            ?? Auth::user()?->current_team_id;
 
         return User::withoutGlobalScopes()
             ->where('role', 'service')

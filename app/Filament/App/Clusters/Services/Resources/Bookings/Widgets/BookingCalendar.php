@@ -15,7 +15,6 @@ use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
-use Filament\Widgets\Widget;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
@@ -41,6 +40,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
+use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -65,8 +65,6 @@ class BookingCalendar extends Widget implements HasCalendar
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
-
 
         // Resolve method collisions from InteractsWithEvents vs InteractsWithCalendar
         InteractsWithEvents::onEventClickLegacy insteadof InteractsWithCalendar;
@@ -793,7 +791,8 @@ class BookingCalendar extends Widget implements HasCalendar
 
                 logger()->info('BookingCalendarWidget: BEFORE Booking::create()', [
                     'booking_calendar_id' => $data['booking_calendar_id'] ?? 'NOT SET',
-                    'full_data' => $data,
+                    'service_date' => $data['service_date'] ?? null,
+                    'service_user_id' => $data['service_user_id'] ?? null,
                 ]);
                 $booking = Booking::create($data);
                 logger()->info('BookingCalendarWidget: AFTER Booking::create()', [

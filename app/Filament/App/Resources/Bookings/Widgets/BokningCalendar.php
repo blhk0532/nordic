@@ -826,7 +826,8 @@ class BokningCalendar extends Widget implements HasCalendar
 
                 logger()->info('BookingCalendarWidget: BEFORE Booking::create()', [
                     'booking_calendar_id' => $data['booking_calendar_id'] ?? 'NOT SET',
-                    'full_data' => $data,
+                    'service_date' => $data['service_date'] ?? null,
+                    'service_user_id' => $data['service_user_id'] ?? null,
                 ]);
                 $booking = Booking::create($data);
                 logger()->info('BookingCalendarWidget: AFTER Booking::create()', [

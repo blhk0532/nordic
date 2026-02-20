@@ -22,6 +22,12 @@ use UnitEnum;
 class ActivityLogResource extends Resource
 {
     /**
+     * The relationship on the model used to determine tenant ownership.
+     * Spatie\Activitylog\Models\Activity uses "causer" not "user".
+     */
+    protected static ?string $tenantOwnershipRelationshipName = 'causer';
+
+    /**
      * The model class associated with this resource.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>|null
