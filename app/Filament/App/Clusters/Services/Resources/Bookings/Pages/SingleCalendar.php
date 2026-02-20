@@ -16,13 +16,13 @@ use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
+use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
 
 class SingleCalendar extends BaseDashboard
 {
@@ -47,9 +47,7 @@ class SingleCalendar extends BaseDashboard
 
     protected static string $routePath = 'single-calendar';
 
-    protected static string|UnitEnum|null $navigationGroup = '';
-
-
+    // protected static string|UnitEnum|null $navigationGroup = '';
 
     //   use HasFiltersForm;
     //  protected static ?string $slug = 'dashboard';
@@ -58,9 +56,10 @@ class SingleCalendar extends BaseDashboard
 
     public static function shouldRegisterNavigation(): bool
     {
-                                FilamentAsset::register([
-    Css::make('booking', __DIR__ . '/../../../../resources/css/booking.css'),
-]);
+        FilamentAsset::register([
+            Css::make('booking', __DIR__.'/../../../../resources/css/booking.css'),
+        ]);
+
         return true;
     }
 
@@ -90,14 +89,15 @@ class SingleCalendar extends BaseDashboard
     //       return 2;
     //   }
 
-       public static function getNavigationBadge(): ?string
-       {
-           //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
-           Carbon::setLocale('sv');
-           return now()
-               ->timezone('Europe/Stockholm')
-               ->translatedFormat('d M');
-       }
+    public static function getNavigationBadge(): ?string
+    {
+        //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
+        Carbon::setLocale('sv');
+
+        return now()
+            ->timezone('Europe/Stockholm')
+            ->translatedFormat('d M');
+    }
 
     public static function getNavigationBadgeColor(): ?string
     {

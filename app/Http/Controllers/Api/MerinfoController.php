@@ -36,7 +36,7 @@ class MerinfoController extends Controller
             });
         }
 
-        $perPage = min($request->get('per_page', 25), 100);
+        $perPage = min($request->input('per_page', 25), 100);
         $records = $query->paginate($perPage);
 
         return response()->json($records);

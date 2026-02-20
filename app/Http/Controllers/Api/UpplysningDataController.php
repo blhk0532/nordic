@@ -52,11 +52,11 @@ class UpplysningDataController extends Controller
             $query->where('bostadstyp', 'like', "%{$request->bostadstyp}%");
         }
 
-        $sortField = $request->get('sort_by', 'created_at');
-        $sortDirection = $request->get('sort_direction', 'desc');
+        $sortField = $request->input('sort_by', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
         $query->orderBy($sortField, $sortDirection);
 
-        $perPage = min($request->get('per_page', 25), 100);
+        $perPage = min($request->input('per_page', 25), 100);
         $records = $query->paginate($perPage);
 
         return UpplysningDataResource::collection($records);

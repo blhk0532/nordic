@@ -30,42 +30,42 @@ class DataPrivateController extends Controller
 
         // Accept both modern and legacy (bo_/ps_) filter keys used in tests/clients
         if ($request->has('postnummer') || $request->has('bo_postnummer')) {
-            $val = $request->get('postnummer', $request->get('bo_postnummer'));
+            $val = $request->input('postnummer', $request->input('bo_postnummer'));
             $query->where('postnummer', 'like', "%{$val}%")->orWhere('bo_postnummer', 'like', "%{$val}%");
         }
 
         if ($request->has('postort') || $request->has('bo_postort')) {
-            $val = $request->get('postort', $request->get('bo_postort'));
+            $val = $request->input('postort', $request->input('bo_postort'));
             $query->where('postort', 'like', "%{$val}%")->orWhere('bo_postort', 'like', "%{$val}%");
         }
 
         if ($request->has('kommun') || $request->has('bo_kommun')) {
-            $val = $request->get('kommun', $request->get('bo_kommun'));
+            $val = $request->input('kommun', $request->input('bo_kommun'));
             $query->where('kommun', 'like', "%{$val}%")->orWhere('bo_kommun', 'like', "%{$val}%");
         }
 
         if ($request->has('lan') || $request->has('bo_lan')) {
-            $val = $request->get('lan', $request->get('bo_lan'));
+            $val = $request->input('lan', $request->input('bo_lan'));
             $query->where('lan', 'like', "%{$val}%")->orWhere('bo_lan', 'like', "%{$val}%");
         }
 
         if ($request->has('personnummer') || $request->has('ps_personnummer')) {
-            $val = $request->get('personnummer', $request->get('ps_personnummer'));
+            $val = $request->input('personnummer', $request->input('ps_personnummer'));
             $query->where('personnummer', 'like', "%{$val}%")->orWhere('ps_personnummer', 'like', "%{$val}%");
         }
 
         if ($request->has('personnamn') || $request->has('ps_personnamn')) {
-            $val = $request->get('personnamn', $request->get('ps_personnamn'));
+            $val = $request->input('personnamn', $request->input('ps_personnamn'));
             $query->searchByName($val);
         }
 
         // Apply sorting
-        $sortField = $request->get('sort_by', 'created_at');
-        $sortDirection = $request->get('sort_direction', 'desc');
+        $sortField = $request->input('sort_by', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
         $query->orderBy($sortField, $sortDirection);
 
         // Pagination
-        $perPage = min($request->get('per_page', 25), 100);
+        $perPage = min($request->input('per_page', 25), 100);
         $records = $query->paginate($perPage);
 
         return DataPrivateResource::collection($records);

@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRatsitDataRequest;
 use App\Http\Requests\UpdateRatsitDataRequest;
 use App\Http\Resources\RatsitDataResource;
-use App\Models\RatsitData;
 use App\Models\PrivateData;
+use App\Models\RatsitData;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -55,11 +55,11 @@ class RatsitDataController extends Controller
             $query->where('personnamn', 'like', "%{$request->personnamn}%");
         }
 
-        $sortField = $request->get('sort_by', 'created_at');
-        $sortDirection = $request->get('sort_direction', 'desc');
+        $sortField = $request->input('sort_by', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
         $query->orderBy($sortField, $sortDirection);
 
-        $perPage = min($request->get('per_page', 25), 100000);
+        $perPage = min($request->input('per_page', 25), 100000);
         $records = $query->paginate($perPage);
 
         return RatsitDataResource::collection($records);
@@ -392,6 +392,7 @@ class RatsitDataController extends Controller
                         if ($candidate) {
                             $candidate->update($recordData);
                             $updated++;
+
                             continue;
                         }
                     } catch (Exception $_e) {

@@ -17,7 +17,7 @@ class PostNummerForetagQueueController extends Controller
         $query = PostNummerForetagQueue::query();
 
         if ($request->has('post_nummer')) {
-            $needle = str_replace(' ', '', $request->get('post_nummer'));
+            $needle = str_replace(' ', '', $request->input('post_nummer'));
             $query->whereRaw('REPLACE(post_nummer, " ", "") LIKE ?', ["%{$needle}%"]);
         }
 
@@ -25,7 +25,7 @@ class PostNummerForetagQueueController extends Controller
             $query->where('is_active', $request->boolean('is_active'));
         }
 
-        $perPage = min((int) $request->get('per_page', 25), 100);
+        $perPage = min((int) $request->input('per_page', 25), 100);
 
         return response()->json($query->orderBy('created_at', 'desc')->paginate($perPage));
     }

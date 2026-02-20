@@ -28,12 +28,12 @@ class PostNumsApiController extends Controller
         }
 
         // Sorting
-        $sortBy = $request->get('sort_by', 'post_nummer');
-        $sortDirection = $request->get('sort_direction', 'asc');
+        $sortBy = $request->input('sort_by', 'post_nummer');
+        $sortDirection = $request->input('sort_direction', 'asc');
         $query->orderBy($sortBy, $sortDirection);
 
         // Pagination
-        $perPage = $request->get('per_page', 50);
+        $perPage = $request->input('per_page', 50);
         $postNums = $query->paginate($perPage);
 
         return response()->json($postNums);

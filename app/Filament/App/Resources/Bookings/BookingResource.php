@@ -31,7 +31,7 @@ class BookingResource extends Resource
 
     protected static ?string $navigationLabel = 'Bokningar';
 
-    protected static string|UnitEnum|null $navigationGroup = '    ';
+    protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-check-circle';
 
@@ -158,5 +158,25 @@ class BookingResource extends Resource
         }
 
         return $data;
+    }
+
+        public static function shouldRegisterNavigation(): bool
+    {
+        $teneant = filament()->getTenant();
+
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return true;
+        }
+
+        if (filament()->getTenant()->getAttribute('is_admin') === true) {
+            return false;
+        }
+
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return true;
+        }
+
+        return false;
+
     }
 }

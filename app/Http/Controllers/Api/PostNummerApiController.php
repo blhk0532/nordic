@@ -38,7 +38,7 @@ class PostNummerApiController extends Controller
             $query->where('post_lan', 'like', "%{$request->post_lan}%");
         }
 
-        $perPage = min($request->get('per_page', 25), 100);
+        $perPage = min($request->input('per_page', 25), 100);
         $records = $query->paginate($perPage);
 
         return PostNummerApiResource::collection($records);

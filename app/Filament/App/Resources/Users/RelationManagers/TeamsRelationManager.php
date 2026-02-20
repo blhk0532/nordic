@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\Users\RelationManagers;
 
-use App\Filament\Admin\Resources\Teams\TeamResource;
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -18,7 +17,9 @@ class TeamsRelationManager extends RelationManager
 {
     protected static string $relationship = 'teams';
 
-    protected static ?string $relatedResource = TeamResource::class;
+    // Related resource is intentionally null for the App panel to avoid
+    // generating cross-panel routes (e.g. filament.app.resources.teams.view)
+    protected static ?string $relatedResource = null;
 
     public function table(Table $table): Table
     {

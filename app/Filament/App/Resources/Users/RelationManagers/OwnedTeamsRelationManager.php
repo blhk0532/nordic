@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\Users\RelationManagers;
 
-use App\Filament\Admin\Resources\Teams\TeamResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
@@ -16,7 +15,8 @@ class OwnedTeamsRelationManager extends RelationManager
 {
     protected static string $relationship = 'ownedTeams';
 
-    protected static ?string $relatedResource = TeamResource::class;
+    // No related resource registered for the App panel — prevent missing-route errors
+    protected static ?string $relatedResource = null;
 
     public static function getRelationshipTitle(): string
     {

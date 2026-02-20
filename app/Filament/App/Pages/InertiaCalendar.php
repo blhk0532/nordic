@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\App\Pages;
 
 use BackedEnum;
+use Carbon\Carbon;
 use Filament\Pages\Page;
 use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
-use Carbon\Carbon;
 
 class InertiaCalendar extends Page
 {
@@ -41,36 +41,35 @@ class InertiaCalendar extends Page
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
-    protected static string|UnitEnum|null $navigationGroup = '';
+    //  protected static string|UnitEnum|null $navigationGroup = '';
 
-        public static function getNavigationBadge(): ?string
-        {
-            $role = Str::upper(Auth::user()->role);
-                       Carbon::setLocale('sv');
-           return now()
-               ->timezone('Europe/Stockholm')
-               ->translatedFormat('l');
-        }
+    public static function getNavigationBadge(): ?string
+    {
+        $role = Str::upper(Auth::user()->role);
+        Carbon::setLocale('sv');
+
+        return now()
+            ->timezone('Europe/Stockholm')
+            ->translatedFormat('l');
+    }
 
     protected Width|string|null $maxContentWidth = 'full';
-
 
     public static function getNavigationBadgeColor(): ?string
     {
         return 'gray';
     }
 
- //  public static function shouldRegisterNavigation(): bool
- //  {
- //            $teneant = filament()->getTenant();
- //      if (filament()->getTenant()->getAttribute('is_admin') !== true) {
- //          return false;
- //      }
- //      if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
- //          return true;
- //      }
- //      return false;
- //  }
-
+    //  public static function shouldRegisterNavigation(): bool
+    //  {
+    //            $teneant = filament()->getTenant();
+    //      if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+    //          return false;
+    //      }
+    //      if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+    //          return true;
+    //      }
+    //      return false;
+    //  }
 
 }
