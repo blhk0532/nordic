@@ -16,7 +16,9 @@
         h1.fi-header-heading {
 display:none!important;
 }
-
+.fi-header{
+display:none!important;
+}
     </style>
 <div class="h-full">
     <iframe

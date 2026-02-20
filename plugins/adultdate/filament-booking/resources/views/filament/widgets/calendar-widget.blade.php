@@ -61,7 +61,7 @@
             <script defer src="{{ asset('vendor/adultdate/filament-booking/calendar-event.js') }}"></script>
             <script defer src="{{ asset('vendor/adultdate/filament-booking/calendar-context-menu.js') }}"></script>
             @if($this->hasContextMenu())
-                <x-adultdate/filament-booking::context-menu/>
+                <x-filament-booking::context-menu/>
             @endif
         </div>
     </x-filament::section>
