@@ -33,7 +33,7 @@ class HittaDataResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'SWE Databas';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 5;
 
     // place resource under Databaser cluster
     protected static ?string $slug = 'databaser/hitta-data';

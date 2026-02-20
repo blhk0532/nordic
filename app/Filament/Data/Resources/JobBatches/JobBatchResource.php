@@ -32,7 +32,7 @@ class JobBatchResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
+  //  protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
 
     public static function form(Schema $schema): Schema
     {

@@ -31,7 +31,7 @@ class PostNumResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
+  //  protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
 
     public static function form(Schema $schema): Schema
     {

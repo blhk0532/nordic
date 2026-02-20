@@ -22,6 +22,9 @@ class PrivateDataResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
+
+    protected static ?int $navigationSort = 6;
+
     public static function form(Schema $schema): Schema
     {
         return PrivateDataForm::configure($schema);

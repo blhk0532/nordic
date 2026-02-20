@@ -2,14 +2,22 @@
 
 declare(strict_types=1);
 
-use App\Http\Middleware\HandleAppearance;
-use App\Http\Middleware\HandleInertiaRequests;
-use App\Http\Middleware\UpdateUserActiveAt;
-use Illuminate\Console\Scheduling\Schedule;
+// Set PHP config from environment
+if ($memoryLimit = env('PHP_MEMORY_LIMIT')) {
+    ini_set('memory_limit', $memoryLimit);
+}
+if ($maxExecutionTime = env('PHP_MAX_EXECUTION_TIME')) {
+    ini_set('max_execution_time', $maxExecutionTime);
+}
+
 use App\Http\Middleware\EnsureEmailVerified;
 use App\Http\Middleware\ForceJsonResponse;
 use App\Http\Middleware\ForceLocalhost;
+use App\Http\Middleware\HandleAppearance;
+use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LogApiRequests;
+use App\Http\Middleware\UpdateUserActiveAt;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;

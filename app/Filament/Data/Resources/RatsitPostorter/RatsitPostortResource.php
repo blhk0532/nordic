@@ -23,11 +23,11 @@ class RatsitPostortResource extends Resource
 {
     protected static ?string $model = RatsitPostort::class;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMap;
 
-    protected static ?string $navigationLabel = 'Ratsit Postorter';
+    protected static ?string $navigationLabel = 'Ratsit Postort';
 
     protected static UnitEnum|string|null $navigationGroup = 'Ratsit Databas';
 

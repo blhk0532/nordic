@@ -28,7 +28,7 @@ class RatsitPersonResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
 
-    protected static ?string $navigationLabel = 'Ratsit Personer';
+    protected static ?string $navigationLabel = 'Ratsit Person';
 
     protected static ?int $navigationSort = 8;
 

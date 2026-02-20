@@ -31,9 +31,9 @@ class RatsitDataResource extends Resource
 
     protected static ?string $navigationLabel = 'Ratsit Databas';
 
- //   protected static string|UnitEnum|null $navigationGroup = 'SWE Databas';
+    protected static string|UnitEnum|null $navigationGroup = 'Ratsit Databas';
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 9;
 
     // place resource under Databaser cluster
     protected static ?string $slug = 'databaser/ratsit-data';

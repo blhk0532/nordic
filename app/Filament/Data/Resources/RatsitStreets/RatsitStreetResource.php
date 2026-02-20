@@ -36,6 +36,11 @@ class RatsitStreetResource extends Resource
 
     protected static ?string $slug = 'databaser/ratsit-streets';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return (string) self::getModel()::count();

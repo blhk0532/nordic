@@ -33,7 +33,7 @@ class JobResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
+   // protected static UnitEnum|string|null $navigationGroup = 'Tasks Queue';
 
     public static function form(Schema $schema): Schema
     {

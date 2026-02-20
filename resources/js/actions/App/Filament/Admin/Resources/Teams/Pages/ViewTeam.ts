@@ -2,113 +2,14 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-const ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, options),
-    method: 'get',
-})
-
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/teams/{record}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-            record: args[1],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-        record: args.record,
-    }
-
-    return ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-const ViewTeam25d27a5d6c7db7b127e9ed8f8500cbaeForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbaeForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
-* @route '/admin/tenant/{tenant}/teams/{record}'
-*/
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbaeForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae.form = ViewTeam25d27a5d6c7db7b127e9ed8f8500cbaeForm
-/**
-* @see \App\Filament\Admin\Resources\Teams\Pages\ViewTeam::__invoke
-* @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-const ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, options),
+const ViewTeam = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewTeam.url(args, options),
     method: 'get',
 })
 
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.definition = {
+ViewTeam.definition = {
     methods: ["get","head"],
     url: '/nds/super/teams/{record}',
 } satisfies RouteDefinition<["get","head"]>
@@ -118,7 +19,7 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.definition = {
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+ViewTeam.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -135,7 +36,7 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url = (args: { record: string | number 
         record: args.record,
     }
 
-    return ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.definition.url
+    return ViewTeam.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -145,8 +46,8 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url = (args: { record: string | number 
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, options),
+ViewTeam.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewTeam.url(args, options),
     method: 'get',
 })
 
@@ -155,8 +56,8 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.get = (args: { record: string | number 
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, options),
+ViewTeam.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewTeam.url(args, options),
     method: 'head',
 })
 
@@ -165,8 +66,8 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.head = (args: { record: string | number
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-const ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, options),
+const ViewTeamForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTeam.url(args, options),
     method: 'get',
 })
 
@@ -175,8 +76,8 @@ const ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm = (args: { record: string | n
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, options),
+ViewTeamForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTeam.url(args, options),
     method: 'get',
 })
 
@@ -185,8 +86,8 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm.get = (args: { record: string | num
 * @see app/Filament/Admin/Resources/Teams/Pages/ViewTeam.php:7
 * @route '/nds/super/teams/{record}'
 */
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.url(args, {
+ViewTeamForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTeam.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -195,11 +96,6 @@ ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm.head = (args: { record: string | nu
     method: 'get',
 })
 
-ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b.form = ViewTeam82b1b0aca8c96cc24e708c71a18b5f1bForm
-
-const ViewTeam = {
-    '/admin/tenant/{tenant}/teams/{record}': ViewTeam25d27a5d6c7db7b127e9ed8f8500cbae,
-    '/nds/super/teams/{record}': ViewTeam82b1b0aca8c96cc24e708c71a18b5f1b,
-}
+ViewTeam.form = ViewTeamForm
 
 export default ViewTeam
