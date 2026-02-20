@@ -120,6 +120,16 @@ return [
             'replace_placeholders' => true,
         ],
 
+        // Explicit deprecations channel so calls to Log::channel('deprecations')
+        // always resolve. Uses a dedicated log file by default but can be
+        // overridden using environment variables if desired.
+        'deprecations' => [
+            'driver' => env('LOG_DEPRECATIONS_DRIVER', 'single'),
+            'path' => storage_path('logs/deprecations.log'),
+            'level' => env('LOG_DEPRECATIONS_LEVEL', 'warning'),
+            'replace_placeholders' => true,
+        ],
+
         'null' => [
             'driver' => 'monolog',
             'handler' => NullHandler::class,
