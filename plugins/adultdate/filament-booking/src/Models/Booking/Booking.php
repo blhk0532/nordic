@@ -51,6 +51,8 @@ class Booking extends Model
         'completed_at',
         'schedulable_type',
         'schedulable_id',
+        'personnummer',
+        'fastighetsbeteckning',
     ];
 
     protected $casts = [
