@@ -26,7 +26,7 @@ echo "Step 3: Installing NPM dependencies..."
 if [ -f "package-lock.json" ]; then
     rm package-lock.json
 fi
-npm install
+pnpm install
 
 echo ""
 echo "Step 4: Building frontend assets..."
