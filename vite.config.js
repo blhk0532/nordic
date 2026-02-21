@@ -1,30 +1,28 @@
-import {
-    defineConfig
-} from 'vite';
-import { wayfinder } from '@laravel/vite-plugin-wayfinder';
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
-import laravel from 'laravel-vite-plugin';
-import path from 'path';
+import { defineConfig } from "vite";
+import { wayfinder } from "@laravel/vite-plugin-wayfinder";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import laravel from "laravel-vite-plugin";
+import path from "path";
 
 export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-                'resources/css/filament/adm/theme.css',
-                'resources/css/filament/app/theme.css',
-                'resources/css/filament/booking/theme.css',
-                'resources/css/filament/data/theme.css',
-                'resources/css/filament/calendar/theme.css',
-                'resources/css/filament/queue/theme.css',
-                'resources/css/filament/super/theme.css',
-                'resources/css/filament/tools/theme.css',
-                'resources/css/filament/chat/theme.css',
-                'resources/css/filament/notify/theme.css',
-                'resources/css/filament/files/theme.css',
-                'resources/css/filament/admin/theme.css',
+                "resources/css/app.css",
+                "resources/js/app.tsx",
+                "resources/css/filament/adm/theme.css",
+                "resources/css/filament/app/theme.css",
+                "resources/css/filament/booking/theme.css",
+                "resources/css/filament/data/theme.css",
+                "resources/css/filament/calendar/theme.css",
+                "resources/css/filament/queue/theme.css",
+                "resources/css/filament/super/theme.css",
+                "resources/css/filament/tools/theme.css",
+                "resources/css/filament/chat/theme.css",
+                "resources/css/filament/notify/theme.css",
+                "resources/css/filament/files/theme.css",
+                "resources/css/filament/admin/theme.css",
             ],
             refresh: true,
         }),
@@ -32,22 +30,22 @@ export default defineConfig({
         tailwindcss(),
         wayfinder({
             formVariants: true,
-            command: 'php -d xdebug.mode=off artisan wayfinder:generate',
+            command: "php -d xdebug.mode=off artisan wayfinder:generate",
         }),
     ],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'resources/js'),
+            "@": path.resolve(__dirname, "resources/js"),
         },
     },
     esbuild: {
-        jsx: 'automatic',
+        jsx: "automatic",
     },
     server: {
         cors: true,
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            ignored: ["**/storage/framework/views/**"],
         },
     },
-    envPrefix: ['VITE_', 'APP_', 'DB_'],
+    envPrefix: ["VITE_", "APP_", "DB_"],
 });
