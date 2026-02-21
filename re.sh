@@ -75,6 +75,13 @@ if pgrep -x "supervisord" > /dev/null; then
     sudo supervisorctl restart all || true
 fi
 
+# Check and restart Octane server
+if pgrep -x "octane" > /dev/null; then
+    echo "  -> Restarting Octane server..."
+    sudo php artisan octane:reload || true
+fi
+
+
 echo ""
 echo "Step 7: Rebuilding application caches..."
 php artisan config:cache

@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Reflector;
 use Livewire\Component;
-use Livewire\Mechanisms\ComponentRegistry;
 use ReflectionProperty;
 
 class Modal extends Component
@@ -54,7 +53,7 @@ class Modal extends Component
             }
         }
 
-        $componentClass = app(ComponentRegistry::class)->getClass($component);
+        $componentClass = app(Finder::class)->resolveClassComponentClassName($component);
         $id = md5($component.serialize($arguments));
 
         $arguments = collect($arguments)
