@@ -220,11 +220,7 @@ div.filament-world-clock-content {
     gap: 1rem !important;
 }
 
-div.fi-sc-tabs {
-    position: absolute;
-    top: 5rem;
-    height: 2rem;
-}
+
 
 div.fi-header.fi-header-has-breadcrumbs {
     display: none !important;
