@@ -4,6 +4,6 @@ return [
 
     'title' => 'Error!!!',
 
-    'body' => 'YOLO',
+    'body' => 'YOLO 500',
 
 ];
