@@ -2,14 +2,113 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
-* @route '/nds/super/outcome-delay-settings/{record}/edit'
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
-const EditOutcomeDelaySetting = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditOutcomeDelaySetting.url(args, options),
+const EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, options),
     method: 'get',
 })
 
-EditOutcomeDelaySetting.definition = {
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+const EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
+*/
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160.form = EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160Form
+/**
+* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @route '/nds/super/outcome-delay-settings/{record}/edit'
+*/
+const EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, options),
+    method: 'get',
+})
+
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.definition = {
     methods: ["get","head"],
     url: '/nds/super/outcome-delay-settings/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +118,7 @@ EditOutcomeDelaySetting.definition = {
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-EditOutcomeDelaySetting.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -36,7 +135,7 @@ EditOutcomeDelaySetting.url = (args: { record: string | number } | [record: stri
         record: args.record,
     }
 
-    return EditOutcomeDelaySetting.definition.url
+    return EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -46,8 +145,8 @@ EditOutcomeDelaySetting.url = (args: { record: string | number } | [record: stri
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-EditOutcomeDelaySetting.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditOutcomeDelaySetting.url(args, options),
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, options),
     method: 'get',
 })
 
@@ -56,8 +155,8 @@ EditOutcomeDelaySetting.get = (args: { record: string | number } | [record: stri
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-EditOutcomeDelaySetting.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditOutcomeDelaySetting.url(args, options),
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, options),
     method: 'head',
 })
 
@@ -66,8 +165,8 @@ EditOutcomeDelaySetting.head = (args: { record: string | number } | [record: str
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-const EditOutcomeDelaySettingForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeDelaySetting.url(args, options),
+const EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, options),
     method: 'get',
 })
 
@@ -76,8 +175,8 @@ const EditOutcomeDelaySettingForm = (args: { record: string | number } | [record
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-EditOutcomeDelaySettingForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeDelaySetting.url(args, options),
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, options),
     method: 'get',
 })
 
@@ -86,8 +185,8 @@ EditOutcomeDelaySettingForm.get = (args: { record: string | number } | [record: 
 * @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/nds/super/outcome-delay-settings/{record}/edit'
 */
-EditOutcomeDelaySettingForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditOutcomeDelaySetting.url(args, {
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,6 +195,11 @@ EditOutcomeDelaySettingForm.head = (args: { record: string | number } | [record:
     method: 'get',
 })
 
-EditOutcomeDelaySetting.form = EditOutcomeDelaySettingForm
+EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2.form = EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2Form
+
+const EditOutcomeDelaySetting = {
+    '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit': EditOutcomeDelaySetting75141c1aeef8f31d8564fd9fb798b160,
+    '/nds/super/outcome-delay-settings/{record}/edit': EditOutcomeDelaySetting431b448ad49c5a87d3d57ae4cc3e14b2,
+}
 
 export default EditOutcomeDelaySetting

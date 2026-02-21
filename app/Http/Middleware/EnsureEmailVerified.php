@@ -26,7 +26,7 @@ class EnsureEmailVerified
         if (! $user->hasVerifiedEmail()) {
             return response()->json([
                 'success' => false,
-                'message' => 'Your email address is not verified. Please verify your email to continue.',
+                'message' => 'Your account email is not verified.',
             ], 403);
         }
 

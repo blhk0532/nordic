@@ -509,3 +509,6 @@ div.fi-modal-window{
 .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-align-start.fi-width-md{
     max-width: 320px;
 }
+.fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-align-start.fi-width-sm{
+    max-width: 320px;
+}

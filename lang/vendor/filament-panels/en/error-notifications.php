@@ -2,8 +2,8 @@
 
 return [
 
-    'title' => 'Error while loading page',
+    'title' => 'Error!!!',
 
-    'body' => 'There was an error while attempting to load this page. Please try again later.',
+    'body' => 'YOLO',
 
 ];

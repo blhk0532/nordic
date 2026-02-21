@@ -214,6 +214,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'active_status',
         'active_at',
         'notes',
+        'team_id',
+        'tenant_id',
+        'current_team_id',
+        'avatar_url',
     ];
 
     protected $hidden = [
@@ -245,7 +249,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function canImpersonate(): bool
     {
         $role = $this->role ?? null;
-        if (in_array($role, ['admin', 'super', 'super_admin', 'superadmin'], true)) {
+        if (in_array($role, ['super', 'super_admin', 'superadmin'], true)) {
             return true;
         }
 

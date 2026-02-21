@@ -136,13 +136,13 @@ class UserResource extends Resource
             ->when(! $tenantId, fn (\Illuminate\Database\Eloquent\Builder $query) => $query->whereRaw('1 = 0'));
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            OwnedTeamsRelationManager::class,
-            TeamsRelationManager::class,
-        ];
-    }
+ //  public static function getRelations(): array
+ //  {
+ //      return [
+ //          OwnedTeamsRelationManager::class,
+ //          TeamsRelationManager::class,
+ //      ];
+ //  }
 
     public static function getPages(): array
     {

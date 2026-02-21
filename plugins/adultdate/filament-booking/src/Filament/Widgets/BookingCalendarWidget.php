@@ -75,6 +75,12 @@ class BookingCalendarWidget extends FullCalendarWidget implements HasCalendar
 
     public Model|string|null $model = null;
 
+    /**
+     * Whether clicking on a date cell is enabled for the calendar.
+     * Set via setDateClickEnabled() in HandlesDateClick trait.
+     */
+    protected bool $dateClickEnabled = false;
+
     protected static ?int $sort = 10;
 
     protected static bool $isDiscovered = true;

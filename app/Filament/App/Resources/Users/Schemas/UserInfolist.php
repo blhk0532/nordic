@@ -23,24 +23,30 @@ class UserInfolist
                 Section::make()
                     ->columns()
                     ->schema([
-                        TextEntry::make('id'),
-                        IconEntry::make('status')
-                            ->boolean(),
+//                        TextEntry::make('id'),
+//                        IconEntry::make('status')
+//                            ->boolean(),
                         TextInputEntry::make('name')
                             ->editable(true)
                             ->size(TextSize::Large)
                             ->rules(['required', 'string', 'max:255'])
                             ->border(true),
-
                         TextInputEntry::make('email')
                             ->editable(Auth::user()->can('update email'))
                             ->label('Email address')
                             ->rules(['required', 'email'])
                             ->border(true),
+                        TextInputEntry::make('phone')
+                            ->editable(Auth::user()->can('update phone'))
+                            ->label('Phone number')
+                            ->rules(['required', 'string', 'max:255'])
+                            ->border(true),
                     ]),
                 AdditionalInformation::make([
                     'created_at',
                     'updated_at',
+                    'current_team_id',
+                    'actiive_at',
                 ]),
             ]);
     }

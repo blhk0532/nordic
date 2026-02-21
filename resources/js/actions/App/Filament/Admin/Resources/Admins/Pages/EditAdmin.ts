@@ -2,14 +2,113 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
-* @route '/nds/super/admins/{record}/edit'
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
 */
-const EditAdmin = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditAdmin.url(args, options),
+const EditAdmin35836310c2e4987cdad0bdd91914ad7d = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, options),
     method: 'get',
 })
 
-EditAdmin.definition = {
+EditAdmin35836310c2e4987cdad0bdd91914ad7d.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/admins/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+EditAdmin35836310c2e4987cdad0bdd91914ad7d.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return EditAdmin35836310c2e4987cdad0bdd91914ad7d.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+EditAdmin35836310c2e4987cdad0bdd91914ad7d.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+EditAdmin35836310c2e4987cdad0bdd91914ad7d.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+const EditAdmin35836310c2e4987cdad0bdd91914ad7dForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+EditAdmin35836310c2e4987cdad0bdd91914ad7dForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/admin/tenant/{tenant}/admins/{record}/edit'
+*/
+EditAdmin35836310c2e4987cdad0bdd91914ad7dForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdmin35836310c2e4987cdad0bdd91914ad7d.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditAdmin35836310c2e4987cdad0bdd91914ad7d.form = EditAdmin35836310c2e4987cdad0bdd91914ad7dForm
+/**
+* @see \App\Filament\Admin\Resources\Admins\Pages\EditAdmin::__invoke
+* @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
+* @route '/nds/super/admins/{record}/edit'
+*/
+const EditAdminbc44f1a7ea2e4ab0b107f34b05743064 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, options),
+    method: 'get',
+})
+
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064.definition = {
     methods: ["get","head"],
     url: '/nds/super/admins/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
@@ -19,7 +118,7 @@ EditAdmin.definition = {
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-EditAdmin.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -36,7 +135,7 @@ EditAdmin.url = (args: { record: string | number } | [record: string | number ] 
         record: args.record,
     }
 
-    return EditAdmin.definition.url
+    return EditAdminbc44f1a7ea2e4ab0b107f34b05743064.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -46,8 +145,8 @@ EditAdmin.url = (args: { record: string | number } | [record: string | number ] 
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-EditAdmin.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditAdmin.url(args, options),
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, options),
     method: 'get',
 })
 
@@ -56,8 +155,8 @@ EditAdmin.get = (args: { record: string | number } | [record: string | number ] 
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-EditAdmin.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditAdmin.url(args, options),
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, options),
     method: 'head',
 })
 
@@ -66,8 +165,8 @@ EditAdmin.head = (args: { record: string | number } | [record: string | number ]
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-const EditAdminForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditAdmin.url(args, options),
+const EditAdminbc44f1a7ea2e4ab0b107f34b05743064Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, options),
     method: 'get',
 })
 
@@ -76,8 +175,8 @@ const EditAdminForm = (args: { record: string | number } | [record: string | num
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-EditAdminForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditAdmin.url(args, options),
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, options),
     method: 'get',
 })
 
@@ -86,8 +185,8 @@ EditAdminForm.get = (args: { record: string | number } | [record: string | numbe
 * @see app/Filament/Admin/Resources/Admins/Pages/EditAdmin.php:7
 * @route '/nds/super/admins/{record}/edit'
 */
-EditAdminForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditAdmin.url(args, {
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditAdminbc44f1a7ea2e4ab0b107f34b05743064.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -96,6 +195,11 @@ EditAdminForm.head = (args: { record: string | number } | [record: string | numb
     method: 'get',
 })
 
-EditAdmin.form = EditAdminForm
+EditAdminbc44f1a7ea2e4ab0b107f34b05743064.form = EditAdminbc44f1a7ea2e4ab0b107f34b05743064Form
+
+const EditAdmin = {
+    '/admin/tenant/{tenant}/admins/{record}/edit': EditAdmin35836310c2e4987cdad0bdd91914ad7d,
+    '/nds/super/admins/{record}/edit': EditAdminbc44f1a7ea2e4ab0b107f34b05743064,
+}
 
 export default EditAdmin
