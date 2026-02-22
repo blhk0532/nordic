@@ -9,6 +9,7 @@ import privateData from './private-data'
 import ratsitAdresser from './ratsit-adresser'
 import ratsitKommuner from './ratsit-kommuner'
 import ratsitPostorter from './ratsit-postorter'
+import sverigePostnummer from './sverige-postnummer'
 
 const resources = {
     carryData: Object.assign(carryData, carryData),
@@ -22,6 +23,7 @@ const resources = {
     ratsitAdresser: Object.assign(ratsitAdresser, ratsitAdresser),
     ratsitKommuner: Object.assign(ratsitKommuner, ratsitKommuner),
     ratsitPostorter: Object.assign(ratsitPostorter, ratsitPostorter),
+    sverigePostnummer: Object.assign(sverigePostnummer, sverigePostnummer),
 }
 
 export default resources

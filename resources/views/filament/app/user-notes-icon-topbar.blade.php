@@ -21,7 +21,7 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
 >
 
         <x-filament::icon
-            icon="heroicon-o-star"
+            icon="heroicon-o-document-list"
             class="fi-icon fi-size-lg"
         />
 @php

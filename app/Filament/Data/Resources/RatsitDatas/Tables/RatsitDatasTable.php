@@ -29,6 +29,11 @@ class RatsitDatasTable
     {
         return $table
             ->columns([
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable()
+                    ->weight('medium')
+                    ->limit(50),
                 TextColumn::make('personnamn')
                     ->label('Name')
                     ->searchable()
@@ -406,7 +411,7 @@ class RatsitDatasTable
                         ->color('success')
                         ->requiresConfirmation()
                         ->action(function (Collection $records, array $data): void {
-                            $action = new TransferRatsitDataToRingaDataAction();
+                            $action = new TransferRatsitDataToRingaDataAction;
                             $action->handle($records, $data);
 
                             Notification::make()

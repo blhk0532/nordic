@@ -8,7 +8,6 @@ use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\TrashedFilter;
@@ -25,29 +24,35 @@ class BookingsTable
             ->query(fn () => Booking::query()->with(['client', 'serviceUser'])->where('booking_user_id', Auth::id()))
             ->columns([
                 TextColumn::make('number')
+                    ->label('Bokningsnummer')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('client.name')
+                    ->label('Kund Namn')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
-                TextColumn::make('client.phone')
-                    ->label('Client phone')
+                TextColumn::make('client.address')
+                    ->label('Adress')
                     ->searchable()
                     ->toggleable()
                     ->sortable(),
+                TextColumn::make('client.phone')
+                    ->label('Telefon')
+                    ->searchable()
+                    ->toggleable()
+                    ->sortable(),
+                TextColumn::make('serviceUser.name')
+                    ->label('Tekniker Namn')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->label('Bokningsdatum')
+                    ->date()
+                    ->toggleable(),
                 TextColumn::make('status')
                     ->badge(),
 
-                TextColumn::make('client.address')
-                    ->label('Client address')
-                    ->searchable()
-                    ->toggleable()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->label('Booking date')
-                    ->date()
-                    ->toggleable(),
             ])
             ->filters([
                 TrashedFilter::make(),
@@ -74,7 +79,7 @@ class BookingsTable
                 DeleteAction::make(),
             ])
             ->groupedBulkActions([
-                DeleteBulkAction::make()
+                DeleteBulkAction::make(),
             ])
             ->groups([
                 Group::make('created_at')

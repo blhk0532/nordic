@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace App\Filament\Data\Resources\RatsitPostorter;
 
 use App\Filament\Data\Resources\RatsitPostorter\Pages\ListRatsitPostorter;
+use App\Jobs\RunRatsitPersonAdressJob;
 use App\Models\RatsitPostort;
 use BackedEnum;
+use Filament\Actions\BulkAction;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Filament\Tables\Filters\SelectFilter;
-use App\Jobs\RunRatsitPersonAdressJob;
-use Filament\Notifications\Notification;
-use Filament\Actions\BulkAction;
+use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use UnitEnum;
 
@@ -35,13 +35,13 @@ class RatsitPostortResource extends Resource
     {
         return $table
             ->columns([
-                                TextColumn::make('post_ort')->searchable()->sortable(),
+                TextColumn::make('post_ort')->searchable()->sortable(),
                 TextColumn::make('post_nummer')->searchable()->sortable(),
- TextColumn::make('kommun')->searchable()->sortable(),
+                TextColumn::make('kommun')->searchable()->sortable(),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
-                TextColumn::make('personer_link')->label('Personer Link')->sortable()->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
-                TextColumn::make('foretag_link')->label('Företag Link')->sortable()->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
+                TextColumn::make('personer_link')->label('Personer Link')->sortable()->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable()->weight('medium')->limit(32),
+                TextColumn::make('foretag_link')->label('Företag Link')->sortable()->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable()->weight('medium')->limit(32),
                 TextColumn::make('personer_link_status')->label('P Adress')->sortable()->hidden(),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
             ])

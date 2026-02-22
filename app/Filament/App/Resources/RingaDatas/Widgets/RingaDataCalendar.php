@@ -676,15 +676,29 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             ->model(DailyLocation::class)
             ->schema($this->getFormLocation())
             ->fillForm(function (array $arguments) {
-                $serviceUserId = $this->getSelectedServiceUserId();
+                $serviceUserId = $this->getSelectedServiceUserId() ?: Auth::id();
+
+                // Support both shapes: mountAction('createDailyLocation', ['date' => 'YYYY-MM-DD'])
+                // and replaceMountedAction('createDailyLocation', ['data' => ['date' => 'YYYY-MM-DD', ...]])
+                $date = $arguments['date'] ?? ($arguments['data']['date'] ?? now()->format('Y-m-d'));
+                $serviceUser = $arguments['service_user_id'] ?? ($arguments['data']['service_user_id'] ?? $serviceUserId);
+                if (! $serviceUser) {
+                    $serviceUser = Auth::id();
+                }
+
+                logger()->info('createDailyLocation.fillForm RingaDataCalendar', ['arguments' => $arguments, 'resolved_date' => $date, 'service_user' => $serviceUser]);
 
                 return [
-                    'date' => $arguments['date'] ?? now()->format('Y-m-d'),
-                    'service_user_id' => $arguments['service_user_id'] ?? $serviceUserId,
+                    'date' => $date,
+                    'service_user_id' => $serviceUser,
                     'created_by' => Auth::id(),
                 ];
             })
-            ->action(function (array $data) {
+            ->action(function (array $data, array $arguments = []) {
+                if (empty($data['date'])) {
+                    $data['date'] = $arguments['date'] ?? ($arguments['data']['date'] ?? now()->toDateString());
+                }
+                logger()->info('createDailyLocation.action RingaDataCalendar', ['data' => $data, 'arguments' => $arguments]);
                 $data['created_by'] = Auth::id();
                 DailyLocation::updateOrCreate(['date' => $data['date'], 'service_user_id' => $data['service_user_id']], $data);
                 $this->refreshRecords();
@@ -763,11 +777,20 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             ->schema($this->getFormPeriod())
             ->fillForm(function (array $arguments) {
                 $data = $arguments['data'] ?? [];
-                $serviceUserId = $this->getSelectedServiceUserId();
+                $serviceUserId = $this->getSelectedServiceUserId() ?: Auth::id();
+
+                $serviceUser = $data['service_user_id'] ?? $serviceUserId;
+                if (! $serviceUser) {
+                    $serviceUser = Auth::id();
+                }
+
+                $serviceDate = $data['date_val'] ?? $data['service_date'] ?? $data['date'] ?? null;
+
+                logger()->info('createServicePeriod.fillForm RingaDataCalendar', ['arguments' => $arguments, 'resolved_service_date' => $serviceDate, 'service_user' => $serviceUser]);
 
                 return [
-                    'service_date' => $data['date_val'] ?? $data['service_date'] ?? $data['date'],
-                    'service_user_id' => $data['service_user_id'] ?? $serviceUserId,
+                    'service_date' => $serviceDate,
+                    'service_user_id' => $serviceUser,
                     'start_time' => $data['start_val'] ?? $data['start_time'] ?? $data['start'],
                     'end_time' => $data['end_val'] ?? $data['end_time'] ?? $data['end'],
                     'created_by' => Auth::id(),
@@ -776,6 +799,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                 ];
             })
             ->action(function (array $data) {
+                logger()->info('createServicePeriod.action RingaDataCalendar', ['data' => $data]);
                 $data['created_by'] = Auth::id();
                 BookingServicePeriod::updateOrCreate(
                     [
@@ -1668,6 +1692,9 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             Select::make('service_user_id')
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
+                ->searchable()
+                ->preload()
+                ->default(fn ($get) => $get('service_user_id'))
                 ->required(),
             TextInput::make('service_location')
                 ->label('Location')
@@ -1698,10 +1725,13 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             DatePicker::make('date')
                 ->label('Date')
                 ->required()
-                ->native(false),
+                ->native(false)
+                ->default(fn ($get) => $get('date') ?? now()->toDateString()),
             Select::make('service_user_id')
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
+                ->searchable()
+                ->preload()
                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                     $date = $get('date');
                     if ($date && $state) {

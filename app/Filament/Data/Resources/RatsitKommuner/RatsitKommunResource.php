@@ -5,25 +5,23 @@ declare(strict_types=1);
 namespace App\Filament\Data\Resources\RatsitKommuner;
 
 use App\Filament\Data\Resources\RatsitKommuner\Pages\ListRatsitKommuner;
+use App\Jobs\RunRatsitForetagKommunerJob;
+use App\Jobs\RunRatsitPersonKommunerJob;
 use App\Models\RatsitKommun;
 use BackedEnum;
+use Closure;
+use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Filament\Tables\Filters\SelectFilter;
-use Closure;
-use Filament\Actions\BulkAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Notifications\Notification;
+use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
-use App\Jobs\RunRatsitPersonKommunerJob;
-use App\Jobs\RunRatsitForetagKommunerJob;
-use Symfony\Component\Process\Process;
 use Throwable;
 use UnitEnum;
 
@@ -43,15 +41,15 @@ class RatsitKommunResource extends Resource
     {
         return $table
             ->columns([
-            TextColumn::make('id'),
+                TextColumn::make('id'),
                 TextColumn::make('kommun')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => url('/nds/data/ratsit-postorter/ratsit-postorts?search=' . urlencode($record->kommun))),
+                    ->url(fn ($record) => url('/nds/data/ratsit-postorter/ratsit-postorts?search='.urlencode($record->kommun))),
                 TextColumn::make('personer_count')->label('Personer')->numeric()->sortable(),
                 TextColumn::make('foretag_count')->label('Företag')->numeric()->sortable(),
-                TextColumn::make('personer_link')->label('Personer Link')->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable(),
-                TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable(),
+                TextColumn::make('personer_link')->label('Personer Link')->url(fn ($record) => $record->personer_link)->openUrlInNewTab()->toggleable()->weight('medium')->limit(32),
+                TextColumn::make('foretag_link')->label('Företag Link')->url(fn ($record) => $record->foretag_link)->openUrlInNewTab()->toggleable()->weight('medium')->limit(32),
                 TextColumn::make('updated_at')->dateTime()->since()->sortable()->toggleable(),
             ])
             ->filters([
@@ -122,7 +120,7 @@ class RatsitKommunResource extends Resource
                                     ->send();
                             }
                         }),
-                        BulkAction::make('run_ratsit_foretag_kommuner')
+                    BulkAction::make('run_ratsit_foretag_kommuner')
                         ->label('Run Ratsit Företag Kommuner')
                         ->icon('heroicon-o-play')
                         ->color('primary')
@@ -190,7 +188,7 @@ class RatsitKommunResource extends Resource
 
     public static function getTableRecordUrlUsing(): ?Closure
     {
-        return static fn ($record): string => url('/nds/data/ratsit-postorter/ratsit-postorts?search=' . urlencode($record->kommun));
+        return static fn ($record): string => url('/nds/data/ratsit-postorter/ratsit-postorts?search='.urlencode($record->kommun));
     }
 
     public static function getNavigationBadge(): ?string

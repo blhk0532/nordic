@@ -512,3 +512,15 @@ div.fi-modal-window{
 .fi-modal-window.fi-modal-window-has-close-btn.fi-modal-window-has-content.fi-align-start.fi-width-sm{
     max-width: 320px;
 }
+
+ div.fi-sc-component div.fi-fo-field   div.fi-fo-field-content-col div.fi-input-wrp.fi-fo-rich-editor{
+        min-height: 80vh;
+    }
+
+    .fi-section-content-ctn{
+        border:none!important;
+    }
+
+    .fi-fo-rich-editor-content.fi-prose{
+        min-height: 5rem;
+    }

@@ -639,15 +639,30 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
             ->model(DailyLocation::class)
             ->schema($this->getFormLocation())
             ->fillForm(function (array $arguments) {
-                $serviceUserId = $this->getSelectedServiceUserId();
+                $serviceUserId = $this->getSelectedServiceUserId() ?: Auth::id();
+
+                // Support both shapes: mountAction('createDailyLocation', ['date' => 'YYYY-MM-DD'])
+                // and replaceMountedAction('createDailyLocation', ['data' => ['date' => 'YYYY-MM-DD', ...]])
+                $date = $arguments['date'] ?? ($arguments['data']['date'] ?? now()->format('Y-m-d'));
+                $serviceUser = $arguments['service_user_id'] ?? ($arguments['data']['service_user_id'] ?? $serviceUserId);
+                if (! $serviceUser) {
+                    $serviceUser = Auth::id();
+                }
+
+                logger()->info('createDailyLocation.fillForm SingleCalendars', ['arguments' => $arguments, 'resolved_date' => $date, 'service_user' => $serviceUser]);
 
                 return [
-                    'date' => $arguments['date'] ?? now()->format('Y-m-d'),
-                    'service_user_id' => $arguments['service_user_id'] ?? $serviceUserId,
+                    'date' => $date,
+                    'service_user_id' => $serviceUser,
                     'created_by' => Auth::id(),
                 ];
             })
-            ->action(function (array $data) {
+            ->action(function (array $data, array $arguments = []) {
+                // ensure date isn't lost; fall back to mount arguments if needed
+                if (empty($data['date'])) {
+                    $data['date'] = $arguments['date'] ?? ($arguments['data']['date'] ?? now()->toDateString());
+                }
+                logger()->info('createDailyLocation.action SingleCalendars', ['data' => $data, 'arguments' => $arguments]);
                 $data['created_by'] = Auth::id();
                 DailyLocation::updateOrCreate(['date' => $data['date'], 'service_user_id' => $data['service_user_id']], $data);
                 $this->refreshRecords();
@@ -726,11 +741,20 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
             ->schema($this->getFormPeriod())
             ->fillForm(function (array $arguments) {
                 $data = $arguments['data'] ?? [];
-                $serviceUserId = $this->getSelectedServiceUserId();
+                $serviceUserId = $this->getSelectedServiceUserId() ?: Auth::id();
+
+                $serviceUser = $data['service_user_id'] ?? $serviceUserId;
+                if (! $serviceUser) {
+                    $serviceUser = Auth::id();
+                }
+
+                $serviceDate = $data['date_val'] ?? $data['service_date'] ?? $data['date'] ?? null;
+
+                logger()->info('createServicePeriod.fillForm SingleCalendars', ['arguments' => $arguments, 'resolved_service_date' => $serviceDate, 'service_user' => $serviceUser]);
 
                 return [
-                    'service_date' => $data['date_val'] ?? $data['service_date'] ?? $data['date'],
-                    'service_user_id' => $data['service_user_id'] ?? $serviceUserId,
+                    'service_date' => $serviceDate,
+                    'service_user_id' => $serviceUser,
                     'start_time' => $data['start_val'] ?? $data['start_time'] ?? $data['start'],
                     'end_time' => $data['end_val'] ?? $data['end_time'] ?? $data['end'],
                     'created_by' => Auth::id(),
@@ -1574,9 +1598,10 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
         return [
             Select::make('service_user_id')
                 ->label('Service User')
-                ->options($this->getServiceUserOptions())
+                ->relationship('serviceUser', 'name')
                 ->searchable()
                 ->preload()
+                ->default(fn ($get) => $get('service_user_id'))
                 ->required(),
             TextInput::make('service_location')
                 ->label('Location')
@@ -1607,8 +1632,14 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
             DatePicker::make('date')
                 ->label('Date')
                 ->required()
-                ->native(false),
+                ->native(false)
+                ->default(fn ($get) => $get('date') ?? now()->toDateString()),
             Select::make('service_user_id')
+                ->label('Service User')
+                ->relationship('serviceUser', 'name')
+                ->searchable()
+                ->preload()
+                ->default(fn ($get) => $get('service_user_id'))
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
                 ->searchable()
@@ -1944,35 +1975,14 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
 
     protected function getServiceUserOptions(): array
     {
-        $tenantId = filament()->getTenant()?->id
-            ?? auth()->user()?->current_team_id;
-
-        if (! $tenantId) {
-            return User::withoutGlobalScopes()
-                ->where('role', 'service')
-                ->pluck('name', 'id')
-                ->toArray();
-        }
-
+        // Return all users with the "service" role.
+        // Previous tenant-based filtering could exclude a user when the
+        // calendar was mounted with a service_user_id from another team,
+        // causing the select to fall back to showing the numeric ID and
+        // to fail validation. Dropping the filter ensures the chosen
+        // technician is always included in the options list.
         return User::withoutGlobalScopes()
             ->where('role', 'service')
-            ->when($tenantId, function (Builder $query) use ($tenantId) {
-                $query->where(function (Builder $query) use ($tenantId) {
-                    $query->where('current_team_id', $tenantId)
-                        ->orWhereExists(function ($sub) use ($tenantId) {
-                            $sub->selectRaw(1)
-                                ->from('membership')
-                                ->whereColumn('membership.user_id', 'users.id')
-                                ->where('membership.team_id', $tenantId);
-                        })
-                        ->orWhereExists(function ($sub) use ($tenantId) {
-                            $sub->selectRaw(1)
-                                ->from('teams')
-                                ->whereColumn('teams.user_id', 'users.id')
-                                ->where('teams.id', $tenantId);
-                        });
-                });
-            })
             ->pluck('name', 'id')
             ->toArray();
     }

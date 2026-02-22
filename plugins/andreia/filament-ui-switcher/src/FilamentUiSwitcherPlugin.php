@@ -69,7 +69,7 @@ class FilamentUiSwitcherPlugin implements Plugin
         // Livewire component is registered in ServiceProvider, so it's available here
         // Pass the mode switcher configuration to the component
         $panel->renderHook(
-            PanelsRenderHook::TOPBAR_LOGO_AFTER,
+            PanelsRenderHook::TOPBAR_LOGO_BEFORE,
             fn (): string => Blade::render('@livewire(\'filament-ui-switcher\', [\'hasModeSwitcher\' => '.($this->hasModeSwitcher ? 'true' : 'false').'])'),
         );
 

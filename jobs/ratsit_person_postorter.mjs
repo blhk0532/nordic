@@ -54,34 +54,10 @@ async function scrapeRatsitPostorter(url) {
             timeout: 30000,
         });
 
-        // Wait for cookie dialog to potentially appear and handle it
-        try {
-            await page.waitForSelector('#CybotCookiebotDialog', {
-                timeout: 2000,
-            });
-            console.log('Cookie dialog found, trying to accept...');
-
-            // Try to find and click accept button
-            const acceptButton = await page.$(
-                '#CybotCookiebotDialog button[type="submit"], #CybotCookiebotDialog button, .accept-cookies',
-            );
-            if (acceptButton) {
-                await acceptButton.click();
-                console.log('Clicked accept cookies button');
-                await page.waitForTimeout(2000);
-            }
-        } catch (e) {
-            console.log('No cookie dialog found or already handled');
-        }
 
         // Wait for content to load
         await page.waitForTimeout(3000);
 
-        // Wait for any dynamic content to load
-        await page.waitForTimeout(3000);
-
-        // Wait for any dynamic content to load
-        await page.waitForTimeout(3000);
 
         // Check if content has loaded
         await page.waitForFunction(

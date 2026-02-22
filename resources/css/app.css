@@ -375,3 +375,6 @@ html{
 .fi-sidebar-nav {
     scrollbar-gutter: auto!important;
 }
+.fi-main-ctn{
+    overflow-x: hidden;
+}

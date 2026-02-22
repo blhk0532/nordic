@@ -25,7 +25,7 @@ class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
 
-    protected static ?string $slug = 'Bokningar';
+    protected static ?string $slug = 'mina-bokningar';
 
     protected static ?string $recordTitleAttribute = 'number';
 
@@ -160,7 +160,7 @@ class BookingResource extends Resource
         return $data;
     }
 
-        public static function shouldRegisterNavigation(): bool
+    public static function shouldRegisterNavigation(): bool
     {
         $teneant = filament()->getTenant();
 

@@ -14,6 +14,7 @@ import RatsitKommuner from './RatsitKommuner'
 import RatsitPersons from './RatsitPersons'
 import RatsitPostorter from './RatsitPostorter'
 import RatsitStreets from './RatsitStreets'
+import SverigePostnummers from './SverigePostnummers'
 import UpplysningDatas from './UpplysningDatas'
 
 const Resources = {
@@ -33,6 +34,7 @@ const Resources = {
     RatsitPersons: Object.assign(RatsitPersons, RatsitPersons),
     RatsitPostorter: Object.assign(RatsitPostorter, RatsitPostorter),
     RatsitStreets: Object.assign(RatsitStreets, RatsitStreets),
+    SverigePostnummers: Object.assign(SverigePostnummers, SverigePostnummers),
     UpplysningDatas: Object.assign(UpplysningDatas, UpplysningDatas),
 }
 
