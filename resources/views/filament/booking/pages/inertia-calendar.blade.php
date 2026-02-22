@@ -5,6 +5,7 @@
         }
         .fi-main.fi-width-full{
             padding: 0rem !important;
+            background: #18181b;
         }
         .fi-page-content {
             padding: 0rem !important;

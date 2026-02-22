@@ -154,8 +154,10 @@ class AppDashboard extends BasePage
     {
 
         return [
-            AccountInfoStackWidget::class,
-            WorldClockWidget::class,
+
+            //  AccountInfoStackWidget::class,
+            //  WorldClockWidget::class,
+            WeatherWidget::class,
             TeamMembersWidget::class,
         ];
     }
@@ -164,7 +166,7 @@ class AppDashboard extends BasePage
     {
 
         return [
-            WeatherWidget::class,
+
             //    MultiCalendar2::class,
             //    MultiCalendar3::class,
             //    \App\Filament\App\Widgets\LatestOrders::class,

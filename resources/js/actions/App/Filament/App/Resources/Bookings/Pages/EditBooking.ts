@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 const EditBooking = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditBooking.url(args, options),
@@ -11,13 +11,13 @@ const EditBooking = (args: { tenant: string | number | { slug: string | number }
 
 EditBooking.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/Bokningar/{record}/edit',
+    url: '/nds/app/team/{tenant}/mina-bokningar/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 EditBooking.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
@@ -45,7 +45,7 @@ EditBooking.url = (args: { tenant: string | number | { slug: string | number }, 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 EditBooking.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditBooking.url(args, options),
@@ -55,7 +55,7 @@ EditBooking.get = (args: { tenant: string | number | { slug: string | number }, 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 EditBooking.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditBooking.url(args, options),
@@ -65,7 +65,7 @@ EditBooking.head = (args: { tenant: string | number | { slug: string | number },
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 const EditBookingForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditBooking.url(args, options),
@@ -75,7 +75,7 @@ const EditBookingForm = (args: { tenant: string | number | { slug: string | numb
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 EditBookingForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditBooking.url(args, options),
@@ -85,7 +85,7 @@ EditBookingForm.get = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\EditBooking::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/EditBooking.php:7
-* @route '/nds/app/team/{tenant}/Bokningar/{record}/edit'
+* @route '/nds/app/team/{tenant}/mina-bokningar/{record}/edit'
 */
 EditBookingForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditBooking.url(args, {

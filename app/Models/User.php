@@ -399,6 +399,22 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
     /**
+     * Boolean status accessor for online/offline based on `active_at`.
+     */
+    public function getStatusAttribute(): bool
+    {
+        $activeAt = $this->getAttribute('active_at');
+
+        if (is_null($activeAt)) {
+            return false;
+        }
+
+        $activeAt = \Illuminate\Support\Carbon::parse($activeAt);
+
+        return $activeAt->greaterThanOrEqualTo(now()->subMinutes(5));
+    }
+
+    /**
      * Override belongsToConversation to accept both Filament and standalone Conversation types.
      * This method works with both Filament wirechat routes and standalone wirechat routes.
      */

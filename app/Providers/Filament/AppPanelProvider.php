@@ -7,6 +7,7 @@ namespace App\Providers\Filament;
 use Adultdate\FilamentBooking\FilamentBookingPlugin;
 // use AdultDate\FilamentDialer\FilamentDialerPlugin;
 use AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard;
+use AdultDate\FilamentWirechat\Filament\Pages\ChatsDashboard;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendersX2;
@@ -15,6 +16,7 @@ use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalenders
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\MultiCalendars3 as AppBookingMultiCalendar;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\MultiCalendars3 as Scheman;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\SingleCalendar as AppBookingSinleCalendar;
+use App\Filament\App\Pages\AppChatDashboard;
 use App\Filament\App\Pages\AppDashboard;
 use App\Filament\App\Pages\AppDataHistory;
 use App\Filament\App\Pages\AppRingLista;
@@ -123,10 +125,15 @@ class AppPanelProvider extends PanelProvider
                     ->icon(Tabler::ShieldCheckF),
                 NavigationGroup::make('Mina Sidor')
                     ->icon(Tabler::UserSquareRounded),
+                NavigationGroup::make(filament()->getTenant()?->id ? filament()->getTenant()?->name : 'Admin')
+                    ->icon(Tabler::UserSquareRounded),
+
             ])
             ->pages([
                 AppDashboard::class,
-                ChatDashboard::class,
+                AppChatDashboard::class,
+                //    ChatDashboard::class,
+                //    ChatsDashboard::class,
                 InertiaCalendar::class,
                 AppBookingSinleCalendar::class,
                 AppBookingMultiCalendar::class,
@@ -224,11 +231,11 @@ class AppPanelProvider extends PanelProvider
                 FilamentEditProfilePlugin::make()
                     ->slug('my-profile')
                     ->setTitle(__('My Profile'))
-                    ->setNavigationLabel(__('My Profile'))
-                    ->setNavigationGroup(__('Group Profile'))
+                    ->setNavigationLabel(__('Inställningar'))
+                    ->setNavigationGroup(__('Mina Sidor'))
                     ->setIcon('heroicon-o-user')
-                    ->setSort(10)
-                    ->shouldRegisterNavigation(false)
+                    ->setSort(100)
+                    ->shouldRegisterNavigation(true)
                     ->shouldShowEmailForm()
                     ->shouldShowLocaleForm(options: [
                         'en' => __('🇺🇸 English'),
@@ -296,7 +303,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentWirechatPlugin::make()
-                    ->onlyPages([])
+                    ->onlyPages([\AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::class])
                     ->excludeResources([
                         \AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationResource::class,
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,

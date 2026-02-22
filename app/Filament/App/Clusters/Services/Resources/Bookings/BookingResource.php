@@ -14,13 +14,14 @@ use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\BookingStats;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
+
 class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
@@ -43,9 +44,10 @@ class BookingResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-                    FilamentAsset::register([
-    Css::make('booking', __DIR__ . '/../../resources/css/booking.css'),
-]);
+        FilamentAsset::register([
+            Css::make('booking', __DIR__.'/../../resources/css/booking.css'),
+        ]);
+
         return BookingForm::configure($schema);
     }
 

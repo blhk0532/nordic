@@ -1,5 +1,6 @@
 import Tenancy from './Tenancy'
 import Dashboard from './Dashboard'
+import AppChatDashboard from './AppChatDashboard'
 import ArbetslistaDashboard from './ArbetslistaDashboard'
 import InertiaCalendar from './InertiaCalendar'
 import ManuSettings from './ManuSettings'
@@ -13,6 +14,7 @@ import AppDataHistory from './AppDataHistory'
 const Pages = {
     Tenancy: Object.assign(Tenancy, Tenancy),
     Dashboard: Object.assign(Dashboard, Dashboard),
+    AppChatDashboard: Object.assign(AppChatDashboard, AppChatDashboard),
     ArbetslistaDashboard: Object.assign(ArbetslistaDashboard, ArbetslistaDashboard),
     InertiaCalendar: Object.assign(InertiaCalendar, InertiaCalendar),
     ManuSettings: Object.assign(ManuSettings, ManuSettings),

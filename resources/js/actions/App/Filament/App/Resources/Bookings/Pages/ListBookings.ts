@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 const ListBookings = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListBookings.url(args, options),
@@ -11,13 +11,13 @@ const ListBookings = (args: { tenant: string | number | { slug: string | number 
 
 ListBookings.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/Bokningar',
+    url: '/nds/app/team/{tenant}/mina-bokningar',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 ListBookings.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -50,7 +50,7 @@ ListBookings.url = (args: { tenant: string | number | { slug: string | number } 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 ListBookings.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ListBookings.url(args, options),
@@ -60,7 +60,7 @@ ListBookings.get = (args: { tenant: string | number | { slug: string | number } 
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 ListBookings.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ListBookings.url(args, options),
@@ -70,7 +70,7 @@ ListBookings.head = (args: { tenant: string | number | { slug: string | number }
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 const ListBookingsForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListBookings.url(args, options),
@@ -80,7 +80,7 @@ const ListBookingsForm = (args: { tenant: string | number | { slug: string | num
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 ListBookingsForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListBookings.url(args, options),
@@ -90,7 +90,7 @@ ListBookingsForm.get = (args: { tenant: string | number | { slug: string | numbe
 /**
 * @see \App\Filament\App\Resources\Bookings\Pages\ListBookings::__invoke
 * @see app/Filament/App/Resources/Bookings/Pages/ListBookings.php:7
-* @route '/nds/app/team/{tenant}/Bokningar'
+* @route '/nds/app/team/{tenant}/mina-bokningar'
 */
 ListBookingsForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ListBookings.url(args, {

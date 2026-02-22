@@ -22,6 +22,7 @@ use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
 use Adultdate\FilamentBooking\Models\Booking\Service;
 use Adultdate\FilamentBooking\Models\BookingServicePeriod;
 use Adultdate\FilamentBooking\Models\CalendarSettings;
+use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 use Adultdate\FilamentBooking\ValueObjects\EventResizeInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
@@ -47,7 +48,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Throwable;
@@ -1684,22 +1684,12 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
 
     public function getEvents(FetchInfo $info): Collection|array|Builder
     {
+        // Use the calendar viewport range provided by FullCalendar (FetchInfo)
+        // but do not limit results server-side by the page-level startDate/endDate
+        // so the calendar can display all events. We still respect selected
+        // calendar/service user filters.
         $start = $info->start->toMutable()->startOfDay();
         $end = $info->end->toMutable()->endOfDay();
-
-        if ($this->startDate) {
-            $filterStart = Carbon::parse($this->startDate)->startOfDay();
-            if ($filterStart->gt($start)) {
-                $start = $filterStart;
-            }
-        }
-
-        if ($this->endDate) {
-            $filterEnd = Carbon::parse($this->endDate)->endOfDay();
-            if ($filterEnd->lt($end)) {
-                $end = $filterEnd;
-            }
-        }
 
         $filters = $this->pageFilters;
         $selectedCalendarId = $this->getSelectedCalendarId();
@@ -1714,16 +1704,11 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
 
         $blockingEvents = $blockingPeriods->map(fn (BookingServicePeriod $blockingPeriod) => $blockingPeriod->toCalendarEvent())->toArray();
 
+        // Do not restrict bookings by date range here; let the calendar view
+        // determine what to display. Still scope by selected calendar if set.
         $bookings = Booking::query()
             ->with(['client', 'service', 'serviceUser', 'bookingUser', 'location'])
             ->when($selectedCalendarId, fn ($query) => $query->where('booking_calendar_id', $selectedCalendarId))
-            ->where(function ($query) use ($start, $end) {
-                $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
-                    ->when(
-                        Schema::hasColumn('booking_bookings', 'starts_at'),
-                        fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
-                    );
-            })
             ->where('is_active', true)
             ->get();
 
@@ -1733,9 +1718,9 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
         // Also include DailyLocation entries as all-day events on calendar
         $locationEvents = [];
         if ($showAllDayEvents) {
+            // Return all daily locations (optionally scoped by service user)
             $dailyLocations = DailyLocation::query()
                 ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
-                ->whereBetween('date', [$start, $end])
                 ->with(['serviceUser'])
                 ->get();
 
@@ -1788,6 +1773,20 @@ final class SingleCalendars extends FullCalendarWidget implements HasCalendar
         $this->selectedTechnician = (isset($this->pageFilters['booking_calendars']) && is_numeric($this->pageFilters['booking_calendars'])) ? (int) $this->pageFilters['booking_calendars'] : $this->selectedTechnician;
         $this->startDate = $this->pageFilters['startDate'] ?? $this->startDate;
         $this->endDate = $this->pageFilters['endDate'] ?? $this->endDate;
+        $this->refreshRecords();
+    }
+
+    public function isDatesSetEnabled(): bool
+    {
+        return true;
+    }
+
+    protected function onDatesSet(DatesSetInfo $info): void
+    {
+        // keep widget range in sync so getEvents applies the correct bounds
+        $this->startDate = $info->start->toDateString();
+        $this->endDate = $info->end->toDateString();
+        // ensure a fresh fetch after week navigation
         $this->refreshRecords();
     }
 

@@ -133,7 +133,7 @@ async function savePersonsViaApi(persons) {
           // Save to hitta_se table
           res = await axios.post(BATCH_ENDPOINT, payload, {
             headers: { "Content-Type": "application/json" },
-            timeout: 90000, // Increased timeout to 90 seconds
+            timeout: 200000, // Increased timeout to 200 seconds
           });
           break; // Success, exit retry loop
         } catch (retryErr) {

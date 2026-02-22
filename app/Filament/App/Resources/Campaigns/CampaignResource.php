@@ -9,8 +9,8 @@ use App\Filament\App\Resources\Campaigns\Schemas\CampaignForm;
 use App\Filament\App\Resources\Campaigns\Tables\CampaignsTable;
 use App\Models\Campaign;
 use BackedEnum;
-use Filament\Schemas\Schema;
 use Filament\Resources\Resource as FilamentResource;
+use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
 
@@ -20,7 +20,7 @@ class CampaignResource extends FilamentResource
 
     protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Administration';
+    // protected static UnitEnum|string|null $navigationGroup = 'Administration';
 
     protected static ?string $navigationLabel = 'Kampanjer';
 
@@ -45,9 +45,14 @@ class CampaignResource extends FilamentResource
         ];
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
-           $teneant = filament()->getTenant();
+        $teneant = filament()->getTenant();
 
         if (filament()->getTenant()->getAttribute('is_admin') !== true) {
             return false;

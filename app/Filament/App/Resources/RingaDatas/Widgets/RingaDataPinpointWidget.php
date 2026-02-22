@@ -69,7 +69,7 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
         $lat = (float) ($defaults['lat'] ?? -0.5050);
         $lng = (float) ($defaults['lng'] ?? 117.1500);
-        $label = $this->record ? ($this->record->id.' ⌗ '.$this->record->gatuadress.' '.$this->record->postort) : null;
+        $label = $this->record ? ($this->record->id.' ⌗ '.$this->record->personnamn.' ⌗ '.$this->record->gatuadress.' '.$this->record->postort. ' ' .$this->record->lan ) : null;
 
         return $schema
             ->schema([

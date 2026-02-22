@@ -109,7 +109,7 @@ class SingleCalendar extends BaseDashboard
         $calendarId = request()->query('booking_calendars') ?? BookingCalendarModel::first()?->id;
         $this->calendarId = $calendarId !== null ? (string) $calendarId : null;
         $this->startDate = request()->query('startDate') ?? now()->startOfWeek()->toDateString();
-        $this->endDate = request()->query('endDate') ?? now()->endOfWeek()->toDateString();
+        $this->endDate = request()->query('endDate') ?? now()->addYear()->endOfWeek()->toDateString();
         logger()->info('SingleCalendar mount', ['full_url' => request()->fullUrl(), 'query' => request()->query(), 'calendarId' => $this->calendarId]);
     }
 

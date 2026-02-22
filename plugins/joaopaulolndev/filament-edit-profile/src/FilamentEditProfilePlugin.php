@@ -182,6 +182,11 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->sort);
     }
 
+    public function getNavigationSort(): int
+    {
+        return 100;
+    }
+
     public function canAccess(Closure|bool $value = true): static
     {
         $this->access = $value;

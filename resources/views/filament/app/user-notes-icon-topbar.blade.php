@@ -15,13 +15,13 @@ $aSiderbar = $anderia === 'sidebar-no-topbar' ? true : false;
     @if($anderia === 'sidebar-no-topbar')
     class="fi-sidebar-database-notifications-btn"
     @else
-    class="ml-0.5 fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
+    class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn fi-left-topbar-btn"
     @endif
      wire:click="$dispatch('open-modal', { id: 'manus-calendar-modal' })"
 >
 
         <x-filament::icon
-            icon="heroicon-o-document-list"
+            icon="heroicon-o-clipboard-document"
             class="fi-icon fi-size-lg"
         />
 @php

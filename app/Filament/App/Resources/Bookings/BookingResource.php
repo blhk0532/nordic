@@ -35,7 +35,7 @@ class BookingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-check-circle';
 
-    protected static ?int $navigationSort = 100;
+    protected static ?int $navigationSort = 1;
 
     /**
      * Disable Filament tenant scoping for this resource to avoid

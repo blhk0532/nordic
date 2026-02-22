@@ -33,9 +33,14 @@ class TeamMembersWidget extends BaseWidget
         return UsersTable::configure($table)
             ->heading("{$tenantName} - Teammedlemmar")
             ->query(function () use ($tenantId) {
-                $query = TeamUserResource::getEloquentQuery()->orderBy('name');
+                $threshold = now()->subMinutes(5);
+
+                $query = TeamUserResource::getEloquentQuery()
+                    ->orderBy('name');
+
                 \Illuminate\Support\Facades\Log::info('TeamMembersWidget executed query', [
                     'tenant_id' => $tenantId,
+                    'threshold' => $threshold->toDateTimeString(),
                     'sql' => $query->toSql(),
                     'bindings' => $query->getBindings(),
                     'count' => $query->count(),

@@ -807,7 +807,10 @@ class BookingCalendar extends Widget implements HasCalendar
             ->fillForm(function (array $arguments) {
                 $data = $arguments['data'] ?? [];
                 $defaults = $this->getDefaultFormData();
-                $merged = array_merge($defaults, $data);
+                // merge in any top-level args (date, start_time, etc.) so the
+                // calendar click context is preserved. SingleCalendars used
+                // this earlier and booking was accidentally missing it.
+                $merged = array_merge($defaults, $data, $arguments);
                 $user = Auth::user();
                 $roleValue = $user && $user->role instanceof UnitEnum ? $user->role->value : (string) $user->role;
                 $isAdmin = in_array($roleValue, ['admin', 'super', 'super_admin'], true);
@@ -820,6 +823,7 @@ class BookingCalendar extends Widget implements HasCalendar
             })
             ->schema($this->getFormSchema())
             ->action(function (array $data) {
+                logger()->info('BookingCalendarWidget.createAction payload', ['data' => $data]);
                 // Ensure number exists
                 if (! isset($data['number']) || empty($data['number'])) {
                     $data['number'] = $this->generateNumber();
@@ -1657,6 +1661,9 @@ class BookingCalendar extends Widget implements HasCalendar
             Select::make('service_user_id')
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
+                ->searchable()
+                ->preload()
+                ->default(fn ($get) => $get('service_user_id'))
                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                     $date = $get('date');
                     if ($date && $state) {
@@ -1792,7 +1799,17 @@ class BookingCalendar extends Widget implements HasCalendar
 
     public function refreshCalendar()
     {
+        // no-op for now; we rely on fullcalendar's own date range when
+        // refetching, but we keep the method for compatibility
         $this->refreshRecords();
+    }
+
+    protected function onDatesSet(DatesSetInfo $info): void
+    {
+        // track current visible window – helps when actions trigger
+        // records refresh immediately after navigation
+        $this->startDate = $info->start->toDateString();
+        $this->endDate = $info->end->toDateString();
     }
 
     public function onEventResizeLegacy(array $event, array $oldEvent, array $relatedEvents, array $startDelta, array $endDelta): bool

@@ -6,8 +6,11 @@ namespace App\Filament\App\Pages;
 
 use Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Bookings\Widgets\BookingCalendar;
 use BackedEnum;
-use Filament\Pages\Dashboard as BaseDashboard;
+use Filament\Pages\Page as BasePage;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
+use AdultDate\FilamentWirechat\Filament\Widgets\ChatsWidget;
 use UnitEnum;
 
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseCache;
@@ -19,13 +22,13 @@ use UnitEnum;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseSlowRequests;
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseUsage;
 
-class AppChatDashboard extends BaseDashboard
+class AppChatDashboard extends BasePage
 {
     protected static ?string $title = '';
 
-    protected static ?string $slug = 'wirechat';
+    protected static ?string $slug = 'chats';
 
-    protected string $view = 'filament.app.chat-dashboard';
+    //     protected string $view = 'filament.app.pages.app-chat-dashboard';
 
     protected static ?string $navigationLabel = 'Meddelanden';
 
@@ -35,15 +38,15 @@ class AppChatDashboard extends BaseDashboard
 
     protected static ?int $sort = 0;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartPie;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleOvalLeftEllipsis;
 
     // Prevent this app-level Dashboard from being auto-discovered so that
     // the explicit `AdminDashboard` can be registered as the admin panel root.
-    protected static bool $isDiscovered = false;
+    protected static bool $isDiscovered = true;
 
     public static function shouldRegisterNavigation(): bool
     {
-        return false;
+        return true;
     }
 
     public static function getNavigationLabel(): string
@@ -53,8 +56,23 @@ class AppChatDashboard extends BaseDashboard
 
     public static function getNavigationBadge(): ?string
     {
-        return 0;
+        $user = auth()->user();
 
+        if (! $user) {
+            return null;
+        }
+
+        try {
+            return (string) \AdultDate\FilamentWirechat\Models\Conversation::query()
+                ->whereHas('participants', function ($q) use ($user) {
+                    $q->where('participantable_id', $user->id)
+                      ->where('participantable_type', get_class($user))
+                      ->whereNull('exited_at');
+                })
+                ->count();
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 
     public static function getNavigationIcon(): ?string
@@ -78,24 +96,24 @@ class AppChatDashboard extends BaseDashboard
         return 2;
     }
 
-    public function getWidgets(): array
+    public function getHeaderWidgets(): array
     {
         return [
-            BookingCalendar::class,
-            \App\Filament\App\Widgets\StatsOverviewWidget::class,
-            \App\Filament\App\Widgets\OrdersChart::class,
-            \App\Filament\App\Widgets\CustomersChart::class,
-            \App\Filament\App\Widgets\LatestOrders::class,
+            ChatsWidget::class,
         ];
     }
 
     protected function getHeaderActions(): array
     {
+        FilamentAsset::register([
+            Css::make('chat', __DIR__.'/../../resources/css/chat.css'),
+        ]);
+
         return [];
     }
 
     protected function getHeaderTitle(): string
     {
-        return false;
+        return '';
     }
 }

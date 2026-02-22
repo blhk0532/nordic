@@ -7,7 +7,7 @@
     .fi-page-header-main-ctn {
         padding: 0rem !important;
     }
-        .fi-sc-component{
+    .fi-sc-component{
         border-left: 1px solid #4f4f56ad;
     }
     div.fi-section .fi-loading-section {

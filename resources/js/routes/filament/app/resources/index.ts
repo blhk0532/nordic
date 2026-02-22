@@ -1,5 +1,5 @@
 import bookingDataLeads from './booking-data-leads'
-import Bokningar from './Bokningar'
+import minaBokningar from './mina-bokningar'
 import campaigns from './campaigns'
 import outcomeDelaySettings from './outcome-delay-settings'
 import nummer from './nummer'
@@ -9,7 +9,7 @@ import users from './users'
 
 const resources = {
     bookingDataLeads: Object.assign(bookingDataLeads, bookingDataLeads),
-    Bokningar: Object.assign(Bokningar, Bokningar),
+    minaBokningar: Object.assign(minaBokningar, minaBokningar),
     campaigns: Object.assign(campaigns, campaigns),
     outcomeDelaySettings: Object.assign(outcomeDelaySettings, outcomeDelaySettings),
     nummer: Object.assign(nummer, nummer),

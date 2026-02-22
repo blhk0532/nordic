@@ -10,7 +10,6 @@ use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\BookingCalenda
 use App\Filament\App\Resources\RingaData\Widgets\RingaDataTableWidget;
 use BackedEnum;
 use Filament\Pages\Page;
-use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 
 class AppDataHistory extends Page
@@ -20,8 +19,6 @@ class AppDataHistory extends Page
     protected static ?string $slug = 'data-history';
 
     protected string $view = 'filament.app.pages.data-history';
-
-    protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
 
     protected static ?int $navigationSort = 4;
 
@@ -36,6 +33,11 @@ class AppDataHistory extends Page
     public static function shouldRegisterNavigation(): bool
     {
         return false;
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return auth()->user()->name ? auth()->user()->name : 'Mina Sidor';
     }
 
     public static function getNavigationLabel(): string

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AdultDate\FilamentWirechat\Filament\Pages;
 
-use AdultDate\FilamentWirechat\Filament\Widgets\WirechatWidget;
+use AdultDate\FilamentWirechat\Filament\Widgets\ChatsWidget;
 use App\Models\User as Model;
 use BackedEnum;
 use Filament\Pages\Page;
@@ -16,17 +16,17 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
 use UnitEnum;
 
-class ChatDashboard extends Page
+class ChatsDashboard extends Page
 {
-    protected static ?string $slug = 'wirechat';
+    protected static ?string $slug = 'my-chats';
 
-    protected string $view = 'filament-wirechat::filament.pages.chat-dashboard';
+    protected string $view = 'filament-wirechat::filament.pages.chats-dashboard';
 
     protected static ?string $title = '';
 
     protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
 
-    protected static ?string $navigationLabel = 'Meddelanden';
+    protected static ?string $navigationLabel = 'Meddelande';
 
     protected static ?int $navigationSort = 10;
 
@@ -34,11 +34,16 @@ class ChatDashboard extends Page
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
 
-    protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = true;
 
     public static function getNavigationLabel(): string
     {
-        return $panel ?? 'Meddelanden';
+        return $panel ?? 'Meddelande';
+    }
+
+    public function getView(): string
+    {
+        return 'filament-wirechat::filament.pages.chats-dashboard';
     }
 
     /**
@@ -109,18 +114,17 @@ class ChatDashboard extends Page
     public function getMaxContentWidth(): Width
     {
 
-        // FilamentAsset::register([
-        //     Css::make('chat', __DIR__ . '/../../resources/css/chat.css'),
-        // ]);
-
         return Width::Full;
     }
 
     protected function getHeaderWidgets(): array
     {
+        FilamentAsset::register([
+            Css::make('chat', __DIR__.'/../../resources/css/chat.css'),
+        ]);
 
         return [
-            WirechatWidget::class,
+            //    ChatsWidget::class,
         ];
     }
 

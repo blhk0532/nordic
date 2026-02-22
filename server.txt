@@ -99,3 +99,37 @@ php artisan optimize:clear
 echo "10. Done."
 echo "Stack is now:"
 echo "Nginx -> FrankenPHP (Octane) -> Laravel -> Redis -> Horizon"
+
+
+
+do This to upsdate empty kommun values
+
+all these are "Stockholm" kommun:
+Stockholms kommun (213 123)
+Stockholm - Bandhagen mfl (13 404)
+Stockholm - Bromma (14 621)
+Stockholm - Essingeöarna mm (16 270)
+Stockholm - Farsta mfl (12 732)
+Stockholm - Hägersten mfl (20 123)
+Stockholm - Norrmalm mm (80 684)
+Stockholm - Spånga mfl (18 626)
+Stockholm - Södermalm mm (36 663)
+
+all these are "Göteborg" kommun:
+Göteborgs kommun (78 317)
+Göteborg - Centrum (23 365)
+Göteborg - Hisingen (16 143)
+Göteborg - Nordost (8 385)
+Göteborg - Väster (17 063)
+Göteborg - Öster (13 361)
+Götene kommun (1 958)
+
+all these are "Mamlö" kommun:
+Malmö kommun (46 685)
+Malmö - Väster (16 564)
+Malmö - Öster (30 121)
+
+AND for any other missing kommun use same value as other post_nummer inkommun and
+
+AND all post_lan are in the post_nums table
+

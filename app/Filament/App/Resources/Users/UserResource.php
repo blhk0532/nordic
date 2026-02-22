@@ -83,7 +83,7 @@ class UserResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('Administration');
+        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 
     public static function getNavigationBadge(): ?string
@@ -136,13 +136,13 @@ class UserResource extends Resource
             ->when(! $tenantId, fn (\Illuminate\Database\Eloquent\Builder $query) => $query->whereRaw('1 = 0'));
     }
 
- //  public static function getRelations(): array
- //  {
- //      return [
- //          OwnedTeamsRelationManager::class,
- //          TeamsRelationManager::class,
- //      ];
- //  }
+    //  public static function getRelations(): array
+    //  {
+    //      return [
+    //          OwnedTeamsRelationManager::class,
+    //          TeamsRelationManager::class,
+    //      ];
+    //  }
 
     public static function getPages(): array
     {

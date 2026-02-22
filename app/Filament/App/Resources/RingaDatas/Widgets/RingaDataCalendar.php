@@ -1784,22 +1784,12 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function getEvents(FetchInfo $info): Collection|array|Builder
     {
+        // Use the calendar viewport range provided by FullCalendar (FetchInfo)
+        // but do not further restrict results by the page-level startDate/endDate
+        // so the calendar can display all events. We still respect selected
+        // calendar/service user filters.
         $start = $info->start->toMutable()->startOfDay();
         $end = $info->end->toMutable()->endOfDay();
-
-        if ($this->startDate) {
-            $filterStart = Carbon::parse($this->startDate)->startOfDay();
-            if ($filterStart->gt($start)) {
-                $start = $filterStart;
-            }
-        }
-
-        if ($this->endDate) {
-            $filterEnd = Carbon::parse($this->endDate)->endOfDay();
-            if ($filterEnd->lt($end)) {
-                $end = $filterEnd;
-            }
-        }
 
         $filters = $this->pageFilters;
         $selectedCalendarId = $this->getSelectedCalendarId();
@@ -1814,16 +1804,11 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
         $blockingEvents = $blockingPeriods->map(fn (BookingServicePeriod $blockingPeriod) => $blockingPeriod->toCalendarEvent())->toArray();
 
+        // Do not restrict bookings by date range here; let the calendar view
+        // determine what to display. Still scope by selected calendar if set.
         $bookings = Booking::query()
             ->with(['client', 'service', 'serviceUser', 'bookingUser', 'location'])
             ->when($selectedCalendarId, fn ($query) => $query->where('booking_calendar_id', $selectedCalendarId))
-            ->where(function ($query) use ($start, $end) {
-                $query->whereBetween('service_date', [$start->toDateString(), $end->toDateString()])
-                    ->when(
-                        Schema::hasColumn('booking_bookings', 'starts_at'),
-                        fn ($q) => $q->orWhereBetween('starts_at', [$start, $end]),
-                    );
-            })
             ->where('is_active', true)
             ->get();
 
@@ -1833,9 +1818,9 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
         // Also include DailyLocation entries as all-day events on calendar
         $locationEvents = [];
         if ($showAllDayEvents) {
+            // Return all daily locations (optionally scoped by service user)
             $dailyLocations = DailyLocation::query()
                 ->when($serviceUserId, fn ($query) => $query->where('service_user_id', $serviceUserId))
-                ->whereBetween('date', [$start, $end])
                 ->with(['serviceUser'])
                 ->get();
 

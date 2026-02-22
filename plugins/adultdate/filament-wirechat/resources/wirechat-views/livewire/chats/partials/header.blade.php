@@ -85,7 +85,9 @@ div.w-full.h-full {
 
 
     </section>
+<style>
 
+</style>
     {{-- Search input --}}
     @if ($chatsSearch)
         <section class="mt-4">
