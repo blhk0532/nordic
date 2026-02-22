@@ -302,9 +302,9 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                 'day' => 'numeric',
             ],
             'headerToolbar' => [
-                'start' => 'prev,today,next',
-                'center' => 'title',
-                'end' => 'dayGridMonth,timeGridWeek,timeGridDay',
+                'start' => '',
+                'center' => '',
+                'end' => 'prev,today,next dayGridMonth,timeGridWeek,timeGridDay',
             ],
             'nowIndicator' => true,
             'selectable' => true,
