@@ -1,5 +1,10 @@
 <x-filament-widgets::widget>
     <style>
+    h2#fc-dom-1 {
+         position: absolute;
+  right: 24rem;
+  top: 4px;
+        }
         .fi-btn{
             white-space: nowrap;
             overflow: hidden;

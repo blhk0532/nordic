@@ -118,7 +118,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             'type' => gettype($this->selectedTechnician),
         ]);
 
-        return new HtmlString(view('filament.app.widgets.single-booking-calendar-header', [
+        return new HtmlString(view('filament.app.widgets.queue-booking-calendar-header', [
             'calendars' => \App\Models\BookingCalendar::all()->pluck('name', 'id'),
             'selectedTechnician' => $this->selectedTechnician,
             'startDate' => $this->startDate,
@@ -304,7 +304,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             'headerToolbar' => [
                 'start' => '',
                 'center' => '',
-                'end' => 'prev,today,next dayGridMonth,timeGridWeek,timeGridDay',
+                'end' => 'title dayGridMonth,timeGridWeek,timeGridDay prev,today,next',
             ],
             'nowIndicator' => true,
             'selectable' => true,

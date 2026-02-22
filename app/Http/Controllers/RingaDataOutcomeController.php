@@ -63,6 +63,6 @@ class RingaDataOutcomeController
 
         $record->save();
 
-        return Redirect::back()->with('success', 'Outcome recorded');
+        return Redirect::back()->with('success', 'Utfall registrerat');
     }
 }

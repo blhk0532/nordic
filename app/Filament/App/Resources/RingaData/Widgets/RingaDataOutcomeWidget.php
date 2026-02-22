@@ -62,7 +62,7 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
         ]);
 
         Notification::make()
-            ->title('Outcome recorded')
+            ->title('Utfall registrerat')
             ->body("➤ {$outcome->getLabel()}")
             ->icon($outcome->getIcon())
             ->color($outcome->getColor())
