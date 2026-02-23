@@ -42,25 +42,22 @@ class RingaDataResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
- //   public static function getNavigationGroup(): ?string
- //   {
- //       return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
- //   }
-
-    public static function shouldRegisterNavigation(): bool
+    public static function getNavigationGroup(): ?string
     {
-        $teneant = filament()->getTenant();
-
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return false;
-        }
-
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-            return true;
-        }
-
-        return false;
+        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
+
+  //  public static function shouldRegisterNavigation(): bool
+  //  {
+  //      $teneant = filament()->getTenant();
+  //      if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+  //          return false;
+  //      }
+  //      if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+  //          return true;
+  //      }
+  //      return false;
+  //  }
 
     public static function form(Schema $schema): Schema
     {
@@ -83,7 +80,7 @@ class RingaDataResource extends Resource
         $user = auth()->user();
 
         // Only super OR admin users see all records
-        if ($user && in_array($user->role, ['super'])) {
+        if ($user && in_array($user->role, ['super']) || $user && in_array($user->role, ['admin'])) {
             return $query;
         }
 
