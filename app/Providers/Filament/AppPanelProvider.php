@@ -211,7 +211,7 @@ class AppPanelProvider extends PanelProvider
                         24                                                   // Logo height in pixels
                     ),
                 //    ->withLinks([
-                //        ['title' => 'ndsth.com', 'url' => 'https://ndsth.com', 'target' => '_blank'],
+                //        ['title' => 'ndsth.com', 'url' => 'https://nordicdigitalthailand.com', 'target' => '_blank'],
                 //    ]),
             ])
             ->plugins([
@@ -318,24 +318,24 @@ class AppPanelProvider extends PanelProvider
     public function boot(): void
     {
 
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-            function (): \Illuminate\View\View {
-                return view('filament.app.global-outcome-history-trigger');
-            }
-        );
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-            function (): \Illuminate\View\View {
-                return view('filament.app.global-ai-search-trigger');
-            }
-        );
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-            function (): \Illuminate\View\View {
-                return view('filament.app.global-calendar-search-trigger');
-            }
-        );
+    //    FilamentView::registerRenderHook(
+    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+    //        function (): \Illuminate\View\View {
+    //            return view('filament.app.global-outcome-history-trigger');
+    //        }
+    //    );
+    //    FilamentView::registerRenderHook(
+    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+    //        function (): \Illuminate\View\View {
+    //            return view('filament.app.global-ai-search-trigger');
+    //        }
+    //    );
+    //    FilamentView::registerRenderHook(
+    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+    //        function (): \Illuminate\View\View {
+    //            return view('filament.app.global-calendar-search-trigger');
+    //        }
+    //    );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,
