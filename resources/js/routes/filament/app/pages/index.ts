@@ -1,25 +1,25 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-export const kommunerMap = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: kommunerMap.url(args, options),
+export const kommunerMapPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: kommunerMapPage.url(args, options),
     method: 'get',
 })
 
-kommunerMap.definition = {
+kommunerMapPage.definition = {
     methods: ["get","head"],
     url: '/nds/app/team/{tenant}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-kommunerMap.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+kommunerMapPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,58 +42,58 @@ kommunerMap.url = (args: { tenant: string | number | { slug: string | number } }
         : args.tenant,
     }
 
-    return kommunerMap.definition.url
+    return kommunerMapPage.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-kommunerMap.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: kommunerMap.url(args, options),
+kommunerMapPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: kommunerMapPage.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-kommunerMap.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: kommunerMap.url(args, options),
+kommunerMapPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: kommunerMapPage.url(args, options),
     method: 'head',
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-const kommunerMapForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: kommunerMap.url(args, options),
+const kommunerMapPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: kommunerMapPage.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-kommunerMapForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: kommunerMap.url(args, options),
+kommunerMapPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: kommunerMapPage.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
-kommunerMapForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: kommunerMap.url(args, {
+kommunerMapPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: kommunerMapPage.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ kommunerMapForm.head = (args: { tenant: string | number | { slug: string | numbe
     method: 'get',
 })
 
-kommunerMap.form = kommunerMapForm
+kommunerMapPage.form = kommunerMapPageForm
 
 /**
 * @see \App\Filament\App\Pages\AppChatDashboard::__invoke
@@ -1052,24 +1052,24 @@ userNotesSettings.form = userNotesSettingsForm
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-export const appDashboard = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: appDashboard.url(args, options),
+export const dashboard = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: dashboard.url(args, options),
     method: 'get',
 })
 
-appDashboard.definition = {
+dashboard.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/app-dashboard',
+    url: '/nds/app/team/{tenant}/dashboard',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-appDashboard.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+dashboard.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -1092,7 +1092,7 @@ appDashboard.url = (args: { tenant: string | number | { slug: string | number } 
         : args.tenant,
     }
 
-    return appDashboard.definition.url
+    return dashboard.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -1100,50 +1100,50 @@ appDashboard.url = (args: { tenant: string | number | { slug: string | number } 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-appDashboard.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: appDashboard.url(args, options),
+dashboard.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: dashboard.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-appDashboard.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: appDashboard.url(args, options),
+dashboard.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: dashboard.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-const appDashboardForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: appDashboard.url(args, options),
+const dashboardForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-appDashboardForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: appDashboard.url(args, options),
+dashboardForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\AppDashboard::__invoke
 * @see app/Filament/App/Pages/AppDashboard.php:7
-* @route '/nds/app/team/{tenant}/app-dashboard'
+* @route '/nds/app/team/{tenant}/dashboard'
 */
-appDashboardForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: appDashboard.url(args, {
+dashboardForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -1152,7 +1152,7 @@ appDashboardForm.head = (args: { tenant: string | number | { slug: string | numb
     method: 'get',
 })
 
-appDashboard.form = appDashboardForm
+dashboard.form = dashboardForm
 
 /**
 * @see \App\Filament\App\Clusters\Services\Resources\Bookings\Pages\SingleCalendar::__invoke
@@ -2069,7 +2069,7 @@ chatDashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get
 chatDashboard.form = chatDashboardForm
 
 const pages = {
-    kommunerMap: Object.assign(kommunerMap, kommunerMap),
+    kommunerMapPage: Object.assign(kommunerMapPage, kommunerMapPage),
     chats: Object.assign(chats, chats),
     arbetslista: Object.assign(arbetslista, arbetslista),
     googleCalendar: Object.assign(googleCalendar, googleCalendar),
@@ -2079,7 +2079,7 @@ const pages = {
     settings: Object.assign(settings, settings),
     teamInvitationAccept: Object.assign(teamInvitationAccept, teamInvitationAccept),
     userNotesSettings: Object.assign(userNotesSettings, userNotesSettings),
-    appDashboard: Object.assign(appDashboard, appDashboard),
+    dashboard: Object.assign(dashboard, dashboard),
     singleCalendar: Object.assign(singleCalendar, singleCalendar),
     multiCalendars3: Object.assign(multiCalendars3, multiCalendars3),
     queue: Object.assign(queue, queue),

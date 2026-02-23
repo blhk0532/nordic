@@ -22,7 +22,7 @@ use App\Filament\App\Pages\AppDataHistory;
 use App\Filament\App\Pages\AppRingLista;
 use App\Filament\App\Pages\ArbetslistaDashboard;
 use App\Filament\App\Pages\InertiaCalendar;
-use App\Filament\App\Pages\KommunerMap;
+use App\Filament\Data\Pages\KommunerMap;
 use App\Filament\App\Pages\TeamInvitationAccept;
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 // use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
@@ -143,6 +143,7 @@ class AppPanelProvider extends PanelProvider
                 Scheman::class,
                 ArbetslistaDashboard::class,
                 AppDataHistory::class,
+                \App\Filament\Data\Pages\KommunerMap::class,
                 // KommunerMap::class,
                 //    AppRingLista::class,
                 //    BookingCalendersX2::class,
@@ -153,7 +154,6 @@ class AppPanelProvider extends PanelProvider
             ])
             ->widgets([
                 WeatherWidget::class,
-                \App\Filament\App\Widgets\KommunerMapWidget::class,
                 //    Widgets\AccountWidget::class,
                 //    Widgets\FilamentInfoWidget::class,
                 //   RatsitDataStatsWidget::class,

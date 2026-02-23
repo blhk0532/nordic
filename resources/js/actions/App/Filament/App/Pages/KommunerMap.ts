@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 const KommunerMap = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ KommunerMap.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 KommunerMap.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ KommunerMap.url = (args: { tenant: string | number | { slug: string | number } }
 }
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 KommunerMap.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ KommunerMap.get = (args: { tenant: string | number | { slug: string | number } }
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 KommunerMap.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ KommunerMap.head = (args: { tenant: string | number | { slug: string | number } 
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 const KommunerMapForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const KommunerMapForm = (args: { tenant: string | number | { slug: string | numb
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 KommunerMapForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ KommunerMapForm.get = (args: { tenant: string | number | { slug: string | number
 })
 
 /**
-* @see \App\Filament\App\Pages\KommunerMap::__invoke
-* @see app/Filament/App/Pages/KommunerMap.php:7
+* @see \App\Filament\Data\Pages\KommunerMap::__invoke
+* @see app/Filament/Data/Pages/KommunerMap.php:7
 * @route '/nds/app/team/{tenant}'
 */
 KommunerMapForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
