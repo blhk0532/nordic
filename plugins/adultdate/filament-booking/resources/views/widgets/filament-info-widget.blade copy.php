@@ -19,7 +19,7 @@
         <div class="fi-filament-info-widget-main" style="">
               <div class="fi-widget" style="padding-top: 3px;padding-right:20px">
             <a
-                href="'https://nordicdigitalthailand.com'"
+                href="'https://ndsth.com'"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="fi-filament-info-widget-logo-link pt-1"
@@ -584,7 +584,7 @@
  </a>
     </div>
         <div class="fi-filament-info-widget-links" style="min-width:100px;">
-            <a href="'https://nordicdigitalthailand.com'" target="_blank" rel="noopener noreferrer" class="fi-btn fi-size-md fi-labeled-from-sm"
+            <a href="'https://ndsth.com'" target="_blank" rel="noopener noreferrer" class="fi-btn fi-size-md fi-labeled-from-sm"
                 style="height:36px;width:94px;position:absolute;top:26px;right:24px;">
                <span id="clock" style="color: currentColor"></span>
             </a>
