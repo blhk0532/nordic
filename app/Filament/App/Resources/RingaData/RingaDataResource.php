@@ -42,10 +42,10 @@ class RingaDataResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
-    public static function getNavigationGroup(): ?string
-    {
-        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
-    }
+ //   public static function getNavigationGroup(): ?string
+ //   {
+ //       return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+ //   }
 
     public static function shouldRegisterNavigation(): bool
     {

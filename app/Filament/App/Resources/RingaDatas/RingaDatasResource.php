@@ -44,6 +44,14 @@ class RingaDatasResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
+
+    public static function shouldRegisterNavigation(): bool
+    {
+
+        return false;
+    }
+
+
     public static function form(Schema $schema): Schema
     {
         return RingaDataForm::configure($schema);

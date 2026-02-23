@@ -52,6 +52,13 @@ class QueueRingaData extends Page
 
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
+    public static function shouldRegisterNavigation(array $parameters = []): bool
+    {
+        $tenant = filament()->getTenant();
+
+        return $tenant && $tenant->getAttribute('is_admin') === false;
+    }
+
     public function mount(): void
     {
         try {
