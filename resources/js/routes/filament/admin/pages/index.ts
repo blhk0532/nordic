@@ -1,4 +1,6 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
+import chats8dcd54 from './chats'
+import fullWidthChat from './full-width-chat'
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
 * @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
@@ -420,6 +422,216 @@ myProfileForm.head = (args: { tenant: string | number | { slug: string | number 
 myProfile.form = myProfileForm
 
 /**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+export const wirechat = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: wirechat.url(args, options),
+    method: 'get',
+})
+
+wirechat.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/wirechat',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+wirechat.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return wirechat.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+wirechat.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: wirechat.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+wirechat.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: wirechat.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+const wirechatForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: wirechat.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+wirechatForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: wirechat.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+wirechatForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: wirechat.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+wirechat.form = wirechatForm
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+export const chats = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: chats.url(args, options),
+    method: 'get',
+})
+
+chats.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/chats',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+chats.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return chats.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+chats.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: chats.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+chats.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: chats.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+const chatsForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: chats.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+chatsForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: chats.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
+* @route '/admin/tenant/{tenant}/chats'
+*/
+chatsForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: chats.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+chats.form = chatsForm
+
+/**
 * @see routes/web.php:153
 * @route '/filament/admin/chat-dashboard'
 */
@@ -498,6 +710,9 @@ const pages = {
     members: Object.assign(members, members),
     generalSettingsPage: Object.assign(generalSettingsPage, generalSettingsPage),
     myProfile: Object.assign(myProfile, myProfile),
+    wirechat: Object.assign(wirechat, wirechat),
+    chats: Object.assign(chats, chats8dcd54),
+    fullWidthChat: Object.assign(fullWidthChat, fullWidthChat),
     chatDashboard: Object.assign(chatDashboard, chatDashboard),
 }
 

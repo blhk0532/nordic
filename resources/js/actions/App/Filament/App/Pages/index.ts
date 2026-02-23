@@ -2,6 +2,7 @@ import Tenancy from './Tenancy'
 import Dashboard from './Dashboard'
 import AppChatDashboard from './AppChatDashboard'
 import ArbetslistaDashboard from './ArbetslistaDashboard'
+import GoogleCalendar from './GoogleCalendar'
 import InertiaCalendar from './InertiaCalendar'
 import ManuSettings from './ManuSettings'
 import SendTestMessage from './SendTestMessage'
@@ -16,6 +17,7 @@ const Pages = {
     Dashboard: Object.assign(Dashboard, Dashboard),
     AppChatDashboard: Object.assign(AppChatDashboard, AppChatDashboard),
     ArbetslistaDashboard: Object.assign(ArbetslistaDashboard, ArbetslistaDashboard),
+    GoogleCalendar: Object.assign(GoogleCalendar, GoogleCalendar),
     InertiaCalendar: Object.assign(InertiaCalendar, InertiaCalendar),
     ManuSettings: Object.assign(ManuSettings, ManuSettings),
     SendTestMessage: Object.assign(SendTestMessage, SendTestMessage),

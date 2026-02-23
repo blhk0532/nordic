@@ -315,6 +315,111 @@ arbetslistaForm.head = (args: { tenant: string | number | { slug: string | numbe
 arbetslista.form = arbetslistaForm
 
 /**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+export const googleCalendar = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: googleCalendar.url(args, options),
+    method: 'get',
+})
+
+googleCalendar.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/google-calendar',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+googleCalendar.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return googleCalendar.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+googleCalendar.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: googleCalendar.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+googleCalendar.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: googleCalendar.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+const googleCalendarForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: googleCalendar.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+googleCalendarForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: googleCalendar.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\GoogleCalendar::__invoke
+* @see app/Filament/App/Pages/GoogleCalendar.php:7
+* @route '/nds/app/team/{tenant}/google-calendar'
+*/
+googleCalendarForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: googleCalendar.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+googleCalendar.form = googleCalendarForm
+
+/**
 * @see \App\Filament\App\Pages\InertiaCalendar::__invoke
 * @see app/Filament/App/Pages/InertiaCalendar.php:7
 * @route '/nds/app/team/{tenant}/bokning-kalender'
@@ -1967,6 +2072,7 @@ const pages = {
     dashboard: Object.assign(dashboard, dashboard),
     chats: Object.assign(chats, chats),
     arbetslista: Object.assign(arbetslista, arbetslista),
+    googleCalendar: Object.assign(googleCalendar, googleCalendar),
     bokningKalender: Object.assign(bokningKalender, bokningKalender),
     manuSettings: Object.assign(manuSettings, manuSettings),
     sendTestMessage: Object.assign(sendTestMessage, sendTestMessage),

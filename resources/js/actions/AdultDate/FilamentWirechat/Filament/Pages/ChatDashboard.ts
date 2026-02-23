@@ -2,6 +2,110 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+const ChatDashboard74ec9628a8f8f80f695d84fad9e5d202 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, options),
+    method: 'get',
+})
+
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/wirechat',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+const ChatDashboard74ec9628a8f8f80f695d84fad9e5d202Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
+* @route '/admin/tenant/{tenant}/wirechat'
+*/
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ChatDashboard74ec9628a8f8f80f695d84fad9e5d202.form = ChatDashboard74ec9628a8f8f80f695d84fad9e5d202Form
+/**
+* @see \AdultDate\FilamentWirechat\Filament\Pages\ChatDashboard::__invoke
+* @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatDashboard.php:7
 * @route '/nds/app/team/{tenant}/wirechat'
 */
 const ChatDashboard127e8d4f61f8ee02324d7c8d66b0b604 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -265,6 +369,7 @@ ChatDashboard5ecfcd8781dd4f8e646edb4039b41f1eForm.head = (options?: RouteQueryOp
 ChatDashboard5ecfcd8781dd4f8e646edb4039b41f1e.form = ChatDashboard5ecfcd8781dd4f8e646edb4039b41f1eForm
 
 const ChatDashboard = {
+    '/admin/tenant/{tenant}/wirechat': ChatDashboard74ec9628a8f8f80f695d84fad9e5d202,
     '/nds/app/team/{tenant}/wirechat': ChatDashboard127e8d4f61f8ee02324d7c8d66b0b604,
     '/nds/notify/wirechat': ChatDashboard53108fcbd521519e14c4bb5f1f847019,
     '/nds/super/wirechat': ChatDashboard5ecfcd8781dd4f8e646edb4039b41f1e,

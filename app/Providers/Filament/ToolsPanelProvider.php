@@ -40,7 +40,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use Adultdate\FilamentBooking\FilamentBookingPlugin;
+
 class ToolsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
