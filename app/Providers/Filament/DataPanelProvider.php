@@ -23,7 +23,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 class DataPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -68,6 +68,11 @@ class DataPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+                        ->plugins([
+                FilamentBookingPlugin::make(),
+                //   FilamentDialerPlugin::make(),
+
             ])
             ->plugins([
                 FilamentWirechatPlugin::make()

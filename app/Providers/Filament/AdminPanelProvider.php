@@ -261,6 +261,11 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationBadge('Roles')                      // string|Closure|null
                     ->navigationBadgeColor('success')           // string|array|Closure|null
             )
+                        ->plugins([
+                FilamentBookingPlugin::make(),
+                //   FilamentDialerPlugin::make(),
+
+            ])
             ->plugins([
                 FilamentWirechatPlugin::make()
                     ->excludeResources([

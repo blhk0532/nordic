@@ -39,7 +39,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 class ToolsPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -127,6 +127,11 @@ class ToolsPanelProvider extends PanelProvider
                         \AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationResource::class,
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
                     ]),
+            ])
+                        ->plugins([
+                FilamentBookingPlugin::make(),
+                //   FilamentDialerPlugin::make(),
+
             ])
             ->plugins([
                 FilamentFailedJobsPlugin::make(),
