@@ -40,7 +40,7 @@ class AppDashboard extends BasePage
 
     protected static ?string $title = '';
 
-    protected static ?string $slug = 'dashboard';
+    protected static ?string $slug = 'app-dashboard';
 
     protected static ?string $navigationLabel = 'Team';
 
