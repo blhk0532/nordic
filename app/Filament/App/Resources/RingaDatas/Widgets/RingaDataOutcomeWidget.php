@@ -6,6 +6,7 @@ namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
 use App\Enums\Outcomes;
 use App\Models\RingaData;
+use App\Models\RingaDataOutcome;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -58,6 +59,12 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
         $this->record->update([
             'outcome' => $outcome,
             'attempts' => ($this->record->attempts ?? 0) + 1,
+        ]);
+
+        RingaDataOutcome::query()->create([
+            'ringa_data_id' => $this->record->id,
+            'user_id' => auth()->id(),
+            'coutcome' => $outcome->value,
         ]);
 
         Notification::make()

@@ -1,6 +1,7 @@
 import admins from './admins'
 import outcomeDelaySettings from './outcome-delay-settings'
 import outcomeSettings from './outcome-settings'
+import ringaDataOutcomes from './ringa-data-outcomes'
 import teamInvitations from './team-invitations'
 import teams from './teams'
 import users from './users'
@@ -33,6 +34,7 @@ const resources = {
     admins: Object.assign(admins, admins),
     outcomeDelaySettings: Object.assign(outcomeDelaySettings, outcomeDelaySettings),
     outcomeSettings: Object.assign(outcomeSettings, outcomeSettings),
+    ringaDataOutcomes: Object.assign(ringaDataOutcomes, ringaDataOutcomes),
     teamInvitations: Object.assign(teamInvitations, teamInvitations),
     teams: Object.assign(teams, teams),
     users: Object.assign(users, users),

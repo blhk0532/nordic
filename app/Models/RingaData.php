@@ -9,6 +9,7 @@ use App\Enums\Outcomes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -256,6 +257,11 @@ class RingaData extends Model
     public function calendar()
     {
         return $this->belongsTo(BookingCalendar::class, 'calendar_id');
+    }
+
+    public function outcomeLogs(): HasMany
+    {
+        return $this->hasMany(RingaDataOutcome::class);
     }
 
     /** @return Builder<static> */

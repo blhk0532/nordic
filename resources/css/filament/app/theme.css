@@ -383,6 +383,11 @@ footer.fi-footer{
     display: flex;
   height: 50px;
 }
+@media screen and (max-width: 1023px) {
+    footer.fi-footer {
+        display: none !important;
+    }
+}
 img.w-auto.object-contain{
     height: 24px;
   position: absolute;

@@ -36,7 +36,7 @@ class CallHistoryWidget extends BaseWidget
                     ->whereNotNull('outcome')
                     ->latest('updated_at')
             )
-            ->heading('Samtalshistorik - Alla Utfall')
-            ->description('Visar alla samtal med registrerade utfall');
+            ->heading('Samtalshistorik')
+            ->description('Registrerade utfall');
     }
 }

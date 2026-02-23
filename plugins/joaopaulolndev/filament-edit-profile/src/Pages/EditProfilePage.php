@@ -27,11 +27,25 @@ class EditProfilePage extends Page
         return $slug ? $slug : self::$slug;
     }
 
+    //  public static function shouldRegisterNavigation(): bool
+    //  {
+    //      $plugin = Filament::getCurrentOrDefaultPanel()?->getPlugin('filament-edit-profile');
+    //      return $plugin->getShouldRegisterNavigation();
+    //  }
+
     public static function shouldRegisterNavigation(): bool
     {
-        $plugin = Filament::getCurrentOrDefaultPanel()?->getPlugin('filament-edit-profile');
+        $teneant = filament()->getTenant();
 
-        return $plugin->getShouldRegisterNavigation();
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return true;
+        }
+
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return false;
+        }
+
+        return true;
     }
 
     public static function getNavigationSort(): ?int

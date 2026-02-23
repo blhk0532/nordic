@@ -15,14 +15,14 @@ use App\Models\RingaData;
 use BackedEnum;
 use Exception;
 use Filament\Resources\Pages\Page;
+use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
 
 class QueueRingaData extends Page
 {
@@ -40,9 +40,9 @@ class QueueRingaData extends Page
 
     // public static bool $shouldRegisterNavigation = true;
 
-    protected static UnitEnum|string|null $navigationGroup = ' ';
+    // protected static UnitEnum|string|null $navigationGroup = ' ';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 20;
 
     protected static ?int $sort = 2;
 
@@ -58,8 +58,8 @@ class QueueRingaData extends Page
             // Always reset selectedRecordId on mount to avoid stale state
 
             FilamentAsset::register([
-    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
-]);
+                Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+            ]);
             // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
             logger('QueueRingaData mount', [
@@ -103,10 +103,10 @@ class QueueRingaData extends Page
         // return (string) (auth()->user()?->name ?? '');
     }
 
-public static function getNavigationBadgeColor(): ?string
-{
-    return (string) self::getQuery()->count() > 100 ? 'danger' : 'warning';
-}
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return (string) self::getQuery()->count() > 100 ? 'danger' : 'warning';
+    }
 
     public function getHeaderWidgetsData(): array
     {

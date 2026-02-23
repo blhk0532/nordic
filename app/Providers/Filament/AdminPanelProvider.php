@@ -263,7 +263,6 @@ class AdminPanelProvider extends PanelProvider
             )
             ->plugins([
                 FilamentWirechatPlugin::make()
-                    ->onlyPages([])
                     ->excludeResources([
                         \AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationResource::class,
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,

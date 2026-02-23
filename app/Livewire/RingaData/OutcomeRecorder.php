@@ -6,6 +6,7 @@ namespace App\Livewire\RingaData;
 
 use App\Filament\App\Resources\RingaDatas\RingaDatasResource;
 use App\Models\RingaData;
+use App\Models\RingaDataOutcome;
 use App\Services\OutcomeDelayService;
 use Exception;
 use Filament\Actions\Action;
@@ -423,6 +424,12 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                             'attempts' => $attempts,
                             'is_outcome' => true,
                         ]);
+
+                    RingaDataOutcome::query()->create([
+                        'ringa_data_id' => $record->id,
+                        'user_id' => auth()->id(),
+                        'coutcome' => $outcomeEnum->value,
+                    ]);
                 });
 
                 // Refresh to confirm save
@@ -476,6 +483,12 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                         'available_at' => $isActive ? now()->addMinutes($delayMinutes) : $record->available_at,
                         'is_outcome' => true,
                     ]);
+
+                RingaDataOutcome::query()->create([
+                    'ringa_data_id' => $record->id,
+                    'user_id' => auth()->id(),
+                    'coutcome' => $outcomeEnum->value,
+                ]);
             });
 
             // Refresh to confirm save

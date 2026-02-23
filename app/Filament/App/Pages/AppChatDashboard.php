@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Pages;
 
-use Adultdate\FilamentBooking\Filament\Clusters\Services\Resources\Bookings\Widgets\BookingCalendar;
+use AdultDate\FilamentWirechat\Filament\Widgets\ChatsWidget;
 use BackedEnum;
 use Filament\Pages\Page as BasePage;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
-use AdultDate\FilamentWirechat\Filament\Widgets\ChatsWidget;
 use UnitEnum;
 
 // use Dotswan\FilamentLaravelPulse\Widgets\PulseCache;
@@ -46,6 +45,16 @@ class AppChatDashboard extends BasePage
 
     public static function shouldRegisterNavigation(): bool
     {
+        $teneant = filament()->getTenant();
+
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return true;
+        }
+
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return false;
+        }
+
         return true;
     }
 
@@ -66,8 +75,8 @@ class AppChatDashboard extends BasePage
             return (string) \AdultDate\FilamentWirechat\Models\Conversation::query()
                 ->whereHas('participants', function ($q) use ($user) {
                     $q->where('participantable_id', $user->id)
-                      ->where('participantable_type', get_class($user))
-                      ->whereNull('exited_at');
+                        ->where('participantable_type', get_class($user))
+                        ->whereNull('exited_at');
                 })
                 ->count();
         } catch (\Throwable $e) {

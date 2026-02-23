@@ -47,7 +47,7 @@ class SingleCalendar extends BaseDashboard
 
     protected static string $routePath = 'single-calendar';
 
-    // protected static string|UnitEnum|null $navigationGroup = '';
+    protected static string|UnitEnum|null $navigationGroup = '';
 
     //   use HasFiltersForm;
     //  protected static ?string $slug = 'dashboard';

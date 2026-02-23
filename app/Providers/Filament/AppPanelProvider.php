@@ -59,6 +59,8 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -105,7 +107,7 @@ class AppPanelProvider extends PanelProvider
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->defaultThemeMode(ThemeMode::Dark)
-        //    ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
+            //    ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
@@ -311,6 +313,35 @@ class AppPanelProvider extends PanelProvider
             ])
             ->plugin(FilamentUiSwitcherPlugin::make()
                 ->withModeSwitcher());
+    }
 
+    public function boot(): void
+    {
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            function (): \Illuminate\View\View {
+                return view('filament.app.global-outcome-history-trigger');
+            }
+        );
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            function (): \Illuminate\View\View {
+                return view('filament.app.global-ai-search-trigger');
+            }
+        );
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            function (): \Illuminate\View\View {
+                return view('filament.app.global-calendar-search-trigger');
+            }
+        );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::USER_MENU_BEFORE,
+            function (): \Illuminate\View\View {
+                return view('filament.app.global-ringa-data-search-trigger');
+            }
+        );
     }
 }

@@ -34,16 +34,32 @@ class RingaListanResource extends Resource
 
     protected static ?string $navigationLabel = 'Återkom';
 
-    protected static UnitEnum|string|null $navigationGroup = ' ';
+    protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?string $slug = 'ringa/listor';
 
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 95;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
 
     protected static bool $isScopedToTenant = false;
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        $teneant = filament()->getTenant();
+
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return true;
+        }
+
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return false;
+        }
+
+        return true;
+
+    }
 
     public static function form(Schema $schema): Schema
     {

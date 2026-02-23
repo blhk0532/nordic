@@ -11,13 +11,11 @@ use App\Models\Campaign;
 use App\Models\RingaData;
 use App\Models\Team;
 use Faker\Factory as Faker;
-use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -43,7 +41,7 @@ class RingaDataTable
             ->headerActions([
                 \EightyNine\ExcelImport\ExcelImportAction::make()
                     ->color('primary')
-                    ->extraAttributes(['class' => 'absolute top-11 right-86 z-0']),
+                    ->extraAttributes(['class' => 'absolute top-11 right-90 z-0']),
             ])
             ->columns([
                 UserColumn::make('user')
@@ -206,9 +204,10 @@ class RingaDataTable
                     ->label('Kampanj')
                     ->options(function () {
                         $tenantId = filament()->getTenant()?->id;
-                        if (!$tenantId) {
+                        if (! $tenantId) {
                             return [];
                         }
+
                         return Campaign::where('team_id', $tenantId)
                             ->pluck('title', 'id')
                             ->toArray();
@@ -237,7 +236,7 @@ class RingaDataTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
-                    ->label('Radera Uppgifterna'),
+                        ->label('Radera Uppgifterna'),
                     BulkAction::make('transferCampaign')
                         ->label('Kampanjöverföring')
                         ->icon('heroicon-o-arrow-path')
@@ -248,9 +247,10 @@ class RingaDataTable
                                 ->searchable()
                                 ->options(function () {
                                     $tenantId = filament()->getTenant()?->id;
-                                    if (!$tenantId) {
+                                    if (! $tenantId) {
                                         return [];
                                     }
+
                                     return Campaign::where('title', '!=', 'Unassigned')
                                         ->pluck('title', 'id')
                                         ->toArray();
@@ -268,7 +268,7 @@ class RingaDataTable
                             Notification::make()
                                 ->title('Campaign transferred successfully')
                                 ->success()
-                                ->body(count($records) . ' record(s) transferred.')
+                                ->body(count($records).' record(s) transferred.')
                                 ->send();
                         })
                         ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
@@ -296,7 +296,7 @@ class RingaDataTable
                             Notification::make()
                                 ->title('Resultat nollställda')
                                 ->success()
-                                ->body(count($records) . ' post(er) har nollställts.')
+                                ->body(count($records).' post(er) har nollställts.')
                                 ->send();
                         })
                         ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
@@ -322,7 +322,7 @@ class RingaDataTable
                             Notification::make()
                                 ->title('Arbetsgrupp tilldelad')
                                 ->success()
-                                ->body(count($records) . ' post(er) har tilldelats en arbetsgrupp.')
+                                ->body(count($records).' post(er) har tilldelats en arbetsgrupp.')
                                 ->send();
                         })
                         ->visible(fn () => in_array(auth()->user()->role, ['super', 'super_admin', 'superadmin'])),
@@ -419,8 +419,6 @@ class RingaDataTable
                         })
                         ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
                 ]),
-
-
 
             ]);
     }

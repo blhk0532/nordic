@@ -8,7 +8,11 @@
     $newUrl = url(implode('/', $segments));
     $newUrlX3 = preg_replace('#/[^/]*$#', '/' . $newSegment, $currentUrl);
 @endphp
-
+<style>
+    .get-heading.flex.justify-start.flex-1.mb-4{
+        margin-bottom: 0.5rem;
+    }
+</style>
 <div class="flex flex-wrap gap-4 items-end w-full pb-1">
     {{-- Tekninker --}}
     <div class="fi-fo-field-wrp max-w-[200px]  min-w-[200px] z-10 flex-shrink-0 sm:flex-[2] sm:min-w-0 relative">
