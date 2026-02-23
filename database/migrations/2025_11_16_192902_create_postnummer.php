@@ -386,16 +386,21 @@ return new class extends Migration
             ->update(['kommun' => 'Malmö kommun']);
 
         // propagate any remaining kommun values by post_nummer
+        // Some legacy `post_nummer` values contain spaces (eg. "100 04") or
+        // the existing schema may use a numeric/decimal column. To avoid
+        // implicit casts that can fail under strict SQL modes we compare a
+        // whitespace-stripped version of the value on both sides using
+        // `REPLACE(...)` and parameterized bindings.
         $map = DB::table('sverige_postnummer')
             ->whereNotNull('kommun')
-            ->select('post_nummer', 'kommun')
-            ->groupBy('post_nummer', 'kommun')
-            ->pluck('kommun', 'post_nummer');
+            ->select(DB::raw("REPLACE(post_nummer,' ', '') as post_nummer_clean"), 'kommun')
+            ->groupBy('post_nummer_clean', 'kommun')
+            ->pluck('kommun', 'post_nummer_clean');
 
-        foreach ($map as $postNummer => $komm) {
+        foreach ($map as $postNummerClean => $komm) {
             DB::table('sverige_postnummer')
                 ->whereNull('kommun')
-                ->where('post_nummer', $postNummer)
+                ->whereRaw("REPLACE(post_nummer, ' ', '') = ?", [$postNummerClean])
                 ->update(['kommun' => $komm]);
         }
 
