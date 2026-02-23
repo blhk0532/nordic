@@ -40,6 +40,8 @@ class AppDashboard extends BasePage
 
     protected static ?string $title = '';
 
+    protected static ?string $slug = 'dashboard';
+
     protected static ?string $navigationLabel = 'Team';
 
     //  protected string $view = 'filament.app.dashboard';

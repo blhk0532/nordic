@@ -1,5 +1,5 @@
 import Tenancy from './Tenancy'
-import Dashboard from './Dashboard'
+import KommunerMap from './KommunerMap'
 import AppChatDashboard from './AppChatDashboard'
 import ArbetslistaDashboard from './ArbetslistaDashboard'
 import GoogleCalendar from './GoogleCalendar'
@@ -14,7 +14,7 @@ import AppDataHistory from './AppDataHistory'
 
 const Pages = {
     Tenancy: Object.assign(Tenancy, Tenancy),
-    Dashboard: Object.assign(Dashboard, Dashboard),
+    KommunerMap: Object.assign(KommunerMap, KommunerMap),
     AppChatDashboard: Object.assign(AppChatDashboard, AppChatDashboard),
     ArbetslistaDashboard: Object.assign(ArbetslistaDashboard, ArbetslistaDashboard),
     GoogleCalendar: Object.assign(GoogleCalendar, GoogleCalendar),

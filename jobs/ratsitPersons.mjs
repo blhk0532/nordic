@@ -1068,12 +1068,25 @@ class RatsitScraper {
             }
           }
           for (const li of items) {
-            const linkElement = await li.$('a[href^="https://www.ratsit.se/"], a[href^="/"]');
+            // Be more permissive when selecting the anchor — some results use data attributes or onclick navigation
+            const linkElement = await li.$('a');
             if (!linkElement) continue;
 
-            let href = await linkElement.getAttribute('href');
+            // Try common attributes first
+            let href = (await linkElement.getAttribute('href')) || (await linkElement.getAttribute('data-href')) || null;
+
+            // Fallback: try to parse an onclick handler if present
+            if (!href) {
+              const onclick = await linkElement.getAttribute('onclick');
+              if (onclick) {
+                const m = onclick.match(/location\.href\s*=\s*["']([^"']+)["']/);
+                if (m) href = m[1];
+              }
+            }
+
             if (!href) continue;
             if (href.startsWith('/')) href = 'https://www.ratsit.se' + href;
+            if (!href.startsWith('http')) continue;
             if (!href.includes('ratsit.se')) continue;
 
             // Get the visible text for the list item and skip if it matches ignore pattern
@@ -1152,8 +1165,8 @@ class RatsitScraper {
           // Prefer to parse current URL's page param and increment it rather than always using pageNum
           try {
             const parsed = new URL(nextUrl);
-            const currentPage = parseInt(parsed.searchParams.get('page') || '1', 10);
-            const nextPageNo = isNaN(currentPage) ? pageNum + 1 : currentPage + 1;
+            // Use the loop-driven page counter to determine the next page to request
+            const nextPageNo = pageNum + 1;
             parsed.searchParams.set('page', String(nextPageNo));
             const candidate = parsed.toString();
 

@@ -21,8 +21,8 @@ use App\Filament\App\Pages\AppDashboard;
 use App\Filament\App\Pages\AppDataHistory;
 use App\Filament\App\Pages\AppRingLista;
 use App\Filament\App\Pages\ArbetslistaDashboard;
-use App\Filament\App\Pages\Dashboard;
 use App\Filament\App\Pages\InertiaCalendar;
+use App\Filament\App\Pages\KommunerMap;
 use App\Filament\App\Pages\TeamInvitationAccept;
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 // use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
@@ -99,7 +99,7 @@ class AppPanelProvider extends PanelProvider
             ->maxContentWidth(Width::Full)
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
-            ->homeUrl(fn () => Dashboard::getUrl())
+            ->homeUrl(fn () => AppDashboard::getUrl())
             ->sidebarCollapsibleOnDesktop(true)
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
             ->favicon(fn () => asset('favicon.svg'))
@@ -143,6 +143,7 @@ class AppPanelProvider extends PanelProvider
                 Scheman::class,
                 ArbetslistaDashboard::class,
                 AppDataHistory::class,
+                // KommunerMap::class,
                 //    AppRingLista::class,
                 //    BookingCalendersX2::class,
                 //    BookingCalendersX4::class,
@@ -152,6 +153,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->widgets([
                 WeatherWidget::class,
+                \App\Filament\App\Widgets\KommunerMapWidget::class,
                 //    Widgets\AccountWidget::class,
                 //    Widgets\FilamentInfoWidget::class,
                 //   RatsitDataStatsWidget::class,
@@ -318,24 +320,24 @@ class AppPanelProvider extends PanelProvider
     public function boot(): void
     {
 
-    //    FilamentView::registerRenderHook(
-    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-    //        function (): \Illuminate\View\View {
-    //            return view('filament.app.global-outcome-history-trigger');
-    //        }
-    //    );
+        //    FilamentView::registerRenderHook(
+        //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+        //        function (): \Illuminate\View\View {
+        //            return view('filament.app.global-outcome-history-trigger');
+        //        }
+        //    );
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ai-search-trigger');
             }
         );
-    //    FilamentView::registerRenderHook(
-    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-    //        function (): \Illuminate\View\View {
-    //            return view('filament.app.global-calendar-search-trigger');
-    //        }
-    //    );
+        //    FilamentView::registerRenderHook(
+        //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+        //        function (): \Illuminate\View\View {
+        //            return view('filament.app.global-calendar-search-trigger');
+        //        }
+        //    );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,
