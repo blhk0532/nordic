@@ -173,10 +173,11 @@ return new class extends Migration
                     ->values()
                     ->all();
 
-                DB::table('sverige_postnummer')->upsert(
-                    $payload,
-                    ['post_ort', 'post_nummer'],
-                    [
+                try {
+                    DB::table('sverige_postnummer')->upsert(
+                        $payload,
+                        ['post_ort', 'post_nummer'],
+                        [
                         'post_nummer',
                         'post_ort',
                         'post_lan',
@@ -218,8 +219,16 @@ return new class extends Migration
                         'ratsit_personer_queue',
                         'ratsit_foretag_queue',
                         'updated_at',
-                    ]
-                );
+                        ]
+                    );
+                } catch (\Throwable $e) {
+                    logger()->error('sverige_postnummer upsert failed (post_nums backfill)', [
+                        'error' => $e->getMessage(),
+                        'sample_payload' => array_slice($payload, 0, 5),
+                    ]);
+
+                    throw $e;
+                }
             });
     }
 
@@ -320,11 +329,20 @@ return new class extends Migration
                     $updateColumns = array_filter($updateColumns, fn ($c) => $c !== 'kommun');
                 }
 
-                DB::table('sverige_postnummer')->upsert(
-                    $payload,
-                    ['id'],
-                    $updateColumns
-                );
+                try {
+                    DB::table('sverige_postnummer')->upsert(
+                        $payload,
+                        ['id'],
+                        $updateColumns
+                    );
+                } catch (\Throwable $e) {
+                    logger()->error('sverige_postnummer upsert failed (ratsit merge)', [
+                        'error' => $e->getMessage(),
+                        'sample_payload' => array_slice($payload, 0, 5),
+                    ]);
+
+                    throw $e;
+                }
             });
     }
 

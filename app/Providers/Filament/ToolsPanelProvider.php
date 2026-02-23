@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use AchyutN\FilamentLogViewer\FilamentLogViewer;
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use App\Filament\Tools\Pages\ToolsDashboard;
 use App\Http\Middleware\FilamentPanelAccess;

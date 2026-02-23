@@ -324,12 +324,12 @@ class AppPanelProvider extends PanelProvider
     //            return view('filament.app.global-outcome-history-trigger');
     //        }
     //    );
-    //    FilamentView::registerRenderHook(
-    //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
-    //        function (): \Illuminate\View\View {
-    //            return view('filament.app.global-ai-search-trigger');
-    //        }
-    //    );
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            function (): \Illuminate\View\View {
+                return view('filament.app.global-ai-search-trigger');
+            }
+        );
     //    FilamentView::registerRenderHook(
     //        PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
     //        function (): \Illuminate\View\View {
