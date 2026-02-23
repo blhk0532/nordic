@@ -52,12 +52,12 @@ const mainNavItems: NavItem[] = [
 const footerNavItems: NavItem[] = [
 //    {
 //        title: 'NDS App',
-//        href: 'https://nordicdigitalthailand.com'/nds/app',
+//        href: 'https://ndsth.com'/nds/app',
 //        icon: LayoutGrid,
 //    },
 //    {
 //        title: 'Admin',
-//        href: 'https://nordicdigitalthailand.com'/nds/admin',
+//        href: 'https://ndsth.com'/nds/admin',
 //        icon: LayoutGrid,
 //    },
 ];
