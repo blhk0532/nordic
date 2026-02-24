@@ -21,6 +21,9 @@ use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\BootstrapIcons;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
+use Wallacemartinss\FilamentIconPicker\Enums\Heroicons;
+use App\Filament\App\Widgets\AccountWidget;
+use App\Filament\App\Widgets\FilamentInfosWidget;
 
 class Dashboard extends BaseDashboard
 {
@@ -85,8 +88,11 @@ class Dashboard extends BaseDashboard
     public function getHeaderWidgets(): array
     {
         return [
-            AccountInfoStackWidget::class,
-            WorldClockWidget::class,
+            // AccountInfoStackWidget::class,
+            // WorldClockWidget::class,
+
+AccountWidget::class,
+FilamentInfosWidget::class,
 
             //    \App\Filament\App\Widgets\LatestOrders::class,
             //    \App\Filament\App\Widgets\StatsOverviewWidget::class,
@@ -101,6 +107,7 @@ class Dashboard extends BaseDashboard
     {
         return [
             //    RingaDataTableWidget::class,
+             SingleCalendars::class,
             \App\Filament\App\Widgets\LatestOrders::class,
             //    \App\Filament\App\Widgets\OrdersChart::class,
             //    \App\Filament\App\Widgets\CustomersChart::class,
@@ -114,7 +121,7 @@ class Dashboard extends BaseDashboard
     protected function getFooterWidgets(): array
     {
         return [
-            SingleCalendars::class,
+
             //    WeatherWidget::class,
         ];
     }

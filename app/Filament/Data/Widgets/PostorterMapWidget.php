@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Data\Widgets;
 
 use App\Models\RatsitPostort;
+use App\Models\RatsitKommun;
 use App\Models\SwedishKommun;
 use EduardoRibeiroDev\FilamentLeaflet\Enums\Color;
 use EduardoRibeiroDev\FilamentLeaflet\Support\Markers\Marker;
@@ -57,18 +58,17 @@ class PostorterMapWidget extends MapWidget
         $markers = [];
 
         foreach ($kommuner as $kommun) {
-            $postortCount = RatsitPostort::whereRaw('LOWER(COALESCE(kommun, personer_kommun)) LIKE ?', ['%'.strtolower($kommun->kommun).'%'])
-                ->where('personer_count', '>', 0)
-                ->count();
+            // Prefer the personer_count from the ratsit_kommuner table (RatsitKommun)
+            $like = '%'.strtolower($kommun->kommun).'%';
+            $ratsitKommun = RatsitKommun::whereRaw('LOWER(kommun) LIKE ?', [$like])->first();
 
-            if ($postortCount === 0) {
-                continue;
-            }
+            $personsCount = $ratsitKommun ? (int) $ratsitKommun->personer_count : 0;
 
+            // Always show the kommun on the map; display persons count (0 if none)
             $markers[] = Marker::make((float) $kommun->lat, (float) $kommun->lng)
-                ->title($kommun->kommun)
-                ->popupContent($kommun->kommun.'<br>Län: '.$kommun->lan.'<br>Postnummer: '.number_format($postortCount).'<br>Klicka för att se alla postnummer')
-                ->color($this->getKommunColor($postortCount));
+                ->title($kommun->kommun.' — Personer: '.number_format($personsCount))
+                ->popupContent($kommun->kommun.'<br>Län: '.$kommun->lan.'<br>Personer: '.number_format($personsCount))
+                ->color($this->getKommunColor($personsCount));
         }
 
         return $markers;
@@ -76,13 +76,14 @@ class PostorterMapWidget extends MapWidget
 
     protected function getKommunColor(int $postortCount): Color
     {
-        if ($postortCount > 100) {
+        // Interpret the supplied number as persons count for kommune markers.
+        if ($postortCount > 5000) {
             return Color::Red;
         }
-        if ($postortCount > 50) {
+        if ($postortCount > 2000) {
             return Color::Orange;
         }
-        if ($postortCount > 20) {
+        if ($postortCount > 1000) {
             return Color::Gold;
         }
 
@@ -91,13 +92,14 @@ class PostorterMapWidget extends MapWidget
 
     protected function getPostorterMarkersForKommun(): array
     {
-        $kommun = SwedishKommun::whereRaw('LOWER(kommun) = ?', [strtolower($this->selectedKommun)])->first();
+        $kommun = SwedishKommun::whereRaw('LOWER(kommun) LIKE ?', ['%'.strtolower($this->selectedKommun).'%'])->first();
 
         if (! $kommun) {
             return [];
         }
 
-        $postorter = RatsitPostort::whereRaw('LOWER(COALESCE(kommun, personer_kommun)) LIKE ?', ['%'.strtolower($this->selectedKommun).'%'])
+        $like = '%'.strtolower($this->selectedKommun).'%';
+        $postorter = RatsitPostort::whereRaw('LOWER(personer_kommun) LIKE ? OR LOWER(foretag_kommun) LIKE ? OR LOWER(kommun) LIKE ?', [$like, $like, $like])
             ->where('personer_count', '>', 0)
             ->selectRaw('post_nummer, post_ort, SUM(personer_count) as personer_count, SUM(foretag_count) as foretag_count')
             ->groupBy('post_nummer', 'post_ort')

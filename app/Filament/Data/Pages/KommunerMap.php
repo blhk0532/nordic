@@ -10,6 +10,9 @@ use App\Filament\Data\Widgets\Tables\KommunerTableWidget;
 use BackedEnum;
 use Filament\Pages\Page as BasePage;
 use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Livewire as LivewireComponent;
+use Filament\Schemas\Components\Component as SchemaComponent;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class KommunerMap extends BasePage
@@ -44,5 +47,13 @@ class KommunerMap extends BasePage
             ->components([
                 $this->getWidgetsContentComponent(),
             ]);
+    }
+
+    public function getWidgetsContentComponent(): SchemaComponent
+    {
+        $widgets = array_map(fn ($widget) => LivewireComponent::make($widget), $this->getWidgets());
+
+        return Grid::make($this->getColumns())
+            ->schema($widgets);
     }
 }

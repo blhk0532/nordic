@@ -20,7 +20,7 @@ class RingaDataOutcomesResource extends Resource
 {
     protected static ?string $model = RingaDataOutcome::class;
 
-    protected static ?string $navigationLabel = 'Utfallshistorik';
+    protected static ?string $navigationLabel = 'Ringhistorik';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
@@ -34,6 +34,7 @@ class RingaDataOutcomesResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
+
         $teneant = filament()->getTenant();
 
         if (filament()->getTenant()->getAttribute('is_admin') !== true) {

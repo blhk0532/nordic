@@ -16,6 +16,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Collection;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
 
 class AterkomRingTableWidget extends BaseWidget
 {
@@ -31,6 +33,7 @@ class AterkomRingTableWidget extends BaseWidget
             ->query(fn () => RingaData::query()
                 ->where('user_id', $userId)
                 ->whereIn('outcome', ['Aterkommer', 'RingTillbaka']))
+            ->extraAttributes(['class' => 'x-call max-h-[400px] overflow-auto'])
             ->columns([
                 TextColumn::make('personnamn')
                     ->label('Namn')
@@ -50,7 +53,7 @@ class AterkomRingTableWidget extends BaseWidget
                     ->color('success')
                     ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     BulkAction::make('changeOutcome')
                         ->label('Ändra Utfall')
@@ -83,6 +86,10 @@ class AterkomRingTableWidget extends BaseWidget
                 ]),
             ])
             ->paginated(true)
+                        ->recordActions([
+                ViewAction::make(),
+                EditAction::make()
+     ])
             ->emptyStateHeading('Inga resultat hittades')
             ->emptyStateDescription('Du har inga poster att ringa.');
     }

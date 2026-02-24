@@ -239,7 +239,7 @@ class AppPanelProvider extends PanelProvider
                     ->setNavigationGroup(__('Mina Sidor'))
                     ->setIcon('heroicon-o-user')
                     ->setSort(100)
-                    ->shouldRegisterNavigation(true)
+                    ->shouldRegisterNavigation(false)
                     ->shouldShowEmailForm()
                     ->shouldShowLocaleForm(options: [
                         'en' => __('🇺🇸 English'),
@@ -279,13 +279,14 @@ class AppPanelProvider extends PanelProvider
                     ->visible(true),
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
-                    ->visible(false),
+                    ->visible(fn () => User::canManageTeam() !== false && !filament()->getTenant()),
                 'invitations' => Action::make('invitations')
                     ->label('Team Invitation')
                     ->url(fn (): string => TeamInvitationAccept::getUrl())
                     ->icon('heroicon-m-users')
-                    ->visible(false),
-                'profile' => fn (Action $action) => $action->label('Team profile')
+                    ->sort(-1)
+                    ->visible(fn () => User::canManageTeam() !== false),
+                'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
             ])

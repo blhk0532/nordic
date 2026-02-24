@@ -36,7 +36,7 @@ class ListBookings extends ListRecords
         ];
     }
 
-    protected function getFooterWidgets(): array
+    protected function getHeaderWidgets(): array
     {
         return BookingResource::getWidgets();
     }
