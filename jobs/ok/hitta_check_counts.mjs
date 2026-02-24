@@ -144,7 +144,7 @@ async function updateDatabase(postNummer, personer, foretag, source) {
             host: '127.0.0.1',
             port: '3306',
             user: 'root',
-            password: 'qToo81p82TFrWDLWtdNF',
+            password: '9JVQqZea1bWgqxbZuyZz',
             database: 'nordic_new',
             charset: 'utf8mb4',
         });

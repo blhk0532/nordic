@@ -213,7 +213,7 @@ class SuperPanelProvider extends PanelProvider
                         24                                                   // Logo height in pixels
                     )
                     ->withLinks([
-                        ['title' => 'ndsth.com', 'url' => 'https://ndsth.com', 'target' => '_blank'],
+                        ['title' => 'nordicdigitalthailand.com', 'url' => 'https://nordicdigitalthailand.com', 'target' => '_blank'],
                     ]),
                 FilamentErrorPagesPlugin::make(),
             ])
