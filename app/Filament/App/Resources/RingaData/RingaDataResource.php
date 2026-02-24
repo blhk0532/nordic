@@ -7,11 +7,11 @@ namespace App\Filament\App\Resources\RingaData;
 use App\Filament\App\Resources\RingaData\Pages\CreateRingaData;
 use App\Filament\App\Resources\RingaData\Pages\EditRingaData;
 use App\Filament\App\Resources\RingaData\Pages\ListRingaData;
-use App\Filament\App\Resources\RingaData\Pages\QueueRingaData;
 use App\Filament\App\Resources\RingaData\Pages\ViewRingaData;
 use App\Filament\App\Resources\RingaData\Schemas\RingaDataForm;
 use App\Filament\App\Resources\RingaData\Schemas\RingaDataInfolist;
 use App\Filament\App\Resources\RingaData\Tables\RingaDataTable;
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Models\RingaData;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -31,11 +31,11 @@ class RingaDataResource extends Resource
 
     protected static ?string $navigationLabel = 'Nummer';
 
-    // protected static UnitEnum|string|null $navigationGroup = 'Administration';
+    protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?string $slug = 'nummer/lista';
 
-    protected static ?int $navigationSort = 11;
+    protected static ?int $navigationSort = 55;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -44,20 +44,21 @@ class RingaDataResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+        return '';
+      //  return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 
-  //  public static function shouldRegisterNavigation(): bool
-  //  {
-  //      $teneant = filament()->getTenant();
-  //      if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-  //          return false;
-  //      }
-  //      if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-  //          return true;
-  //      }
-  //      return false;
-  //  }
+      public static function shouldRegisterNavigation(): bool
+      {
+        //  $teneant = filament()->getTenant();
+        //  if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+        //      return true;
+        //  }
+          if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+              return true;
+          }
+          return false;
+      }
 
     public static function form(Schema $schema): Schema
     {

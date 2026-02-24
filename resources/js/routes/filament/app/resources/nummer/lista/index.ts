@@ -210,8 +210,8 @@ createForm.head = (args: { tenant: string | number | { slug: string | number } }
 create.form = createForm
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 export const queue = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -225,8 +225,8 @@ queue.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 queue.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -258,8 +258,8 @@ queue.url = (args: { tenant: string | number | { slug: string | number } } | [te
 }
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 queue.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -268,8 +268,8 @@ queue.get = (args: { tenant: string | number | { slug: string | number } } | [te
 })
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 queue.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -278,8 +278,8 @@ queue.head = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 const queueForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -288,8 +288,8 @@ const queueForm = (args: { tenant: string | number | { slug: string | number } }
 })
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 queueForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,8 +298,8 @@ queueForm.get = (args: { tenant: string | number | { slug: string | number } } |
 })
 
 /**
-* @see \App\Filament\App\Resources\RingaData\Pages\QueueRingaData::__invoke
-* @see app/Filament/App/Resources/RingaData/Pages/QueueRingaData.php:7
+* @see \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::__invoke
+* @see app/Filament/App/Resources/RingaDatas/Pages/QueueRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/queue'
 */
 queueForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

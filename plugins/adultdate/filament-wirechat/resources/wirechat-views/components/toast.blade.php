@@ -15,7 +15,7 @@
     }
     }"
 
-    @wirechat-toast.window="
+    x-on:wirechat-toast.window="
         message = $event.detail.message;
         type = $event.detail.type;
         bannerVisible = true;

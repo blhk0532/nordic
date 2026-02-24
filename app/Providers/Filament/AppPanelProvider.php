@@ -22,15 +22,15 @@ use App\Filament\App\Pages\AppDataHistory;
 use App\Filament\App\Pages\AppRingLista;
 use App\Filament\App\Pages\ArbetslistaDashboard;
 use App\Filament\App\Pages\InertiaCalendar;
-use App\Filament\Data\Pages\KommunerMap;
 use App\Filament\App\Pages\TeamInvitationAccept;
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
-// use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
 use App\Filament\App\Pages\Tenancy\RegisterTeam;
+// use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
 use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
 use App\Filament\App\Widgets\RatsitDataStatsWidget;
+use App\Filament\Data\Pages\KommunerMap;
 use App\Http\Middleware\ApplyTenantScopes;
 use App\Http\Middleware\CurrentTenant;
 use App\Http\Middleware\EnforceUserResourceNavigation;
@@ -143,7 +143,7 @@ class AppPanelProvider extends PanelProvider
                 Scheman::class,
                 ArbetslistaDashboard::class,
                 AppDataHistory::class,
-                \App\Filament\Data\Pages\KommunerMap::class,
+                //       \App\Filament\Data\Pages\KommunerMap::class,
                 // KommunerMap::class,
                 //    AppRingLista::class,
                 //    BookingCalendersX2::class,

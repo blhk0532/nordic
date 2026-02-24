@@ -311,7 +311,8 @@
                     });
                 @endif
                     "
-                    @submit.prevent="((body && body?.trim().length > 0) || ($wire.media && $wire.media.length > 0)|| ($wire.files && $wire.files.length > 0)) ? $wire.sendMessage() : null"
+                    "
+                    wire:submit.prevent="sendMessage"
                     method="POST" autocapitalize="off" @class(['flex  items-center col-span-12 w-full  gap-2 gap-5'])>
                     @csrf
 
@@ -460,7 +461,7 @@
                             @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px';"
                             @keydown.shift.enter.prevent="insertNewLine($el)" {{-- @keydown.enter.prevent prevents the
                                default behavior of Enter key press only if Shift is not held down. --}} @keydown.enter.prevent=""
-                            @keyup.enter.prevent="$event.shiftKey ? null : (((body && body?.trim().length > 0) || ($wire.media && $wire.media.length > 0)) ? $wire.sendMessage() : null)"
+                            x-on:keyup.enter.prevent="$event.shiftKey ? null : (typeof $wire !== 'undefined' ? $wire.sendMessage() : null)"
                             class="wc-textarea bg-inherit dark:bg-inherit w-full disabled:cursor-progress resize-none h-auto max-h-20  sm:max-h-72 flex grow border-0 outline-0 focus:border-0 focus:ring-0  hover:ring-0 rounded-lg   dark:text-white bg-none dark:bg-inherit  focus:outline-hidden   "
                             x-init="
                               @if($hasEmojiPicker)

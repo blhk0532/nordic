@@ -15,7 +15,6 @@ use BinaryBuilds\CommandRunner\CommandRunnerPlugin;
 use BinaryBuilds\FilamentCacheManager\FilamentCacheManagerPlugin;
 use BinaryBuilds\FilamentFailedJobs\FilamentFailedJobsPlugin;
 use Bytexr\QueueableBulkActions\Enums\StatusEnum;
-use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
@@ -147,14 +146,6 @@ class ToolsPanelProvider extends PanelProvider
 
                         return $user instanceof User && $user->hasRole('super_admin');
                     }),
-                QueueableBulkActionsPlugin::make()
-                    ->pollingInterval('5s')
-                    ->colors([
-                        StatusEnum::QUEUED->value => 'slate',
-                        StatusEnum::IN_PROGRESS->value => 'info',
-                        StatusEnum::FINISHED->value => 'success',
-                        StatusEnum::FAILED->value => 'danger',
-                    ]),
             ]);
     }
 }

@@ -16,7 +16,6 @@ import clients from './clients'
 import tokens from './tokens'
 import passportScopeResources from './passport-scope-resources'
 import passportScopeActions from './passport-scope-actions'
-import bulkActions from './bulk-actions'
 import commandRunner from './command-runner'
 import failedJobs from './failed-jobs'
 import whatsappInstances from './whatsapp-instances'
@@ -49,7 +48,6 @@ const resources = {
     tokens: Object.assign(tokens, tokens),
     passportScopeResources: Object.assign(passportScopeResources, passportScopeResources),
     passportScopeActions: Object.assign(passportScopeActions, passportScopeActions),
-    bulkActions: Object.assign(bulkActions, bulkActions),
     commandRunner: Object.assign(commandRunner, commandRunner),
     failedJobs: Object.assign(failedJobs, failedJobs),
     whatsappInstances: Object.assign(whatsappInstances, whatsappInstances),

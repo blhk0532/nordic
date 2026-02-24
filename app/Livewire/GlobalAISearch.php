@@ -53,7 +53,7 @@ class GlobalAISearch extends Component
             $this->messages = [
                 [
                     'role' => 'assistant',
-                    'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar, ringa-data eller annat. Vad kan jag hjälpa dig med idag?',
+                    'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?',
                 ],
             ];
         } else {
@@ -71,11 +71,13 @@ class GlobalAISearch extends Component
         }
 
         $userMessage = trim($this->input);
-        $this->messages[] = ['role' => 'user', 'content' => $userMessage];
+
+        $newMessages = $this->messages;
+        $newMessages[] = ['role' => 'user', 'content' => $userMessage];
+        $this->messages = $newMessages;
+
         $this->input = '';
         $this->isLoading = true;
-
-        $this->dispatch('scroll-to-bottom');
 
         AiChatMessage::create([
             'conversation_id' => $this->conversation->id,
@@ -88,7 +90,9 @@ class GlobalAISearch extends Component
             $history = array_slice($this->messages, -10);
             $response = $aiService->chat($userMessage, $history);
 
-            $this->messages[] = ['role' => 'assistant', 'content' => $response];
+            $newMessages = $this->messages;
+            $newMessages[] = ['role' => 'assistant', 'content' => $response];
+            $this->messages = $newMessages;
 
             AiChatMessage::create([
                 'conversation_id' => $this->conversation->id,
@@ -97,7 +101,10 @@ class GlobalAISearch extends Component
             ]);
         } catch (\Exception $e) {
             $errorMessage = 'Sorry, jag kunde inte få ett svar. Är Ollama igång?';
-            $this->messages[] = ['role' => 'assistant', 'content' => $errorMessage];
+
+            $newMessages = $this->messages;
+            $newMessages[] = ['role' => 'assistant', 'content' => $errorMessage];
+            $this->messages = $newMessages;
 
             AiChatMessage::create([
                 'conversation_id' => $this->conversation->id,
@@ -107,7 +114,6 @@ class GlobalAISearch extends Component
         }
 
         $this->isLoading = false;
-        $this->dispatch('scroll-to-bottom');
     }
 
     public function clearChat(): void
@@ -117,7 +123,7 @@ class GlobalAISearch extends Component
         $this->messages = [
             [
                 'role' => 'assistant',
-                'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar, ringa-data eller annat. Vad kan jag hjälpa dig med idag?',
+                'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?',
             ],
         ];
     }
@@ -132,7 +138,7 @@ class GlobalAISearch extends Component
         $this->messages = [
             [
                 'role' => 'assistant',
-                'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar, ringa-data eller annat. Vad kan jag hjälpa dig med idag?',
+                'content' => 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?',
             ],
         ];
     }

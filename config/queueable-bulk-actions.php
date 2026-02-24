@@ -50,9 +50,9 @@ return [
      * More information: 'https://ndsth.com'/3.x/support/colors
      */
     'colors' => [
-        Bytexr\QueueableBulkActions\Enums\StatusEnum::QUEUED->value => 'gray',
-        Bytexr\QueueableBulkActions\Enums\StatusEnum::IN_PROGRESS->value => 'info',
-        Bytexr\QueueableBulkActions\Enums\StatusEnum::FINISHED->value => 'success',
-        Bytexr\QueueableBulkActions\Enums\StatusEnum::FAILED->value => 'danger',
+        'queued' => 'gray',
+        'in_progress' => 'info',
+        'finished' => 'success',
+        'failed' => 'danger',
     ],
 ];

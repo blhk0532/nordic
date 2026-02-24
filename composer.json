@@ -32,7 +32,6 @@
         "binarybuilds/filament-command-runner": "@dev",
         "binarybuilds/filament-failed-jobs": "@dev",
         "blade-ui-kit/blade-heroicons": "^2.6",
-        "bytexr/filament-queueable-bulk-actions": "^4.0",
         "caresome/filament-auth-designer": "@dev",
         "cmsmaxinc/filament-error-pages": "@dev",
         "dashed/filament-numpad-field": "@dev",

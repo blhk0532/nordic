@@ -67,15 +67,77 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
             'coutcome' => $outcome->value,
         ]);
 
+        $affectedRecords = $this->updateSameAddressRecords($outcome);
+
         Notification::make()
             ->title('Utfall registrerat')
-            ->body("➤ {$outcome->getLabel()}")
+            ->body("➤ {$outcome->getLabel()}".($affectedRecords > 0 ? " ({$affectedRecords} andra med samma adress uppdaterade)" : ''))
             ->icon($outcome->getIcon())
             ->color($outcome->getColor())
             ->send();
 
-        // Refresh the record to update the display
         $this->record->refresh();
+    }
+
+    private function isFinalOutcome(Outcomes $outcome): bool
+    {
+        return in_array($outcome, [
+            Outcomes::DMC,
+            Outcomes::Klickad,
+            Outcomes::EjIntresserad,
+            Outcomes::Felnummer,
+            Outcomes::NyligenGjort,
+            Outcomes::Yes,
+            Outcomes::Offert,
+            Outcomes::Aterkommer,
+            Outcomes::RingTillbaka,
+        ], true);
+    }
+
+    private function updateSameAddressRecords(Outcomes $outcome): int
+    {
+        if (! $this->isFinalOutcome($outcome)) {
+            logger('Address outcome: not final, skipping', ['outcome' => $outcome->value]);
+
+            return 0;
+        }
+
+        $gatuadress = trim((string) $this->record->gatuadress);
+
+        if (empty($gatuadress)) {
+            logger('Address outcome: empty address', ['record_id' => $this->record->id]);
+
+            return 0;
+        }
+
+        $teamId = $this->record->team_id;
+
+        logger('Address outcome: updating same address', [
+            'gatuadress' => $gatuadress,
+            'team_id' => $teamId,
+            'record_id' => $this->record->id,
+            'outcome' => $outcome->value,
+        ]);
+
+        // Update records with same address - match by team_id OR records with no team_id
+        $updated = RingaData::query()
+            ->whereRaw('TRIM(gatuadress) = ?', [$gatuadress])
+            ->where('id', '!=', $this->record->id)
+            ->where(function ($q) use ($teamId) {
+                $q->where('team_id', $teamId)
+                    ->orWhereNull('team_id');
+            })
+            ->whereNull('outcome')
+            ->update([
+                'outcome' => $outcome->value,
+                'outcome_category' => 'Adress',
+                'started_at' => now(),
+                'expires_at' => now()->addYear(),
+            ]);
+
+        logger('Address outcome: updated count', ['count' => $updated]);
+
+        return $updated;
     }
 
     public function form(Schema $schema): Schema

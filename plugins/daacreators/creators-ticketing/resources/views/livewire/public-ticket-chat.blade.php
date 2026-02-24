@@ -95,8 +95,8 @@
                         placeholder="{{ __('creators-ticketing::resources.chat.placeholder') }}" 
                         rows="3"
                         class="block w-full px-4 py-3 rounded-xl border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 resize-none transition"
-                        @keydown.cmd.enter="$wire.sendMessage()"
-                        @keydown.ctrl.enter="$wire.sendMessage()"
+                        x-on:keydown.cmd.enter.prevent="typeof $wire !== 'undefined' ? $wire.sendMessage() : null"
+                        x-on:keydown.ctrl.enter.prevent="typeof $wire !== 'undefined' ? $wire.sendMessage() : null"
                     ></textarea>
                     @error('message') 
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

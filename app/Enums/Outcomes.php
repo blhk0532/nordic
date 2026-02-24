@@ -29,7 +29,7 @@ enum Outcomes: string implements HasColor, HasIcon, HasLabel
     case Aterkommer = 'Återkommer';
     case RingTillbaka = 'Ring Tillbaka';
     case Offert = 'Offert';
-    case Yes = 'Bokad';
+    case Yes = 'Bokning';
 
     public function getLabel(): string
     {

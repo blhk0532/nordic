@@ -40,9 +40,9 @@ class QueueRingaData extends Page
 
     // public static bool $shouldRegisterNavigation = true;
 
-    // protected static UnitEnum|string|null $navigationGroup = ' ';
+     protected static UnitEnum|string|null $navigationGroup = '';
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 10;
 
     protected static ?int $sort = 2;
 
@@ -52,11 +52,11 @@ class QueueRingaData extends Page
 
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
-  //  public static function shouldRegisterNavigation(array $parameters = []): bool
-  //  {
-  //      $tenant = filament()->getTenant();
-  //      return $tenant && $tenant->getAttribute('is_admin') === false;
-  //  }
+    //  public static function shouldRegisterNavigation(array $parameters = []): bool
+    //  {
+    //      $tenant = filament()->getTenant();
+    //      return $tenant && $tenant->getAttribute('is_admin') === false;
+    //  }
 
     public function mount(): void
     {
@@ -168,14 +168,15 @@ class QueueRingaData extends Page
     public static function getQuery(): Builder
     {
         $now = now();
+        $teamId = filament()->getTenant()?->id;
 
         $query = self::getResource()::getEloquentQuery()
             // Only records for current user or team
 
-            ->where(function ($query) {
+            ->where(function ($query) use ($teamId) {
                 $query->where('user_id', auth()->id());
-                if (filament()->getTenant()) {
-                    $query->orWhere('team_id', filament()->getTenant()->id);
+                if ($teamId) {
+                    $query->orWhere('team_id', $teamId);
                 }
             })
         //  // Only active records
@@ -209,7 +210,7 @@ class QueueRingaData extends Page
                     ->orWhere('outcome_category', '=', 'Maybe')
                     ->orWhere('outcome_category', '=', 'Retry');
             })
-           // Only records that haven't been processed (no outcome_category set)
+           // Only records that haven't been processed (no outcome set, or retry outcomes)
             ->where(function (Builder $query) {
                 $query->whereNull('outcome')
                     ->orWhere('outcome', '=', 'Ej Framkopplad')

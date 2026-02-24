@@ -13,7 +13,7 @@
         $defaultLat = $getDefaultLat();
         $defaultLng = $getDefaultLng();
         $defaultZoom = $getDefaultZoom();
-        $height = $getHeight();
+        $height = 420
         $lat = $getLat();
         $lng = $getLng();
         $apiKey = $getApiKey();
@@ -26,51 +26,51 @@
         lng: parseFloat(@js($lng)) || @js($defaultLng),
         defaultZoom: @js($defaultZoom),
         isMapLoaded: false,
-    
+
         init() {
             this.loadGoogleMaps();
         },
-    
+
         loadGoogleMaps() {
             if (window.google && window.google.maps) {
                 this.initMap();
                 return;
             }
-    
+
             if (window.googleMapsLoading) {
                 window.googleMapsCallbacks = window.googleMapsCallbacks || [];
                 window.googleMapsCallbacks.push(() => this.initMap());
                 return;
             }
-    
+
             window.googleMapsLoading = true;
             window.googleMapsCallbacks = [];
-    
+
             const apiKey = '{{ $apiKey }}';
             if (!apiKey) {
                 console.error('Google Maps API key is not configured. Please set GOOGLE_MAPS_API_KEY in your .env file.');
                 return;
             }
-    
+
             const script = document.createElement('script');
             script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=googleMapsCallback`;
             script.async = true;
             script.defer = true;
-    
+
             window.googleMapsCallback = () => {
                 window.googleMapsLoading = false;
                 this.initMap();
                 window.googleMapsCallbacks.forEach(cb => cb());
                 window.googleMapsCallbacks = [];
             };
-    
+
             document.head.appendChild(script);
         },
-    
+
         initMap() {
             const mapElement = this.$refs.map;
             if (!mapElement) return;
-    
+
             this.map = new google.maps.Map(mapElement, {
                 center: { lat: this.lat, lng: this.lng },
                 zoom: this.defaultZoom,
@@ -83,14 +83,14 @@
                 disableDoubleClickZoom: false,
                 gestureHandling: 'auto'
             });
-    
+
             this.marker = new google.maps.Marker({
                 position: { lat: this.lat, lng: this.lng },
                 map: this.map,
                 draggable: false,
                 animation: google.maps.Animation.DROP,
             });
-    
+
             this.isMapLoaded = true;
         }
     }" x-init="init()" class="fi-in-pinpoint-entry">

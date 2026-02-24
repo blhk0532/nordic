@@ -7,7 +7,7 @@
         x-on:click.prevent="$dispatch('open-modal', { id: 'global-ai-search' })"
     >
         <x-filament::icon
-            icon="heroicon-o-chat-bubble-left-ellipsis"
+            icon="heroicon-o-information-circle"
             class="fi-icon fi-size-lg"
         />
     </button>

@@ -237,6 +237,7 @@ class RingaData extends Model
         'user_notes',
         'campaign_id',
         'tenant_id',
+        'service_user_id',
     ];
 
     public function team()

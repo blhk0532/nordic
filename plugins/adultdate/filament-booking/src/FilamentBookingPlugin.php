@@ -163,7 +163,7 @@ HTML,
         //    );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::TOPBAR_LOGO_BEFORE,
+            PanelsRenderHook::TOPBAR_LOGO_AFTER,
             fn () => view('filament.app.user-notes-icon-topbar')
         );
 

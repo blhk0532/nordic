@@ -278,7 +278,7 @@ class RingaDataTable
                         ->color('warning')
                         ->requiresConfirmation()
                         ->modalHeading('Nollställ Resultaten')
-                        ->modalDescription('Detta kommer att återställa user_id, outcome, attempts, started_at och expires_at för de valda posterna.')
+                        ->modalDescription('Detta kommer att återställa user_id, outcome och attempts för de valda posterna.')
                         ->modalSubmitActionLabel('Nollställ')
                         ->action(function (Collection $records): void {
                             $records->each(function ($record) {
@@ -287,8 +287,6 @@ class RingaDataTable
                                     'outcome' => null,
                                     'outcome_category' => null,
                                     'attempts' => 0,
-                                    'started_at' => null,
-                                    'expires_at' => null,
                                     'is_active' => false,
                                 ]);
                             });

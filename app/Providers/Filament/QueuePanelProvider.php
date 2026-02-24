@@ -11,7 +11,7 @@ use App\Filament\Queue\Pages\QueueDashboard;
 use App\Http\Middleware\FilamentPanelAccess;
 use BinaryBuilds\FilamentFailedJobs\FilamentFailedJobsPlugin;
 use Bytexr\QueueableBulkActions\Enums\StatusEnum;
-use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
+//use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
@@ -121,14 +121,6 @@ class QueuePanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentFailedJobsPlugin::make(),
-                QueueableBulkActionsPlugin::make()
-                    ->pollingInterval('5s')
-                    ->colors([
-                        StatusEnum::QUEUED->value => 'slate',
-                        StatusEnum::IN_PROGRESS->value => 'info',
-                        StatusEnum::FINISHED->value => 'success',
-                        StatusEnum::FAILED->value => 'danger',
-                    ]),
             ])
             ->plugins([
                 FilamentWirechatPlugin::make()

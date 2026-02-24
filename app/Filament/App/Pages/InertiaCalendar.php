@@ -24,7 +24,7 @@ class InertiaCalendar extends Page
 
     // protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 3;
 
     protected static ?int $sort = 10;
 
@@ -41,7 +41,7 @@ class InertiaCalendar extends Page
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
-    protected static string|UnitEnum|null $navigationGroup = '';
+   // protected static string|UnitEnum|null $navigationGroup = '';
 
     public static function getNavigationBadge(): ?string
     {
@@ -50,7 +50,7 @@ class InertiaCalendar extends Page
 
         return now()
             ->timezone('Europe/Stockholm')
-            ->translatedFormat('l');
+            ->translatedFormat('l d M');
     }
 
     protected Width|string|null $maxContentWidth = 'full';

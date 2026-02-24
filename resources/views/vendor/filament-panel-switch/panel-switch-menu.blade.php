@@ -237,7 +237,8 @@ x-show="$store.sidebar.isOpen"
     class="fi-sidebar-database-notifications-btn"
     x-show="$store.sidebar.isOpen"
     @else
-    class="ml-0.5 mr-2 fi-icon-btn fi-size-md fi-topbar-database-notifications-btn "
+    class="ml-1 fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
+    style="margin-right: 5px;"
     @endif
 >
         <x-filament::icon

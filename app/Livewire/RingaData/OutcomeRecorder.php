@@ -449,6 +449,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                     ->success()
                     ->send();
 
+                // Block same address from queue for final outcomes
+                $this->blockSameAddress($outcomeEnum);
+
                 $this->loadNextRecord();
                 // Dispatch event to page to load next record
                 $this->dispatch('outcome-recorded', recordId: $this->recordId ?? 0);
@@ -490,6 +493,9 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                     'coutcome' => $outcomeEnum->value,
                 ]);
             });
+
+            // Block same address from queue for final outcomes
+            $this->blockSameAddress($outcomeEnum);
 
             // Refresh to confirm save
             $this->record = RingaData::query()->find($record->id);
@@ -596,5 +602,36 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
         return \App\Models\OutcomeSetting::where('outcome', $outcomeValue)
             ->where('is_active', true)
             ->value('category');
+    }
+
+    private function blockSameAddress(\App\Enums\Outcomes $outcome): int
+    {
+        $record = $this->record;
+        if (! $record) {
+            return 0;
+        }
+
+        $gatuadress = $record->gatuadress;
+        $postnummer = $record->postnummer;
+
+        if (empty($gatuadress) || empty($postnummer)) {
+            return 0;
+        }
+
+        $updated = RingaData::query()
+            ->where('gatuadress', $gatuadress)
+            ->where('postnummer', $postnummer)
+            ->where('id', '!=', $record->id)
+            ->update([
+                'outcome' => $outcome->value,
+                'outcome_category' => 'Adress',
+                'is_active' => false,
+                'started_at' => now(),
+                'expires_at' => now()->addYear(),
+            ]);
+
+        Log::info('blockSameAddress result', ['gatuadress' => $gatuadress, 'postnummer' => $postnummer, 'updated' => $updated]);
+
+        return $updated;
     }
 }

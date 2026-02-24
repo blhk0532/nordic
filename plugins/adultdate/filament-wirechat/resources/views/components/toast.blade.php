@@ -15,7 +15,7 @@
     }
     }"
 
-    @filament-wirechat-toast.window="
+    x-on:filament-wirechat-toast.window="
         message = $event.detail.message;
         type = $event.detail.type;
         bannerVisible = true;
