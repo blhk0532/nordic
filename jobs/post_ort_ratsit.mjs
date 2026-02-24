@@ -15,7 +15,7 @@ import axios from 'axios';
 
 class RatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://nordicdigitalthailand.com' ||  'https://nordicdigitalthailand.com';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://ndsth.com' ||  'https://ndsth.com';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
@@ -892,7 +892,7 @@ async function main() {
   program
     .description('Scrape person data from Ratsit.se and save to ratsit_data')
     .argument('query', 'Ratsit search query (e.g., "Namn Gatuadress Stad")')
-    .option('--api-url <url>', 'Laravel API URL (default: https://app.nordicdigitalthailand.com)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .parse();
 

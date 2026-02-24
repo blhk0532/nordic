@@ -17,7 +17,7 @@ import axios from 'axios';
 
 class HittaScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL   || 'https://nordicdigitalthailand.com';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL   || 'https://ndsth.com';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
@@ -835,7 +835,7 @@ async function main() {
     .argument('query', 'Search query')
     .option('--no-missing', 'Do not create separate CSV for missing phone numbers')
     .option('--no-db', 'Do not save to database')
-    .option('--api-url <url>', 'Laravel API URL (default: https://app.nordicdigitalthailand.com)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
     .option('--api-token <token>', 'API authentication token')
     .option('--startPage <page>', 'Start from this page (for resume)', '0')
     .option('--startIndex <index>', 'Start from this item index (for resume)', '0')
