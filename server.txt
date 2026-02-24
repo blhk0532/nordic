@@ -6,7 +6,7 @@
 set -e
 
 PROJECT_PATH="/home/ubuntu/nordic"
-DOMAIN="ndsth.com"
+DOMAIN="nordicdigitalthailand.com"
 
 echo "1. Stop and disable Apache + PHP-FPM..."
 sudo systemctl stop apache2 || true

@@ -7,7 +7,7 @@ CSS and JavaScript files were not loading on the production nginx server, causin
 
 ### 1. ❌ Missing ASSET_URL in Production
 **Issue**: Laravel didn't know the full URL to use for assets in production
-**Fix**: Added `ASSET_URL=https://app.ndsth.com` to `env.prod`
+**Fix**: Added `ASSET_URL=https://app.nordicdigitalthailand.com` to `env.prod`
 
 ### 2. ❌ Inadequate Nginx Static File Handling
 **Issue**: Nginx configuration lacked explicit rules for serving static assets (CSS, JS, fonts, images)
@@ -20,8 +20,8 @@ CSS and JavaScript files were not loading on the production nginx server, causin
 APP_NAME="Nordic Digital Solutions"
 APP_ENV=production
 APP_KEY=base64:vTcdKX7Xyc6oC1CutaAQKdW8aYwWMtDSBTfbba7oPMU=
-APP_URL=https://app.ndsth.com
-+ASSET_URL=https://app.ndsth.com
+APP_URL=https://app.nordicdigitalthailand.com
++ASSET_URL=https://app.nordicdigitalthailand.com
 ```
 
 ### 2. [docker/nginx/default.conf](docker/nginx/default.conf)
@@ -111,14 +111,14 @@ ls -la public/build/manifest.json
 ```
 
 ### 2. Test in Browser
-1. Open: https://app.ndsth.com
+1. Open: https://app.nordicdigitalthailand.com
 2. Open DevTools (F12) → Network tab
 3. Look for CSS/JS files loading with `200 OK` status
 4. Check the Response Headers for `Cache-Control: public, immutable`
 
 ### 3. Test Specific Asset URL
 ```bash
-curl -I https://app.ndsth.com/build/assets/app-DP7oCHTJ.css
+curl -I https://app.nordicdigitalthailand.com/build/assets/app-DP7oCHTJ.css
 ```
 Should return `200 OK` with proper Content-Type headers.
 
@@ -171,10 +171,10 @@ ls -la public/build/assets/
 #### 6. Verify DNS and SSL
 ```bash
 # Test DNS resolution
-nslookup app.ndsth.com
+nslookup app.nordicdigitalthailand.com
 
 # Test SSL certificate
-curl -vI https://app.ndsth.com
+curl -vI https://app.nordicdigitalthailand.com
 ```
 
 #### 7. Check Browser Console

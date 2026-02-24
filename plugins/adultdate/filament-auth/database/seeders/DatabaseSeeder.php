@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         DB::raw('SET time_zone=\'+00:00\'');
 
         User::firstOrCreate(
-            ['email' => 'super@ndsth.com'],
+            ['email' => 'super@nordicdigitalthailand.com'],
             [
                 'name' => 'super',
                 'role' => 'super',
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'admin@ndsth.com'],
+            ['email' => 'admin@nordicdigitalthailand.com'],
             [
                 'name' => 'admin',
                 'role' => 'super',
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'matsod@ndsth.com'],
+            ['email' => 'matsod@nordicdigitalthailand.com'],
             [
                 'name' => 'Mathias',
                 'role' => 'admin',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'daniel@ndsth.com'],
+            ['email' => 'daniel@nordicdigitalthailand.com'],
             [
                 'name' => 'Daniel',
                 'role' => 'admin',
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'kat@ndsth.com'],
+            ['email' => 'kat@nordicdigitalthailand.com'],
             [
                 'name' => 'Berit',
                 'role' => 'manager',
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'bokning@ndsth.com'],
+            ['email' => 'bokning@nordicdigitalthailand.com'],
             [
                 'name' => 'Bokning',
                 'role' => 'booking',
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'agent@ndsth.com'],
+            ['email' => 'agent@nordicdigitalthailand.com'],
             [
                 'name' => 'Agent',
                 'role' => 'agent',
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'partner@ndsth.com'],
+            ['email' => 'partner@nordicdigitalthailand.com'],
             [
                 'name' => 'Partner',
                 'role' => 'partner',
@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'service@ndsth.com'],
+            ['email' => 'service@nordicdigitalthailand.com'],
             [
                 'name' => 'Service',
                 'role' => 'service',
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'manager@ndsth.com'],
+            ['email' => 'manager@nordicdigitalthailand.com'],
             [
                 'name' => 'Manager',
                 'role' => 'manager',
@@ -109,7 +109,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'supervisor@ndsth.com'],
+            ['email' => 'supervisor@nordicdigitalthailand.com'],
             [
                 'name' => 'Supervisor',
                 'role' => 'supervisor',
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         User::firstOrCreate(
-            ['email' => 'guest@ndsth.com'],
+            ['email' => 'guest@nordicdigitalthailand.com'],
             [
                 'name' => 'Guest',
                 'role' => 'guest',
