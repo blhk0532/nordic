@@ -32,11 +32,6 @@ class GoogleCalendar extends Page
 
     public static function shouldRegisterNavigation(): bool
     {
-        $teneant = filament()->getTenant();
-
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return false;
-        }
 
         if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
             return true;
@@ -52,6 +47,6 @@ class GoogleCalendar extends Page
 
     public static function getNavigationBadge(): ?string
     {
-        return 'OKsync';
+        return 'OK';
     }
 }

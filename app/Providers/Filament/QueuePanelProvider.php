@@ -34,6 +34,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+use App\Filament\Queue\Resources\RatsitData\RatsitDataResource;
 
 class QueuePanelProvider extends PanelProvider
 {
@@ -116,8 +117,9 @@ class QueuePanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->resources([
-                BookingCalendarResource::class,
-                BookingDataLeadResource::class,
+            //    BookingCalendarResource::class,
+            //    BookingDataLeadResource::class,
+                RatsitDataResource::class,
             ])
             ->plugins([
                 FilamentFailedJobsPlugin::make(),

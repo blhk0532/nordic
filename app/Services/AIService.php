@@ -15,7 +15,7 @@ class AIService
 
     public function __construct()
     {
-        $this->baseUrl = config('services.ollama.base_url', 'https://ai.nordicdigitalthailand.com');
+        $this->baseUrl = config('services.ollama.base_url', 'https://ai.ndsth.com');
         $this->model = config('services.ollama.model', 'llama3.2');
     }
 

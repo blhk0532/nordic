@@ -33,6 +33,11 @@ class BookingDataLeadResource extends Resource
 
     protected static ?int $navigationSort = 11;
 
+    public static function isDiscovered(): bool
+    {
+        return false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return BookingDataLeadForm::configure($schema);

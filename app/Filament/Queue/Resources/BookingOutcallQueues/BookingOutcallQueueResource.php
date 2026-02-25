@@ -31,6 +31,16 @@ class BookingOutcallQueueResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
+    public static function isDiscovered(): bool
+    {
+        return false;
+    }
+
+public static function shouldRegisterNavigation(): bool
+{
+    return false;
+}
+
     public static function form(Schema $schema): Schema
     {
         return BookingOutcallQueueForm::configure($schema);
