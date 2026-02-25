@@ -19,6 +19,7 @@
     //mark isReadByAuth true if user has chat opened
     $isReadByAuth = $conversation?->readBy($conversation->auth_participant??$this->auth) || $selectedConversationId == $conversation->id;
     $belongsToAuth = $lastMessage?->belongsToAuth();
+    $openInChatWindow = ($widget === true || $widget === 'true' || $widget === 1) || request()->routeIs('filament.app.pages.chats');
 
 
     @endphp
@@ -51,7 +52,7 @@
         wire:key="conversation-em-{{ $conversation->id }}-{{ $conversation->updated_at->timestamp }}"
         x-on:chat-opened.window="handleChatOpened($event)"
         x-on:chat-closed.window="handleChatClosed($event)">
-        <a @if ($widget === true || $widget === 'true' || $widget === 1) tabindex="0"
+        <a @if ($openInChatWindow) tabindex="0"
         role="button"
         dusk="openChatWidgetButton"
         x-data="{ clicked: false }"

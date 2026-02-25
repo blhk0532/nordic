@@ -1,6 +1,6 @@
 <x-filament-panels::page>
     {{-- Always show header on chat page - same height as chats page --}}
-    <div class="w-full h-[calc(100vh-4rem)] flex rounded-lg overflow-hidden">
+    <div class="w-full h-[calc(100vh-4rem)] flex rounded-lg overflow-hidden" wire:key="chat-page-{{ $conversation->id }}">
         {{-- Conversations list - hidden on mobile --}}
         <div class="hidden md:flex relative h-full border-r border-[var(--wc-light-border)] dark:border-[var(--wc-dark-border)] w-[280px] lg:w-[300px] shrink-0 overflow-hidden flex-col">
             {{-- Always show header on chat page --}}
@@ -9,7 +9,7 @@
 
         {{-- Chat window - full width on mobile, flex-1 on desktop --}}
         <main class="flex flex-1 h-full relative overflow-hidden flex-col bg-[var(--wc-light-primary)] dark:bg-[var(--wc-dark-primary)]" style="contain:content; min-width: 0; max-width: 100%;">
-            <livewire:filament-wirechat.chat :conversation="$conversation->id" />
+            <livewire:filament-wirechat.chat :conversation="$conversation->id" wire:key="chat-component-{{ $conversation->id }}" />
         </main>
     </div>
 

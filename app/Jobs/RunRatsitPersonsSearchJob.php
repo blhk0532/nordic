@@ -60,7 +60,7 @@ class RunRatsitPersonsSearchJob implements ShouldQueue
                     // Chunk long output to avoid extremely large single log entries
                     $pieces = str_split($chunkOut, 3000);
                     foreach ($pieces as $piece) {
-                        Log::debug('RunRatsitPersonsSearchJob stdout', ['output' => $piece]);
+                        Log::debug(['output' => $piece]);
                     }
                 }
 
@@ -69,7 +69,7 @@ class RunRatsitPersonsSearchJob implements ShouldQueue
                 if ($chunkErr !== '') {
                     $pieces = str_split($chunkErr, 3000);
                     foreach ($pieces as $piece) {
-                        Log::warning('RunRatsitPersonsSearchJob stderr', ['stderr' => $piece]);
+                        Log::warning(['stderr' => $piece]);
                     }
                 }
 
@@ -86,7 +86,7 @@ class RunRatsitPersonsSearchJob implements ShouldQueue
             if ($out) {
                 $pieces = str_split($out, 4000);
                 foreach ($pieces as $piece) {
-                    Log::debug('RunRatsitPersonsSearchJob stdout', ['output' => $piece]);
+                    Log::debug(['output' => $piece]);
                 }
             }
 

@@ -35,6 +35,14 @@ class ChatPage extends Page
         );
     }
 
+    /**
+     * Handle when the conversation route parameter changes via wire:navigate.
+     */
+    public function updatedConversation(Conversation $conversation): void
+    {
+        $this->mount($conversation);
+    }
+
     public function getTitle(): string
     {
         if (! $this->conversation) {

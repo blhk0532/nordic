@@ -11,6 +11,7 @@ use Adultdate\Wirechat\Livewire\Concerns\HasPanel;
 use Adultdate\Wirechat\Livewire\Concerns\Widget;
 use Exception;
 use Filament\Facades\Filament;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
@@ -263,29 +264,24 @@ class Chats extends Component
     {
         $conversationId = $conversation instanceof Conversation ? $conversation->id : $conversation;
 
-        // Check if we're on an admin route first (most reliable check)
-        $currentPath = request()->path();
-        $isAdminRoute = str_starts_with($currentPath, 'admin');
+        // Prefer current Filament panel URL generation (tenant-aware) when available.
+        try {
+            if (class_exists(Filament::class) && class_exists(ChatPage::class)) {
+                $filamentPanel = Filament::getCurrentPanel();
 
-        // First, try to detect if we're in a Filament context
-        // Check if Filament is available and we have a current panel
-        if ($isAdminRoute) {
-            try {
-                if (class_exists(Filament::class)) {
-                    $filamentPanel = Filament::getCurrentPanel();
-                    if ($filamentPanel && class_exists(ChatPage::class)) {
-                        // We're in a Filament context, use Filament page URL
-                        return $filamentPanel->getPageUrl(ChatPage::class, ['conversation' => $conversationId], absolute: $absolute);
-                    }
+                if ($filamentPanel !== null) {
+                    $tenant = Filament::getTenant();
+
+                    return ChatPage::getUrl(
+                        ['conversation' => $conversationId],
+                        $absolute,
+                        $filamentPanel->getId(),
+                        $tenant instanceof Model ? $tenant : null
+                    );
                 }
-            } catch (Exception $e) {
-                // Continue to fallback if Filament is not available
             }
-
-            // If Filament panel check failed but we're on admin route, use admin path
-            $path = '/admin/chats/'.$conversationId;
-
-            return $absolute ? url($path) : $path;
+        } catch (Exception $e) {
+            // Continue to fallback resolution.
         }
 
         // Check if we're in widget mode - if so, we don't need a route
@@ -297,8 +293,8 @@ class Chats extends Component
             return $absolute ? url($path) : $path;
         }
 
-        // Fallback to standalone wirechat panel route (only if not on admin route)
-        if ($this->panel() && ! $isAdminRoute) {
+        // Fallback to standalone wirechat panel route.
+        if ($this->panel()) {
             return $this->panel()->chatRoute($conversation, $absolute);
         }
 

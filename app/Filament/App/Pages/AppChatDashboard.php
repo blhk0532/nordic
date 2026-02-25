@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Pages;
 
-use AdultDate\FilamentWirechat\Filament\Widgets\ChatsWidget;
+use AdultDate\FilamentWirechat\Filament\Widgets\WirechatWidget;
 use BackedEnum;
 use Filament\Pages\Page as BasePage;
 use Filament\Support\Assets\Css;
@@ -108,7 +108,7 @@ class AppChatDashboard extends BasePage
     public function getHeaderWidgets(): array
     {
         return [
-            ChatsWidget::class,
+            WirechatWidget::class,
         ];
     }
 
