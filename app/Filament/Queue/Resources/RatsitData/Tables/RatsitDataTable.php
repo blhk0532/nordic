@@ -46,7 +46,7 @@ class RatsitDataTable
                     ->label('City')
                     ->searchable()
                     ->sortable(),
-                                TextColumn::make('personnamn')
+                TextColumn::make('personnamn')
                     ->label('Name')
                     ->searchable()
                     ->sortable()
@@ -54,7 +54,6 @@ class RatsitDataTable
                     ->limit(50),
                 TextColumn::make('personnummer')
                     ->label('Personnummer')
-                    ->searchable()
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('alder')
@@ -85,7 +84,6 @@ class RatsitDataTable
                     ->toggledHiddenByDefault(true),
                 TextColumn::make('telefon')
                     ->label('Phone')
-                    ->searchable()
                     ->toggleable()
                     ->toggledHiddenByDefault(false),
                 TextColumn::make('telfonnummer')
@@ -101,8 +99,114 @@ class RatsitDataTable
                     ->toggledHiddenByDefault(true),
             ])
             ->filters([
-                //
-            ])
+                TernaryFilter::make('is_active')
+                    ->label('Active')
+                    ->placeholder('All records')
+                    ->trueLabel('Active only')
+                    ->falseLabel('Inactive only'),
+                TernaryFilter::make('personnummer')
+                    ->label('personnummer')
+                    ->schema([
+                        TextInput::make('personnummer')
+                            ->label('personnummer'),
+                    ])
+                    ->query(function ($query, array $data) {
+                        return $query->when(
+                            $data['personnummer'] ?? null,
+                            fn ($query, $postnummer) => $query->where('personnummer', 'not like', "%{$postnummer}%")
+                        );
+                    }),
+                TernaryFilter::make('is_queued')
+                    ->label('Queued')
+                    ->placeholder('All records')
+                    ->trueLabel('Queued only')
+                    ->falseLabel('Not queued only'),
+
+                SelectFilter::make('postort')
+                    ->label('City')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('postort')
+                            ->distinct()
+                            ->orderBy('postort')
+                            ->pluck('postort', 'postort')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('kommun')
+                    ->label('Municipality')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('kommun')
+                            ->distinct()
+                            ->orderBy('kommun')
+                            ->pluck('kommun', 'kommun')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('lan')
+                    ->label('State')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('lan')
+                            ->distinct()
+                            ->orderBy('lan')
+                            ->pluck('lan', 'lan')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('agandeform')
+                    ->label('Ownership Form')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('agandeform')
+                            ->distinct()
+                            ->orderBy('agandeform')
+                            ->pluck('agandeform', 'agandeform')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('bostadstyp')
+                    ->label('Housing Type')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('bostadstyp')
+                            ->distinct()
+                            ->orderBy('bostadstyp')
+                            ->pluck('bostadstyp', 'bostadstyp')
+                            ->toArray();
+                    }),
+
+                // Filter: has phone (telefon not empty)
+                TernaryFilter::make('has_phone')
+                    ->label('Has phone')
+                    ->placeholder('All records')
+                    ->trueLabel('Has phone only')
+                    ->falseLabel('No phone only'),
+
+                Filter::make('postnummer')
+                    ->label('Postnummer')
+                    ->schema([
+                        TextInput::make('postnummer')
+                            ->label('Postnummer'),
+                    ])
+                    ->query(function ($query, array $data) {
+                        return $query->when(
+                            $data['postnummer'] ?? null,
+                            fn ($query, $postnummer) => $query->where('postnummer', 'like', "%{$postnummer}%")
+                        );
+                    }),
+            ], layout: FiltersLayout::AboveContentCollapsible)
             ->recordActions([
                 EditAction::make(),
             ])

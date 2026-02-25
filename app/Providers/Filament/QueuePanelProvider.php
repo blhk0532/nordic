@@ -35,6 +35,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 use App\Filament\Queue\Resources\RatsitData\RatsitDataResource;
+use AchyutN\FilamentLogViewer\FilamentLogViewer;
+use MWGuerra\WebTerminal\WebTerminalPlugin;
 
 class QueuePanelProvider extends PanelProvider
 {
@@ -123,6 +125,9 @@ class QueuePanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentFailedJobsPlugin::make(),
+                FilamentLogViewer::make(),
+                WebTerminalPlugin::make()
+             //   QueueableBulkActionsPlugin::make()->onlyResources([BookingOutcallQueueResource::class])->onlyStatuses([StatusEnum::Pending]),
             ])
             ->plugins([
                 FilamentWirechatPlugin::make()

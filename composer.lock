@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48daa542199713077a7f0a0980036f38",
+    "content-hash": "12b32c3a7326e8bac1d290e67fd024f5",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -12330,6 +12330,79 @@
                 "symlink": true,
                 "relative": true
             }
+        },
+        {
+            "name": "mwguerra/web-terminal",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mwguerra/web-terminal.git",
+                "reference": "0ae8cb72d1fd1611f45808745747e7a469896fd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mwguerra/web-terminal/zipball/0ae8cb72d1fd1611f45808745747e7a469896fd7",
+                "reference": "0ae8cb72d1fd1611f45808745747e7a469896fd7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^12.0",
+                "illuminate/support": "^12.0",
+                "laravel/prompts": "^0.3.0",
+                "livewire/livewire": "^4.0",
+                "php": "^8.2",
+                "phpseclib/phpseclib": "^3.0",
+                "symfony/process": "^7.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^8.4",
+                "orchestra/testbench": "^10.0",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0"
+            },
+            "suggest": {
+                "filament/filament": "Required for Filament admin panel integration (^5.0)"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MWGuerra\\WebTerminal\\WebTerminalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MWGuerra\\WebTerminal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mwguerra",
+                    "email": "mwguerra@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A web-based terminal component for Filament/Laravel with command whitelisting and multiple connection types",
+            "homepage": "https://github.com/mwguerra/web-terminal",
+            "keywords": [
+                "filament",
+                "laravel",
+                "livewire",
+                "shell",
+                "ssh",
+                "terminal"
+            ],
+            "support": {
+                "issues": "https://github.com/mwguerra/web-terminal/issues",
+                "source": "https://github.com/mwguerra/web-terminal/tree/v2.0.0"
+            },
+            "time": "2026-02-25T05:59:02+00:00"
         },
         {
             "name": "myclabs/deep-copy",
