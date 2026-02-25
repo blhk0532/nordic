@@ -8,6 +8,7 @@ use App\Filament\Actions\PostNummerChecks\CheckDbCountsAction;
 use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 class CheckDbCountsBulkAction extends BulkAction
 {
@@ -22,17 +23,39 @@ class CheckDbCountsBulkAction extends BulkAction
             ->modalDescription('This will count records in hitta_data, ratsit_data, and merinfo_data tables for each selected post number and update the respective count columns.')
             ->modalSubmitActionLabel('Check Counts')
             ->action(function (Collection $records): void {
+                Log::info('CheckDbCountsBulkAction started', ['record_count' => $records->count()]);
+
+                // Ensure we only process PostNum records
+                $records = $records->filter(fn ($record) => $record instanceof \App\Models\PostNum);
+
                 $count = 0;
+                $errors = [];
                 foreach ($records as $record) {
-                    CheckDbCountsAction::execute($record);
-                    $count++;
+                    try {
+                        CheckDbCountsAction::execute($record, false);
+                        $count++;
+                    } catch (\Exception $e) {
+                        Log::error('CheckDbCountsBulkAction error', [
+                            'post_nummer' => $record->post_nummer ?? 'unknown',
+                            'error' => $e->getMessage(),
+                        ]);
+                        $errors[] = $record->post_nummer ?? 'unknown';
+                    }
                 }
 
-                Notification::make()
-                    ->success()
-                    ->title('Database Counts Updated')
-                    ->body("Successfully checked and updated database counts for {$count} post nummer(s).")
-                    ->send();
+                if (count($errors) > 0) {
+                    Notification::make()
+                        ->warning()
+                        ->title('Database Counts Partially Updated')
+                        ->body("Processed {$count} records. Errors: ".implode(', ', $errors))
+                        ->send();
+                } else {
+                    Notification::make()
+                        ->success()
+                        ->title('Database Counts Updated')
+                        ->body("Successfully checked and updated database counts for {$count} post nummer(s).")
+                        ->send();
+                }
             })
             ->deselectRecordsAfterCompletion()
             ->closeModalByClickingAway(false);

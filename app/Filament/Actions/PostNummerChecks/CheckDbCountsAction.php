@@ -16,8 +16,9 @@ class CheckDbCountsAction
      * Count records in each data table for a given post_nummer and update the PostNum record.
      *
      * @param  PostNum  $record  The post_nummer record to update
+     * @param  bool  $sendNotification  Whether to send a notification (default: true)
      */
-    public static function execute(PostNum $record): void
+    public static function execute(PostNum $record, bool $sendNotification = true): void
     {
         $postNum = $record->post_nummer;
 
@@ -117,10 +118,12 @@ class CheckDbCountsAction
             'merinfo_foretag_phone_saved' => $merinfoForetagPhoneSaved,
         ]);
 
-        Notification::make()
-            ->success()
-            ->title('DB Counts Updated')
-            ->body("Successfully counted and updated database statistics for {$postNum}.")
-            ->send();
+        if ($sendNotification) {
+            Notification::make()
+                ->success()
+                ->title('DB Counts Updated')
+                ->body("Successfully counted and updated database statistics for {$postNum}.")
+                ->send();
+        }
     }
 }
