@@ -202,7 +202,7 @@ class MerinfoDatasTable
                     ->searchable(),
 
                 Filter::make('postnummer')
-                    ->form([
+                    ->schema([
                         TextInput::make('postnummer')
                             ->label('Zip Code'),
                     ])

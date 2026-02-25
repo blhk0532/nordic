@@ -108,7 +108,7 @@ class EniroDatasResource extends Resource
             ->actions([
                 EditAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
     }

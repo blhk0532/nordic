@@ -162,7 +162,7 @@ class RatsitDatasTable
                     ->falseLabel('Inactive only'),
                 TernaryFilter::make('personnummer')
                     ->label('personnummer')
-                    ->form([
+                    ->schema([
                         TextInput::make('personnummer')
                             ->label('personnummer'),
                     ])
@@ -255,7 +255,7 @@ class RatsitDatasTable
 
                 Filter::make('postnummer')
                     ->label('Postnummer')
-                    ->form([
+                    ->schema([
                         TextInput::make('postnummer')
                             ->label('Postnummer'),
                     ])
@@ -273,7 +273,7 @@ class RatsitDatasTable
             ->recordActions([
                 EditAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     ExportBulkAction::make()
                         ->exporter(RatsitDataExporter::class),

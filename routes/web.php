@@ -29,6 +29,31 @@ Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle)->name('livewire.update');
 });
 
+// Serve build and storage assets through Laravel so we can add CORS headers
+Route::get('/build/{path}', function ($path) {
+    $file = public_path('build/'.$path);
+    if (! file_exists($file)) {
+        abort(404);
+    }
+
+    return response()->file($file, [
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'GET, OPTIONS',
+    ]);
+})->where('path', '.*');
+
+Route::get('/storage/{path}', function ($path) {
+    $file = public_path('storage/'.$path);
+    if (! file_exists($file)) {
+        abort(404);
+    }
+
+    return response()->file($file, [
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'GET, OPTIONS',
+    ]);
+})->where('path', '.*');
+
 // Handle GET requests to livewire/update (prevent MethodNotAllowedHttpException)
 Route::get('/livewire/update', function () {
     return redirect('/')->with('error', 'Invalid request method for Livewire update endpoint.');

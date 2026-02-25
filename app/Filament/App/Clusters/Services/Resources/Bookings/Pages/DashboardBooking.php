@@ -101,7 +101,7 @@ class DashboardBooking extends BaseDashboard
                             ->placeholder('Select a calendar owner')
                             ->searchable()
                             ->default('all')
-                            ->reactive()
+                            ->live()
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');
                             }),

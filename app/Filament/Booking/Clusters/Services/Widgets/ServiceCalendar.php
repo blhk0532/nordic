@@ -35,6 +35,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
@@ -626,7 +628,7 @@ class ServiceCalendar extends Widget implements HasCalendar
             ->modalFooterActions([
 
                 Action::make('view')
-                    ->label('')
+                    ->iconButton()
                     ->color('gray')
                     ->icon('heroicon-o-eye')
                     ->action(function () {
@@ -636,7 +638,7 @@ class ServiceCalendar extends Widget implements HasCalendar
                         $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => $newIndex]);
                     }),
                 Action::make('confirm')
-                    ->label('')
+                    ->iconButton()
                     ->color('success')
                     ->icon('heroicon-o-check-circle')
                     ->action(function () {
@@ -670,7 +672,7 @@ class ServiceCalendar extends Widget implements HasCalendar
                     }),
 
                 Action::make('cancel')
-                    ->label('')
+                    ->iconButton()
                     ->color('gray')
                     ->close(true)
                     ->icon('heroicon-o-arrow-down-circle')
@@ -782,7 +784,7 @@ class ServiceCalendar extends Widget implements HasCalendar
                 ->searchable()
                 ->preload()
                 ->default(fn () => $this->getSelectedCalendarServiceUserId())
-                ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                ->afterStateUpdated(function ($state, Set $set, Get $get) {
                     $date = $get('date');
                     if ($date && $state) {
                         $existingLocation = DailyLocation::where('date', $date)

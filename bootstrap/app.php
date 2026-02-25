@@ -10,6 +10,7 @@ if ($maxExecutionTime = env('PHP_MAX_EXECUTION_TIME')) {
     ini_set('max_execution_time', $maxExecutionTime);
 }
 
+use App\Http\Middleware\AllowCorsForAssets;
 use App\Http\Middleware\EnsureEmailVerified;
 use App\Http\Middleware\ForceJsonResponse;
 use App\Http\Middleware\ForceLocalhost;
@@ -66,6 +67,7 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleAppearance::class,
             UpdateUserActiveAt::class,
             AddLinkHeadersForPreloadedAssets::class,
+            AllowCorsForAssets::class,
         ]);
 
         $middleware->redirectGuestsTo(fn () => route('login'));

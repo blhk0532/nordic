@@ -20,6 +20,8 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 
 class IncomeForm
@@ -64,73 +66,73 @@ class IncomeForm
                                 Fieldset::make('payment_info')
                                     ->label(__('Payment Information'))
                                     ->schema([
-                                    TextInput::make('amount')
+                                        TextInput::make('amount')
                                             ->label(__('Amount'))
                                             ->required()
                                             ->prefix('$')
-                                            ->reactive()
-                                            ->afterStateUpdated(function (callable $set, callable $get) {
+                                            ->live()
+                                            ->afterStateUpdated(function (Set $set, Get $get) {
                                                 recalcFinalAmount($set, $get);
                                             }),
-                                    Select::make('discount_id')
+                                        Select::make('discount_id')
                                             ->label(__('Discount'))
                                             ->relationship('discount', 'name')
                                             ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_label)
                                             ->searchable()
                                             ->preload(true)
-                                            ->reactive()
+                                            ->live()
                                             ->createOptionForm(fn (Schema $schema) => DiscountResource::form($schema))
-                                            ->afterStateUpdated(function (callable $set, callable $get) {
+                                            ->afterStateUpdated(function (Set $set, Get $get) {
                                                 recalcFinalAmount($set, $get);
                                             }),
-                                    TextEntry::make('final_amount')
+                                        TextEntry::make('final_amount')
                                             ->label(__('Final Amount'))
                                             ->prefix('$')
                                             ->visible(fn (callable $get) => $get('discount_id') !== null)
-                                            ->getStateUsing(function (callable $set, callable $get) {
+                                            ->getStateUsing(function (Set $set, Get $get) {
                                                 recalcFinalAmount($set, $get);
                                             }),
-                                    TextInput::make('payments.payment_amount')
+                                        TextInput::make('payments.payment_amount')
                                             ->label(__('Payment Amount'))
                                             ->prefix('$')
                                             ->required()
                                             ->maxValue(fn (callable $get) => $get('amount'))
                                             ->numeric(),
-                                ])->columns(1),
+                                    ])->columns(1),
                                 Fieldset::make('additional_info')
                                     ->label(__('Additional Information'))
                                     ->schema([
-                                    RichEditor::make('description')
+                                        RichEditor::make('description')
                                             ->hint(mb_strtoupper(app()->getLocale()))
                                             ->columnSpanFull(),
-                                ]),
+                                    ]),
                             ])->columns(1),
                     ])->columnSpan(['lg' => 2]),
                 Group::make()
                     ->schema([
-                    Section::make(__('payment details'))
-                        ->schema([
-                            Fieldset::make('payment_details')
-                                ->label(__('Choose a type for payment.'))
-                                ->schema([
-                                    Radio::make('payment_type')
+                        Section::make(__('payment details'))
+                            ->schema([
+                                Fieldset::make('payment_details')
+                                    ->label(__('Choose a type for payment.'))
+                                    ->schema([
+                                        Radio::make('payment_type')
                                             ->label(__('Payment Type'))
                                             ->options(PaymentType::options())
                                             ->descriptions(PaymentType::descriptions())
                                             ->required(),
-                                ])->columns(1),
-                            Select::make('payments.status')
-                                ->label(__('Payment Status'))
-                                ->options(PaymentStatus::options())
-                                ->reactive()
-                                ->required(),
-                            DatePicker::make('next_payment')
-                                ->label(__('Next Payment'))
-                                ->nullable()
-                                ->visible(fn (callable $get) => $get('payments.status') === PaymentStatus::UNPAID->value)
-                                ->afterOrEqual(fn () => now()),
-                        ])->columns(1),
-                ])->columnSpan(['lg' => 1]),
+                                    ])->columns(1),
+                                Select::make('payments.status')
+                                    ->label(__('Payment Status'))
+                                    ->options(PaymentStatus::options())
+                                    ->live()
+                                    ->required(),
+                                DatePicker::make('next_payment')
+                                    ->label(__('Next Payment'))
+                                    ->nullable()
+                                    ->visible(fn (callable $get) => $get('payments.status') === PaymentStatus::UNPAID->value)
+                                    ->afterOrEqual(fn () => now()),
+                            ])->columns(1),
+                    ])->columnSpan(['lg' => 1]),
             ])->columns(3);
     }
 }

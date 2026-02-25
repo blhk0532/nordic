@@ -6,14 +6,14 @@ use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Carbon\CarbonImmutable;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Livewire;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,7 +41,6 @@ class AppServiceProvider extends ServiceProvider
         if (app()->environment('production')) {
             URL::forceScheme('https');
         }
-
 
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
 
@@ -99,7 +98,6 @@ class AppServiceProvider extends ServiceProvider
                     ->sort('asc');
             }
 
-
             if ($user?->role && $user?->role === 'admin') {
                 $panelSwitch
                     ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'email',  'notify', 'queue'])
@@ -108,7 +106,6 @@ class AppServiceProvider extends ServiceProvider
                     ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
                     ->sort('asc');
             }
-
 
             if ($user?->role && $user?->role === 'super') {
                 $panelSwitch
@@ -120,6 +117,10 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
+        // Ensure filament-edit-profile Livewire components are registered
+        if (class_exists(\Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm::class)) {
+            Livewire::component('edit_profile_form', \Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm::class);
+        }
         // Register UserNotes modal outside of Topbar to prevent Livewire entangle conflicts
         // Disabled for now due to rich editor JS errors in the modal.
         // FilamentView::registerRenderHook(
@@ -135,13 +136,13 @@ class AppServiceProvider extends ServiceProvider
             app()->isProduction(),
         );
         Password::defaults(
-            fn(): ?Password => app()->isProduction()
+            fn (): ?Password => app()->isProduction()
                 ? Password::min(12)
-                ->mixedCase()
-                ->letters()
-                ->numbers()
-                ->symbols()
-                ->uncompromised()
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised()
                 : null
         );
     }

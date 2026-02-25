@@ -20,7 +20,7 @@ class RingaOutcomeForm
                     ->schema([
                         Section::make()
                             ->description('')
-                            ->label('')
+                            ->hiddenLabel()
                             ->extraAttributes([
                                 'class' => 'outcome-buttons-section',
                             ])
@@ -61,7 +61,7 @@ class RingaOutcomeForm
                             ]),
                         Section::make()
                             ->description('')
-                            ->label('')
+                            ->hiddenLabel()
                             ->extraAttributes([
                                 'class' => 'outcome-buttons-section',
                             ])
@@ -102,7 +102,7 @@ class RingaOutcomeForm
                             ]),
                         Section::make()
                             ->description('')
-                            ->label('')
+                            ->hiddenLabel()
                             ->extraAttributes([
                                 'class' => 'outcome-buttons-section',
                             ])

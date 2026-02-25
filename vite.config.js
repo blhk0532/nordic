@@ -6,6 +6,7 @@ import laravel from "laravel-vite-plugin";
 import path from "path";
 
 export default defineConfig({
+    base: '',
     plugins: [
         laravel({
             input: [

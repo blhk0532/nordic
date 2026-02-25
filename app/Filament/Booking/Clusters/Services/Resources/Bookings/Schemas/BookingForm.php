@@ -27,7 +27,6 @@ class BookingForm
     public static function configure(Schema $schema): Schema
     {
 
-
         return $schema
             ->components([
                 Group::make()
@@ -240,7 +239,7 @@ class BookingForm
                     ->label('Tjänst')
                     ->options(Service::query()->pluck('name', 'id'))
                     ->required()
-                    ->reactive()
+                    ->live()
                     ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()

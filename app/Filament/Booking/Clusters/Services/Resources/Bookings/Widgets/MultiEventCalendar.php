@@ -40,6 +40,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -454,7 +456,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
             ->modalFooterActions([
 
                 Action::make('view')
-                    ->label('')
+                    ->iconButton()
                     ->color('gray')
                     ->icon('heroicon-o-eye')
                     ->action(function () {
@@ -464,7 +466,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                         $this->dispatch('sync-action-modals', ['id' => $this->getId(), 'newActionNestingIndex' => $newIndex]);
                     }),
                 Action::make('confirm')
-                    ->label('')
+                    ->iconButton()
                     ->color('success')
                     ->icon('heroicon-o-check-circle')
                     ->action(function () {
@@ -498,7 +500,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
                     }),
 
                 Action::make('cancel')
-                    ->label('')
+                    ->iconButton()
                     ->color('gray')
                     ->close(true)
                     ->icon('heroicon-o-arrow-down-circle')
@@ -549,7 +551,7 @@ class MultiEventCalendar extends SimpleCalendarWidget implements HasCalendar
             Select::make('service_user_id')
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
-                ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                ->afterStateUpdated(function ($state, Set $set, Get $get) {
                     $date = $get('date');
                     if ($date && $state) {
                         $existingLocation = DailyLocation::where('date', $date)

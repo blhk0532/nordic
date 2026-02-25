@@ -78,7 +78,7 @@ class PaymentSchedule extends Page implements HasForms
                         ]),
                     Tab::make(__('By Priority'))
                         ->icon('heroicon-m-shield-exclamation')
-                        ->reactive()
+                        ->live()
                         ->badgeColor('gray')
                         ->schema([
                             Livewire::make('payments.list-payments', [

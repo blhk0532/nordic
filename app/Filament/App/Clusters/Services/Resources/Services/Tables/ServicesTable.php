@@ -58,7 +58,7 @@ class ServicesTable
             ->actions([
                 EditAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ])
             ->defaultSort('created_at', 'desc');

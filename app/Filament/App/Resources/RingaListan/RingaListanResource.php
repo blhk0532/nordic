@@ -45,22 +45,6 @@ class RingaListanResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        $teneant = filament()->getTenant();
-
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return true;
-        }
-
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-            return false;
-        }
-
-        return true;
-
-    }
-
     public static function form(Schema $schema): Schema
     {
         return RingaDataForm::configure($schema);

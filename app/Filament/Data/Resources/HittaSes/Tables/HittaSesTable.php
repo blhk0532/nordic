@@ -187,7 +187,7 @@ class HittaSesTable
 
                 // Zip code filter
                 Filter::make('postnummer')
-                    ->form([
+                    ->schema([
                         TextInput::make('postnummer')
                             ->label('Zip Code'),
                     ])

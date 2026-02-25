@@ -73,6 +73,9 @@ use JeffersonGoncalves\Filament\RefreshSidebar\RefreshSidebarPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
+use Leek\FilamentDiceBear\DiceBearPlugin;
+use Leek\FilamentDiceBear\DiceBearProvider;
+use Leek\FilamentDiceBear\Enums\DiceBearStyle;
 use Muazzam\SlickScrollbar\SlickScrollbarPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
@@ -279,7 +282,7 @@ class AppPanelProvider extends PanelProvider
                     ->visible(true),
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
-                    ->visible(fn () => User::canManageTeam() !== false && !filament()->getTenant()),
+                    ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
                 'invitations' => Action::make('invitations')
                     ->label('Team Invitation')
                     ->url(fn (): string => TeamInvitationAccept::getUrl())
@@ -289,6 +292,11 @@ class AppPanelProvider extends PanelProvider
                 'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
+            ])
+            ->defaultAvatarProvider(DiceBearProvider::class)
+            ->plugins([
+                DiceBearPlugin::make()
+                    ->style(DiceBearStyle::Thumbs),
             ])
             ->plugin(
                 AuthDesignerPlugin::make()

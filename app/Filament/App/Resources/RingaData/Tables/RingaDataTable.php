@@ -225,9 +225,9 @@ class RingaDataTable
             ->recordAction('view')
             ->recordActions([
                 EditAction::make()
-                    ->label(''),
+                    ->iconButton(),
                 Action::make('view_details')
-                    ->label('')
+                    ->iconButton()
                     ->icon('heroicon-o-phone-arrow-up-right')
                     ->color('success')
                     ->url(fn (RingaData $record) => 'tel:'.$record->telefon),

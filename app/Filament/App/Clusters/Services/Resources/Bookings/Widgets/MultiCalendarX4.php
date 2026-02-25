@@ -38,6 +38,7 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
@@ -184,8 +185,9 @@ class MultiCalendarX4 extends Widget implements HasCalendar, HasSchemas
                     ->modalHeading('Delete Service Period')
                     ->modalDescription('Are you sure? This action cannot be undone.')
                     ->modalSubmitActionLabel('Delete')
-                    ->action(function (array $arguments) {
-                        $id = $arguments['data']['id'] ?? null;
+                    ->action(function () {
+                        $data = $this->lastMountedData ?? [];
+                        $id = $data['id'] ?? null;
                         if ($id) {
                             BookingServicePeriod::whereKey($id)->delete();
                         }
@@ -632,7 +634,7 @@ class MultiCalendarX4 extends Widget implements HasCalendar, HasSchemas
                     }),
 
                 Action::make('createBlockPeriod')
-                    ->label('')
+                    ->iconButton()
                     ->color('danger')
                     ->icon('heroicon-o-clock')
                     ->action(function () {
@@ -655,7 +657,7 @@ class MultiCalendarX4 extends Widget implements HasCalendar, HasSchemas
                     }),
 
                 Action::make('close')
-                    ->label('')
+                    ->iconButton()
                     ->color('gray')
                     ->icon('heroicon-o-x-circle')
                     ->close(true)
@@ -1648,7 +1650,7 @@ class MultiCalendarX4 extends Widget implements HasCalendar, HasSchemas
             Select::make('service_user_id')
                 ->label('Service User')
                 ->relationship('serviceUser', 'name')
-                ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                ->afterStateUpdated(function ($state, Set $set, Get $get) {
                     $date = $get('date');
                     if ($date && $state) {
                         $existingLocation = DailyLocation::where('date', $date)
@@ -1868,7 +1870,7 @@ class MultiCalendarX4 extends Widget implements HasCalendar, HasSchemas
                     ->label('Service')
                     ->options(Service::query()->pluck('name', 'id'))
                     ->required()
-                    ->reactive()
+                    ->live()
                     ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()

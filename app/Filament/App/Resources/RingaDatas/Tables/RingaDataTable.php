@@ -32,7 +32,7 @@ class RingaDataTable
                 Actions\CreateAction::make()
                     ->label('+'),
                 self::generateFakeDataAction()
-                    ->label(''),
+                    ->hiddenLabel(),
 
             ])
             ->columns([

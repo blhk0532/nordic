@@ -72,7 +72,7 @@ class DashboardBokning extends BaseDashboard
                             ->label('#1 ◴ Tekninker')
                             ->placeholder('Select Tekniker for Calendar 1')
                             ->searchable()
-                            ->reactive()
+                            ->live()
                             ->default($calendarIds[0] ?? null)
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');
@@ -82,7 +82,7 @@ class DashboardBokning extends BaseDashboard
                             ->label('#2 ◴ Tekninker')
                             ->placeholder('Select Tekniker for Calendar 2')
                             ->searchable()
-                            ->reactive()
+                            ->live()
                             ->default($calendarIds[1] ?? null)
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');
@@ -92,7 +92,7 @@ class DashboardBokning extends BaseDashboard
                             ->label('#3 ◴ Tekniker')
                             ->placeholder('Select Tekniker for Calendar 3')
                             ->searchable()
-                            ->reactive()
+                            ->live()
                             ->default($calendarIds[2] ?? null)
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');

@@ -68,7 +68,7 @@ class RatsitPostortResource extends Resource
                         ->pluck('post_ort', 'post_ort')
                         ->all()),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkAction::make('run_ratsit_person_adresser')
                     ->label('Run Ratsit Scraper')
                     ->requiresConfirmation()

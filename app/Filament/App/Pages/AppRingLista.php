@@ -89,7 +89,7 @@ class AppRingLista extends Page
                             ->placeholder('Välj en tekninker...')
                             ->searchable()
                             ->default('all')
-                            ->reactive()
+                            ->live()
                             ->columnSpan(2)
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');

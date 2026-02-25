@@ -52,7 +52,7 @@ class DiscountResource extends Resource
                             ->label(__('Type'))
                             ->options(DiscountType::options())
                             ->required()
-                            ->reactive(),
+                            ->live(),
                         TextInput::make('rate')
                             ->label(__('Rate'))
                             ->prefix('%')

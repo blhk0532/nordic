@@ -149,7 +149,7 @@ class HittaDatasTable
                     ]),
 
                 Filter::make('postnummer')
-                    ->form([
+                    ->schema([
                         TextInput::make('postnummer')
                             ->label('Postnummer')
                             ->placeholder('Sök efter exakt postnummer (t.ex. 184 44)'),
@@ -163,7 +163,7 @@ class HittaDatasTable
                     }),
 
                 Filter::make('postort')
-                    ->form([
+                    ->schema([
                         TextInput::make('postort')
                             ->label('Postort')
                             ->placeholder('Sök efter postort'),
@@ -181,7 +181,7 @@ class HittaDatasTable
                 //       ViewAction::make(),
                 EditAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     ExportBulkAction::make()
                         ->exporter(HittaDataExporter::class),

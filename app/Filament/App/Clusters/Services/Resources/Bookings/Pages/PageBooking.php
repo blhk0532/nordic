@@ -52,7 +52,7 @@ class PageBooking extends BasePage
                     ->label('Calendars')
                     ->options(fn () => ['all' => 'Show All'] + BookingCalendarModel::whereHas('owner', fn ($q) => $q->where('role', UserRole::SERVICE))->pluck('name', 'id')->toArray())
                     ->placeholder('Select a calendar')
-                    ->reactive()
+                    ->live()
                     ->afterStateUpdated(function () {
                         $this->dispatch('refreshCalendar');
                     }),

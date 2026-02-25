@@ -41,6 +41,7 @@ use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\Contracts\ScopeAuthorizable;  // Add this import
 use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Sanctum\HasApiTokens;
+use Leek\FilamentDiceBear\Concerns\HasDiceBearAvatar;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
@@ -178,6 +179,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     use Authorizable;
     use CanResetPassword;
     use HasApiTokens;
+    use HasDiceBearAvatar;
     use HasFactory;
     use HasRoles;
     use HasSchedules;
@@ -558,5 +560,19 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected function canRegisterTeam(): bool
     {
         return auth()->user()->role === 'super' || auth()->user()->role === 'admin' || auth()->user()->role === 'manager';
+    }
+
+    protected function getCustomAvatarUrl(): ?string
+    {
+        if ($this->avatar_url) {
+            return Storage::url($this->avatar_url);
+        }
+
+        return null; // Falls back to DiceBear
+    }
+
+    public function dicebearAvatarStyle(): DiceBearStyle
+    {
+        return DiceBearStyle::Thumbs;
     }
 }

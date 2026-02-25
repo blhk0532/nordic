@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de93c0c3fe7dda369b174aec083912ee",
+    "content-hash": "48daa542199713077a7f0a0980036f38",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -10926,6 +10926,71 @@
                 "symlink": true,
                 "relative": true
             }
+        },
+        {
+            "name": "leek/filament-dicebear",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leek/filament-dicebear.git",
+                "reference": "b9f444351181197261c790cf2d1f3d1cbd6c7d02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leek/filament-dicebear/zipball/b9f444351181197261c790cf2d1f3d1cbd6c7d02",
+                "reference": "b9f444351181197261c790cf2d1f3d1cbd6c7d02",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0 || ^4.0 || ^5.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.15"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
+                "pestphp/pest": "^2.0 || ^3.0 || ^4.0",
+                "pestphp/pest-plugin-laravel": "^2.0 || ^3.0 || ^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Leek\\FilamentDiceBear\\DiceBearServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Leek\\FilamentDiceBear\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Jones",
+                    "email": "leeked@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "DiceBear avatar provider for Filament panels with 31 styles, caching, and per-model customization.",
+            "keywords": [
+                "DiceBear",
+                "avatar",
+                "filament",
+                "filamentphp",
+                "laravel",
+                "leek",
+                "svg"
+            ],
+            "support": {
+                "issues": "https://github.com/leek/filament-dicebear/issues",
+                "source": "https://github.com/leek/filament-dicebear"
+            },
+            "time": "2026-02-23T16:52:10+00:00"
         },
         {
             "name": "livewire/blaze",

@@ -24,7 +24,7 @@ class SverigePostnummersTable
             ->actions([
                 // default view/edit
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 // none
             ]);
     }

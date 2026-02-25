@@ -87,7 +87,7 @@ class DashboardBooking extends BaseDashboard
                             ->label('Tekninker')
                             ->placeholder('Select a calendar owner')
                             ->searchable()
-                            ->reactive()
+                            ->live()
                             ->afterStateUpdated(function () {
                                 $this->dispatch('refreshCalendar');
                             }),

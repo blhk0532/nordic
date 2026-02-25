@@ -86,7 +86,7 @@ class TeamResource extends Resource
             ->actions([
                 EditAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

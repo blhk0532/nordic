@@ -412,8 +412,10 @@ class RatsitScraper {
         }
         console.log(`     ${key}: ${display}`);
       });
-      console.log('');
-
+      console.log('-----------------------------');
+      console.log(apiData.gatuadress, apiData.postnummer);
+      console.log(apiData.personnamn, apiData.telefon);
+      console.log('-----------------------------');
       // Use API to save to ratsit_data
       const response = await axios.post(`${this.api_url}/api/ratsit-data/bulk`, { records: [apiData] }, {
         headers: {

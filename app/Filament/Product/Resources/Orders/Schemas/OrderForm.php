@@ -142,7 +142,7 @@ class OrderForm
                     ->label('Product')
                     ->options(Product::query()->pluck('name', 'id'))
                     ->required()
-                    ->reactive()
+                    ->live()
                     ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Product::find($state)->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()

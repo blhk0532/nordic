@@ -123,7 +123,7 @@ class RatsitPersonsTable
 
                 Filter::make('age_range')
                     ->label('Age Range')
-                    ->form([
+                    ->schema([
                         TextInput::make('min_age')
                             ->label('Min Age')
                             ->numeric()
@@ -148,7 +148,7 @@ class RatsitPersonsTable
             ->recordActions([
                 ViewAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

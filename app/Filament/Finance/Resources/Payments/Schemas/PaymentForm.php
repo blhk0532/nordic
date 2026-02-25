@@ -10,6 +10,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
 class PaymentForm
@@ -22,9 +23,9 @@ class PaymentForm
                 TextInput::make('payment_amount')
                     ->required()
                     ->numeric()
-                    ->reactive()
+                    ->live()
                     ->default(0.0)
-                    ->maxValue(function (callable $get) {
+                    ->maxValue(function (Get $get) {
                         $incomeId = $get('income_id');
                         if (! $incomeId) {
                             return null;
@@ -34,7 +35,7 @@ class PaymentForm
                         return $income->remaining;
                     })
                     ->prefix('$')
-                    ->disabled(function (callable $get) {
+                    ->disabled(function (Get $get) {
                         $incomeId = $get('income_id');
                         if (! $incomeId) {
                             return false;
@@ -45,7 +46,7 @@ class PaymentForm
                     }),
                 Select::make('status')
                     ->options(PaymentStatus::options())
-                    ->reactive()
+                    ->live()
                     ->required(),
                 RichEditor::make('description')
                     ->columnSpanFull(),

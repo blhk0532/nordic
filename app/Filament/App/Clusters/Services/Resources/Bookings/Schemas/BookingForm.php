@@ -9,7 +9,6 @@ use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\Service;
 use App\Models\User;
-use Dom\Text;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -21,10 +20,8 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
-use Illuminate\Support\Facades\Auth;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Auth;
 
 class BookingForm
 {
@@ -92,7 +89,7 @@ class BookingForm
     {
         return [
             TextInput::make('number')
-                ->default('OR-' . random_int(100000, 999999))
+                ->default('OR-'.random_int(100000, 999999))
                 ->disabled()
                 ->dehydrated()
                 ->required()
@@ -150,7 +147,6 @@ class BookingForm
                                 ->default($clientDefaults['phone'] ?? null)
                                 ->maxLength(255)
                                 ->required(),
-
 
                             TextInput::make('street')
                                 ->label('Street address')
@@ -265,8 +261,8 @@ class BookingForm
                     ->label('Tjänst')
                     ->options(Service::query()->pluck('name', 'id'))
                     ->required()
-                    ->reactive()
-                    ->afterStateUpdated(fn($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
+                    ->live()
+                    ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                     ->searchable()

@@ -103,7 +103,7 @@ class BookingCalendarsX1 extends BaseDashboard
                             ->label('Tekninker')
                             ->placeholder('Select a calendar owner')
                             ->searchable()
-                            ->reactive()
+                            ->live()
                             ->live()
                             ->default($calendarIds[0] ?? null)
                             ->afterStateUpdated(function ($state) {

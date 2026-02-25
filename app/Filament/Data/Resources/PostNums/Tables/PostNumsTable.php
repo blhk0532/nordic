@@ -25,6 +25,7 @@ use App\Filament\Exports\PostNumExporter;
 use App\Models\PostNum;
 // use App\Filament\Data\Resources\PostNums\Actions\RunHittaPersonsBulkAction;
 use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\EditAction;
 use Filament\Actions\ExportBulkAction;
@@ -401,7 +402,7 @@ class PostNumsTable
 
                 ]),
 
-                Action::make('refreshTable')
+                BulkAction::make('refreshTable')
                     ->label('Refresh Data')
                     ->icon('heroicon-o-arrow-path')
                     ->color('gray')

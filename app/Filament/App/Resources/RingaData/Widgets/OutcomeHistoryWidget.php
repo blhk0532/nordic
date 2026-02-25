@@ -54,7 +54,7 @@ class OutcomeHistoryWidget extends BaseWidget
                     ->color('success')
                     ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     BulkAction::make('changeOutcome')
                         ->label('Ändra Utfall')

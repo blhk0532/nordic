@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Widgets;
 
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use App\Models\CalendarSettings;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
@@ -12,7 +13,6 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Saade\FilamentFullCalendar\Actions;
-use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 
 class CalendarWidget extends FullCalendarWidget
 {
@@ -102,7 +102,7 @@ class CalendarWidget extends FullCalendarWidget
                         ]);
                     }
                 })
-                ->mutateFormDataUsing(function (array $data): array {
+                ->mutateDataUsing(function (array $data): array {
                     // Set user_id to current user
                     $data['user_id'] = Auth::user()?->id;
 
@@ -115,7 +115,7 @@ class CalendarWidget extends FullCalendarWidget
     {
         return [
             Actions\EditAction::make()
-                ->mutateFormDataUsing(function (array $data): array {
+                ->mutateDataUsing(function (array $data): array {
                     // Ensure user_id is preserved
                     if (! isset($data['user_id'])) {
                         $data['user_id'] = Auth::user()?->id;
