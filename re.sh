@@ -11,36 +11,39 @@ echo "======================================"
 
 cd $APP_DIR
 
-echo "Step 1: Enable maintenance mode..."
+echo "Step 1: Pull latest code..."
+git fetch origin
+git reset --hard origin/main
+
+echo "Step 2: Enable maintenance mode..."
 $PHP artisan down || true
 
-echo "Step 2: Install Composer dependencies..."
+echo "Step 3: Install Composer dependencies..."
 composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
-echo "Step 3: Install frontend dependencies..."
+echo "Step 4: Install frontend dependencies..."
 pnpm install --frozen-lockfile
 
-echo "Step 4: Build frontend assets..."
+echo "Step 5: Build frontend assets..."
 pnpm run build
 
-echo "Step 5: Run migrations..."
+echo "Step 6: Run migrations..."
 $PHP artisan migrate --force
 
-echo "Step 6: Clear and rebuild caches..."
+echo "Step 7: Clear and rebuild caches..."
 $PHP artisan optimize:clear
 $PHP artisan config:cache
 $PHP artisan route:cache
 $PHP artisan view:cache
 $PHP artisan event:cache
 
-echo "Step 7: Restart Horizon (Supervisor controlled)..."
-sudo supervisorctl stop horizon || true
-sudo supervisorctl start horizon
+echo "Step 8: Restart Horizon (graceful)..."
+$PHP artisan horizon:terminate
 
-echo "Step 8: Reload Octane..."
+echo "Step 9: Reload Octane..."
 $PHP artisan octane:reload || true
 
-echo "Step 9: Disable maintenance mode..."
+echo "Step 10: Disable maintenance mode..."
 $PHP artisan up
 
 echo "======================================"
