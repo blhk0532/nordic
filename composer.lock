@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc8970d46d85af00904323eeb16c71bf",
+    "content-hash": "8739844c24a9598eb61a3b3e3c40c97a",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -11054,21 +11054,22 @@
         },
         {
             "name": "livewire/blaze",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/blaze.git",
-                "reference": "f585b2af3c319ac71553cf93e780a626c4ebe02b"
+                "reference": "af382b7456fe59cb2da2938ef18b76e35470f0d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/blaze/zipball/f585b2af3c319ac71553cf93e780a626c4ebe02b",
-                "reference": "f585b2af3c319ac71553cf93e780a626c4ebe02b",
+                "url": "https://api.github.com/repos/livewire/blaze/zipball/af382b7456fe59cb2da2938ef18b76e35470f0d4",
+                "reference": "af382b7456fe59cb2da2938ef18b76e35470f0d4",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^10.0|^11.0|^12.0",
                 "illuminate/view": "^10.0|^11.0|^12.0",
+                "nikic/php-parser": "^5.0",
                 "php": "^8.1"
             },
             "conflict": {
@@ -11105,9 +11106,9 @@
             "description": "A tool for optimizing Blade component performance by folding them into parent templates",
             "support": {
                 "issues": "https://github.com/livewire/blaze/issues",
-                "source": "https://github.com/livewire/blaze/tree/v1.0.0"
+                "source": "https://github.com/livewire/blaze/tree/v1.0.1"
             },
-            "time": "2026-02-24T16:02:42+00:00"
+            "time": "2026-02-25T15:12:04+00:00"
         },
         {
             "name": "livewire/flux",
@@ -31242,7 +31243,6 @@
         "joaopaulolndev/filament-world-clock": 20,
         "laraveljutsu/zap": 20,
         "leandrocfe/filament-apex-charts": 20,
-        "livewire/blaze": 10,
         "marjose123/filament-lockscreen": 20,
         "mokhosh/filament-rating": 20,
         "muazzam/slick-scrollbar": 20,
