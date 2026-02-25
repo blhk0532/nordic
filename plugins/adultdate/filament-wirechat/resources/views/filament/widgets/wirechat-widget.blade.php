@@ -25,6 +25,13 @@
         .fi-page-footer-widgets > [wire\:id*="wirechat-widget"] {
             margin-top: -1.5rem !important;
         }
+
+    .fi-main.fi-width-full {
+        padding: 0rem !important;
+    }
+    .fi-page-header-main-ctn {
+        padding: 0rem !important;
+    }
     </style>
     <script>
         // Remove empty schema component elements that create gaps

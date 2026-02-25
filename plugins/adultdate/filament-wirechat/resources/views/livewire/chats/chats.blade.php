@@ -1,4 +1,13 @@
 @use('AdultDate\FilamentWirechat\Facades\Wirechat')
+<style>
+
+    .fi-main.fi-width-full {
+        padding: 0rem !important;
+    }
+    .fi-page-header-main-ctn {
+        padding: 0rem !important;
+    }
+</style>
 <div
     x-data="{ selectedConversationId: '{{ request()->conversation ?? $selectedConversationId }}' }"
      x-on:open-chat.window="selectedConversationId = $event.detail.conversation; $wire.selectedConversationId = $event.detail.conversation;"

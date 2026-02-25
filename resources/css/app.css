@@ -378,3 +378,10 @@ html{
 .fi-main-ctn{
     overflow-x: hidden;
 }
+    .fi-main.fi-width-full {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    .fi-page-header-main-ctn {
+        padding-top: 2rem !important;
+    }

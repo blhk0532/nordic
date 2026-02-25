@@ -14,7 +14,7 @@
             </div>
         </main>
     </div>
-    
+
     {{-- Include modal component for new chat and other modals --}}
     <livewire:filament-wirechat.modal />
     <style>
@@ -27,5 +27,8 @@
 .fi-main.fi-width-7xl{max-height: calc(100vh - 4rem) !important;}
 .fi-main.fi-width-7xl{max-height: calc(100vh - 4rem) !important;}
 aside.fi-sidebar.fi-main-sidebar.fi-sidebar-open{display: none !important;}
+
+.fi-main.fi-width-full{padding:0px !important;margin:0px !important;width:100% !important;min-width:100% !important;}
+.fi-page-header-main-ctn{padding: 0px !important;margin: 0px !important;  }
     </style>
 </x-filament-panels::page>
