@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
-use App\Models\Postnummer;
+use App\Models\PostNum;
 use Exception;
 use Illuminate\Bus\Batchable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -38,7 +38,7 @@ class RunPostNumChecksJob implements ShouldQueue
     /**
      * The postnummer model instance.
      */
-    public ?Postnummer $postNummerCheck = null;
+    public ?PostNum $postNummerCheck = null;
 
     /**
      * The postnummer ID.
@@ -75,7 +75,7 @@ class RunPostNumChecksJob implements ShouldQueue
     /**
      * Dispatch the job with a custom name.
      */
-    public static function dispatchWithName(Postnummer $postNummerCheck): mixed
+    public static function dispatchWithName(PostNum $postNummerCheck): mixed
     {
         $job = new self($postNummerCheck->id);
 
@@ -99,11 +99,7 @@ class RunPostNumChecksJob implements ShouldQueue
                 throw new Exception('Postnummer ID is not set');
             }
 
-            $postNummerCheck = Postnummer::find($this->postNummerId);
-
-            if (! $postNummerCheck) {
-                throw new Exception("Postnummer with ID {$this->postNummerId} not found");
-            }
+            $postNummerCheck = PostNum::findOrFail($this->postNummerId);
 
             $postNummer = str_replace(' ', '', $postNummerCheck->post_nummer);
 
@@ -145,11 +141,6 @@ class RunPostNumChecksJob implements ShouldQueue
                 'ratsit_foretag_total' => $postNummerCheck->ratsit_foretag_total,
             ]);
 
-            // Increment completed jobs counter in batch
-            if ($this->batch()) {
-                $this->batch()->incrementCompletedJobs();
-            }
-
         } catch (Exception $e) {
             Log::error('Postnummer checks failed', [
                 'post_nummer_id' => $this->postNummerId,
@@ -166,7 +157,7 @@ class RunPostNumChecksJob implements ShouldQueue
      */
     public function displayName(): string
     {
-        $postNummer = Postnummer::find($this->postNummerId);
+        $postNummer = PostNum::find($this->postNummerId);
 
         return 'Postnummer: '.($postNummer ? $postNummer->post_nummer : $this->postNummerId);
     }

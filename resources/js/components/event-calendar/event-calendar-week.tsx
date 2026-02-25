@@ -286,7 +286,7 @@ export function EventCalendarWeek({ events, currentDate }: CalendarWeekProps) {
                   key={`all-day-cell-${dayIndex}`}
                   className={cn(
                     'relative table items-center justify-center px-1 border-b border-t relative overflow-hidden min-h-[40px]',
-                    todayIndex === dayIndex && 'border-t border-2 rounded border-[#619af780] dark:border-[#619af780]',
+                    todayIndex === dayIndex && 'border-t-2 border-b-2 rounded border-[#619af780] dark:border-[#619af780]',
                     'flex-1',
                   )}
                 >

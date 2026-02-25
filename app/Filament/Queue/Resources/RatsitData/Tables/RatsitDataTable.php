@@ -20,6 +20,8 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Builder;
+use App\Jobs\RunRatsitPersonsSearchJob;
 
 class RatsitDataTable
 {

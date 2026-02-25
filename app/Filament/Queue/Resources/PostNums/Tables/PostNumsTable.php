@@ -37,6 +37,11 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use App\Jobs\RunPostNumChecksJob;
+use App\Jobs\RunRatsitPersonsSearchJob;
+use App\Jobs\RunHittaPortOrtJob;
+use Illuminate\Support\Collection;
 
 class PostNumsTable
 {
@@ -399,6 +404,56 @@ class PostNumsTable
                     // ResetMerinfoQueueBulkAction::make(),
                     RunRatsitPersonerBulkAction::make(),
                     RunRatsitHittaBulkAction::make(),
+                                      BulkAction::make('runRatsitPersonsSearch')
+                        ->label('Run Ratsit Persons X')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            foreach ($records as $record) {
+                                // Build exact search string: "gatuadress_namn,  post_nummer post_ort"
+                                $gatuadress = $record->gatuadress_namn ?? '';
+                                $postnummer = $record->post_nummer ?? '';
+                                $postort = $record->post_ort ?? '';
+                                $search = sprintf('"%s,  %s %s"', $gatuadress, str_replace(' ', '', $postnummer), $postort);
+
+                                // Dispatch a queued job to run the Node scraper with the exact search param
+                                RunRatsitPersonsSearchJob::dispatch($search)->onQueue('ratsit');
+                            }
+
+                            Notification::make()
+                                ->title('Queued Ratsit Persons jobs')
+                                ->body('Ratsit persons scraping jobs have been queued for selected rows.')
+                                ->success()
+                                ->send();
+                        })
+                        ->color('primary'),
+                    Action::make('run')
+                     ->label('Run')
+                     ->icon('heroicon-o-play')
+                     ->color('success')
+                     ->requiresConfirmation()
+                     ->modalHeading('Queue Ratsit/Hitta Scraper')
+                     ->modalDescription(fn ($record) => "This will queue the post_ort_update.mjs script for post nummer: {$record->post_nummer}. The job will run in the background.")
+                     ->modalSubmitActionLabel('Queue Job')
+                     ->action(function ($record) {
+                         // Set status to running
+                         $record->update(['status' => 'running']);
+                         // Create job with name and dispatch to queue
+                         $job = new RunPostNumChecksJob($record->id);
+                         dispatch($job);
+                         // Update job name in database after dispatching
+                         DB::table('jobs')
+                             ->where('queue', 'postnummer-checks')
+                             ->orderBy('id', 'desc')
+                             ->limit(1)
+                             ->update(['name' => 'Postnummer: ' . $record->post_nummer]);
+                         Notification::make()
+                             ->title('Kontroller har startats')
+                             ->body("Postnummer {$record->post_nummer} kontroller har lagts i kön och körs i bakgrunden.")
+                             ->info()
+                             ->send();
+                     })
+                    ->visible(fn ($record) => ($record instanceof \App\Models\PostNum) ? !in_array($record->status, ['running', 'complete', 'empty'], true) : false),
+
 
                 ]),
 
