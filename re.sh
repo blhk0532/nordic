@@ -1,103 +1,48 @@
 #!/bin/bash
 
-# re.sh - Run after git pull to clear all caches and rebuild application
+set -e
+
+APP_DIR="/home/ubuntu/nordic"
+PHP="/usr/bin/php8.4"
 
 echo "======================================"
-echo "Starting full application rebuild..."
+echo "Starting deployment..."
 echo "======================================"
 
-echo ""
-echo "Step 1: Clearing all caches..."
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
-php artisan event:clear
-php artisan optimize:clear
-php artisan filament:optimize-clear
+cd $APP_DIR
 
-echo ""
-echo "Step 2: Installing Composer dependencies..."
-composer install --no-interaction --prefer-dist --optimize-autoloader
+echo "Step 1: Enable maintenance mode..."
+$PHP artisan down || true
 
-echo ""
-echo "Step 3: Installing NPM dependencies..."
-# Remove package-lock.json to ensure fresh install with updated dependencies
-if [ -f "package-lock.json" ]; then
-    rm package-lock.json
-fi
-pnpm install
+echo "Step 2: Install Composer dependencies..."
+composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
-echo ""
-echo "Step 4: Building frontend assets..."
+echo "Step 3: Install frontend dependencies..."
+pnpm install --frozen-lockfile
+
+echo "Step 4: Build frontend assets..."
 pnpm run build
 
-echo ""
-echo "Step 5: Running database migrations..."
-php artisan migrate --force
+echo "Step 5: Run migrations..."
+$PHP artisan migrate --force
 
-echo ""
-echo "Step 6: Restarting application servers..."
+echo "Step 6: Clear and rebuild caches..."
+$PHP artisan optimize:clear
+$PHP artisan config:cache
+$PHP artisan route:cache
+$PHP artisan view:cache
+$PHP artisan event:cache
 
-# Check and restart FrankenPHP
-if pgrep -x "frankenphp" > /dev/null; then
-    echo "  -> Restarting FrankenPHP..."
-    php artisan octane:reload || true
-fi
+echo "Step 7: Restart Horizon (Supervisor controlled)..."
+sudo supervisorctl stop horizon || true
+sudo supervisorctl start horizon
 
-# Check and restart Laravel Octane (FrankenPHP/Swoole/RoadRunner)
-if [ -f "config/octane.php" ]; then
-    echo "  -> Restarting Laravel Octane..."
-    php artisan octane:reload || true
-fi
+echo "Step 8: Reload Octane..."
+$PHP artisan octane:reload || true
 
-# Check and restart Nginx
-if pgrep -x "nginx" > /dev/null; then
-    echo "  -> Restarting Nginx..."
-    sudo systemctl restart nginx || sudo service nginx restart || nginx -s reload || true
-fi
+echo "Step 9: Disable maintenance mode..."
+$PHP artisan up
 
-# Check and restart Apache
-if pgrep -x "apache2" > /dev/null || pgrep -x "httpd" > /dev/null; then
-    echo "  -> Restarting Apache..."
-    sudo systemctl restart apache2 || sudo service apache2 restart || sudo systemctl restart httpd || sudo service httpd restart || true
-fi
-
-# Check and restart PHP-FPM
-if pgrep -x "php-fpm" > /dev/null || pgrep -x "php8.4-fpm" > /dev/null; then
-    echo "  -> Restarting PHP-FPM..."
-    sudo systemctl restart php8.4-fpm || sudo service php8.4-fpm restart || sudo systemctl restart php-fpm || sudo service php-fpm restart || true
-fi
-
-# Check and restart Supervisor queues
-if pgrep -x "supervisord" > /dev/null; then
-    echo "  -> Restarting Supervisor queue workers..."
-    sudo supervisorctl restart all || true
-fi
-
-# Check and restart Octane server
-if pgrep -x "octane" > /dev/null; then
-    echo "  -> Restarting Octane server..."
-    sudo php artisan octane:reload || true
-fi
-
-
-echo ""
-echo "Step 7: Rebuilding application caches..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-php artisan event:cache
-
-echo ""
-echo "Step 8: Optimizing Filament..."
-php artisan filament:optimize
-
-echo ""
-echo "Step 9: Final optimization..."
-php artisan optimize
-
-echo ""
 echo "======================================"
-echo "Rebuild complete! Application is ready."
+echo "Deployment complete."
 echo "======================================"

@@ -2,86 +2,6 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-const CreateBookingCalendar936db79caf801d61ebd6b10b8449b313 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url(options),
-    method: 'get',
-})
-
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.definition = {
-    methods: ["get","head"],
-    url: '/nds/queue/booking-calendars/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url = (options?: RouteQueryOptions) => {
-    return CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.definition.url + queryParams(options)
-}
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url(options),
-    method: 'head',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-const CreateBookingCalendar936db79caf801d61ebd6b10b8449b313Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/create'
-*/
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateBookingCalendar936db79caf801d61ebd6b10b8449b313.form = CreateBookingCalendar936db79caf801d61ebd6b10b8449b313Form
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\CreateBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/CreateBookingCalendar.php:7
 * @route '/nds/super/booking-calendars/create'
 */
 const CreateBookingCalendarc1979b8ae28c874c6fc2272caf13cdcf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -321,7 +241,6 @@ CreateBookingCalendaraed665dfc483fbf4481ea857eca90bb7Form.head = (options?: Rout
 CreateBookingCalendaraed665dfc483fbf4481ea857eca90bb7.form = CreateBookingCalendaraed665dfc483fbf4481ea857eca90bb7Form
 
 const CreateBookingCalendar = {
-    '/nds/queue/booking-calendars/create': CreateBookingCalendar936db79caf801d61ebd6b10b8449b313,
     '/nds/super/booking-calendars/create': CreateBookingCalendarc1979b8ae28c874c6fc2272caf13cdcf,
     '/nds/booking/booking-calendars/create': CreateBookingCalendar1d5d57f4acaa31ca5763be4c8916305a,
     '/nds/calendar/booking-calendars/create': CreateBookingCalendaraed665dfc483fbf4481ea857eca90bb7,

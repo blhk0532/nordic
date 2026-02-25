@@ -2,104 +2,6 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-const EditBookingCalendarc0abce5c9402c727100ecc98db1e364f = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, options),
-    method: 'get',
-})
-
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.definition = {
-    methods: ["get","head"],
-    url: '/nds/queue/booking-calendars/{record}/edit',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { record: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            record: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        record: args.record,
-    }
-
-    return EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.definition.url
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-const EditBookingCalendarc0abce5c9402c727100ecc98db1e364fForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364fForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
-* @route '/nds/queue/booking-calendars/{record}/edit'
-*/
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364fForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-EditBookingCalendarc0abce5c9402c727100ecc98db1e364f.form = EditBookingCalendarc0abce5c9402c727100ecc98db1e364fForm
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\Pages\EditBookingCalendar::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/BookingCalendars/Pages/EditBookingCalendar.php:7
 * @route '/nds/super/booking-calendars/{record}/edit'
 */
 const EditBookingCalendar79a2da47ed53069862cf9376cf4506f5 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -393,7 +295,6 @@ EditBookingCalendarff242282b9adc2a4f9a321c7ca17a32cForm.head = (args: { record: 
 EditBookingCalendarff242282b9adc2a4f9a321c7ca17a32c.form = EditBookingCalendarff242282b9adc2a4f9a321c7ca17a32cForm
 
 const EditBookingCalendar = {
-    '/nds/queue/booking-calendars/{record}/edit': EditBookingCalendarc0abce5c9402c727100ecc98db1e364f,
     '/nds/super/booking-calendars/{record}/edit': EditBookingCalendar79a2da47ed53069862cf9376cf4506f5,
     '/nds/booking/booking-calendars/{record}/edit': EditBookingCalendara4093d0e97f3bc45e74ad16f969a7c92,
     '/nds/calendar/booking-calendars/{record}/edit': EditBookingCalendarff242282b9adc2a4f9a321c7ca17a32c,
