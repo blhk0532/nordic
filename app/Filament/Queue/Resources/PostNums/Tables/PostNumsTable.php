@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Filament\Queue\Resources\PostNums\Tables;
 
+use App\Filament\Exports\PostNumExporter;
 use App\Filament\Queue\Resources\PostNums\Actions\BulkResetValuesBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\CheckDbCountsBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\CountMerinfoBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\MerinfoCountBulkAction;
-use App\Filament\Queue\Resources\PostNums\Actions\QueueMerinfoBulkAction;
 // use App\Filament\Queue\Resources\PostNums\Actions\MerinfoCountBulkAction;
+use App\Filament\Queue\Resources\PostNums\Actions\QueueMerinfoBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\ResetMerinfoQueueBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunAllCountsBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunBothCountsBulkAction;
@@ -21,7 +22,6 @@ use App\Filament\Queue\Resources\PostNums\Actions\RunHittaSearchBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitCountsBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitHittaBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitPersonerBulkAction;
-use App\Filament\Exports\PostNumExporter;
 use App\Models\PostNum;
 // use App\Filament\Queue\Resources\PostNums\Actions\RunHittaPersonsBulkAction;
 use Filament\Actions\Action;
@@ -411,7 +411,20 @@ class PostNumsTable
                     ->modalDescription('This will check and update database counts for the selected records. This may take a few moments.')
                     ->modalSubmitActionLabel('Refresh Counts')
                     ->deselectRecordsAfterCompletion()
-                    ->successRedirectUrl(request()->fullUrl()),
+                    ->action(function (\Illuminate\Support\Collection $records): void {
+                        $records = $records->filter(fn ($record) => $record instanceof \App\Models\PostNum);
+                        $count = 0;
+                        foreach ($records as $record) {
+                            \App\Filament\Actions\PostNummerChecks\CheckDbCountsAction::execute($record, false);
+                            $count++;
+                        }
+
+                        \Filament\Notifications\Notification::make()
+                            ->success()
+                            ->title('Database Counts Updated')
+                            ->body("Successfully refreshed database counts for {$count} post nummer(s).")
+                            ->send();
+                    }),
 
             ]);
 

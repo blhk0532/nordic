@@ -411,7 +411,20 @@ class PostNumsTable
                     ->modalDescription('This will check and update database counts for the selected records. This may take a few moments.')
                     ->modalSubmitActionLabel('Refresh Counts')
                     ->deselectRecordsAfterCompletion()
-                    ->successRedirectUrl(request()->fullUrl()),
+                    ->action(function (\Illuminate\Support\Collection $records): void {
+                        $records = $records->filter(fn ($record) => $record instanceof \App\Models\PostNum);
+                        $count = 0;
+                        foreach ($records as $record) {
+                            \App\Filament\Actions\PostNummerChecks\CheckDbCountsAction::execute($record, false);
+                            $count++;
+                        }
+
+                        \Filament\Notifications\Notification::make()
+                            ->success()
+                            ->title('Database Counts Updated')
+                            ->body("Successfully refreshed database counts for {$count} post nummer(s).")
+                            ->send();
+                    }),
 
             ]);
 
