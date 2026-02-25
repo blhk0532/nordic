@@ -90,7 +90,7 @@ class RingaDataTable
             ->emptyStateActions([
                 Actions\Action::make('RingaListan')
                     ->label(fn () => auth()->user()->name)
-                    ->url('https://ndsth.se/nds/app')
+                    ->url('https://ndsth.com/nds/app')
                     ->icon('heroicon-o-user-circle')
                     ->button(),
             ])

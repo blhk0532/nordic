@@ -185,7 +185,7 @@ export default function ShadcnEventCalendar() {
         <div className="w-full max-w-[100%]">
           <div className="bg-transparent rounded-lg shadow min-h-[98vh] flex items-center justify-center">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black dark:border-white mx-auto"/>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-300 dark:border-gray-500 mx-auto"/>
               <svg version="1.2" id="nordic-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 336" width="200" height="34" fill="currentColor">
     <g><path fillRule="evenodd" className="s0" d="m1245.5 13.5q39 0 78 0 0.25 104-0.5 208-7.73 69.72-72.5 96.5-81.51 23.59-131.5-44.5-35.41-60.78 1-121 47.62-63.63 125.5-45 0-47 0-94zm-73 200q4.85 39.91 45 39.5 31.97-6.41 35-39-5.71-41.96-48-39.5-29.03 8.55-32 39z"></path></g>
     <g><path fillRule="evenodd" className="s0" d="m655.5 101.5q73.88-5.44 112.5 57 31.23 64.88-11 123-49.57 55.58-121.5 35.5-62.5-23.77-74.5-89.5-6.8-72.15 53.5-111.5 19.47-10.74 41-14.5zm-10 79.5q-23.59 23.82-7.5 53.5 21.72 25.85 52.5 11.5 20.62-12.99 19.5-37.5-7.55-39.17-47.5-36-9.15 2.65-17 8.5z"></path></g>
