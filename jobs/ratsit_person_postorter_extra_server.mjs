@@ -30,10 +30,17 @@ async function getDatabaseConnection() {
     return mysql.createConnection(connOptions);
 }
 
-async function getKommunerLinks(connection) {
-    const [rows] = await connection.execute(
-        'SELECT kommun, personer_link FROM ratsit_kommuner WHERE personer_link IS NOT NULL AND personer_link != "" ORDER BY id',
-    );
+async function getKommunerLinks(connection, startFromUrl = null) {
+    let query =
+        'SELECT kommun, personer_link FROM ratsit_kommuner WHERE personer_link IS NOT NULL AND personer_link != "" ORDER BY id';
+
+    if (startFromUrl) {
+        query = `SELECT kommun, personer_link FROM ratsit_kommuner WHERE personer_link IS NOT NULL AND personer_link != "" AND id >= (SELECT id FROM ratsit_kommuner WHERE personer_link = ? LIMIT 1) ORDER BY id`;
+        const [rows] = await connection.execute(query, [startFromUrl]);
+        return rows;
+    }
+
+    const [rows] = await connection.execute(query);
     return rows;
 }
 
@@ -313,7 +320,9 @@ async function scrapeRatsitPostorter(url, connection) {
 }
 
 // Get URL from command line arguments
-const url = process.argv[2];
+const args = process.argv.slice(2);
+const url = args.find((arg) => !arg.startsWith("--"));
+const continueFlag = args.includes("--continue");
 
 async function main() {
     let connection = null;
@@ -323,7 +332,38 @@ async function main() {
 
         if (url) {
             // Single URL mode
-            await scrapeRatsitPostorter(url, connection);
+            if (continueFlag) {
+                console.log(`Continue mode: starting from ${url}`);
+                const kommunerLinks = await getKommunerLinks(connection, url);
+
+                if (kommunerLinks.length === 0) {
+                    console.log(
+                        "No kommuner found starting from the specified URL",
+                    );
+                    return;
+                }
+
+                console.log(
+                    `Found ${kommunerLinks.length} kommuner to process`,
+                );
+
+                let foundStart = false;
+                for (const row of kommunerLinks) {
+                    if (!foundStart && row.personer_link !== url) {
+                        continue;
+                    }
+                    foundStart = true;
+                    console.log(
+                        `\nProcessing: ${row.kommun} - ${row.personer_link}`,
+                    );
+                    await scrapeRatsitPostorter(row.personer_link, connection);
+                }
+
+                console.log("\nAll kommuner processed successfully");
+            } else {
+                // Single URL mode - just scrape the one URL
+                await scrapeRatsitPostorter(url, connection);
+            }
         } else {
             // Batch mode: get all kommuner links from ratsit_kommuner table
             console.log(
