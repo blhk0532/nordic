@@ -10,6 +10,7 @@ use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Schema;
 use Log;
 
 class QueueMerinfoBulkAction extends BulkAction
@@ -51,17 +52,33 @@ class QueueMerinfoBulkAction extends BulkAction
                     ])->name($normalized)
                         ->onQueue('scrape')
                         ->then(function ($batch) {
-                            // Update batch status to complete when all jobs finish
-                            DB::table('job_batches')
-                                ->where('id', $batch->id)
-                                ->update(['status' => 'complete']);
+                            // Update batch status to complete when all jobs finish, if column exists
+                            try {
+                                if (Schema::hasColumn('job_batches', 'status')) {
+                                    DB::table('job_batches')
+                                        ->where('id', $batch->id)
+                                        ->update(['status' => 'complete']);
+                                } else {
+                                    Log::warning('job_batches.status column missing; skipping status update (complete).', ['batch_id' => $batch->id]);
+                                }
+                            } catch (\Throwable $e) {
+                                Log::error('Failed updating job_batches status to complete', ['batch_id' => $batch->id, 'error' => $e->getMessage()]);
+                            }
                         })
                         ->dispatch();
 
-                    // Set batch status to pending
-                    DB::table('job_batches')
-                        ->where('id', $batch->id)
-                        ->update(['status' => 'pending']);
+                    // Set batch status to pending (if column exists)
+                    try {
+                        if (Schema::hasColumn('job_batches', 'status')) {
+                            DB::table('job_batches')
+                                ->where('id', $batch->id)
+                                ->update(['status' => 'pending']);
+                        } else {
+                            Log::warning('job_batches.status column missing; skipping status update (pending).', ['batch_id' => $batch->id]);
+                        }
+                    } catch (\Throwable $e) {
+                        Log::error('Failed updating job_batches status to pending', ['batch_id' => $batch->id, 'error' => $e->getMessage()]);
+                    }
 
                     // Note: we avoid trying to update the DB `jobs` table directly
                     // because different queue drivers and id formats make this fragile.
