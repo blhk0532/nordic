@@ -37,6 +37,7 @@ use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 use App\Filament\Queue\Resources\RatsitData\RatsitDataResource;
 use AchyutN\FilamentLogViewer\FilamentLogViewer;
 use MWGuerra\WebTerminal\WebTerminalPlugin;
+use App\Filament\Queue\Pages\Terminal;
 
 class QueuePanelProvider extends PanelProvider
 {
@@ -97,6 +98,7 @@ class QueuePanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Panels/Resources'), for: 'App\Filament\Panels\Resources')
             ->pages([
                 QueueDashboard::class,
+                Terminal::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Queue/Widgets'), for: 'App\Filament\Queue\Widgets')
             ->widgets([
@@ -126,7 +128,7 @@ class QueuePanelProvider extends PanelProvider
             ->plugins([
                 FilamentFailedJobsPlugin::make(),
                 FilamentLogViewer::make(),
-                WebTerminalPlugin::make()
+             //   WebTerminalPlugin::make()
              //   QueueableBulkActionsPlugin::make()->onlyResources([BookingOutcallQueueResource::class])->onlyStatuses([StatusEnum::Pending]),
             ])
             ->plugins([

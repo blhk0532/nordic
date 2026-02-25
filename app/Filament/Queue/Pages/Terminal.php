@@ -48,7 +48,7 @@ class Terminal extends BaseTerminal
                             ->height('400px')
                             ->title(__('web-terminal::terminal.pages.terminal.local_terminal'))
                             ->windowControls(true)
-                            ->startConnected(false)
+                            ->startConnected(true)
                             ->log(
                                 enabled: true,
                                 connections: true,
