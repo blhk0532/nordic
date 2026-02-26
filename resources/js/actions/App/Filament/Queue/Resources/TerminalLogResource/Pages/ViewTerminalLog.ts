@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 const ViewTerminalLog = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ ViewTerminalLog.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 ViewTerminalLog.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -42,8 +42,8 @@ ViewTerminalLog.url = (args: { record: string | number } | [record: string | num
 }
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 ViewTerminalLog.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -52,8 +52,8 @@ ViewTerminalLog.get = (args: { record: string | number } | [record: string | num
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 ViewTerminalLog.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -62,8 +62,8 @@ ViewTerminalLog.head = (args: { record: string | number } | [record: string | nu
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 const ViewTerminalLogForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -72,8 +72,8 @@ const ViewTerminalLogForm = (args: { record: string | number } | [record: string
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 ViewTerminalLogForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,8 +82,8 @@ ViewTerminalLogForm.get = (args: { record: string | number } | [record: string |
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/queue/terminal-logs/{record}'
 */
 ViewTerminalLogForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

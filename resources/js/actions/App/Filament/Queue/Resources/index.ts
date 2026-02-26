@@ -9,6 +9,7 @@ import RatsitKommuner from './RatsitKommuner'
 import RatsitPersons from './RatsitPersons'
 import RatsitPostorter from './RatsitPostorter'
 import RatsitStreets from './RatsitStreets'
+import TerminalLogResource from './TerminalLogResource'
 
 const Resources = {
     JobBatches: Object.assign(JobBatches, JobBatches),
@@ -22,6 +23,7 @@ const Resources = {
     RatsitPersons: Object.assign(RatsitPersons, RatsitPersons),
     RatsitPostorter: Object.assign(RatsitPostorter, RatsitPostorter),
     RatsitStreets: Object.assign(RatsitStreets, RatsitStreets),
+    TerminalLogResource: Object.assign(TerminalLogResource, TerminalLogResource),
 }
 
 export default Resources

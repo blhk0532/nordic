@@ -37,6 +37,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $schedule->command('users:update-inactive-status --minutes=5')->everyFiveMinutes();
     })
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
+
         $middleware->validateCsrfTokens(except: [
             'livewire/*',
         ]);
@@ -68,10 +70,6 @@ return Application::configure(basePath: dirname(__DIR__))
             UpdateUserActiveAt::class,
             AddLinkHeadersForPreloadedAssets::class,
             AllowCorsForAssets::class,
-        ]);
-
-        $middleware->api(prepend: [
-            HandleCors::class,
         ]);
 
         $middleware->redirectGuestsTo(fn () => route('login'));

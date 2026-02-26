@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 const ListTerminalLogs = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ ListTerminalLogs.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 ListTerminalLogs.url = (options?: RouteQueryOptions) => {
@@ -24,8 +24,8 @@ ListTerminalLogs.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 ListTerminalLogs.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,8 +34,8 @@ ListTerminalLogs.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => 
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 ListTerminalLogs.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,8 +44,8 @@ ListTerminalLogs.head = (options?: RouteQueryOptions): RouteDefinition<'head'> =
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 const ListTerminalLogsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,8 +54,8 @@ const ListTerminalLogsForm = (options?: RouteQueryOptions): RouteFormDefinition<
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 ListTerminalLogsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -64,8 +64,8 @@ ListTerminalLogsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'g
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
 * @route '/nds/queue/terminal-logs'
 */
 ListTerminalLogsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

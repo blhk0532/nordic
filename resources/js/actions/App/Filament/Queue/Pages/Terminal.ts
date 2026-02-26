@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 const Terminal = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ Terminal.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 Terminal.url = (options?: RouteQueryOptions) => {
@@ -24,8 +24,8 @@ Terminal.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 Terminal.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,8 +34,8 @@ Terminal.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 Terminal.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,8 +44,8 @@ Terminal.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 const TerminalForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,8 +54,8 @@ const TerminalForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 TerminalForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -64,8 +64,8 @@ TerminalForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 TerminalForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

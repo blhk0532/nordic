@@ -1,8 +1,8 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
@@ -11,22 +11,22 @@ export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 index.definition = {
     methods: ["get","head"],
-    url: '/nds/queue/terminal-logs',
+    url: '/nds/super/terminal-logs',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 index.url = (options?: RouteQueryOptions) => {
     return index.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
@@ -34,9 +34,9 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(options),
@@ -44,9 +44,9 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(options),
@@ -54,9 +54,9 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(options),
@@ -64,9 +64,9 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
-* @route '/nds/queue/terminal-logs'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ListTerminalLogs::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ListTerminalLogs.php:7
+* @route '/nds/super/terminal-logs'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url({
@@ -81,9 +81,9 @@ indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 index.form = indexForm
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 export const view = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
@@ -92,13 +92,13 @@ export const view = (args: { record: string | number } | [record: string | numbe
 
 view.definition = {
     methods: ["get","head"],
-    url: '/nds/queue/terminal-logs/{record}',
+    url: '/nds/super/terminal-logs/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 view.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -123,9 +123,9 @@ view.url = (args: { record: string | number } | [record: string | number ] | str
 }
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 view.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
@@ -133,9 +133,9 @@ view.get = (args: { record: string | number } | [record: string | number ] | str
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 view.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: view.url(args, options),
@@ -143,9 +143,9 @@ view.head = (args: { record: string | number } | [record: string | number ] | st
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 const viewForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
@@ -153,9 +153,9 @@ const viewForm = (args: { record: string | number } | [record: string | number ]
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 viewForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
@@ -163,9 +163,9 @@ viewForm.get = (args: { record: string | number } | [record: string | number ] |
 })
 
 /**
-* @see \App\Filament\Queue\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Queue/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/nds/queue/terminal-logs/{record}'
+* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
+* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
+* @route '/nds/super/terminal-logs/{record}'
 */
 viewForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, {

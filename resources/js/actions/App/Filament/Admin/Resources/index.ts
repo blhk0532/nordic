@@ -4,6 +4,7 @@ import OutcomeSettings from './OutcomeSettings'
 import RingaDataOutcomes from './RingaDataOutcomes'
 import TeamInvitations from './TeamInvitations'
 import Teams from './Teams'
+import TerminalLogResource from './TerminalLogResource'
 import Users from './Users'
 import WhatsappAgents from './WhatsappAgents'
 
@@ -14,6 +15,7 @@ const Resources = {
     RingaDataOutcomes: Object.assign(RingaDataOutcomes, RingaDataOutcomes),
     TeamInvitations: Object.assign(TeamInvitations, TeamInvitations),
     Teams: Object.assign(Teams, Teams),
+    TerminalLogResource: Object.assign(TerminalLogResource, TerminalLogResource),
     Users: Object.assign(Users, Users),
     WhatsappAgents: Object.assign(WhatsappAgents, WhatsappAgents),
 }

@@ -4,6 +4,7 @@ import outcomeSettings from './outcome-settings'
 import ringaDataOutcomes from './ringa-data-outcomes'
 import teamInvitations from './team-invitations'
 import teams from './teams'
+import terminalLogs from './terminal-logs'
 import users from './users'
 import whatsappAgents from './whatsapp-agents'
 import panelAccesses from './panel-accesses'
@@ -36,6 +37,7 @@ const resources = {
     ringaDataOutcomes: Object.assign(ringaDataOutcomes, ringaDataOutcomes),
     teamInvitations: Object.assign(teamInvitations, teamInvitations),
     teams: Object.assign(teams, teams),
+    terminalLogs: Object.assign(terminalLogs, terminalLogs),
     users: Object.assign(users, users),
     whatsappAgents: Object.assign(whatsappAgents, whatsappAgents),
     panelAccesses: Object.assign(panelAccesses, panelAccesses),

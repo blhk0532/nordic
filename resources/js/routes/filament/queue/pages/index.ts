@@ -81,8 +81,8 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 export const terminal = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -96,8 +96,8 @@ terminal.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 terminal.url = (options?: RouteQueryOptions) => {
@@ -105,8 +105,8 @@ terminal.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 terminal.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -115,8 +115,8 @@ terminal.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 terminal.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -125,8 +125,8 @@ terminal.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 const terminalForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -135,8 +135,8 @@ const terminalForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 terminalForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -145,8 +145,8 @@ terminalForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 })
 
 /**
-* @see \MWGuerra\WebTerminal\Filament\Pages\Terminal::__invoke
-* @see vendor/mwguerra/web-terminal/src/Filament/Pages/Terminal.php:7
+* @see \App\Filament\Queue\Pages\Terminal::__invoke
+* @see app/Filament/Queue/Pages/Terminal.php:7
 * @route '/nds/queue/terminal'
 */
 terminalForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -160,6 +160,87 @@ terminalForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 terminal.form = terminalForm
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+export const terminals = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: terminals.url(options),
+    method: 'get',
+})
+
+terminals.definition = {
+    methods: ["get","head"],
+    url: '/nds/queue/terminals',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+terminals.url = (options?: RouteQueryOptions) => {
+    return terminals.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+terminals.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: terminals.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+terminals.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: terminals.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+const terminalsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terminals.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+terminalsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terminals.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Queue\Pages\Terminals::__invoke
+* @see app/Filament/Queue/Pages/Terminals.php:7
+* @route '/nds/queue/terminals'
+*/
+terminalsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: terminals.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+terminals.form = terminalsForm
 
 /**
 * @see \AchyutN\FilamentLogViewer\LogTable::__invoke
@@ -245,6 +326,7 @@ logs.form = logsForm
 const pages = {
     dashboard: Object.assign(dashboard, dashboard),
     terminal: Object.assign(terminal, terminal),
+    terminals: Object.assign(terminals, terminals),
     logs: Object.assign(logs, logs),
 }
 
