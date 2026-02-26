@@ -136,7 +136,8 @@ Route::put('/postnummer-foretag-queue/update/{postNummer}', [PostNummerForetagQu
 Route::apiResource('post-nummer', PostNummerApiController::class);
 Route::get('/post-nums/merinfo-queue', [PostNummerApiController::class, 'getMerinfoQueue']);
 Route::get('/post-nums/merinfo-count', [PostNummerApiController::class, 'getMerinfoCount']);
-Route::match(['get', 'put'], '/post-nums/by-code/{postnummer}', [PostNummerApiController::class, 'getByPostnummer']);
+// Allow POST as well so external clients can submit data (e.g. merinfo requests)
+Route::match(['get', 'put', 'post'], '/post-nums/by-code/{postnummer}', [PostNummerApiController::class, 'getByPostnummer']);
 Route::put('/post-nummer/by-code/{postnummer}', [PostNummerApiController::class, 'updateByPostnummer']);
 Route::put('/post-nums/update/{postNummer}', [PostNummerApiController::class, 'updateByPostnummer'])->where('postNummer', '[a-zA-Z0-9\s%]+');
 Route::post('/post-nummer/bulk-update', [PostNummerApiController::class, 'bulkUpdateByPostnummer']);

@@ -19,9 +19,8 @@ class AllowCorsForAssets
         }
 
         if ($request->is('build/*') || $request->is('storage/*') || $request->is('storage/attachments/*')) {
-            $response->headers->set('Access-Control-Allow-Origin', '*');
-            $response->headers->set('Access-Control-Allow-Methods', 'GET, OPTIONS');
-            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+            // Do not set CORS headers here — use Laravel's CORS middleware/config
+            // to avoid duplicate Access-Control-Allow-Origin responses.
         }
 
         return $response;
