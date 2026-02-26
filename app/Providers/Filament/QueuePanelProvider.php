@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use AchyutN\FilamentLogViewer\FilamentLogViewer;
 use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalendarResource;
 use Adultdate\FilamentBooking\Filament\Resources\BookingDataLeads\BookingDataLeadResource;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use App\Filament\Queue\Pages\QueueDashboard;
+use App\Filament\Queue\Pages\Terminal;
+use App\Filament\Queue\Pages\Terminals;
+use App\Filament\Queue\Resources\RatsitData\RatsitDataResource;
+// use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
 use App\Http\Middleware\FilamentPanelAccess;
 use BinaryBuilds\FilamentFailedJobs\FilamentFailedJobsPlugin;
 use Bytexr\QueueableBulkActions\Enums\StatusEnum;
-//use Bytexr\QueueableBulkActions\QueueableBulkActionsPlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
@@ -33,11 +37,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
-use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use App\Filament\Queue\Resources\RatsitData\RatsitDataResource;
-use AchyutN\FilamentLogViewer\FilamentLogViewer;
 use MWGuerra\WebTerminal\WebTerminalPlugin;
-use App\Filament\Queue\Pages\Terminal;
+use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
 class QueuePanelProvider extends PanelProvider
 {
@@ -99,6 +100,7 @@ class QueuePanelProvider extends PanelProvider
             ->pages([
                 QueueDashboard::class,
                 Terminal::class,
+                Terminals::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Queue/Widgets'), for: 'App\Filament\Queue\Widgets')
             ->widgets([
@@ -121,15 +123,15 @@ class QueuePanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->resources([
-            //    BookingCalendarResource::class,
-            //    BookingDataLeadResource::class,
+                //    BookingCalendarResource::class,
+                //    BookingDataLeadResource::class,
                 RatsitDataResource::class,
             ])
             ->plugins([
                 FilamentFailedJobsPlugin::make(),
                 FilamentLogViewer::make(),
-             //   WebTerminalPlugin::make()
-             //   QueueableBulkActionsPlugin::make()->onlyResources([BookingOutcallQueueResource::class])->onlyStatuses([StatusEnum::Pending]),
+                //   WebTerminalPlugin::make()
+                //   QueueableBulkActionsPlugin::make()->onlyResources([BookingOutcallQueueResource::class])->onlyStatuses([StatusEnum::Pending]),
             ])
             ->plugins([
                 FilamentWirechatPlugin::make()

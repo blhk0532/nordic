@@ -87,6 +87,8 @@ class QueueMerinfoBulkAction extends BulkAction
                     $record->update([
                         'status' => 'queued_merinfo',
                         'is_active' => true,
+                        'merinfo_personer_queue' => true,
+                        'merinfo_personer_count' => true,
                     ]);
 
                     $queued++;

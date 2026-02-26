@@ -432,7 +432,7 @@ class PostNumsTable
                         ->color('success')
                         ->requiresConfirmation()
                         ->modalHeading('Queue Ratsit/Hitta Scraper')
-                        ->modalDescription(fn ($record) => "This will queue the post_ort_update.mjs script for post nummer: {$record->post_nummer}. The job will run in the background.")
+                        ->modalDescription(fn ($record) => "This will queue the post_ort_update.mjs script for post nummer: {$record->post_nummer}. The job will run in the background.".($record->ratsit_personer_total > 0 ? '' : ' Note: ratsit_personer_total is 0.'))
                         ->modalSubmitActionLabel('Queue Job')
                         ->action(function ($record) {
                             // Set status to running
@@ -452,7 +452,10 @@ class PostNumsTable
                                 ->info()
                                 ->send();
                         })
-                        ->visible(fn ($record) => ($record instanceof \App\Models\PostNum) ? ! in_array($record->status, ['running', 'complete', 'empty'], true) : false),
+                        ->visible(fn ($record) => ($record instanceof \App\Models\PostNum)
+                            ? ! in_array($record->status, ['running', 'complete', 'empty'], true)
+                                && ($record->ratsit_personer_total > 0)
+                            : false),
 
                 ]),
 
