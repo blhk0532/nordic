@@ -14,7 +14,7 @@
         "@laravel/vite-plugin-wayfinder": "^0.1.7",
         "@tailwindcss/vite": "^4.2.1",
         "@types/lodash.throttle": "^4.1.9",
-        "@types/node": "^25.3.0",
+        "@types/node": "^25.3.1",
         "eslint": "^10.0.2",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-react": "^7.37.5",

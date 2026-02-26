@@ -70,6 +70,10 @@ return Application::configure(basePath: dirname(__DIR__))
             AllowCorsForAssets::class,
         ]);
 
+        $middleware->api(prepend: [
+            HandleCors::class,
+        ]);
+
         $middleware->redirectGuestsTo(fn () => route('login'));
         $middleware->redirectUsersTo('/nds/app');
 
