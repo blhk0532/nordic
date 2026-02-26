@@ -425,12 +425,8 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
         app('router')->get('/storage/product-images/{mediaId}/conversions/{conversionName}', function ($mediaId, $conversionName) {
             $media = Media::findOrFail($mediaId);
 
-            if ($media->hasGeneratedConversion($conversionName)) {
-                return response()->file($media->getPath($conversionName), [
-                    'Access-Control-Allow-Origin' => '*',
-                    'Access-Control-Allow-Methods' => 'GET, POST, OPTIONS',
-                    'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
-                ]);
+                if ($media->hasGeneratedConversion($conversionName)) {
+                return response()->file($media->getPath($conversionName));
             }
 
             abort(404);
@@ -439,11 +435,7 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
         app('router')->get('/storage/product-images/{mediaId}/{filename}', function ($mediaId, $filename) {
             $media = Media::findOrFail($mediaId);
 
-            return response()->file($media->getPath(), [
-                'Access-Control-Allow-Origin' => '*',
-                'Access-Control-Allow-Methods' => 'GET, POST, OPTIONS',
-                'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
-            ]);
+            return response()->file($media->getPath());
         })->name('media.file');
     }
 }

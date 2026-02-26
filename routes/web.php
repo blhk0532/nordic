@@ -36,10 +36,7 @@ Route::get('/build/{path}', function ($path) {
         abort(404);
     }
 
-    return response()->file($file, [
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Allow-Methods' => 'GET, OPTIONS',
-    ]);
+    return response()->file($file);
 })->where('path', '.*');
 
 Route::get('/storage/{path}', function ($path) {
@@ -48,10 +45,7 @@ Route::get('/storage/{path}', function ($path) {
         abort(404);
     }
 
-    return response()->file($file, [
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Allow-Methods' => 'GET, OPTIONS',
-    ]);
+    return response()->file($file);
 })->where('path', '.*');
 
 // Handle GET requests to livewire/update (prevent MethodNotAllowedHttpException)
