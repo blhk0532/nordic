@@ -21,9 +21,12 @@ use App\Filament\Queue\Resources\PostNums\Actions\RunHittaPortOrtDirectBulkActio
 use App\Filament\Queue\Resources\PostNums\Actions\RunHittaSearchBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitCountsBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitHittaBulkAction;
+use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitHittaPostOrtBulkAction;
 use App\Filament\Queue\Resources\PostNums\Actions\RunRatsitPersonerBulkAction;
-use App\Models\PostNum;
+use App\Jobs\RunPostNumChecksJob;
 // use App\Filament\Queue\Resources\PostNums\Actions\RunHittaPersonsBulkAction;
+use App\Jobs\RunRatsitPersonsSearchJob;
+use App\Models\PostNum;
 use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
@@ -36,12 +39,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Builder;
-use App\Jobs\RunPostNumChecksJob;
-use App\Jobs\RunRatsitPersonsSearchJob;
-use App\Jobs\RunHittaPortOrtJob;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class PostNumsTable
 {
@@ -404,7 +403,8 @@ class PostNumsTable
                     // ResetMerinfoQueueBulkAction::make(),
                     RunRatsitPersonerBulkAction::make(),
                     RunRatsitHittaBulkAction::make(),
-                                      BulkAction::make('runRatsitPersonsSearch')
+                    RunRatsitHittaPostOrtBulkAction::make(),
+                    BulkAction::make('runRatsitPersonsSearch')
                         ->label('Run Ratsit Persons X')
                         ->requiresConfirmation()
                         ->action(function (Collection $records): void {
@@ -427,33 +427,32 @@ class PostNumsTable
                         })
                         ->color('primary'),
                     Action::make('run')
-                     ->label('Run')
-                     ->icon('heroicon-o-play')
-                     ->color('success')
-                     ->requiresConfirmation()
-                     ->modalHeading('Queue Ratsit/Hitta Scraper')
-                     ->modalDescription(fn ($record) => "This will queue the post_ort_update.mjs script for post nummer: {$record->post_nummer}. The job will run in the background.")
-                     ->modalSubmitActionLabel('Queue Job')
-                     ->action(function ($record) {
-                         // Set status to running
-                         $record->update(['status' => 'running']);
-                         // Create job with name and dispatch to queue
-                         $job = new RunPostNumChecksJob($record->id);
-                         dispatch($job);
-                         // Update job name in database after dispatching
-                         DB::table('jobs')
-                             ->where('queue', 'postnummer-checks')
-                             ->orderBy('id', 'desc')
-                             ->limit(1)
-                             ->update(['name' => 'Postnummer: ' . $record->post_nummer]);
-                         Notification::make()
-                             ->title('Kontroller har startats')
-                             ->body("Postnummer {$record->post_nummer} kontroller har lagts i kön och körs i bakgrunden.")
-                             ->info()
-                             ->send();
-                     })
-                    ->visible(fn ($record) => ($record instanceof \App\Models\PostNum) ? !in_array($record->status, ['running', 'complete', 'empty'], true) : false),
-
+                        ->label('Run')
+                        ->icon('heroicon-o-play')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->modalHeading('Queue Ratsit/Hitta Scraper')
+                        ->modalDescription(fn ($record) => "This will queue the post_ort_update.mjs script for post nummer: {$record->post_nummer}. The job will run in the background.")
+                        ->modalSubmitActionLabel('Queue Job')
+                        ->action(function ($record) {
+                            // Set status to running
+                            $record->update(['status' => 'running']);
+                            // Create job with name and dispatch to queue
+                            $job = new RunPostNumChecksJob($record->id);
+                            dispatch($job);
+                            // Update job name in database after dispatching
+                            DB::table('jobs')
+                                ->where('queue', 'postnummer-checks')
+                                ->orderBy('id', 'desc')
+                                ->limit(1)
+                                ->update(['name' => 'Postnummer: '.$record->post_nummer]);
+                            Notification::make()
+                                ->title('Kontroller har startats')
+                                ->body("Postnummer {$record->post_nummer} kontroller har lagts i kön och körs i bakgrunden.")
+                                ->info()
+                                ->send();
+                        })
+                        ->visible(fn ($record) => ($record instanceof \App\Models\PostNum) ? ! in_array($record->status, ['running', 'complete', 'empty'], true) : false),
 
                 ]),
 

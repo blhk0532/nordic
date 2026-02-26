@@ -1552,7 +1552,8 @@ class HittaRatsitScraper {
                             personData.telefon &&
                             Array.isArray(personData.telefon) &&
                             personData.telefon.length > 0;
-                        if (hasFullAddress && (isHouse || hasPhone)) {
+                        // Only run ratsit for results with BOTH house AND phone
+                        if (hasFullAddress && isHouse && hasPhone) {
                             ratsitQueue.push(personData);
                         }
                     } else {
