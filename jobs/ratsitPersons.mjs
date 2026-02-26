@@ -16,7 +16,7 @@ import axios from 'axios';
 
 class RatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://ndsth.com';
+    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL || 'https://nordicdigitalthailand.com';
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
@@ -2032,7 +2032,7 @@ async function main() {
   program
     .description('Scrape Ratsit for a single search query (tokens are joined), or process queued records if no query provided')
     .argument('[query...]', 'A single Ratsit search query (multiple tokens are joined, e.g. "renborgsvägen 933 93 Abborrträsk")')
-    .option('--api-url <url>', 'Laravel API URL (default: https://app.ndsth.com)')
+    .option('--api-url <url>', 'Laravel API URL (default: https://app.nordicdigitalthailand.com)')
     .option('--api-token <token>', 'API authentication token')
     .option('--limit <number>', 'When processing queued records, maximum number to fetch (default: 100000)')
     .parse();

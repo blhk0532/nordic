@@ -71,9 +71,7 @@ class FilamentShopServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
-
-    public function packageBooted(): void
+    public function booted(): bool
     {
         // Asset Registration
         FilamentAsset::register(
@@ -99,6 +97,8 @@ class FilamentShopServiceProvider extends PackageServiceProvider
 
         // Testing
         Testable::mixin(new TestsFilamentShop);
+
+        return true;
     }
 
     protected function getAssetPackageName(): ?string

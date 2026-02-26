@@ -601,9 +601,9 @@ export const getByPostnummer = (args: { postnummer: string | number } | [postnum
 })
 
 getByPostnummer.definition = {
-    methods: ["get","put","head"],
+    methods: ["get","put","post","head"],
     url: '/api/post-nums/by-code/{postnummer}',
-} satisfies RouteDefinition<["get","put","head"]>
+} satisfies RouteDefinition<["get","put","post","head"]>
 
 /**
 * @see \App\Http\Controllers\Api\PostNummerApiController::getByPostnummer
@@ -657,6 +657,16 @@ getByPostnummer.put = (args: { postnummer: string | number } | [postnummer: stri
 * @see app/Http/Controllers/Api/PostNummerApiController.php:487
 * @route '/api/post-nums/by-code/{postnummer}'
 */
+getByPostnummer.post = (args: { postnummer: string | number } | [postnummer: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: getByPostnummer.url(args, options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\PostNummerApiController::getByPostnummer
+* @see app/Http/Controllers/Api/PostNummerApiController.php:487
+* @route '/api/post-nums/by-code/{postnummer}'
+*/
 getByPostnummer.head = (args: { postnummer: string | number } | [postnummer: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: getByPostnummer.url(args, options),
     method: 'head',
@@ -694,6 +704,16 @@ getByPostnummerForm.put = (args: { postnummer: string | number } | [postnummer: 
             ...(options?.query ?? options?.mergeQuery ?? {}),
         }
     }),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Api\PostNummerApiController::getByPostnummer
+* @see app/Http/Controllers/Api/PostNummerApiController.php:487
+* @route '/api/post-nums/by-code/{postnummer}'
+*/
+getByPostnummerForm.post = (args: { postnummer: string | number } | [postnummer: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: getByPostnummer.url(args, options),
     method: 'post',
 })
 

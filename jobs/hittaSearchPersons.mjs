@@ -37,8 +37,8 @@ import { execSync } from "child_process";
 const API_BASE =
     process.env.API_BASE ||
     process.env.APP_URL ||
-    "https://ndsth.com" ||
-    "https://ndsth.com";
+    "https://nordicdigitalthailand.com" ||
+    "https://nordicdigitalthailand.com";
 const BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-se/batch`;
 const PERSONER_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/personer-data/bulk`;
 const HITTA_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-data/bulk`;

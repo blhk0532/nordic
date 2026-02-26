@@ -236,11 +236,11 @@ async function scrapeRatsitPostorter(url) {
         }
 
         // Database connection - use environment variables with sensible defaults
-        const dbHost = process.env.DB_HOST || '127.0.0.1';
+        const dbHost = process.env.DB_HOST  || '127.0.0.1';
         const dbPort = process.env.DB_PORT || '3306';
         const dbUser = process.env.DB_USERNAME || process.env.DB_USER || 'root';
-     //   const dbPassword = process.env.DB_PASSWORD || 'qToo81p82TFrWDLWtdNF';
-       const dbPassword = process.env.DB_PASSWORD || 'qToo81p82TFrWDLWtdNF';
+     //   const dbPassword = process.env.DB_PASSWORD;
+       const dbPassword = process.env.DB_PASSWORD;
      const dbName = process.env.DB_DATABASE || 'nordic_new';
         const dbCharset = process.env.DB_CHARSET || 'utf8mb4';
         const dbSocket = process.env.DB_SOCKET || process.env.DB_UNIX_SOCKET || null;
