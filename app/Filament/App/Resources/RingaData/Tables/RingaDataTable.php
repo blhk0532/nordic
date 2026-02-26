@@ -45,6 +45,7 @@ class RingaDataTable
             ])
             ->columns([
                 UserColumn::make('user')
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->label('Användare'),
                 ActionableColumn::make('outcome_category')
                     ->badge()
@@ -88,27 +89,48 @@ class RingaDataTable
 
                 TextColumn::make('personnamn')
                     ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
                 TextColumn::make('fodelsedag')
                     ->label('Age')
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->state(fn (RingaData $record) => $record->fodelsedag ? \Carbon\Carbon::parse($record->fodelsedag)->age : '-')
                     ->sortable(),
                 TextColumn::make('gatuadress')
                     ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
                 TextColumn::make('postnummer')
                     ->label('postnr')
                     ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('postort')
                     ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
 
                 CopyableTextColumn::make('telefon')
                     ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
-
+                TextColumn::make('adressandring')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
+                    ->sortable(),
+                TextColumn::make('byggar')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
+                    ->sortable(),
+                TextColumn::make('bostadtyp')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
+                    ->sortable(),
+                TextColumn::make('agandeform')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false)
+                    ->sortable(),
                 IconColumn::make('outcome')
                     ->label('🕻')
                     ->sortable()

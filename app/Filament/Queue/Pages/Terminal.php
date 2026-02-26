@@ -42,8 +42,8 @@ class Terminal extends BaseTerminal
                             ->allowAllCommands()
                             // WARNING: This allows all commands - use with caution
                             ->workingDirectory(base_path())
-                            ->timeout(30)
-                            ->prompt('$ ')
+                            ->timeout(55555)
+                            ->prompt('$⍰')
                             ->historyLimit(50)
                             ->height('400px')
                             ->title(__('web-terminal::terminal.pages.terminal.local_terminal'))

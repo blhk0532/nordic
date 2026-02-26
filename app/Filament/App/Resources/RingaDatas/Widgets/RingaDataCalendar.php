@@ -129,7 +129,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
     public function onRecordSelected(int $recordId): void
     {
         $this->recordId = $recordId;
-        $this->record = \App\Models\RingaData::find($recordId);
+        $this->record = \App\Models\RingaData::query()->find($recordId);
         $calendarId = $this->record?->calendar_id;
 
         // Store as string to match HTML form values (HTML selects send strings)
@@ -842,7 +842,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
                 // Initialize record if recordId is set
                 if ($this->recordId && (! isset($this->record) || ! $this->record instanceof Model)) {
-                    $this->record = \App\Models\RingaData::find($this->recordId);
+                    $this->record = \App\Models\RingaData::query()->find($this->recordId);
                     logger()->info('Calendar fillForm loaded RingaData', [
                         'recordId' => $this->recordId,
                         'found' => (bool) $this->record,
@@ -860,7 +860,7 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
             })
             ->schema(function () {
                 if ($this->recordId && (! isset($this->record) || ! $this->record instanceof \App\Models\RingaData)) {
-                    $this->record = \App\Models\RingaData::find($this->recordId);
+                    $this->record = \App\Models\RingaData::query()->find($this->recordId);
                 }
 
                 return $this->getFormSchema();
@@ -1903,16 +1903,21 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
 
     public function mount(): void
     {
+        // Initialize record property first to avoid PHP 8.4 uninitialized typed property error
+        $this->record = null;
+
         // Record data is automatically passed from getHeaderWidgetsData()
         // If recordId is set, load the full record
-        if ($this->recordId && ! $this->record) {
-            $this->record = \App\Models\RingaData::find($this->recordId);
-            logger()->info('RingaDatas calendar mount loaded record', [
+        if ($this->recordId) {
+            // Use query() to avoid any potential global scopes
+            $this->record = \App\Models\RingaData::query()->find($this->recordId);
+
+            logger()->info('RingaDatas calendar mount', [
                 'recordId' => $this->recordId,
+                'recordFound' => (bool) $this->record,
                 'calendar_id' => $this->record?->calendar_id,
+                'selected' => $this->record?->calendar_id ? (string) $this->record->calendar_id : 'all',
             ]);
-        } elseif (! isset($this->record)) {
-            $this->record = null;
         }
 
         // Set initial selectedTechnician based on record's calendar_id or page filters
@@ -1923,17 +1928,9 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
         }
 
         $this->selectedTechnician = $this->normalizeTechnicianSelection($initialTechnician);
-        logger()->info('RingaDatas calendar mount', [
-            'hasRecord' => (bool) $this->record,
-            'recordCalendarId' => $this->record?->calendar_id,
-            'pageFilters' => $this->pageFilters['booking_calendars'] ?? 'not set',
-            'selected' => $this->selectedTechnician,
-        ]);
-
         $this->startDate = $this->pageFilters['startDate'] ?? now()->startOfWeek()->toDateString();
         $this->endDate = $this->pageFilters['endDate'] ?? now()->endOfWeek()->toDateString();
         $this->eventClickEnabled = true;
-        //    $this->dateClickEnabled = true;
         $this->eventDragEnabled = true;
         $this->eventResizeEnabled = true;
         $this->dateSelectEnabled = true;

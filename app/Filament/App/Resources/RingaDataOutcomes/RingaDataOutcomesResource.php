@@ -24,24 +24,30 @@ class RingaDataOutcomesResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Mina Sidor';
+    protected static UnitEnum|string|null $navigationGroup = 'Team Admin';
 
     protected static bool $isScopedToTenant = false;
 
-    protected static ?int $navigationSort = 50;
+    protected static ?int $navigationSort = 150;
 
     protected static ?string $tenantOwnershipRelationshipName = null;
+
+    public static function getNavigationBadge(): ?string
+    {
+        $modelClass = static::getModel();
+        $count = $modelClass::query()->count();
+
+        return (string) $count;
+    }
 
     public static function shouldRegisterNavigation(): bool
     {
 
         $teneant = filament()->getTenant();
-
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return true;
+        if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
+            return false;
         }
-
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+        if (filament()->getTenant()->getAttribute('is_admin') === true) {
             return false;
         }
 

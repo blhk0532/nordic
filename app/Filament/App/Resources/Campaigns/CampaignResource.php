@@ -47,7 +47,8 @@ class CampaignResource extends FilamentResource
 
     public static function getNavigationGroup(): ?string
     {
-        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+        return 'Kalender';
+        // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 
     public static function shouldRegisterNavigation(): bool

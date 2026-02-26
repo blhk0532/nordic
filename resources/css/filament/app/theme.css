@@ -373,7 +373,7 @@ footer span.w-full{
 position: absolute;
   left: 64px;
   text-align: left;
-  top: 22px;
+  top: 18px;
   opacity: 0.8;
   width: auto;
   white-space: nowrap;
@@ -382,6 +382,7 @@ position: absolute;
 footer.fi-footer{
     display: flex;
   height: 50px;
+  margin: 0px;
 }
 @media screen and (max-width: 1023px) {
     footer.fi-footer {
@@ -392,7 +393,7 @@ img.w-auto.object-contain{
     height: 24px;
   position: absolute;
   left: 24px;
-  top: 20px;
+  top: 12px;
 }
 .fi-badge-label-ctn {
   max-height: 14px;
@@ -529,7 +530,24 @@ div.fi-modal-window{
     }
 
     .fi-left-topbar-btn{
-        margin-left: 0.6rem;
-        margin-right: 0.6rem;
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
     }
 
+.fi-fo-rich-editor-content.fi-prose{
+    min-height: 80vh;
+}
+
+footer.fi-footer {
+    display: flex;
+  height: 50px;
+  margin: 0px;
+}
+
+li.featured-sidebar-group{
+ margin-top:-1rem;
+     margin-bottom:-1rem;
+}
+.fi-sidebar-group{
+  margin-top:-1rem;
+}

@@ -29,13 +29,13 @@ class RingaDataResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiStackFill;
 
-    protected static ?string $navigationLabel = 'Nummer';
+    protected static ?string $navigationLabel = 'Nummer 🫥';
 
     protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?string $slug = 'nummer/lista';
 
-    protected static ?int $navigationSort = 55;
+    protected static ?int $navigationSort = 101;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -44,21 +44,22 @@ class RingaDataResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return '';
-      //  return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+        return 'Team Admin';
+        // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 
-      public static function shouldRegisterNavigation(): bool
-      {
+    public static function shouldRegisterNavigation(): bool
+    {
         //  $teneant = filament()->getTenant();
         //  if (filament()->getTenant()->getAttribute('is_admin') !== true) {
         //      return true;
         //  }
-          if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-              return true;
-          }
-          return false;
-      }
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return true;
+        }
+
+        return false;
+    }
 
     public static function form(Schema $schema): Schema
     {

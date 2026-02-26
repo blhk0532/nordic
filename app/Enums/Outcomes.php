@@ -29,6 +29,7 @@ enum Outcomes: string implements HasColor, HasIcon, HasLabel
     case Aterkommer = 'Återkommer';
     case RingTillbaka = 'Ring Tillbaka';
     case Offert = 'Offert';
+    case Kontakt = 'Kontakt';
     case Yes = 'Bokning';
 
     public function getLabel(): string
@@ -56,6 +57,7 @@ enum Outcomes: string implements HasColor, HasIcon, HasLabel
             self::RingTillbaka => 'primary',
             self::Yes => 'success',
             self::Offert => 'success',
+            self::Kontakt => 'primary',
         };
     }
 
@@ -79,6 +81,7 @@ enum Outcomes: string implements HasColor, HasIcon, HasLabel
             self::RingTillbaka => 'heroicon-m-phone-arrow-up-right',
             self::Yes => 'heroicon-m-check-circle',
             self::Offert => 'heroicon-m-check-circle',
+            self::Kontakt => 'heroicon-m-user',
         };
     }
 }

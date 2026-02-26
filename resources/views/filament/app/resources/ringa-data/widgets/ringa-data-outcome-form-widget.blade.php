@@ -1,7 +1,7 @@
 <x-filament-widgets::widget class="h-full outcome-form-widget">
     <x-filament::section class="h-full">
         @php
-            $recordId = $this->record?->id;
+            $recordId = $this->recordId ?? $this->record?->id;
             $tenant = $this->tenant;
             $filamentTenant = filament()->getTenant();
         @endphp

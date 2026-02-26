@@ -30,7 +30,7 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
     public function updateRecord(int $recordId): void
     {
-        $this->record = RingaData::find($recordId);
+        $this->record = RingaData::query()->find($recordId);
         if ($this->record && $this->record->latitud && $this->record->longitude) {
             $this->data = [
                 'location' => null,
@@ -69,7 +69,7 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
         $lat = (float) ($defaults['lat'] ?? -0.5050);
         $lng = (float) ($defaults['lng'] ?? 117.1500);
-        $label = $this->record ? ($this->record->id.' ⌗ '.$this->record->personnamn.' ⌗ '.$this->record->gatuadress.' '.$this->record->postort. ' ' .$this->record->lan ) : null;
+        $label = $this->record ? ($this->record->id.' ⌗ '.$this->record->personnamn.' ⌗ '.$this->record->gatuadress.' '.$this->record->postort.' '.$this->record->lan) : null;
 
         return $schema
             ->schema([

@@ -23,7 +23,7 @@ return [
     | This helps prevent runaway processes from consuming resources.
     |
     */
-    'timeout' => env('WEB_TERMINAL_TIMEOUT', 10),
+    'timeout' => env('WEB_TERMINAL_TIMEOUT', 100000),
 
     /*
     |--------------------------------------------------------------------------

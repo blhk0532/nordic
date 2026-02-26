@@ -26,7 +26,7 @@ class ChatDashboard extends Page
 
     protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
 
-    protected static ?string $navigationLabel = 'Meddelanden';
+    protected static ?string $navigationLabel = 'Meddelande';
 
     protected static ?int $navigationSort = 10;
 
@@ -38,7 +38,7 @@ class ChatDashboard extends Page
 
     public static function getNavigationLabel(): string
     {
-        return $panel ?? 'Meddelanden';
+        return $panel ?? 'Meddelande';
     }
 
     /**

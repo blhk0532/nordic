@@ -21,6 +21,6 @@ class RingaDataDisplayWidget extends Widget
 
     public function updateRecord(int $recordId): void
     {
-        $this->record = RingaData::find($recordId);
+        $this->record = RingaData::query()->find($recordId);
     }
 }

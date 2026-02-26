@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\RingaData;
 use Filament\Widgets\Widget;
 use Livewire\Attributes\On;
-use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
-use App\Filament\App\Resources\RingaDatas\RingaDatasResource;
 
 class RingaDataOutcomeFormWidget extends Widget
 {
     public ?RingaData $record = null;
+
+    public ?int $recordId = null;
 
     public ?string $tenant = null;
 
@@ -32,20 +31,25 @@ class RingaDataOutcomeFormWidget extends Widget
         $this->tenant = $tenant ? $tenant->slug : null;
         logger('Widget tenant set from Filament', ['tenant' => $this->tenant, 'tenant_id' => $tenant?->id, 'tenant_slug' => $tenant?->slug]);
 
-        // Load initial record - the page will send record-selected event if it has a different record
+        // Load initial record from page data if provided
         $this->loadInitialRecord();
     }
 
     #[On('record-selected')]
     public function updateRecord(int $recordId): void
     {
-        $this->record = RingaData::find($recordId);
+        $this->recordId = $recordId;
+        $this->record = RingaData::withoutGlobalScopes()->find($recordId);
         logger('Widget updated record via event', ['recordId' => $recordId, 'found' => (bool) $this->record]);
     }
 
     private function loadInitialRecord(): void
     {
+        // If record was passed from page's getHeaderWidgetsData, use it
+        if (! $this->record && $this->recordId) {
+            $this->record = RingaData::withoutGlobalScopes()->find($this->recordId);
+        }
 
-        logger('Widget loaded initial record', ['recordId' => $this->record?->id, 'user_id' => auth()->id(), 'tenant_id' => filament()->getTenant()?->id]);
+        logger('Widget loaded initial record', ['recordId' => $this->recordId, 'recordFound' => (bool) $this->record, 'user_id' => auth()->id(), 'tenant_id' => filament()->getTenant()?->id]);
     }
 }

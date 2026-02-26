@@ -15,24 +15,32 @@ class GoogleCalendar extends Page
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-calendar-days';
 
-    protected static ?string $navigationLabel = 'Google';
+    protected static ?string $navigationLabel = 'GoogleCAL';
 
     protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 95;
+    protected static ?int $navigationSort = 101;
 
     protected static ?string $slug = 'google-calendar';
 
-    protected static string|UnitEnum|null $navigationGroup = '';
+    // protected static string|UnitEnum|null $navigationGroup = '';
 
     public function getMaxContentWidth(): Width
     {
         return Width::Full;
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Kalender';
+        // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
-
+        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+            return false;
+        }
         if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
             return true;
         }

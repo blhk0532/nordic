@@ -36,7 +36,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationLabel = 'Användare';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 100;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -44,9 +44,9 @@ class UserResource extends Resource
     {
         $teneant = filament()->getTenant();
 
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return false;
-        }
+        //  if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+        //      return false;
+        //  }
 
         if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
             return true;
@@ -83,7 +83,8 @@ class UserResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+        return 'Team Admin';
+        // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 
     public static function getNavigationBadge(): ?string

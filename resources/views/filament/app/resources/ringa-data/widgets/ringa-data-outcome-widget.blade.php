@@ -77,7 +77,7 @@
                 </div>
             @else
                 <div class="p-6 text-center text-gray-500 dark:text-gray-400 flex-grow flex items-center justify-center">
-                    <p>Select a record from the table to record call outcomes.</p>
+                    <p  class="hidden">Select a record from the table to record call outcomes.</p>
                 </div>
             @endif
         </div>

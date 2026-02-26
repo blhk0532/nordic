@@ -30,7 +30,7 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
 
     public function updateRecord(int $recordId): void
     {
-        $this->record = RingaData::find($recordId);
+        $this->record = RingaData::query()->find($recordId);
     }
 
     public function selectOutcome(string $outcomeValue): void

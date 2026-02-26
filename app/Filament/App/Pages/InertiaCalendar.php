@@ -41,16 +41,15 @@ class InertiaCalendar extends Page
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
-   // protected static string|UnitEnum|null $navigationGroup = '';
+    // protected static string|UnitEnum|null $navigationGroup = '';
 
     public static function getNavigationBadge(): ?string
     {
         $role = Str::upper(Auth::user()->role);
         Carbon::setLocale('sv');
+        $now = now()->timezone('Europe/Stockholm')->translatedFormat('D d');
 
-        return now()
-            ->timezone('Europe/Stockholm')
-            ->translatedFormat('l d M');
+        return Str::upper($now);
     }
 
     protected Width|string|null $maxContentWidth = 'full';
@@ -60,13 +59,13 @@ class InertiaCalendar extends Page
         return 'gray';
     }
 
-      public static function shouldRegisterNavigation(): bool
-      {
+    public static function shouldRegisterNavigation(): bool
+    {
 
-          if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-              return true;
-          }
-          return true;
-      }
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return true;
+        }
 
+        return true;
+    }
 }

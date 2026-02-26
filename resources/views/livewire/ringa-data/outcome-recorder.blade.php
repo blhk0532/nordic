@@ -24,6 +24,8 @@
                                     {{ $this->offertAction }}
                                 @elseif($outcome->outcome === 'Bokad')
                                     {{ $this->bokadAction }}
+                                @elseif($outcome->outcome === 'Kontakt')
+                                    {{ $this->kontaktAction }}
                                 @else
                                     <button
                                         wire:click="recordOutcome('{{ $outcome->outcome }}')"

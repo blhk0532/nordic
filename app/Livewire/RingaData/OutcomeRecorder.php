@@ -232,6 +232,109 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             });
     }
 
+    public function kontaktAction(): Action
+    {
+        $color = $this->outcomeColors['Kontakt'] ?? '#2563eb';
+
+        return Action::make('kontakt')
+            ->label('Kontakt')
+            ->button()
+            ->color('gray')
+            ->size('sm')
+            ->disabled($this->processingOutcome === 'Kontakt')
+            ->extraAttributes([
+                'class' => 'w-full',
+                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'Kontakt' ? ' opacity: 0.5;' : ''),
+            ])
+            ->modal()
+            ->modalHeading('Spara som Kontakt')
+            ->modalSubmitActionLabel('Spara')
+            ->modalWidth('md')
+            ->schema([
+                \Filament\Forms\Components\Textarea::make('notes')
+                    ->label('Anteckningar')
+                    ->rows(3),
+            ])
+            ->action(function (array $data): void {
+                $this->saveAsContact($data['notes'] ?? null);
+                $this->recordOutcome('Kontakt');
+            });
+    }
+
+    private function saveAsContact(?string $notes = null): void
+    {
+        $record = $this->record;
+
+        if (! $record) {
+            Log::warning('saveAsContact: No record loaded');
+
+            return;
+        }
+
+        $tenant = filament()->getTenant();
+        $teamId = $tenant?->id;
+        $userId = auth()->id();
+
+        $name = trim(($record->fornamn ?? '').' '.($record->efternamn ?? ''));
+        if (empty($name)) {
+            $name = $record->personnamn ?? $record->gatuadress ?? 'Unknown';
+        }
+
+        $phones = $record->telfonnummer ?? [];
+        $phone = is_array($phones) && count($phones) > 0 ? $phones[0] : null;
+
+        $emails = $record->epost_adress ?? [];
+        $email = is_array($emails) && count($emails) > 0 ? $emails[0] : null;
+
+        $address = $record->gatuadress;
+        $postnummer = $record->postnummer;
+        $postort = $record->postort;
+
+        $existingNotes = $record->user_notes;
+        $newNotes = $notes;
+        $combinedNotes = collect([$existingNotes, $newNotes])->filter()->implode("\n---\n");
+
+        try {
+            $contact = \App\Models\Contact::create([
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'address' => $address,
+                'postnummer' => $postnummer,
+                'postort' => $postort,
+                'notes' => $combinedNotes,
+                'user_id' => $userId,
+                'team_id' => $teamId,
+            ]);
+
+            Log::info('Contact saved from Ringlista', [
+                'contact_id' => $contact->id,
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'user_id' => $userId,
+                'team_id' => $teamId,
+            ]);
+
+            Notification::make()
+                ->title('Kontakt sparat')
+                ->body("{$name} har lagts till i kontakter.")
+                ->success()
+                ->send();
+        } catch (Exception $e) {
+            Log::error('Failed to save contact', [
+                'error' => $e->getMessage(),
+                'record_id' => $record->id,
+            ]);
+
+            Notification::make()
+                ->title('Fel')
+                ->body('Kunde inte spara kontakt: '.$e->getMessage())
+                ->danger()
+                ->send();
+        }
+    }
+
     public function mount(): void
     {
         Log::info('OutcomeRecorder mount', ['recordId' => $this->recordId, 'tenant' => $this->tenant]);
@@ -578,7 +681,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
     private function loadRecord(): void
     {
         if ($this->recordId) {
-            $this->record = RingaData::find($this->recordId);
+            // Use withoutGlobalScopes to ensure we can find the record regardless of tenant scopes
+            $this->record = RingaData::withoutGlobalScopes()->find($this->recordId);
             Log::info('Loaded record', ['recordId' => $this->recordId, 'found' => (bool) $this->record]);
         } else {
             $this->record = null;

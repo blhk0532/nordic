@@ -48,7 +48,7 @@ class Terminals extends BaseTerminal
                     ->local()
                     ->allowAllCommands()
                     ->workingDirectory(base_path())
-                    ->timeout(30)
+                    ->timeout(55555)
                     ->prompt('$ ')
                     ->historyLimit(50)
                     ->height('300px')

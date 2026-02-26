@@ -29,7 +29,7 @@ class AppChatDashboard extends BasePage
 
     //     protected string $view = 'filament.app.pages.app-chat-dashboard';
 
-    protected static ?string $navigationLabel = 'Meddelanden';
+    protected static ?string $navigationLabel = 'Meddelande';
 
     protected static string|UnitEnum|null $navigationGroup = 'Mina Sidor';
 
@@ -60,7 +60,7 @@ class AppChatDashboard extends BasePage
 
     public static function getNavigationLabel(): string
     {
-        return 'Meddelanden';
+        return 'Meddelande';
     }
 
     public static function getNavigationBadge(): ?string

@@ -99,7 +99,11 @@ class RingaListanResource extends Resource
 
     public static function getNavigationBadgeColor(): ?string
     {
-        return 'primary';
+        $count = self::getEloquentQuery()
+            ->whereIn('outcome', self::getTrackedOutcomes())
+            ->count();
+
+        return $count ? 'warning' : 'success';
     }
 
     public static function getNavigationBadge(): ?string
@@ -108,7 +112,7 @@ class RingaListanResource extends Resource
             ->whereIn('outcome', self::getTrackedOutcomes())
             ->count();
 
-        return $count ? (string) $count : null;
+        return $count ? (string) $count : '〇k';
     }
 
     private static function getTrackedOutcomes(): array

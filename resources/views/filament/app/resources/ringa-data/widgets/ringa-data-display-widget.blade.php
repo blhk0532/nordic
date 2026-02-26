@@ -260,8 +260,8 @@
                 </div>
             </div>
         @else
-            <div class="p-6 text-center text-gray-500 dark:text-gray-400">
-                <p>Select a record from the table to view details.</p>
+            <div class="p-6 text-center text-gray-500 dark:text-gray-400" style="min-height: 256px;">
+                <p class="hidden">Select a record from the table to view details.</p>
             </div>
         @endif
     </x-filament::section>

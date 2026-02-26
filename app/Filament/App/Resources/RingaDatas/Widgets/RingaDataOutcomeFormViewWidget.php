@@ -33,7 +33,7 @@ class RingaDataOutcomeFormViewWidget extends Widget implements HasSchemas
     #[On('record-selected')]
     public function updateRecord(int $recordId): void
     {
-        $this->record = RingaData::find($recordId);
+        $this->record = RingaData::query()->find($recordId);
     }
 
     public function handleOutcome($outcome): void
