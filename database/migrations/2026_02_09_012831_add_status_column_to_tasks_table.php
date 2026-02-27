@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->string('status')->default('todo')->after('name');
-        });
+        if (! Schema::hasColumn('tasks', 'status')) {
+            Schema::table('tasks', function (Blueprint $table) {
+                $table->string('status')->default('todo')->after('name');
+            });
+        }
     }
 
     /**

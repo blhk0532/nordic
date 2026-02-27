@@ -178,47 +178,47 @@ return new class extends Migration
                         $payload,
                         ['post_ort', 'post_nummer'],
                         [
-                        'post_nummer',
-                        'post_ort',
-                        'post_lan',
-                        'merinfo_personer_total',
-                        'merinfo_personer_phone_total',
-                        'merinfo_personer_house_total',
-                        'merinfo_foretag_total',
-                        'merinfo_foretag_phone_total',
-                        'merinfo_personer_saved',
-                        'merinfo_personer_phone_saved',
-                        'merinfo_personer_house_saved',
-                        'merinfo_foretag_saved',
-                        'merinfo_foretag_phone_saved',
-                        'hitta_personer_total',
-                        'hitta_foretag_total',
-                        'hitta_personer_saved',
-                        'hitta_personer_phone_saved',
-                        'hitta_personer_house_saved',
-                        'hitta_foretag_saved',
-                        'hitta_postort_total_pages',
-                        'hitta_postort_processed_pages',
-                        'hitta_postort_last_page',
-                        'ratsit_personer_total',
-                        'ratsit_foretag_total',
-                        'ratsit_personer_saved',
-                        'ratsit_foretag_saved',
-                        'ratsit_personer_phone_saved',
-                        'ratsit_personer_house_saved',
-                        'status',
-                        'is_active',
-                        'is_personer_active',
-                        'is_foretag_active',
-                        'merinfo_personer_queue',
-                        'merinfo_foretag_queue',
-                        'merinfo_personer_count',
-                        'merinfo_foretag_count',
-                        'hitta_personer_queue',
-                        'hitta_foretag_queue',
-                        'ratsit_personer_queue',
-                        'ratsit_foretag_queue',
-                        'updated_at',
+                            'post_nummer',
+                            'post_ort',
+                            'post_lan',
+                            'merinfo_personer_total',
+                            'merinfo_personer_phone_total',
+                            'merinfo_personer_house_total',
+                            'merinfo_foretag_total',
+                            'merinfo_foretag_phone_total',
+                            'merinfo_personer_saved',
+                            'merinfo_personer_phone_saved',
+                            'merinfo_personer_house_saved',
+                            'merinfo_foretag_saved',
+                            'merinfo_foretag_phone_saved',
+                            'hitta_personer_total',
+                            'hitta_foretag_total',
+                            'hitta_personer_saved',
+                            'hitta_personer_phone_saved',
+                            'hitta_personer_house_saved',
+                            'hitta_foretag_saved',
+                            'hitta_postort_total_pages',
+                            'hitta_postort_processed_pages',
+                            'hitta_postort_last_page',
+                            'ratsit_personer_total',
+                            'ratsit_foretag_total',
+                            'ratsit_personer_saved',
+                            'ratsit_foretag_saved',
+                            'ratsit_personer_phone_saved',
+                            'ratsit_personer_house_saved',
+                            'status',
+                            'is_active',
+                            'is_personer_active',
+                            'is_foretag_active',
+                            'merinfo_personer_queue',
+                            'merinfo_foretag_queue',
+                            'merinfo_personer_count',
+                            'merinfo_foretag_count',
+                            'hitta_personer_queue',
+                            'hitta_foretag_queue',
+                            'ratsit_personer_queue',
+                            'ratsit_foretag_queue',
+                            'updated_at',
                         ]
                     );
                 } catch (\Throwable $e) {
@@ -423,14 +423,16 @@ return new class extends Migration
         }
 
         // finally populate post_lan from legacy table where blank
-        DB::table('sverige_postnummer as s')
-            ->join('post_nums as p',
-                DB::raw("REPLACE(s.post_nummer,' ','')"),
-                '=',
-                DB::raw("REPLACE(p.post_nummer,' ','')")
-            )
-            ->whereRaw("COALESCE(s.post_lan,'') = ''")
-            ->update(['s.post_lan' => DB::raw('p.post_lan')]);
+        if (Schema::hasTable('post_nums') && Schema::hasColumn('post_nums', 'post_lan')) {
+            DB::table('sverige_postnummer as s')
+                ->join('post_nums as p',
+                    DB::raw("REPLACE(s.post_nummer,' ','')"),
+                    '=',
+                    DB::raw("REPLACE(p.post_nummer,' ','')")
+                )
+                ->whereRaw("COALESCE(s.post_lan,'') = ''")
+                ->update(['s.post_lan' => DB::raw('p.post_lan')]);
+        }
     }
 
     /**

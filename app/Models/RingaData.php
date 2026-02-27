@@ -64,13 +64,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Carbon\CarbonImmutable|null $aterkom_at
  * @property \Carbon\CarbonImmutable $available_at
  * @property string|null $user_notes
- * @property string|null $user_id
+ * @property array<array-key, mixed>|null $user_id
  * @property string|null $service_user_id
  * @property string $started_at
  * @property string $expires_at
  * @property \Carbon\CarbonImmutable $created_at
  * @property \Carbon\CarbonImmutable $updated_at
- * @property int|null $team_id
+ * @property array<array-key, mixed>|null $team_id
  * @property int $retry_count
  * @property-read \App\Models\Booking|null $booking
  * @property-read \App\Models\BookingCalendar|null $calendar
@@ -176,6 +176,8 @@ class RingaData extends Model
         'aterkom_at' => 'datetime',
         'available_at' => 'datetime',
         'retry_count' => 'integer',
+        // 'user_id' => 'array',
+        // 'team_id' => 'array',
     ];
 
     protected $fillable = [

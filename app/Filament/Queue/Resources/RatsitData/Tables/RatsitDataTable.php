@@ -66,7 +66,6 @@ class RatsitDataTable
                     ->toggleable(),
                 TextColumn::make('forsamling')
                     ->label('Parish')
-                    ->searchable()
                     ->sortable()
                     ->toggleable()
                     ->toggledHiddenByDefault(true),
@@ -78,13 +77,12 @@ class RatsitDataTable
                     ->toggledHiddenByDefault(true),
                 TextColumn::make('lan')
                     ->label('County')
-                    ->searchable()
                     ->sortable()
                     ->toggleable()
                     ->toggledHiddenByDefault(true),
-                TextColumn::make('telfonnummer')
+                TextColumn::make('telfonnummer.0')
                     ->label('Phone')
-                        ->words(1)
+                    ->words(1)
                     ->toggleable()
                     ->toggledHiddenByDefault(false),
                 IconColumn::make('is_active')
@@ -100,23 +98,17 @@ class RatsitDataTable
                     ->placeholder('All records')
                     ->trueLabel('Active only')
                     ->falseLabel('Inactive only'),
-                TernaryFilter::make('personnummer')
-                    ->label('personnummer')
-                    ->schema([
-                        TextInput::make('personnummer')
-                            ->label('personnummer'),
-                    ])
-                    ->query(function ($query, array $data) {
-                        return $query->when(
-                            $data['personnummer'] ?? null,
-                            fn ($query, $postnummer) => $query->where('personnummer', 'not like', "%{$postnummer}%")
-                        );
-                    }),
-                TernaryFilter::make('is_queued')
-                    ->label('Queued')
-                    ->placeholder('All records')
-                    ->trueLabel('Queued only')
-                    ->falseLabel('Not queued only'),
+                TernaryFilter::make('has_house')
+                    ->label('Owns house')
+                    ->default(true)
+                    ->query(
+                        fn ($query) => $query->whereNotNull('agandeform')
+                            ->where('bostadstyp', '!=', 'Lägenhet')
+                            ->where(function ($query) {
+                                $query->where('agandeform', 'Äganderätt')
+                                    ->orWhere('agandeform', 'Tomträtt');
+                            })
+                    ),
                 SelectFilter::make('postort')
                     ->label('City')
                     ->multiple()
@@ -160,6 +152,7 @@ class RatsitDataTable
                     ->label('Ownership Form')
                     ->multiple()
                     ->searchable()
+                    ->default('Äganderätt')
                     ->options(function () {
                         return RatsitData::query()
                             ->whereNotNull('agandeform')
@@ -189,7 +182,7 @@ class RatsitDataTable
                     ->query(
                         fn ($query) => $query->whereNotNull('telefon')
                             ->where('telefon', '<>', '')
-                        // handle JSON empty array serialized as '[]' or 'null-like' strings
+                            // handle JSON empty array serialized as '[]' or 'null-like' strings
                             ->where('telefon', '<>', '[]')
                     ),
                 Filter::make('postnummer')
@@ -215,6 +208,20 @@ class RatsitDataTable
                 BulkActionGroup::make([
                     ExportBulkAction::make()
                         ->exporter(RatsitDataExporter::class),
+                    BulkAction::make('setQueued')
+                        ->label('Queue Records')
+                        ->icon('heroicon-o-clock')
+                        ->color('primary')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $records->each(fn (RatsitData $record) => $record->update(['is_queued' => true]));
+
+                            Notification::make()
+                                ->title('Success')
+                                ->body(count($records).' records queued')
+                                ->success()
+                                ->send();
+                        }),
                     BulkAction::make('transferToRingaData')
                         ->label('Transfer to Ringa Data')
                         ->icon('heroicon-o-arrow-right')

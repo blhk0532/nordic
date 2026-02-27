@@ -2,14 +2,16 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
+        if (! Schema::hasColumn('booking_bookings', 'state')) {
+            return;
+        }
+
         DB::table('booking_bookings')
             ->where('state', 'AdultdateFilamentBookingEnumsPending')
             ->update(['state' => \Adultdate\FilamentBooking\Enums\Pending::class]);
@@ -23,11 +25,12 @@ return new class extends Migration
             ->update(['state' => \Adultdate\FilamentBooking\Enums\Failed::class]);
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
+        if (! Schema::hasColumn('booking_bookings', 'state')) {
+            return;
+        }
+
         DB::table('booking_bookings')
             ->where('state', \Adultdate\FilamentBooking\Enums\Pending::class)
             ->update(['state' => 'AdultdateFilamentBookingEnumsPending']);

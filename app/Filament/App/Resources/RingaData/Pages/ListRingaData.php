@@ -14,12 +14,10 @@ use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 // use Filament\Actions;
-use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
-use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Support\Enums\Width;
 use Filament\Support\Assets\Css;
+use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentAsset;
 
 class ListRingaData extends ListRecords
@@ -57,8 +55,6 @@ class ListRingaData extends ListRecords
 
     }
 
-
-
     //  public static function getContextMenuActions(): array
     //  {
     //      return [
@@ -70,9 +66,9 @@ class ListRingaData extends ListRecords
 
     protected function getHeaderWidgets(): array
     {
-FilamentAsset::register([
-    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
-]);
+        FilamentAsset::register([
+            Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+        ]);
 
         return [
             //    RingaDataPinpointWidget::class,

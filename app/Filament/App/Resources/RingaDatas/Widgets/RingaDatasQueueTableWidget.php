@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
+use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\RingaDatas\Tables\RingaDatasTable;
 use App\Models\RingaData;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
-use Livewire\Attributes\On;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
+use Livewire\Attributes\On;
+
 class RingaDatasQueueTableWidget extends BaseWidget
 {
     public ?int $selectedRecordId = null;
@@ -57,8 +58,8 @@ class RingaDatasQueueTableWidget extends BaseWidget
     protected function loadInitialRecord(): Builder
     {
         $query = QueueRingaData::getQuery();
-        $electedRecordId = $query;
-        logger()->info('RingaDatasQueueTableWidget loaded initial record', ['recordId' =>  $electedRecordId]);
+        $this->selectedRecordId = $query->first()?->id;
+        logger()->info('RingaDatasQueueTableWidget loaded initial record', ['recordId' => $this->selectedRecordId]);
 
         return $query;
     }
@@ -95,5 +96,5 @@ class RingaDatasQueueTableWidget extends BaseWidget
         //    ->orderBy('id', 'desc')
         //    ->first();
 
-  }
+    }
 }

@@ -21,11 +21,14 @@ display:none!important;
 display:none!important;
 }
     </style>
+    @php
+        $appUrl = \App\Filament\App\Pages\InertiaCalendar::getAppUrl();
+    @endphp
 <div class="h-full">
     <iframe
         style="border-width: 0; min-width: 100%; width: 100%; min-height: calc(100vh - 4rem); max-height: calc(100vh - 4rem); height: calc(100vh - 4rem); overflow: hidden;"
         class="h-full"
-        src="https://ndsth.com/app"
+        src="{{ $appUrl }}"
         frameborder="0"
         scrolling="no">
     </iframe>

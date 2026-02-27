@@ -13,12 +13,12 @@ use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
 
 class TeamUserResource extends Resource
 {
@@ -45,9 +45,9 @@ class TeamUserResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-                                        FilamentAsset::register([
-    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
-]);
+        //                                        FilamentAsset::register([
+        //    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
+        // ]);
         return false;
     }
 

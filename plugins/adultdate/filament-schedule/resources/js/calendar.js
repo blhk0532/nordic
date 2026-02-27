@@ -1,7 +1,7 @@
 export default function calendar({
                                      view = 'dayGridMonth',
                                      locale = 'en',
-                                     firstDay = 1, 
+                                     firstDay = 1,
                                      dayMaxEvents = false,
                                      eventContent = null,
                                      eventClickEnabled = false,

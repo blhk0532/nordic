@@ -59,6 +59,15 @@ class InertiaCalendar extends Page
         return 'gray';
     }
 
+    public static function getAppUrl(): ?string
+    {
+        $appUrl = env('APP_URL', 'http://localhost:8000');
+
+        return $appUrl        // Ensure the URL ends with a slash
+            .(Str::endsWith($appUrl, '/') ? '' : '/')
+            .'app';
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
 

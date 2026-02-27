@@ -29,7 +29,7 @@ class RingaDataResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiStackFill;
 
-    protected static ?string $navigationLabel = 'Nummer 🫥';
+    protected static ?string $navigationLabel = 'Nummer';
 
     protected static UnitEnum|string|null $navigationGroup = '';
 

@@ -15,7 +15,7 @@ const http = require('http');
 const { JSDOM } = require('jsdom');
 
 // Configuration
-const API_BASE_URL = process.env.LARAVEL_API_URL || process.env.APP_URL;
+const API_BASE_URL = process.env.APP_URL || process.env.APP_URL;
 const API_TOKEN = process.env.LARAVEL_API_TOKEN; // Optional Sanctum token
 
 class MerinfoHtmlParser {

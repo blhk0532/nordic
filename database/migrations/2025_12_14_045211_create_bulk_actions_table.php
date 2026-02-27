@@ -1,6 +1,5 @@
 <?php
 
-use Bytexr\QueueableBulkActions\Enums\StatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +13,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('type');
             $table->string('identifier');
-            $table->string('status')->default(StatusEnum::QUEUED->value);
+            $table->string('status')->default('queued');
             $table->string('job');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->bigInteger('total_records')->unsigned()->nullable();

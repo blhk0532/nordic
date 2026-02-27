@@ -40,7 +40,7 @@ class QueueRingaData extends Page
 
     // public static bool $shouldRegisterNavigation = true;
 
-     protected static UnitEnum|string|null $navigationGroup = '';
+    protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?int $navigationSort = 10;
 
@@ -63,9 +63,9 @@ class QueueRingaData extends Page
         try {
             // Always reset selectedRecordId on mount to avoid stale state
 
-            FilamentAsset::register([
-                Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
-            ]);
+            //    FilamentAsset::register([
+            //        Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+            //    ]);
             // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
             logger('QueueRingaData mount', [

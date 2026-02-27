@@ -81,24 +81,44 @@
                     <input
                         type="text"
                         wire:model="input"
-                        wire:keydown.enter="sendMessage"
+                        wire:keydown.enter="$event.target.value = ''; sendMessage()"
                         placeholder="Skriv ett meddelande..."
                         class="fi-input block w-full border-none bg-transparent py-2.5 px-4 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-0"
+                        autocomplete="off"
                     >
                 </div>
                 <button
-                    wire:click="sendMessage"
+                    wire:click="$event.target.previousElementSibling.querySelector('input').value = ''; sendMessage()"
                     wire:loading.attr="disabled"
                     class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all disabled:opacity-70 h-[42px] min-w-[42px]"
                 >
-                    @if($isLoading)
+                    <span wire:loading.remove wire:target="sendMessage">
+                        <x-filament::icon icon="heroicon-m-paper-airplane" class="w-4 h-4" />
+                    </span>
+                    <span wire:loading wire:target="sendMessage" class="flex">
                         <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                    @else
+                    </span>
+                </button>
+            </div>
+        </div>
+                <button
+                    wire:click="sendMessage"
+                    wire:loading.attr="disabled"
+                    wire:loading.remove="wire:loading"
+                    class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all disabled:opacity-70 h-[42px] min-w-[42px]"
+                >
+                    <span wire:loading.remove wire:target="sendMessage">
                         <x-filament::icon icon="heroicon-m-paper-airplane" class="w-4 h-4" />
-                    @endif
+                    </span>
+                    <span wire:loading wire:target="sendMessage" class="flex">
+                        <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </span>
                 </button>
             </div>
         </div>

@@ -18,7 +18,7 @@ class LatestOrders extends BaseWidget
 
     protected static bool $isDiscovered = false;
 
-    protected static ?string $heading = 'Mina Bokningar';
+    protected static ?string $heading = '';
 
     protected static ?int $sort = 0;
 

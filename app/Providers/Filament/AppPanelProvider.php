@@ -77,6 +77,7 @@ use Leek\FilamentDiceBear\DiceBearPlugin;
 use Leek\FilamentDiceBear\DiceBearProvider;
 use Leek\FilamentDiceBear\Enums\DiceBearStyle;
 use Muazzam\SlickScrollbar\SlickScrollbarPlugin;
+use TomatoPHP\FilamentNotes\FilamentNotesPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
@@ -114,6 +115,7 @@ class AppPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->profile(null)
             ->spa()
             ->sidebarFullyCollapsibleOnDesktop()
@@ -216,6 +218,7 @@ class AppPanelProvider extends PanelProvider
                 FilamentApexChartsPlugin::make(),
             ])
             ->plugins([
+                FilamentNotesPlugin::make(),
                 // ... other plugins
                 ResizedColumnPlugin::make()
                     ->preserveOnDB(), // Enable database storage (optional)

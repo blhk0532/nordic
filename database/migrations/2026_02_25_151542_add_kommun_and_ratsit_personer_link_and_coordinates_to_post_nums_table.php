@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (! Schema::hasTable('post_nums')) {
+            return;
+        }
+
         Schema::table('post_nums', function (Blueprint $table) {
             $table->string('kommun')->nullable()->after('post_ort');
             $table->string('ratsit_personer_link')->nullable()->after('status');
@@ -21,6 +25,10 @@ return new class extends Migration
 
     public function down(): void
     {
+        if (! Schema::hasTable('post_nums')) {
+            return;
+        }
+
         Schema::table('post_nums', function (Blueprint $table) {
             $table->dropColumn(['kommun', 'ratsit_personer_link', 'latitude', 'longitude']);
         });

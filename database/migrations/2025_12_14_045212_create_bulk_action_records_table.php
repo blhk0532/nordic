@@ -1,6 +1,5 @@
 <?php
 
-use Bytexr\QueueableBulkActions\Enums\StatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +14,7 @@ return new class extends Migration
             $table->bigInteger('record_id')->unsigned();
             $table->string('record_type');
             $table->index(['record_id', 'record_type']);
-            $table->string('status')->default(StatusEnum::QUEUED->value);
+            $table->string('status')->default('queued');
             $table->text('message')->nullable();
             $table->timestamp('started_at')->nullable();
             $table->timestamp('failed_at')->nullable();

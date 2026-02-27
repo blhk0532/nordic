@@ -15,7 +15,7 @@ import Database from 'better-sqlite3';
 
 class HittaRatsitScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.LARAVEL_API_URL || process.env.APP_URL;
+    this.api_url = api_url || process.env.APP_URL || process.env.APP_URL;
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
   // Store CSV outputs in scripts/data (when running from scripts/ ensure we don't duplicate path segment)

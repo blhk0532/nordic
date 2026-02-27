@@ -292,7 +292,7 @@ async function runRatsitForPersons(persons) {
     try {
       const searchQuery = person.personnamn;
 
-      const ratsitCommand = `node ratsit.mjs "${searchQuery}" --api-url "${process.env.LARAVEL_API_URL || process.env.APP_URL}" --api-token "${process.env.LARAVEL_API_TOKEN || ''}"`;
+      const ratsitCommand = `node ratsit.mjs "${searchQuery}" --api-url "${process.env.APP_URL || process.env.APP_URL}" --api-token "${process.env.LARAVEL_API_TOKEN || ''}"`;
 
       console.log(`   → Running: ${ratsitCommand}`);
 

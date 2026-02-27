@@ -8,8 +8,9 @@ use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\MultiCalendar1
 use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\MultiCalendar2;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\MultiCalendar3;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\SingleCalendars;
-use App\Filament\App\Resources\RingaData\Widgets\RingaDataTableWidget;
 use App\Filament\App\Widgets\AccountInfoStackWidget;
+use App\Filament\App\Widgets\AccountWidget;
+use App\Filament\App\Widgets\FilamentInfosWidget;
 use App\Filament\App\Widgets\WorldClockWidget;
 use Arshaviras\WeatherWidget\Widgets\WeatherWidget;
 use BackedEnum;
@@ -21,9 +22,6 @@ use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\BootstrapIcons;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
-use Wallacemartinss\FilamentIconPicker\Enums\Heroicons;
-use App\Filament\App\Widgets\AccountWidget;
-use App\Filament\App\Widgets\FilamentInfosWidget;
 
 class Dashboard extends BaseDashboard
 {
@@ -91,8 +89,8 @@ class Dashboard extends BaseDashboard
             // AccountInfoStackWidget::class,
             // WorldClockWidget::class,
 
-AccountWidget::class,
-FilamentInfosWidget::class,
+            AccountWidget::class,
+            FilamentInfosWidget::class,
 
             //    \App\Filament\App\Widgets\LatestOrders::class,
             //    \App\Filament\App\Widgets\StatsOverviewWidget::class,
@@ -106,22 +104,15 @@ FilamentInfosWidget::class,
     public function getWidgets(): array
     {
         return [
-            //    RingaDataTableWidget::class,
-             SingleCalendars::class,
-            \App\Filament\App\Widgets\LatestOrders::class,
-            //    \App\Filament\App\Widgets\OrdersChart::class,
-            //    \App\Filament\App\Widgets\CustomersChart::class,
-            //    SingleCalendars::class,
-            //    MultiCalendar1::class,
-            //    MultiCalendar2::class,
-            //    MultiCalendar3::class,
+            \App\Filament\App\Widgets\StatsOverviewWidget::class,
         ];
     }
 
     protected function getFooterWidgets(): array
     {
         return [
-
+            SingleCalendars::class,
+            \App\Filament\App\Widgets\LatestOrders::class,
             //    WeatherWidget::class,
         ];
     }

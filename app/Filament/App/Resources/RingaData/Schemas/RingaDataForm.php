@@ -56,6 +56,8 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
+                                        ->collapsed(true)
+                    ->collapsible(true)
                     ->columnSpan(1),
 
                 Section::make('Flags & routing')
@@ -82,6 +84,8 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
+                                        ->collapsed(true)
+                    ->collapsible(true)
                     ->columnSpan(1),
 
                 Section::make('Address')
@@ -98,6 +102,8 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
+                                        ->collapsed(true)
+                    ->collapsible(true)
                     ->columnSpan(1),
 
                 Section::make('Property')

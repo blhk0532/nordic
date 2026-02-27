@@ -29,7 +29,7 @@ class RatsitScraper:
             api_url: Base URL for the Laravel API (e.g., https://app.ndsth.com)
             api_token: Sanctum authentication token (optional)
         """
-        self.api_url = api_url or os.getenv('LARAVEL_API_URL', 'https://app.ndsth.com')
+        self.api_url = api_url or os.getenv('APP_URL', 'https://app.ndsth.com')
         self.api_token = api_token or os.getenv('LARAVEL_API_TOKEN')
         self.data_dir = Path(__file__).parent / 'data'
         self.data_dir.mkdir(exist_ok=True)

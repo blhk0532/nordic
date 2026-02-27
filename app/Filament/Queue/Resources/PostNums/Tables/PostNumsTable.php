@@ -428,7 +428,7 @@ class PostNumsTable
                                 ->send();
                         })
                         ->color('primary'),
-                    Action::make('run')
+                    BulkAction::make('run')
                         ->label('Run')
                         ->icon('heroicon-o-play')
                         ->color('success')

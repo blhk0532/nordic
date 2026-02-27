@@ -34,7 +34,7 @@ import path from "path";
 import { execSync } from "child_process";
 
 // --- API Configuration ---
-const API_BASE = process.env.API_BASE || process.env.APP_URL || "https://app.nordicdigitalthailand.com";
+const API_BASE = process.env.API_BASE || process.env.APP_URL;
 const BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-se/batch`;
 const PERSONER_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/personer-data/bulk`;
 const HITTA_DATA_BATCH_ENDPOINT = `${API_BASE.replace(/\/$/, "")}/api/hitta-data/bulk`;
@@ -311,7 +311,7 @@ async function runRatsitForPersons(persons) {
       const searchQuery = person.personnamn;
 
       // Build command to run ratsit.mjs script
-      const ratsitCommand = `node ratsit.mjs "${searchQuery}" --api-url "${process.env.LARAVEL_API_URL || process.env.APP_URL}" --api-token "${process.env.LARAVEL_API_TOKEN || ''}"`;
+      const ratsitCommand = `node ratsit.mjs "${searchQuery}" --api-url "${process.env.APP_URL || process.env.APP_URL}" --api-token "${process.env.LARAVEL_API_TOKEN || ''}"`;
 
       console.log(`   → Running: ${ratsitCommand}`);
 
