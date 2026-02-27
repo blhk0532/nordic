@@ -530,12 +530,12 @@ div.fi-modal-window{
     }
 
     .fi-left-topbar-btn{
-        margin-left: 0.8rem;
-        margin-right: 0.8rem;
+    margin-left: .06rem;
+    margin-right: .06rem;
     }
 
 .fi-fo-rich-editor-content.fi-prose{
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 footer.fi-footer {
@@ -544,10 +544,16 @@ footer.fi-footer {
   margin: 0px;
 }
 
-li.featured-sidebar-group{
- margin-top:-1rem;
-     margin-bottom:-1rem;
+.featured-sidebar-group{
+ margin-bottom:-1.2rem;
 }
 .fi-sidebar-group{
-  margin-top:-1rem;
+  margin-top:-0.8rem;
+  margin-bottom:0.8rem;
+}
+.featured-sidebar-group-top{
+ margin-top:-1rem;
+}
+.featured-sidebar-group-admin{
+ margin-top:-2.2rem;
 }

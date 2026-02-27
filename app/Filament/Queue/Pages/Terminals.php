@@ -8,6 +8,8 @@ use BackedEnum;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use MWGuerra\WebTerminal\Filament\Pages\Terminal as BaseTerminal;
 use MWGuerra\WebTerminal\Schemas\Components\WebTerminal;
 use UnitEnum;
@@ -40,6 +42,10 @@ class Terminals extends BaseTerminal
 
     protected function createTerminalSection(string $key, string $title): Section
     {
+        FilamentAsset::register([
+            Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+        ]);
+
         return Section::make($title)
             ->icon('heroicon-o-command-line')
             ->schema([

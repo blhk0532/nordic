@@ -1,6 +1,286 @@
-function M({view:c="dayGridMonth",locale:v="en",firstDay:f=1,dayMaxEvents:w=!1,eventContent:l=null,eventClickEnabled:m=!1,eventDragEnabled:i=!1,eventResizeEnabled:d=!1,noEventsClickEnabled:h=!1,dateClickEnabled:D=!1,dateSelectEnabled:o=!1,datesSetEnabled:E=!1,viewDidMountEnabled:S=!1,eventAllUpdatedEnabled:O=!1,hasDateClickContextMenu:g=null,hasDateSelectContextMenu:p=null,hasEventClickContextMenu:z=null,hasNoEventsClickContextMenu:x=null,resources:C=null,resourceLabelContent:r=null,theme:u=null,options:$={},eventAssetUrl:y}){return{init:function(){let n=this.mountCalendar();window.addEventListener("calendar--refresh",()=>{n.refetchEvents()}),this.$wire.on("calendar--set",e=>{n.setOption(e.key,e.value)})},mountCalendar:function(){return EventCalendar.create(this.$el.querySelector("[data-calendar]"),this.getSettings())},getSettings:function(){let n={view:c,locale:v,firstDay:f,dayMaxEvents:w,eventSources:[{events:e=>this.$wire.getEventsJs({...e,tzOffset:-new Date().getTimezoneOffset()})}],resources:C,selectable:o,eventStartEditable:i,eventDurationEditable:d,dayCellFormat:e=>e.getDate().toString()};return l!==null&&(n.eventContent=e=>{let t=e.event.extendedProps.model,s=l[t]??l._default;if(s!==void 0)return{html:s}}),r!==null&&(n.resourceLabelContent=e=>{let t=e.resource.extendedProps.model,s=r[t]??r._default;if(s!==void 0)return{html:this.wrapContent(s,e)}}),D&&(n.dateClick=e=>{let t={date:e.date,dateStr:e.dateStr,allDay:e.allDay,view:e.view,resource:e.resource,tzOffset:-new Date().getTimezoneOffset()};g?this.openContextMenu(e.jsEvent,t,"dateClick"):this.$wire.onDateClickJs(t)}),o&&(n.select=e=>{let t={start:e.start,startStr:e.startStr,end:e.end,endStr:e.endStr,allDay:e.allDay,view:e.view,resource:e.resource,tzOffset:-new Date().getTimezoneOffset()};p?this.openContextMenu(e.jsEvent,t,"dateSelect"):this.$wire.onDateSelectJs(t)}),E&&(n.datesSet=e=>{this.$wire.onDatesSetJs({start:e.start,startStr:e.startStr,end:e.end,endStr:e.endStr,view:e.view,tzOffset:-new Date().getTimezoneOffset()})}),m&&(n.eventClick=e=>{Alpine.$data(e.el).onClick(e)}),n.eventResize=async e=>{let t=e.event.durationEditable,s=d;t!==void 0&&(s=t),s&&await this.$wire.onEventResizeJs({event:e.event,oldEvent:e.oldEvent,endDelta:e.endDelta,view:e.view,tzOffset:-new Date().getTimezoneOffset()}).then(a=>{a===!1&&e.revert()})},n.eventDrop=async e=>{let t=e.event.startEditable,s=i;t!==void 0&&(s=t),s&&await this.$wire.onEventDropJs({event:e.event,oldEvent:e.oldEvent,oldResource:e.oldResource,newResource:e.newResource,delta:e.delta,view:e.view,tzOffset:-new Date().getTimezoneOffset()}).then(a=>{a===!1&&e.revert()})},n.eventDidMount=e=>{e.el.setAttribute("x-load"),e.el.setAttribute("x-load-src",y),e.el.setAttribute("x-data",`calendarEvent({
-                    event: ${JSON.stringify(e.event)},
-                    timeText: "${e.timeText}",
-                    view: ${JSON.stringify(e.view)},
-                    hasContextMenu: ${z},
-                })`)},h&&(n.noEventsClick=e=>{let t={view:e.view,tzOffset:-new Date().getTimezoneOffset()};x?this.openContextMenu(e.jsEvent,t,"noEventsClick"):this.$wire.onNoEventsClickJs(t)}),S&&(n.viewDidMount=e=>{this.$wire.onViewDidMountJs({view:e.view,tzOffset:-new Date().getTimezoneOffset()})}),O&&(n.eventAllUpdated=e=>{this.$wire.onEventAllUpdatedJs({view:e.view,tzOffset:-new Date().getTimezoneOffset()})}),u&&(n.theme=function(e){return{...e,...u}}),{...n,...$}},wrapContent:function(n,e){let t=document.createElement("div");return t.innerHTML=n,t.setAttribute("x-data",JSON.stringify(e)),t.classList.add("w-full"),t.outerHTML},openContextMenu:function(n,e,t){let s=document.querySelector("[calendar-context-menu]"),a=Alpine.$data(s);a.loadActions(t,e),a.openMenu(n)}}}export{M as default};
+export default function calendar({
+                                     view = 'dayGridMonth',
+                                     locale = 'en',
+                                     firstDay = 1,
+                                     dayMaxEvents = false,
+                                     eventContent = null,
+                                     eventClickEnabled = false,
+                                     eventDragEnabled = false,
+                                     eventResizeEnabled = false,
+                                     noEventsClickEnabled = false,
+                                     dateClickEnabled = false,
+                                     dateSelectEnabled = false,
+                                     datesSetEnabled = false,
+                                     viewDidMountEnabled = false,
+                                     eventAllUpdatedEnabled = false,
+                                     hasDateClickContextMenu = null,
+                                     hasDateSelectContextMenu = null,
+                                     hasEventClickContextMenu = null,
+                                     hasNoEventsClickContextMenu = null,
+                                     resources = null,
+                                     resourceLabelContent = null,
+                                     theme = null,
+                                     options = {},
+                                     eventAssetUrl,
+                                 }
+) {
+    return {
+
+        init: function () {
+            const ec = this.mountCalendar()
+
+            window.addEventListener('calendar--refresh', () => {
+                ec.refetchEvents()
+            })
+
+            this.$wire.on('calendar--set', (data) => {
+                ec.setOption(data.key, data.value)
+            })
+        },
+
+        mountCalendar: function () {
+            return EventCalendar.create(
+                this.$el.querySelector('[data-calendar]'),
+                this.getSettings(),
+            )
+        },
+
+        getSettings: function () {
+            let settings = {
+                view: view,
+                locale: locale,
+                firstDay: firstDay,
+                dayMaxEvents: dayMaxEvents,
+                eventSources: [
+                    {
+                        events: (fetchInfo) => this.$wire.getEventsJs({
+                            ...fetchInfo,
+                            tzOffset: -new Date().getTimezoneOffset(),
+                        })
+                    }
+                ],
+                resources: resources,
+                selectable: dateSelectEnabled,
+                eventStartEditable: eventDragEnabled,
+                eventDurationEditable: eventResizeEnabled,
+                dayCellFormat: (date) => date.getDate().toString()
+            }
+
+            if (eventContent !== null) {
+                settings.eventContent = (info) => {
+                    const model = info.event.extendedProps.model
+                    const content = eventContent[model] ?? eventContent['_default']
+
+                    if (content === undefined) {
+                        return undefined
+                    }
+
+                    return {
+                        html: content,
+                    }
+                }
+            }
+
+            if (resourceLabelContent !== null) {
+                settings.resourceLabelContent = (info) => {
+                    const model = info.resource.extendedProps.model
+                    const content = resourceLabelContent[model] ?? resourceLabelContent['_default']
+
+                    if (content === undefined) {
+                        return undefined
+                    }
+
+                    return {
+                        html: this.wrapContent(content, info),
+                    }
+                };
+            }
+
+            if (dateClickEnabled) {
+                settings.dateClick = (info) => {
+                    const data = {
+                        date: info.date,
+                        dateStr: info.dateStr,
+                        allDay: info.allDay,
+                        view: info.view,
+                        resource: info.resource,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    }
+
+                    if (hasDateClickContextMenu) {
+                        this.openContextMenu(info.jsEvent, data, 'dateClick')
+                    } else {
+                        this.$wire.onDateClickJs(data)
+                    }
+                }
+            }
+
+            if (dateSelectEnabled) {
+                settings.select = (info) => {
+                    const data = {
+                        start: info.start,
+                        startStr: info.startStr,
+                        end: info.end,
+                        endStr: info.endStr,
+                        allDay: info.allDay,
+                        view: info.view,
+                        resource: info.resource,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    }
+
+                    if (hasDateSelectContextMenu) {
+                        this.openContextMenu(info.jsEvent, data, 'dateSelect')
+                    } else {
+                        this.$wire.onDateSelectJs(data)
+                    }
+                }
+            }
+
+            if (datesSetEnabled) {
+                settings.datesSet = (info) => {
+                    this.$wire.onDatesSetJs({
+                        start: info.start,
+                        startStr: info.startStr,
+                        end: info.end,
+                        endStr: info.endStr,
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    })
+                }
+            }
+
+            if (eventClickEnabled) {
+                settings.eventClick = (info) => {
+                    const component = Alpine.$data(info.el)
+                    component.onClick(info)
+                }
+            }
+
+            settings.eventResize = async (info) => {
+                const durationEditable = info.event.durationEditable
+                let enabled = eventResizeEnabled
+
+                if (durationEditable !== undefined) {
+                    enabled = durationEditable
+                }
+
+                if (enabled) {
+                    await this.$wire.onEventResizeJs({
+                        event: info.event,
+                        oldEvent: info.oldEvent,
+                        startDelta: info.startDelta,
+                        endDelta: info.endDelta,
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    }).then((result) => {
+                        if (result === true) {
+                            info.revert()
+                        }
+                    })
+                }
+            };
+
+            settings.eventDrop = async (info) => {
+                const startEditable = info.event.startEditable
+                let enabled = eventDragEnabled
+
+                if (startEditable !== undefined) {
+                    enabled = startEditable
+                }
+
+                if (enabled) {
+                    await this.$wire.onEventDropJs({
+                        event: info.event,
+                        oldEvent: info.oldEvent,
+                        oldResource: info.oldResource,
+                        newResource: info.newResource,
+                        delta: info.delta,
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    }).then((result) => {
+                        if (result === false) {
+                            info.revert()
+                        }
+                    })
+                }
+            }
+
+            settings.eventDidMount = (info) => {
+                info.el.setAttribute('x-load')
+                info.el.setAttribute('x-load-src', eventAssetUrl)
+                info.el.setAttribute('x-data', `calendarEvent({
+                    event: ${JSON.stringify(info.event)},
+                    timeText: "${info.timeText}",
+                    view: ${JSON.stringify(info.view)},
+                    hasContextMenu: ${hasEventClickContextMenu},
+                })`)
+            }
+
+            if (noEventsClickEnabled) {
+                settings.noEventsClick = (info) => {
+                    const data = {
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    }
+
+                    if (hasNoEventsClickContextMenu) {
+                        this.openContextMenu(info.jsEvent, data, 'noEventsClick')
+                    } else {
+                        this.$wire.onNoEventsClickJs(data)
+                    }
+                }
+            }
+
+            if (viewDidMountEnabled) {
+                settings.viewDidMount = (info) => {
+                    this.$wire.onViewDidMountJs({
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    })
+                }
+            }
+
+            if (eventAllUpdatedEnabled) {
+                settings.eventAllUpdated = (info) => {
+                    this.$wire.onEventAllUpdatedJs({
+                        view: info.view,
+                        tzOffset: -new Date().getTimezoneOffset()
+                    })
+                }
+            }
+
+            if (theme) {
+                settings.theme = function (defaultTheme) {
+                    return {
+                        ...defaultTheme,
+                        ...theme
+                    }
+                }
+            }
+
+            return {
+                ...settings,
+                ...options,
+            }
+        },
+
+        wrapContent: function (content, info) {
+            let container = document.createElement('div')
+            container.innerHTML = content
+
+            // Add alpine data and classes
+            container.setAttribute('x-data', JSON.stringify(info))
+            container.classList.add('w-full')
+
+            // Get the modified HTML
+            return container.outerHTML
+        },
+
+        openContextMenu: function (jsEvent, data, context) {
+            const element = document.querySelector('[calendar-context-menu]')
+            const contextMenu = Alpine.$data(element)
+            contextMenu.loadActions(context, data)
+            contextMenu.openMenu(jsEvent)
+        }
+    }
+}

@@ -7,9 +7,9 @@
         x-on:click.prevent="$dispatch('open-modal', { id: 'global-ai-search' })"
     >
         <x-filament::icon
-            icon="heroicon-o-information-circle"
+            icon="ri-chat-smile-ai-3-line"
             class="fi-icon fi-size-lg"
         />
     </button>
+    @livewire(\App\Livewire\GlobalAISearch::class)
 </div>
-@livewire(\App\Livewire\GlobalAISearch::class)

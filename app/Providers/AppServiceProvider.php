@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
+use Livewire\Blaze\Blaze;
 use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,7 +31,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
+        // Blaze::optimize()->in(resource_path('views/components/layouts'));
+        // Blaze::optimize()->in(resource_path('views/layouts'));
+        // Blaze::optimize()->in(resource_path('views/livewire'));
+        // Blaze::optimize()->in(resource_path('views/flux'));
+        // Blaze::optimize()->in(resource_path('views/filament/components'));
+        // Blaze::optimize()->in(resource_path('views/filament/pages'));
         //    FilamentView::registerRenderHook(
         //        PanelsRenderHook::USER_MENU_BEFORE,
         //        fn () => view('filament.app.manus-icon-topbar')
@@ -85,7 +91,7 @@ class AppServiceProvider extends ServiceProvider
                     ->panels(['app', 'booking', 'calendar', 'chat'])
                     ->iconSize(32)
                     ->modalWidth('sm')
-                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                     ->sort('asc');
             }
 
@@ -94,7 +100,7 @@ class AppServiceProvider extends ServiceProvider
                     ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'email',  'notify', 'queue'])
                     ->iconSize(32)
                     ->modalWidth('sm')
-                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                     ->sort('asc');
             }
 
@@ -103,7 +109,7 @@ class AppServiceProvider extends ServiceProvider
                     ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'email',  'notify', 'queue'])
                     ->iconSize(32)
                     ->modalWidth('sm')
-                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                     ->sort('asc');
             }
 
@@ -111,7 +117,7 @@ class AppServiceProvider extends ServiceProvider
                 $panelSwitch
                     ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'data', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
                     ->iconSize(20)
-                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_BEFORE)
+                    ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                     ->modalWidth('sm');
             }
 

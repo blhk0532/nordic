@@ -93,7 +93,7 @@ class PanelSwitch extends Component
         $static = static::make();
 
         FilamentView::registerRenderHook(
-            name: PanelsRenderHook::TOPBAR_LOGO_BEFORE,
+            name: PanelsRenderHook::TOPBAR_LOGO_AFTER,
             hook: function () use ($static) {
 
                 if (! $static->isVisible()) {
@@ -138,9 +138,7 @@ class PanelSwitch extends Component
             },
         );
 
-        PanelSwitch::configureUsing(function (PanelSwitch $switch): void {
-
-            });
+        PanelSwitch::configureUsing(function (PanelSwitch $switch): void {});
     }
 
     public function canSwitchPanels(bool|Closure $condition): static

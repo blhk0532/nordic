@@ -34,7 +34,7 @@ class ManusIconModal extends AbstractPageSettings implements HasForms
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
                         ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
-                        ['blockquote', 'codeBlock', 'customBlocks', 'mergeTags', 'bulletList', 'orderedList'],
+                        ['codeBlock', 'bulletList', 'orderedList'],
                         ['table', 'attachFiles'],
                         ['undo', 'redo'],
                     ])

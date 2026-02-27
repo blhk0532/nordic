@@ -102,12 +102,12 @@ class AppPanelProvider extends PanelProvider
             ->maxContentWidth(Width::Full)
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
-            ->homeUrl(fn() => AppDashboard::getUrl())
+            ->homeUrl(fn () => AppDashboard::getUrl())
             ->sidebarCollapsibleOnDesktop(true)
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
-            ->favicon(fn() => asset('favicon.svg'))
-            ->brandLogo(fn() => view('filament.app.logo'))
-            ->brandLogoHeight(fn() => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
+            ->favicon(fn () => asset('favicon.svg'))
+            ->brandLogo(fn () => view('filament.app.logo'))
+            ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->defaultThemeMode(ThemeMode::Dark)
             //    ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
@@ -119,26 +119,26 @@ class AppPanelProvider extends PanelProvider
             ->sidebarFullyCollapsibleOnDesktop()
             ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->registerErrorNotification(
-                title: 'Oops! Något gick fel',
-                body: 'Vängligen försök igen senare...',
+                title: 'Oops!',
+                body: '/ᐠ •̀ ˕ •́ マ',
             )
             ->navigationGroups([
+                NavigationGroup::make('Mina Sidor')
+                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group-top'])
+                    ->collapsed()
+                    ->icon(Tabler::UserSquareRounded),
                 NavigationGroup::make('Kalendrar')
                     ->collapsed()
                     ->icon('heroicon-c-squares-plus'),
                 NavigationGroup::make('Bokningar Admin')
                     ->collapsed()
                     ->icon('heroicon-o-document-text'),
-                NavigationGroup::make('Mina Sidor')
-                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
-                    ->collapsed()
-                    ->icon(Tabler::UserSquareRounded),
                 NavigationGroup::make('Administration')
                     ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
                     ->collapsed()
                     ->icon(Tabler::ShieldCheckF),
                 NavigationGroup::make('Team Admin')
-                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
+                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group-admin'])
                     ->collapsed()
                     ->label('Team Admin')
                     ->icon(Tabler::ShieldCheckF),
@@ -275,12 +275,12 @@ class AppPanelProvider extends PanelProvider
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')
-                    ->label(fn() => Str::ucfirst(Auth::user()->getNdsUserName()))
-                    ->url(fn(): string => EditProfilePage::getUrl(tenant: filament()->getTenant()))
+                    ->label(fn () => Str::ucfirst(Auth::user()->getNdsUserName()))
+                    ->url(fn (): string => EditProfilePage::getUrl(tenant: filament()->getTenant()))
                     ->icon('heroicon-o-user-circle'),
                 'wirechat' => Action::make('chats')
                     ->label('Chat')
-                    ->url(fn(): string => ChatDashboard::getUrl())
+                    ->url(fn (): string => ChatDashboard::getUrl())
                     ->icon('heroicon-o-chat-bubble-left-right'),
 
             ])
@@ -292,23 +292,23 @@ class AppPanelProvider extends PanelProvider
             ->tenantMenuItems([
                 'team-users' => Action::make('team-users')
                     ->label('Dashboard')
-                    ->badge(fn() => now()->timezone('Asia/Bangkok')->format('H:i') . ' 🇹🇭')
+                    ->badge(fn () => now()->timezone('Asia/Bangkok')->format('H:i').' 🇹🇭')
                     ->icon(Remix::RiDashboard2Line)
-                    ->url(fn() => TeamUserResource::getUrl())
+                    ->url(fn () => TeamUserResource::getUrl())
                     ->sort(-1)
                     ->visible(true),
-                'register' => fn(Action $action) => $action->label('Register team')
+                'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
-                    ->visible(fn() => User::canManageTeam() !== false && ! filament()->getTenant()),
+                    ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
                 'invitations' => Action::make('invitations')
                     ->label('Team Invitation')
-                    ->url(fn(): string => TeamInvitationAccept::getUrl())
+                    ->url(fn (): string => TeamInvitationAccept::getUrl())
                     ->icon('heroicon-m-users')
                     ->sort(-1)
-                    ->visible(fn() => User::canManageTeam() !== false),
-                'profile' => fn(Action $action) => $action->label('Team Settings')
+                    ->visible(fn () => User::canManageTeam() !== false),
+                'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
-                    ->visible(fn() => User::canManageTeam() !== false),
+                    ->visible(fn () => User::canManageTeam() !== false),
             ])
             ->defaultAvatarProvider(DiceBearProvider::class)
             ->plugins([
@@ -318,12 +318,12 @@ class AppPanelProvider extends PanelProvider
             ->plugin(
                 AuthDesignerPlugin::make()
                     ->login(
-                        fn(AuthPageConfig $config) => $config
+                        fn (AuthPageConfig $config) => $config
                             ->media(asset('assets/bangkok.jpg'))
                             ->mediaPosition(MediaPosition::Cover)
                             ->blur(1)
                             ->themeToggle()
-                            ->renderHook(AuthDesignerRenderHook::CardBefore, fn() => view('filament.logo-auth'))
+                            ->renderHook(AuthDesignerRenderHook::CardBefore, fn () => view('filament.logo-auth'))
                     )
             )
             ->plugins([
@@ -353,7 +353,7 @@ class AppPanelProvider extends PanelProvider
         //        }
         //    );
         FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            PanelsRenderHook::GLOBAL_SEARCH_AFTER,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ai-search-trigger');
             }

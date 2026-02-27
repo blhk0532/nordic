@@ -7,17 +7,15 @@ namespace App\Filament\App\Resources\RingaData\Widgets;
 use App\Enums\Outcomes;
 use App\Models\RingaData;
 use Carbon\Carbon;
+use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Forms\Components\Select;
 use Filament\Notifications\Notification;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Collection;
-use Filament\Actions\ViewAction;
-use Filament\Actions\EditAction;
 
 class AterkomRingTableWidget extends BaseWidget
 {
@@ -25,33 +23,67 @@ class AterkomRingTableWidget extends BaseWidget
 
     protected int|string|array $columnSpan = 'full';
 
+    public string $filter = 'all';
+
+    protected $listeners = ['updateRingaFilter' => 'updateFilter'];
+
+    public function updateFilter(string $value): void
+    {
+        $this->filter = $value;
+    }
+
     public function table(Table $table): Table
     {
         $userId = auth()->id();
 
+        $query = RingaData::query()
+            ->where('user_id', $userId);
+
+        $filter = $this->filter;
+
+        match ($filter) {
+            'aterkom' => $query->whereIn('outcome', ['Aterkommer', 'RingTillbaka']),
+            'offert' => $query->where('outcome', 'Offert'),
+            'kontakt' => $query->where('outcome', 'Kontakt'),
+            'historik' => $query->where('outcome', 'Historik'),
+            default => $query->whereIn('outcome', ['Aterkommer', 'RingTillbaka', 'Offert', 'Kontakt', 'Historik']),
+        };
+
+        $query->orderBy('aterkom_at', 'asc');
+
         return $table
-            ->query(fn () => RingaData::query()
-                ->where('user_id', $userId)
-                ->whereIn('outcome', ['Aterkommer', 'RingTillbaka']))
-            ->extraAttributes(['class' => 'x-call max-h-[400px] overflow-auto'])
+            ->query($query)
+            ->paginated(false)
             ->columns([
                 TextColumn::make('personnamn')
                     ->label('Namn')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->size('sm'),
                 TextColumn::make('gatuadress')
                     ->label('Adress')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->size('sm')
+                    ->limit(20),
                 TextColumn::make('aterkom_at')
                     ->label('Återkom')
                     ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->diffForHumans() : '-')
-                    ->sortable(),
-                IconColumn::make('ring')
+                    ->sortable()
+                    ->size('sm'),
+                TextColumn::make('telefon')
+                    ->label('Tel')
+                    ->size('sm')
+                    ->formatStateUsing(fn ($state) => $state ?? '-'),
+            ])
+            ->actions([
+                Action::make('ring')
                     ->label('Ring')
                     ->icon('heroicon-m-phone-arrow-up-right')
                     ->color('success')
-                    ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
+                    ->size('sm')
+                    ->url(fn (RingaData $record) => $record->telefon ? 'tel:'.$record->telefon : null)
+                    ->disabled(fn (RingaData $record) => ! $record->telefon),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -85,12 +117,8 @@ class AterkomRingTableWidget extends BaseWidget
                         }),
                 ]),
             ])
-            ->paginated(true)
-                        ->recordActions([
-                ViewAction::make(),
-                EditAction::make()
-     ])
             ->emptyStateHeading('Inga resultat hittades')
-            ->emptyStateDescription('Du har inga poster att ringa.');
+            ->emptyStateDescription('Inga poster matchar filtret.')
+            ->striped();
     }
 }

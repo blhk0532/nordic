@@ -9,23 +9,34 @@ use Illuminate\Support\Facades\Log;
 
 class AIService
 {
-    private string $baseUrl;
+    private string $apiKey;
 
     private string $model;
 
+    private string $baseUrl;
+
     public function __construct()
     {
-        $this->baseUrl = config('services.ollama.base_url', 'https://ai.ndsth.com');
-        $this->model = config('services.ollama.model', 'llama3.2');
+        $this->apiKey = config('services.deepseek.api_key');
+        $this->model = config('services.deepseek.model', 'deepseek-chat');
+        $this->baseUrl = config('services.deepseek.base_url', 'https://api.deepseek.com');
     }
 
     public function chat(string $message, array $history = []): string
     {
+        if (empty($this->apiKey)) {
+            return 'DeepSeek API-nyckel är inte konfigurerad. Vänligen sätt DEEPSEEK_API_KEY i .env-filen.';
+        }
+
         try {
             $messages = $this->buildMessages($message, $history);
 
             $response = Http::timeout(120)
-                ->post("{$this->baseUrl}/api/chat", [
+                ->withHeaders([
+                    'Authorization' => 'Bearer '.$this->apiKey,
+                    'Content-Type' => 'application/json',
+                ])
+                ->post("{$this->baseUrl}/v1/chat/completions", [
                     'model' => $this->model,
                     'messages' => $messages,
                     'stream' => false,
@@ -34,24 +45,32 @@ class AIService
             if ($response->successful()) {
                 $data = $response->json();
 
-                return $data['message']['content'] ?? 'No response received';
+                return $data['choices'][0]['message']['content'] ?? 'Inget svar mottogs';
             }
 
             Log::error('AI Service Error', ['response' => $response->body()]);
 
-            return 'Sorry, I encountered an error. Is Ollama running?';
+            return 'Tyvärr, jag stötte på ett fel. Kontrollera din DeepSeek API-nyckel.';
 
         } catch (\Exception $e) {
             Log::error('AI Service Exception', ['error' => $e->getMessage()]);
 
-            return 'Sorry, I could not connect to the AI service. Please make sure Ollama is running.';
+            return 'Tyvärr, jag kunde inte ansluta till AI-tjänsten. Kontrollera din internetanslutning och API-nyckel.';
         }
     }
 
     public function isAvailable(): bool
     {
+        if (empty($this->apiKey)) {
+            return false;
+        }
+
         try {
-            $response = Http::timeout(5)->get("{$this->baseUrl}/api/tags");
+            $response = Http::timeout(5)
+                ->withHeaders([
+                    'Authorization' => 'Bearer '.$this->apiKey,
+                ])
+                ->get("{$this->baseUrl}/v1/models");
 
             return $response->successful();
         } catch (\Exception $e) {
@@ -62,6 +81,13 @@ class AIService
     private function buildMessages(string $message, array $history): array
     {
         $messages = [];
+
+        $systemPrompt = [
+            'role' => 'system',
+            'content' => 'Du är en hjälpsam AI-assistent för ett svenskt boknings- och kundhanteringssystem. Du hjälper användare med frågor om kunder, bokningar, scheman och andra relaterade ämnen. Svara alltid på svenska om inte användaren ber om något annat. Var kortfattad och konkret i dina svar.',
+        ];
+
+        $messages[] = $systemPrompt;
 
         foreach ($history as $item) {
             $messages[] = [

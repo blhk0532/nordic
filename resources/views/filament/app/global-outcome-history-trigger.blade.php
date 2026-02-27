@@ -7,7 +7,7 @@
         x-on:click.prevent="$dispatch('open-modal', { id: 'global-outcome-history' })"
     >
         <x-filament::icon
-            icon="heroicon-o-clock"
+            icon="ri-timer-flash-line"
             class="fi-icon fi-size-lg"
         />
     </button>

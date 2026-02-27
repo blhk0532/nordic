@@ -198,11 +198,12 @@ export default function calendar({
                     await this.$wire.onEventResizeJs({
                         event: info.event,
                         oldEvent: info.oldEvent,
+                        startDelta: info.startDelta,
                         endDelta: info.endDelta,
                         view: info.view,
                         tzOffset: -new Date().getTimezoneOffset()
                     }).then((result) => {
-                        if (result === false) {
+                        if (result === true) {
                             info.revert()
                         }
                     })

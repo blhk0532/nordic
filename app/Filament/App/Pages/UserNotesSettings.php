@@ -54,7 +54,14 @@ class UserNotesSettings extends AbstractPageSettings
                 RichEditor::make('anteckningar')
                     ->label('Mina Anteckningar!')
                     ->columnSpan('full')
-                    ->extraAttributes(['style' => 'min-height:80vh;']),
+                    ->extraAttributes(['style' => 'min-height:60vh;'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'subscript', 'superscript', 'link'],
+                        ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
+                        ['codeBlock', 'bulletList', 'orderedList'],
+                        ['table', 'attachFiles'],
+                        ['undo', 'redo'],
+                    ]),
                 Action::make('save')
                     ->action(function () {
                         $this->save();
