@@ -175,6 +175,12 @@ Route::middleware('auth')->group(function (): void {
         return redirect()->route('dashboard');
     })->name('filament.admin.pages.chat-dashboard');
 
+    // Fallback for missing Filament Booking Calendars resource route
+    Route::get('filament/admin/booking-calendars', function () {
+        // Redirect to a safe calendar page or dashboard
+        return redirect()->route('booking-calendar');
+    })->name('filament.admin.resources.booking-calendars.index');
+
     Route::get('{tenant}/min-profile', function () {
         // Fallback for the admin panel chat dashboard nav item. Redirect to
         // the admin dashboard to keep navigation stable.

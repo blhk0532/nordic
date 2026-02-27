@@ -41,7 +41,7 @@ class RatsitDataTable
                     ->limit(50)
                     ->toggleable(),
                 TextColumn::make('postnummer')
-                    ->label('Postnummer')
+                    ->label('Postnr')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('postort')
@@ -55,7 +55,7 @@ class RatsitDataTable
                     ->weight('medium')
                     ->limit(50),
                 TextColumn::make('personnummer')
-                    ->label('Personnummer')
+                    ->label('Personr')
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('alder')
@@ -88,11 +88,6 @@ class RatsitDataTable
                     ->label('Phone')
                     ->toggleable()
                     ->toggledHiddenByDefault(false),
-                TextColumn::make('telfonnummer')
-                    ->label('Alt Phone')
-                    ->searchable()
-                    ->toggleable()
-                    ->toggledHiddenByDefault(false),
                 IconColumn::make('is_active')
                     ->label('Active')
                     ->boolean()
@@ -123,7 +118,6 @@ class RatsitDataTable
                     ->placeholder('All records')
                     ->trueLabel('Queued only')
                     ->falseLabel('Not queued only'),
-
                 SelectFilter::make('postort')
                     ->label('City')
                     ->multiple()
@@ -190,12 +184,15 @@ class RatsitDataTable
                     }),
 
                 // Filter: has phone (telefon not empty)
-                TernaryFilter::make('has_phone')
+                TernaryFilter::make('has_telefon')
                     ->label('Has phone')
-                    ->placeholder('All records')
-                    ->trueLabel('Has phone only')
-                    ->falseLabel('No phone only'),
-
+                    ->default(true)
+                    ->query(
+                        fn ($query) => $query->whereNotNull('telefon')
+                            ->where('telefon', '<>', '')
+                        // handle JSON empty array serialized as '[]' or 'null-like' strings
+                            ->where('telefon', '<>', '[]')
+                    ),
                 Filter::make('postnummer')
                     ->label('Postnummer')
                     ->schema([
@@ -212,8 +209,28 @@ class RatsitDataTable
             ->recordActions([
                 EditAction::make(),
             ])
+            ->defaultSort('created_at', 'desc')
+            ->paginated([10, 25, 50, 100, 250, 500, 1000])
+            ->defaultPaginationPageOption(10)
             ->toolbarActions([
                 BulkActionGroup::make([
+                    ExportBulkAction::make()
+                        ->exporter(RatsitDataExporter::class),
+                    BulkAction::make('transferToRingaData')
+                        ->label('Transfer to Ringa Data')
+                        ->icon('heroicon-o-arrow-right')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records, array $data): void {
+                            $action = new TransferRatsitDataToRingaDataAction;
+                            $action->handle($records, $data);
+
+                            Notification::make()
+                                ->title('Success')
+                                ->body(count($records).' records transferred to Ringa Data')
+                                ->success()
+                                ->send();
+                        }),
                     DeleteBulkAction::make(),
                 ]),
             ]);
