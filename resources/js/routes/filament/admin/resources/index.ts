@@ -10,6 +10,7 @@ import whatsappAgents from './whatsapp-agents'
 import whatsappInstances from './whatsapp-instances'
 import activityLogs from './activity-logs'
 import shield from './shield'
+import bookingCalendars from './booking-calendars'
 
 const resources = {
     admins: Object.assign(admins, admins),
@@ -24,6 +25,7 @@ const resources = {
     whatsappInstances: Object.assign(whatsappInstances, whatsappInstances),
     activityLogs: Object.assign(activityLogs, activityLogs),
     shield: Object.assign(shield, shield),
+    bookingCalendars: Object.assign(bookingCalendars, bookingCalendars),
 }
 
 export default resources

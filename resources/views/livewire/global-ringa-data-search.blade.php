@@ -74,7 +74,7 @@
             </select>
         </div>
 
-        <div class="flex-1 overflow-hidden" style="height: calc(100vh - 120px);">
+        <div class="flex-1 overflow-hidden" style="height: calc(100vh - 280px);">
             <div class="h-full overflow-y-auto">
                 @livewire(\App\Filament\App\Resources\RingaData\Widgets\AterkomRingTableWidget::class)
             </div>

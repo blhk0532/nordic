@@ -2,14 +2,13 @@
 
 namespace App\Filament\Queue\Resources\RatsitData\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Tables\Table;
 use App\Actions\TransferRatsitDataToRingaDataAction;
 use App\Filament\Exports\RatsitDataExporter;
 use App\Models\RatsitData;
 use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Actions\ExportBulkAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -19,9 +18,8 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Table;
 use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Builder;
-use App\Jobs\RunRatsitPersonsSearchJob;
 
 class RatsitDataTable
 {
@@ -84,8 +82,9 @@ class RatsitDataTable
                     ->sortable()
                     ->toggleable()
                     ->toggledHiddenByDefault(true),
-                TextColumn::make('telefon')
+                TextColumn::make('telfonnummer')
                     ->label('Phone')
+                        ->words(1)
                     ->toggleable()
                     ->toggledHiddenByDefault(false),
                 IconColumn::make('is_active')
