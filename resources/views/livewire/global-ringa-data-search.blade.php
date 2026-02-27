@@ -21,9 +21,7 @@
     class="fixed inset-0 z-50 overflow-hidden"
 >
 <style>
-    .fi-ta-ctn.fi-ta-ctn-with-footer.fi-ta-ctn-with-header {
-       display:none;
-    }
+
 </style>
     <div
         x-show="open"
