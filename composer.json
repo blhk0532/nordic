@@ -112,7 +112,6 @@
         "stechstudio/filament-impersonate": "^4.1.4",
         "still-code/laravel-umami": "^5.0.3",
         "tapp/filament-maillog": "^2.0.4",
-        "tomatophp/filament-notes": "@dev",
         "usamamuneerchaudhary/filament-notifier": "^1.4",
         "wallacemartinss/filament-icon-picker": "@dev",
         "wallacemartinss/filament-whatsapp-conector": "@dev",
@@ -146,13 +145,6 @@
         {
             "type": "path",
             "url": "plugins/andreia/filament-ui-switcher",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "plugins/tomatophp/filament-notes",
             "options": {
                 "symlink": true
             }

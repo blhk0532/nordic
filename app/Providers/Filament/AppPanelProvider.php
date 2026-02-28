@@ -78,7 +78,6 @@ use Leek\FilamentDiceBear\DiceBearPlugin;
 use Leek\FilamentDiceBear\DiceBearProvider;
 use Leek\FilamentDiceBear\Enums\DiceBearStyle;
 use Muazzam\SlickScrollbar\SlickScrollbarPlugin;
-use TomatoPHP\FilamentNotes\FilamentNotesPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
@@ -178,7 +177,6 @@ class AppPanelProvider extends PanelProvider
             ])
             ->widgets([
                 WeatherWidget::class,
-                \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
                 //    Widgets\AccountWidget::class,
                 //    Widgets\FilamentInfoWidget::class,
                 //   RatsitDataStatsWidget::class,
@@ -221,7 +219,6 @@ class AppPanelProvider extends PanelProvider
                 FilamentApexChartsPlugin::make(),
             ])
             ->plugins([
-                FilamentNotesPlugin::make(),
                 // ... other plugins
                 ResizedColumnPlugin::make()
                     ->preserveOnDB(), // Enable database storage (optional)
@@ -309,12 +306,12 @@ class AppPanelProvider extends PanelProvider
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
                     ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
-            //    'invitations' => Action::make('invitations')
-            //        ->label('Team Invitation')
-            //        ->url(fn (): string => TeamInvitationAccept::getUrl())
-            //        ->icon('heroicon-m-users')
-            //        ->sort(-1)
-            //        ->visible(fn () => User::canManageTeam() !== false),
+                //    'invitations' => Action::make('invitations')
+                //        ->label('Team Invitation')
+                //        ->url(fn (): string => TeamInvitationAccept::getUrl())
+                //        ->icon('heroicon-m-users')
+                //        ->sort(-1)
+                //        ->visible(fn () => User::canManageTeam() !== false),
                 'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
