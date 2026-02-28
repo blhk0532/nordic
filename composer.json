@@ -42,7 +42,6 @@
         "devtical/filament-sanctum": "@dev",
         "eduardoribeirodev/filament-leaflet": ">=4.5.1",
         "eightynine/filament-excel-import": "@dev",
-        "emuniq/filament-collapsible-subnav": "dev-main",
         "fahiem/filament-pinpoint": "@dev",
         "filament/filament": "^5.2.4",
         "filamentphp/advanced-export": "^0.3.0",
