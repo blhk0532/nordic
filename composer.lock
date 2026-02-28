@@ -26020,7 +26020,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/tomatophp/filament-icons",
-                "reference": "64928b2958b3b7c1f990e6afadc971a985b5f55d"
+                "reference": "039cfbca84c7ba4d040a03b04b5848d4f532c0bf"
             },
             "require": {
                 "filament/filament": "^4.0.0|^5.0",
@@ -26166,7 +26166,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/tomatophp/filament-translation-component",
-                "reference": "3f3641fdde987f6a35fd97876c5716bdbe210d06"
+                "reference": "d7cfd9f85ca6c2687ffe3bd5e958219c844d8334"
             },
             "require": {
                 "filament/filament": "^4.0|^5.0",
@@ -26259,7 +26259,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/tomatophp/filament-types",
-                "reference": "40fe3900121089394b689dabc242f67d16ff1358"
+                "reference": "49aa3cb56b621bdfb3f4f3e36258e660c06b5d4f"
             },
             "require": {
                 "filament/filament": "^4.0|^5.0",
