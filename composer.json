@@ -78,11 +78,11 @@
         "laraveljutsu/zap": "@dev",
         "leandrocfe/filament-apex-charts": "@dev",
         "leek/filament-dicebear": "^1.1",
-        "livewire/blaze": "^1.0.2",
+        "livewire/blaze": "^1.0.3",
         "livewire/flux": "^2.12.2",
-        "livewire/livewire": "^4.2.0",
+        "livewire/livewire": "^4.2.1",
         "livewire/volt": "^1.10.3",
-        "mallardduck/blade-lucide-icons": "^1.26.6",
+        "mallardduck/blade-lucide-icons": "^1.26.7",
         "marjose123/filament-lockscreen": "@dev",
         "mddev31/filament-dynamic-dashboard": "^0.3.3",
         "mokhosh/filament-rating": "@dev",
@@ -545,6 +545,13 @@
         {
             "type": "path",
             "url": "plugins/anish/text-input-entry",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "plugins/zap",
             "options": {
                 "symlink": true
             }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4af95f4fa6138453c0b56f750b19829c",
+    "content-hash": "cf403410307dec01c35ce1850379d443",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -6191,23 +6191,23 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v4.33.5",
+            "version": "v5.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "ebe8010a61b2ae0cff0d246fe1c4d44e9f7dfa6d"
+                "reference": "1debe453db83159b98a38df5a3737feb1e8ef016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/ebe8010a61b2ae0cff0d246fe1c4d44e9f7dfa6d",
-                "reference": "ebe8010a61b2ae0cff0d246fe1c4d44e9f7dfa6d",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/1debe453db83159b98a38df5a3737feb1e8ef016",
+                "reference": "1debe453db83159b98a38df5a3737feb1e8ef016",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1.0"
+                "php": ">=8.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=5.0.0 <8.5.27"
+                "phpunit/phpunit": ">=11.5.0 <12.0.0"
             },
             "suggest": {
                 "ext-bcmath": "Need to support JSON deserialization"
@@ -6229,9 +6229,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v4.33.5"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v5.34.0"
             },
-            "time": "2026-01-29T20:49:00+00:00"
+            "time": "2026-02-25T21:19:40+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -10009,37 +10009,30 @@
         },
         {
             "name": "laraveljutsu/zap",
-            "version": "v1.14.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ludoguenet/laravel-zap.git",
-                "reference": "a00b533b55842f07bc6e3490a0eac4fa9886b625"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ludoguenet/laravel-zap/zipball/a00b533b55842f07bc6e3490a0eac4fa9886b625",
-                "reference": "a00b533b55842f07bc6e3490a0eac4fa9886b625",
-                "shasum": ""
+                "type": "path",
+                "url": "plugins/zap",
+                "reference": "20371b9e1073f5ef6a06a743cc69c483f0d6d4b0"
             },
             "require": {
-                "ext-intl": "*",
                 "php": ">=8.2 <8.6"
             },
             "require-dev": {
                 "larastan/larastan": "^3.0",
                 "laravel/pint": "^1.20",
-                "orchestra/testbench": "^10.0|^11.0",
+                "orchestra/testbench": "^10.0",
                 "pestphp/pest": "^4.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
-                    "aliases": {
-                        "Zap": "Zap\\Facades\\Zap"
-                    },
                     "providers": [
                         "Zap\\ZapServiceProvider"
-                    ]
+                    ],
+                    "aliases": {
+                        "Zap": "Zap\\Facades\\Zap"
+                    }
                 }
             },
             "autoload": {
@@ -10047,7 +10040,27 @@
                     "Zap\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Zap\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "pint": [
+                    "@php ./vendor/bin/pint"
+                ],
+                "stan": [
+                    "@php ./vendor/bin/phpstan analyse"
+                ],
+                "pest": [
+                    "@php ./vendor/bin/pest"
+                ],
+                "qa": [
+                    "@php ./vendor/bin/pint --parallel",
+                    "@php ./vendor/bin/phpstan analyse",
+                    "@php ./vendor/bin/pest"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -10066,11 +10079,10 @@
                 "management",
                 "schedule"
             ],
-            "support": {
-                "issues": "https://github.com/ludoguenet/laravel-zap/issues",
-                "source": "https://github.com/ludoguenet/laravel-zap/tree/v1.14.0"
-            },
-            "time": "2026-02-23T22:41:32+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "lcobucci/clock",
@@ -11343,16 +11355,16 @@
         },
         {
             "name": "livewire/blaze",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/blaze.git",
-                "reference": "27fe332930ad2029113e9acc5d652ab8030f4360"
+                "reference": "fb885f1d85d1fe455c09a0edc55b44d0890dcebe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/blaze/zipball/27fe332930ad2029113e9acc5d652ab8030f4360",
-                "reference": "27fe332930ad2029113e9acc5d652ab8030f4360",
+                "url": "https://api.github.com/repos/livewire/blaze/zipball/fb885f1d85d1fe455c09a0edc55b44d0890dcebe",
+                "reference": "fb885f1d85d1fe455c09a0edc55b44d0890dcebe",
                 "shasum": ""
             },
             "require": {
@@ -11395,9 +11407,9 @@
             "description": "A tool for optimizing Blade component performance by folding them into parent templates",
             "support": {
                 "issues": "https://github.com/livewire/blaze/issues",
-                "source": "https://github.com/livewire/blaze/tree/v1.0.2"
+                "source": "https://github.com/livewire/blaze/tree/v1.0.3"
             },
-            "time": "2026-02-26T11:31:57+00:00"
+            "time": "2026-02-28T08:01:46+00:00"
         },
         {
             "name": "livewire/flux",
@@ -11467,16 +11479,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39"
+                "reference": "93e972fa42c1b34fff1550093ab94f778d81ea5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39",
-                "reference": "b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/93e972fa42c1b34fff1550093ab94f778d81ea5a",
+                "reference": "93e972fa42c1b34fff1550093ab94f778d81ea5a",
                 "shasum": ""
             },
             "require": {
@@ -11531,7 +11543,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v4.2.0"
+                "source": "https://github.com/livewire/livewire/tree/v4.2.1"
             },
             "funding": [
                 {
@@ -11539,7 +11551,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-26T04:18:25+00:00"
+            "time": "2026-02-28T00:01:19+00:00"
         },
         {
             "name": "livewire/volt",
@@ -11773,16 +11785,16 @@
         },
         {
             "name": "mallardduck/blade-lucide-icons",
-            "version": "1.26.6",
+            "version": "1.26.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mallardduck/blade-lucide-icons.git",
-                "reference": "9d28ad825bb47c6dee5e3e0fcde1478c9c789042"
+                "reference": "e583f564d79e1629ea4a2512f9a112812c30f27e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/9d28ad825bb47c6dee5e3e0fcde1478c9c789042",
-                "reference": "9d28ad825bb47c6dee5e3e0fcde1478c9c789042",
+                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/e583f564d79e1629ea4a2512f9a112812c30f27e",
+                "reference": "e583f564d79e1629ea4a2512f9a112812c30f27e",
                 "shasum": ""
             },
             "require": {
@@ -11827,9 +11839,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mallardduck/blade-lucide-icons/issues",
-                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/1.26.6"
+                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/1.26.7"
             },
-            "time": "2026-02-20T00:20:20+00:00"
+            "time": "2026-02-28T00:19:56+00:00"
         },
         {
             "name": "malzariey/filament-daterangepicker-filter",
@@ -17840,20 +17852,20 @@
         },
         {
             "name": "roadrunner-php/roadrunner-api-dto",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roadrunner-php/roadrunner-api-dto.git",
-                "reference": "e6efb759f0a73b8516b7f28317230ecd4010005e"
+                "reference": "a7664d4a4c451631fba7d5504fdf4f94a81a19c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-php/roadrunner-api-dto/zipball/e6efb759f0a73b8516b7f28317230ecd4010005e",
-                "reference": "e6efb759f0a73b8516b7f28317230ecd4010005e",
+                "url": "https://api.github.com/repos/roadrunner-php/roadrunner-api-dto/zipball/a7664d4a4c451631fba7d5504fdf4f94a81a19c3",
+                "reference": "a7664d4a4c451631fba7d5504fdf4f94a81a19c3",
                 "shasum": ""
             },
             "require": {
-                "google/protobuf": "^4.31.1",
+                "google/protobuf": "^4.31.1||^5.34.0",
                 "php": "^8.1"
             },
             "conflict": {
@@ -17895,7 +17907,7 @@
                 "docs": "https://docs.roadrunner.dev",
                 "forum": "https://forum.roadrunner.dev",
                 "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-php/roadrunner-api-dto/tree/v1.14.0"
+                "source": "https://github.com/roadrunner-php/roadrunner-api-dto/tree/v1.14.1"
             },
             "funding": [
                 {
@@ -17903,7 +17915,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-06T13:03:11+00:00"
+            "time": "2026-02-28T14:55:02+00:00"
         },
         {
             "name": "ryangjchandler/blade-capture-directive",
@@ -30685,12 +30697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "cd20769dbf60afc57ec72a8865aecaf78a95fc71"
+                "reference": "141cd1138ae2bdb6a168c4a13dbd7aac19718dd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/cd20769dbf60afc57ec72a8865aecaf78a95fc71",
-                "reference": "cd20769dbf60afc57ec72a8865aecaf78a95fc71",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/141cd1138ae2bdb6a168c4a13dbd7aac19718dd8",
+                "reference": "141cd1138ae2bdb6a168c4a13dbd7aac19718dd8",
                 "shasum": ""
             },
             "conflict": {
@@ -31433,7 +31445,7 @@
                 "starcitizentools/short-description": ">=4,<4.0.1",
                 "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
                 "starcitizenwiki/embedvideo": "<=4",
-                "statamic/cms": "<5.73.10|>=6,<6.3.3",
+                "statamic/cms": "<5.73.10|>=6,<6.4",
                 "stormpath/sdk": "<9.9.99",
                 "studio-42/elfinder": "<=2.1.64",
                 "studiomitte/friendlycaptcha": "<0.1.4",
@@ -31507,7 +31519,7 @@
                 "thelia/thelia": ">=2.1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
                 "thinkcmf/thinkcmf": "<6.0.8",
-                "thorsten/phpmyfaq": "<=4.0.16|>=4.1.0.0-alpha,<=4.1.0.0-beta2",
+                "thorsten/phpmyfaq": "<4.0.18|>=4.1.0.0-alpha,<=4.1.0.0-beta2",
                 "tikiwiki/tiki-manager": "<=17.1",
                 "timber/timber": ">=0.16.6,<1.23.1|>=1.24,<1.24.1|>=2,<2.1",
                 "tinymce/tinymce": "<7.2",
@@ -31704,7 +31716,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-26T16:22:02+00:00"
+            "time": "2026-02-27T22:06:51+00:00"
         },
         {
             "name": "spatie/backtrace",
