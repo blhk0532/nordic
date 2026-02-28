@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 export const index = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ index.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 index.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ index.url = (args: { tenant: string | number | { slug: string | number } } | [te
 }
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 index.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ index.get = (args: { tenant: string | number | { slug: string | number } } | [te
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 index.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ index.head = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 const indexForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const indexForm = (args: { tenant: string | number | { slug: string | number } }
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 indexForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ indexForm.get = (args: { tenant: string | number | { slug: string | number } } |
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ListOutcomeDelaySettings::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ListOutcomeDelaySettings.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings'
 */
 indexForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -105,8 +105,8 @@ indexForm.head = (args: { tenant: string | number | { slug: string | number } } 
 index.form = indexForm
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 export const create = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,8 +120,8 @@ create.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 create.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -153,8 +153,8 @@ create.url = (args: { tenant: string | number | { slug: string | number } } | [t
 }
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 create.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -163,8 +163,8 @@ create.get = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 create.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -173,8 +173,8 @@ create.head = (args: { tenant: string | number | { slug: string | number } } | [
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 const createForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -183,8 +183,8 @@ const createForm = (args: { tenant: string | number | { slug: string | number } 
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 createForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -193,8 +193,8 @@ createForm.get = (args: { tenant: string | number | { slug: string | number } } 
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
 */
 createForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,8 +210,8 @@ createForm.head = (args: { tenant: string | number | { slug: string | number } }
 create.form = createForm
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 export const edit = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -225,8 +225,8 @@ edit.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 edit.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -253,8 +253,8 @@ edit.url = (args: { tenant: string | number | { slug: string | number }, record:
 }
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 edit.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -263,8 +263,8 @@ edit.get = (args: { tenant: string | number | { slug: string | number }, record:
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 edit.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -273,8 +273,8 @@ edit.head = (args: { tenant: string | number | { slug: string | number }, record
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 const editForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,8 +283,8 @@ const editForm = (args: { tenant: string | number | { slug: string | number }, r
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 editForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -293,8 +293,8 @@ editForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 })
 
 /**
-* @see \App\Filament\Admin\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
-* @see app/Filament/Admin/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\EditOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/EditOutcomeDelaySetting.php:7
 * @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}/edit'
 */
 editForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -309,10 +309,111 @@ editForm.head = (args: { tenant: string | number | { slug: string | number }, re
 
 edit.form = editForm
 
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+export const view = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: view.url(args, options),
+    method: 'get',
+})
+
+view.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/outcome-delay-settings/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+view.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return view.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+view.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+view.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: view.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+const viewForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+viewForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\ViewOutcomeDelaySetting::__invoke
+* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/ViewOutcomeDelaySetting.php:7
+* @route '/admin/tenant/{tenant}/outcome-delay-settings/{record}'
+*/
+viewForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+view.form = viewForm
+
 const outcomeDelaySettings = {
     index: Object.assign(index, index),
     create: Object.assign(create, create),
     edit: Object.assign(edit, edit),
+    view: Object.assign(view, view),
 }
 
 export default outcomeDelaySettings

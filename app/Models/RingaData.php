@@ -284,4 +284,41 @@ class RingaData extends Model
 
         return Outcomes::tryFrom($value);
     }
+
+    public static function getExportColumns(): array
+    {
+        return [
+            'id' => 'ID',
+            'personnamn' => 'Namn',
+            'fornamn' => 'Förnamn',
+            'efternamn' => 'Efternamn',
+            'fodelsedag' => 'Födelsedag',
+            'gatuadress' => 'Adress',
+            'postnummer' => 'Postnummer',
+            'postort' => 'Ort',
+            'kommun' => 'Kommun',
+            'telefon' => 'Telefon',
+            'telfonnummer' => 'Telefonnummer',
+            'epost_adress' => 'E-post',
+            'outcome' => 'Utfall',
+            'outcome_category' => 'Utfallskategori',
+            'is_active' => 'Aktiv',
+            'is_queued' => 'I kö',
+            'booked_at' => 'Bokad',
+            'created_at' => 'Skapad',
+        ];
+    }
+
+    public static function getDefaultExportColumns(): array
+    {
+        return [
+            ['field' => 'personnamn', 'title' => 'Namn'],
+            ['field' => 'fodelsedag', 'title' => 'Födelsedag'],
+            ['field' => 'gatuadress', 'title' => 'Adress'],
+            ['field' => 'postnummer', 'title' => 'Postnummer'],
+            ['field' => 'postort', 'title' => 'Ort'],
+            ['field' => 'telefon', 'title' => 'Telefon'],
+            ['field' => 'outcome', 'title' => 'Utfall'],
+        ];
+    }
 }

@@ -22,6 +22,8 @@
 @source '../../../../vendor/cmsmaxinc/filament-error-pages/resources/**/*.blade.php';
 
 @import '../../../../plugins/adultdate/filament-dialer/resources/css/theme.css';
+@import '../../../../vendor/emuniq/filament-collapsible-subnav/resources/css/plugin.css';
+@source '../../../../vendor/harvirsidhu/filament-cards/resources/views';
 
 
 
@@ -519,7 +521,6 @@ div.fi-modal-window{
 }
 
 
-
     .fi-section-content-ctn{
         border:none!important;
     }
@@ -529,6 +530,6 @@ div.fi-modal-window{
     }
 
     .fi-left-topbar-btn{
-        margin-left: 0.6rem;
-        margin-right: 0.6rem;
+    margin-left: .06rem;
+    margin-right: .06rem;
     }

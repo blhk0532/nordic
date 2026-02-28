@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire-86207cf2/update'
 */
 const handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.definition = {
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire-86207cf2/update'
 */
 handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.url = (options?: RouteQueryOptions)
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire-86207cf2/update'
 */
 handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.post = (options?: RouteQueryOptions
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire-86207cf2/update'
 */
 const handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4Form = (options?: RouteQueryOp
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire-86207cf2/update'
 */
 handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -56,7 +56,7 @@ handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4Form.post = (options?: RouteQueryOpt
 handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4.form = handleUpdateb29e20422ac021e7a2c5c36dc5eb17d4Form
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 const handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -71,7 +71,7 @@ handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6.definition = {
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6.url = (options?: RouteQueryOptions) => {
@@ -80,7 +80,7 @@ handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6.url = (options?: RouteQueryOptions)
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -90,7 +90,7 @@ handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6.post = (options?: RouteQueryOptions
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 const handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -100,7 +100,7 @@ const handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6Form = (options?: RouteQueryOp
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::handleUpdate
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 handleUpdatef6ab724e744f3e2ebb2338a8429f1aa6Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

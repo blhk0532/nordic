@@ -33,7 +33,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'NDS Kalender #2',
-        href: dashboard(),
+        href: bigCalendar(),
         icon: LayoutGrid,
     },
  //   {

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\AiChatController;
 use App\Http\Controllers\Api\DataPrivateController;
 use App\Http\Controllers\Api\EniroDataController;
 use App\Http\Controllers\Api\HittaDataController;

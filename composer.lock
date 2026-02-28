@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b58f18a6f682db8044bd6c1c2ce9195",
+    "content-hash": "96a3e799b556e2780944f4145becca8a",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -5624,6 +5624,79 @@
             "time": "2026-02-27T13:58:25+00:00"
         },
         {
+            "name": "filamentphp/advanced-export",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anselmocossa/filamentphp-advanced-export.git",
+                "reference": "10fee86afe691279b23a65c011ea80265d5c97fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anselmocossa/filamentphp-advanced-export/zipball/10fee86afe691279b23a65c011ea80265d5c97fc",
+                "reference": "10fee86afe691279b23a65c011ea80265d5c97fc",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "illuminate/contracts": "^11.0|^12.0",
+                "illuminate/support": "^11.0|^12.0",
+                "maatwebsite/excel": "^3.1|^4.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.0|^8.0",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^2.0|^3.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "AdvancedExport": "Filament\\AdvancedExport\\Facades\\AdvancedExport"
+                    },
+                    "providers": [
+                        "Filament\\AdvancedExport\\AdvancedExportServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Filament\\AdvancedExport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anselmo Kossa",
+                    "email": "anselmo.cossa@enh.co.mz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Advanced export functionality for Filament resources with dynamic column selection, filtering, ordering, and background processing.",
+            "homepage": "https://github.com/filamentphp/advanced-export",
+            "keywords": [
+                "dynamic-columns",
+                "excel",
+                "export",
+                "filament",
+                "filament-plugin",
+                "laravel",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/anselmocossa/filamentphp-advanced-export/issues",
+                "source": "https://github.com/anselmocossa/filamentphp-advanced-export/tree/v0.3.0"
+            },
+            "time": "2026-02-17T09:09:09+00:00"
+        },
+        {
             "name": "filp/whoops",
             "version": "2.18.4",
             "source": {
@@ -6984,6 +7057,87 @@
                 }
             ],
             "time": "2026-02-24T07:51:29+00:00"
+        },
+        {
+            "name": "harvirsidhu/filament-cards",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/harvirsidhu/filament-cards.git",
+                "reference": "967b153f928332dc9a4071c5ccce41c0af06b67b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harvirsidhu/filament-cards/zipball/967b153f928332dc9a4071c5ccce41c0af06b67b",
+                "reference": "967b153f928332dc9a4071c5ccce41c0af06b67b",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^8.0",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^3.7|^4.0",
+                "pestphp/pest-plugin-arch": "^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+                "pestphp/pest-plugin-livewire": "^3.0|^4.0",
+                "rector/rector": "^2.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Harvirsidhu\\FilamentCards\\FilamentCardsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Harvirsidhu\\FilamentCards\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "harvirsidhu",
+                    "email": "harvirsidhu@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Filament-native cards plugin for organizing pages and resources into a card-based navigation hub.",
+            "homepage": "https://github.com/harvirsidhu/filament-cards",
+            "keywords": [
+                "Settings",
+                "cards",
+                "cluster",
+                "control-panel",
+                "filament",
+                "filament-cards",
+                "filament-plugin",
+                "filamentphp",
+                "harvirsidhu",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/harvirsidhu/filament-cards/issues",
+                "source": "https://github.com/harvirsidhu/filament-cards"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/:vendor_name",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-02-19T15:32:30+00:00"
         },
         {
             "name": "hydrat/filament-table-layout-toggle",

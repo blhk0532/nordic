@@ -7,7 +7,6 @@ namespace App\Filament\Clients\Clusters\Services\Resources\Bookings\Tables;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -71,13 +70,7 @@ class BookingsTable
                     ]),
             ])
             ->groupedBulkActions([
-                DeleteBulkAction::make()
-                    ->action(function (): void {
-                        Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
-                            ->warning()
-                            ->send();
-                    }),
+                DeleteBulkAction::make(),
             ])
             ->groups([
                 Group::make('created_at')

@@ -48,6 +48,7 @@ use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
 use Cmsmaxinc\FilamentErrorPages\FilamentErrorPagesPlugin;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Filament\Actions\Action;
+use Filament\AdvancedExport\AdvancedExportPlugin;
 use Filament\Enums\ThemeMode;
 use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
@@ -126,7 +127,7 @@ class AppPanelProvider extends PanelProvider
             )
             ->navigationGroups([
                 NavigationGroup::make('Mina Sidor')
-                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group-top'])
+                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
                     ->collapsed()
                     ->icon(Tabler::UserSquareRounded),
                 NavigationGroup::make('Kalendrar')
@@ -140,7 +141,7 @@ class AppPanelProvider extends PanelProvider
                     ->collapsed()
                     ->icon(Tabler::ShieldCheckF),
                 NavigationGroup::make('Team Admin')
-                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group-admin'])
+                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
                     ->collapsed()
                     ->label('Team Admin')
                     ->icon(Tabler::ShieldCheckF),
@@ -173,9 +174,11 @@ class AppPanelProvider extends PanelProvider
                 //    BookingCalendersX2::class,
                 //    BookingCalendersX4::class,
                 //    BookingCalendersX6::class,
+                // \App\Filament\Pages\FlowForge\FlowForgePage::class, // FlowForge integration
             ])
             ->widgets([
                 WeatherWidget::class,
+                \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
                 //    Widgets\AccountWidget::class,
                 //    Widgets\FilamentInfoWidget::class,
                 //   RatsitDataStatsWidget::class,
@@ -240,6 +243,9 @@ class AppPanelProvider extends PanelProvider
                 //    ]),
             ])
             ->plugins([
+                AdvancedExportPlugin::make(),
+            ])
+            ->plugins([
                 TableLayoutTogglePlugin::make()
                     ->setDefaultLayout('grid') // default layout for user seeing the table for the first time
                     ->persistLayoutUsing(
@@ -293,7 +299,7 @@ class AppPanelProvider extends PanelProvider
                 CurrentTenant::class,
             ], isPersistent: true)
             ->tenantMenuItems([
-                'team-users' => Action::make('team-users')
+                'dashboard' => Action::make('dashboard')
                     ->label('Dashboard')
                     ->badge(fn () => now()->timezone('Asia/Bangkok')->format('H:i').' 🇹🇭')
                     ->icon(Remix::RiDashboard2Line)
@@ -303,12 +309,12 @@ class AppPanelProvider extends PanelProvider
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
                     ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
-                'invitations' => Action::make('invitations')
-                    ->label('Team Invitation')
-                    ->url(fn (): string => TeamInvitationAccept::getUrl())
-                    ->icon('heroicon-m-users')
-                    ->sort(-1)
-                    ->visible(fn () => User::canManageTeam() !== false),
+            //    'invitations' => Action::make('invitations')
+            //        ->label('Team Invitation')
+            //        ->url(fn (): string => TeamInvitationAccept::getUrl())
+            //        ->icon('heroicon-m-users')
+            //        ->sort(-1)
+            //        ->visible(fn () => User::canManageTeam() !== false),
                 'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
@@ -356,7 +362,7 @@ class AppPanelProvider extends PanelProvider
         //        }
         //    );
         FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_AFTER,
+            PanelsRenderHook::USER_MENU_BEFORE,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ai-search-trigger');
             }

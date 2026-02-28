@@ -44,6 +44,8 @@ class Task extends Model
         'name',
         'start',
         'end',
+        'status',
+        'position',
     ];
 
     /**

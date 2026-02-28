@@ -43,7 +43,7 @@
         x-transition:leave-start="opacity-100 translate-x-0"
         x-transition:leave-end="opacity-0 translate-x-8"
         class="fixed inset-y-0 right-0 z-50 w-full bg-white dark:bg-gray-900 shadow-2xl overflow-hidden flex flex-col"
-        style="height: 100vh; max-width: 450px;"
+        style="height: 100vh; max-width: 640px;"
     >
         <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-primary-600 to-primary-500">
             <div class="flex items-center gap-3">
@@ -60,11 +60,11 @@
             </button>
         </div>
 
-        <div class="px-3 py-2 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+        <div class="px-0 py-0 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hidden">
             <select
                 x-model="filter"
                 x-on:change="$dispatch('update-ringa-filter', filter)"
-                class="fi-input block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 py-2 text-sm focus:border-primary-500 focus:ring-primary-500"
+                class="fi-input block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 py-0 text-sm focus:border-primary-500 focus:ring-primary-500"
             >
                 <option value="all">Alla</option>
                 <option value="aterkom">Återkom</option>
@@ -73,7 +73,11 @@
                 <option value="historik">Historik</option>
             </select>
         </div>
-
+<style>
+div.fi-ta-header{
+    padding: 0px !important;
+}
+</style>
         <div class="flex-1 overflow-hidden" style="height: calc(100vh - 280px);">
             <div class="h-full overflow-y-auto">
                 @livewire(\App\Filament\App\Resources\RingaData\Widgets\AterkomRingTableWidget::class)

@@ -77,7 +77,7 @@ class BookingsTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title('zzz')
                             ->warning()
                             ->send();
                     }),

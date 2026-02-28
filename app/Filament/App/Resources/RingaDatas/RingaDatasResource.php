@@ -44,13 +44,11 @@ class RingaDatasResource extends Resource
 
     protected static bool $isScopedToTenant = false;
 
-
     public static function shouldRegisterNavigation(): bool
     {
 
         return false;
     }
-
 
     public static function form(Schema $schema): Schema
     {
@@ -69,17 +67,30 @@ class RingaDatasResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $userId = auth()->id();
+        $user = auth()->user();
+        $userId = $user?->id;
         $tenantId = filament()->getTenant()?->id;
+        $teamIds = $user?->teams()->pluck('teams.id')->toArray() ?? [];
 
-        return parent::getEloquentQuery()
-            ->where(function (Builder $query) use ($userId, $tenantId) {
-                $query->where('user_id', $userId);
+        $query = parent::getEloquentQuery();
+
+        if ($userId || $tenantId) {
+            $query->where(function (Builder $query) use ($userId, $tenantId, $teamIds) {
+                if ($userId) {
+                    $query->where('user_id', $userId);
+                }
 
                 if ($tenantId) {
                     $query->orWhere('team_id', $tenantId);
                 }
+
+                if (! empty($teamIds)) {
+                    $query->orWhereIn('team_id', $teamIds);
+                }
             });
+        }
+
+        return $query;
     }
 
     public static function getRelations(): array

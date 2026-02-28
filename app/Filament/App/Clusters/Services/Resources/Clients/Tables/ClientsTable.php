@@ -6,7 +6,6 @@ namespace App\Filament\App\Clusters\Services\Resources\Clients\Tables;
 
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
@@ -38,13 +37,7 @@ class ClientsTable
                 EditAction::make(),
             ])
             ->groupedBulkActions([
-                DeleteBulkAction::make()
-                    ->action(function (): void {
-                        Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
-                            ->warning()
-                            ->send();
-                    }),
+                DeleteBulkAction::make(),
             ]);
     }
 }

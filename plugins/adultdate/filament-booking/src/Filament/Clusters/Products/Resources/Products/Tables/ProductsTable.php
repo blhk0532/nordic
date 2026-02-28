@@ -111,7 +111,7 @@ class ProductsTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title('xxx!')
                             ->warning()
                             ->send();
                     }),

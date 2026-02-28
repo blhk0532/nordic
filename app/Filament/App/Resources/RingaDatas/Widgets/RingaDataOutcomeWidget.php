@@ -20,6 +20,8 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
 
     public ?RingaData $record = null;
 
+    public ?int $recordId = null;
+
     protected string $view = 'filament.app.resources.ringa-data.widgets.ringa-data-outcome-widget';
 
     protected int|string|array $columnSpan = '1/2';
@@ -28,9 +30,28 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
 
     protected $listeners = ['record-selected' => 'updateRecord'];
 
+    public function mount(): void
+    {
+        logger('RingaDataOutcomeWidget mount', [
+            'record_id' => $this->recordId,
+            'record_present' => (bool) $this->record,
+        ]);
+
+        // If record is missing but recordId is provided, load it
+        if (! $this->record && $this->recordId) {
+            $this->record = RingaData::query()->find($this->recordId);
+            logger('RingaDataOutcomeWidget loaded record from recordId', [
+                'recordId' => $this->recordId,
+                'found' => (bool) $this->record,
+            ]);
+        }
+    }
+
     public function updateRecord(int $recordId): void
     {
+        $this->recordId = $recordId;
         $this->record = RingaData::query()->find($recordId);
+        logger('RingaDataOutcomeWidget updated record via event', ['recordId' => $recordId]);
     }
 
     public function selectOutcome(string $outcomeValue): void

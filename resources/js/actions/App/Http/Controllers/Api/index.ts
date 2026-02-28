@@ -19,6 +19,7 @@ import HittaQueueController from './HittaQueueController'
 import RatsitQueueController from './RatsitQueueController'
 import PostNummerQueueController from './PostNummerQueueController'
 import JobQueueController from './JobQueueController'
+import AiChatController from './AiChatController'
 import CalendarBookingController from './CalendarBookingController'
 import CalendarDataController from './CalendarDataController'
 
@@ -44,6 +45,7 @@ const Api = {
     RatsitQueueController: Object.assign(RatsitQueueController, RatsitQueueController),
     PostNummerQueueController: Object.assign(PostNummerQueueController, PostNummerQueueController),
     JobQueueController: Object.assign(JobQueueController, JobQueueController),
+    AiChatController: Object.assign(AiChatController, AiChatController),
     CalendarBookingController: Object.assign(CalendarBookingController, CalendarBookingController),
     CalendarDataController: Object.assign(CalendarDataController, CalendarDataController),
 }

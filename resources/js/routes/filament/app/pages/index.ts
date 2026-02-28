@@ -1785,6 +1785,216 @@ method403Form.head = (args: { tenant: string | number | { slug: string | number 
 method403.form = method403Form
 
 /**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+export const notesGroups = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: notesGroups.url(args, options),
+    method: 'get',
+})
+
+notesGroups.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/notes-groups',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+notesGroups.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return notesGroups.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+notesGroups.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: notesGroups.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+notesGroups.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: notesGroups.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+const notesGroupsForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesGroups.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+notesGroupsForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesGroups.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesGroups::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesGroups.php:7
+* @route '/nds/app/team/{tenant}/notes-groups'
+*/
+notesGroupsForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesGroups.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+notesGroups.form = notesGroupsForm
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+export const notesStatus = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: notesStatus.url(args, options),
+    method: 'get',
+})
+
+notesStatus.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/notes-status',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+notesStatus.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return notesStatus.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+notesStatus.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: notesStatus.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+notesStatus.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: notesStatus.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+const notesStatusForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesStatus.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+notesStatusForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesStatus.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \TomatoPHP\FilamentNotes\Filament\Pages\NotesStatus::__invoke
+* @see plugins/tomatophp/filament-notes/src/Filament/Pages/NotesStatus.php:7
+* @route '/nds/app/team/{tenant}/notes-status'
+*/
+notesStatusForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: notesStatus.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+notesStatus.form = notesStatusForm
+
+/**
 * @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
 * @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
 * @route '/nds/app/team/{tenant}/my-profile'
@@ -2086,6 +2296,8 @@ const pages = {
     dataHistory: Object.assign(dataHistory, dataHistory),
     404: Object.assign(method404, method404),
     403: Object.assign(method403, method403),
+    notesGroups: Object.assign(notesGroups, notesGroups),
+    notesStatus: Object.assign(notesStatus, notesStatus),
     myProfile: Object.assign(myProfile, myProfile),
     wirechat: Object.assign(wirechat, wirechat),
     chatDashboard: Object.assign(chatDashboard, chatDashboard),

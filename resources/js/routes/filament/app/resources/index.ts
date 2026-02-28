@@ -9,6 +9,7 @@ import ringaDataOutcomes from './ringa-data-outcomes'
 import ringa from './ringa'
 import teamUsers from './team-users'
 import users from './users'
+import notes from './notes'
 
 const resources = {
     bookingDataLeads: Object.assign(bookingDataLeads, bookingDataLeads),
@@ -22,6 +23,7 @@ const resources = {
     ringa: Object.assign(ringa, ringa),
     teamUsers: Object.assign(teamUsers, teamUsers),
     users: Object.assign(users, users),
+    notes: Object.assign(notes, notes),
 }
 
 export default resources

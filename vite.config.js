@@ -6,7 +6,6 @@ import laravel from "laravel-vite-plugin";
 import path from "path";
 
 export default defineConfig({
-    base: '',
     plugins: [
         laravel({
             input: [
@@ -42,11 +41,66 @@ export default defineConfig({
     esbuild: {
         jsx: "automatic",
     },
-    server: {
-        cors: true,
-        watch: {
-            ignored: ["**/storage/framework/views/**"],
+        optimizeDeps: {
+            include: [
+                'temporal-polyfill',
+                '@fullcalendar/core',
+                '@fullcalendar/react',
+                '@fullcalendar/daygrid',
+                '@fullcalendar/interaction',
+                '@fullcalendar/list',
+                '@fullcalendar/moment',
+                '@fullcalendar/moment-timezone',
+                '@fullcalendar/mui',
+                '@fullcalendar/multimonth',
+                '@fullcalendar/resource',
+                '@fullcalendar/resource-daygrid',
+                '@fullcalendar/resource-timegrid',
+                '@fullcalendar/resource-timeline',
+                '@fullcalendar/scrollgrid',
+                '@fullcalendar/theme-monarch',
+                '@fullcalendar/theme-pulse',
+                '@fullcalendar/timegrid',
+                '@fullcalendar/timeline',
+            ],
         },
-    },
-    envPrefix: ["VITE_", "APP_", "DB_"],
+        build: {
+            commonjsOptions: {
+                include: [
+                    /node_modules\/temporal-polyfill/,
+                    /node_modules\/@fullcalendar/,
+                    /node_modules/,
+                ],
+            },
+        },
+        ssr: {
+            noExternal: [
+                'temporal-polyfill',
+                '@fullcalendar/core',
+                '@fullcalendar/react',
+                '@fullcalendar/daygrid',
+                '@fullcalendar/interaction',
+                '@fullcalendar/list',
+                '@fullcalendar/moment',
+                '@fullcalendar/moment-timezone',
+                '@fullcalendar/mui',
+                '@fullcalendar/multimonth',
+                '@fullcalendar/resource',
+                '@fullcalendar/resource-daygrid',
+                '@fullcalendar/resource-timegrid',
+                '@fullcalendar/resource-timeline',
+                '@fullcalendar/scrollgrid',
+                '@fullcalendar/theme-monarch',
+                '@fullcalendar/theme-pulse',
+                '@fullcalendar/timegrid',
+                '@fullcalendar/timeline',
+            ],
+        },
+        server: {
+            cors: true,
+            watch: {
+                ignored: ["**/storage/framework/views/**"],
+            },
+        },
+        envPrefix: ["VITE_", "APP_", "DB_"],
 });

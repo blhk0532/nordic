@@ -107,6 +107,9 @@ class FilamentNotesPlugin implements Plugin
                     NotesGroups::class,
                     NotesStatus::class,
                 ])
+                ->widgets([
+                    NotesWidget::class,
+                ])
                 ->livewireComponents([
                     NoteAction::class,
                 ]);

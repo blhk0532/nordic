@@ -41,13 +41,13 @@ class InertiaCalendar extends Page
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiCalendarScheduleFill;
 
     //  protected static string | UnitEnum | null $navigationGroup = 'Kalendrar';
-    // protected static string|UnitEnum|null $navigationGroup = '';
+     protected static string|UnitEnum|null $navigationGroup = ' ';
 
     public static function getNavigationBadge(): ?string
     {
         $role = Str::upper(Auth::user()->role);
         Carbon::setLocale('sv');
-        $now = now()->timezone('Europe/Stockholm')->translatedFormat('D d');
+        $now = now()->timezone('Europe/Stockholm')->translatedFormat('d M');
 
         return Str::upper($now);
     }

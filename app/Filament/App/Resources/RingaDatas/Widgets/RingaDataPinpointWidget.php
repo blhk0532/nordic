@@ -20,6 +20,8 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
     public ?RingaData $record = null;
 
+    public ?int $recordId = null;
+
     protected string $view = 'filament.app.resources.ringa-data.widgets.ringa-data-pinpoint-widget';
 
     protected int|string|array $columnSpan = 'md';
@@ -30,7 +32,9 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
     public function updateRecord(int $recordId): void
     {
+        $this->recordId = $recordId;
         $this->record = RingaData::query()->find($recordId);
+        logger('RingaDataPinpointWidget updated record via event', ['recordId' => $recordId, 'found' => (bool) $this->record]);
         if ($this->record && $this->record->latitud && $this->record->longitude) {
             $this->data = [
                 'location' => null,
@@ -46,6 +50,20 @@ class RingaDataPinpointWidget extends Widget implements HasForms
 
     public function mount(): void
     {
+        logger('RingaDataPinpointWidget mount', [
+            'record_id' => $this->recordId,
+            'record_present' => (bool) $this->record,
+        ]);
+
+        // If record is missing but recordId is provided, load it
+        if (! $this->record && $this->recordId) {
+            $this->record = RingaData::query()->find($this->recordId);
+            logger('RingaDataPinpointWidget loaded record from recordId', [
+                'recordId' => $this->recordId,
+                'found' => (bool) $this->record,
+            ]);
+        }
+
         if ($this->record && ($this->record->latitud || $this->record->longitude)) {
             $this->data = [
                 'location' => null,

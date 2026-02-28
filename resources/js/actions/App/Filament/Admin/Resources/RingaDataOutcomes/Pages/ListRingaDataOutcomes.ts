@@ -1,119 +1,15 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-const ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, options),
-    method: 'get',
-})
-
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/ringa-data-outcomes',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-const ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512ebaForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512ebaForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
-* @route '/admin/tenant/{tenant}/ringa-data-outcomes'
-*/
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512ebaForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba.form = ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512ebaForm
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-const ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url(options),
+const ListRingaDataOutcomes = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListRingaDataOutcomes.url(options),
     method: 'get',
 })
 
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.definition = {
+ListRingaDataOutcomes.definition = {
     methods: ["get","head"],
     url: '/nds/super/ringa-data-outcomes',
 } satisfies RouteDefinition<["get","head"]>
@@ -123,8 +19,8 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.definition = {
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url = (options?: RouteQueryOptions) => {
-    return ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.definition.url + queryParams(options)
+ListRingaDataOutcomes.url = (options?: RouteQueryOptions) => {
+    return ListRingaDataOutcomes.definition.url + queryParams(options)
 }
 
 /**
@@ -132,8 +28,8 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url = (options?: RouteQuer
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url(options),
+ListRingaDataOutcomes.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListRingaDataOutcomes.url(options),
     method: 'get',
 })
 
@@ -142,8 +38,8 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.get = (options?: RouteQuer
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url(options),
+ListRingaDataOutcomes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListRingaDataOutcomes.url(options),
     method: 'head',
 })
 
@@ -152,8 +48,8 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.head = (options?: RouteQue
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-const ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url(options),
+const ListRingaDataOutcomesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListRingaDataOutcomes.url(options),
     method: 'get',
 })
 
@@ -162,8 +58,8 @@ const ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form = (options?: Rou
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url(options),
+ListRingaDataOutcomesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListRingaDataOutcomes.url(options),
     method: 'get',
 })
 
@@ -172,8 +68,8 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form.get = (options?: Route
 * @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/nds/super/ringa-data-outcomes'
 */
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.url({
+ListRingaDataOutcomesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListRingaDataOutcomes.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -182,11 +78,6 @@ ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form.head = (options?: Rout
     method: 'get',
 })
 
-ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0.form = ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0Form
-
-const ListRingaDataOutcomes = {
-    '/admin/tenant/{tenant}/ringa-data-outcomes': ListRingaDataOutcomes99fb46ecc7694f4979b86a8675512eba,
-    '/nds/super/ringa-data-outcomes': ListRingaDataOutcomesaa5a3b2edfa8f57e9e8bd98b2cdcccb0,
-}
+ListRingaDataOutcomes.form = ListRingaDataOutcomesForm
 
 export default ListRingaDataOutcomes

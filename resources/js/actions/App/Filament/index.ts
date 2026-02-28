@@ -1,7 +1,7 @@
 import Admin from './Admin'
+import App from './App'
 import Queue from './Queue'
 import Panels from './Panels'
-import App from './App'
 import Chat from './Chat'
 import Data from './Data'
 import Notify from './Notify'
@@ -14,9 +14,9 @@ import Files from './Files'
 
 const Filament = {
     Admin: Object.assign(Admin, Admin),
+    App: Object.assign(App, App),
     Queue: Object.assign(Queue, Queue),
     Panels: Object.assign(Panels, Panels),
-    App: Object.assign(App, App),
     Chat: Object.assign(Chat, Chat),
     Data: Object.assign(Data, Data),
     Notify: Object.assign(Notify, Notify),

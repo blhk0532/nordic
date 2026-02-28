@@ -22,6 +22,7 @@
 @source '../../../../vendor/cmsmaxinc/filament-error-pages/resources/**/*.blade.php';
 
 @import '../../../../plugins/adultdate/filament-dialer/resources/css/theme.css';
+@import '../../../../vendor/emuniq/filament-collapsible-subnav/resources/css/plugin.css';
 
 
 
@@ -538,6 +539,13 @@ div.fi-modal-window{
     min-height: 60vh;
 }
 
+div.fi-ta-header{
+    padding: 0px !important;
+}
+.fi-wi-widget.fi-grid-col.lg{
+    border-radius: 0px!important;
+}
+/*
 footer.fi-footer {
     display: flex;
   height: 50px;
@@ -548,8 +556,8 @@ footer.fi-footer {
  margin-bottom:-1.2rem;
 }
 .fi-sidebar-group{
-  margin-top:-0.8rem;
-  margin-bottom:0.8rem;
+  margin-top:-0.6rem;
+  margin-bottom:0.6;
 }
 .featured-sidebar-group-top{
  margin-top:-1rem;
@@ -557,3 +565,4 @@ footer.fi-footer {
 .featured-sidebar-group-admin{
  margin-top:-2.2rem;
 }
+*/

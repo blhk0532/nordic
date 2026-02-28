@@ -24,6 +24,7 @@ use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
+
 class SingleCalendar extends BaseDashboard
 {
     public ?string $calendarId = null;
@@ -47,7 +48,7 @@ class SingleCalendar extends BaseDashboard
 
     protected static string $routePath = 'single-calendar';
 
-    protected static string|UnitEnum|null $navigationGroup = '';
+    protected static string|UnitEnum|null $navigationGroup = ' ';
 
     //   use HasFiltersForm;
     //  protected static ?string $slug = 'dashboard';
@@ -60,7 +61,7 @@ class SingleCalendar extends BaseDashboard
      //       Css::make('booking', __DIR__.'/../../../../resources/css/booking.css'),
      //   ]);
 
-        return false;
+        return true;
     }
 
     //    public static function getNavigationLabel(): string
@@ -92,11 +93,11 @@ class SingleCalendar extends BaseDashboard
     public static function getNavigationBadge(): ?string
     {
         //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
+         $role = Str::upper(auth()->user()->role);
         Carbon::setLocale('sv');
+        $now = now()->timezone('Europe/Stockholm')->translatedFormat('D');
 
-        return now()
-            ->timezone('Europe/Stockholm')
-            ->translatedFormat('d M');
+        return Str::upper($now);
     }
 
     public static function getNavigationBadgeColor(): ?string

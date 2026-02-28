@@ -13,8 +13,8 @@ use Asmit\ResizedColumn\HasResizableColumn;
 use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
-// use Filament\Actions;
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
+use Filament\AdvancedExport\Traits\HasAdvancedExport;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
@@ -24,6 +24,7 @@ class ListRingaData extends ListRecords
 {
     //  use PageHasContextMenu;
 
+    use HasAdvancedExport;
     use HasResizableColumn;
 
     public ?int $selectedRecordId = null;
@@ -48,11 +49,7 @@ class ListRingaData extends ListRecords
 
     protected function getHeaderActions(): array
     {
-
-        return [
-
-        ];
-
+        return [];
     }
 
     //  public static function getContextMenuActions(): array

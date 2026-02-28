@@ -15,11 +15,8 @@ use App\Models\RingaData;
 use BackedEnum;
 use Exception;
 use Filament\Resources\Pages\Page;
-use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
-use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
@@ -61,39 +58,18 @@ class QueueRingaData extends Page
     public function mount(): void
     {
         try {
-            // Always reset selectedRecordId on mount to avoid stale state
-
-            //    FilamentAsset::register([
-            //        Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
-            //    ]);
-            // Check if there are any pending records
             $pendingCount = $this->getQuery()->count();
-            logger('QueueRingaData mount', [
-                'pendingCount' => $pendingCount,
-                'user_id' => auth()->id(),
-                'tenant_id' => filament()->getTenant()?->id,
-            ]);
 
-            if ($pendingCount === 0) {
-                // Get the current tenant
-                $tenant = filament()->getTenant();
-
-                // Redirect to dashboard if no pending records
-                $this->redirect(route('filament.app.pages.app-dashboard', ['tenant' => $tenant]), navigate: true);
-            }
-
-            // Get first record based on current ordering
-            $first = $this->getQuery()
-                ->first();
-
+            $first = $this->getQuery()->first();
             $this->selectedRecordId = $first?->id;
 
-            logger('QueueRingaData selected first record', [
-                'selectedRecordId' => $this->selectedRecordId,
-                'first_record_id' => $first?->id,
-            ]);
+            if (! $first) {
+                $tenant = filament()->getTenant();
+                $this->redirect(route('filament.app.pages.app-dashboard', ['tenant' => $tenant]), navigate: true);
 
-            // Dispatch event to inform widgets of the selected record
+                return;
+            }
+
             if ($this->selectedRecordId) {
                 $this->dispatch('record-selected', recordId: $this->selectedRecordId);
             }
@@ -105,12 +81,21 @@ class QueueRingaData extends Page
 
     public static function getNavigationBadge(): ?string
     {
+        $user = auth()->user();
+        if (! $user) {
+            return '0';
+        }
+
         return (string) self::getQuery()->count();
-        // return (string) (auth()->user()?->name ?? '');
     }
 
     public static function getNavigationBadgeColor(): ?string
     {
+        $user = auth()->user();
+        if (! $user) {
+            return 'warning';
+        }
+
         return (string) self::getQuery()->count() > 100 ? 'danger' : 'warning';
     }
 
@@ -118,20 +103,25 @@ class QueueRingaData extends Page
     {
         $record = null;
 
+        $query = $this->getQuery();
+
         if ($this->selectedRecordId) {
-            $record = $this->getQuery()->find($this->selectedRecordId);
+            $record = $query->find($this->selectedRecordId);
         }
 
         if (! $record) {
-            $record = $this->getQuery()
-                ->first();
-
+            $record = $query->first();
             $this->selectedRecordId = $record?->id;
+        }
+
+        if (! $record) {
+            $this->selectedRecordId = null;
         }
 
         return [
             'record' => $record,
             'recordId' => $this->selectedRecordId,
+            'selectedRecordId' => $this->selectedRecordId,
         ];
     }
 
@@ -157,6 +147,14 @@ class QueueRingaData extends Page
             // Otherwise get the first pending record
             $first = $this->getQuery()->first();
             $this->selectedRecordId = $first?->id;
+
+            // If no pending records, redirect to dashboard
+            if (! $first) {
+                $tenant = filament()->getTenant();
+                $this->redirect(route('filament.app.pages.app-dashboard', ['tenant' => $tenant]), navigate: true);
+
+                return;
+            }
         }
 
         // Dispatch event to inform widgets of the selected record
@@ -168,17 +166,8 @@ class QueueRingaData extends Page
     public static function getQuery(): Builder
     {
         $now = now();
-        $teamId = filament()->getTenant()?->id;
 
         $query = self::getResource()::getEloquentQuery()
-            // Only records for current user or team
-
-            ->where(function ($query) use ($teamId) {
-                $query->where('user_id', auth()->id());
-                if ($teamId) {
-                    $query->orWhere('team_id', $teamId);
-                }
-            })
         //  // Only active records
             ->where('is_active', true)
         //  ->where('outcome', '!=', 'DMC')

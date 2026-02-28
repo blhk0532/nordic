@@ -21,7 +21,7 @@ export const NoEvents = memo(
     const getNoEventsMessage = () => {
       switch (currentView) {
         case CalendarViewType.DAY:
-          return `Tidak ada acara pada ${format(currentDate, 'EEEE, d MMMM yyyy', { locale })}`;
+          return `Inga Bokningar på ${format(currentDate, 'EEEE, d MMMM yyyy', { locale })}`;
         case CalendarViewType.WEEK:
           const weekStart = format(
             startOfWeek(currentDate, { locale }),
@@ -33,13 +33,13 @@ export const NoEvents = memo(
             'd MMM yyyy',
             { locale },
           );
-          return `Tidak ada acara pada minggu ${weekStart} - ${weekEnd}`;
+          return `Inga Bokningar ${weekStart} - ${weekEnd}`;
         case CalendarViewType.MONTH:
-          return `Tidak ada acara pada ${format(currentDate, 'MMMM yyyy', { locale })}`;
+          return `Inga Bokningar ${format(currentDate, 'MMMM yyyy', { locale })}`;
         case CalendarViewType.YEAR:
-          return `Tidak ada acara pada tahun ${format(currentDate, 'yyyy', { locale })}`;
+          return `Inga Bokningar ${format(currentDate, 'yyyy', { locale })}`;
         default:
-          return 'Tidak ada acara';
+          return 'Inga Bokningar';
       }
     };
 

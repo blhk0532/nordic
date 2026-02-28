@@ -32,10 +32,10 @@ class ManusIconModal extends AbstractPageSettings implements HasForms
             ->components([
                 Forms\Components\RichEditor::make('site_name')
                     ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
-                        ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
+                        ['bold', 'underline', 'superscript'],
+                        ['h2', 'alignStart', 'alignCenter', 'alignEnd'],
                         ['codeBlock', 'bulletList', 'orderedList'],
-                        ['table', 'attachFiles'],
+                        ['table'],
                         ['undo', 'redo'],
                     ])
                     ->label('Anteckningar')

@@ -38,6 +38,62 @@ final class RingaDataTable
     {
         return $table
             ->headerActions([
+                \Filament\Actions\Action::make('advancedExport')
+                    ->label('Advanced Export')
+                    ->color('success')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->modal()
+                    ->modalHeading('Export Records')
+                    ->modalDescription('Select the columns you want to export. Maximum of 2000 records will be exported.')
+                    ->schema([
+                        \Filament\Forms\Components\Select::make('order_column')
+                            ->label('Order by Column')
+                            ->options(\App\Models\RingaData::getExportColumns())
+                            ->default('created_at'),
+                        \Filament\Forms\Components\Select::make('order_direction')
+                            ->label('Order Direction')
+                            ->options([
+                                'asc' => 'Ascending',
+                                'desc' => 'Descending',
+                            ])
+                            ->default('desc'),
+                        \Filament\Forms\Components\Repeater::make('columns')
+                            ->label('Configure Export Columns')
+                            ->schema([
+                                \Filament\Forms\Components\Select::make('field')
+                                    ->label('Field')
+                                    ->options(\App\Models\RingaData::getExportColumns())
+                                    ->required(),
+                                \Filament\Forms\Components\TextInput::make('title')
+                                    ->label('Custom Title')
+                                    ->required(),
+                            ])
+                            ->default(\App\Models\RingaData::getDefaultExportColumns())
+                            ->addActionLabel('Add Column')
+                            ->collapsible(),
+                    ])
+                    ->action(function () {
+                        // Simple test export - just export first 10 records directly
+                        $data = \App\Models\RingaData::query()->limit(10)->get();
+
+                        return response()->streamDownload(function () use ($data) {
+                            $handle = fopen('php://output', 'w');
+                            // CSV header
+                            fputcsv($handle, ['ID', 'Name', 'Phone', 'Address', 'Postnr', 'Ort']);
+
+                            foreach ($data as $row) {
+                                fputcsv($handle, [
+                                    $row->id,
+                                    $row->personnamn ?? '',
+                                    $row->telefon ?? '',
+                                    $row->gatuadress ?? '',
+                                    $row->postnummer ?? '',
+                                    $row->postort ?? '',
+                                ]);
+                            }
+                            fclose($handle);
+                        }, 'test-export.csv', ['Content-Type' => 'text/csv']);
+                    }),
                 \EightyNine\ExcelImport\ExcelImportAction::make()
                     ->color('primary'),
                 \Filament\Actions\CreateAction::make(),
@@ -112,11 +168,15 @@ final class RingaDataTable
                     ->state(function ($record) {
                         $telefon = $record->telefon;
                         if (is_array($telefon)) {
-                            return $telefon[0] ?? '';
+                            $telefon = $telefon[0] ?? '';
                         }
                         if (is_string($telefon) && str_contains($telefon, ',')) {
-                            return explode(',', $telefon)[0];
+                            $telefon = explode(',', $telefon)[0];
                         }
+                        // Remove [, ], ", - characters and replace +46 with 0
+                        $telefon = preg_replace('/[\[\]\"\-]/', '', $telefon);
+                        $telefon = preg_replace('/^\+46/', '0', $telefon);
+
                         return $telefon;
                     })
                     ->searchable()

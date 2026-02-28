@@ -237,7 +237,7 @@ script.form = scriptForm
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -252,7 +252,7 @@ update.definition = {
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 update.url = (options?: RouteQueryOptions) => {
@@ -261,7 +261,7 @@ update.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 update.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -271,7 +271,7 @@ update.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -281,7 +281,7 @@ const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:123
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
 * @route '/livewire/update'
 */
 updateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

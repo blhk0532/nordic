@@ -137,7 +137,7 @@ $anderia = \Andreia\FilamentUiSwitcher\Support\UiPreferenceManager::get('ui.layo
                     </button>
 
                     <button
-                        wire:click="setLayout('sidebar-no-topbar')"
+                        wire:click="setLayout('sidebar')"
                         type="button"
                         class="relative flex flex-col items-center justify-center p-4 rounded-lg border-2 transition-all hover:border-primary-400 {{ $layout === 'sidebar-no-topbar' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-700' }}">
                         <div class="flex gap-0.5 mb-2">
@@ -148,7 +148,7 @@ $anderia = \Andreia\FilamentUiSwitcher\Support\UiPreferenceManager::get('ui.layo
                     </button>
 
                     <button
-                        wire:click="setLayout('topbar')"
+                        wire:click="setLayout('sidebar-collapsed')"
                         type="button"
                         class="relative flex flex-col items-center justify-center p-4 rounded-lg border-2 transition-all hover:border-primary-400 {{ $layout === 'topbar' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-700' }}">
                         <div class="flex flex-col gap-0.5 mb-2">

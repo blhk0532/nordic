@@ -13,9 +13,12 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Forms\Components\Select;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Collection;
+use Zap\Facades\Zap;
+use Filament\Tables\Enums\FiltersLayout;
 
 class AterkomRingTableWidget extends BaseWidget
 {
@@ -29,7 +32,7 @@ class AterkomRingTableWidget extends BaseWidget
 
     public function updateFilter(string $value): void
     {
-        $this->filter = $value;
+        //   $this->filter = $value;
     }
 
     public function table(Table $table): Table
@@ -54,29 +57,33 @@ class AterkomRingTableWidget extends BaseWidget
         return $table
             ->query($query)
             ->paginated(false)
+            ->toolbarActions([])
+            ->extraAttributes(['style' => 'height: 420px'])
             ->columns([
-                TextColumn::make('personnamn')
-                    ->label('Namn')
-                    ->searchable()
-                    ->sortable()
-                    ->size('sm'),
-                TextColumn::make('gatuadress')
-                    ->label('Adress')
-                    ->searchable()
-                    ->sortable()
-                    ->size('sm')
-                    ->limit(20),
-                TextColumn::make('aterkom_at')
+                                TextColumn::make('aterkom_at')
                     ->label('Återkom')
                     ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->diffForHumans() : '-')
                     ->sortable()
                     ->size('sm'),
+                TextColumn::make('personnamn')
+                    ->label('Namn')
+                    ->sortable()
+                    ->size('sm'),
+                TextColumn::make('gatuadress')
+                    ->label('Adress')
+                    ->hidden()
+                    ->sortable()
+                    ->size('sm')
+                    ->limit(20),
                 TextColumn::make('telefon')
                     ->label('Tel')
+                    ->hidden()
                     ->size('sm')
                     ->formatStateUsing(fn ($state) => $state ?? '-'),
             ])
-            ->actions([
+            ->recordActions([
+                Action::make('view')
+                ->icon('heroicon-m-eye'),
                 Action::make('ring')
                     ->label('Ring')
                     ->icon('heroicon-m-phone-arrow-up-right')

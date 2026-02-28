@@ -1,13 +1,13 @@
 import ListOutcomeDelaySettings from './ListOutcomeDelaySettings'
 import CreateOutcomeDelaySetting from './CreateOutcomeDelaySetting'
-import ViewOutcomeDelaySetting from './ViewOutcomeDelaySetting'
 import EditOutcomeDelaySetting from './EditOutcomeDelaySetting'
+import ViewOutcomeDelaySetting from './ViewOutcomeDelaySetting'
 
 const Pages = {
     ListOutcomeDelaySettings: Object.assign(ListOutcomeDelaySettings, ListOutcomeDelaySettings),
     CreateOutcomeDelaySetting: Object.assign(CreateOutcomeDelaySetting, CreateOutcomeDelaySetting),
-    ViewOutcomeDelaySetting: Object.assign(ViewOutcomeDelaySetting, ViewOutcomeDelaySetting),
     EditOutcomeDelaySetting: Object.assign(EditOutcomeDelaySetting, EditOutcomeDelaySetting),
+    ViewOutcomeDelaySetting: Object.assign(ViewOutcomeDelaySetting, ViewOutcomeDelaySetting),
 }
 
 export default Pages

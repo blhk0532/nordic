@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 export const index = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ index.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 index.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ index.url = (args: { tenant: string | number | { slug: string | number } } | [te
 }
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 index.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ index.get = (args: { tenant: string | number | { slug: string | number } } | [te
 })
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 index.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ index.head = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 const indexForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const indexForm = (args: { tenant: string | number | { slug: string | number } }
 })
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 indexForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ indexForm.get = (args: { tenant: string | number | { slug: string | number } } |
 })
 
 /**
-* @see \App\Filament\Admin\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
-* @see app/Filament/Admin/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
+* @see \App\Filament\App\Resources\RingaDataOutcomes\Pages\ListRingaDataOutcomes::__invoke
+* @see app/Filament/App/Resources/RingaDataOutcomes/Pages/ListRingaDataOutcomes.php:7
 * @route '/admin/tenant/{tenant}/ringa-data-outcomes'
 */
 indexForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

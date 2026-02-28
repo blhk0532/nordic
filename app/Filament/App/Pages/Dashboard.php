@@ -113,6 +113,7 @@ class Dashboard extends BaseDashboard
         return [
             SingleCalendars::class,
             \App\Filament\App\Widgets\LatestOrders::class,
+            // \App\Filament\Widgets\MyRinglistaWidget::class,
             //    WeatherWidget::class,
         ];
     }

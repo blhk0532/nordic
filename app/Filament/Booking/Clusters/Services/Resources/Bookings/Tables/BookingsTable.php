@@ -6,7 +6,6 @@ namespace App\Filament\Booking\Clusters\Services\Resources\Bookings\Tables;
 
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -36,18 +35,26 @@ class BookingsTable
                         Sum::make()
                             ->money(),
                     ]),
-                IconSelectColumn::make('state')
+                IconSelectColumn::make('status')
                     ->label('Status')
-                    ->options(\Adultdate\FilamentBooking\Enums\BookingState::toOptions())
+                    ->options(\Adultdate\FilamentBooking\Enums\BookingStatus::toOptions())
                     ->icons([
-                        \Adultdate\FilamentBooking\Enums\Pending::class => 'heroicon-o-clock',
-                        \Adultdate\FilamentBooking\Enums\Paid::class => 'heroicon-o-check',
-                        \Adultdate\FilamentBooking\Enums\Failed::class => 'heroicon-o-x-mark',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Booked->getIcon() => 'heroicon-o-calendar',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Pending->getIcon() => 'heroicon-o-clock',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Confirmed->getIcon() => 'heroicon-o-check-circle',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Updated->getIcon() => 'heroicon-o-pencil-square',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Cancelled->getIcon() => 'heroicon-o-x-circle',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Problem->getIcon() => 'heroicon-o-exclamation-triangle',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Complete->getIcon() => 'heroicon-o-check-badge',
                     ])
                     ->colors([
-                        \Adultdate\FilamentBooking\Enums\Pending::class => ['display' => 'amber-600', 'dropdown' => 'amber-500'],
-                        \Adultdate\FilamentBooking\Enums\Paid::class => ['display' => 'green-600', 'dropdown' => 'green-500'],
-                        \Adultdate\FilamentBooking\Enums\Failed::class => ['display' => 'red-600', 'dropdown' => 'red-500'],
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Booked->value => 'primary',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Pending->value => 'gray',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Confirmed->value => 'warning',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Updated->value => 'info',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Cancelled->value => 'danger',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Problem->value => 'danger',
+                        \Adultdate\FilamentBooking\Enums\BookingStatus::Complete->value => 'success',
                     ]),
                 TextColumn::make('created_at')
                     ->label('Booking date')
@@ -73,13 +80,7 @@ class BookingsTable
                 EditAction::make(),
             ])
             ->groupedBulkActions([
-                DeleteBulkAction::make()
-                    ->action(function (): void {
-                        Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
-                            ->warning()
-                            ->send();
-                    }),
+                DeleteBulkAction::make(),
             ])
             ->groups([
                 Group::make('created_at')

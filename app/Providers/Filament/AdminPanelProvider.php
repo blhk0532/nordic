@@ -12,6 +12,10 @@ use AlizHarb\ActivityLog\ActivityLogPlugin;
 use AlizHarb\ActivityLog\Widgets\LatestActivityWidget;
 use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
+use App\Filament\App\Pages\TeamInvitationAccept;
+use App\Filament\App\Resources\TeamUsers\TeamUserResource;
+use App\Http\Middleware\ApplyTenantScopes;
+use App\Http\Middleware\CurrentTenant;
 use App\Http\Middleware\FilamentPanelAccess;
 use App\Models\User;
 use Asmit\ResizedColumn\ResizedColumnPlugin;
@@ -25,6 +29,7 @@ use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
 use Filament\Actions\Action;
+use Filament\AdvancedExport\AdvancedExportPlugin;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -54,6 +59,7 @@ use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
+use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -94,11 +100,13 @@ class AdminPanelProvider extends PanelProvider
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
+            ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->discoverResources(in: app_path('../plugins/adultdate/filament-booking/src/Filament/Resources'), for: 'Adultdate\\FilamentBooking\\Filament\\Resources')
 
             ->pages([
                 Sanctum::class,
+                \App\Filament\App\Pages\TeamInvitationAccept::class,
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             // ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
@@ -109,6 +117,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 //    BookingCalendarResource::class,
+                TeamUserResource::class,
             ])
             ->resources([
                 //    BookingCalendarResource::class,
@@ -133,6 +142,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
                 MemberPlugin::make(),
+                AdvancedExportPlugin::make(),
             ])
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
@@ -249,6 +259,31 @@ class AdminPanelProvider extends PanelProvider
                     ->label(trans('Auth Tokens'))
                     ->url('/nds/admin/'.config('filament-sanctum.navigation.slug'))
                     ->icon(config('filament-sanctum.navigation.icon', 'heroicon-o-finger-print')),
+            ])
+            ->tenantMiddleware([
+                ApplyTenantScopes::class,
+                CurrentTenant::class,
+            ], isPersistent: true)
+            ->tenantMenuItems([
+                'team-users' => Action::make('team-users')
+                    ->label('Dashboard')
+                    ->badge(fn () => now()->timezone('Asia/Bangkok')->format('H:i').' 🇹🇭')
+                    ->icon(Remix::RiDashboard2Line)
+                    ->url(fn () => TeamUserResource::getUrl())
+                    ->sort(-1)
+                    ->visible(true),
+                'register' => fn (Action $action) => $action->label('Register team')
+                    ->icon('heroicon-m-user-plus')
+                    ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
+                'invitations' => Action::make('invitations')
+                    ->label('Team Invitation')
+                    ->url(fn (): string => TeamInvitationAccept::getUrl())
+                    ->icon('heroicon-m-users')
+                    ->sort(-1)
+                    ->visible(fn () => User::canManageTeam() !== false),
+                'profile' => fn (Action $action) => $action->label('Team Settings')
+                    ->sort(-1)
+                    ->visible(fn () => User::canManageTeam() !== false),
             ])
             ->plugin(
                 FilamentShieldPlugin::make()

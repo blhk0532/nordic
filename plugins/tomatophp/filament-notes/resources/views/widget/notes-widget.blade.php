@@ -1,29 +1,46 @@
 @php
- $notes = \TomatoPHP\FilamentNotes\Models\Note::query()
-    ->where('is_public', 0)
+$notes = \TomatoPHP\FilamentNotes\Models\Note::query()
     ->where('is_pined', 1)
-    ->where('user_id', auth()->user()->id)
-    ->orWhere('is_public', 0)
-    ->where('is_pined', 1)
-    ->whereHas('noteMetas', function ($q){
-        $q->where('key', config('filament-notes.models.user'))
-          ->where('value',(string)auth()->user()->id);
+    ->where(function ($query) {
+        $query->where('is_public', 1)
+            ->orWhere('user_id', auth()->user()->id)
+            ->orWhereHas('noteMetas', function ($q) {
+                $q->where('key', config('filament-notes.models.user'))
+                    ->where('value', (string) auth()->user()->id);
+            });
     })
-    ->orWhere('is_public', 1)
-    ->where('is_pined', 1)
     ->orderBy('created_at', 'desc')
-    ->limit(filament('filament-notes')->widgetLimit)
+    ->limit(4)
     ->get();
 @endphp
 <x-filament-widgets::widget>
-
     <x-filament::section heading="{{ trans('filament-notes::messages.title') }}" icon="heroicon-o-bookmark">
-        <div class="flex flex-wrap gap-4 ">
-            @foreach($notes as $key=>$note)
-                <div>
-                    <livewire:note-action :note="$note" :wire:key="$note->id" />
-                </div>
-            @endforeach
-        </div>
+        @if($notes->count() > 0)
+            <div class="grid grid-cols-2 gap-4">
+                @foreach($notes as $note)
+                    @php
+                        $bg = $note->background ?? '#fff';
+                        $border = $note->border ?? '#ccc';
+                        $color = $note->color ?? '#000';
+                    @endphp
+                    <div 
+                        class="p-3 rounded shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+                        style="background-color: {{ $bg }}; border: 2px solid {{ $border }}; color: {{ $color }};"
+                    >
+                        @if($note->icon)
+                            <x-filament::icon icon="{{ $note->icon }}" class="w-6 h-6 mb-2" />
+                        @endif
+                        @if($note->title)
+                            <div class="font-bold mb-1">{{ $note->title }}</div>
+                        @endif
+                        <div class="text-sm opacity-90">
+                            {!! $note->body !!}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <div class="text-gray-500">No pinned notes found.</div>
+        @endif
     </x-filament::section>
 </x-filament-widgets::widget>

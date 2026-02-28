@@ -16,7 +16,7 @@ use UnitEnum;
 
 class RetryOutcomeResource extends Resource
 {
-    public static bool $shouldRegisterNavigation = true;
+    public static bool $shouldRegisterNavigation = false;
 
     protected static ?string $model = RingaData::class;
 

@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
 */
-const EditRingaData = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditRingaData.url(args, options),
+const EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, options),
     method: 'get',
 })
 
-EditRingaData.definition = {
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/nummer/lista/{record}/edit',
+    url: '/admin/tenant/{tenant}/nummer/lista/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
-* @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
 */
-EditRingaData.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             tenant: args[0],
@@ -36,7 +36,106 @@ EditRingaData.url = (args: { tenant: string | number | { slug: string | number }
         record: args.record,
     }
 
-    return EditRingaData.definition.url
+    return EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
+*/
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
+*/
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
+*/
+const EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41dForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
+*/
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41dForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/admin/tenant/{tenant}/nummer/lista/{record}/edit'
+*/
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41dForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d.form = EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41dForm
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
+*/
+const EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, options),
+    method: 'get',
+})
+
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/nummer/lista/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
+*/
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
@@ -47,8 +146,8 @@ EditRingaData.url = (args: { tenant: string | number | { slug: string | number }
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
 */
-EditRingaData.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditRingaData.url(args, options),
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, options),
     method: 'get',
 })
 
@@ -57,8 +156,8 @@ EditRingaData.get = (args: { tenant: string | number | { slug: string | number }
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
 */
-EditRingaData.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditRingaData.url(args, options),
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, options),
     method: 'head',
 })
 
@@ -67,8 +166,8 @@ EditRingaData.head = (args: { tenant: string | number | { slug: string | number 
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
 */
-const EditRingaDataForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRingaData.url(args, options),
+const EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, options),
     method: 'get',
 })
 
@@ -77,8 +176,8 @@ const EditRingaDataForm = (args: { tenant: string | number | { slug: string | nu
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
 */
-EditRingaDataForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRingaData.url(args, options),
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, options),
     method: 'get',
 })
 
@@ -87,8 +186,8 @@ EditRingaDataForm.get = (args: { tenant: string | number | { slug: string | numb
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
 */
-EditRingaDataForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRingaData.url(args, {
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,6 +196,11 @@ EditRingaDataForm.head = (args: { tenant: string | number | { slug: string | num
     method: 'get',
 })
 
-EditRingaData.form = EditRingaDataForm
+EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564.form = EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564Form
+
+const EditRingaData = {
+    '/admin/tenant/{tenant}/nummer/lista/{record}/edit': EditRingaDataa2eb5d563ad6968a6ab9f7b648d0d41d,
+    '/nds/app/team/{tenant}/nummer/lista/{record}/edit': EditRingaDataf5051179d32f6d8033e5cfc6e8bf5564,
+}
 
 export default EditRingaData

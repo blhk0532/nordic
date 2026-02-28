@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/nds/app/team/{tenant}/team-invitation-accept'
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
 */
-const TeamInvitationAccept = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: TeamInvitationAccept.url(args, options),
+const TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
     method: 'get',
 })
 
-TeamInvitationAccept.definition = {
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.definition = {
     methods: ["get","head"],
-    url: '/nds/app/team/{tenant}/team-invitation-accept',
+    url: '/admin/tenant/{tenant}/team-invitation-accept',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/nds/app/team/{tenant}/team-invitation-accept'
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,111 @@ TeamInvitationAccept.url = (args: { tenant: string | number | { slug: string | n
         : args.tenant,
     }
 
-    return TeamInvitationAccept.definition.url
+    return TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
+*/
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
+*/
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
+*/
+const TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
+*/
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/admin/tenant/{tenant}/team-invitation-accept'
+*/
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.form = TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/nds/app/team/{tenant}/team-invitation-accept'
+*/
+const TeamInvitationAccepte7d994bfd2b40381a647da575947fd89 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, options),
+    method: 'get',
+})
+
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/team-invitation-accept',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
+* @see app/Filament/App/Pages/TeamInvitationAccept.php:7
+* @route '/nds/app/team/{tenant}/team-invitation-accept'
+*/
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -52,8 +156,8 @@ TeamInvitationAccept.url = (args: { tenant: string | number | { slug: string | n
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
 * @route '/nds/app/team/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: TeamInvitationAccept.url(args, options),
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, options),
     method: 'get',
 })
 
@@ -62,8 +166,8 @@ TeamInvitationAccept.get = (args: { tenant: string | number | { slug: string | n
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
 * @route '/nds/app/team/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: TeamInvitationAccept.url(args, options),
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, options),
     method: 'head',
 })
 
@@ -72,8 +176,8 @@ TeamInvitationAccept.head = (args: { tenant: string | number | { slug: string | 
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
 * @route '/nds/app/team/{tenant}/team-invitation-accept'
 */
-const TeamInvitationAcceptForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept.url(args, options),
+const TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, options),
     method: 'get',
 })
 
@@ -82,8 +186,8 @@ const TeamInvitationAcceptForm = (args: { tenant: string | number | { slug: stri
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
 * @route '/nds/app/team/{tenant}/team-invitation-accept'
 */
-TeamInvitationAcceptForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept.url(args, options),
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, options),
     method: 'get',
 })
 
@@ -92,8 +196,8 @@ TeamInvitationAcceptForm.get = (args: { tenant: string | number | { slug: string
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
 * @route '/nds/app/team/{tenant}/team-invitation-accept'
 */
-TeamInvitationAcceptForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept.url(args, {
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,6 +206,11 @@ TeamInvitationAcceptForm.head = (args: { tenant: string | number | { slug: strin
     method: 'get',
 })
 
-TeamInvitationAccept.form = TeamInvitationAcceptForm
+TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.form = TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form
+
+const TeamInvitationAccept = {
+    '/admin/tenant/{tenant}/team-invitation-accept': TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404,
+    '/nds/app/team/{tenant}/team-invitation-accept': TeamInvitationAccepte7d994bfd2b40381a647da575947fd89,
+}
 
 export default TeamInvitationAccept
