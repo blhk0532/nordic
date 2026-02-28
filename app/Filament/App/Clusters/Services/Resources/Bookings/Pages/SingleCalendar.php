@@ -95,7 +95,7 @@ class SingleCalendar extends BaseDashboard
         //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
          $role = Str::upper(auth()->user()->role);
         Carbon::setLocale('sv');
-        $now = now()->timezone('Europe/Stockholm')->translatedFormat('D');
+        $now = now()->timezone('Europe/Stockholm')->translatedFormat('l');
 
         return Str::upper($now);
     }
