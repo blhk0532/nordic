@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateSessionRequest;
-use App\Support\Filament\AppPanelRedirect;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +40,7 @@ final readonly class SessionController
 
         $request->session()->regenerate();
 
-        return Inertia::location(AppPanelRedirect::urlFor($user));
+        return Inertia::location('/nds/app');
     }
 
     public function destroy(Request $request): RedirectResponse

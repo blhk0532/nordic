@@ -18,7 +18,6 @@ use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LogApiRequests;
 use App\Http\Middleware\UpdateUserActiveAt;
-use App\Support\Filament\AppPanelRedirect;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -95,9 +94,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
             return route('login');
         });
-        $middleware->redirectUsersTo(function (Request $request) {
-            return AppPanelRedirect::urlFor($request->user());
-        });
+        $middleware->redirectUsersTo('/nds/app');
 
     })
     ->withExceptions(function (Exceptions $exceptions): void {
