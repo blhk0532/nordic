@@ -27,7 +27,6 @@ use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
-use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Filament\Actions\Action;
 use Filament\AdvancedExport\AdvancedExportPlugin;
 use Filament\Enums\ThemeMode;
@@ -185,7 +184,7 @@ class AdminPanelProvider extends PanelProvider
                         '2xl' => null,
                     ]),
             ])
-            ->plugin(CollapsibleSubnavPlugin::make())
+        //    ->plugin(CollapsibleSubnavPlugin::make())
             ->plugins([
                 //  WhatsappWidgetPlugin::make(),
             ])

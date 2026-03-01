@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fa534cd6d01035a094f5ea95a64c6c4",
+    "content-hash": "2c60b14f131cd11d3d0ae626c32f73e4",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -5117,45 +5117,6 @@
                 "issues": "https://github.com/eightynine/filament-excel-import/issues",
                 "source": "https://github.com/eightynine/filament-excel-import"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "emuniq/filament-collapsible-subnav",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "plugins/emuniq/filament-collapsible-subnav",
-                "reference": "8a24ea072591f4592c47ece1b6e595a3c3397462"
-            },
-            "require": {
-                "filament/filament": "^3.0|^4.0|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Emuniq\\FilamentCollapsibleSubnav\\CollapsibleSubnavServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Emuniq\\FilamentCollapsibleSubnav\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Filament v3 & v4 plugin for collapsible sub-navigation sidebar.",
-            "keywords": [
-                "filament",
-                "laravel",
-                "sidebar",
-                "subnavigation"
-            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -32904,7 +32865,6 @@
         "devonab/filament-easy-footer": 20,
         "devtical/filament-sanctum": 20,
         "eightynine/filament-excel-import": 20,
-        "emuniq/filament-collapsible-subnav": 20,
         "fahiem/filament-pinpoint": 20,
         "guava/filament-icon-select-column": 20,
         "hydrat/filament-table-layout-toggle": 20,
