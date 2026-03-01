@@ -33,12 +33,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Set;
 use Filament\Schemas\Schema as FilamentSchema;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use Illuminate\Contracts\Support\Htmlable;
 
 class BookingCalendarWidget extends FullCalendarWidget implements HasCalendar
 {
@@ -53,7 +53,6 @@ class BookingCalendarWidget extends FullCalendarWidget implements HasCalendar
 
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         HasOptions::getOptions insteadof CanBeConfigured;
-
 
     }
     use InteractsWithEvents {

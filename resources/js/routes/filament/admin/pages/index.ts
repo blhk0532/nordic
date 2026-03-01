@@ -2,6 +2,111 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 import chats8dcd54 from './chats'
 import fullWidthChat from './full-width-chat'
 /**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+export const controlPanel = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: controlPanel.url(args, options),
+    method: 'get',
+})
+
+controlPanel.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/control-panel',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+controlPanel.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return controlPanel.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+controlPanel.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: controlPanel.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+controlPanel.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: controlPanel.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+const controlPanelForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: controlPanel.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+controlPanelForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: controlPanel.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\ControlPanel::__invoke
+* @see app/Filament/Admin/Pages/ControlPanel.php:7
+* @route '/admin/tenant/{tenant}/control-panel'
+*/
+controlPanelForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: controlPanel.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+controlPanel.form = controlPanelForm
+
+/**
 * @see \App\Filament\Admin\Pages\Dashboard::__invoke
 * @see app/Filament/Admin/Pages/Dashboard.php:7
 * @route '/admin/tenant/{tenant}/dashboard'
@@ -210,6 +315,111 @@ sendWhatsappForm.head = (args: { tenant: string | number | { slug: string | numb
 })
 
 sendWhatsapp.form = sendWhatsappForm
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+export const taskBoard = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: taskBoard.url(args, options),
+    method: 'get',
+})
+
+taskBoard.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/task-board',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+taskBoard.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return taskBoard.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+taskBoard.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: taskBoard.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+taskBoard.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: taskBoard.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+const taskBoardForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+taskBoardForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\TaskBoard::__invoke
+* @see app/Filament/Admin/Pages/TaskBoard.php:7
+* @route '/admin/tenant/{tenant}/task-board'
+*/
+taskBoardForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: taskBoard.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+taskBoard.form = taskBoardForm
 
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
@@ -422,6 +632,111 @@ teamInvitationAcceptForm.head = (args: { tenant: string | number | { slug: strin
 teamInvitationAccept.form = teamInvitationAcceptForm
 
 /**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+export const personalAccessTokens = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+personalAccessTokens.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/personal-access-tokens',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return personalAccessTokens.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+const personalAccessTokensForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokensForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
+* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokensForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+personalAccessTokens.form = personalAccessTokensForm
+
+/**
 * @see \AlessandroNuunes\FilamentMember\Pages\TenantMembers::__invoke
 * @see vendor/alessandronuunes/filament-member/src/Pages/TenantMembers.php:7
 * @route '/admin/tenant/{tenant}/members'
@@ -525,6 +840,111 @@ membersForm.head = (args: { tenant: string | number | { slug: string | number } 
 })
 
 members.form = membersForm
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+export const fileManager = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: fileManager.url(args, options),
+    method: 'get',
+})
+
+fileManager.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/file-manager',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+fileManager.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return fileManager.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+fileManager.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: fileManager.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+fileManager.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: fileManager.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+const fileManagerForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: fileManager.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+fileManagerForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: fileManager.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
+* @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
+* @route '/admin/tenant/{tenant}/file-manager'
+*/
+fileManagerForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: fileManager.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+fileManager.form = fileManagerForm
 
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
@@ -1021,11 +1441,15 @@ chatDashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get
 chatDashboard.form = chatDashboardForm
 
 const pages = {
+    controlPanel: Object.assign(controlPanel, controlPanel),
     dashboard: Object.assign(dashboard, dashboard),
     sendWhatsapp: Object.assign(sendWhatsapp, sendWhatsapp),
+    taskBoard: Object.assign(taskBoard, taskBoard),
     sanctum: Object.assign(sanctum, sanctum),
     teamInvitationAccept: Object.assign(teamInvitationAccept, teamInvitationAccept),
+    personalAccessTokens: Object.assign(personalAccessTokens, personalAccessTokens),
     members: Object.assign(members, members),
+    fileManager: Object.assign(fileManager, fileManager),
     generalSettingsPage: Object.assign(generalSettingsPage, generalSettingsPage),
     myProfile: Object.assign(myProfile, myProfile),
     wirechat: Object.assign(wirechat, wirechat),

@@ -145,7 +145,7 @@ class AppDashboard extends BasePage
         return [
             BookingCalendar::class,
             \App\Filament\App\Widgets\StatsOverviewWidget::class,
-          //  \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
+            //  \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
 
             \App\Filament\App\Widgets\OrdersChart::class,
             \App\Filament\App\Widgets\CustomersChart::class,
@@ -157,9 +157,9 @@ class AppDashboard extends BasePage
     {
 
         return [
-           // \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
-              AccountInfoStackWidget::class,
-              WorldClockWidget::class,
+            // \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
+            AccountInfoStackWidget::class,
+            WorldClockWidget::class,
 
             TeamMembersWidget::class,
         ];

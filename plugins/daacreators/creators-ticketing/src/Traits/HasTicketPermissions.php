@@ -11,7 +11,7 @@ trait HasTicketPermissions
 {
     public static function canAccessNavigation(array $parameters = []): bool
     {
-        $instance = new static();
+        $instance = new static;
         $perms = $instance->getUserPermissions();
 
         return $perms['is_admin'] || ! empty($perms['departments']);
@@ -29,7 +29,7 @@ trait HasTicketPermissions
 
     public static function userCan(string $permissionKey): bool
     {
-        $instance = new static();
+        $instance = new static;
         $data = $instance->getUserPermissions();
 
         if ($data['is_admin']) {

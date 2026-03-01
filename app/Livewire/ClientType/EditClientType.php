@@ -30,7 +30,7 @@ class EditClientType extends Component implements HasActions, HasSchemas
 
     public function mount(?ClientType $record = null): void
     {
-        $this->record = $record ?? new ClientType();
+        $this->record = $record ?? new ClientType;
         $this->form->fill($this->record->attributesToArray());
         $this->clientTypes = ClientType::all();
     }

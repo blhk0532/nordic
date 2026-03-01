@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Carbon\Carbon;
 use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
+use Carbon\Carbon;
 
 beforeEach(function () {
     $this->event = CalendarEvent::make();

@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Kirschbaum\Commentions\Contracts\Commentable;
+use Kirschbaum\Commentions\HasComments;
 
 /**
  * @property int $id
@@ -51,8 +53,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 #[ObservedBy(TeamObserver::class)]
 #[UsePolicy(TeamPolicy::class)]
-class Team extends Model implements HasAvatar
+class Team extends Model implements Commentable, HasAvatar
 {
+    use HasComments;
+
     protected $fillable = [
         'user_id',
         'name',

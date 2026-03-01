@@ -2,6 +2,19 @@
 
 namespace Adultdate\Schedule\Filament\Widgets;
 
+use Adultdate\Schedule\Concerns\CanRefreshCalendar;
+use Adultdate\Schedule\Concerns\HasHeaderActions;
+use Adultdate\Schedule\Concerns\HasSchema;
+use Adultdate\Schedule\Concerns\InteractsWithEventRecord;
+use Adultdate\Schedule\Contracts\HasCalendar;
+use Adultdate\Schedule\Enums\Frequency;
+use Adultdate\Schedule\Enums\ScheduleTypes;
+use Adultdate\Schedule\Filament\Widgets\Concerns\CanBeConfigured;
+use Adultdate\Schedule\Filament\Widgets\Concerns\InteractsWithEvents;
+use Adultdate\Schedule\Filament\Widgets\Concerns\InteractsWithRawJS;
+use Adultdate\Schedule\Models\Schedule;
+use Adultdate\Schedule\ValueObjects\DateClickInfo;
+use Adultdate\Schedule\ValueObjects\NoEventsClickInfo;
 use Carbon\Carbon;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\CodeEditor;
@@ -13,25 +26,10 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Adultdate\Schedule\Filament\Widgets\FullCalendarWidget;
-use Adultdate\Schedule\Enums\Frequency;
-use Adultdate\Schedule\Enums\ScheduleTypes;
-use Adultdate\Schedule\Models\Schedule;
-use Adultdate\Schedule\Concerns\HasHeaderActions;
-use Adultdate\Schedule\Filament\Widgets\Concerns\CanBeConfigured;
-use Adultdate\Schedule\Filament\Widgets\Concerns\InteractsWithRawJS;
-use Adultdate\Schedule\Filament\Widgets\Concerns\InteractsWithEvents;
-use Adultdate\Schedule\Concerns\HasSchema;
-use Adultdate\Schedule\Concerns\CanRefreshCalendar;
-use Adultdate\Schedule\Concerns\InteractsWithEventRecord;
-use Adultdate\Schedule\ValueObjects\DateClickInfo;
-use Adultdate\Schedule\ValueObjects\NoEventsClickInfo;
-
-use Adultdate\Schedule\Contracts\HasCalendar;
 
 class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
 {
-    use HasHeaderActions, CanBeConfigured, InteractsWithRawJS, InteractsWithEvents, HasSchema, CanRefreshCalendar, InteractsWithEventRecord, \Adultdate\Schedule\Concerns\InteractsWithCalendar, \Adultdate\Schedule\Concerns\HasOptions {
+    use \Adultdate\Schedule\Concerns\HasOptions, \Adultdate\Schedule\Concerns\InteractsWithCalendar, CanBeConfigured, CanRefreshCalendar, HasHeaderActions, HasSchema, InteractsWithEventRecord, InteractsWithEvents, InteractsWithRawJS {
         // Prefer the contract-compatible refreshRecords (chainable) from CanRefreshCalendar
         CanRefreshCalendar::refreshRecords insteadof InteractsWithEvents;
 
@@ -45,6 +43,7 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
         // Resolve getOptions collision: prefer HasOptions' getOptions which merges config and options
         \Adultdate\Schedule\Concerns\HasOptions::getOptions insteadof CanBeConfigured;
     }
+
     /**
      * Return FullCalendar config overrides for this widget.
      */
@@ -239,7 +238,6 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
                     $raw = $action->getData() ?: $action->getRawData();
 
                     // Debug: log the action data to inspect why periods may not be created
-
 
                     // Refresh calendar and notify user
                     $this->refreshRecords();
@@ -458,7 +456,6 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
 
         // Debug: record mount payload so we can inspect what the frontend supplied
 
-
         $this->mountAction('create', $payload);
 
         // Debug: inspect mountedActions last entry
@@ -477,9 +474,8 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
                 $args = $last['arguments'];
             }
 
-
         } catch (\Throwable $e) {
-            file_put_contents(storage_path('logs/schedule_mount_debug.log'), now()->toDateTimeString() . ' | mountedActions inspect failed: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+            file_put_contents(storage_path('logs/schedule_mount_debug.log'), now()->toDateTimeString().' | mountedActions inspect failed: '.$e->getMessage().PHP_EOL, FILE_APPEND);
         }
 
         // Ensure the modal syncs to open on the frontend
@@ -516,8 +512,6 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
             ],
         ];
 
-
-
         $this->mountAction('create', $payload);
 
         // Debug: inspect mountedActions last entry
@@ -545,8 +539,6 @@ class SchedulesCalendarWidget extends FullCalendarWidget implements HasCalendar
         $payload = [
             'type' => 'click',
         ];
-
-
 
         $this->mountAction('create', $payload);
 

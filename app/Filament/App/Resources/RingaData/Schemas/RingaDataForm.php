@@ -56,7 +56,7 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
-                                        ->collapsed(true)
+                    ->collapsed(true)
                     ->collapsible(true)
                     ->columnSpan(1),
 
@@ -84,7 +84,7 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
-                                        ->collapsed(true)
+                    ->collapsed(true)
                     ->collapsible(true)
                     ->columnSpan(1),
 
@@ -102,7 +102,7 @@ class RingaDataForm
                             ->columns(3),
                     ])
                     ->compact()
-                                        ->collapsed(true)
+                    ->collapsed(true)
                     ->collapsible(true)
                     ->columnSpan(1),
 

@@ -14,11 +14,14 @@ use App\Filament\Admin\Resources\Users\Schemas\UserForm;
 use App\Filament\Admin\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Admin\Resources\Users\Tables\UsersTable;
 use App\Models\User;
+use AymanAlhattami\FilamentPageWithSidebar\FilamentPageSidebar;
+use AymanAlhattami\FilamentPageWithSidebar\PageNavigationItem;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 use function __;
@@ -97,6 +100,25 @@ class UserResource extends Resource
         ];
     }
 
+    public static function sidebar(Model $record): FilamentPageSidebar
+    {
+        return FilamentPageSidebar::make()
+            ->setNavigationItems([
+                PageNavigationItem::make('View User')
+                    ->url(function () use ($record) {
+                        return static::getUrl('view', ['record' => $record->id]);
+                    }),
+                PageNavigationItem::make('Edit User')
+                    ->url(function () use ($record) {
+                        return static::getUrl('edit', ['record' => $record->id]);
+                    }),
+                PageNavigationItem::make('Create User')
+                    ->url(function () use ($record) {
+                        return static::getUrl('create', ['record' => $record->id]);
+                    }),
+            ]);
+    }
+
     public static function getPages(): array
     {
         return [
@@ -109,6 +131,6 @@ class UserResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return false;
+        return true;
     }
 }

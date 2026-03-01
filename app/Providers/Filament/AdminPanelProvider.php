@@ -11,6 +11,7 @@ use AlessandroNuunes\FilamentMember\MemberPlugin;
 use AlizHarb\ActivityLog\ActivityLogPlugin;
 use AlizHarb\ActivityLog\Widgets\LatestActivityWidget;
 use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
+use App\Filament\Admin\Pages\ControlPanel;
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
 use App\Filament\App\Pages\TeamInvitationAccept;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
@@ -23,19 +24,20 @@ use Awcodes\Overlook\OverlookPlugin;
 use Awcodes\Overlook\Widgets\OverlookWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
-use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
-use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
+use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Filament\Actions\Action;
 use Filament\AdvancedExport\AdvancedExportPlugin;
 use Filament\Enums\ThemeMode;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -58,10 +60,15 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
+use MmesDesign\FilamentFileManager\FileManagerPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+use Wallo\FilamentCompanies\FilamentCompanies;
+use Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens;
+use Wallo\FilamentCompanies\Pages\User\Profile;
 
+// use Rupadana\ApiService\ApiServicePlugin;
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -71,7 +78,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->viteTheme('resources/css/filament/admin/theme.css')
-            ->login()
+            // ->login(fn ($config) => $config
+            //     ->media(asset('video/853789-hd_1920_1080_25fps.mp4'))
+            // )
             ->colors([
                 'primary' => Color::Orange,
             ])
@@ -88,7 +97,6 @@ class AdminPanelProvider extends PanelProvider
             ->revealablePasswords(true)
             ->passwordReset()
             ->emailChangeVerification()
-            ->spa()
             ->spaUrlExceptions(['tel:*', 'mailto:*'])
             ->navigationGroups([
                 NavigationGroup::make('Boknings Kalendrar')
@@ -100,13 +108,16 @@ class AdminPanelProvider extends PanelProvider
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
-            ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
+            //    ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->discoverResources(in: app_path('../plugins/adultdate/filament-booking/src/Filament/Resources'), for: 'Adultdate\\FilamentBooking\\Filament\\Resources')
 
             ->pages([
                 Sanctum::class,
                 \App\Filament\App\Pages\TeamInvitationAccept::class,
+                Profile::class,
+                ControlPanel::class,
+                PersonalAccessTokens::class,
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             // ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
@@ -143,6 +154,14 @@ class AdminPanelProvider extends PanelProvider
                 FilamentEvolutionPlugin::make(),
                 MemberPlugin::make(),
                 AdvancedExportPlugin::make(),
+                //    ApiServicePlugin::make()
+            ])
+            ->plugins([
+                FileManagerPlugin::make()
+                    ->defaultDisk('public')
+                    ->navigationGroup('Content')
+                    ->navigationIcon('heroicon-o-folder')
+                    ->navigationSort(5),
             ])
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
@@ -153,9 +172,7 @@ class AdminPanelProvider extends PanelProvider
                     ->setTitle('Settings')
                     ->setNavigationLabel('Settings'),
             ])
-            ->plugins([
-
-            ])
+            ->plugins([])
             ->plugins([
                 OverlookPlugin::make()
                     ->sort(2)
@@ -168,6 +185,7 @@ class AdminPanelProvider extends PanelProvider
                         '2xl' => null,
                     ]),
             ])
+            ->plugin(CollapsibleSubnavPlugin::make())
             ->plugins([
                 //  WhatsappWidgetPlugin::make(),
             ])
@@ -195,14 +213,20 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugin(
                 AuthDesignerPlugin::make()
-                    ->login(
-                        fn (AuthPageConfig $config) => $config
-                            ->media(asset('assets/background.jpg'))
+                    ->defaults(
+                        fn ($config) => $config
+                            ->media(asset('assets/auth-bg.jpg'))
                             ->mediaPosition(MediaPosition::Cover)
-                            ->blur(1)
-                            ->themeToggle()
-                            ->renderHook(AuthDesignerRenderHook::CardBefore, fn () => view('filament.logo-auth'))
+                            ->blur(10)
                     )
+                    ->login(
+                        fn ($config) => $config
+                            ->media(asset('video/853789-hd_1920_1080_25fps.mp4'))
+                    )
+                    ->registration()
+                    ->passwordReset()
+                    ->emailVerification()
+                    ->themeToggle()
             )
             ->plugins([
                 FilamentEditProfilePlugin::make()
@@ -253,12 +277,43 @@ class AdminPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => Action::make('profile')
                     ->label(fn () => Str::ucfirst(Auth::user()->getNdsUserName()))
-                    ->url(fn (): string => EditProfilePage::getUrl(tenant: filament()->getTenant()))
+                    ->url(function (): string {
+                        $panel = Filament::getCurrentOrDefaultPanel();
+                        $tenant = filament()->getTenant();
+
+                        if (! $tenant) {
+                            $user = Filament::auth()->user();
+
+                            if ($user && method_exists($user, 'getDefaultTenant')) {
+                                $tenant = $user->getDefaultTenant($panel);
+                            }
+
+                            if (! $tenant && $user && method_exists($user, 'getTenants')) {
+                                $tenant = collect($user->getTenants($panel))->first();
+                            }
+                        }
+
+                        if ($tenant) {
+                            return EditProfilePage::getUrl(tenant: $tenant);
+                        }
+
+                        return $panel?->getUrl() ?? url('/');
+                    })
                     ->icon('heroicon-o-user-circle'),
                 Action::make('sanctum')
                     ->label(trans('Auth Tokens'))
                     ->url('/nds/admin/'.config('filament-sanctum.navigation.slug'))
                     ->icon(config('filament-sanctum.navigation.icon', 'heroicon-o-finger-print')),
+                Action::make('company')
+                    ->label('Company')
+                    ->icon('heroicon-o-building-office')
+                    ->url(static fn () => \App\Filament\Admin\Pages\Dashboard::getUrl(panel: FilamentCompanies::getCompanyPanel(), tenant: Auth::user()->personalCompany())),
+            ])
+            ->navigationItems([
+                NavigationItem::make('Personal Access Tokens')
+                    ->label(static fn (): string => __('filament-companies::default.navigation.links.tokens'))
+                    ->icon('heroicon-o-key')
+                    ->url(static fn () => PersonalAccessTokens::getUrl()),
             ])
             ->tenantMiddleware([
                 ApplyTenantScopes::class,

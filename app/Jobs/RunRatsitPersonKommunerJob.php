@@ -15,14 +15,12 @@ use Symfony\Component\Process\Process;
 
 class RunRatsitPersonKommunerJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
+    use Batchable, Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * @param array<int,string>|null $kommuner
+     * @param  array<int,string>|null  $kommuner
      */
-    public function __construct(public ?array $kommuner = null)
-    {
-    }
+    public function __construct(public ?array $kommuner = null) {}
 
     public function handle(): void
     {
@@ -47,7 +45,7 @@ class RunRatsitPersonKommunerJob implements ShouldQueue
             }
         });
 
-        if ($exitCode !== 0 || !$process->isSuccessful()) {
+        if ($exitCode !== 0 || ! $process->isSuccessful()) {
             Log::error('RunRatsitPersonKommunerJob failed', [
                 'exit_code' => $process->getExitCode(),
                 'output' => $process->getErrorOutput() ?: $process->getOutput(),

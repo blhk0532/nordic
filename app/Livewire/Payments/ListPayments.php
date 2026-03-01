@@ -70,42 +70,42 @@ class ListPayments extends Component implements HasActions, HasSchemas, HasTable
                 ]),
             ]))->extraAttributes(['class' => 'flex gap-3 '])
             ->recordActions([
-            Action::make('is_priority')
-                ->hiddenLabel()
-                ->icon(fn ($record) => $record->unpaidPayments->first()?->is_priority ? 'heroicon-s-shield-exclamation' : 'heroicon-o-shield-exclamation')
-                ->color(fn ($record) => $record->unpaidPayments->first()?->is_priority ? 'warning' : 'gray')
-                ->size('xl')
-                ->action(function ($record, Component $livewire) {
-                    $payment = $record->unpaidPayments()->orderBy('next_payment')->first();
-                    if ($payment) {
-                        $payment->is_priority = ! $payment->is_priority;
-                        $payment->save();
-                    }
-                    $livewire->dispatch('paymentPriority');
-                })
-                ->successNotification(function ($record) {
-                    $payment = $record->unpaidPayments()->orderBy('next_payment')->first();
-                    if ($payment && $payment->is_priority) {
-                        return Notification::make()
-                            ->success()
-                            ->title(__('Priority'))
-                            ->body(__('Added to priority list'));
-                    }
-                }),
-            Action::make('next_payment')
-                ->label(
-                    fn ($record): string => $record->payments?->where('status', PaymentStatus::PAID)->count() ?? 0
-                )->icon('heroicon-m-currency-dollar')
-                ->color('gray')
-                ->url(fn ($record) => IncomeResource::getUrl('payments', ['record' => $record->income_id])),
-            ActionGroup::make([
-                Action::make('view')
-                    ->url(fn (Income $record): string => IncomeResource::getUrl('view', ['record' => $record->income_id]))
+                Action::make('is_priority')
                     ->hiddenLabel()
-                    ->icon('heroicon-o-eye')
-                    ->color('primary'),
-            ]),
-        ])
+                    ->icon(fn ($record) => $record->unpaidPayments->first()?->is_priority ? 'heroicon-s-shield-exclamation' : 'heroicon-o-shield-exclamation')
+                    ->color(fn ($record) => $record->unpaidPayments->first()?->is_priority ? 'warning' : 'gray')
+                    ->size('xl')
+                    ->action(function ($record, Component $livewire) {
+                        $payment = $record->unpaidPayments()->orderBy('next_payment')->first();
+                        if ($payment) {
+                            $payment->is_priority = ! $payment->is_priority;
+                            $payment->save();
+                        }
+                        $livewire->dispatch('paymentPriority');
+                    })
+                    ->successNotification(function ($record) {
+                        $payment = $record->unpaidPayments()->orderBy('next_payment')->first();
+                        if ($payment && $payment->is_priority) {
+                            return Notification::make()
+                                ->success()
+                                ->title(__('Priority'))
+                                ->body(__('Added to priority list'));
+                        }
+                    }),
+                Action::make('next_payment')
+                    ->label(
+                        fn ($record): string => $record->payments?->where('status', PaymentStatus::PAID)->count() ?? 0
+                    )->icon('heroicon-m-currency-dollar')
+                    ->color('gray')
+                    ->url(fn ($record) => IncomeResource::getUrl('payments', ['record' => $record->income_id])),
+                ActionGroup::make([
+                    Action::make('view')
+                        ->url(fn (Income $record): string => IncomeResource::getUrl('view', ['record' => $record->income_id]))
+                        ->hiddenLabel()
+                        ->icon('heroicon-o-eye')
+                        ->color('primary'),
+                ]),
+            ])
             ->emptyStateDescription(fn () => $this->getEmptyState());
     }
 

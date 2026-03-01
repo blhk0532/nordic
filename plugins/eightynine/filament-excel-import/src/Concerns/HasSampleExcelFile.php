@@ -13,7 +13,7 @@ trait HasSampleExcelFile
 
     protected $defaultExportClass = SampleExcelExport::class;
 
-    protected string | array | null $sampleData = null;
+    protected string|array|null $sampleData = null;
 
     protected ?string $sampleButtonLabel = null;
 
@@ -37,7 +37,7 @@ trait HasSampleExcelFile
         $this->defaultExportClass = $class;
     }
 
-    public function setSampleData(string | array $data)
+    public function setSampleData(string|array $data)
     {
         if (is_string($data)) {
             $this->sampleData = $data;

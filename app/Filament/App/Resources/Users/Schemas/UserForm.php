@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\Users\Schemas;
 
-use DateTime;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\Textarea;
 
 use function filled;
 
@@ -47,8 +46,8 @@ class UserForm
                             ->string(),
                         Select::make('current_team_id')
                             ->label('Team')
-                            ->options(fn() => \App\Models\Team::query()->pluck('name', 'id')->toArray())
-                            ->required(fn(string $context): bool => $context === 'create')
+                            ->options(fn () => \App\Models\Team::query()->pluck('name', 'id')->toArray())
+                            ->required(fn (string $context): bool => $context === 'create')
                             ->searchable()
                             ->columnSpan(1),
                         TextInput::make('role')
@@ -84,14 +83,14 @@ class UserForm
                             ->password()
                             ->confirmed()
                             ->label('Skapa Lösenord')
-                            ->required(fn(string $context): bool => $context === 'create')
-                            ->dehydrated(fn($state) => filled($state))
+                            ->required(fn (string $context): bool => $context === 'create')
+                            ->dehydrated(fn ($state) => filled($state))
                             ->minLength(6)
                             ->columnSpan(1),
                         TextInput::make('password_confirmation')
                             ->password()
                             ->label('Bekräfta Lösenord')
-                            ->required(fn(string $context): bool => $context === 'create')
+                            ->required(fn (string $context): bool => $context === 'create')
                             ->same('password')
                             ->dehydrated(false)
                             ->columnSpan(1),
@@ -99,11 +98,11 @@ class UserForm
                             ->label('Teamleader')
                             ->hidden()
                             ->required()
-                            ->default(fn() => Auth::user()?->id),
+                            ->default(fn () => Auth::user()?->id),
                         TextInput::make('author_id')
                             ->label('Skapad av')
                             ->hidden()
-                            ->default(fn() => Auth::user()?->id)
+                            ->default(fn () => Auth::user()?->id)
                             ->required(),
                         Toggle::make('status')
                             ->label('Användarstatus')

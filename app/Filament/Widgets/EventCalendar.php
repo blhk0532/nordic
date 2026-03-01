@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\Widgets;
 
-use App\Enums\Priority;
-use App\Models\Meeting;
-use App\Models\Sprint;
-use Filament\Notifications\Notification;
-use Filament\Schemas\Schema;
 use Adultdate\FilamentBooking\Attributes\CalendarEventContent;
 use Adultdate\FilamentBooking\Filament\Actions\CreateAction;
 use Adultdate\FilamentBooking\Filament\Widgets\CalendarWidget;
@@ -17,11 +12,15 @@ use Adultdate\FilamentBooking\ValueObjects\DateSelectInfo;
 use Adultdate\FilamentBooking\ValueObjects\EventDropInfo;
 use Adultdate\FilamentBooking\ValueObjects\EventResizeInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
+use App\Enums\Priority;
+use App\Models\Meeting;
+use App\Models\Sprint;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Schema;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\HtmlString;
-use Illuminate\Contracts\Support\Htmlable;
 
 class EventCalendar extends CalendarWidget
 {

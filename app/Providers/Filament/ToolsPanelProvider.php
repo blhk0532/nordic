@@ -14,7 +14,6 @@ use BezhanSalleh\FilamentExceptions\FilamentExceptionsPlugin;
 use BinaryBuilds\CommandRunner\CommandRunnerPlugin;
 use BinaryBuilds\FilamentCacheManager\FilamentCacheManagerPlugin;
 use BinaryBuilds\FilamentFailedJobs\FilamentFailedJobsPlugin;
-use Bytexr\QueueableBulkActions\Enums\StatusEnum;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
@@ -128,7 +127,7 @@ class ToolsPanelProvider extends PanelProvider
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
                     ]),
             ])
-                        ->plugins([
+            ->plugins([
                 FilamentBookingPlugin::make(),
                 //   FilamentDialerPlugin::make(),
 

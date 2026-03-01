@@ -16,9 +16,10 @@ class ListUsers extends ListRecords
 
     protected function getHeaderActions(): array
     {
-                FilamentAsset::register([
+        FilamentAsset::register([
             Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
         ]);
+
         return [
             CreateAction::make(),
         ];

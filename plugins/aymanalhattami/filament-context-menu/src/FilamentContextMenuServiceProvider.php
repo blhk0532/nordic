@@ -45,7 +45,7 @@ class FilamentContextMenuServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            Css::make('filament-context-menu-styles', __DIR__ . '/../resources/dist/app.css'),
+            Css::make('filament-context-menu-styles', __DIR__.'/../resources/dist/app.css'),
         ];
     }
 }

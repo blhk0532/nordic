@@ -22,7 +22,7 @@ trait PageHasContextMenu
         foreach ($this->getContextMenuActions() as $action) {
 
             if (! $action instanceof Action and ! $action instanceof ContextMenuDivider) {
-                throw new InvalidArgumentException('context menu action must be an instance of ' . Action::class . '.');
+                throw new InvalidArgumentException('context menu action must be an instance of '.Action::class.'.');
             }
 
             if ($action instanceof Action or $action instanceof ContextMenuDivider) {

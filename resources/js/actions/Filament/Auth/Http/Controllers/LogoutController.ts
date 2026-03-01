@@ -2,6 +2,61 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/company/logout'
+*/
+const LogoutController5361a83363c689bf8889554704e855ff = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController5361a83363c689bf8889554704e855ff.url(options),
+    method: 'post',
+})
+
+LogoutController5361a83363c689bf8889554704e855ff.definition = {
+    methods: ["post"],
+    url: '/company/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/company/logout'
+*/
+LogoutController5361a83363c689bf8889554704e855ff.url = (options?: RouteQueryOptions) => {
+    return LogoutController5361a83363c689bf8889554704e855ff.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/company/logout'
+*/
+LogoutController5361a83363c689bf8889554704e855ff.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController5361a83363c689bf8889554704e855ff.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/company/logout'
+*/
+const LogoutController5361a83363c689bf8889554704e855ffForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController5361a83363c689bf8889554704e855ff.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/company/logout'
+*/
+LogoutController5361a83363c689bf8889554704e855ffForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController5361a83363c689bf8889554704e855ff.url(options),
+    method: 'post',
+})
+
+LogoutController5361a83363c689bf8889554704e855ff.form = LogoutController5361a83363c689bf8889554704e855ffForm
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
 * @route '/admin/logout'
 */
 const LogoutController0bf9725898bf54069779505e96ede62a = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -57,61 +112,6 @@ LogoutController0bf9725898bf54069779505e96ede62a.form = LogoutController0bf97258
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/queue/logout'
-*/
-const LogoutControllerf37681deee5f912497ff6b81f0c75663 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
-    method: 'post',
-})
-
-LogoutControllerf37681deee5f912497ff6b81f0c75663.definition = {
-    methods: ["post"],
-    url: '/nds/queue/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/queue/logout'
-*/
-LogoutControllerf37681deee5f912497ff6b81f0c75663.url = (options?: RouteQueryOptions) => {
-    return LogoutControllerf37681deee5f912497ff6b81f0c75663.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/queue/logout'
-*/
-LogoutControllerf37681deee5f912497ff6b81f0c75663.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/queue/logout'
-*/
-const LogoutControllerf37681deee5f912497ff6b81f0c75663Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/queue/logout'
-*/
-LogoutControllerf37681deee5f912497ff6b81f0c75663Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
-    method: 'post',
-})
-
-LogoutControllerf37681deee5f912497ff6b81f0c75663.form = LogoutControllerf37681deee5f912497ff6b81f0c75663Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
 * @route '/nds/app/logout'
 */
 const LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -164,281 +164,6 @@ LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0Form.post = (options?: RouteQuer
 })
 
 LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0.form = LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/chat/logout'
-*/
-const LogoutController6d99f95171113852cdc5e550e9357ae3 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
-    method: 'post',
-})
-
-LogoutController6d99f95171113852cdc5e550e9357ae3.definition = {
-    methods: ["post"],
-    url: '/nds/chat/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/chat/logout'
-*/
-LogoutController6d99f95171113852cdc5e550e9357ae3.url = (options?: RouteQueryOptions) => {
-    return LogoutController6d99f95171113852cdc5e550e9357ae3.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/chat/logout'
-*/
-LogoutController6d99f95171113852cdc5e550e9357ae3.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/chat/logout'
-*/
-const LogoutController6d99f95171113852cdc5e550e9357ae3Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/chat/logout'
-*/
-LogoutController6d99f95171113852cdc5e550e9357ae3Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
-    method: 'post',
-})
-
-LogoutController6d99f95171113852cdc5e550e9357ae3.form = LogoutController6d99f95171113852cdc5e550e9357ae3Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/data/logout'
-*/
-const LogoutControllere848646e390171f04c4c32e122013cb4 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
-    method: 'post',
-})
-
-LogoutControllere848646e390171f04c4c32e122013cb4.definition = {
-    methods: ["post"],
-    url: '/nds/data/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/data/logout'
-*/
-LogoutControllere848646e390171f04c4c32e122013cb4.url = (options?: RouteQueryOptions) => {
-    return LogoutControllere848646e390171f04c4c32e122013cb4.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/data/logout'
-*/
-LogoutControllere848646e390171f04c4c32e122013cb4.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/data/logout'
-*/
-const LogoutControllere848646e390171f04c4c32e122013cb4Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/data/logout'
-*/
-LogoutControllere848646e390171f04c4c32e122013cb4Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
-    method: 'post',
-})
-
-LogoutControllere848646e390171f04c4c32e122013cb4.form = LogoutControllere848646e390171f04c4c32e122013cb4Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/notify/logout'
-*/
-const LogoutController026e1cf25c4e7674def5b0b18b607b40 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
-    method: 'post',
-})
-
-LogoutController026e1cf25c4e7674def5b0b18b607b40.definition = {
-    methods: ["post"],
-    url: '/nds/notify/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/notify/logout'
-*/
-LogoutController026e1cf25c4e7674def5b0b18b607b40.url = (options?: RouteQueryOptions) => {
-    return LogoutController026e1cf25c4e7674def5b0b18b607b40.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/notify/logout'
-*/
-LogoutController026e1cf25c4e7674def5b0b18b607b40.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/notify/logout'
-*/
-const LogoutController026e1cf25c4e7674def5b0b18b607b40Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/notify/logout'
-*/
-LogoutController026e1cf25c4e7674def5b0b18b607b40Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
-    method: 'post',
-})
-
-LogoutController026e1cf25c4e7674def5b0b18b607b40.form = LogoutController026e1cf25c4e7674def5b0b18b607b40Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/tools/logout'
-*/
-const LogoutControllere6759533942afb3f121a54c72f3febc5 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
-    method: 'post',
-})
-
-LogoutControllere6759533942afb3f121a54c72f3febc5.definition = {
-    methods: ["post"],
-    url: '/nds/tools/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/tools/logout'
-*/
-LogoutControllere6759533942afb3f121a54c72f3febc5.url = (options?: RouteQueryOptions) => {
-    return LogoutControllere6759533942afb3f121a54c72f3febc5.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/tools/logout'
-*/
-LogoutControllere6759533942afb3f121a54c72f3febc5.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/tools/logout'
-*/
-const LogoutControllere6759533942afb3f121a54c72f3febc5Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/tools/logout'
-*/
-LogoutControllere6759533942afb3f121a54c72f3febc5Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
-    method: 'post',
-})
-
-LogoutControllere6759533942afb3f121a54c72f3febc5.form = LogoutControllere6759533942afb3f121a54c72f3febc5Form
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/super/logout'
-*/
-const LogoutControllerc774ada4a7dc10370bd82336bcd7ca46 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
-    method: 'post',
-})
-
-LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.definition = {
-    methods: ["post"],
-    url: '/nds/super/logout',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/super/logout'
-*/
-LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url = (options?: RouteQueryOptions) => {
-    return LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.definition.url + queryParams(options)
-}
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/super/logout'
-*/
-LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/super/logout'
-*/
-const LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
-* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
-* @route '/nds/super/logout'
-*/
-LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
-    method: 'post',
-})
-
-LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.form = LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
@@ -552,6 +277,116 @@ LogoutController9eabaffca029a7389f312e0cd21a2228.form = LogoutController9eabaffc
 /**
 * @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
 * @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/chat/logout'
+*/
+const LogoutController6d99f95171113852cdc5e550e9357ae3 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
+    method: 'post',
+})
+
+LogoutController6d99f95171113852cdc5e550e9357ae3.definition = {
+    methods: ["post"],
+    url: '/nds/chat/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/chat/logout'
+*/
+LogoutController6d99f95171113852cdc5e550e9357ae3.url = (options?: RouteQueryOptions) => {
+    return LogoutController6d99f95171113852cdc5e550e9357ae3.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/chat/logout'
+*/
+LogoutController6d99f95171113852cdc5e550e9357ae3.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/chat/logout'
+*/
+const LogoutController6d99f95171113852cdc5e550e9357ae3Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/chat/logout'
+*/
+LogoutController6d99f95171113852cdc5e550e9357ae3Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController6d99f95171113852cdc5e550e9357ae3.url(options),
+    method: 'post',
+})
+
+LogoutController6d99f95171113852cdc5e550e9357ae3.form = LogoutController6d99f95171113852cdc5e550e9357ae3Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/data/logout'
+*/
+const LogoutControllere848646e390171f04c4c32e122013cb4 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
+    method: 'post',
+})
+
+LogoutControllere848646e390171f04c4c32e122013cb4.definition = {
+    methods: ["post"],
+    url: '/nds/data/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/data/logout'
+*/
+LogoutControllere848646e390171f04c4c32e122013cb4.url = (options?: RouteQueryOptions) => {
+    return LogoutControllere848646e390171f04c4c32e122013cb4.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/data/logout'
+*/
+LogoutControllere848646e390171f04c4c32e122013cb4.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/data/logout'
+*/
+const LogoutControllere848646e390171f04c4c32e122013cb4Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/data/logout'
+*/
+LogoutControllere848646e390171f04c4c32e122013cb4Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllere848646e390171f04c4c32e122013cb4.url(options),
+    method: 'post',
+})
+
+LogoutControllere848646e390171f04c4c32e122013cb4.form = LogoutControllere848646e390171f04c4c32e122013cb4Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
 * @route '/nds/email/logout'
 */
 const LogoutController40e3909a2956063ab3614f5bd85b27e5 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -659,20 +494,241 @@ LogoutControllerb447e18e3f7d72c385564caf398bb5d7Form.post = (options?: RouteQuer
 })
 
 LogoutControllerb447e18e3f7d72c385564caf398bb5d7.form = LogoutControllerb447e18e3f7d72c385564caf398bb5d7Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/notify/logout'
+*/
+const LogoutController026e1cf25c4e7674def5b0b18b607b40 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
+    method: 'post',
+})
+
+LogoutController026e1cf25c4e7674def5b0b18b607b40.definition = {
+    methods: ["post"],
+    url: '/nds/notify/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/notify/logout'
+*/
+LogoutController026e1cf25c4e7674def5b0b18b607b40.url = (options?: RouteQueryOptions) => {
+    return LogoutController026e1cf25c4e7674def5b0b18b607b40.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/notify/logout'
+*/
+LogoutController026e1cf25c4e7674def5b0b18b607b40.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/notify/logout'
+*/
+const LogoutController026e1cf25c4e7674def5b0b18b607b40Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/notify/logout'
+*/
+LogoutController026e1cf25c4e7674def5b0b18b607b40Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutController026e1cf25c4e7674def5b0b18b607b40.url(options),
+    method: 'post',
+})
+
+LogoutController026e1cf25c4e7674def5b0b18b607b40.form = LogoutController026e1cf25c4e7674def5b0b18b607b40Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/queue/logout'
+*/
+const LogoutControllerf37681deee5f912497ff6b81f0c75663 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
+    method: 'post',
+})
+
+LogoutControllerf37681deee5f912497ff6b81f0c75663.definition = {
+    methods: ["post"],
+    url: '/nds/queue/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/queue/logout'
+*/
+LogoutControllerf37681deee5f912497ff6b81f0c75663.url = (options?: RouteQueryOptions) => {
+    return LogoutControllerf37681deee5f912497ff6b81f0c75663.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/queue/logout'
+*/
+LogoutControllerf37681deee5f912497ff6b81f0c75663.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/queue/logout'
+*/
+const LogoutControllerf37681deee5f912497ff6b81f0c75663Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/queue/logout'
+*/
+LogoutControllerf37681deee5f912497ff6b81f0c75663Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerf37681deee5f912497ff6b81f0c75663.url(options),
+    method: 'post',
+})
+
+LogoutControllerf37681deee5f912497ff6b81f0c75663.form = LogoutControllerf37681deee5f912497ff6b81f0c75663Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/super/logout'
+*/
+const LogoutControllerc774ada4a7dc10370bd82336bcd7ca46 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
+    method: 'post',
+})
+
+LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.definition = {
+    methods: ["post"],
+    url: '/nds/super/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/super/logout'
+*/
+LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url = (options?: RouteQueryOptions) => {
+    return LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/super/logout'
+*/
+LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/super/logout'
+*/
+const LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/super/logout'
+*/
+LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.url(options),
+    method: 'post',
+})
+
+LogoutControllerc774ada4a7dc10370bd82336bcd7ca46.form = LogoutControllerc774ada4a7dc10370bd82336bcd7ca46Form
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/tools/logout'
+*/
+const LogoutControllere6759533942afb3f121a54c72f3febc5 = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
+    method: 'post',
+})
+
+LogoutControllere6759533942afb3f121a54c72f3febc5.definition = {
+    methods: ["post"],
+    url: '/nds/tools/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/tools/logout'
+*/
+LogoutControllere6759533942afb3f121a54c72f3febc5.url = (options?: RouteQueryOptions) => {
+    return LogoutControllere6759533942afb3f121a54c72f3febc5.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/tools/logout'
+*/
+LogoutControllere6759533942afb3f121a54c72f3febc5.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/tools/logout'
+*/
+const LogoutControllere6759533942afb3f121a54c72f3febc5Form = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Filament\Auth\Http\Controllers\LogoutController::__invoke
+* @see vendor/filament/filament/src/Auth/Http/Controllers/LogoutController.php:10
+* @route '/nds/tools/logout'
+*/
+LogoutControllere6759533942afb3f121a54c72f3febc5Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: LogoutControllere6759533942afb3f121a54c72f3febc5.url(options),
+    method: 'post',
+})
+
+LogoutControllere6759533942afb3f121a54c72f3febc5.form = LogoutControllere6759533942afb3f121a54c72f3febc5Form
 
 const LogoutController = {
+    '/company/logout': LogoutController5361a83363c689bf8889554704e855ff,
     '/admin/logout': LogoutController0bf9725898bf54069779505e96ede62a,
-    '/nds/queue/logout': LogoutControllerf37681deee5f912497ff6b81f0c75663,
     '/nds/app/logout': LogoutControllerf5fce2ca4f895b01c2e14b2b095e24e0,
-    '/nds/chat/logout': LogoutController6d99f95171113852cdc5e550e9357ae3,
-    '/nds/data/logout': LogoutControllere848646e390171f04c4c32e122013cb4,
-    '/nds/notify/logout': LogoutController026e1cf25c4e7674def5b0b18b607b40,
-    '/nds/tools/logout': LogoutControllere6759533942afb3f121a54c72f3febc5,
-    '/nds/super/logout': LogoutControllerc774ada4a7dc10370bd82336bcd7ca46,
     '/nds/booking/logout': LogoutController32f7b076a93df452ecde5dbbf0f9876a,
     '/nds/calendar/logout': LogoutController9eabaffca029a7389f312e0cd21a2228,
+    '/nds/chat/logout': LogoutController6d99f95171113852cdc5e550e9357ae3,
+    '/nds/data/logout': LogoutControllere848646e390171f04c4c32e122013cb4,
     '/nds/email/logout': LogoutController40e3909a2956063ab3614f5bd85b27e5,
     '/nds/files/logout': LogoutControllerb447e18e3f7d72c385564caf398bb5d7,
+    '/nds/notify/logout': LogoutController026e1cf25c4e7674def5b0b18b607b40,
+    '/nds/queue/logout': LogoutControllerf37681deee5f912497ff6b81f0c75663,
+    '/nds/super/logout': LogoutControllerc774ada4a7dc10370bd82336bcd7ca46,
+    '/nds/tools/logout': LogoutControllere6759533942afb3f121a54c72f3febc5,
 }
 
 export default LogoutController

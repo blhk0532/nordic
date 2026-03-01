@@ -80,7 +80,7 @@ class ExcelImportRelationshipAction extends Action
                 };
 
                 $notification->send();
-                
+
                 return false;
             }
         };

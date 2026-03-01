@@ -25,9 +25,7 @@ class RunRatsitPersonAdressJob implements ShouldQueue
      */
     public int $timeout = 3600;
 
-    public function __construct(public ?int $ratsitAdressId = null, public ?string $url = null)
-    {
-    }
+    public function __construct(public ?int $ratsitAdressId = null, public ?string $url = null) {}
 
     public function handle(): void
     {
@@ -43,6 +41,7 @@ class RunRatsitPersonAdressJob implements ShouldQueue
 
             if (! $record) {
                 Log::error('RatsitAdress record not found and no URL provided', ['id' => $this->ratsitAdressId]);
+
                 return;
             }
 
@@ -59,7 +58,7 @@ class RunRatsitPersonAdressJob implements ShouldQueue
                 $link = (string) $record->personer_link;
                 // If relative path, prefix with domain
                 if (str_starts_with($link, '/')) {
-                    $url = 'https://www.ratsit.se' . $link;
+                    $url = 'https://www.ratsit.se'.$link;
                 } elseif (filter_var($link, FILTER_VALIDATE_URL)) {
                     $url = $link;
                 }
@@ -76,10 +75,10 @@ class RunRatsitPersonAdressJob implements ShouldQueue
         }
 
         $projectRoot = base_path();
-        $script = $projectRoot . '/jobs/ratsit_person_adresser.mjs';
+        $script = $projectRoot.'/jobs/ratsit_person_adresser.mjs';
 
         // Build a shell command that mirrors running it in the terminal
-        $command = sprintf("node %s %s", escapeshellarg($script), escapeshellarg($url));
+        $command = sprintf('node %s %s', escapeshellarg($script), escapeshellarg($url));
         // Use bash -lc so the command runs through the shell (like a terminal)
         $process = new Process(['bash', '-lc', $command], $projectRoot);
         $process->setTimeout(36000);
@@ -96,7 +95,7 @@ class RunRatsitPersonAdressJob implements ShouldQueue
                 $probe->run();
                 $nodeVersion = trim($probe->getOutput());
             } catch (\Throwable $probeEx) {
-                $nodeVersion = 'node probe failed: ' . $probeEx->getMessage();
+                $nodeVersion = 'node probe failed: '.$probeEx->getMessage();
             }
 
             Log::debug('Node probe', ['version' => $nodeVersion]);
@@ -111,12 +110,12 @@ class RunRatsitPersonAdressJob implements ShouldQueue
             Log::debug('Ratsit scraper process finished', ['exit' => $exit, 'stdout_snippet' => substr($stdout, 0, 2000), 'stderr_snippet' => substr($stderr, 0, 2000)]);
 
             if ($process->isSuccessful()) {
-                Log::info('Ratsit scraper completed for id ' . $this->ratsitAdressId . ': ' . $stdout);
+                Log::info('Ratsit scraper completed for id '.$this->ratsitAdressId.': '.$stdout);
             } else {
-                Log::error('Ratsit scraper failed for id ' . $this->ratsitAdressId . ': ' . $stderr);
+                Log::error('Ratsit scraper failed for id '.$this->ratsitAdressId.': '.$stderr);
             }
         } catch (\Throwable $e) {
-            Log::error('Ratsit scraper exception for id ' . $this->ratsitAdressId . ': ' . $e->getMessage());
+            Log::error('Ratsit scraper exception for id '.$this->ratsitAdressId.': '.$e->getMessage());
         }
     }
 }

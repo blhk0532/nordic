@@ -59,9 +59,6 @@ class TextInputEntry extends TextEntry
         return $this->rules;
     }
 
-    /**
-     * @param  bool|Closure  $editable
-     */
     public function editable(bool|Closure $editable): static
     {
         $this->editable = $editable;
@@ -84,8 +81,6 @@ class TextInputEntry extends TextEntry
 
     /**
      * Control whether to show border during edit.
-     *
-     * @param  bool|Closure  $showBorder
      */
     public function border(bool|Closure $showBorder = true): static
     {
@@ -147,7 +142,7 @@ class TextInputEntry extends TextEntry
 
         $styles = FilamentColor::getComponentCustomStyles(ItemComponent::class, $color);
 
-        return implode('; ', array_map(fn($key, $value) => "{$key}: {$value}", array_keys($styles), $styles));
+        return implode('; ', array_map(fn ($key, $value) => "{$key}: {$value}", array_keys($styles), $styles));
     }
 
     /**
@@ -186,4 +181,3 @@ class TextInputEntry extends TextEntry
         return $this->getIconPosition();
     }
 }
-

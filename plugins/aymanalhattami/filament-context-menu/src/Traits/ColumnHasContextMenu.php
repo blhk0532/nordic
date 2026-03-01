@@ -8,11 +8,11 @@ use Filament\Actions\ActionGroup;
 
 trait ColumnHasContextMenu
 {
-    protected Closure | bool $contextMenuEnabled = true;
+    protected Closure|bool $contextMenuEnabled = true;
 
     public const GROUPED_VIEW = 'filament::components.dropdown.list.item';
 
-    protected Closure | array $contextMenuActions = [];
+    protected Closure|array $contextMenuActions = [];
 
     protected function setUp(): void
     {
@@ -29,7 +29,7 @@ trait ColumnHasContextMenu
         );
 
         return array_map(
-            fn (Action | ActionGroup $action) => match (true) {
+            fn (Action|ActionGroup $action) => match (true) {
                 $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
                 $action instanceof ActionGroup => $action->defaultTriggerView(ActionGroup::GROUPED_VIEW),
             },
@@ -37,7 +37,7 @@ trait ColumnHasContextMenu
         );
     }
 
-    public function contextMenuActions(array | Closure $contextMenuActions): static
+    public function contextMenuActions(array|Closure $contextMenuActions): static
     {
         $this->contextMenuActions = $contextMenuActions;
 
@@ -58,7 +58,7 @@ trait ColumnHasContextMenu
             ->color('gray');
     }
 
-    public function enableContextMenu(bool | Closure $contextMenuEnabled = true): static
+    public function enableContextMenu(bool|Closure $contextMenuEnabled = true): static
     {
         $this->contextMenuEnabled = $contextMenuEnabled;
 

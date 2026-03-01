@@ -78,7 +78,7 @@ class ExcelImportServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-excel-import/{$file->getFilename()}"),
                 ], 'filament-excel-import-stubs');
@@ -101,12 +101,12 @@ class ExcelImportServiceProvider extends PackageServiceProvider
     {
         $assets = [
             // AlpineComponent::make('filament-excel-import', __DIR__ . '/../resources/dist/components/filament-excel-import.js'),
-            Js::make('filament-excel-import-scripts', __DIR__ . '/../resources/dist/filament-excel-import.js'),
+            Js::make('filament-excel-import-scripts', __DIR__.'/../resources/dist/filament-excel-import.js'),
         ];
 
         // Only load stylesheet if explicitly enabled in config
         if (config('excel-import.load_stylesheet', false)) {
-            $assets[] = Css::make('filament-excel-import-styles', __DIR__ . '/../resources/dist/filament-excel-import.css');
+            $assets[] = Css::make('filament-excel-import-styles', __DIR__.'/../resources/dist/filament-excel-import.css');
         }
 
         return $assets;

@@ -7,9 +7,6 @@ namespace App\Filament\Widgets;
 use SolutionForest\TabLayoutPlugin\Components\Tabs;
 use SolutionForest\TabLayoutPlugin\Components\Tabs\Tab as TabLayoutTab;
 use SolutionForest\TabLayoutPlugin\Widgets\TabsWidget as BaseWidget;
-use App\Filament\Widgets\CalendarWidget;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\LivewireContainer;
 
 class MyRinglistaWidget extends BaseWidget
 {
@@ -24,9 +21,9 @@ class MyRinglistaWidget extends BaseWidget
         return [
             TabLayoutTab::make('Overview')
                 ->icon('heroicon-o-home')
-            ->schema([
-                CalendarWidget::make(),
-            ]),
+                ->schema([
+                    CalendarWidget::make(),
+                ]),
             TabLayoutTab::make('Statistics')
                 ->icon('heroicon-o-chart-bar')
                 ->badge('New')

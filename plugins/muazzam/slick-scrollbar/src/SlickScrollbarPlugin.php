@@ -2,22 +2,30 @@
 
 namespace Muazzam\SlickScrollbar;
 
-use Filament\Panel;
 use Filament\Contracts\Plugin;
+use Filament\Panel;
 use Filament\Support\Colors\Color;
-use Filament\View\PanelsRenderHook;
-use Filament\Support\Facades\FilamentView;
 use Filament\Support\Facades\FilamentColor;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 
 class SlickScrollbarPlugin implements Plugin
 {
-    protected ?string $thumb = "#f59e0b";       // final CSS color token
+    protected ?string $thumb = '#f59e0b';       // final CSS color token
+
     protected ?string $thumbHover = null;  // final CSS color token
+
     protected string $size = '8px';
 
-    public static function make(): static { return new static(); }
+    public static function make(): static
+    {
+        return new static;
+    }
 
-    public function getId(): string { return 'slick-scrollbar'; }
+    public function getId(): string
+    {
+        return 'slick-scrollbar';
+    }
 
     public function register(Panel $panel): void
     {
@@ -38,8 +46,8 @@ class SlickScrollbarPlugin implements Plugin
                 ?? '#0891b2';   // cyan-600 fallback
 
             return '<style>:root'
-                . "{--sb-size: {$this->size};--sb-thumb: {$thumb};--sb-thumb-hover: {$thumbHover};}"
-                . '</style>';
+                ."{--sb-size: {$this->size};--sb-thumb: {$thumb};--sb-thumb-hover: {$thumbHover};}"
+                .'</style>';
         });
     }
 
@@ -47,6 +55,7 @@ class SlickScrollbarPlugin implements Plugin
     protected function shade(string $name, int $shade): ?string
     {
         $colors = FilamentColor::getColors(); // ['primary' => [50=>..., 500=>...], 'secondary'=>...]
+
         return $colors[$name][$shade] ?? null;
     }
 
@@ -58,26 +67,30 @@ class SlickScrollbarPlugin implements Plugin
         if ($this->thumbHover === null && is_array($value)) {
             $this->thumbHover = $this->normalizeColorInput($value, 600);
         }
+
         return $this;
     }
 
     public function hoverColor(string|array $value, int $shade = 600): static
     {
         $this->thumbHover = $this->normalizeColorInput($value, $shade);
+
         return $this;
     }
 
     public function size(string $value): static
     {
         $this->size = $value;
+
         return $this;
     }
 
     /** Force using a panel palette by name: 'primary' or 'secondary' */
     public function palette(string $name = 'primary'): static
     {
-        $this->thumb      = "var(--{$name}-500)";
+        $this->thumb = "var(--{$name}-500)";
         $this->thumbHover = "var(--{$name}-600)";
+
         return $this;
     }
 
@@ -91,6 +104,7 @@ class SlickScrollbarPlugin implements Plugin
             }
             // Fallback: first available shade
             $first = reset($value);
+
             return is_string($first) ? $first : '#f59e0b';
         }
 

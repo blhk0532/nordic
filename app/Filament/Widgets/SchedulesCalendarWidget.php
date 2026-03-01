@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Widgets;
 
+use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Carbon\Carbon;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\CodeEditor;
@@ -15,7 +16,6 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
 use Throwable;
 use Zap\Enums\Frequency;
 use Zap\Enums\ScheduleTypes;

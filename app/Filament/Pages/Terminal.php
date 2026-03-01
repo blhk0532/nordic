@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Filament\Pages;
 
+use BackedEnum;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use MWGuerra\WebTerminal\Filament\Pages\Terminal as BaseTerminal;
 use MWGuerra\WebTerminal\Schemas\Components\WebTerminal;
-use BackedEnum;
 use UnitEnum;
 
 class Terminal extends BaseTerminal

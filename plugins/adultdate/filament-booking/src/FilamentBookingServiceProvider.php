@@ -20,7 +20,6 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use App\Livewire\ManusIconModal;
 
 class FilamentBookingServiceProvider extends PackageServiceProvider
 {
@@ -393,8 +392,8 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
 
     protected function registerLivewireComponents(): void
     {
-       \Livewire\Livewire::component('manus-icon-modal', \App\Livewire\ManusIconModal::class);
-  }
+        \Livewire\Livewire::component('manus-icon-modal', \App\Livewire\ManusIconModal::class);
+    }
 
     protected function createStorageLinks(): void
     {
@@ -425,7 +424,7 @@ class FilamentBookingServiceProvider extends PackageServiceProvider
         app('router')->get('/storage/product-images/{mediaId}/conversions/{conversionName}', function ($mediaId, $conversionName) {
             $media = Media::findOrFail($mediaId);
 
-                if ($media->hasGeneratedConversion($conversionName)) {
+            if ($media->hasGeneratedConversion($conversionName)) {
                 return response()->file($media->getPath($conversionName));
             }
 

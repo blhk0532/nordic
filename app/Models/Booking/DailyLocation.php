@@ -7,6 +7,8 @@ namespace App\Models\Booking;
 use Adultdate\FilamentBooking\Contracts\Eventable;
 use Adultdate\FilamentBooking\ValueObjects\CalendarEvent;
 use Illuminate\Database\Eloquent\Model;
+use Kirschbaum\Commentions\Contracts\Commentable;
+use Kirschbaum\Commentions\HasComments;
 
 /**
  * @property int $id
@@ -38,8 +40,10 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @mixin \Eloquent
  */
-class DailyLocation extends Model implements Eventable
+class DailyLocation extends Model implements Commentable, Eventable
 {
+    use HasComments;
+
     protected $table = 'booking_daily_locations';
 
     protected $fillable = [
@@ -85,7 +89,7 @@ class DailyLocation extends Model implements Eventable
 
         return CalendarEvent::make($this)
             ->title($title)
-            ->start($this->date)
+            ->start($this->date instanceof \Carbon\CarbonImmutable ? $this->date->toDateString() : $this->date)
             ->allDay(true)
             ->backgroundColor('#ffffff')
             ->borderColor('#e5e7eb')

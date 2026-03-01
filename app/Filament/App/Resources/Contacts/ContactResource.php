@@ -34,15 +34,16 @@ class ContactResource extends Resource
 
     protected static ?int $navigationSort = 110;
 
-        public static function shouldRegisterNavigation(): bool
+    public static function shouldRegisterNavigation(): bool
     {
 
-         if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
-             return false;
-         }
+        if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
+            return false;
+        }
         if (filament()->getTenant()->getAttribute('is_admin') !== true) {
             return true;
         }
+
         return false;
     }
 

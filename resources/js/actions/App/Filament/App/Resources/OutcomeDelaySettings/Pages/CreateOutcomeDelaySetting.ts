@@ -2,118 +2,14 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-const CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, options),
-    method: 'get',
-})
-
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/outcome-delay-settings/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-const CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
-* @route '/admin/tenant/{tenant}/outcome-delay-settings/create'
-*/
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99.form = CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99Form
-/**
-* @see \App\Filament\App\Resources\OutcomeDelaySettings\Pages\CreateOutcomeDelaySetting::__invoke
-* @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-const CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, options),
+const CreateOutcomeDelaySetting = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateOutcomeDelaySetting.url(args, options),
     method: 'get',
 })
 
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.definition = {
+CreateOutcomeDelaySetting.definition = {
     methods: ["get","head"],
     url: '/nds/app/team/{tenant}/outcome-delay-settings/create',
 } satisfies RouteDefinition<["get","head"]>
@@ -123,7 +19,7 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.definition = {
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+CreateOutcomeDelaySetting.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -146,7 +42,7 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url = (args: { tenant:
         : args.tenant,
     }
 
-    return CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.definition.url
+    return CreateOutcomeDelaySetting.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -156,8 +52,8 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url = (args: { tenant:
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, options),
+CreateOutcomeDelaySetting.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateOutcomeDelaySetting.url(args, options),
     method: 'get',
 })
 
@@ -166,8 +62,8 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.get = (args: { tenant:
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, options),
+CreateOutcomeDelaySetting.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateOutcomeDelaySetting.url(args, options),
     method: 'head',
 })
 
@@ -176,8 +72,8 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.head = (args: { tenant
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-const CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, options),
+const CreateOutcomeDelaySettingForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting.url(args, options),
     method: 'get',
 })
 
@@ -186,8 +82,8 @@ const CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form = (args: { t
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, options),
+CreateOutcomeDelaySettingForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting.url(args, options),
     method: 'get',
 })
 
@@ -196,8 +92,8 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form.get = (args: { ten
 * @see app/Filament/App/Resources/OutcomeDelaySettings/Pages/CreateOutcomeDelaySetting.php:7
 * @route '/nds/app/team/{tenant}/outcome-delay-settings/create'
 */
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.url(args, {
+CreateOutcomeDelaySettingForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateOutcomeDelaySetting.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -206,11 +102,6 @@ CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form.head = (args: { te
     method: 'get',
 })
 
-CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289.form = CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289Form
-
-const CreateOutcomeDelaySetting = {
-    '/admin/tenant/{tenant}/outcome-delay-settings/create': CreateOutcomeDelaySettingd36900dfb386a4980ac6c767d2c83b99,
-    '/nds/app/team/{tenant}/outcome-delay-settings/create': CreateOutcomeDelaySettingdf0c47b2963a15dd6b877392bbe81289,
-}
+CreateOutcomeDelaySetting.form = CreateOutcomeDelaySettingForm
 
 export default CreateOutcomeDelaySetting

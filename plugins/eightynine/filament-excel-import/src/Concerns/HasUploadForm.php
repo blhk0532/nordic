@@ -24,7 +24,7 @@ trait HasUploadForm
 
     protected bool $shouldRetainBeforeValidationMutation = false;
 
-    protected string | Closure $visibility = 'public';
+    protected string|Closure $visibility = 'public';
 
     protected array $validationRules = [];
 
@@ -112,7 +112,7 @@ trait HasUploadForm
         return $this;
     }
 
-    public function visibility(string | Closure | null $visibility): static
+    public function visibility(string|Closure|null $visibility): static
     {
         $this->visibility = $visibility;
 
@@ -128,7 +128,7 @@ trait HasUploadForm
                     return __('excel-import::excel-import.excel_data');
                 }
 
-                return str($livewire->getTable()->getPluralModelLabel())->title() . ' ' . __('excel-import::excel-import.excel_data');
+                return str($livewire->getTable()->getPluralModelLabel())->title().' '.__('excel-import::excel-import.excel_data');
             })
             ->default(1)
             ->storeFiles($this->storeFiles)

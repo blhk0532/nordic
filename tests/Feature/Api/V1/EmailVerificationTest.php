@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
-
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
-
-
 
 describe('Email Verification', function (): void {
     it('verifies email successfully with valid link', function (): void {

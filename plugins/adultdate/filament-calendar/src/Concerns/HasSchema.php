@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\Concerns;
 
+use Adultdate\FilamentBooking\Attributes\CalendarSchema;
+use Adultdate\FilamentBooking\Exceptions\SchemaNotFoundException;
 use Filament\Facades\Filament;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Adultdate\FilamentBooking\Attributes\CalendarSchema;
-use Adultdate\FilamentBooking\Exceptions\SchemaNotFoundException;
 use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionMethod;

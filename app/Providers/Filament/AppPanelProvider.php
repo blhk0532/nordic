@@ -62,6 +62,8 @@ use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
+use Hammadzafar05\MobileBottomNav\MobileBottomNav;
+use Hammadzafar05\MobileBottomNav\MobileBottomNavItem;
 use Hydrat\TableLayoutToggle\TableLayoutTogglePlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -212,6 +214,24 @@ class AppPanelProvider extends PanelProvider
                     ]),
             ])
             ->plugins([
+                MobileBottomNav::make()
+                    ->items([
+                        MobileBottomNavItem::make('Home')
+                            ->icon('heroicon-o-home')
+                            ->activeIcon('heroicon-s-home')
+                            ->url('/admin')
+                            ->isActive(fn () => request()->is('admin')),
+                        MobileBottomNavItem::make('Inbox')
+                            ->icon('heroicon-o-inbox')
+                            ->url('/admin/inbox')
+                            ->badge(5, 'danger'),
+                        MobileBottomNavItem::make('Profile')
+                            ->icon('heroicon-o-user')
+                            ->url('/admin/profile'),
+                    ]),
+
+            ])
+            ->plugins([
                 //    FilamentShieldPlugin::make(),
             ])
             ->plugins([
@@ -282,11 +302,61 @@ class AppPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => Action::make('profile')
                     ->label(fn () => Str::ucfirst(Auth::user()->getNdsUserName()))
-                    ->url(fn (): string => EditProfilePage::getUrl(tenant: filament()->getTenant()))
+                    ->url(function (): string {
+                        $panel = Filament::getCurrentOrDefaultPanel();
+                        $tenant = filament()->getTenant();
+
+                        if (! $tenant) {
+                            $user = Filament::auth()->user();
+
+                            if ($user instanceof User && method_exists($user, 'getDefaultTenant')) {
+                                $tenant = $user->getDefaultTenant($panel);
+                            }
+
+                            if (! $tenant && $user instanceof User && method_exists($user, 'getTenants')) {
+                                $tenant = collect($user->getTenants($panel))->first();
+                            }
+                        }
+
+                        $tenantSlug = $tenant instanceof Team
+                            ? $tenant->slug
+                            : (is_string($tenant) ? $tenant : null);
+
+                        if (filled($tenantSlug)) {
+                            return EditProfilePage::getUrl(parameters: ['tenant' => $tenantSlug]);
+                        }
+
+                        return $panel?->getUrl() ?? url('/');
+                    })
                     ->icon('heroicon-o-user-circle'),
                 'wirechat' => Action::make('chats')
                     ->label('Chat')
-                    ->url(fn (): string => ChatDashboard::getUrl())
+                    ->url(function (): string {
+                        $panel = Filament::getCurrentOrDefaultPanel();
+                        $tenant = filament()->getTenant();
+
+                        if (! $tenant) {
+                            $user = Filament::auth()->user();
+
+                            if ($user instanceof User && method_exists($user, 'getDefaultTenant')) {
+                                $tenant = $user->getDefaultTenant($panel);
+                            }
+
+                            if (! $tenant && $user instanceof User && method_exists($user, 'getTenants')) {
+                                $tenant = collect($user->getTenants($panel))->first();
+                            }
+                        }
+
+                        $tenantSlug = $tenant instanceof Team
+                            ? $tenant->slug
+                            : (is_string($tenant) ? $tenant : null);
+
+                        if (filled($tenantSlug)) {
+                            return ChatDashboard::getUrl(parameters: ['tenant' => $tenantSlug]);
+                        }
+
+                        return $panel?->getUrl() ?? url('/');
+                    })
                     ->icon('heroicon-o-chat-bubble-left-right'),
 
             ])

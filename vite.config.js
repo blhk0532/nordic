@@ -23,6 +23,7 @@ export default defineConfig({
                 "resources/css/filament/notify/theme.css",
                 "resources/css/filament/files/theme.css",
                 "resources/css/filament/admin/theme.css",
+                "resources/css/filament/company/theme.css",
             ],
             refresh: true,
         }),

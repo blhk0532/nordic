@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Kirschbaum\Commentions\Contracts\Commentable;
+use Kirschbaum\Commentions\HasComments;
 
 /**
  * @property int $id
@@ -114,11 +116,12 @@ use Illuminate\Support\Facades\Auth;
  *
  * @mixin \Eloquent
  */
-class Booking extends Model
+class Booking extends Model implements Commentable
 {
+    use HasComments;
+
     /** @use HasFactory<\Database\Factories\Booking\BookingFactory> */
     use HasFactory;
-
     use SoftDeletes;
 
     protected $table = 'booking_bookings';

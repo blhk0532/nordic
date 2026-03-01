@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\Filament;
 
+use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
+use Adultdate\FilamentBooking\Contracts\HasCalendar;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Widgets\Widget;
-use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
-use Adultdate\FilamentBooking\Contracts\HasCalendar;
 
 abstract class CalendarWidget extends Widget implements HasActions, HasCalendar, HasSchemas
 {

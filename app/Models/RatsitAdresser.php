@@ -49,7 +49,7 @@ class RatsitAdresser extends Model
         'foretag_link',
         'kommun',
     ];
- 
+
     protected function casts(): array
     {
         return [

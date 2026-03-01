@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalendarResource;
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use App\Filament\Pages\Dashboard;
 use App\Http\Middleware\FilamentPanelAccess;
@@ -31,7 +32,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use Adultdate\FilamentBooking\FilamentBookingPlugin;
+
 class CalendarPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -117,7 +118,7 @@ class CalendarPanelProvider extends PanelProvider
             ->plugins([
                 FilamentApexChartsPlugin::make(),
             ])
-                        ->plugins([
+            ->plugins([
                 FilamentBookingPlugin::make(),
                 //   FilamentDialerPlugin::make(),
 

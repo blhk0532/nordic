@@ -9,10 +9,10 @@ use App\Filament\Data\Widgets\PostorterTableWidget;
 use App\Filament\Data\Widgets\Tables\KommunerTableWidget;
 use BackedEnum;
 use Filament\Pages\Page as BasePage;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component as SchemaComponent;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Livewire as LivewireComponent;
-use Filament\Schemas\Components\Component as SchemaComponent;
+use Filament\Schemas\Schema;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class KommunerMap extends BasePage

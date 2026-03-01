@@ -6,7 +6,6 @@ namespace App\Filament\App\Clusters\Services\Resources\Brands\Tables;
 
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -38,7 +37,7 @@ class BrandsTable
                 EditAction::make(),
             ])
             ->groupedBulkActions([
-                DeleteBulkAction::make()
+                DeleteBulkAction::make(),
             ])
             ->defaultSort('sort')
             ->reorderable('sort');

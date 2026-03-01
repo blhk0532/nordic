@@ -16,9 +16,9 @@ class FilamentEditEnvPlugin implements Plugin
 {
     use EvaluatesClosures;
 
-    public bool | Closure | null $showButton = null;
+    public bool|Closure|null $showButton = null;
 
-    public string | Closure | null $setIcon = null;
+    public string|Closure|null $setIcon = null;
 
     public function getId(): string
     {
@@ -66,14 +66,14 @@ class FilamentEditEnvPlugin implements Plugin
         return $plugin;
     }
 
-    public function showButton(bool | Closure $showButton = true): static
+    public function showButton(bool|Closure $showButton = true): static
     {
         $this->showButton = $showButton;
 
         return $this;
     }
 
-    public function setIcon(string | Closure $setIcon = 'heroicon-o-command-line'): static
+    public function setIcon(string|Closure $setIcon = 'heroicon-o-command-line'): static
     {
         $this->setIcon = $setIcon;
 

@@ -23,8 +23,8 @@ class TextInputEntryServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         FilamentAsset::register([
-            Css::make('text-input-entry', __DIR__ . '/../dist/text-input-entry.css'),
-            Js::make('text-input-entry', __DIR__ . '/../dist/text-input-entry.js'),
+            Css::make('text-input-entry', __DIR__.'/../dist/text-input-entry.css'),
+            Js::make('text-input-entry', __DIR__.'/../dist/text-input-entry.js'),
         ], package: 'anish/text-input-entry');
     }
 }

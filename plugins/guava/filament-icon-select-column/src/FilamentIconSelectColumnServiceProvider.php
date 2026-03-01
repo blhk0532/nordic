@@ -18,8 +18,7 @@ class FilamentIconSelectColumnServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('guava-icon-select-column')
-            ->hasViews()
-        ;
+            ->hasViews();
     }
 
     public function packageBooted(): void
@@ -28,7 +27,7 @@ class FilamentIconSelectColumnServiceProvider extends PackageServiceProvider
             [
                 AlpineComponent::make(
                     'columns/icon-select',
-                    __DIR__ . '/../resources/js/dist/components/columns/icon-select.js'
+                    __DIR__.'/../resources/js/dist/components/columns/icon-select.js'
                 ),
             ],
             'guava/icon-select-column'

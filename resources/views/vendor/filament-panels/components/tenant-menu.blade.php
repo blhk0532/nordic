@@ -116,8 +116,18 @@
                     @php
                         $tenantImage = filament()->getTenantAvatarUrl($tenant);
                         $tenantName = filament()->getTenantName($tenant);
-                        $tenantUrl = filament()->getUrl($tenant);
+                        $tenantUrl = null;
+
+                        if ($tenant instanceof \Illuminate\Database\Eloquent\Model && $tenant->exists) {
+                            try {
+                                $tenantUrl = filament()->getUrl($tenant);
+                            } catch (\Throwable $exception) {
+                                $tenantUrl = null;
+                            }
+                        }
                     @endphp
+
+                    @continue(blank($tenantUrl))
 
                     <div
                         x-show="

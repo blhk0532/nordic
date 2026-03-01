@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\Concerns;
 
-use Illuminate\Support\HtmlString;
 use Illuminate\Contracts\Support\Htmlable;
 
 trait HasHeading

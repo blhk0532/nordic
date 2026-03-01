@@ -42,11 +42,13 @@ use Laravel\Passport\Contracts\ScopeAuthorizable;  // Add this import
 use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Sanctum\HasApiTokens;
 use Leek\FilamentDiceBear\Concerns\HasDiceBearAvatar;
+use Leek\FilamentDiceBear\Enums\DiceBearStyle;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
+use Wallo\FilamentCompanies\HasCompanies;
 use Zap\Models\Concerns\HasSchedules;
-
+use Kirschbaum\Commentions\Contracts\Commenter;
 /**
  * @property int $id
  * @property int|null $author_id
@@ -173,12 +175,13 @@ use Zap\Models\Concerns\HasSchedules;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
+class User extends Model implements AuthenticatableContract, AuthorizableContract, Commenter, CanResetPasswordContract, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
     use HasApiTokens;
+    use HasCompanies;
     use HasDiceBearAvatar;
     use HasFactory;
     use HasRoles;
@@ -196,10 +199,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'status',
         'ulid',
         'name',
-        'name_first',
-        'name_last',
-        'assigned_to_id',
-        'author_id',
         'email',
         'password',
         'avatar_url',
@@ -398,22 +397,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         // By default, allow all authenticated users to access the panel
         // You can customize this logic based on your requirements
         return true;
-    }
-
-    /**
-     * Boolean status accessor for online/offline based on `active_at`.
-     */
-    public function getStatusAttribute(): bool
-    {
-        $activeAt = $this->getAttribute('active_at');
-
-        if (is_null($activeAt)) {
-            return false;
-        }
-
-        $activeAt = \Illuminate\Support\Carbon::parse($activeAt);
-
-        return $activeAt->greaterThanOrEqualTo(now()->subMinutes(5));
     }
 
     /**

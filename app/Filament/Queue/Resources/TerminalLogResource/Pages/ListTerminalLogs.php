@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\Queue\Resources\TerminalLogResource\Pages;
 
-use Filament\Resources\Pages\ListRecords;
 use App\Filament\Queue\Resources\TerminalLogResource;
+use Filament\Resources\Pages\ListRecords;
 use MWGuerra\WebTerminal\Filament\Resources\TerminalLogResource\Widgets\TerminalLogsStatsOverview;
 
 class ListTerminalLogs extends ListRecords

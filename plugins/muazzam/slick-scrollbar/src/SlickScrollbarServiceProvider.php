@@ -2,13 +2,9 @@
 
 namespace Muazzam\SlickScrollbar;
 
-use Illuminate\Support\ServiceProvider;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Assets\Theme;
-use Filament\Events\ServingFilament;
-use Illuminate\Support\Facades\Event;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
+use Illuminate\Support\ServiceProvider;
 
 class SlickScrollbarServiceProvider extends ServiceProvider
 {
@@ -17,7 +13,8 @@ class SlickScrollbarServiceProvider extends ServiceProvider
         FilamentView::registerRenderHook(
             PanelsRenderHook::STYLES_AFTER, // <-- not STYLES
             function (): string {
-                $css = @file_get_contents(__DIR__ . '/../resources/dist/slick-scrollbar.css') ?: '';
+                $css = @file_get_contents(__DIR__.'/../resources/dist/slick-scrollbar.css') ?: '';
+
                 return $css ? "<style id=\"slick-scrollbar-css\">{$css}</style>" : '';
             }
         );

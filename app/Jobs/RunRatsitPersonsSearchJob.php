@@ -28,20 +28,20 @@ class RunRatsitPersonsSearchJob implements ShouldQueue
     public function handle(): void
     {
         try {
-            $inner = "node " . escapeshellarg(base_path('jobs/ratsitPersons.mjs')) . " " . escapeshellarg(str_replace(['/', '\\', '  '], ' ', $this->search));
+            $inner = 'node '.escapeshellarg(base_path('jobs/ratsitPersons.mjs')).' '.escapeshellarg(str_replace(['/', '\\', '  '], ' ', $this->search));
 
             // Pass explicit API URL and token to the Node script so it doesn't rely
             // on possibly-missing environment vars when the job runs under the worker.
             $apiUrl = config('app.url') ?: env('APP_URL');
             $apiToken = env('LARAVEL_API_TOKEN') ?: env('API_TOKEN') ?: null;
             if ($apiUrl) {
-                $inner .= ' --api-url ' . escapeshellarg($apiUrl);
+                $inner .= ' --api-url '.escapeshellarg($apiUrl);
             }
             if ($apiToken) {
-                $inner .= ' --api-token ' . escapeshellarg($apiToken);
+                $inner .= ' --api-token '.escapeshellarg($apiToken);
             }
 
-            $command = 'bash -lc ' . escapeshellarg($inner);
+            $command = 'bash -lc '.escapeshellarg($inner);
 
             $process = Process::fromShellCommandline($command);
             $process->setTimeout($this->timeout);

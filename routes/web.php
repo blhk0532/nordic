@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-
+require __DIR__.'/settings.php';
 use App\Http\Controllers\Api\CalendarBookingController;
 use App\Http\Controllers\Api\CalendarDataController;
 use App\Http\Controllers\CalendarEventController;
@@ -181,10 +181,10 @@ Route::middleware('auth')->group(function (): void {
         return redirect()->route('booking-calendar');
     })->name('filament.admin.resources.booking-calendars.index');
 
-    Route::get('{tenant}/min-profile', function () {
+    Route::get('{tenant}/min-profile', function (string $tenant) {
         // Fallback for the admin panel chat dashboard nav item. Redirect to
         // the admin dashboard to keep navigation stable.
-        return redirect()->route(EditProfilePage::getUrl());
+        return redirect()->to(EditProfilePage::getUrl(parameters: ['tenant' => $tenant]));
     });
 
     // Record ringa-data outcomes (non-Livewire fallback)
@@ -196,4 +196,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-require __DIR__.'/settings.php';
+Route::get('admin/tenant/{tenant}/profile', function ($tenant) {
+    // Redirect to dashboard or implement tenant profile logic
+    return redirect()->route('dashboard');
+})->name('filament.admin.tenant.profile');

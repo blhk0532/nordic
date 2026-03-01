@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 use App\Models\OutcomeSetting;
 
-
-
-
 test('outcome setting can be created', function () {
     $setting = OutcomeSetting::factory()->create([
         'type' => 'Success',

@@ -27,24 +27,23 @@ class IconSelectColumn extends Column implements Editable
 
     protected string $view = 'guava-icon-select-column::tables.columns.icon-select-column';
 
-    protected IconSize | string | Closure | null $size = null;
+    protected IconSize|string|Closure|null $size = null;
 
     public function configure(): static
     {
         return $this
             ->disabledClick()
-            ->alignCenter()
-        ;
+            ->alignCenter();
     }
 
-    public function size(IconSize | string | Closure | null $size): static
+    public function size(IconSize|string|Closure|null $size): static
     {
         $this->size = $size;
 
         return $this;
     }
 
-    public function getSize(mixed $state): IconSize | string | null
+    public function getSize(mixed $state): IconSize|string|null
     {
         $size = $this->evaluate($this->size, [
             'state' => $state,

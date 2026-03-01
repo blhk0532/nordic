@@ -12,7 +12,7 @@ use Spatie\MediaLibrary\Conversions\ImageGenerators\ImageGeneratorFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Stringable;
 
-class HtmlableMedia implements Stringable, Htmlable
+class HtmlableMedia implements Htmlable, Stringable
 {
     private string $conversionName = '';
 

@@ -1,11 +1,11 @@
 import Resources from './Resources'
-import Clusters from './Clusters'
 import Pages from './Pages'
+import Clusters from './Clusters'
 
 const Filament = {
     Resources: Object.assign(Resources, Resources),
-    Clusters: Object.assign(Clusters, Clusters),
     Pages: Object.assign(Pages, Pages),
+    Clusters: Object.assign(Clusters, Clusters),
 }
 
 export default Filament

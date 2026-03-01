@@ -1,31 +1,31 @@
 import Admin from './Admin'
 import App from './App'
-import Queue from './Queue'
+import Booking from './Booking'
 import Panels from './Panels'
+import Pages from './Pages'
 import Chat from './Chat'
 import Data from './Data'
-import Notify from './Notify'
-import Tools from './Tools'
-import Super from './Super'
-import Booking from './Booking'
-import Pages from './Pages'
 import Email from './Email'
 import Files from './Files'
+import Notify from './Notify'
+import Queue from './Queue'
+import Super from './Super'
+import Tools from './Tools'
 
 const Filament = {
     Admin: Object.assign(Admin, Admin),
     App: Object.assign(App, App),
-    Queue: Object.assign(Queue, Queue),
+    Booking: Object.assign(Booking, Booking),
     Panels: Object.assign(Panels, Panels),
+    Pages: Object.assign(Pages, Pages),
     Chat: Object.assign(Chat, Chat),
     Data: Object.assign(Data, Data),
-    Notify: Object.assign(Notify, Notify),
-    Tools: Object.assign(Tools, Tools),
-    Super: Object.assign(Super, Super),
-    Booking: Object.assign(Booking, Booking),
-    Pages: Object.assign(Pages, Pages),
     Email: Object.assign(Email, Email),
     Files: Object.assign(Files, Files),
+    Notify: Object.assign(Notify, Notify),
+    Queue: Object.assign(Queue, Queue),
+    Super: Object.assign(Super, Super),
+    Tools: Object.assign(Tools, Tools),
 }
 
 export default Filament

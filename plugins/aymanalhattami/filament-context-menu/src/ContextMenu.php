@@ -10,11 +10,11 @@ class ContextMenu
 {
     use EvaluatesClosures;
 
-    private string | null | Closure $title = null;
+    private string|null|Closure $title = null;
 
-    private Closure | bool $translateTitle = false;
+    private Closure|bool $translateTitle = false;
 
-    private array | Closure $actions = [];
+    private array|Closure $actions = [];
 
     public static function make(): self
     {
@@ -30,14 +30,14 @@ class ContextMenu
         return $this->evaluate($this->title);
     }
 
-    public function title(string | Closure $title): static
+    public function title(string|Closure $title): static
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function translateTitle(bool | Closure $translateTitle = true): static
+    public function translateTitle(bool|Closure $translateTitle = true): static
     {
         $this->translateTitle = $translateTitle;
 
@@ -57,7 +57,7 @@ class ContextMenu
     /**
      * @param  array<Action>  $actions
      */
-    public function actions(array | Closure $actions): static
+    public function actions(array|Closure $actions): static
     {
         $this->actions = $actions;
 

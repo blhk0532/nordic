@@ -24,7 +24,7 @@ trait IsLazy
     public function getLazyMeta($target)
     {
         if (! static::$lazyMetas) {
-            static::$lazyMetas = new WeakMap();
+            static::$lazyMetas = new WeakMap;
         }
 
         if (! static::$lazyMetas->offsetExists($target)) {
@@ -37,7 +37,7 @@ trait IsLazy
     public function setLazyMeta($target, $meta)
     {
         if (! static::$lazyMetas) {
-            static::$lazyMetas = new WeakMap();
+            static::$lazyMetas = new WeakMap;
         }
 
         static::$lazyMetas[$target] = $meta;

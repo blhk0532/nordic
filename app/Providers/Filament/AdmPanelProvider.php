@@ -25,6 +25,7 @@ use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
 use Filament\Actions\Action;
 use Filament\Enums\ThemeMode;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -235,7 +236,28 @@ final class AdmPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => Action::make('profile')
                     ->label(fn () => Str::ucfirst(Auth::user()->getNdsUserName()))
-                    ->url(fn (): string => EditProfilePage::getUrl(tenant: filament()->getTenant()))
+                    ->url(function (): string {
+                        $panel = Filament::getCurrentOrDefaultPanel();
+                        $tenant = filament()->getTenant();
+
+                        if (! $tenant) {
+                            $user = Filament::auth()->user();
+
+                            if ($user && method_exists($user, 'getDefaultTenant')) {
+                                $tenant = $user->getDefaultTenant($panel);
+                            }
+
+                            if (! $tenant && $user && method_exists($user, 'getTenants')) {
+                                $tenant = collect($user->getTenants($panel))->first();
+                            }
+                        }
+
+                        if ($tenant) {
+                            return EditProfilePage::getUrl(tenant: $tenant);
+                        }
+
+                        return $panel?->getUrl() ?? url('/');
+                    })
                     ->icon('heroicon-o-user-circle'),
                 Action::make('sanctum')
                     ->label(trans('Auth Tokens'))

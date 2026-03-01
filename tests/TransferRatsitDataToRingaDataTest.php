@@ -6,9 +6,6 @@ use App\Actions\TransferRatsitDataToRingaDataAction;
 use App\Models\RatsitData;
 use App\Models\RingaData;
 
-
-
-
 test('transfer action moves ratsit data to ringa data table', function () {
     // Create test RatsitData records
     $ratsitRecords = RatsitData::factory(3)->create([
@@ -24,7 +21,7 @@ test('transfer action moves ratsit data to ringa data table', function () {
     expect(RingaData::count())->toBe(0);
 
     // Execute the transfer action
-    $action = new TransferRatsitDataToRingaDataAction();
+    $action = new TransferRatsitDataToRingaDataAction;
     $action->handle($ratsitRecords, ['user_id' => 1]);
 
     // Assert records were created in ringa_data table
@@ -51,7 +48,7 @@ test('transfer action preserves all data types', function () {
     ]);
 
     // Transfer the record
-    $action = new TransferRatsitDataToRingaDataAction();
+    $action = new TransferRatsitDataToRingaDataAction;
     $action->handle(collect([$ratsitRecord]), []);
 
     // Verify data types are preserved
@@ -67,7 +64,7 @@ test('transfer action preserves all data types', function () {
 test('transfer action sets correct default values', function () {
     $ratsitRecord = RatsitData::factory()->create();
 
-    $action = new TransferRatsitDataToRingaDataAction();
+    $action = new TransferRatsitDataToRingaDataAction;
     $action->handle(collect([$ratsitRecord]), []);
 
     $ringaData = RingaData::first();

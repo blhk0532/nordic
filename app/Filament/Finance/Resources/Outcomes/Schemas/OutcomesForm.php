@@ -45,18 +45,18 @@ class OutcomesForm
                             ->createOptionForm(fn (Schema $schema) => SubcategoryResource::form($schema)),
                     ]),
                     Grid::make(2)->schema([
-                    TextInput::make('amount')
+                        TextInput::make('amount')
                             ->label(__('Amount'))
                             ->prefixIcon('heroicon-o-currency-dollar')
                             ->prefixIconColor('primary')
                             ->numeric()
                             ->required(),
-                    MarkdownEditor::make('description')
+                        MarkdownEditor::make('description')
                             ->label(__('Description'))
                             ->hint(__('Editing in ').mb_strtoupper(app()->getLocale()))
                             ->maxHeight(200)
                             ->nullable(),
-                ]),
+                    ]),
                 ])->columnSpanFull(),
             ]);
     }

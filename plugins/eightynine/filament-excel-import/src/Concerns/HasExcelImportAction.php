@@ -30,7 +30,7 @@ trait HasExcelImportAction
         return 'import';
     }
 
-    public function action(Closure | string | null $action): static
+    public function action(Closure|string|null $action): static
     {
         if ($action !== 'importData') {
             throw new \Exception('You\'re unable to override the action for this plugin');
@@ -130,7 +130,7 @@ trait HasExcelImportAction
 
                 // Stop the modal from closing if we have an error
                 $this->halt();
-                
+
                 return false;
             }
         };

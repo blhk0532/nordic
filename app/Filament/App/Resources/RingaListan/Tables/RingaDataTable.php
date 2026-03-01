@@ -10,7 +10,6 @@ use Faker\Factory as Faker;
 use Filament\Actions;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -71,7 +70,7 @@ class RingaDataTable
                     ->sortable()
                     ->alignCenter(),
                 TextColumn::make('aterkom_at')
-                ->hidden()
+                    ->hidden()
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')
@@ -98,7 +97,7 @@ class RingaDataTable
                 //
             ])
             ->recordActions([
-                 ViewAction::make(),
+                ViewAction::make(),
                 Actions\Action::make('view_details')
                     ->label('Ring')
                     ->icon('heroicon-o-phone-arrow-up-right')

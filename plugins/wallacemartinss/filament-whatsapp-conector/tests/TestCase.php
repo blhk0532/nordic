@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace WallaceMartinss\FilamentEvolution\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
-
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    
-
     protected function setUp(): void
     {
         parent::setUp();

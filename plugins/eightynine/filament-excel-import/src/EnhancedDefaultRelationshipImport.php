@@ -91,18 +91,18 @@ class EnhancedDefaultRelationshipImport implements ToCollection, WithHeadingRow
         }
 
         $firstRow = $collection->first();
-        if (!$firstRow) {
+        if (! $firstRow) {
             $this->stopImportWithError(__('excel-import::excel-import.header_read_error'));
         }
 
         $actualHeaders = array_keys($firstRow->toArray());
         $missingHeaders = array_diff($expectedHeaders, $actualHeaders);
-        
-        if (!empty($missingHeaders)) {
+
+        if (! empty($missingHeaders)) {
             $this->stopImportWithError(
                 __('excel-import::excel-import.missing_headers_error', [
                     'missing' => implode(', ', $missingHeaders),
-                    'expected' => implode(', ', $expectedHeaders)
+                    'expected' => implode(', ', $expectedHeaders),
                 ])
             );
         }
@@ -113,7 +113,7 @@ class EnhancedDefaultRelationshipImport implements ToCollection, WithHeadingRow
      */
     protected function validateCustomCondition(bool $condition, string $errorMessage): void
     {
-        if (!$condition) {
+        if (! $condition) {
             $this->stopImportWithError($errorMessage);
         }
     }
@@ -174,12 +174,14 @@ class EnhancedDefaultRelationshipImport implements ToCollection, WithHeadingRow
                 ) {
                     $record->save();
                     $this->afterCreateRecord($data, $row, $record);
+
                     continue;
                 }
 
                 if ($this->relationship instanceof BelongsToMany) {
                     $this->relationship->save($record, $pivotData);
                     $this->afterCreateRecord($data, $row, $record);
+
                     continue;
                 }
 

@@ -72,7 +72,28 @@ return Application::configure(basePath: dirname(__DIR__))
             AllowCorsForAssets::class,
         ]);
 
-        $middleware->redirectGuestsTo(fn () => route('login'));
+        $middleware->redirectGuestsTo(function (Request $request) {
+            $path = $request->path();
+            $segments = array_values(array_filter(explode('/', $path)));
+
+            if (($i = array_search('nds', $segments)) !== false) {
+                $panelId = $segments[$i + 1] ?? null;
+            } else {
+                $panelId = $segments[0] ?? null;
+            }
+
+            logger()->info('Guest redirect', ['path' => $path, 'panelId' => $panelId]);
+
+            if ($panelId && \Illuminate\Support\Facades\Route::has($routeName = 'filament.'.$panelId.'.auth.login')) {
+                logger()->info('Redirecting to panel login', ['route' => $routeName]);
+
+                return route($routeName);
+            }
+
+            logger()->info('Redirecting to default login');
+
+            return route('login');
+        });
         $middleware->redirectUsersTo('/nds/app');
 
     })

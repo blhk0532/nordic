@@ -57,7 +57,7 @@ class FilamentRatingServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-rating/{$file->getFilename()}"),
                 ], 'filament-rating-stubs');
@@ -77,8 +77,8 @@ class FilamentRatingServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-rating', __DIR__ . '/../resources/dist/components/filament-rating.js'),
-            Css::make('filament-rating-styles', __DIR__ . '/../resources/dist/filament-rating.css'),
-            Js::make('filament-rating-scripts', __DIR__ . '/../resources/dist/filament-rating.js'),
+            Css::make('filament-rating-styles', __DIR__.'/../resources/dist/filament-rating.css'),
+            Js::make('filament-rating-scripts', __DIR__.'/../resources/dist/filament-rating.js'),
         ];
     }
 

@@ -18,8 +18,8 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Kirschbaum\Commentions\Filament\Actions\CommentsAction;
 use UnitEnum;
-use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class TeamUserResource extends Resource
 {
@@ -77,6 +77,8 @@ class TeamUserResource extends Resource
                             'conversation' => $conversation->id,
                         ]));
                     }),
+                CommentsAction::make()
+                    ->mentionables(User::all()),
             ]);
     }
 
@@ -115,9 +117,9 @@ class TeamUserResource extends Resource
 
     public function getHeading(): string
     {
-                FilamentAsset::register([
-    Css::make('custom', __DIR__ . '/../../resources/css/custom.css'),
-]);
+        FilamentAsset::register([
+            Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+        ]);
         $tenantName = filament()->getTenant()?->name ?? 'Team';
 
         return "{$tenantName} - Teammedlemmars";

@@ -16,13 +16,13 @@ class PdfViewerEntry extends ViewEntry
 
     protected string $minHeight = '50svh';
 
-    protected string | Closure $fileUrl = '';
+    protected string|Closure $fileUrl = '';
 
-    protected string | Closure | null $disk = null;
+    protected string|Closure|null $disk = null;
 
-    protected string | Closure $visibility = 'public';
+    protected string|Closure $visibility = 'public';
 
-    protected bool | Closure $shouldCheckFileExistence = true;
+    protected bool|Closure $shouldCheckFileExistence = true;
 
     public function minHeight(string $minHeight): self
     {
@@ -36,7 +36,7 @@ class PdfViewerEntry extends ViewEntry
         return $this->minHeight;
     }
 
-    public function disk(string | closure $disk): self
+    public function disk(string|closure $disk): self
     {
         $this->disk = $disk;
 
@@ -53,7 +53,7 @@ class PdfViewerEntry extends ViewEntry
         return $this->evaluate($this->disk) ?? config('filament.default_filesystem_disk');
     }
 
-    public function fileUrl(string | Closure $fileUrl): self
+    public function fileUrl(string|Closure $fileUrl): self
     {
         $this->fileUrl = $fileUrl;
 
@@ -97,7 +97,7 @@ class PdfViewerEntry extends ViewEntry
         return $storage->url($state);
     }
 
-    public function visibility(string | closure $visibility): self
+    public function visibility(string|closure $visibility): self
     {
         $this->visibility = $visibility;
 
@@ -109,7 +109,7 @@ class PdfViewerEntry extends ViewEntry
         return $this->evaluate($this->visibility);
     }
 
-    public function checkFileExistence(bool | Closure $condition = true): static
+    public function checkFileExistence(bool|Closure $condition = true): static
     {
         $this->shouldCheckFileExistence = $condition;
 

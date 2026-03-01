@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 export const index = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ index.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 index.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ index.url = (args: { tenant: string | number | { slug: string | number } } | [te
 }
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 index.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ index.get = (args: { tenant: string | number | { slug: string | number } } | [te
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 index.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ index.head = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 const indexForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const indexForm = (args: { tenant: string | number | { slug: string | number } }
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 indexForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ indexForm.get = (args: { tenant: string | number | { slug: string | number } } |
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ListUsers::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ListUsers.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ListUsers::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ListUsers.php:7
 * @route '/admin/tenant/{tenant}/users'
 */
 indexForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -105,8 +105,8 @@ indexForm.head = (args: { tenant: string | number | { slug: string | number } } 
 index.form = indexForm
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 export const create = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,8 +120,8 @@ create.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 create.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -153,8 +153,8 @@ create.url = (args: { tenant: string | number | { slug: string | number } } | [t
 }
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 create.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -163,8 +163,8 @@ create.get = (args: { tenant: string | number | { slug: string | number } } | [t
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 create.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -173,8 +173,8 @@ create.head = (args: { tenant: string | number | { slug: string | number } } | [
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 const createForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -183,8 +183,8 @@ const createForm = (args: { tenant: string | number | { slug: string | number } 
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 createForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -193,8 +193,8 @@ createForm.get = (args: { tenant: string | number | { slug: string | number } } 
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\CreateUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/CreateUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\CreateUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/CreateUser.php:7
 * @route '/admin/tenant/{tenant}/users/create'
 */
 createForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,8 +210,8 @@ createForm.head = (args: { tenant: string | number | { slug: string | number } }
 create.form = createForm
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 export const view = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -225,8 +225,8 @@ view.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 view.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -253,8 +253,8 @@ view.url = (args: { tenant: string | number | { slug: string | number }, record:
 }
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 view.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -263,8 +263,8 @@ view.get = (args: { tenant: string | number | { slug: string | number }, record:
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 view.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -273,8 +273,8 @@ view.head = (args: { tenant: string | number | { slug: string | number }, record
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 const viewForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,8 +283,8 @@ const viewForm = (args: { tenant: string | number | { slug: string | number }, r
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 viewForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -293,8 +293,8 @@ viewForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\ViewUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/ViewUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\ViewUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/ViewUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}'
 */
 viewForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -310,8 +310,8 @@ viewForm.head = (args: { tenant: string | number | { slug: string | number }, re
 view.form = viewForm
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 export const edit = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -325,8 +325,8 @@ edit.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 edit.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -353,8 +353,8 @@ edit.url = (args: { tenant: string | number | { slug: string | number }, record:
 }
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 edit.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -363,8 +363,8 @@ edit.get = (args: { tenant: string | number | { slug: string | number }, record:
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 edit.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -373,8 +373,8 @@ edit.head = (args: { tenant: string | number | { slug: string | number }, record
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 const editForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -383,8 +383,8 @@ const editForm = (args: { tenant: string | number | { slug: string | number }, r
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 editForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -393,8 +393,8 @@ editForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 })
 
 /**
-* @see \App\Filament\App\Resources\Users\Pages\EditUser::__invoke
-* @see app/Filament/App/Resources/Users/Pages/EditUser.php:7
+* @see \App\Filament\Admin\Resources\Users\Pages\EditUser::__invoke
+* @see app/Filament/Admin/Resources/Users/Pages/EditUser.php:7
 * @route '/admin/tenant/{tenant}/users/{record}/edit'
 */
 editForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

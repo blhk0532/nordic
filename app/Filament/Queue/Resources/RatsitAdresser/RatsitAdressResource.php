@@ -5,20 +5,19 @@ declare(strict_types=1);
 namespace App\Filament\Queue\Resources\RatsitAdresser;
 
 use App\Filament\Queue\Resources\RatsitAdresser\Pages\ListRatsitAdresser;
+use App\Jobs\RunRatsitPersonsSearchJob;
 use App\Models\RatsitAdress;
 use BackedEnum;
+use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
-use App\Jobs\RunRatsitPersonAdressJob;
-use App\Jobs\RunRatsitPersonsSearchJob;
-use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
-use Filament\Actions\BulkAction;
-use Filament\Actions\BulkActionGroup;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use UnitEnum;
 
@@ -94,7 +93,7 @@ class RatsitAdressResource extends Resource
                 ]),
             ])
             ->defaultSort('updated_at', 'desc')
-                     ->deferFilters()
+            ->deferFilters()
             ->defaultSort('created_at', 'desc')
             ->paginated([10, 25, 50, 100, 250, 500, 1000])
             ->defaultPaginationPageOption(25);

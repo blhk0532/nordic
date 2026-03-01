@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use App\Filament\Chat\Pages\ChatDashboard;
 use App\Http\Middleware\FilamentPanelAccess;
@@ -30,7 +31,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use Adultdate\FilamentBooking\FilamentBookingPlugin;
+
 class ChatPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -45,7 +46,7 @@ class ChatPanelProvider extends PanelProvider
             ->spa()
          // ->profile()
             ->sidebarFullyCollapsibleOnDesktop()
-                ->navigation(false)
+            ->navigation(false)
             ->passwordReset()
             ->unsavedChangesAlerts()
             ->databaseNotifications()
@@ -116,7 +117,7 @@ class ChatPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-                        ->plugins([
+            ->plugins([
                 FilamentBookingPlugin::make(),
                 //   FilamentDialerPlugin::make(),
 

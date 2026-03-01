@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\Queue\Widgets;
 
-use App\Models\RatsitPostort;
 use App\Models\RatsitKommun;
+use App\Models\RatsitPostort;
 use App\Models\SwedishKommun;
 use EduardoRibeiroDev\FilamentLeaflet\Enums\Color;
 use EduardoRibeiroDev\FilamentLeaflet\Support\Markers\Marker;

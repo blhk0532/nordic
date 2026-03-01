@@ -62,9 +62,9 @@ class OutdatedPayment extends TableWidget
                     ->money('USD'),
             ])
             ->toolbarActions([
-            BulkActionGroup::make([
+                BulkActionGroup::make([
                     //
-            ]),
-        ]);
+                ]),
+            ]);
     }
 }

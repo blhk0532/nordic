@@ -16,17 +16,8 @@ final class FilamentPanelAccess
 {
     public function handle(Request $request, Closure $next): Response
     {
-
-        $user = Auth::user();
-
-        if (! $user) {
-            return redirect('/login')->with('error', 'Unauthorized access');
-        }
-
         $requestPath = $request->path();
-
         $path = parse_url($requestPath, PHP_URL_PATH);
-
         $segments = array_values(array_filter(explode('/', $path)));
 
         if (($i = array_search('nds', $segments)) !== false) {
@@ -38,6 +29,18 @@ final class FilamentPanelAccess
         logger()->info("requestPath:: {$requestPath}");
         //    logger()->info("User ID:: {$user->id} with Role:: {$user->role} accesesPanel:: '{$panelId}'");
 
+        if ($this->isAuthPage($segments, $panelId)) {
+            return $next($request);
+        }
+
+        $user = Auth::user();
+
+        if (! $user) {
+            $loginRoute = $this->getPanelLoginRoute($panelId);
+
+            return redirect()->to($loginRoute)->with('error', 'Unauthorized access');
+        }
+
         if (! $this->checkPanelAccess($panelId) && $panelId === 'app') {
             return redirect('/')->with('error', 'Unauthorized access');
         }
@@ -47,6 +50,34 @@ final class FilamentPanelAccess
         }
 
         return $next($request);
+    }
+
+    private function getPanelLoginRoute(?string $panelId): string
+    {
+        if ($panelId && \Illuminate\Support\Facades\Route::has($routeName = 'filament.'.$panelId.'.auth.login')) {
+            return route($routeName);
+        }
+
+        return '/login';
+    }
+
+    private function isAuthPage(array $segments, ?string $panelId): bool
+    {
+        if ($panelId === null) {
+            return false;
+        }
+
+        $authSlugs = ['login', 'register', 'password-reset', 'email-verification', 'profile'];
+
+        // Find the position of panelId in segments
+        $panelIndex = array_search($panelId, $segments);
+        if ($panelIndex === false) {
+            return false;
+        }
+
+        $nextSegment = $segments[$panelIndex + 1] ?? null;
+
+        return in_array($nextSegment, $authSlugs, true);
     }
 
     public function checkPanelAccess($panelId): bool

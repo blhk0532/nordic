@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\Concerns;
 
-use Exception;
 use Adultdate\FilamentBooking\Enums\Context;
 use Adultdate\FilamentBooking\ValueObjects\EventClickInfo;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 trait HandlesEventClick

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 use App\Models\User;
 
-
-
-
 describe('Registration', function (): void {
     it('registers a new user successfully', function (): void {
         $response = $this->postJson('/api/v1/register', [

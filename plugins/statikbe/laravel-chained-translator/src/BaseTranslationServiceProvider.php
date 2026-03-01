@@ -68,7 +68,7 @@ class BaseTranslationServiceProvider extends LaravelTranslationServiceProvider
 
         // override the Laravel translation loader singleton:
         $this->app->singleton('translation.loader', function ($app) {
-            $loader = new ChainLoader();
+            $loader = new ChainLoader;
             $loader->addLoader($app['translation.loader.custom']);
             $loader->addLoader($app['translation.loader.default']);
 

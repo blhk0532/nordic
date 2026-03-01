@@ -14,6 +14,25 @@ class EmailChangeVerificationResponse implements Responsable
 {
     public function toResponse($request): RedirectResponse|Redirector
     {
-        return redirect()->intended(EditProfilePage::getUrl() ?? Filament::getUrl());
+        $panel = Filament::getCurrentOrDefaultPanel();
+        $tenant = filament()->getTenant();
+
+        if (! $tenant) {
+            $user = Filament::auth()->user();
+
+            if ($user && method_exists($user, 'getDefaultTenant')) {
+                $tenant = $user->getDefaultTenant($panel);
+            }
+
+            if (! $tenant && $user && method_exists($user, 'getTenants')) {
+                $tenant = collect($user->getTenants($panel))->first();
+            }
+        }
+
+        $targetUrl = $tenant
+            ? EditProfilePage::getUrl(tenant: $tenant)
+            : ($panel?->getUrl() ?? url('/'));
+
+        return redirect()->intended($targetUrl);
     }
 }

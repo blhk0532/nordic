@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Admin\Resources\TerminalLogResource\Pages;
 
+use App\Filament\Admin\Resources\TerminalLogResource;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ViewRecord;
-use App\Filament\Admin\Resources\TerminalLogResource;
 
 class ViewTerminalLog extends ViewRecord
 {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Adultdate\FilamentBooking\Models\Booking;
 
 use Adultdate\FilamentBooking\Enums\BookingStatus;
-use Adultdate\FilamentBooking\Factories\Booking\BookingFactory;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +18,6 @@ use Spatie\ModelStates\HasStates;
 class Booking extends Model
 {
     use HasFactory;
-
     use HasStates;
     use SoftDeletes;
 

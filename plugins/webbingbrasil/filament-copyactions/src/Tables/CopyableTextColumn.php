@@ -3,13 +3,11 @@
 namespace Webbingbrasil\FilamentCopyActions\Tables;
 
 use Closure;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\TextColumn;
-use BackedEnum;
 
 class CopyableTextColumn extends TextColumn
 {
-    protected bool | Closure $copyWithDescription = false;
+    protected bool|Closure $copyWithDescription = false;
 
     public function setUp(): void
     {
@@ -34,12 +32,12 @@ class CopyableTextColumn extends TextColumn
      * @deprecated To maintain maximum compatibility with Filament 4.x native TextColumn, this method is deprecated.
      * Use CopyAction instead.
      */
-    public function onlyIcon(bool | Closure $isOnlyIcon = true): static
+    public function onlyIcon(bool|Closure $isOnlyIcon = true): static
     {
         return $this;
     }
 
-    public function copyWithDescription(bool | Closure $copyWithDescription = true): self
+    public function copyWithDescription(bool|Closure $copyWithDescription = true): self
     {
         $this->copyWithDescription = $copyWithDescription;
 

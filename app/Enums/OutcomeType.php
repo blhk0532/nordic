@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Enums;
+
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
@@ -25,7 +26,7 @@ enum OutcomeType: string implements HasColor, HasIcon, HasLabel
 
     public function getColor(): string
     {
-        return match($this) {
+        return match ($this) {
             self::Block => 'danger',
             self::Delete => 'danger',
             self::No => 'warning',
@@ -39,7 +40,7 @@ enum OutcomeType: string implements HasColor, HasIcon, HasLabel
 
     public function getIcon(): string
     {
-        return match($this) {
+        return match ($this) {
             self::Block => 'heroicon-o-no-symbol',
             self::Delete => 'heroicon-o-trash',
             self::No => 'heroicon-o-x-mark',

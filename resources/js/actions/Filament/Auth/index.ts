@@ -1,9 +1,9 @@
-import Pages from './Pages'
 import Http from './Http'
+import Pages from './Pages'
 
 const Auth = {
-    Pages: Object.assign(Pages, Pages),
     Http: Object.assign(Http, Http),
+    Pages: Object.assign(Pages, Pages),
 }
 
 export default Auth

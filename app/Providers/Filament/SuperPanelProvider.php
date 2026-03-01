@@ -32,7 +32,6 @@ use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use BinaryBuilds\CommandRunner\CommandRunnerPlugin;
 use BinaryBuilds\FilamentCacheManager\FilamentCacheManagerPlugin;
 use BinaryBuilds\FilamentFailedJobs\FilamentFailedJobsPlugin;
-use Bytexr\QueueableBulkActions\Enums\StatusEnum;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;

@@ -22,6 +22,6 @@ class RatingColumn extends Column
 
     public function getThemeView(): string
     {
-        return $this->getTheme()->getView() . '.static';
+        return $this->getTheme()->getView().'.static';
     }
 }

@@ -41,7 +41,7 @@ class EventData implements Arrayable
 
     public static function make(): static
     {
-        return new self();
+        return new self;
     }
 
     /**

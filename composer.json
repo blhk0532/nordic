@@ -16,14 +16,17 @@
         "adultdate/filament-wirechat": "@dev",
         "alessandronuunes/filament-member": "^1.0.3",
         "alizharb/filament-activity-log": "2.0.5",
+        "alperenersoy/filament-export": "4.x-dev",
         "andreia/filament-ui-switcher": "@dev",
         "andreiio/blade-remix-icon": "^3.9.1",
+        "andrewdwallo/filament-companies": "@dev",
         "anish/text-input-entry": "@dev",
         "arshaviras/weather-widget": "^1.2",
         "asmit/resized-column": "^2.1",
         "awcodes/filament-badgeable-column": "^3.1.0",
         "awcodes/overlook": "@dev",
         "aymanalhattami/filament-context-menu": "@dev",
+        "aymanalhattami/filament-page-with-sidebar": "dev-main",
         "bezhansalleh/filament-exceptions": "@dev",
         "bezhansalleh/filament-panel-switch": "@dev",
         "bezhansalleh/filament-plugin-essentials": "@dev",
@@ -42,6 +45,7 @@
         "devtical/filament-sanctum": "@dev",
         "eduardoribeirodev/filament-leaflet": ">=4.5.1",
         "eightynine/filament-excel-import": "@dev",
+        "emuniq/filament-collapsible-subnav": "dev-main",
         "fahiem/filament-pinpoint": "@dev",
         "filament/filament": "^5.2.4",
         "filamentphp/advanced-export": "^0.3.0",
@@ -85,6 +89,7 @@
         "mallardduck/blade-lucide-icons": "^1.26.7",
         "marjose123/filament-lockscreen": "@dev",
         "mddev31/filament-dynamic-dashboard": "^0.3.3",
+        "mmes-design/filament-file-manager": "^1.0.3",
         "mokhosh/filament-rating": "@dev",
         "muazzam/slick-scrollbar": "@dev",
         "mwguerra/filemanager": "@dev",
@@ -95,8 +100,10 @@
         "owenvoke/blade-fontawesome": "^3.2",
         "pxlrbt/filament-excel": "@dev",
         "pxlrbt/filament-spotlight": "@dev",
+        "ralphjsmit/laravel-filament-components": "^3.1",
         "relaticle/flowforge": "@dev",
         "rickdbcn/filament-email": "^2.2",
+        "salemaljebaly/filament-map-picker": "^1.0.3",
         "secondnetwork/blade-tabler-icons": "^3.37.0",
         "shreejan/actionable-column": "^1.1",
         "shreejan/dash-arrange": "^1.0",
@@ -142,6 +149,27 @@
         "roave/security-advisories": "dev-latest"
     },
     "repositories": [
+        {
+            "type": "path",
+            "url": "plugins/andrewdwallo/filament-companies",
+            "options": {
+                "symlink": true
+            }
+        },
+                {
+            "type": "path",
+            "url": "plugins/alperenersoy/filament-export",
+            "options": {
+                "symlink": true
+            }
+        },
+                {
+            "type": "path",
+            "url": "plugins/aymanalhattami/filament-page-with-sidebar",
+            "options": {
+                "symlink": true
+            }
+        },
         {
             "type": "path",
             "url": "plugins/andreia/filament-ui-switcher",

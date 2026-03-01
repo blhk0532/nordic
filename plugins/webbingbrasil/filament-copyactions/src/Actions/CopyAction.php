@@ -10,7 +10,7 @@ use Illuminate\Support\Js;
 
 class CopyAction extends Action
 {
-    protected Closure | string | null $copyable = null;
+    protected Closure|string|null $copyable = null;
 
     public static function getDefaultName(): ?string
     {
@@ -27,10 +27,11 @@ class CopyAction extends Action
             ->icon('heroicon-o-clipboard-document');
     }
 
-    public function action(Closure | string | null $action): static
+    public function action(Closure|string|null $action): static
     {
         parent::action($action);
         $this->livewireClickHandlerEnabled(true);
+
         return $this;
     }
 
@@ -47,15 +48,15 @@ class CopyAction extends Action
             }
 
             return new HtmlString(
-                "((t)=>window.navigator.clipboard.writeText("
-  . "(typeof t==='object'&&t?Object.entries({...t}).map(([k,v])=>k+': '+(v==null?'null':(typeof v==='object'?JSON.stringify(v):String(v)))).join('\\r\\n'):String(t)"
-  . ")))(" . $writeText . ");"
-                . (($title = $this->getSuccessNotificationTitle()) ? ' $tooltip('.Js::from($title).');' : '')
+                '((t)=>window.navigator.clipboard.writeText('
+  ."(typeof t==='object'&&t?Object.entries({...t}).map(([k,v])=>k+': '+(v==null?'null':(typeof v==='object'?JSON.stringify(v):String(v)))).join('\\r\\n'):String(t)"
+  .')))('.$writeText.');'
+                .(($title = $this->getSuccessNotificationTitle()) ? ' $tooltip('.Js::from($title).');' : '')
             );
         };
     }
 
-    public function copyable(Closure | string | null $copyable): self
+    public function copyable(Closure|string|null $copyable): self
     {
         $this->copyable = $copyable;
 

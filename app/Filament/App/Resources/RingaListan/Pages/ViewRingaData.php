@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaListan\Pages;
 
-use App\Filament\App\Resources\RingaListan\RingaListanResource;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataCalendar;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataDisplayWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataOutcomeFormWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataOutcomeWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataPinpointWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDatasQueueTableWidget;
+use App\Filament\App\Resources\RingaListan\RingaListanResource;
 use App\Models\RingaData;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Support\Enums\Width;

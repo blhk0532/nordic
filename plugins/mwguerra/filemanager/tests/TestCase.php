@@ -4,7 +4,6 @@ namespace MWGuerra\FileManager\Tests;
 
 use Filament\FilamentServiceProvider;
 use Filament\Support\SupportServiceProvider;
-
 use Livewire\LivewireServiceProvider;
 use MWGuerra\FileManager\FileManagerServiceProvider;
 use MWGuerra\FileManager\Models\FileSystemItem;
@@ -12,8 +11,6 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    
-
     protected function setUp(): void
     {
         parent::setUp();

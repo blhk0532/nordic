@@ -75,16 +75,16 @@ class UpcomingPayment extends TableWidget
                 ]),
             ])
             ->recordActions([
-            Action::make('view')
-                ->url(fn (Income $record): string => IncomeResource::getUrl('view', ['record' => $record->income_id]))
-                ->label(__('View'))
-                ->icon('heroicon-o-eye')
-                ->color('info'),
-        ])
+                Action::make('view')
+                    ->url(fn (Income $record): string => IncomeResource::getUrl('view', ['record' => $record->income_id]))
+                    ->label(__('View'))
+                    ->icon('heroicon-o-eye')
+                    ->color('info'),
+            ])
             ->toolbarActions([
-            BulkActionGroup::make([
-                //
-            ]),
-        ]);
+                BulkActionGroup::make([
+                    //
+                ]),
+            ]);
     }
 }

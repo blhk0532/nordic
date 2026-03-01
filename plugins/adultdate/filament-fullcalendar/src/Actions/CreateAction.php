@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Saade\FilamentFullCalendar\Actions;
 
-use Filament\Actions\CreateAction as BaseCreateAction;
 use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
+use Filament\Actions\CreateAction as BaseCreateAction;
 
 class CreateAction extends BaseCreateAction
 {

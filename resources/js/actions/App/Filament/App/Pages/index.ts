@@ -8,6 +8,7 @@ import InertiaCalendar from './InertiaCalendar'
 import ManuSettings from './ManuSettings'
 import SendTestMessage from './SendTestMessage'
 import Settings from './Settings'
+import TaskBoard from './TaskBoard'
 import UserNotesSettings from './UserNotesSettings'
 import AppDashboard from './AppDashboard'
 import AppDataHistory from './AppDataHistory'
@@ -23,6 +24,7 @@ const Pages = {
     ManuSettings: Object.assign(ManuSettings, ManuSettings),
     SendTestMessage: Object.assign(SendTestMessage, SendTestMessage),
     Settings: Object.assign(Settings, Settings),
+    TaskBoard: Object.assign(TaskBoard, TaskBoard),
     UserNotesSettings: Object.assign(UserNotesSettings, UserNotesSettings),
     AppDashboard: Object.assign(AppDashboard, AppDashboard),
     AppDataHistory: Object.assign(AppDataHistory, AppDataHistory),

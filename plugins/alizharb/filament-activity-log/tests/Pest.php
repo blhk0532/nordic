@@ -14,7 +14,7 @@ declare(strict_types=1);
 */
 
 pest()->extend(AlizHarb\ActivityLog\Tests\TestCase::class)
-    
+
     ->in('Unit', 'Feature');
 
 /*

@@ -24,7 +24,6 @@ use Illuminate\Support\Str;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
-
 class SingleCalendar extends BaseDashboard
 {
     public ?string $calendarId = null;
@@ -57,9 +56,9 @@ class SingleCalendar extends BaseDashboard
 
     public static function shouldRegisterNavigation(): bool
     {
-     //   FilamentAsset::register([
-     //       Css::make('booking', __DIR__.'/../../../../resources/css/booking.css'),
-     //   ]);
+        //   FilamentAsset::register([
+        //       Css::make('booking', __DIR__.'/../../../../resources/css/booking.css'),
+        //   ]);
 
         return true;
     }
@@ -93,7 +92,7 @@ class SingleCalendar extends BaseDashboard
     public static function getNavigationBadge(): ?string
     {
         //    return '🇹🇭 ' . now()->timezone('Asia/Bangkok')->format('H:i');
-         $role = Str::upper(auth()->user()->role);
+        $role = Str::upper(auth()->user()->role);
         Carbon::setLocale('sv');
         $now = now()->timezone('Europe/Stockholm')->translatedFormat('l');
 

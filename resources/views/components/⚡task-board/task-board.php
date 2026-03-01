@@ -1,14 +1,14 @@
 <?php
 
+use App\Models\Task;
 use Livewire\Component;
-
+use Relaticle\Flowforge\Components\Column;
 use Relaticle\Flowforge\Concerns\InteractsWithBoard;
 use Relaticle\Flowforge\Contracts\HasBoard;
 use Relaticle\Flowforge\Models\Board;
-use Relaticle\Flowforge\Components\Column;
-use App\Models\Task;
 
-return new class extends Component implements HasBoard {
+return new class extends Component implements HasBoard
+{
     use InteractsWithBoard;
 
     public function board(Board $board): Board

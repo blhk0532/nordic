@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use Adultdate\FilamentBooking\FilamentBookingPlugin;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
 use App\Http\Middleware\FilamentPanelAccess;
 use Filament\Http\Middleware\Authenticate;
@@ -23,7 +24,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Adultdate\FilamentBooking\FilamentBookingPlugin;
+
 class DataPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -69,7 +70,7 @@ class DataPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-                        ->plugins([
+            ->plugins([
                 FilamentBookingPlugin::make(),
                 //   FilamentDialerPlugin::make(),
 

@@ -17,8 +17,6 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Collection;
-use Zap\Facades\Zap;
-use Filament\Tables\Enums\FiltersLayout;
 
 class AterkomRingTableWidget extends BaseWidget
 {
@@ -60,7 +58,7 @@ class AterkomRingTableWidget extends BaseWidget
             ->toolbarActions([])
             ->extraAttributes(['style' => 'height: 420px'])
             ->columns([
-                                TextColumn::make('aterkom_at')
+                TextColumn::make('aterkom_at')
                     ->label('Återkom')
                     ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->diffForHumans() : '-')
                     ->sortable()
@@ -83,7 +81,7 @@ class AterkomRingTableWidget extends BaseWidget
             ])
             ->recordActions([
                 Action::make('view')
-                ->icon('heroicon-m-eye'),
+                    ->icon('heroicon-m-eye'),
                 Action::make('ring')
                     ->label('Ring')
                     ->icon('heroicon-m-phone-arrow-up-right')

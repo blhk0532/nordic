@@ -3,7 +3,7 @@
 @source '../../../../vendor/adultdate/filament-wirechat/resources/**/*.blade.php';
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 @import '../../../../vendor/bezhansalleh/filament-panel-switch/resources/css/panel-switch.css';
-@import '../../../../vendor/emuniq/filament-collapsible-subnav/resources/css/plugin.css';
+
 @source '../../../../vendor/bezhansalleh/filament-panel-switch/resources/views/**/*.blade.php';
 
 @source '../../../../app/Filament/Stats/**/*';

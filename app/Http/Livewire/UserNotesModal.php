@@ -9,13 +9,14 @@ use Filament\Forms;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Schema;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
+
 final class UserNotesModal extends Component implements HasForms
 {
     use InteractsWithForms;
@@ -165,9 +166,10 @@ final class UserNotesModal extends Component implements HasForms
 
     public function render(): \Illuminate\Contracts\View\View
     {
-                                            FilamentAsset::register([
-    Css::make('notes', __DIR__ . '/../../resources/css/notes.css'),
-]);
+        FilamentAsset::register([
+            Css::make('notes', __DIR__.'/../../resources/css/notes.css'),
+        ]);
+
         return view('livewire.user-notes-modal');
     }
 

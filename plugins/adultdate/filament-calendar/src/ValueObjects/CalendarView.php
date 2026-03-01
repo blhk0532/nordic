@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\ValueObjects;
 
-use Carbon\CarbonImmutable;
 use Adultdate\FilamentBooking\Enums\CalendarViewType;
+use Carbon\CarbonImmutable;
 
 use function Adultdate\FilamentBooking\utc_to_user_local_time;
 

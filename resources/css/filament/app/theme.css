@@ -20,12 +20,11 @@
 @source '../../../../vendor/bezhansalleh/filament-panel-switch/resources/views/**/*.blade.php';
 
 @source '../../../../vendor/cmsmaxinc/filament-error-pages/resources/**/*.blade.php';
+@source "../../../../vendor/relaticle/flowforge/resources/views/**/*.blade.php";
+@source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 
-@import '../../../../plugins/adultdate/filament-dialer/resources/css/theme.css';
-@import '../../../../vendor/emuniq/filament-collapsible-subnav/resources/css/plugin.css';
-
-
-
+@import '../../../../vendor/alperenersoy/filament-export/resources/css/filament-export.css';
+@source '../../../../vendor/harvirsidhu/filament-cards/resources/views';
 
 ::-webkit-scrollbar {
     width: .56vw !important;

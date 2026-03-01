@@ -3,11 +3,8 @@
 declare(strict_types=1);
 
 use App\Models\User;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-
-
 
 describe('Forgot Password', function (): void {
     it('sends reset link successfully', function (): void {

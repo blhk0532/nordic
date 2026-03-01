@@ -23,9 +23,9 @@ class UserInfolist
                 Section::make()
                     ->columns()
                     ->schema([
-//                        TextEntry::make('id'),
-//                        IconEntry::make('status')
-//                            ->boolean(),
+                        //                        TextEntry::make('id'),
+                        //                        IconEntry::make('status')
+                        //                            ->boolean(),
                         TextInputEntry::make('name')
                             ->editable(true)
                             ->size(TextSize::Large)

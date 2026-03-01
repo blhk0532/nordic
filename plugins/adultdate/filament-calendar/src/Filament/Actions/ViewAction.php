@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Adultdate\FilamentBooking\Filament\Actions;
 
-use Filament\Schemas\Schema;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
+use Filament\Schemas\Schema;
 
 class ViewAction extends \Filament\Actions\ViewAction
 {
