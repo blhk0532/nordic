@@ -128,7 +128,7 @@ class AppLogin extends Login
 
         session()->regenerate();
 
-        $this->redirect('/nds/app');
+        return app(LoginResponse::class);
     }
 
     public function defaultForm(Schema $schema): Schema

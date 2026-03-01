@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Responses;
 
+use App\Support\Filament\AppPanelRedirect;
 use Illuminate\Http\JsonResponse;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
@@ -13,6 +14,6 @@ final class CustomLoginResponse implements LoginResponseContract
     {
         return $request->wantsJson()
             ? new JsonResponse('', 204)
-            : redirect('/nds/app'); // Redirect to /nds/app after login
+            : redirect()->to(AppPanelRedirect::urlFor($request->user()));
     }
 }
