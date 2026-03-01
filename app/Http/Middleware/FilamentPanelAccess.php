@@ -91,6 +91,10 @@ final class FilamentPanelAccess
             return false;
         }
 
+        if ($panelId === 'app') {
+            return true;
+        }
+
         $panelAccess = PanelAccess::where('panel_id', $panelId)
             ->whereJsonContains('role_access', $user->role)
             ->where('is_active', true)

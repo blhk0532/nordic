@@ -193,4 +193,4 @@ Route::get('/job-queue/get-ratsit-count', [JobQueueController::class, 'getRatsit
 Route::put('/job-queue/put-ratsit-count', [JobQueueController::class, 'putRatsitCount']);
 
 // AI Chat API
-Route::post('/ai/chat', [AiChatController::class, '__invoke']);
+Route::post('/ai/chat', [AiChatController::class, '__invoke'])->name('api.ai.chat');

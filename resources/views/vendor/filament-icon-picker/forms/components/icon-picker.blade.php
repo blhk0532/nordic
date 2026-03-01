@@ -42,6 +42,7 @@
             iconsAvailable: @js(__('filament-icon-picker::icon-picker.icons_available')),
         },
         endpoint: @js(route('filament-icon-picker.icons')),
+        iconEndpointPrefix: @js(str_replace('/@@ICON@@', '', route('filament-icon-picker.icon', ['icon' => '@@ICON@@']))),
     
         init() {
             // No watches needed - debounce on x-model handles the delay
@@ -201,7 +202,7 @@
             }
     
             try {
-                const response = await fetch('/filament-icon-picker/icon/' + encodeURIComponent(iconName));
+                const response = await fetch(this.iconEndpointPrefix + encodeURIComponent(iconName));
                 if (response.ok) {
                     const svg = await response.text();
                     this.iconCache[iconName] = svg;
@@ -229,7 +230,7 @@
                             if (iconCache[value]) {
                                 $el.innerHTML = iconCache[value];
                             } else {
-                                const response = await fetch('/filament-icon-picker/icon/' + encodeURIComponent(value));
+                                const response = await fetch(this.iconEndpointPrefix + encodeURIComponent(value));
                                 if (response.ok) {
                                     const svg = await response.text();
                                     iconCache[value] = svg;
@@ -243,7 +244,7 @@
                         if (iconCache[state]) {
                             $el.innerHTML = iconCache[state];
                         } else {
-                            fetch('/filament-icon-picker/icon/' + encodeURIComponent(state))
+                            fetch(this.iconEndpointPrefix + encodeURIComponent(state))
                                 .then(r => r.text())
                                 .then(svg => {
                                     iconCache[state] = svg;

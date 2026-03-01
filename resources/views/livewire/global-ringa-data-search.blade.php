@@ -74,9 +74,6 @@
             </select>
         </div>
 <style>
-div.fi-ta-header{
-    padding: 0px !important;
-}
 </style>
         <div class="flex-1 overflow-hidden" style="height: calc(100vh - 280px);">
             <div class="h-full overflow-y-auto">

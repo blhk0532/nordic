@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use AdultDate\FilamentWirechat\Models\Conversation;
 use Adultdate\Wirechat\Contracts\WirechatUser;
 use Adultdate\Wirechat\Panel as WirechatStandalonePanel;
 use Adultdate\Wirechat\Traits\InteractsWithWirechat;
@@ -36,9 +37,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Kirschbaum\Commentions\Contracts\Commenter;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Passport\Contracts\OAuthenticatable;
-use Laravel\Passport\Contracts\ScopeAuthorizable;  // Add this import
+use Laravel\Passport\Contracts\OAuthenticatable;  // Add this import
+use Laravel\Passport\Contracts\ScopeAuthorizable;
 use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Sanctum\HasApiTokens;
 use Leek\FilamentDiceBear\Concerns\HasDiceBearAvatar;
@@ -48,7 +50,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 use Wallo\FilamentCompanies\HasCompanies;
 use Zap\Models\Concerns\HasSchedules;
-use Kirschbaum\Commentions\Contracts\Commenter;
+
 /**
  * @property int $id
  * @property int|null $author_id
@@ -175,7 +177,7 @@ use Kirschbaum\Commentions\Contracts\Commenter;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, Commenter, CanResetPasswordContract, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, Commenter, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
 {
     use Authenticatable;
     use Authorizable;
@@ -219,6 +221,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'tenant_id',
         'current_team_id',
         'avatar_url',
+        'name_first',
+        'name_last',
+        'email_verified_at',
+        'current_company_id',
     ];
 
     protected $hidden = [
@@ -371,6 +377,25 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         // By default, allow all authenticated users to create chats
         // You can customize this logic based on your requirements
         return true;
+    }
+
+    public function getUnreadCount(?Conversation $conversation = null): int
+    {
+        if ($conversation) {
+            return method_exists($conversation, 'getUnreadCountFor')
+                ? $conversation->getUnreadCountFor($this)
+                : 0;
+        }
+
+        $totalUnread = 0;
+
+        foreach ($this->conversations as $userConversation) {
+            if (method_exists($userConversation, 'getUnreadCountFor')) {
+                $totalUnread += $userConversation->getUnreadCountFor($this);
+            }
+        }
+
+        return $totalUnread;
     }
 
     /**

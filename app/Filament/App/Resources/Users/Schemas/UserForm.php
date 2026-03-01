@@ -14,6 +14,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 
+use function Amp\now;
 use function filled;
 
 class UserForm
@@ -78,7 +79,7 @@ class UserForm
                             ->columnSpan(1),
                         DateTimePicker::make('email_verified_at')
                             ->required()
-                            ->hidden(),
+                            ->default(now()),
                         TextInput::make('password')
                             ->password()
                             ->confirmed()

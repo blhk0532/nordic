@@ -1,4 +1,18 @@
-<div x-data="aiChat()" x-init="init()">
+@php
+    // rendering this view should be a no-op when the AI chat API route is
+    // missing, otherwise Blade will throw a RouteNotFoundException when the
+    // view attempts to resolve the URL later in the script.  We also hide the
+    // trigger button so the UI doesn't show a broken feature.
+    $hasAiRoute = \Illuminate\Support\Facades\Route::has('api.ai.chat');
+    $aiChatUrl = $hasAiRoute ? route('api.ai.chat') : '';
+@endphp
+
+@if($hasAiRoute)
+    <div x-data="aiChat()" x-init="init()">
+@else
+    {{-- AI chat feature disabled because route not defined --}}
+    <div>
+@endif
     <button
         class="fi-icon-btn fi-size-md fi-topbar-database-notifications-btn"
         tooltip="AI Assistant"
@@ -182,7 +196,10 @@ function aiChat() {
             });
             
             try {
-                const response = await fetch('/api/ai/chat', {
+                // use the URL resolved at the top of the view (empty string if
+                // the route was not available; but in that case the sendMessage
+                // function will never run because UI is hidden).
+                const response = await fetch('{{ $aiChatUrl }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -37,19 +37,21 @@ final class AppPanelRedirect
             return null;
         }
 
-        if (method_exists($user, 'getDefaultTenant')) {
-            $defaultTenant = $user->getDefaultTenant($panel);
+        if (method_exists($user, 'getDefaultTenant') && is_callable([$user, 'getDefaultTenant'])) {
+            /** @var mixed $defaultTenant */
+            $defaultTenant = $user->getDefaultTenant($panel); // @phpstan-ignore-line
 
             if ($defaultTenant instanceof Model) {
                 return $defaultTenant;
             }
         }
 
-        if (! method_exists($user, 'getTenants')) {
+        if (! method_exists($user, 'getTenants') || ! is_callable([$user, 'getTenants'])) {
             return null;
         }
 
-        $tenants = $user->getTenants($panel);
+        /** @var mixed $tenants */
+        $tenants = $user->getTenants($panel); // @phpstan-ignore-line
         $tenant = $tenants instanceof Collection ? $tenants->first() : collect($tenants)->first();
 
         return $tenant instanceof Model ? $tenant : null;
