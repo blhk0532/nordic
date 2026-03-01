@@ -25,7 +25,8 @@
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 @source '../../../../vendor/awcodes/overlook/resources/**/*.blade.php';
 
-
+@source '../../../../vendor/emuniq/filament-collapsible-subnav/resources/**/*.blade.php';
+@import '../../../../vendor/emuniq/filament-collapsible-subnav/resources/css/theme.css';
 
 ::-webkit-scrollbar {
     width: .56vw !important;

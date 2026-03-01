@@ -16,7 +16,7 @@
 <div class="flex flex-wrap gap-4 items-end w-full pb-1">
     {{-- Tekninker --}}
     <div class="fi-fo-field-wrp max-w-[200px]  min-w-[200px] z-10 flex-shrink-0 sm:flex-[2] sm:min-w-0 relative">
-        <div class="grid gap-y-2 absolute" style="background: #18181b;padding-right: 1rem;">
+        <div class="grid gap-y-2 absolute" style="padding-right: 1rem;">
             <div class="flex items-center gap-x-3 justify-between">
             </div>
             <div class="fi-input-wrp flex rounded-lg shadow-sm ring-1 transition duration-75 focus-within:ring-2 fi-fo-select bg-white dark:bg-white/5 ring-gray-950/10 dark:ring-white/20 focus-within:ring-primary-600 dark:focus-within:ring-primary-500 overflow-hidden">

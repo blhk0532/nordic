@@ -67,28 +67,54 @@ class RingaDatasResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $user = auth()->user();
-        $userId = $user?->id;
-        $tenantId = filament()->getTenant()?->id;
-        $teamIds = $user?->teams()->pluck('teams.id')->toArray() ?? [];
-
         $query = parent::getEloquentQuery();
 
-        if ($userId || $tenantId) {
-            $query->where(function (Builder $query) use ($userId, $tenantId, $teamIds) {
-                if ($userId) {
-                    $query->where('user_id', $userId);
-                }
+        $user = auth()->user();
 
-                if ($tenantId) {
-                    $query->orWhere('team_id', $tenantId);
-                }
-
-                if (! empty($teamIds)) {
-                    $query->orWhereIn('team_id', $teamIds);
-                }
-            });
+        if (! $user) {
+            return $query;
         }
+
+        if (in_array($user->role, ['super', 'admin'], true)) {
+            return $query;
+        }
+
+        $userId = $user->id;
+        $tenantId = filament()->getTenant()?->id;
+        $teamIds = $user->teams()->pluck('teams.id')->all();
+
+        $query->where(function (Builder $query) use ($userId, $tenantId, $teamIds) {
+            $hasAppliedCondition = false;
+
+            if ($userId) {
+                $query->where(function (Builder $userQuery) use ($userId) {
+                    $userIdString = (string) $userId;
+
+                    $userQuery->where('user_id', $userIdString)
+                        ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
+                });
+
+                $hasAppliedCondition = true;
+            }
+
+            if ($tenantId) {
+                if ($hasAppliedCondition) {
+                    $query->orWhere('team_id', $tenantId);
+                } else {
+                    $query->where('team_id', $tenantId);
+                }
+
+                $hasAppliedCondition = true;
+            }
+
+            if (! empty($teamIds)) {
+                if ($hasAppliedCondition) {
+                    $query->orWhereIn('team_id', $teamIds);
+                } else {
+                    $query->whereIn('team_id', $teamIds);
+                }
+            }
+        });
 
         return $query;
     }
