@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Support\Filament\AppPanelRedirect;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -41,6 +42,6 @@ class EnforceUserResourceNavigation
 
     protected function redirectToPanelHome(): RedirectResponse
     {
-        return redirect('/nds/app');
+        return redirect()->to(AppPanelRedirect::urlFor(Auth::user()));
     }
 }

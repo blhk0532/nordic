@@ -76,6 +76,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->tenant(\App\Models\Team::class, slugAttribute: 'slug', ownershipRelationship: null)
             ->viteTheme('resources/css/filament/admin/theme.css')
             // ->login(fn ($config) => $config
             //     ->media(asset('video/853789-hd_1920_1080_25fps.mp4'))
