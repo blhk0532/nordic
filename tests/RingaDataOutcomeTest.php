@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Models\OutcomeSetting;
 use App\Models\RingaDataOutcome;
+use App\Services\OutcomeDelayService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(Tests\TestCase::class, RefreshDatabase::class);
@@ -27,4 +29,23 @@ test('outcome table exists with correct columns', function () {
         ->and(\Illuminate\Support\Facades\Schema::hasColumn('ringa_data_outcomes', 'ringa_data_id'))->toBeTrue()
         ->and(\Illuminate\Support\Facades\Schema::hasColumn('ringa_data_outcomes', 'user_id'))->toBeTrue()
         ->and(\Illuminate\Support\Facades\Schema::hasColumn('ringa_data_outcomes', 'coutcome'))->toBeTrue();
+});
+
+test('outcome delay is resolved from outcome settings delay minutes', function () {
+    OutcomeSetting::query()->create([
+        'outcome' => 'Inget Svar',
+        'category' => 'Retry',
+        'delay_minutes' => 17,
+        'max_retry_count' => 3,
+        'is_active' => true,
+        'order' => 1,
+        'retry' => true,
+        'quarantine' => false,
+        'quarantine_days' => 0,
+        'dmc' => false,
+        'aterkom' => false,
+        'bokad' => false,
+    ]);
+
+    expect(OutcomeDelayService::getDelay('Inget Svar'))->toBe(17);
 });

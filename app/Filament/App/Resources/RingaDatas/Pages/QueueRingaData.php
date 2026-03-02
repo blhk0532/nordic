@@ -47,6 +47,8 @@ class QueueRingaData extends Page
 
     protected Width|string|null $maxContentWidth = Width::Full;
 
+    protected static bool $isScopedToTenant = false;
+
     protected string $view = 'filament.app.resources.ringa-data.pages.queue';
 
     //  public static function shouldRegisterNavigation(array $parameters = []): bool
@@ -65,7 +67,7 @@ class QueueRingaData extends Page
 
             if (! $first) {
                 $tenant = filament()->getTenant();
-                $this->redirect(route('filament.app.pages.app-dashboard', ['tenant' => $tenant]), navigate: true);
+                $this->redirect(route('filament.app.pages.dashboard', ['tenant' => $tenant]), navigate: true);
 
                 return;
             }
@@ -166,8 +168,21 @@ class QueueRingaData extends Page
     public static function getQuery(): Builder
     {
         $now = now();
+        $tenantId = filament()->getTenant()?->id;
+        $userId = auth()->id();
+
+        if (! $tenantId || ! $userId) {
+            return self::getResource()::getEloquentQuery()->whereRaw('1 = 0');
+        }
+
+        $userIdString = (string) $userId;
 
         $query = self::getResource()::getEloquentQuery()
+            ->where('team_id', $tenantId)
+            ->where(function (Builder $query) use ($userIdString) {
+                $query->where('user_id', $userIdString)
+                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
+            })
         //  // Only active records
             ->where('is_active', true)
         //  ->where('outcome', '!=', 'DMC')

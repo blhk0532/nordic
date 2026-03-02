@@ -499,6 +499,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
             // Determine the outcome category based on the outcome value
             $outcomeCategory = $this->getOutcomeCategory($outcomeEnum->value);
+            $delayMinutes = max(0, OutcomeDelayService::getDelay($outcomeEnum->value) ?? 0);
 
             // If outcome is "Ring Tillbaka" or "Återkommer" we expect a scheduled datetime from the action form
             if (in_array($outcomeEnum->value, ['Ring Tillbaka', 'Återkommer'])) {
@@ -514,7 +515,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
                 $scheduledAt = Carbon::parse($aterkom_at);
 
-                DB::transaction(function () use ($outcomeEnum, $outcomeCategory, $scheduledAt, $record) {
+                DB::transaction(function () use ($outcomeEnum, $outcomeCategory, $scheduledAt, $record, $delayMinutes) {
                     $attempts = ($record->attempts ?? 0) + 1;
 
                     RingaData::query()
@@ -524,6 +525,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                             'outcome' => $outcomeEnum->value,
                             'outcome_category' => $outcomeCategory,
                             'aterkom_at' => $scheduledAt,
+                            'available_at' => now()->addMinutes($delayMinutes),
                             'attempts' => $attempts,
                             'is_outcome' => true,
                         ]);
@@ -548,7 +550,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
 
                 Notification::make()
                     ->title('Utfall registrerat')
-                    ->body("Recorded outcome: {$outcomeEnum->getLabel()} with return call scheduled for {$scheduledAt->format('Y-m-d H:i')}")
+                    ->body("{$outcomeEnum->getLabel()} Ting Tillbaka {$scheduledAt->format('Y-m-d H:i')}")
                     ->success()
                     ->send();
 
@@ -567,7 +569,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                 $attempts = ($record->attempts ?? 0) + 1;
                 $retryCount = ($record->retry_count ?? 0) + 1;
                 $maxRetryCount = OutcomeDelayService::getMaxRetryCount($outcomeEnum->value);
-                $delayMinutes = OutcomeDelayService::getDelay($outcomeEnum->value) ?? 5;
+                $delayMinutes = max(0, OutcomeDelayService::getDelay($outcomeEnum->value) ?? 0);
 
                 // Set is_active based on category
                 $isActive = match ($outcomeCategory) {
@@ -586,7 +588,7 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
                         'outcome_category' => $outcomeCategory,
                         'attempts' => $attempts,
                         'retry_count' => $retryCount,
-                        'available_at' => $isActive ? now()->addMinutes($delayMinutes) : $record->available_at,
+                        'available_at' => now()->addMinutes($delayMinutes),
                         'is_outcome' => true,
                     ]);
 
@@ -611,8 +613,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ]);
 
             Notification::make()
-                ->title('Utfall registrerat')
-                ->body("Recorded outcome: {$outcomeEnum->getLabel()}")
+                ->title($outcomeEnum->getLabel())
+                ->body('Utfall registrerat')
                 ->success()
                 ->send();
 
@@ -728,8 +730,10 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->where('id', '!=', $record->id)
             ->update([
                 'outcome' => $outcome->value,
-                'outcome_category' => 'Adress',
+                'outcome_category' => 'CO',
+                'attempts' => DB::raw('attempts + 1'),
                 'is_active' => false,
+                'available_at' => now(),
                 'started_at' => now(),
                 'expires_at' => now()->addYear(),
             ]);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\OutcomeDelaySetting;
+use App\Models\OutcomeSetting;
 
 final readonly class OutcomeDelayService
 {
@@ -16,11 +17,19 @@ final readonly class OutcomeDelayService
      */
     public static function getDelay(string $outcomeValue): ?int
     {
-        $setting = OutcomeDelaySetting::where('outcome', $outcomeValue)
+        $setting = OutcomeSetting::where('outcome', $outcomeValue)
             ->where('is_active', true)
             ->first();
 
-        return $setting?->delay_minutes;
+        if ($setting?->delay_minutes !== null) {
+            return $setting->delay_minutes;
+        }
+
+        $fallback = OutcomeDelaySetting::where('outcome', $outcomeValue)
+            ->where('is_active', true)
+            ->first();
+
+        return $fallback?->delay_minutes;
     }
 
     /**
@@ -43,10 +52,18 @@ final readonly class OutcomeDelayService
      */
     public static function getMaxRetryCount(string $outcomeValue): int
     {
-        $setting = OutcomeDelaySetting::where('outcome', $outcomeValue)
+        $setting = OutcomeSetting::where('outcome', $outcomeValue)
             ->where('is_active', true)
             ->first();
 
-        return $setting?->max_retry_count ?? 3;
+        if ($setting?->max_retry_count !== null) {
+            return $setting->max_retry_count;
+        }
+
+        $fallback = OutcomeDelaySetting::where('outcome', $outcomeValue)
+            ->where('is_active', true)
+            ->first();
+
+        return $fallback?->max_retry_count ?? 3;
     }
 }

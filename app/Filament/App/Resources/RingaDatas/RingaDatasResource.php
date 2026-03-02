@@ -31,7 +31,7 @@ class RingaDatasResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiTimerFlashFill;
 
-    protected static ?string $navigationLabel = 'Återkomsten';
+    protected static ?string $navigationLabel = 'Ringa Data';
 
     protected static UnitEnum|string|null $navigationGroup = ' ';
 

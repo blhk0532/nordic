@@ -519,7 +519,11 @@ div.fi-modal-window{
     max-width: 320px;
 }
 
-
+.fc-dom-91{
+    position: absolute;
+  left: 180px;
+  top: 6px;
+}
 
     .fi-section-content-ctn{
         border:none!important;
@@ -559,3 +563,12 @@ footer.fi-footer {
  margin-top:-2.2rem;
 }
 */
+
+.fi-tenant-menu-trigger-tenant-name{
+   position: absolute;
+  top: 1rem;
+}
+.fi-tenant-menu-trigger-current-tenant-label{
+    position: absolute;
+  top: 2rem;
+}

@@ -92,53 +92,57 @@ class PanelSwitch extends Component
     {
         $static = static::make();
 
-        FilamentView::registerRenderHook(
-            name: PanelsRenderHook::TOPBAR_LOGO_AFTER,
-            hook: function () use ($static) {
+        if (auth()->user()?->role === 'super' || auth()->user()?->role === 'admin' || auth()->user()?->role === 'booking') {
 
-                if (! $static->isVisible()) {
-                    return '';
-                }
+            FilamentView::registerRenderHook(
+                name: PanelsRenderHook::TOPBAR_LOGO_AFTER,
+                hook: function () use ($static) {
 
-                return view('filament-panel-switch::panel-switch-menu', [
-                    'currentPanel' => $static->getCurrentPanel(),
-                    'heading' => $static->getModalHeading(),
-                    'icons' => $static->getIcons(),
-                    'iconSize' => $static->getIconSize(),
-                    'isSimple' => $static->isSimple(),
-                    'isSlideOver' => $static->isModalSlideOver(),
-                    'labels' => $static->getLabels(),
-                    'modalWidth' => $static->getModalWidth(),
-                    'panels' => $static->getPanels(),
-                    'renderIconAsImage' => $static->getRenderIconAsImage(),
-                ]);
-            },
-        );
+                    if (! $static->isVisible()) {
+                        return '';
+                    }
 
-        FilamentView::registerRenderHook(
-            name: PanelsRenderHook::SIDEBAR_LOGO_AFTER,
-            hook: function () use ($static) {
+                    return view('filament-panel-switch::panel-switch-menu', [
+                        'currentPanel' => $static->getCurrentPanel(),
+                        'heading' => $static->getModalHeading(),
+                        'icons' => $static->getIcons(),
+                        'iconSize' => $static->getIconSize(),
+                        'isSimple' => $static->isSimple(),
+                        'isSlideOver' => $static->isModalSlideOver(),
+                        'labels' => $static->getLabels(),
+                        'modalWidth' => $static->getModalWidth(),
+                        'panels' => $static->getPanels(),
+                        'renderIconAsImage' => $static->getRenderIconAsImage(),
+                    ]);
+                },
+            );
 
-                if (! $static->isVisible()) {
-                    return '';
-                }
+            FilamentView::registerRenderHook(
+                name: PanelsRenderHook::SIDEBAR_LOGO_AFTER,
+                hook: function () use ($static) {
 
-                return view('filament-panel-switch::panel-switch-menu', [
-                    'currentPanel' => $static->getCurrentPanel(),
-                    'heading' => $static->getModalHeading(),
-                    'icons' => $static->getIcons(),
-                    'iconSize' => $static->getIconSize(),
-                    'isSimple' => $static->isSimple(),
-                    'isSlideOver' => $static->isModalSlideOver(),
-                    'labels' => $static->getLabels(),
-                    'modalWidth' => $static->getModalWidth(),
-                    'panels' => $static->getPanels(),
-                    'renderIconAsImage' => $static->getRenderIconAsImage(),
-                ]);
-            },
-        );
+                    if (! $static->isVisible()) {
+                        return '';
+                    }
 
-        PanelSwitch::configureUsing(function (PanelSwitch $switch): void {});
+                    return view('filament-panel-switch::panel-switch-menu', [
+                        'currentPanel' => $static->getCurrentPanel(),
+                        'heading' => $static->getModalHeading(),
+                        'icons' => $static->getIcons(),
+                        'iconSize' => $static->getIconSize(),
+                        'isSimple' => $static->isSimple(),
+                        'isSlideOver' => $static->isModalSlideOver(),
+                        'labels' => $static->getLabels(),
+                        'modalWidth' => $static->getModalWidth(),
+                        'panels' => $static->getPanels(),
+                        'renderIconAsImage' => $static->getRenderIconAsImage(),
+                    ]);
+                },
+            );
+
+            PanelSwitch::configureUsing(function (PanelSwitch $switch): void {});
+        }
+
     }
 
     public function canSwitchPanels(bool|Closure $condition): static

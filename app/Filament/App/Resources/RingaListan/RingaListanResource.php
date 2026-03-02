@@ -112,7 +112,7 @@ class RingaListanResource extends Resource
             ->whereIn('outcome', self::getTrackedOutcomes())
             ->count();
 
-        return $count ? (string) $count : '〇k';
+        return $count ? (string) $count : '〇';
     }
 
     private static function getTrackedOutcomes(): array

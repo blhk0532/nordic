@@ -35,7 +35,7 @@ class RingaDataResource extends Resource
 
     protected static ?string $slug = 'nummer/lista';
 
-    protected static ?int $navigationSort = 101;
+    protected static ?int $navigationSort = 2;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -82,9 +82,9 @@ class RingaDataResource extends Resource
         $user = auth()->user();
 
         // Only super OR admin users see all records
-        if ($user && in_array($user->role, ['super']) || $user && in_array($user->role, ['admin'])) {
-            return $query;
-        }
+        //   if ($user && in_array($user->role, ['super']) || $user && in_array($user->role, ['admin'])) {
+        //       return $query;
+        //   }
 
         // Everyone else (booking users, regular users) see only their own records or team records
         $userId = $user?->id;
@@ -97,20 +97,13 @@ class RingaDataResource extends Resource
             return $query;
         }
 
-        if ($tenantId && $user && in_array($user->role, ['booking'])) {
-            $query->where(function (Builder $q) use ($userId, $tenantId) {
-                $q->where(function ($nested) use ($userId) {
-                    $nested->where('user_id', (string) $userId)
-                        ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userId]);
-                });
+        $userIdString = (string) $user->id;
 
-                if ($tenantId) {
-                    $q->orWhere('team_id', $tenantId);
-                }
+        $query->where('team_id', $tenantId)
+            ->where(function (Builder $builder) use ($userIdString) {
+                $builder->where('user_id', $userIdString)
+                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
             });
-
-            return $query;
-        }
 
         return $query;
     }

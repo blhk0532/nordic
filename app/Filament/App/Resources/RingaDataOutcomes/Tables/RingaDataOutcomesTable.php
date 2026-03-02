@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaDataOutcomes\Tables;
 
+use Deldius\UserField\UserColumn;
 use Filament\Actions;
+use Filament\Support\Enums\Size;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -14,9 +16,7 @@ class RingaDataOutcomesTable
     {
         return $table
             ->columns([
-                TextColumn::make('ringa_data_id')
-                    ->label('Ringa Data ID')
-                    ->sortable(),
+
                 TextColumn::make('ringaData.personnamn')
                     ->label('Person')
                     ->searchable()
@@ -33,17 +33,19 @@ class RingaDataOutcomesTable
                     ->label('Postort')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('user.name')
-                    ->label('User')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('coutcome')
                     ->label('Outcome')
                     ->searchable()
                     ->badge()
                     ->sortable(),
+                UserColumn::make('id')
+                    ->showActiveState() // Show active/inactive indicator
+                    ->hidden()
+                    ->avatarUrl('')
+                    ->size(Size::Small) // Set avatar size
+                    ->label('User'),
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label('Timestamp')
                     ->dateTime()
                     ->sortable(),
             ])

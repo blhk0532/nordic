@@ -32,7 +32,10 @@ class RingaDataTable
                     ->sortable(),
                 TextColumn::make('personnamn')
                     ->sortable(),
-                TextColumn::make('telefon'),
+                TextColumn::make('attempts')
+                    ->hidden()
+                    ->sortable()
+                    ->alignCenter(),
                 TextColumn::make('outcome')
                     ->sortable()
                     ->badge()
@@ -65,12 +68,10 @@ class RingaDataTable
                                     ->send();
                             })
                     ),
-                TextColumn::make('attempts')
-                    ->hidden()
-                    ->sortable()
-                    ->alignCenter(),
+                TextColumn::make('available_at')
+                    ->dateTime()
+                    ->sortable(),
                 TextColumn::make('aterkom_at')
-                    ->hidden()
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')

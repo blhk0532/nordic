@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\TeamUsers\Pages;
 
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
-use App\Models\Membership;
-use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
-use Illuminate\Database\Eloquent\Model;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 
 class ManageTeamUsers extends ManageRecords
 {
@@ -16,17 +15,12 @@ class ManageTeamUsers extends ManageRecords
 
     protected function getHeaderActions(): array
     {
+        FilamentAsset::register([
+            Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+        ]);
+
         return [
-            CreateAction::make()
-                ->after(function (Model $record) {
-                    $tenant = filament()->getTenant();
-                    if ($tenant) {
-                        Membership::create([
-                            'team_id' => $tenant->id,
-                            'user_id' => $record->id,
-                        ]);
-                    }
-                }),
+
         ];
     }
 }

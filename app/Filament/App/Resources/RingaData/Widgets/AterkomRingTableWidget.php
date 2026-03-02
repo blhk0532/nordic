@@ -58,13 +58,13 @@ class AterkomRingTableWidget extends BaseWidget
             ->toolbarActions([])
             ->extraAttributes(['style' => 'height: 420px'])
             ->columns([
+                TextColumn::make('personnamn')
+                    ->label('Namn')
+                    ->sortable()
+                    ->size('sm'),
                 TextColumn::make('aterkom_at')
                     ->label('Återkom')
                     ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->diffForHumans() : '-')
-                    ->sortable()
-                    ->size('sm'),
-                TextColumn::make('personnamn')
-                    ->label('Namn')
                     ->sortable()
                     ->size('sm'),
                 TextColumn::make('gatuadress')

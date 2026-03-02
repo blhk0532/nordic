@@ -30,7 +30,7 @@
         id="global-ai-search"
         x-show="isOpen"
         x-cloak
-        class="fixed inset-0 z-50 overflow-hidden"
+        class="fixed inset-0 z-50 overflow-hidden fi-modal-slide-over-left"
     >
         <div
             x-show="isOpen"
@@ -140,61 +140,61 @@ function aiChat() {
         messages: [
             { role: 'assistant', content: 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?' }
         ],
-        
+
         init() {
             this.loadMessages();
         },
-        
+
         loadMessages() {
             const saved = localStorage.getItem('ai_chat_messages');
             if (saved) {
                 this.messages = JSON.parse(saved);
             }
         },
-        
+
         saveMessages() {
             localStorage.setItem('ai_chat_messages', JSON.stringify(this.messages));
         },
-        
+
         openModal() {
             this.isOpen = true;
             this.$nextTick(() => {
                 document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
             });
         },
-        
+
         closeModal() {
             this.isOpen = false;
         },
-        
+
         newConversation() {
             this.messages = [
                 { role: 'assistant', content: 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?' }
             ];
             this.saveMessages();
         },
-        
+
         clearChat() {
             this.messages = [
                 { role: 'assistant', content: 'Hej! Jag är din AI-assistent. Jag kan hjälpa dig med frågor om dina kunder, bokningar eller annat. Vad kan jag hjälpa dig med idag?' }
             ];
             this.saveMessages();
         },
-        
+
         async sendMessage() {
             if (!this.input.trim() || this.isLoading) return;
-            
+
             const userMessage = this.input.trim();
             this.input = '';
             this.isLoading = true;
-            
+
             this.messages.push({ role: 'user', content: userMessage });
             this.saveMessages();
-            
+
             this.$nextTick(() => {
                 document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
             });
-            
+
             try {
                 // use the URL resolved at the top of the view (empty string if
                 // the route was not available; but in that case the sendMessage
@@ -205,21 +205,21 @@ function aiChat() {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
                     },
-                    body: JSON.stringify({ 
+                    body: JSON.stringify({
                         message: userMessage,
                         history: this.messages.slice(-10)
                     })
                 });
-                
+
                 const data = await response.json();
                 this.messages.push({ role: 'assistant', content: data.response });
             } catch (e) {
                 this.messages.push({ role: 'assistant', content: 'Sorry, jag kunde inte få ett svar. Försök igen senare.' });
             }
-            
+
             this.isLoading = false;
             this.saveMessages();
-            
+
             this.$nextTick(() => {
                 document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
             });

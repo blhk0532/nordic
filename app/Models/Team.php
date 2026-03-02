@@ -7,6 +7,8 @@ namespace App\Models;
 use App\Observers\TeamObserver;
 use App\Policies\TeamPolicy;
 use Filament\Models\Contracts\HasAvatar;
+use Filament\Models\Contracts\HasCurrentTenantLabel;
+use Filament\Models\Contracts\HasName;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Collection;
@@ -53,7 +55,7 @@ use Kirschbaum\Commentions\HasComments;
  */
 #[ObservedBy(TeamObserver::class)]
 #[UsePolicy(TeamPolicy::class)]
-class Team extends Model implements Commentable, HasAvatar
+class Team extends Model implements Commentable, HasAvatar, HasCurrentTenantLabel, HasName
 {
     use HasComments;
 
@@ -116,6 +118,16 @@ class Team extends Model implements Commentable, HasAvatar
         }
 
         return null;
+    }
+
+    public function getFilamentName(): string
+    {
+        return "{$this->name}";
+    }
+
+    public function getCurrentTenantLabel(): string
+    {
+        return "Active - {$this->name}";
     }
 
     protected static function boot(): void

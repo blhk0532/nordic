@@ -53,7 +53,7 @@ class Modal extends Component
             }
         }
 
-        $componentClass = app(Finder::class)->resolveClassComponentClassName($component);
+        $componentClass = app(\Livewire\Finder\Finder::class)->resolveClassComponentClassName($component);
         $id = md5($component.serialize($arguments));
 
         $arguments = collect($arguments)

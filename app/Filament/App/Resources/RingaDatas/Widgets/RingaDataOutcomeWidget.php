@@ -151,7 +151,7 @@ class RingaDataOutcomeWidget extends Widget implements HasForms
             ->whereNull('outcome')
             ->update([
                 'outcome' => $outcome->value,
-                'outcome_category' => 'Adress',
+                'outcome_category' => 'CO',
                 'started_at' => now(),
                 'expires_at' => now()->addYear(),
             ]);

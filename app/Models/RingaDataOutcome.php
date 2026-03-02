@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use Illuminate\Support\Facades\Storage;
 class RingaDataOutcome extends Model
 {
     use HasFactory;
@@ -17,6 +17,11 @@ class RingaDataOutcome extends Model
         'user_id',
         'coutcome',
     ];
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return auth()->user()?->getFilamentAvatarUrl();
+    }
 
     public function ringaData(): BelongsTo
     {

@@ -24,7 +24,7 @@ class RingaDataOutcomesResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Team Admin';
+    protected static UnitEnum|string|null $navigationGroup = 'Samtalslistor';
 
     protected static bool $isScopedToTenant = false;
 
@@ -45,10 +45,10 @@ class RingaDataOutcomesResource extends Resource
 
         $teneant = filament()->getTenant();
         if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
-            return false;
+            return true;
         }
         if (filament()->getTenant()->getAttribute('is_admin') === true) {
-            return false;
+            return true;
         }
 
         return true;

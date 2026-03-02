@@ -176,8 +176,8 @@ class RingaData extends Model
         'aterkom_at' => 'datetime',
         'available_at' => 'datetime',
         'retry_count' => 'integer',
-        // 'user_id' => 'array',
-        // 'team_id' => 'array',
+        'user_id' => 'array',
+        'team_id' => 'array',
     ];
 
     protected $fillable = [

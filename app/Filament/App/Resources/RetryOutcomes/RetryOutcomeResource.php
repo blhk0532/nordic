@@ -7,16 +7,18 @@ namespace App\Filament\App\Resources\RetryOutcomes;
 use App\Filament\App\Resources\RetryOutcomes\Pages\EditRetryOutcome;
 use App\Filament\App\Resources\RetryOutcomes\Pages\ListRetryOutcomes;
 use App\Filament\App\Resources\RetryOutcomes\Pages\ViewRetryOutcome;
+use App\Filament\App\Resources\RetryOutcomes\Tables\RetryOutcomesTable;
 use App\Models\RingaData;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class RetryOutcomeResource extends Resource
 {
-    public static bool $shouldRegisterNavigation = false;
+    public static bool $shouldRegisterNavigation = true;
 
     protected static ?string $model = RingaData::class;
 
@@ -24,9 +26,12 @@ class RetryOutcomeResource extends Resource
 
     protected static ?string $navigationLabel = 'Väntande';
 
-    protected static UnitEnum|string|null $navigationGroup = '';
+    protected static UnitEnum|string|null $navigationGroup = 'Samtalslistor';
 
     protected static ?int $navigationSort = 40;
+
+    //  protected static ?string $tenantOwnershipRelationshipName = null;
+    //  protected static bool $isScopedToTenant = false;
 
     public static function form(Schema $schema): Schema
     {
@@ -40,7 +45,7 @@ class RetryOutcomeResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table;
+        return RetryOutcomesTable::configure($table);
     }
 
     public static function getPages(): array
@@ -64,11 +69,32 @@ class RetryOutcomeResource extends Resource
 
     public static function getQuery(): \Illuminate\Database\Eloquent\Builder
     {
-        return RingaData::query()
-            ->where(function (\Illuminate\Database\Eloquent\Builder $query) {
+        $query = RingaData::query()
+            ->where(function (Builder $query) {
                 $query->where('outcome_category', 'Retry')
-                    ->orWhere('outcome_category', 'Later');
-            })
-            ->where('is_active', true);
+                    ->orWhere('outcome', 'Upptagen')
+                    ->orWhere('outcome', 'Inget Svar')
+                    ->orWhere('outcome', 'Telefonsvarare')
+                    ->orWhere('outcome', 'Ej Framkopplad')
+                    ->where('user_id', auth()->user()?->id);
+            });
+
+        return $query;
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        // $query = parent::getEloquentQuery();
+        $query = RingaData::query()
+            ->where(function (Builder $query) {
+                $query->where('outcome_category', 'Retry')
+                    ->orWhere('outcome', 'Upptagen')
+                    ->orWhere('outcome', 'Inget Svar')
+                    ->orWhere('outcome', 'Telefonsvarare')
+                    ->orWhere('outcome', 'Ej Framkopplad')
+                    ->where('user_id', auth()->user()?->id);
+            });
+
+        return $query;
     }
 }

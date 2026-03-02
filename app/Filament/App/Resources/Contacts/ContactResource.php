@@ -28,11 +28,17 @@ class ContactResource extends Resource
 
     protected static ?string $navigationLabel = 'Kontakter';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Mina Sidor';
+    protected static UnitEnum|string|null $navigationGroup = 'Samtalslistor';
 
     protected static bool $isScopedToTenant = false;
 
     protected static ?int $navigationSort = 110;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Samtalslistor';
+        // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
+    }
 
     public static function shouldRegisterNavigation(): bool
     {
@@ -45,6 +51,15 @@ class ContactResource extends Resource
         }
 
         return false;
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        if (! auth()->check()) {
+            return null;
+        }
+
+        return (string) self::getEloquentQuery()->count();
     }
 
     public static function form(Schema $schema): Schema

@@ -328,7 +328,7 @@ class AdminPanelProvider extends PanelProvider
                     ->icon(Remix::RiDashboard2Line)
                     ->url(fn () => TeamUserResource::getUrl())
                     ->sort(-1)
-                    ->visible(true),
+                    ->visible(false),
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
                     ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),

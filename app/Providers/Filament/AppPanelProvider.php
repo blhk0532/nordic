@@ -70,6 +70,7 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use JeffersonGoncalves\Filament\RefreshSidebar\RefreshSidebarPlugin;
@@ -105,6 +106,27 @@ class AppPanelProvider extends PanelProvider
             ->maxContentWidth(Width::Full)
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
+            ->tenantSwitcher(fn () => auth()->user()->role === 'super' || auth()->user()->role === 'admin' ? true : false)
+            ->tenantMenu(fn () => auth()->user()->role === 'super' || auth()->user()->role === 'admin' ? true : false)
+            ->homeUrl(fn () => AppDashboard::getUrl())
+            ->favicon(fn () => asset('favicon.svg'))
+            ->brandLogo(fn () => view('filament.app.logo'))
+            ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
+            ->viteTheme('resources/css/filament/app/theme.css')
+            ->defaultThemeMode(ThemeMode::Dark)
+            //    ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
+            ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
+            ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
+            ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->profile(null)
+            ->spa()
+            ->sidebarFullyCollapsibleOnDesktop()
+            ->spaUrlExceptions(['tel:*', 'mailto:*'])
+            ->registerErrorNotification(
+                title: 'Oops!',
+                body: '/ᐠ •̀ ˕ •́ マ',
+            )
             ->homeUrl(fn () => AppDashboard::getUrl())
             ->sidebarCollapsibleOnDesktop(true)
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
@@ -127,17 +149,7 @@ class AppPanelProvider extends PanelProvider
                 body: '/ᐠ •̀ ˕ •́ マ',
             )
             ->navigationGroups([
-                NavigationGroup::make('Mina Sidor')
-                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
-                    ->collapsed()
-                    ->icon(Tabler::UserSquareRounded),
-                NavigationGroup::make('Kalendrar')
-                    ->collapsed()
-                    ->icon('heroicon-c-squares-plus'),
-                NavigationGroup::make('Bokningar Admin')
-                    ->collapsed()
-                    ->icon('heroicon-o-document-text'),
-                NavigationGroup::make('Administration')
+                                NavigationGroup::make('Administration')
                     ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
                     ->collapsed()
                     ->icon(Tabler::ShieldCheckF),
@@ -146,11 +158,25 @@ class AppPanelProvider extends PanelProvider
                     ->collapsed()
                     ->label('Team Admin')
                     ->icon(Tabler::ShieldCheckF),
+                NavigationGroup::make('Mina Sidor')
+                    ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
+                    ->collapsed()
+                    ->icon(Tabler::UserSquareRounded),
+                NavigationGroup::make('Kalendrar')
+                    ->collapsed()
+                    ->icon('heroicon-c-squares-plus'),
+                NavigationGroup::make('Samtalslistor')
+                    ->collapsed()
+                    ->icon('heroicon-o-queue-list'),
+                NavigationGroup::make('Bokningar Admin')
+                    ->collapsed()
+                    ->icon('heroicon-o-document-text'),
                 NavigationGroup::make(filament()->getTenant()?->id ? filament()->getTenant()?->name : 'Admin')
                     ->collapsed()
                     ->icon(Tabler::UserSquareRounded),
                 NavigationGroup::make('Kalender')
                     ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
+                     ->icon('heroicon-o-calendar-days')
                     ->collapsed()
                     ->icon(Tabler::UserSquareRounded),
 
@@ -428,6 +454,27 @@ class AppPanelProvider extends PanelProvider
         //            return view('filament.app.global-outcome-history-trigger');
         //        }
         //    );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::TOPBAR_LOGO_AFTER,
+            fn () => Blade::render('@livewire(\'filament-ui-switcher\', [\'hasModeSwitcher\' => true])'),
+        );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::SIDEBAR_LOGO_AFTER,
+            fn () => Blade::render('@livewire(\'filament-ui-switcher\', [\'hasModeSwitcher\' => true])'),
+        );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::TOPBAR_LOGO_AFTER,
+            fn () => view('filament.app.user-notes-icon-topbar')
+        );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::BODY_START,
+            fn () => view('filament.app.manus-modal-container')
+        );
+
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,
             function (): \Illuminate\View\View {
@@ -442,7 +489,7 @@ class AppPanelProvider extends PanelProvider
         //    );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::USER_MENU_BEFORE,
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ringa-data-search-trigger');
             }
