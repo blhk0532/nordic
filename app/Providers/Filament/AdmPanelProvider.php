@@ -23,7 +23,6 @@ use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
-use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Filament\Actions\Action;
 use Filament\Enums\ThemeMode;
 use Filament\Facades\Filament;
@@ -265,7 +264,6 @@ final class AdmPanelProvider extends PanelProvider
                     ->url('/nds/admin/'.config('filament-sanctum.navigation.slug'))
                     ->icon(config('filament-sanctum.navigation.icon', 'heroicon-o-finger-print')),
             ])
-            ->plugin(CollapsibleSubnavPlugin::make())
             ->plugin(
                 FilamentShieldPlugin::make()
                     ->navigationLabel('Roles')                  // string|Closure|null

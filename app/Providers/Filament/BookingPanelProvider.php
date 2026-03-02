@@ -28,7 +28,7 @@ use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
 use Devtical\Sanctum\Pages\Sanctum;
-use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
+// use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -164,7 +164,7 @@ class BookingPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->plugin(CollapsibleSubnavPlugin::make())
+          //  ->plugin(CollapsibleSubnavPlugin::make())
             ->plugins([
                 FilamentBookingPlugin::make(),
                 FilamentWirechatPlugin::make()
