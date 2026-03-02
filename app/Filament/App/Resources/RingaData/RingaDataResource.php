@@ -81,10 +81,10 @@ class RingaDataResource extends Resource
         $query = parent::getEloquentQuery();
         $user = auth()->user();
 
-        // Only super OR admin users see all records
-        //   if ($user && in_array($user->role, ['super']) || $user && in_array($user->role, ['admin'])) {
-        //       return $query;
-        //   }
+
+           if ($user && in_array($user->role, ['super'])) {
+               return $query;
+           }
 
         // Everyone else (booking users, regular users) see only their own records or team records
         $userId = $user?->id;
