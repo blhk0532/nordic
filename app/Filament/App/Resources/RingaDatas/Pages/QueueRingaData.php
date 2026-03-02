@@ -17,6 +17,7 @@ use Exception;
 use Filament\Resources\Pages\Page;
 use Filament\Support\Enums\Width;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
@@ -83,23 +84,27 @@ class QueueRingaData extends Page
 
     public static function getNavigationBadge(): ?string
     {
-        $user = auth()->user();
+        $user = Auth::user();
         if (! $user) {
             return '';
         }
-         return (string) self::getQuery()->count() > 0 ? self::getQuery()->count() : '〇';
+
+        $count = self::getQuery()->count();
+
+        return $count > 0 ? (string) $count : '〇';
     }
 
     public static function getNavigationBadgeColor(): ?string
     {
-        $user = auth()->user();
+        $user = Auth::user();
         if (! $user) {
             return 'warning';
         }
 
-        return (string) self::getQuery()->count() > 0 ? 'danger' : 'success';
-    }
+        $count = self::getQuery()->count();
 
+        return $count > 0 ? 'danger' : 'success';
+    }
 
     public function getHeaderWidgetsData(): array
     {
@@ -169,7 +174,7 @@ class QueueRingaData extends Page
     {
         $now = now();
         $tenantId = filament()->getTenant()?->id;
-        $userId = auth()->id();
+        $userId = Auth::id();
 
         if (! $tenantId || ! $userId) {
             return self::getResource()::getEloquentQuery()->whereRaw('1 = 0');
