@@ -1,5 +1,142 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
+* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
+* @route '/livewire-86207cf2/update'
+*/
+export const update = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: update.url(options),
+    method: 'post',
+})
+
+update.definition = {
+    methods: ["post"],
+    url: '/livewire-86207cf2/update',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
+* @route '/livewire-86207cf2/update'
+*/
+update.url = (options?: RouteQueryOptions) => {
+    return update.definition.url + queryParams(options)
+}
+
+/**
+* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
+* @route '/livewire-86207cf2/update'
+*/
+update.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: update.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
+* @route '/livewire-86207cf2/update'
+*/
+const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: update.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
+* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
+* @route '/livewire-86207cf2/update'
+*/
+updateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: update.url(options),
+    method: 'post',
+})
+
+update.form = updateForm
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+export const script = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: script.url(options),
+    method: 'get',
+})
+
+script.definition = {
+    methods: ["get","head"],
+    url: '/livewire-86207cf2/livewire.js',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+script.url = (options?: RouteQueryOptions) => {
+    return script.definition.url + queryParams(options)
+}
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+script.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: script.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+script.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: script.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+const scriptForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: script.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+scriptForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: script.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
+* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
+* @route '/livewire-86207cf2/livewire.js'
+*/
+scriptForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: script.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+script.form = scriptForm
+
+/**
 * @see \Livewire\Features\SupportFileUploads\FileUploadController::uploadFile
 * @see vendor/livewire/livewire/src/Features/SupportFileUploads/FileUploadController.php:27
 * @route '/livewire-86207cf2/upload-file'
@@ -154,148 +291,11 @@ previewFileForm.head = (args: { filename: string | number } | [filename: string 
 
 previewFile.form = previewFileForm
 
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-export const script = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: script.url(options),
-    method: 'get',
-})
-
-script.definition = {
-    methods: ["get","head"],
-    url: '/livewire/livewire.min.js',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-script.url = (options?: RouteQueryOptions) => {
-    return script.definition.url + queryParams(options)
-}
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-script.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: script.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-script.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: script.url(options),
-    method: 'head',
-})
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-const scriptForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: script.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-scriptForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: script.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Livewire\Mechanisms\FrontendAssets\FrontendAssets::script
-* @see vendor/livewire/livewire/src/Mechanisms/FrontendAssets/FrontendAssets.php:81
-* @route '/livewire/livewire.min.js'
-*/
-scriptForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: script.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-script.form = scriptForm
-
-/**
-* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
-* @route '/livewire/update'
-*/
-export const update = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: update.url(options),
-    method: 'post',
-})
-
-update.definition = {
-    methods: ["post"],
-    url: '/livewire/update',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
-* @route '/livewire/update'
-*/
-update.url = (options?: RouteQueryOptions) => {
-    return update.definition.url + queryParams(options)
-}
-
-/**
-* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
-* @route '/livewire/update'
-*/
-update.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: update.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
-* @route '/livewire/update'
-*/
-const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: update.url(options),
-    method: 'post',
-})
-
-/**
-* @see \Livewire\Mechanisms\HandleRequests\HandleRequests::update
-* @see vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php:134
-* @route '/livewire/update'
-*/
-updateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: update.url(options),
-    method: 'post',
-})
-
-update.form = updateForm
-
 const livewire = {
+    update: Object.assign(update, update),
+    script: Object.assign(script, script),
     uploadFile: Object.assign(uploadFile, uploadFile),
     previewFile: Object.assign(previewFile, previewFile),
-    script: Object.assign(script, script),
-    update: Object.assign(update, update),
 }
 
 export default livewire

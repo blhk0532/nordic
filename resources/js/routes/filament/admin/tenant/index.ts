@@ -81,7 +81,7 @@ registrationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 registration.form = registrationForm
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 export const profile = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -95,7 +95,7 @@ profile.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 profile.url = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -121,7 +121,7 @@ profile.url = (args: { tenant: string | number } | [tenant: string | number ] | 
 }
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 profile.get = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -130,7 +130,7 @@ profile.get = (args: { tenant: string | number } | [tenant: string | number ] | 
 })
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 profile.head = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -139,7 +139,7 @@ profile.head = (args: { tenant: string | number } | [tenant: string | number ] |
 })
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 const profileForm = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -148,7 +148,7 @@ const profileForm = (args: { tenant: string | number } | [tenant: string | numbe
 })
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 profileForm.get = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ profileForm.get = (args: { tenant: string | number } | [tenant: string | number 
 })
 
 /**
-* @see routes/web.php:193
+* @see [serialized-closure]:2
 * @route '/admin/tenant/{tenant}/profile'
 */
 profileForm.head = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

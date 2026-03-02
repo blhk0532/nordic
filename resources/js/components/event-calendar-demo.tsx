@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 export function EventCalendarDemo() {
     const [showBookingModal, setShowBookingModal] = useState(false);
+    const [calendarVersion, setCalendarVersion] = useState(0);
     const [selectedSlot, setSelectedSlot] = useState<any>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
     const [isEditMode, setIsEditMode] = useState(false);
@@ -184,8 +185,8 @@ export function EventCalendarDemo() {
                 info.revert();
             }
 
-            // Refresh calendar events
-            window.location.reload();
+            // Refresh only the calendar component
+            setCalendarVersion((currentVersion) => currentVersion + 1);
         } catch (error) {
             console.error('Error moving booking:', error);
             info.revert();
@@ -219,8 +220,8 @@ export function EventCalendarDemo() {
                 info.revert();
             }
 
-            // Refresh calendar events
-            window.location.reload();
+            // Refresh only the calendar component
+            setCalendarVersion((currentVersion) => currentVersion + 1);
         } catch (error) {
             console.error('Error resizing booking:', error);
             info.revert();
@@ -279,7 +280,7 @@ export function EventCalendarDemo() {
                     reset();
                     setSelectedEvent(null);
                     setSelectedSlot(null);
-                    window.location.reload();
+                    setCalendarVersion((currentVersion) => currentVersion + 1);
                 }, 1500);
             } catch (error) {
                 console.error(
@@ -319,7 +320,7 @@ export function EventCalendarDemo() {
             reset();
             setSelectedEvent(null);
             setSelectedSlot(null);
-            window.location.reload();
+            setCalendarVersion((currentVersion) => currentVersion + 1);
         } catch (error) {
             console.error('Error deleting booking:', error);
         }
@@ -328,6 +329,7 @@ export function EventCalendarDemo() {
     return (
         <>
             <EventCalendar
+                key={calendarVersion}
                 className="mx-auto my-10 max-w-300"
                 editable
                 selectable

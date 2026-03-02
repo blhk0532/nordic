@@ -72,6 +72,39 @@ export default defineConfig({
                     /node_modules/,
                 ],
             },
+            rollupOptions: {
+                output: {
+                    manualChunks(id) {
+                        if (id.includes('node_modules/@fullcalendar')) {
+                            return 'vendor-fullcalendar';
+                        }
+
+                        if (id.includes('node_modules/@inertiajs')) {
+                            return 'vendor-inertia';
+                        }
+
+                        if (
+                            id.includes('node_modules/react/') ||
+                            id.includes('node_modules/react-dom/') ||
+                            id.includes('node_modules/scheduler/') ||
+                            id.includes('node_modules/use-sync-external-store/')
+                        ) {
+                            return 'vendor-react-core';
+                        }
+
+                        if (
+                            id.includes('node_modules/@radix-ui/') ||
+                            id.includes('node_modules/@floating-ui/')
+                        ) {
+                            return 'vendor-radix';
+                        }
+
+                        if (id.includes('node_modules/@tiptap')) {
+                            return 'vendor-tiptap';
+                        }
+                    },
+                },
+            },
         },
         ssr: {
             noExternal: [

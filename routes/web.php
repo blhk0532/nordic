@@ -21,17 +21,12 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
 
 // Livewire routes - MUST be registered for Livewire to work
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/livewire/livewire.min.js', $handle)->name('livewire.script');
+Livewire::setScriptRoute(function ($handle, $path) {
+    return Route::get($path, $handle)->name('livewire.script');
 });
 
-Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/livewire/update', $handle)->name('livewire.update');
-});
-
-// Handle GET requests to livewire/update (prevent MethodNotAllowedHttpException)
-Route::get('/livewire/update', function () {
-    return redirect('/')->with('error', 'Invalid request method for Livewire update endpoint.');
+Livewire::setUpdateRoute(function ($handle, $path) {
+    return Route::post($path, $handle)->name('livewire.update');
 });
 
 // Route::get('/', fn () => Inertia::render('welcome'))->name('home');
@@ -44,14 +39,14 @@ Route::prefix('api/calendar')->group(function (): void {
     Route::get('bookings/public', [CalendarBookingController::class, 'publicIndex']);
 });
 
-Route::middleware(['web', 'inertia', 'auth', 'verified'])->group(function (): void {
+Route::middleware(['inertia', 'auth', 'verified'])->group(function (): void {
     Route::get('dashboard', fn () => Inertia::render('dashboard'))->name('dashboard');
     Route::get('app', fn () => Inertia::render('app'))->name('app');
     Route::get('bokningar', fn () => Inertia::render('bokningar'))->name('bokningar');
     Route::get('queue', QueueController::class)->name('queue');
 });
 
-Route::middleware(['web', 'inertia', 'auth', 'verified'])->group(function (): void {
+Route::middleware(['inertia', 'auth', 'verified'])->group(function (): void {
     Route::get('calendar', fn () => Inertia::render('calendar'))->name('calendar');
     Route::get('calendars', fn () => Inertia::render('calendars'))->name('calendars');
     Route::get('calendar-one', fn () => Inertia::render('calendar-one'))->name('calendar-one');
@@ -86,7 +81,7 @@ Route::middleware(['web', 'inertia', 'auth', 'verified'])->group(function (): vo
     });
 });
 
-Route::middleware(['web', 'inertia', 'auth'])->group(function (): void {
+Route::middleware(['inertia', 'auth'])->group(function (): void {
     // User...
     Route::delete('user', [UserController::class, 'destroy'])->name('user.destroy');
 
@@ -166,10 +161,6 @@ Route::middleware('auth')->group(function (): void {
     Route::post('{tenant}/ringa-data/{id}/outcome', [RingaDataOutcomeController::class, 'store'])
         ->name('ringa-data.outcome.store');
 });
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 Route::get('admin/tenant/{tenant}/profile', function ($tenant) {
     // Redirect to dashboard or implement tenant profile logic

@@ -42,6 +42,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->validateCsrfTokens(except: [
             'livewire/*',
+            'livewire-*/*',
         ]);
 
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);

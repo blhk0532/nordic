@@ -32,17 +32,35 @@ final class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        $quote = Inspiring::quotes()->random();
-        assert(is_string($quote));
-
-        [$message, $author] = str($quote)->explode('-');
-
         return [
             ...parent::share($request),
             'name' => config('app.name'),
-            'quote' => ['message' => mb_trim((string) $message), 'author' => mb_trim((string) $author)],
+            'quote' => function (): array {
+                $quote = Inspiring::quotes()->random();
+                assert(is_string($quote));
+
+                [$message, $author] = str($quote)->explode('-');
+
+                return [
+                    'message' => mb_trim((string) $message),
+                    'author' => mb_trim((string) $author),
+                ];
+            },
             'auth' => [
-                'user' => $request->user(),
+                'user' => function () use ($request): ?array {
+                    $user = $request->user();
+
+                    if (! $user) {
+                        return null;
+                    }
+
+                    return [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'email_verified_at' => $user->email_verified_at,
+                    ];
+                },
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
