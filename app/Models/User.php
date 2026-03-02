@@ -356,7 +356,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function getDefaultTenant(Panel $panel): ?Model
     {
-        return $this->currentTeam;
+        $currentTeam = $this->currentTeam;
+
+        if ($currentTeam) {
+            return $currentTeam;
+        }
+
+        return $this->getTenants($panel)->first();
     }
 
     /**

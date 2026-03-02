@@ -38,6 +38,7 @@ use App\Http\Middleware\FilamentPanelAccess;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Models\Team;
 use App\Models\User;
+use App\Support\Filament\AppPanelRedirect;
 use Arshaviras\WeatherWidget\Widgets\WeatherWidget;
 use Asmit\ResizedColumn\ResizedColumnPlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -108,7 +109,7 @@ class AppPanelProvider extends PanelProvider
             ->tenantProfile(EditTeamProfile::class)
             ->tenantSwitcher(fn () => auth()->user()->role === 'super' || auth()->user()->role === 'admin' ? true : false)
             ->tenantMenu(fn () => auth()->user()->role === 'super' || auth()->user()->role === 'admin' ? true : false)
-            ->homeUrl(fn () => AppDashboard::getUrl())
+            ->homeUrl(fn () => AppPanelRedirect::urlFor(auth()->user()))
             ->favicon(fn () => asset('favicon.svg'))
             ->brandLogo(fn () => view('filament.app.logo'))
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
@@ -127,7 +128,7 @@ class AppPanelProvider extends PanelProvider
                 title: 'Oops!',
                 body: '/ᐠ •̀ ˕ •́ マ',
             )
-            ->homeUrl(fn () => AppDashboard::getUrl())
+            ->homeUrl(fn () => AppPanelRedirect::urlFor(auth()->user()))
             ->sidebarCollapsibleOnDesktop(true)
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
             ->favicon(fn () => asset('favicon.svg'))
@@ -176,7 +177,7 @@ class AppPanelProvider extends PanelProvider
                     ->icon(Tabler::UserSquareRounded),
                 NavigationGroup::make('Kalender')
                     ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
-                     ->icon('heroicon-o-calendar-days')
+                    ->icon('heroicon-o-calendar-days')
                     ->collapsed()
                     ->icon(Tabler::UserSquareRounded),
 

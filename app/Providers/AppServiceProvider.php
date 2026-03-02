@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Responses\CustomLoginResponse;
 use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Carbon\CarbonImmutable;
+use Filament\Auth\Http\Responses\Contracts\LoginResponse as FilamentLoginResponseContract;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
+use Laravel\Fortify\Contracts\LoginResponse as FortifyLoginResponseContract;
 use Livewire\Blaze\Blaze;
 use Livewire\Livewire;
 
@@ -23,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(FilamentLoginResponseContract::class, CustomLoginResponse::class);
+        $this->app->singleton(FortifyLoginResponseContract::class, CustomLoginResponse::class);
     }
 
     /**

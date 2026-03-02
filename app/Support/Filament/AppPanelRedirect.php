@@ -9,7 +9,7 @@ use Filament\Panel;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 final class AppPanelRedirect
 {
@@ -22,10 +22,13 @@ final class AppPanelRedirect
         }
 
         $tenant = self::resolveTenant($user, $panel);
-        $tenantSlug = $tenant?->getAttribute('slug');
 
-        if (filled($tenantSlug) && Route::has('filament.app.pages.dashboard')) {
-            return route('filament.app.pages.dashboard', ['tenant' => $tenantSlug]);
+        if ($tenant) {
+            $tenantUrl = $panel->getUrl($tenant);
+
+            if (filled($tenantUrl)) {
+                return $tenantUrl;
+            }
         }
 
         if ($panel->hasTenantRegistration()) {
@@ -46,6 +49,8 @@ final class AppPanelRedirect
             $defaultTenant = $user->getDefaultTenant($panel); // @phpstan-ignore-line
 
             if ($defaultTenant instanceof Model) {
+                self::ensureTenantSlug($defaultTenant);
+
                 return $defaultTenant;
             }
         }
@@ -56,8 +61,30 @@ final class AppPanelRedirect
 
         /** @var mixed $tenants */
         $tenants = $user->getTenants($panel); // @phpstan-ignore-line
-        $tenant = $tenants instanceof Collection ? $tenants->first() : collect($tenants)->first();
+
+        $tenantCollection = $tenants instanceof Collection ? $tenants : collect($tenants);
+
+        /** @var mixed $tenant */
+        $tenant = $tenantCollection
+            ->first(fn (mixed $candidate): bool => $candidate instanceof Model && filled($candidate->getAttribute('slug')))
+            ?? $tenantCollection->first();
+
+        if ($tenant instanceof Model) {
+            self::ensureTenantSlug($tenant);
+        }
 
         return $tenant instanceof Model ? $tenant : null;
+    }
+
+    private static function ensureTenantSlug(Model $tenant): void
+    {
+        if (filled($tenant->getAttribute('slug'))) {
+            return;
+        }
+
+        $name = (string) ($tenant->getAttribute('name') ?? 'team');
+        $baseSlug = Str::slug($name);
+        $tenant->setAttribute('slug', $baseSlug !== '' ? $baseSlug : 'team-'.$tenant->getKey());
+        $tenant->saveQuietly();
     }
 }
