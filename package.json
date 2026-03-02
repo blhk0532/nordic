@@ -37,7 +37,6 @@
         "@fullcalendar/list": "7.0.0-beta.6",
         "@fullcalendar/moment": "7.0.0-beta.6",
         "@fullcalendar/moment-timezone": "7.0.0-beta.6",
-        "@fullcalendar/mui": "7.0.0-beta.7",
         "@fullcalendar/multimonth": "7.0.0-beta.6",
         "@fullcalendar/react": "7.0.0-beta.7",
         "@fullcalendar/resource": "7.0.0-beta.6",

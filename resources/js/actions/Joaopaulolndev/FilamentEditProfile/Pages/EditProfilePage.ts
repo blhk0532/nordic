@@ -210,6 +210,86 @@ EditProfilePage643d3a0198086a525b91c42ce911c3aa.form = EditProfilePage643d3a0198
 /**
 * @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
 * @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+const EditProfilePageec8419e5a9e524efa06d8eabf931fb25 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url(options),
+    method: 'get',
+})
+
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/my-profile',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url = (options?: RouteQueryOptions) => {
+    return EditProfilePageec8419e5a9e524efa06d8eabf931fb25.definition.url + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+const EditProfilePageec8419e5a9e524efa06d8eabf931fb25Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditProfilePageec8419e5a9e524efa06d8eabf931fb25.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditProfilePageec8419e5a9e524efa06d8eabf931fb25.form = EditProfilePageec8419e5a9e524efa06d8eabf931fb25Form
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
 * @route '/nds/super/my-profile'
 */
 const EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -291,6 +371,7 @@ EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e.form = EditProfilePage7e70e4ea88
 const EditProfilePage = {
     '/admin/tenant/{tenant}/my-profile': EditProfilePage35229828525ffed3fa3ee3a2e04a3128,
     '/nds/app/team/{tenant}/my-profile': EditProfilePage643d3a0198086a525b91c42ce911c3aa,
+    '/nds/booking/my-profile': EditProfilePageec8419e5a9e524efa06d8eabf931fb25,
     '/nds/super/my-profile': EditProfilePage7e70e4ea88cd8ddbed4e7cbf5244358e,
 }
 

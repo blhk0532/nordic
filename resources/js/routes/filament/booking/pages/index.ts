@@ -81,6 +81,87 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 /**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+export const myProfile = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: myProfile.url(options),
+    method: 'get',
+})
+
+myProfile.definition = {
+    methods: ["get","head"],
+    url: '/nds/booking/my-profile',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+myProfile.url = (options?: RouteQueryOptions) => {
+    return myProfile.definition.url + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+myProfile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: myProfile.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+myProfile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: myProfile.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+const myProfileForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+myProfileForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage::__invoke
+* @see plugins/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php:7
+* @route '/nds/booking/my-profile'
+*/
+myProfileForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: myProfile.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+myProfile.form = myProfileForm
+
+/**
 * @see \App\Filament\Booking\Pages\GoogleCalendar::__invoke
 * @see app/Filament/Booking/Pages/GoogleCalendar.php:7
 * @route '/nds/booking/google-calendar'
@@ -1054,6 +1135,7 @@ sanctum.form = sanctumForm
 
 const pages = {
     dashboard: Object.assign(dashboard, dashboard),
+    myProfile: Object.assign(myProfile, myProfile),
     googleCalendar: Object.assign(googleCalendar, googleCalendar),
     inertiaCalendar: Object.assign(inertiaCalendar, inertiaCalendar),
     bookingCalendarsX1: Object.assign(bookingCalendarsX1, bookingCalendarsX1),
