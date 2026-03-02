@@ -91,7 +91,7 @@ class QueueRingaData extends Page
 
         $count = self::getQuery()->count();
 
-        return $count > 0 ? (string) $count : '〇';
+        return (string) $count;
     }
 
     public static function getNavigationBadgeColor(): ?string
