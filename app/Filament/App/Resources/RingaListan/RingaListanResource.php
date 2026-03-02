@@ -38,7 +38,7 @@ class RingaListanResource extends Resource
 
     protected static ?string $slug = 'ringa/listor';
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 12;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;

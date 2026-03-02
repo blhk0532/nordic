@@ -37,7 +37,7 @@ class RingaDatasResource extends Resource
 
     protected static ?string $slug = 'ringa/data';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 2;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;

@@ -51,11 +51,16 @@ class AppChatDashboard extends BasePage
             return true;
         }
 
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+        if (filament()->getTenant()->getAttribute('is_admin') === true) {
             return false;
         }
 
-        return true;
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+            return true;
+        }
+
+        return false;
+
     }
 
     public static function getNavigationLabel(): string

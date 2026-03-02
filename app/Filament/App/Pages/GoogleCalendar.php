@@ -19,7 +19,7 @@ class GoogleCalendar extends Page
 
     protected static ?string $title = '';
 
-    protected static ?int $navigationSort = 101;
+    protected static ?int $navigationSort = 5;
 
     protected static ?string $slug = 'google-calendar';
 
@@ -32,7 +32,7 @@ class GoogleCalendar extends Page
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Kalender';
+        return 'Kalendrar';
         // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 

@@ -43,6 +43,8 @@ class BookingResource extends Resource
      */
     protected static bool $isScopedToTenant = false;
 
+
+
     public static function form(Schema $schema): Schema
     {
         return BookingForm::configure($schema);

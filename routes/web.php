@@ -56,7 +56,7 @@ Route::get('/livewire/update', function () {
 // Route::get('/', fn () => Inertia::render('welcome'))->name('home');
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/nds/app');
 })->name('home');
 
 Route::prefix('api/calendar')->group(function (): void {

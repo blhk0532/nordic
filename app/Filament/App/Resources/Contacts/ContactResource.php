@@ -44,13 +44,13 @@ class ContactResource extends Resource
     {
 
         if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
-            return false;
+            return true;
         }
         if (filament()->getTenant()->getAttribute('is_admin') !== true) {
             return true;
         }
 
-        return false;
+        return true;
     }
 
     public static function getNavigationBadge(): ?string

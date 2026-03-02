@@ -149,7 +149,7 @@ class AppPanelProvider extends PanelProvider
                 body: '/ᐠ •̀ ˕ •́ マ',
             )
             ->navigationGroups([
-                                NavigationGroup::make('Administration')
+                NavigationGroup::make('Administration')
                     ->extraSidebarAttributes(['class' => 'featured-sidebar-group'])
                     ->collapsed()
                     ->icon(Tabler::ShieldCheckF),
@@ -489,7 +489,7 @@ class AppPanelProvider extends PanelProvider
         //    );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            PanelsRenderHook::GLOBAL_SEARCH_AFTER,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ringa-data-search-trigger');
             }

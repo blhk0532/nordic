@@ -24,7 +24,7 @@ class CampaignResource extends FilamentResource
 
     protected static ?string $navigationLabel = 'Kampanjer';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 5;
 
     protected static ?string $tenantOwnershipRelationshipName = 'team';
 
@@ -47,7 +47,7 @@ class CampaignResource extends FilamentResource
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Kalender';
+        return 'Kalendrar';
         // return filament()->getTenant()?->name ? filament()->getTenant()?->name : 'Administration';
     }
 

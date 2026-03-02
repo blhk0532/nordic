@@ -85,10 +85,9 @@ class QueueRingaData extends Page
     {
         $user = auth()->user();
         if (! $user) {
-            return '〇';
+            return '';
         }
-
-        return (string) self::getQuery()->count();
+         return (string) self::getQuery()->count() > 0 ? self::getQuery()->count() : '〇';
     }
 
     public static function getNavigationBadgeColor(): ?string
