@@ -199,13 +199,6 @@
         },
         {
             "type": "path",
-            "url": "plugins/emuniq/filament-collapsible-subnav",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
             "url": "plugins/devonab/filament-easy-footer",
             "options": {
                 "symlink": true
