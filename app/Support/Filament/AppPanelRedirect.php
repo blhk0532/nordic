@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Support\Filament;
 
+use App\Models\Team;
+use App\Models\User;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -73,7 +75,47 @@ final class AppPanelRedirect
             self::ensureTenantSlug($tenant);
         }
 
+        if (! $tenant && $user instanceof User) {
+            $tenant = self::createFallbackTenant($user);
+        }
+
         return $tenant instanceof Model ? $tenant : null;
+    }
+
+    private static function createFallbackTenant(User $user): ?Team
+    {
+        $name = trim((string) $user->name);
+        $baseName = $name !== '' ? $name : 'User';
+        $teamName = $baseName."'s Team";
+
+        $team = Team::query()->create([
+            'user_id' => $user->id,
+            'name' => $teamName,
+            'slug' => self::generateUniqueTeamSlug($teamName),
+            'personal_team' => true,
+        ]);
+
+        $team->users()->syncWithoutDetaching([$user->id]);
+
+        $user->forceFill([
+            'current_team_id' => $team->id,
+        ])->saveQuietly();
+
+        return $team;
+    }
+
+    private static function generateUniqueTeamSlug(string $teamName): string
+    {
+        $baseSlug = Str::slug($teamName);
+        $slug = $baseSlug !== '' ? $baseSlug : 'team';
+        $suffix = 1;
+
+        while (Team::query()->where('slug', $slug)->exists()) {
+            $slug = $baseSlug !== '' ? "{$baseSlug}-{$suffix}" : "team-{$suffix}";
+            $suffix++;
+        }
+
+        return $slug;
     }
 
     private static function ensureTenantSlug(Model $tenant): void
