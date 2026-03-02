@@ -39,7 +39,7 @@ final class RingaDataTable
         return $table
             ->headerActions([
                 \Filament\Actions\Action::make('advancedExport')
-                    ->label('Advanced Export')
+                    ->label('Export')
                     ->color('success')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->modal()

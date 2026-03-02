@@ -85,7 +85,7 @@ class QueueRingaData extends Page
     {
         $user = auth()->user();
         if (! $user) {
-            return '0';
+            return '〇';
         }
 
         return (string) self::getQuery()->count();
@@ -98,8 +98,9 @@ class QueueRingaData extends Page
             return 'warning';
         }
 
-        return (string) self::getQuery()->count() > 100 ? 'danger' : 'warning';
+        return (string) self::getQuery()->count() > 0 ? 'danger' : 'success';
     }
+
 
     public function getHeaderWidgetsData(): array
     {
