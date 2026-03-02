@@ -62,7 +62,7 @@ class BookingPanelProvider extends PanelProvider
             ])
             ->spa()
             ->spaUrlExceptions(['tel:*', 'mailto:*'])
-            ->plugin(
+            ->plugins([
                 AuthDesignerPlugin::make()
                     ->login(
                         fn (AuthPageConfig $config) => $config
@@ -98,7 +98,7 @@ class BookingPanelProvider extends PanelProvider
                     ->shouldShowMultiFactorAuthentication()
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(true, 'attachments'),
-            )
+            ])
             ->brandName('Noridic Digital')
             ->sidebarCollapsibleOnDesktop(true)
             ->databaseNotifications()
