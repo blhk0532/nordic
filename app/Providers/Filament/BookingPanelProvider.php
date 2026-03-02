@@ -164,7 +164,7 @@ class BookingPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-          //  ->plugin(CollapsibleSubnavPlugin::make())
+            ->plugins($this->optionalPanelPlugins())
             ->plugins([
                 FilamentBookingPlugin::make(),
                 FilamentWirechatPlugin::make()
@@ -174,5 +174,20 @@ class BookingPanelProvider extends PanelProvider
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
                     ]),
             ]);
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private function optionalPanelPlugins(): array
+    {
+        $plugins = [];
+        $collapsibleSubnavPluginClass = 'Emuniq\\FilamentCollapsibleSubnav\\CollapsibleSubnavPlugin';
+
+        if (class_exists($collapsibleSubnavPluginClass)) {
+            $plugins[] = $collapsibleSubnavPluginClass::make();
+        }
+
+        return $plugins;
     }
 }

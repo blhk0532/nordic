@@ -186,7 +186,7 @@ class AdminPanelProvider extends PanelProvider
                         '2xl' => null,
                     ]),
             ])
-        //    ->plugin(CollapsibleSubnavPlugin::make())
+            ->plugins($this->optionalPanelPlugins())
             ->plugins([
                 //  WhatsappWidgetPlugin::make(),
             ])
@@ -370,5 +370,20 @@ class AdminPanelProvider extends PanelProvider
             ->passwordReset()
             ->databaseNotifications()
             ->databaseNotificationsPolling('30s');
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private function optionalPanelPlugins(): array
+    {
+        $plugins = [];
+        $collapsibleSubnavPluginClass = 'Emuniq\\FilamentCollapsibleSubnav\\CollapsibleSubnavPlugin';
+
+        if (class_exists($collapsibleSubnavPluginClass)) {
+            $plugins[] = $collapsibleSubnavPluginClass::make();
+        }
+
+        return $plugins;
     }
 }
