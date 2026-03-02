@@ -28,7 +28,11 @@ final class AppPanelRedirect
             return route('filament.app.pages.dashboard', ['tenant' => $tenantSlug]);
         }
 
-        return $panel->getUrl();
+        if ($panel->hasTenantRegistration()) {
+            return $panel->getTenantRegistrationUrl();
+        }
+
+        return url('/');
     }
 
     private static function resolveTenant(?Authenticatable $user, Panel $panel): ?Model
