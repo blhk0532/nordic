@@ -28,9 +28,10 @@ use Illuminate\Http\Request;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
+// Unified user info endpoint (supports both Sanctum and API tokens)
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/ringa-data/{id}/outcome', [RingaDataOutcomeController::class, 'store']);
@@ -53,19 +54,17 @@ Route::post('/personer-data/bulk', [PersonerDataController::class, 'bulk']);
 Route::post('/ratsit-data', [RatsitDataController::class, 'store']);
 Route::post('/ratsit-data/bulk', [RatsitDataController::class, 'bulk']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::apiResource('data-private', DataPrivateController::class);
 Route::post('/data-private/bulk', [DataPrivateController::class, 'bulkStore']);
 
 // Public API routes (no authentication required)
-Route::apiResource('hitta-data', HittaDataController::class);
-Route::post('/hitta-data/bulk', [HittaDataController::class, 'bulkStore']);
-// Alias routes for personeel-specific lookups
-Route::apiResource('hitta-personer-data', HittaDataController::class);
-Route::post('/hitta-personer-data/bulk', [HittaDataController::class, 'bulkStore']);
+// Use only the manual POST/GET routes for custom batch/bulk handlers
+// apiResource would create redundant routes:
+//   GET /hitta-data → HittaDataController@index (want custom)
+//   POST /hitta-data → HittaDataController@store (want custom bulk)
+// So we only declare the two resource methods we need: index + show
+Route::get('/hitta-data/{hitta_datum}', [HittaDataController::class, 'show']);
+Route::get('/hitta-personer-data/{hitta_datum}', [HittaDataController::class, 'show']);
 
 Route::apiResource('eniro-data', EniroDataController::class);
 Route::post('/eniro-data/bulk', [EniroDataController::class, 'bulkStore']);
@@ -74,11 +73,9 @@ Route::apiResource('upplysning-data', UpplysningDataController::class);
 Route::post('/upplysning-data/bulk', [UpplysningDataController::class, 'bulkStore']);
 
 // Ratsit data - public access for queue processing
-Route::apiResource('ratsit-data', RatsitDataController::class);
-Route::post('/ratsit-data/bulk', [RatsitDataController::class, 'bulkStore']);
-// Alias route for person-level ratsit
-Route::apiResource('ratsit-personer-data', RatsitDataController::class);
-Route::post('/ratsit-personer-data/bulk', [RatsitDataController::class, 'bulkStore']);
+// Use only the manual POST/GET routes for custom batch/bulk handlers
+Route::get('/ratsit-data/{ratsit_datum}', [RatsitDataController::class, 'show']);
+Route::get('/ratsit-personer-data/{ratsit_datum}', [RatsitDataController::class, 'show']);
 
 // Merinfo data - public API routes (no authentication required)
 Route::withoutMiddleware([StartSession::class])->group(function () {

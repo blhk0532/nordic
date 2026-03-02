@@ -199,12 +199,38 @@ return [
     */
 
     'defaults' => [
-        'supervisor-1' => [
+        'supervisor-default' => [
             'connection' => 'redis',
-            'queue' => ['export', 'scrape', 'ratsit', 'default', 'hitta', 'merinfo'],
+            'queue' => ['default'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
-            'maxProcesses' => (int) env('HORIZON_MAX_PROCESSES', 3),
+            'maxProcesses' => (int) env('HORIZON_DEFAULT_MAX_PROCESSES', env('HORIZON_MAX_PROCESSES', 3)),
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => (int) env('HORIZON_WORKER_MEMORY', 512),
+            'tries' => (int) env('HORIZON_WORKER_TRIES', 3),
+            'timeout' => (int) env('HORIZON_WORKER_TIMEOUT', 3600),
+            'nice' => 0,
+        ],
+        'supervisor-scrape' => [
+            'connection' => 'redis',
+            'queue' => ['scrape', 'ratsit', 'hitta', 'merinfo'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => (int) env('HORIZON_SCRAPE_MAX_PROCESSES', 2),
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => (int) env('HORIZON_WORKER_MEMORY', 512),
+            'tries' => (int) env('HORIZON_WORKER_TRIES', 3),
+            'timeout' => (int) env('HORIZON_WORKER_TIMEOUT', 3600),
+            'nice' => 0,
+        ],
+        'supervisor-export' => [
+            'connection' => 'redis',
+            'queue' => ['export'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => (int) env('HORIZON_EXPORT_MAX_PROCESSES', 1),
             'maxTime' => 0,
             'maxJobs' => 0,
             'memory' => (int) env('HORIZON_WORKER_MEMORY', 512),
@@ -216,16 +242,32 @@ return [
 
     'environments' => [
         'production' => [
-            'supervisor-1' => [
-                'maxProcesses' => 3,
+            'supervisor-default' => [
+                'maxProcesses' => (int) env('HORIZON_DEFAULT_MAX_PROCESSES', env('HORIZON_MAX_PROCESSES', 3)),
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+            ],
+            'supervisor-scrape' => [
+                'maxProcesses' => (int) env('HORIZON_SCRAPE_MAX_PROCESSES', 2),
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+            ],
+            'supervisor-export' => [
+                'maxProcesses' => (int) env('HORIZON_EXPORT_MAX_PROCESSES', 1),
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
             ],
         ],
 
         'local' => [
-            'supervisor-1' => [
-                'maxProcesses' => 3,
+            'supervisor-default' => [
+                'maxProcesses' => 2,
+            ],
+            'supervisor-scrape' => [
+                'maxProcesses' => 1,
+            ],
+            'supervisor-export' => [
+                'maxProcesses' => 1,
             ],
         ],
     ],

@@ -22,6 +22,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class RatsitDatasTable
 {
@@ -183,12 +184,14 @@ class RatsitDatasTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('postort')
-                            ->distinct()
-                            ->orderBy('postort')
-                            ->pluck('postort', 'postort')
-                            ->toArray();
+                        return Cache::remember('ratsit_data_filter_options_postort', now()->addMinutes(15), function (): array {
+                            return RatsitData::query()
+                                ->whereNotNull('postort')
+                                ->distinct()
+                                ->orderBy('postort')
+                                ->pluck('postort', 'postort')
+                                ->toArray();
+                        });
                     }),
 
                 SelectFilter::make('kommun')
@@ -196,12 +199,14 @@ class RatsitDatasTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('kommun')
-                            ->distinct()
-                            ->orderBy('kommun')
-                            ->pluck('kommun', 'kommun')
-                            ->toArray();
+                        return Cache::remember('ratsit_data_filter_options_kommun', now()->addMinutes(15), function (): array {
+                            return RatsitData::query()
+                                ->whereNotNull('kommun')
+                                ->distinct()
+                                ->orderBy('kommun')
+                                ->pluck('kommun', 'kommun')
+                                ->toArray();
+                        });
                     }),
 
                 SelectFilter::make('lan')
@@ -209,12 +214,14 @@ class RatsitDatasTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('lan')
-                            ->distinct()
-                            ->orderBy('lan')
-                            ->pluck('lan', 'lan')
-                            ->toArray();
+                        return Cache::remember('ratsit_data_filter_options_lan', now()->addMinutes(15), function (): array {
+                            return RatsitData::query()
+                                ->whereNotNull('lan')
+                                ->distinct()
+                                ->orderBy('lan')
+                                ->pluck('lan', 'lan')
+                                ->toArray();
+                        });
                     }),
 
                 SelectFilter::make('agandeform')
@@ -222,12 +229,14 @@ class RatsitDatasTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('agandeform')
-                            ->distinct()
-                            ->orderBy('agandeform')
-                            ->pluck('agandeform', 'agandeform')
-                            ->toArray();
+                        return Cache::remember('ratsit_data_filter_options_agandeform', now()->addMinutes(15), function (): array {
+                            return RatsitData::query()
+                                ->whereNotNull('agandeform')
+                                ->distinct()
+                                ->orderBy('agandeform')
+                                ->pluck('agandeform', 'agandeform')
+                                ->toArray();
+                        });
                     }),
 
                 SelectFilter::make('bostadstyp')
@@ -235,12 +244,14 @@ class RatsitDatasTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('bostadstyp')
-                            ->distinct()
-                            ->orderBy('bostadstyp')
-                            ->pluck('bostadstyp', 'bostadstyp')
-                            ->toArray();
+                        return Cache::remember('ratsit_data_filter_options_bostadstyp', now()->addMinutes(15), function (): array {
+                            return RatsitData::query()
+                                ->whereNotNull('bostadstyp')
+                                ->distinct()
+                                ->orderBy('bostadstyp')
+                                ->pluck('bostadstyp', 'bostadstyp')
+                                ->toArray();
+                        });
                     }),
 
                 // Filter: has phone (telefon not empty)
@@ -268,7 +279,7 @@ class RatsitDatasTable
             ], layout: FiltersLayout::AboveContentCollapsible)
             ->deferFilters()
             ->defaultSort('created_at', 'desc')
-            ->paginated([10, 25, 50, 100, 250, 500, 1000])
+            ->paginated([10, 25, 50, 100, 250])
             ->defaultPaginationPageOption(25)
             ->recordActions([
                 EditAction::make(),
