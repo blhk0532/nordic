@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fa534cd6d01035a094f5ea95a64c6c4",
+    "content-hash": "3b0c530ce5ee80ba8ee89193f299b42b",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -6561,16 +6561,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.434.0",
+            "version": "v0.435.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "65550d5fd5c468badd75db9ec73c2c187470a00d"
+                "reference": "1edf0f5f2876945c372366107b4d7a387b17a6b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/65550d5fd5c468badd75db9ec73c2c187470a00d",
-                "reference": "65550d5fd5c468badd75db9ec73c2c187470a00d",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/1edf0f5f2876945c372366107b4d7a387b17a6b9",
+                "reference": "1edf0f5f2876945c372366107b4d7a387b17a6b9",
                 "shasum": ""
             },
             "require": {
@@ -6599,9 +6599,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.434.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.435.0"
             },
-            "time": "2026-02-18T01:00:35+00:00"
+            "time": "2026-03-01T01:14:26+00:00"
         },
         {
             "name": "google/auth",
@@ -12065,16 +12065,16 @@
         },
         {
             "name": "livewire/blaze",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/blaze.git",
-                "reference": "fb885f1d85d1fe455c09a0edc55b44d0890dcebe"
+                "reference": "581ee7feff0f594e1e1678a59bda186a2154e335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/blaze/zipball/fb885f1d85d1fe455c09a0edc55b44d0890dcebe",
-                "reference": "fb885f1d85d1fe455c09a0edc55b44d0890dcebe",
+                "url": "https://api.github.com/repos/livewire/blaze/zipball/581ee7feff0f594e1e1678a59bda186a2154e335",
+                "reference": "581ee7feff0f594e1e1678a59bda186a2154e335",
                 "shasum": ""
             },
             "require": {
@@ -12117,9 +12117,9 @@
             "description": "A tool for optimizing Blade component performance by folding them into parent templates",
             "support": {
                 "issues": "https://github.com/livewire/blaze/issues",
-                "source": "https://github.com/livewire/blaze/tree/v1.0.3"
+                "source": "https://github.com/livewire/blaze/tree/v1.0.4"
             },
-            "time": "2026-02-28T08:01:46+00:00"
+            "time": "2026-03-01T21:10:57+00:00"
         },
         {
             "name": "livewire/flux",
@@ -13086,23 +13086,22 @@
         },
         {
             "name": "mmes-design/filament-file-manager",
-            "version": "v1.0.3",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marcomessa/filament-file-manager.git",
-                "reference": "4c72d2e4cd0d3cce4ebc76f7c90e184e408bd620"
+                "reference": "1b001b3ee5b7537c073cda371a4b483c4c12719f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marcomessa/filament-file-manager/zipball/4c72d2e4cd0d3cce4ebc76f7c90e184e408bd620",
-                "reference": "4c72d2e4cd0d3cce4ebc76f7c90e184e408bd620",
+                "url": "https://api.github.com/repos/marcomessa/filament-file-manager/zipball/1b001b3ee5b7537c073cda371a4b483c4c12719f",
+                "reference": "1b001b3ee5b7537c073cda371a4b483c4c12719f",
                 "shasum": ""
             },
             "require": {
                 "filament/filament": "^5.0",
                 "intervention/image": "^3.0",
-                "php": "^8.2",
-                "spatie/laravel-package-tools": "^1.0"
+                "php": "^8.2"
             },
             "type": "library",
             "extra": {
@@ -13137,9 +13136,9 @@
             ],
             "support": {
                 "issues": "https://github.com/marcomessa/filament-file-manager/issues",
-                "source": "https://github.com/marcomessa/filament-file-manager/tree/v1.0.3"
+                "source": "https://github.com/marcomessa/filament-file-manager/tree/v1.1.2"
             },
-            "time": "2026-02-25T09:38:04+00:00"
+            "time": "2026-03-01T12:27:27+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -15190,27 +15189,27 @@
         },
         {
             "name": "outhebox/blade-flags",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MohmmedAshraf/blade-flags.git",
-                "reference": "8c5bc1f483fd9daf06cd2a1edb746a549683dccd"
+                "reference": "00574e523f179d5a64dec555bea4dfd9ea9cd463"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MohmmedAshraf/blade-flags/zipball/8c5bc1f483fd9daf06cd2a1edb746a549683dccd",
-                "reference": "8c5bc1f483fd9daf06cd2a1edb746a549683dccd",
+                "url": "https://api.github.com/repos/MohmmedAshraf/blade-flags/zipball/00574e523f179d5a64dec555bea4dfd9ea9cd463",
+                "reference": "00574e523f179d5a64dec555bea4dfd9ea9cd463",
                 "shasum": ""
             },
             "require": {
                 "blade-ui-kit/blade-icons": "^1.1",
                 "ext-json": "*",
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
                 "php": "^7.4|^8.0|^8.1|^8.2"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "phpunit/phpunit": "^9.0|^10.5|^11.5.3"
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "phpunit/phpunit": "^9.0|^10.5|^11.5.3|^12.5.12"
             },
             "type": "library",
             "extra": {
@@ -15247,7 +15246,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MohmmedAshraf/blade-flags/issues",
-                "source": "https://github.com/MohmmedAshraf/blade-flags/tree/js-v0.1.2"
+                "source": "https://github.com/MohmmedAshraf/blade-flags/tree/1.7.0"
             },
             "funding": [
                 {
@@ -15255,7 +15254,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-14T14:49:30+00:00"
+            "time": "2026-03-01T17:25:55+00:00"
         },
         {
             "name": "owenvoke/blade-fontawesome",
@@ -20761,16 +20760,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "3.9.1",
+            "version": "3.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "9a8e02839897b236f37708d24bcb12381ba050ff"
+                "reference": "1ea40e429587df64b34139e6b18af34cb20ae5b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/9a8e02839897b236f37708d24bcb12381ba050ff",
-                "reference": "9a8e02839897b236f37708d24bcb12381ba050ff",
+                "url": "https://api.github.com/repos/spatie/image/zipball/1ea40e429587df64b34139e6b18af34cb20ae5b9",
+                "reference": "1ea40e429587df64b34139e6b18af34cb20ae5b9",
                 "shasum": ""
             },
             "require": {
@@ -20818,7 +20817,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.9.1"
+                "source": "https://github.com/spatie/image/tree/3.9.3"
             },
             "funding": [
                 {
@@ -20830,7 +20829,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-12T07:34:13+00:00"
+            "time": "2026-03-01T20:58:11+00:00"
         },
         {
             "name": "spatie/image-optimizer",
