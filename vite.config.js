@@ -65,6 +65,7 @@ export default defineConfig({
             ],
         },
         build: {
+            emptyOutDir: false,
             commonjsOptions: {
                 include: [
                     /node_modules\/temporal-polyfill/,

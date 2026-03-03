@@ -4,6 +4,7 @@
     "scripts": {
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
+        "deploy:assets": "php artisan optimize:clear && npm run clean:vendor-assets && npm run build",
         "clean:assets": "rm -rf public/build public/hot && php artisan optimize:clear",
         "clean:vendor-assets": "php artisan vendor:publish --tag=laravel-assets --force --ansi && php artisan vendor:publish --tag=whatsapp-widget-assets --force --ansi",
         "clean:all-assets": "npm run clean:assets && npm run clean:vendor-assets && npm run build",

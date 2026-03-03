@@ -6,6 +6,20 @@ import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './utils/theme';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Nordic Digital Solutions';
+const reloadKey = 'vite-preload-error-reloaded';
+
+window.addEventListener('vite:preloadError', () => {
+    if (sessionStorage.getItem(reloadKey) === '1') {
+        return;
+    }
+
+    sessionStorage.setItem(reloadKey, '1');
+    window.location.reload();
+});
+
+window.addEventListener('load', () => {
+    sessionStorage.removeItem(reloadKey);
+});
 
 // Prevent loading on non-Inertia pages
 if (!document.querySelector('script[data-page]')) {
