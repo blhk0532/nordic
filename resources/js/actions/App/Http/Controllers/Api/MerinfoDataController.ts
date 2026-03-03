@@ -138,7 +138,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 export const show = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -153,7 +153,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 show.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -180,7 +180,7 @@ show.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string | 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 show.get = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -190,7 +190,7 @@ show.get = (args: { merinfo_datum: string | number } | [merinfo_datum: string | 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 show.head = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -200,7 +200,7 @@ show.head = (args: { merinfo_datum: string | number } | [merinfo_datum: string |
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 const showForm = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,7 +210,7 @@ const showForm = (args: { merinfo_datum: string | number } | [merinfo_datum: str
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 showForm.get = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ showForm.get = (args: { merinfo_datum: string | number } | [merinfo_datum: strin
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::show
-* @see app/Http/Controllers/Api/MerinfoDataController.php:113
+* @see app/Http/Controllers/Api/MerinfoDataController.php:130
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 showForm.head = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -237,7 +237,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 export const update = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -252,7 +252,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 update.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -279,7 +279,7 @@ update.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 update.put = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -289,7 +289,7 @@ update.put = (args: { merinfo_datum: string | number } | [merinfo_datum: string 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 update.patch = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -299,7 +299,7 @@ update.patch = (args: { merinfo_datum: string | number } | [merinfo_datum: strin
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 const updateForm = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -314,7 +314,7 @@ const updateForm = (args: { merinfo_datum: string | number } | [merinfo_datum: s
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 updateForm.put = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -329,7 +329,7 @@ updateForm.put = (args: { merinfo_datum: string | number } | [merinfo_datum: str
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::update
-* @see app/Http/Controllers/Api/MerinfoDataController.php:123
+* @see app/Http/Controllers/Api/MerinfoDataController.php:140
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 updateForm.patch = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -346,7 +346,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::destroy
-* @see app/Http/Controllers/Api/MerinfoDataController.php:190
+* @see app/Http/Controllers/Api/MerinfoDataController.php:213
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 export const destroy = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -361,7 +361,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::destroy
-* @see app/Http/Controllers/Api/MerinfoDataController.php:190
+* @see app/Http/Controllers/Api/MerinfoDataController.php:213
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 destroy.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -388,7 +388,7 @@ destroy.url = (args: { merinfo_datum: string | number } | [merinfo_datum: string
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::destroy
-* @see app/Http/Controllers/Api/MerinfoDataController.php:190
+* @see app/Http/Controllers/Api/MerinfoDataController.php:213
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 destroy.delete = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -398,7 +398,7 @@ destroy.delete = (args: { merinfo_datum: string | number } | [merinfo_datum: str
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::destroy
-* @see app/Http/Controllers/Api/MerinfoDataController.php:190
+* @see app/Http/Controllers/Api/MerinfoDataController.php:213
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 const destroyForm = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -413,7 +413,7 @@ const destroyForm = (args: { merinfo_datum: string | number } | [merinfo_datum: 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::destroy
-* @see app/Http/Controllers/Api/MerinfoDataController.php:190
+* @see app/Http/Controllers/Api/MerinfoDataController.php:213
 * @route '/api/merinfo-data/{merinfo_datum}'
 */
 destroyForm.delete = (args: { merinfo_datum: string | number } | [merinfo_datum: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -430,7 +430,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoDataController.php:201
+* @see app/Http/Controllers/Api/MerinfoDataController.php:224
 * @route '/api/merinfo-data/bulk'
 */
 export const bulkStore = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -445,7 +445,7 @@ bulkStore.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoDataController.php:201
+* @see app/Http/Controllers/Api/MerinfoDataController.php:224
 * @route '/api/merinfo-data/bulk'
 */
 bulkStore.url = (options?: RouteQueryOptions) => {
@@ -454,7 +454,7 @@ bulkStore.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoDataController.php:201
+* @see app/Http/Controllers/Api/MerinfoDataController.php:224
 * @route '/api/merinfo-data/bulk'
 */
 bulkStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -464,7 +464,7 @@ bulkStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoDataController.php:201
+* @see app/Http/Controllers/Api/MerinfoDataController.php:224
 * @route '/api/merinfo-data/bulk'
 */
 const bulkStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -474,7 +474,7 @@ const bulkStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'>
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoDataController.php:201
+* @see app/Http/Controllers/Api/MerinfoDataController.php:224
 * @route '/api/merinfo-data/bulk'
 */
 bulkStoreForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -486,7 +486,7 @@ bulkStore.form = bulkStoreForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:354
+* @see app/Http/Controllers/Api/MerinfoDataController.php:377
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 export const bulkUpdateTotals = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -501,7 +501,7 @@ bulkUpdateTotals.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:354
+* @see app/Http/Controllers/Api/MerinfoDataController.php:377
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotals.url = (options?: RouteQueryOptions) => {
@@ -510,7 +510,7 @@ bulkUpdateTotals.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:354
+* @see app/Http/Controllers/Api/MerinfoDataController.php:377
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotals.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -520,7 +520,7 @@ bulkUpdateTotals.post = (options?: RouteQueryOptions): RouteDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:354
+* @see app/Http/Controllers/Api/MerinfoDataController.php:377
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 const bulkUpdateTotalsForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -530,7 +530,7 @@ const bulkUpdateTotalsForm = (options?: RouteQueryOptions): RouteFormDefinition<
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:354
+* @see app/Http/Controllers/Api/MerinfoDataController.php:377
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotalsForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

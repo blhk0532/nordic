@@ -131,7 +131,12 @@ export default defineConfig({
         server: {
             cors: true,
             watch: {
-                ignored: ["**/storage/framework/views/**"],
+                ignored: [
+                    "**/storage/framework/views/**",
+                    "**/resources/jsBAK/**",
+                    "**/*.bak",
+                    "**/* copy.*",
+                ],
             },
         },
         envPrefix: ["VITE_", "APP_", "DB_"],
