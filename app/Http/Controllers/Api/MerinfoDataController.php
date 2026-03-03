@@ -53,7 +53,7 @@ class MerinfoDataController extends Controller
             'gatuadress' => 'nullable|string',
             'postnummer' => 'nullable|string',
             'postort' => 'nullable|string',
-            'telefon' => 'nullable|array',
+            'telefon' => 'nullable',
             'karta' => 'nullable|string',
             'link' => 'nullable|string',
             'bostadstyp' => 'nullable|string',
@@ -64,8 +64,22 @@ class MerinfoDataController extends Controller
             'is_hus' => 'nullable|boolean',
         ]);
 
-        // Create new record (don't upsert since personnamn can be empty)
-        $record = MerinfoData::create($validated);
+        $telefonData = $this->normalizeTelefonInput($validated['telefon'] ?? null);
+        $validated['telefon'] = $telefonData['primary'];
+
+        $hasUniqueKeys = ! empty($validated['personnamn'] ?? null) && ! empty($validated['gatuadress'] ?? null);
+
+        if ($hasUniqueKeys) {
+            $record = MerinfoData::updateOrCreate(
+                [
+                    'personnamn' => $validated['personnamn'],
+                    'gatuadress' => $validated['gatuadress'],
+                ],
+                $validated
+            );
+        } else {
+            $record = MerinfoData::create($validated);
+        }
 
         // Auto-add to ratsit_data if is_hus=true AND is_telefon=true
         if ((bool) ($validated['is_hus'] ?? false) && (bool) ($validated['is_telefon'] ?? false)) {
@@ -77,8 +91,8 @@ class MerinfoDataController extends Controller
                     'postort' => $validated['postort'] ?? null,
                     'alder' => $validated['alder'] ?? null,
                     'kon' => $validated['kon'] ?? null,
-                    'telefon' => is_array($validated['telefon'] ?? null) ? $validated['telefon'][0] : null,
-                    'telfonnummer' => is_array($validated['telefon'] ?? null) ? implode(' | ', $validated['telefon']) : null,
+                    'telefon' => $telefonData['primary'],
+                    'telfonnummer' => ! empty($telefonData['all']) ? implode(' | ', $telefonData['all']) : null,
                     'is_active' => true,
                     'is_queued' => true,
                 ];
@@ -101,10 +115,13 @@ class MerinfoDataController extends Controller
             }
         }
 
+        $status = $record->wasRecentlyCreated ? 201 : 200;
+        $message = $record->wasRecentlyCreated ? 'Record created successfully' : 'Record updated successfully';
+
         return response()->json([
-            'message' => 'Record created successfully',
+            'message' => $message,
             'data' => $record,
-        ], 201);
+        ], $status);
     }
 
     /**
@@ -131,7 +148,7 @@ class MerinfoDataController extends Controller
             'gatuadress' => 'nullable|string',
             'postnummer' => 'nullable|string',
             'postort' => 'nullable|string',
-            'telefon' => 'nullable|array',
+            'telefon' => 'nullable',
             'karta' => 'nullable|string',
             'link' => 'nullable|string',
             'bostadstyp' => 'nullable|string',
@@ -141,6 +158,12 @@ class MerinfoDataController extends Controller
             'is_ratsit' => 'nullable|boolean',
             'is_hus' => 'nullable|boolean',
         ]);
+
+        $telefonData = $this->normalizeTelefonInput($validated['telefon'] ?? null);
+
+        if (array_key_exists('telefon', $validated)) {
+            $validated['telefon'] = $telefonData['primary'];
+        }
 
         $record->update($validated);
 
@@ -154,8 +177,8 @@ class MerinfoDataController extends Controller
                     'postort' => $record->postort ?? null,
                     'alder' => $record->alder ?? null,
                     'kon' => $record->kon ?? null,
-                    'telefon' => is_array($record->telefon ?? null) ? $record->telefon[0] : null,
-                    'telfonnummer' => is_array($record->telefon ?? null) ? implode(' | ', $record->telefon) : null,
+                    'telefon' => $telefonData['primary'] ?? $record->telefon,
+                    'telfonnummer' => ! empty($telefonData['all']) ? implode(' | ', $telefonData['all']) : $record->telefon,
                     'is_active' => true,
                     'is_queued' => true,
                 ];
@@ -443,6 +466,9 @@ class MerinfoDataController extends Controller
 
         // Clean up telefon field - remove "+undefined" or invalid values
         if (isset($mapped['telefon'])) {
+            $telefonData = $this->normalizeTelefonInput($mapped['telefon']);
+            $mapped['telefon'] = $telefonData['primary'];
+
             if ($mapped['telefon'] === '+undefined' || $mapped['telefon'] === 'undefined' || empty($mapped['telefon'])) {
                 $mapped['telefon'] = null;
             }
@@ -454,6 +480,37 @@ class MerinfoDataController extends Controller
         }
 
         return $mapped;
+    }
+
+    /**
+     * @return array{primary: string|null, all: array<int, string>}
+     */
+    private function normalizeTelefonInput(mixed $telefon): array
+    {
+        if (is_array($telefon)) {
+            $numbers = array_values(array_filter($telefon, static fn (mixed $value): bool => is_string($value) || is_numeric($value)));
+
+            $numbers = array_map(static fn (string|int|float $value): string => (string) $value, $numbers);
+
+            return [
+                'primary' => $numbers[0] ?? null,
+                'all' => $numbers,
+            ];
+        }
+
+        if (is_string($telefon) || is_numeric($telefon)) {
+            $number = (string) $telefon;
+
+            return [
+                'primary' => $number,
+                'all' => [$number],
+            ];
+        }
+
+        return [
+            'primary' => null,
+            'all' => [],
+        ];
     }
 
     /**

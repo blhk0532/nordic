@@ -107,7 +107,7 @@ class ActivitiesRelationManager extends RelationManager
 
                 TextColumn::make('causer.name')
                     ->label(__('filament-activity-log::activity.table.column.causer'))
-                    ->description(fn ($record) => $record->causer?->email)
+                    ->description(fn ($record) => data_get($record->causer, 'email'))
                     ->searchable(config('filament-activity-log.table.columns.causer.searchable', true))
                     ->sortable(config('filament-activity-log.table.columns.causer.sortable', true))
                     ->visible(config('filament-activity-log.table.columns.causer.visible', true))

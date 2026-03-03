@@ -39,9 +39,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Kirschbaum\Commentions\Contracts\Commenter;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Passport\Contracts\OAuthenticatable;  // Add this import
-use Laravel\Passport\Contracts\ScopeAuthorizable;
-use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Sanctum\HasApiTokens;
 use Leek\FilamentDiceBear\Concerns\HasDiceBearAvatar;
 use Leek\FilamentDiceBear\Enums\DiceBearStyle;
@@ -177,7 +174,7 @@ use Zap\Models\Concerns\HasSchedules;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, Commenter, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, OAuthenticatable, WirechatUser
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, Commenter, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, WirechatUser
 {
     use Authenticatable;
     use Authorizable;
@@ -194,8 +191,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     use MustVerifyEmail;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
-    protected $accessToken;
 
     protected $fillable = [
         'status',
@@ -466,51 +461,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function oauthApps(): MorphMany  // Change return type from HasMany to MorphMany
     {
         return $this->morphMany(\Laravel\Passport\Client::class, 'owner');  // Change from hasMany to morphMany with 'owner' as the morph name
-    }
-
-    public function tokens(): HasMany
-    {
-        return $this->hasMany(\Laravel\Passport\Token::class);
-    }
-
-    public function tokenCan(string $scope): bool
-    {
-        return $this->accessToken && $this->accessToken->can($scope);
-    }
-
-    public function tokenCant(string $scope): bool
-    {
-        return ! $this->tokenCan($scope);
-    }
-
-    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
-    {
-        $token = $this->tokens()->create([
-            'name' => $name,
-            'scopes' => $scopes,
-            'revoked' => false,
-        ]);
-
-        $plainTextToken = unpack('C*', Str::random(40));
-
-        return new PersonalAccessTokenResult($plainTextToken, $token);
-    }
-
-    public function currentAccessToken(): ?ScopeAuthorizable
-    {
-        return $this->accessToken;
-    }
-
-    public function withAccessToken(?ScopeAuthorizable $accessToken): static
-    {
-        $this->accessToken = $accessToken;
-
-        return $this;
-    }
-
-    public function getProviderName(): string
-    {
-        return 'users';
     }
 
     public function isOnline(): bool

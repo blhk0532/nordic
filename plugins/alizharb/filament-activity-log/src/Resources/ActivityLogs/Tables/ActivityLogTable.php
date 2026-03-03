@@ -95,7 +95,7 @@ class ActivityLogTable
 
                 TextColumn::make('causer.name')
                     ->label(__('filament-activity-log::activity.table.column.causer'))
-                    ->description(fn ($record) => $record->causer?->email)
+                    ->description(fn ($record) => data_get($record->causer, 'email'))
                     ->url(function ($record) {
                         if (! $record->causer || ! function_exists('filament')) {
                             return null;
