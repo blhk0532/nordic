@@ -27,6 +27,7 @@
         "awcodes/overlook": "@dev",
         "aymanalhattami/filament-context-menu": "@dev",
         "aymanalhattami/filament-page-with-sidebar": "dev-main",
+        "barryvdh/laravel-snappy": "^1.0",
         "bezhansalleh/filament-exceptions": "@dev",
         "bezhansalleh/filament-panel-switch": "@dev",
         "bezhansalleh/filament-plugin-essentials": "@dev",

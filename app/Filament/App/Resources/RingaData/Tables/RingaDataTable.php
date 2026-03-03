@@ -6,8 +6,10 @@ namespace App\Filament\App\Resources\RingaData\Tables;
 
 use App\Enums\Outcomes;
 use App\Enums\OutcomeType;
+use App\Enums\Priority;
 use App\Models\BookingCalendar;
 use App\Models\Campaign;
+use App\Models\RatsitData;
 use App\Models\RingaData;
 use App\Models\Team;
 use App\Models\User;
@@ -24,13 +26,19 @@ use Filament\Notifications\Notification;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
 use Illuminate\Database\Eloquent\Collection;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 use Zvizvi\UserFields\Components\UserColumn;
+use Zvizvi\UserFields\Components\UserSelectColumn;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 
 final class RingaDataTable
 {
@@ -108,16 +116,17 @@ final class RingaDataTable
                     ->toggleable(false)
                     ->label('Utfall')
                     ->color(
-                        static fn ($state) => $state instanceof OutcomeType
+                        static fn($state) => $state instanceof OutcomeType
                             ? $state->getColor()
                             : (is_string($state) ? OutcomeType::tryFrom($state)?->getColor() ?? 'success' : 'success')
                     )
                     ->actionIcon(
-                        static fn ($state) => $state instanceof OutcomeType
+                        static fn($state) => $state instanceof OutcomeType
                             ? $state->getIcon()
                             : (is_string($state) ? OutcomeType::tryFrom($state)?->getIcon() ?? 'heroicon-o-clock' : 'heroicon-o-clock')
                     )
-                    ->actionIconColor(static fn ($state) => $state instanceof OutcomeType
+                    ->actionIconColor(
+                        static fn($state) => $state instanceof OutcomeType
                             ? $state->getColor()
                             : (is_string($state) ? OutcomeType::tryFrom($state)?->getColor() ?? 'success' : 'success')
                     )
@@ -128,19 +137,27 @@ final class RingaDataTable
                             ->tooltip('Click to change outcome')
                             ->schema([
                                 Select::make('outcome')
-                                    ->options(fn () => collect(OutcomeType::cases())->mapWithKeys(
-                                        fn (OutcomeType $outcome) => [$outcome->value => $outcome->getLabel()]
+                                    ->options(fn() => collect(OutcomeType::cases())->mapWithKeys(
+                                        fn(OutcomeType $outcome) => [$outcome->value => $outcome->getLabel()]
                                     )->toArray())
                                     ->required(),
                             ])
-                            ->fillForm(fn ($record) => [
+                            ->fillForm(fn($record) => [
                                 'outcome' => $record->outcome,
                             ])
                             ->action(function ($record, array $data) {
                                 $record->update($data);
                             })
                     ),
-
+                IconSelectColumn::make('state')
+                    ->options(fn() => collect(Priority::cases())->mapWithKeys(
+                        fn(Priority $priority) => [$priority->value => $priority->getLabel()]
+                    )->toArray())
+                    ->icons([
+                        \Adultdate\FilamentBooking\Enums\Pending::class => 'heroicon-o-clock',
+                        \Adultdate\FilamentBooking\Enums\Paid::class => 'heroicon-o-check-circle',
+                        \Adultdate\FilamentBooking\Enums\Failed::class => 'heroicon-o-x-circle',
+                    ]),
                 TextColumn::make('personnamn')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: false)
@@ -148,7 +165,7 @@ final class RingaDataTable
                 TextColumn::make('fodelsedag')
                     ->label('Age')
                     ->toggleable(isToggledHiddenByDefault: false)
-                    ->state(fn (RingaData $record) => $record->fodelsedag ? \Carbon\Carbon::parse($record->fodelsedag)->age : '-')
+                    ->state(fn(RingaData $record) => $record->fodelsedag ? \Carbon\Carbon::parse($record->fodelsedag)->age : '-')
                     ->sortable(),
                 TextColumn::make('gatuadress')
                     ->searchable()
@@ -203,9 +220,10 @@ final class RingaDataTable
                     ->label('🕻')
                     ->sortable()
                     ->color('gray')
-                    ->tooltip(fn ($state) => $state instanceof Outcomes
-                        ? $state->getLabel()
-                        : (is_string($state) ? Outcomes::tryFrom($state)?->getLabel() ?? 'Unknown' : 'Unknown')
+                    ->tooltip(
+                        fn($state) => $state instanceof Outcomes
+                            ? $state->getLabel()
+                            : (is_string($state) ? Outcomes::tryFrom($state)?->getLabel() ?? 'Unknown' : 'Unknown')
                     )
                     ->action(
                         Action::make('changeOutcome')
@@ -216,8 +234,8 @@ final class RingaDataTable
                             ->schema([
                                 Select::make('outcome')
                                     ->label('Select New Outcome')
-                                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
-                                        fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
+                                    ->options(fn() => collect(Outcomes::cases())->mapWithKeys(
+                                        fn(Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
                                     )->toArray())
                                     ->required()
                                     ->native(false)
@@ -256,6 +274,8 @@ final class RingaDataTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
+
+
                 Filter::make('fodelsedag')
                     ->schema([
                         DatePicker::make('fodelsedag_min')
@@ -267,13 +287,14 @@ final class RingaDataTable
                         return $query
                             ->when(
                                 $data['fodelsedag_min'] ?? null,
-                                fn ($q, $date) => $q->whereDate('fodelsedag', '>=', $date),
+                                fn($q, $date) => $q->whereDate('fodelsedag', '>=', $date),
                             )
                             ->when(
                                 $data['fodelsedag_max'] ?? null,
-                                fn ($q, $date) => $q->whereDate('fodelsedag', '<=', $date),
+                                fn($q, $date) => $q->whereDate('fodelsedag', '<=', $date),
                             );
                     }),
+
                 Filter::make('postnummer')
                     ->schema([
                         TextInput::make('postnummer')
@@ -282,9 +303,75 @@ final class RingaDataTable
                     ->query(function ($query, array $data) {
                         return $query->when(
                             $data['postnummer'] ?? null,
-                            fn ($q, $postnummer) => $q->where('postnummer', 'like', '%'.$postnummer.'%'),
+                            fn($q, $postnummer) => $q->where('postnummer', 'like', '%' . $postnummer . '%'),
                         );
                     }),
+
+                SelectFilter::make('postort')
+                    ->label('City')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('postort')
+                            ->distinct()
+                            ->orderBy('postort')
+                            ->pluck('postort', 'postort')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('kommun')
+                    ->label('Municipality')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('kommun')
+                            ->distinct()
+                            ->orderBy('kommun')
+                            ->pluck('kommun', 'kommun')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('lan')
+                    ->label('State')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('lan')
+                            ->distinct()
+                            ->orderBy('lan')
+                            ->pluck('lan', 'lan')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('agandeform')
+                    ->label('Ownership Form')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('agandeform')
+                            ->distinct()
+                            ->orderBy('agandeform')
+                            ->pluck('agandeform', 'agandeform')
+                            ->toArray();
+                    }),
+
+                SelectFilter::make('bostadstyp')
+                    ->label('Housing Type')
+                    ->multiple()
+                    ->searchable()
+                    ->options(function () {
+                        return RatsitData::query()
+                            ->whereNotNull('bostadstyp')
+                            ->distinct()
+                            ->orderBy('bostadstyp')
+                            ->pluck('bostadstyp', 'bostadstyp')
+                            ->toArray();
+                    }),
+
                 SelectFilter::make('campaign_id')
                     ->label('Kampanj')
                     ->options(function () {
@@ -300,15 +387,22 @@ final class RingaDataTable
                     ->searchable(),
                 SelectFilter::make('outcome')
                     ->label('Outcome')
-                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
-                        fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
+                    ->options(fn() => collect(Outcomes::cases())->mapWithKeys(
+                        fn(Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
                     )->toArray())
                     ->searchable(),
-            ])
-            ->paginated([10, 25, 50, 100, 150, 200, 250, 300, 400, 500, 1000, 2000])
+                TernaryFilter::make('is_active')
+                    ->label('Active')
+                    ->placeholder('All records')
+                    ->trueLabel('Active only')
+                    ->falseLabel('Inactive only'),
+
+            ], layout: FiltersLayout::AboveContentCollapsible)
+            ->persistFiltersInSession(false)
+            ->paginated([10, 25, 50, 100, 150, 200, 250, 300, 400, 500])
             ->defaultPaginationPageOption(25)
             ->recordAction('view')
-            ->actions([
+            ->recordActions([
                 EditAction::make()
                     ->iconButton(),
                 \Filament\Actions\ViewAction::make('view')
@@ -321,11 +415,42 @@ final class RingaDataTable
                     ->iconButton()
                     ->icon('heroicon-o-phone-arrow-up-right')
                     ->color('success')
-                    ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
+                    ->url(fn(RingaData $record) => 'tel:' . $record->telefon),
 
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
+                    FilamentExportBulkAction::make('export')
+                        ->fileName('My File') // Default file name
+                        ->timeFormat('m y d') // Default time format for naming exports
+                        ->disablePdf() // Disable PDF format for download
+                        ->disableXlsx() // Disable XLSX format for download
+                        ->disableCsv() // Disable CSV format for download
+                        ->defaultFormat('csv') // xlsx, csv or pdf
+                        ->defaultPageOrientation('landscape') // Page orientation for pdf files. portrait or landscape
+                        ->directDownload() // Download directly without showing modal
+                        ->disableAdditionalColumns() // Disable additional columns input
+                        ->disableFilterColumns() // Disable filter columns input
+                        ->disableFileName() // Disable file name input
+                        ->disableFileNamePrefix() // Disable file name prefix
+                        ->disablePreview() // Disable export preview
+                        ->disableTableColumns() // Disable table columns in the export
+                        ->withHiddenColumns() //Show the columns which are toggled hidden
+                        ->fileNameFieldLabel('File Name') // Label for file name input
+                        ->formatFieldLabel('Format') // Label for format input
+                        ->pageOrientationFieldLabel('Page Orientation') // Label for page orientation input
+                        ->filterColumnsFieldLabel('filter columns') // Label for filter columns input
+                        ->additionalColumnsFieldLabel('Additional Columns') // Label for additional columns input
+                        ->additionalColumnsTitleFieldLabel('Title') // Label for additional columns' title input
+                        ->additionalColumnsDefaultValueFieldLabel('Default Value') // Label for additional columns' default value input
+                        ->additionalColumnsAddButtonLabel('Add Column') // Label for additional columns' add button
+                        ->withColumns([TextColumn::make('additionalModelColumn')]) // Export additional model columns that aren't visible in the table results
+                        ->csvDelimiter(',') // Delimiter for csv files
+                        ->modifyExcelWriter(fn(\Spatie\SimpleExcel\SimpleExcelWriter $writer) => $writer->nameCurrentSheet('Sheet')) // Modify SimpleExcelWriter before download
+                        ->modifyPdfWriter(fn(\Barryvdh\DomPDF\PDF|\Barryvdh\Snappy\PdfWrapper $writer) => $writer->setPaper('a4', 'landscape')) // Modify DomPdf or Snappy writer before download
+                        ->formatStates([
+                            'name' => fn(?RingaData $record) => strtoupper($record->name),
+                        ]),
                     DeleteBulkAction::make()
                         ->label('Radera Uppgifterna'),
                     BulkAction::make('transferCampaign')
@@ -359,10 +484,10 @@ final class RingaDataTable
                             Notification::make()
                                 ->title('Campaign transferred successfully')
                                 ->success()
-                                ->body(count($records).' record(s) transferred.')
+                                ->body(count($records) . ' record(s) transferred.')
                                 ->send();
                         })
-                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
+                        ->visible(fn() => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
                     BulkAction::make('resetResults')
                         ->label('Nollställ Resultat')
                         ->icon('heroicon-o-arrow-path-rounded-square')
@@ -385,10 +510,10 @@ final class RingaDataTable
                             Notification::make()
                                 ->title('Resultat nollställda')
                                 ->success()
-                                ->body(count($records).' post(er) har nollställts.')
+                                ->body(count($records) . ' post(er) har nollställts.')
                                 ->send();
                         })
-                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
+                        ->visible(fn() => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
                     BulkAction::make('selectTeam')
                         ->label('Välj Arbetsgrupp')
                         ->icon('heroicon-o-user-group')
@@ -411,10 +536,10 @@ final class RingaDataTable
                             Notification::make()
                                 ->title('Arbetsgrupp tilldelad')
                                 ->success()
-                                ->body(count($records).' post(er) har tilldelats en arbetsgrupp.')
+                                ->body(count($records) . ' post(er) har tilldelats en arbetsgrupp.')
                                 ->send();
                         })
-                        ->visible(fn () => in_array(auth()->user()->role, ['super', 'super_admin', 'superadmin'])),
+                        ->visible(fn() => in_array(auth()->user()->role, ['super', 'super_admin', 'superadmin'])),
                     BulkAction::make('assignToUsers')
                         ->label('Tilldela användare')
                         ->color('gray')
@@ -535,10 +660,10 @@ final class RingaDataTable
                             Notification::make()
                                 ->title('Användare tilldelade')
                                 ->success()
-                                ->body(count($records).' post(er) uppdaterade.')
+                                ->body(count($records) . ' post(er) uppdaterade.')
                                 ->send();
                         })
-                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
+                        ->visible(fn() => in_array(auth()->user()->role, ['admin', 'super', 'super_admin', 'superadmin', 'manager'])),
                 ]),
             ]);
     }
@@ -627,8 +752,15 @@ final class RingaDataTable
     private function getHeaderActions(): array
     {
         return [
+            FilamentExportHeaderAction::make('export'),
             \EightyNine\ExcelImport\ExcelImportAction::make()
                 ->color('primary'),
+        ];
+    }
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            FilamentExportHeaderAction::make('Exportera'),
         ];
     }
 }
