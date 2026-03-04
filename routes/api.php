@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\UpplysningDataController;
 use App\Http\Controllers\RingaDataOutcomeController;
 use Illuminate\Http\Request;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 // Unified user info endpoint (supports both Sanctum and API tokens)
@@ -78,6 +79,26 @@ Route::get('/ratsit-data/{ratsit_datum}', [RatsitDataController::class, 'show'])
 Route::get('/ratsit-personer-data/{ratsit_datum}', [RatsitDataController::class, 'show']);
 
 // Merinfo data - public API routes (no authentication required)
+Route::any('/merinfo-data/test', function (Request $request) {
+    Log::channel('api')->debug('Merinfo data test endpoint hit', [
+        'method' => $request->method(),
+        'url' => $request->fullUrl(),
+        'ip' => $request->ip(),
+        'query' => $request->query(),
+        'body' => $request->all(),
+        'headers' => [
+            'user-agent' => $request->userAgent(),
+            'accept' => $request->header('accept'),
+            'content-type' => $request->header('content-type'),
+        ],
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Merinfo test endpoint received and logged.',
+    ]);
+});
+
 Route::withoutMiddleware([StartSession::class])->group(function () {
     Route::apiResource('merinfo-data', MerinfoDataController::class);
     Route::post('/merinfo-data/bulk', [MerinfoDataController::class, 'bulkStore']);

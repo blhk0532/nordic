@@ -1,20 +1,20 @@
 <?php
 
-use Filament\Tables\Table;
-use function Pest\Livewire\livewire;
-use AlperenErsoy\FilamentExport\FilamentExport;
-use AlperenErsoy\FilamentExport\Tests\Models\Post;
-use AlperenErsoy\FilamentExport\Tests\Models\User;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
+use AlperenErsoy\FilamentExport\FilamentExport;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\PostResource;
+use AlperenErsoy\FilamentExport\Tests\Filament\Resources\PostResource\Pages\ListPosts;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\UserResource;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\UserResource\Pages\EditUser;
-
-use AlperenErsoy\FilamentExport\Tests\Filament\Resources\PostResource\Pages\ListPosts;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\UserResource\Pages\ListUsers;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
+use AlperenErsoy\FilamentExport\Tests\Models\Post;
+use AlperenErsoy\FilamentExport\Tests\Models\User;
+use Filament\Tables\Table;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
+use function Pest\Livewire\livewire;
 
 it('can initiate tests', function () {
     expect(true)->toBe(true);
@@ -73,7 +73,7 @@ foreach (FilamentExport::DEFAULT_FORMATS as $format => $label) {
     it("can header action call $format download", function () use ($format) {
         $posts = Post::factory()->count(10)->create();
 
-        $livewire = new ListPosts();
+        $livewire = new ListPosts;
 
         $livewire->bootedInteractsWithTable();
 
@@ -96,7 +96,7 @@ foreach (FilamentExport::DEFAULT_FORMATS as $format => $label) {
     it("can bulk action call $format download", function () use ($format) {
         $posts = Post::factory()->count(10)->create();
 
-        $livewire = new ListPosts();
+        $livewire = new ListPosts;
 
         $livewire->bootedInteractsWithTable();
 

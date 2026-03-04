@@ -116,7 +116,7 @@
         "statikbe/laravel-filament-chained-translation-manager": "^4.2.1",
         "stechstudio/filament-impersonate": "^4.1.4",
         "still-code/laravel-umami": "^5.0.3",
-        "tallcms/cms": ">=3.2.7",
+        "tallcms/cms": "@dev",
         "tapp/filament-maillog": "^2.0.4",
         "usamamuneerchaudhary/filament-notifier": "^1.4",
         "wallacemartinss/filament-icon-picker": "@dev",
@@ -150,7 +150,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "plugins/andrewdwallo/filament-companies",
+            "url": "plugins/tallcms/cms",
             "options": {
                 "symlink": true
             }

@@ -12,6 +12,8 @@ use AlizHarb\ActivityLog\ActivityLogPlugin;
 use AlizHarb\ActivityLog\Widgets\LatestActivityWidget;
 use Andreia\FilamentUiSwitcher\FilamentUiSwitcherPlugin;
 use App\Filament\Admin\Pages\ControlPanel;
+use App\Filament\Admin\Pages\PersonalAccessTokens;
+use App\Filament\Admin\Pages\Profile;
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
 use App\Filament\App\Pages\TeamInvitationAccept;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
@@ -25,9 +27,9 @@ use Awcodes\Overlook\Widgets\OverlookWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
+// use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Devtical\Sanctum\Pages\Sanctum;
-// use Emuniq\FilamentCollapsibleSubnav\CollapsibleSubnavPlugin;
 use Filament\Actions\Action;
 use Filament\AdvancedExport\AdvancedExportPlugin;
 use Filament\Enums\ThemeMode;
@@ -61,13 +63,13 @@ use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
 use MmesDesign\FilamentFileManager\FileManagerPlugin;
-// use TallCms\Cms\TallCmsPlugin;
+use TallCms\Cms\TallCmsPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 use Wallo\FilamentCompanies\FilamentCompanies;
-use Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens;
-use Wallo\FilamentCompanies\Pages\User\Profile;
+
+// use Wallo\FilamentCompanies\Pages\User\Profile;
 
 // use Rupadana\ApiService\ApiServicePlugin;
 class AdminPanelProvider extends PanelProvider
@@ -151,7 +153,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-        //    ->plugin(TallCmsPlugin::make())
+            ->plugin(TallCmsPlugin::make())
             ->plugins([
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),

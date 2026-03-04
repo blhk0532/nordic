@@ -23,6 +23,7 @@ use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use TallCms\Cms\Services\PluginLicenseService;
 use TallCms\Cms\Services\ThemeResolver;
+
 // use TallCms\Cms\TallCmsPlugin;
 
 class AdminPanelProvider extends PanelProvider

@@ -163,6 +163,9 @@ Route::middleware('auth')->group(function (): void {
 });
 
 Route::get('admin/tenant/{tenant}/profile', function ($tenant) {
-    // Redirect to dashboard or implement tenant profile logic
-    return redirect()->route('dashboard');
+    return redirect()->to(EditProfilePage::getUrl(parameters: ['tenant' => $tenant]));
 })->name('filament.admin.tenant.profile');
+
+Route::get('nds/app/team/{tenant}/profile', function ($tenant) {
+    return redirect()->to(EditProfilePage::getUrl(parameters: ['tenant' => $tenant]));
+})->name('filament.app.tenant.profile');

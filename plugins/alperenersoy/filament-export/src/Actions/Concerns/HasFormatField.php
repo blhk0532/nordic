@@ -4,16 +4,16 @@ namespace AlperenErsoy\FilamentExport\Actions\Concerns;
 
 trait HasFormatField
 {
-    protected string|null $formatFieldLabel;
+    protected ?string $formatFieldLabel;
 
-    public function formatFieldLabel(string|null $label = null): static
+    public function formatFieldLabel(?string $label = null): static
     {
         $this->formatFieldLabel = $label;
 
         return $this;
     }
 
-    public function getFormatFieldLabel(): string|null
+    public function getFormatFieldLabel(): ?string
     {
         return $this->formatFieldLabel;
     }

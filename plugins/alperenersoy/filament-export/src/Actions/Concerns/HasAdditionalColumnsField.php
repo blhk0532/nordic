@@ -4,58 +4,58 @@ namespace AlperenErsoy\FilamentExport\Actions\Concerns;
 
 trait HasAdditionalColumnsField
 {
-    protected string|null $additionalColumnsFieldLabel;
+    protected ?string $additionalColumnsFieldLabel;
 
-    protected string|null $additionalColumnsTitleFieldLabel;
+    protected ?string $additionalColumnsTitleFieldLabel;
 
-    protected string|null $additionalColumnsDefaultValueFieldLabel;
+    protected ?string $additionalColumnsDefaultValueFieldLabel;
 
-    protected string|null $additionalColumnsAddButtonLabel;
+    protected ?string $additionalColumnsAddButtonLabel;
 
-    public function additionalColumnsFieldLabel(string|null $label = null): static
+    public function additionalColumnsFieldLabel(?string $label = null): static
     {
         $this->additionalColumnsFieldLabel = $label;
 
         return $this;
     }
 
-    public function getAdditionalColumnsFieldLabel(): string|null
+    public function getAdditionalColumnsFieldLabel(): ?string
     {
         return $this->additionalColumnsFieldLabel;
     }
 
-    public function additionalColumnsTitleFieldLabel(string|null $label = null): static
+    public function additionalColumnsTitleFieldLabel(?string $label = null): static
     {
         $this->additionalColumnsTitleFieldLabel = $label;
 
         return $this;
     }
 
-    public function getAdditionalColumnsTitleFieldLabel(): string|null
+    public function getAdditionalColumnsTitleFieldLabel(): ?string
     {
         return $this->additionalColumnsTitleFieldLabel;
     }
 
-    public function additionalColumnsDefaultValueFieldLabel(string|null $label = null): static
+    public function additionalColumnsDefaultValueFieldLabel(?string $label = null): static
     {
         $this->additionalColumnsDefaultValueFieldLabel = $label;
 
         return $this;
     }
 
-    public function getAdditionalColumnsDefaultValueFieldLabel(): string|null
+    public function getAdditionalColumnsDefaultValueFieldLabel(): ?string
     {
         return $this->additionalColumnsDefaultValueFieldLabel;
     }
 
-    public function additionalColumnsAddButtonLabel(string|null $label = null): static
+    public function additionalColumnsAddButtonLabel(?string $label = null): static
     {
         $this->additionalColumnsAddButtonLabel = $label;
 
         return $this;
     }
 
-    public function getAdditionalColumnsAddButtonLabel(): string|null
+    public function getAdditionalColumnsAddButtonLabel(): ?string
     {
         return $this->additionalColumnsAddButtonLabel;
     }

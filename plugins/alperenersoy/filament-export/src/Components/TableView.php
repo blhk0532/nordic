@@ -3,18 +3,18 @@
 namespace AlperenErsoy\FilamentExport\Components;
 
 use AlperenErsoy\FilamentExport\Components\Concerns\HasLivewireTarget;
-use Filament\Actions\Action;
-use Illuminate\Support\Collection;
-use AlperenErsoy\FilamentExport\FilamentExport;
-use Illuminate\Pagination\LengthAwarePaginator;
 use AlperenErsoy\FilamentExport\Components\Concerns\HasUniqueActionId;
+use AlperenErsoy\FilamentExport\FilamentExport;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Field;
 use Filament\Schemas\Components\Concerns\HasName;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class TableView extends Field
 {
-    use HasName;
     use HasLivewireTarget;
+    use HasName;
     use HasUniqueActionId;
 
     protected ?string $statePath = 'table_view';

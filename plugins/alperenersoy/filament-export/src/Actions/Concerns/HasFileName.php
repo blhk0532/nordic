@@ -6,7 +6,7 @@ trait HasFileName
 {
     protected string $fileName;
 
-    protected string|null $fileNamePrefix = null;
+    protected ?string $fileNamePrefix = null;
 
     public function fileName(string $fileName): static
     {
@@ -24,14 +24,14 @@ trait HasFileName
         return $this->fileName;
     }
 
-    public function fileNamePrefix(string|null $fileNamePrefix): static
+    public function fileNamePrefix(?string $fileNamePrefix): static
     {
         $this->fileNamePrefix = $fileNamePrefix;
 
         return $this;
     }
 
-    public function getFileNamePrefix(): string|null
+    public function getFileNamePrefix(): ?string
     {
         return $this->fileNamePrefix;
     }

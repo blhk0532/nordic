@@ -7,8 +7,8 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
-use Filament\Tables\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 
 class PostsRelationManager extends RelationManager
 {
@@ -27,20 +27,20 @@ class PostsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-        ->columns([
-            Tables\Columns\TextColumn::make('title'),
-            Tables\Columns\TextColumn::make('user.name'),
-        ])
-        ->recordActions([
-            ViewAction::make(),
-            EditAction::make(),
-        ])
-        ->headerActions([
-            \AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction::make('export'),
-        ])
-        ->toolbarActions([
-            \AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction::make('export'),
-            DeleteBulkAction::make(),
-        ]);
+            ->columns([
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('user.name'),
+            ])
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
+            ])
+            ->headerActions([
+                \AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction::make('export'),
+            ])
+            ->toolbarActions([
+                \AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction::make('export'),
+                DeleteBulkAction::make(),
+            ]);
     }
 }

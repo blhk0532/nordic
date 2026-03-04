@@ -2,8 +2,6 @@
 
 namespace AlperenErsoy\FilamentExport\Concerns;
 
-use Illuminate\Support\Collection;
-
 trait CanDisableTableColumns
 {
     protected bool $isTableColumnsDisabled = false;

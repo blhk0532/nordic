@@ -18,6 +18,7 @@ use AlperenErsoy\FilamentExport\Actions\Concerns\CanRefreshTable;
 use AlperenErsoy\FilamentExport\Actions\Concerns\CanShowHiddenColumns;
 use AlperenErsoy\FilamentExport\Actions\Concerns\CanUseSnappy;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasAdditionalColumnsField;
+use AlperenErsoy\FilamentExport\Actions\Concerns\HasCsvDelimiter;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasDefaultFormat;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasDefaultPageOrientation;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasExportModelActions;
@@ -30,7 +31,6 @@ use AlperenErsoy\FilamentExport\Actions\Concerns\HasPaginator;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasRecords;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasTimeFormat;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasUniqueActionId;
-use AlperenErsoy\FilamentExport\Actions\Concerns\HasCsvDelimiter;
 use AlperenErsoy\FilamentExport\FilamentExport;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -48,9 +48,9 @@ class FilamentExportHeaderAction extends \Filament\Actions\Action
     use CanHaveExtraColumns;
     use CanHaveExtraViewData;
     use CanModifyWriters;
+    use CanRefreshTable;
     use CanShowHiddenColumns;
     use CanUseSnappy;
-    use CanRefreshTable;
     use HasAdditionalColumnsField;
     use HasCsvDelimiter;
     use HasDefaultFormat;
@@ -79,6 +79,7 @@ class FilamentExportHeaderAction extends \Filament\Actions\Action
                 if ($action->shouldDownloadDirect()) {
                     return false;
                 }
+
                 return $action;
             })
             ->form(static function ($action, $livewire): array {

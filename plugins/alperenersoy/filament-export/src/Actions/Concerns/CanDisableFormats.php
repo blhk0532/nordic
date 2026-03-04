@@ -31,7 +31,7 @@ trait CanDisableFormats
 
     public function getFormats(): array
     {
-        if (!empty($this->formats)) {
+        if (! empty($this->formats)) {
             return $this->formats;
         }
 

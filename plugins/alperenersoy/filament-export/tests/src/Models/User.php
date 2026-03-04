@@ -2,14 +2,14 @@
 
 namespace AlperenErsoy\FilamentExport\Tests\Models;
 
-use Filament\Panel;
-use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use AlperenErsoy\FilamentExport\Tests\Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements FilamentUser, \Illuminate\Contracts\Auth\Authenticatable
+class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable, FilamentUser
 {
     use HasFactory;
 

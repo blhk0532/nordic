@@ -4,16 +4,16 @@ namespace AlperenErsoy\FilamentExport\Actions\Concerns;
 
 trait HasFileNameField
 {
-    protected string|null $fileNameFieldLabel;
+    protected ?string $fileNameFieldLabel;
 
-    public function fileNameFieldLabel(string|null $label = null): static
+    public function fileNameFieldLabel(?string $label = null): static
     {
         $this->fileNameFieldLabel = $label;
 
         return $this;
     }
 
-    public function getFileNameFieldLabel(): string|null
+    public function getFileNameFieldLabel(): ?string
     {
         return $this->fileNameFieldLabel;
     }

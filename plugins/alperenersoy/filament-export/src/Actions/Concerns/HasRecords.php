@@ -94,13 +94,13 @@ trait HasRecords
             [$tableSortColumn, $tableSortDirection] = explode(':', $livewire->tableSort, 2);
         }
 
-        if (!$tableSortColumn) {
+        if (! $tableSortColumn) {
             return $this->applyDefaultSortingToTableQuery($query, $tableSortDirection);
         }
 
         $column = $livewire->getTable()->getSortableVisibleColumn($tableSortColumn);
 
-        if (!$column) {
+        if (! $column) {
             return $this->applyDefaultSortingToTableQuery($query, $tableSortDirection);
         }
 
@@ -148,7 +148,7 @@ trait HasRecords
 
         $group = $livewire->getTableGrouping();
 
-        if (!$group) {
+        if (! $group) {
             return $query;
         }
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Foundation\Auth\User as AuthUser;
 use TallCms\Cms\Models\TallcmsMedia;
 
 class TallcmsMediaPolicy

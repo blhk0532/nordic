@@ -81,11 +81,10 @@ registrationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 registration.form = registrationForm
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-export const profile = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const profile = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: profile.url(args, options),
     method: 'get',
 })
@@ -96,17 +95,12 @@ profile.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-profile.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+profile.url = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
     }
 
     if (Array.isArray(args)) {
@@ -118,9 +112,7 @@ profile.url = (args: { tenant: string | number | { slug: string | number } } | [
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
+        tenant: args.tenant,
     }
 
     return profile.definition.url
@@ -129,51 +121,46 @@ profile.url = (args: { tenant: string | number | { slug: string | number } } | [
 }
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-profile.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+profile.get = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: profile.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-profile.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+profile.head = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: profile.url(args, options),
     method: 'head',
 })
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-const profileForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const profileForm = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: profile.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-profileForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+profileForm.get = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: profile.url(args, options),
     method: 'get',
 })
 
 /**
-* @see \App\Filament\App\Pages\Tenancy\EditTeamProfile::__invoke
-* @see app/Filament/App/Pages/Tenancy/EditTeamProfile.php:7
+* @see routes/web.php:169
 * @route '/nds/app/team/{tenant}/profile'
 */
-profileForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+profileForm.head = (args: { tenant: string | number } | [tenant: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: profile.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

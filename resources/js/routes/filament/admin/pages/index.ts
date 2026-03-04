@@ -212,6 +212,111 @@ dashboardForm.head = (args: { tenant: string | number | { slug: string | number 
 dashboard.form = dashboardForm
 
 /**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+export const personalAccessTokens = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+personalAccessTokens.definition = {
+    methods: ["get","head"],
+    url: '/admin/tenant/{tenant}/personal-access-tokens',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { tenant: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
+        args = { tenant: args.slug }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+    }
+
+    return personalAccessTokens.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokens.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: personalAccessTokens.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+const personalAccessTokensForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokensForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
+* @route '/admin/tenant/{tenant}/personal-access-tokens'
+*/
+personalAccessTokensForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: personalAccessTokens.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+personalAccessTokens.form = personalAccessTokensForm
+
+/**
 * @see \App\Filament\Admin\Pages\SendWhatsapp::__invoke
 * @see app/Filament/Admin/Pages/SendWhatsapp.php:7
 * @route '/admin/tenant/{tenant}/send-whatsapp'
@@ -630,111 +735,6 @@ teamInvitationAcceptForm.head = (args: { tenant: string | number | { slug: strin
 })
 
 teamInvitationAccept.form = teamInvitationAcceptForm
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-export const personalAccessTokens = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: personalAccessTokens.url(args, options),
-    method: 'get',
-})
-
-personalAccessTokens.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/personal-access-tokens',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-personalAccessTokens.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return personalAccessTokens.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-personalAccessTokens.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: personalAccessTokens.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-personalAccessTokens.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: personalAccessTokens.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-const personalAccessTokensForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: personalAccessTokens.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-personalAccessTokensForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: personalAccessTokens.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
-*/
-personalAccessTokensForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: personalAccessTokens.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-personalAccessTokens.form = personalAccessTokensForm
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
@@ -1968,11 +1968,11 @@ chatDashboard.form = chatDashboardForm
 const pages = {
     controlPanel: Object.assign(controlPanel, controlPanel),
     dashboard: Object.assign(dashboard, dashboard),
+    personalAccessTokens: Object.assign(personalAccessTokens, personalAccessTokens),
     sendWhatsapp: Object.assign(sendWhatsapp, sendWhatsapp),
     taskBoard: Object.assign(taskBoard, taskBoard),
     sanctum: Object.assign(sanctum, sanctum),
     teamInvitationAccept: Object.assign(teamInvitationAccept, teamInvitationAccept),
-    personalAccessTokens: Object.assign(personalAccessTokens, personalAccessTokens),
     siteSettings: Object.assign(siteSettings, siteSettings),
     menuItemsManager: Object.assign(menuItemsManager, menuItemsManager),
     pluginManager: Object.assign(pluginManager, pluginManager),

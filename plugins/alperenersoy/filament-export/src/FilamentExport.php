@@ -2,7 +2,6 @@
 
 namespace AlperenErsoy\FilamentExport;
 
-
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 use AlperenErsoy\FilamentExport\Components\TableView;
@@ -37,6 +36,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class FilamentExport
 {
+    use CanDisableTableColumns;
     use CanFilterColumns;
     use CanFormatStates;
     use CanHaveAdditionalColumns;
@@ -44,7 +44,6 @@ class FilamentExport
     use CanHaveExtraViewData;
     use CanModifyWriters;
     use CanShowHiddenColumns;
-    use CanDisableTableColumns;
     use CanUseSnappy;
     use HasCsvDelimiter;
     use HasData;
@@ -128,7 +127,7 @@ class FilamentExport
                 $pdf = $modifyPdf($pdf);
             }
 
-            return response()->streamDownload(fn () => print($pdf->output()), "{$this->getFileName()}.{$this->getFormat()}");
+            return response()->streamDownload(fn () => print ($pdf->output()), "{$this->getFileName()}.{$this->getFormat()}");
         }
 
         return response()->streamDownload(function () {
@@ -147,7 +146,7 @@ class FilamentExport
         }, "{$this->getFileName()}.{$this->getFormat()}");
     }
 
-    public function getPdf(): \Barryvdh\DomPDF\PDF | \Barryvdh\Snappy\PdfWrapper
+    public function getPdf(): \Barryvdh\DomPDF\PDF|\Barryvdh\Snappy\PdfWrapper
     {
         if ($this->shouldUseSnappy()) {
             return \Barryvdh\Snappy\Facades\SnappyPdf::loadView($this->getPdfView(), $this->getViewData())
@@ -158,7 +157,7 @@ class FilamentExport
             ->setPaper('A4', $this->getPageOrientation());
     }
 
-    public static function setUpFilamentExportAction(FilamentExportHeaderAction | FilamentExportBulkAction $action): void
+    public static function setUpFilamentExportAction(FilamentExportHeaderAction|FilamentExportBulkAction $action): void
     {
         $action->timeFormat(config('filament-export.time_format'));
 
@@ -205,7 +204,7 @@ class FilamentExport
         $action->modalFooterActions($action->getExportModalActions());
     }
 
-    public static function getFormComponents(FilamentExportHeaderAction | FilamentExportBulkAction $action): array
+    public static function getFormComponents(FilamentExportHeaderAction|FilamentExportBulkAction $action): array
     {
         $action->fileNamePrefix($action->getFileNamePrefix() ?: $action->getTable()->getHeading());
 
@@ -219,7 +218,7 @@ class FilamentExport
 
         $extraColumns = collect($action->getWithColumns());
 
-        if($extraColumns->isNotEmpty()) {
+        if ($extraColumns->isNotEmpty()) {
             $columns = $columns->merge($extraColumns);
         }
 
@@ -244,8 +243,7 @@ class FilamentExport
                 ->csvDelimiter($action->getCsvDelimiter())
                 ->formatStates($action->getFormatStates());
 
-
-            if ($data[self::TABLE_VIEW_NAME] == 'print-' . $action->getUniqueActionId()) {
+            if ($data[self::TABLE_VIEW_NAME] == 'print-'.$action->getUniqueActionId()) {
                 $export->data($action->getRecords());
                 $printHTML = view('filament-export::print', $export->getViewData())->render();
             } else {
@@ -309,7 +307,7 @@ class FilamentExport
         ];
     }
 
-    public static function callDownload(FilamentExportHeaderAction | FilamentExportBulkAction $action, Collection $records, array $data)
+    public static function callDownload(FilamentExportHeaderAction|FilamentExportBulkAction $action, Collection $records, array $data)
     {
         return FilamentExport::make()
             ->fileName($data['file_name'] ?? $action->getFileName())
@@ -346,7 +344,7 @@ class FilamentExport
 
         $columns = $this->getAllColumns();
 
-        $formatStates  = $this->getFormatStates();
+        $formatStates = $this->getFormatStates();
 
         foreach ($records as $index => $record) {
             $item = [];

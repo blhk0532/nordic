@@ -18,6 +18,7 @@ use AlperenErsoy\FilamentExport\Actions\Concerns\CanRefreshTable;
 use AlperenErsoy\FilamentExport\Actions\Concerns\CanShowHiddenColumns;
 use AlperenErsoy\FilamentExport\Actions\Concerns\CanUseSnappy;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasAdditionalColumnsField;
+use AlperenErsoy\FilamentExport\Actions\Concerns\HasCsvDelimiter;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasDefaultFormat;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasDefaultPageOrientation;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasExportModelActions;
@@ -29,7 +30,6 @@ use AlperenErsoy\FilamentExport\Actions\Concerns\HasPageOrientationField;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasPaginator;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasTimeFormat;
 use AlperenErsoy\FilamentExport\Actions\Concerns\HasUniqueActionId;
-use AlperenErsoy\FilamentExport\Actions\Concerns\HasCsvDelimiter;
 use AlperenErsoy\FilamentExport\FilamentExport;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -78,6 +78,7 @@ class FilamentExportBulkAction extends \Filament\Actions\BulkAction
                 if ($action->shouldDownloadDirect()) {
                     return false;
                 }
+
                 return $action;
             })
             ->form(static function ($action, $records, $livewire): array {

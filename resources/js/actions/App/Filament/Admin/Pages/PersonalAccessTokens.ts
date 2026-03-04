@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 const PersonalAccessTokens = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ PersonalAccessTokens.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ PersonalAccessTokens.url = (args: { tenant: string | number | { slug: string | n
 }
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ PersonalAccessTokens.get = (args: { tenant: string | number | { slug: string | n
 })
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ PersonalAccessTokens.head = (args: { tenant: string | number | { slug: string | 
 })
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 const PersonalAccessTokensForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const PersonalAccessTokensForm = (args: { tenant: string | number | { slug: stri
 })
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokensForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ PersonalAccessTokensForm.get = (args: { tenant: string | number | { slug: string
 })
 
 /**
-* @see \Wallo\FilamentCompanies\Pages\User\PersonalAccessTokens::__invoke
-* @see plugins/andrewdwallo/filament-companies/src/Pages/User/PersonalAccessTokens.php:7
+* @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
+* @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
 * @route '/admin/tenant/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokensForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

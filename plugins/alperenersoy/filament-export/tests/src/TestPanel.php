@@ -2,14 +2,13 @@
 
 namespace AlperenErsoy\FilamentExport\Tests;
 
-use Filament\Panel;
-use Filament\PanelProvider;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\PostResource;
 use AlperenErsoy\FilamentExport\Tests\Filament\Resources\UserResource;
+use Filament\Panel;
+use Filament\PanelProvider;
 
 class TestPanel extends PanelProvider
 {
-
     public function panel(Panel $panel): Panel
     {
         return $panel
