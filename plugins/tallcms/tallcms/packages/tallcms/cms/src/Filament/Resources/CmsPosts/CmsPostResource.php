@@ -27,6 +27,10 @@ class CmsPostResource extends Resource
     // Title attribute enables global search automatically
     protected static ?string $recordTitleAttribute = 'title';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     // Limit results to prevent performance issues
     protected static int $globalSearchResultsLimit = 20;
 

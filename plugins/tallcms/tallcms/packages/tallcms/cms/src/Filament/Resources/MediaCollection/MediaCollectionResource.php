@@ -34,6 +34,10 @@ class MediaCollectionResource extends Resource
 
     protected static ?string $navigationParentItem = 'Media Library';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     public static function getNavigationGroup(): ?string
     {
         return config('tallcms.filament.navigation_group') ?? 'Content Management';

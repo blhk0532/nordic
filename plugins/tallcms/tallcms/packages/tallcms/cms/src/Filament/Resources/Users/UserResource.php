@@ -25,6 +25,10 @@ class UserResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Users';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     public static function getModel(): string
     {
         return config('tallcms.plugin_mode.user_model', 'App\\Models\\User');

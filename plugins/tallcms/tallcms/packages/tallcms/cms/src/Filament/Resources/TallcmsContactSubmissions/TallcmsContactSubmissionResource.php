@@ -17,6 +17,10 @@ class TallcmsContactSubmissionResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Contact Submissions';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     public static function getNavigationIcon(): string
     {
         return 'heroicon-o-envelope';

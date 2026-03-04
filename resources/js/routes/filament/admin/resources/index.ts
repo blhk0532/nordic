@@ -12,6 +12,14 @@ import booking from './booking'
 import bookingCalendars from './booking-calendars'
 import bookingDataLeads from './booking-data-leads'
 import teamUsers from './team-users'
+import cmsCategories from './cms-categories'
+import cmsPages from './cms-pages'
+import cmsPosts from './cms-posts'
+import cmsComments from './cms-comments'
+import tallcmsContactSubmissions from './tallcms-contact-submissions'
+import tallcmsMedia from './tallcms-media'
+import mediaCollection from './media-collection'
+import tallcmsMenus from './tallcms-menus'
 import whatsappInstances from './whatsapp-instances'
 import activityLogs from './activity-logs'
 
@@ -30,6 +38,14 @@ const resources = {
     bookingCalendars: Object.assign(bookingCalendars, bookingCalendars),
     bookingDataLeads: Object.assign(bookingDataLeads, bookingDataLeads),
     teamUsers: Object.assign(teamUsers, teamUsers),
+    cmsCategories: Object.assign(cmsCategories, cmsCategories),
+    cmsPages: Object.assign(cmsPages, cmsPages),
+    cmsPosts: Object.assign(cmsPosts, cmsPosts),
+    cmsComments: Object.assign(cmsComments, cmsComments),
+    tallcmsContactSubmissions: Object.assign(tallcmsContactSubmissions, tallcmsContactSubmissions),
+    tallcmsMedia: Object.assign(tallcmsMedia, tallcmsMedia),
+    mediaCollection: Object.assign(mediaCollection, mediaCollection),
+    tallcmsMenus: Object.assign(tallcmsMenus, tallcmsMenus),
     whatsappInstances: Object.assign(whatsappInstances, whatsappInstances),
     activityLogs: Object.assign(activityLogs, activityLogs),
 }

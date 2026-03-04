@@ -61,7 +61,7 @@ use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use lockscreen\FilamentLockscreen\Lockscreen;
 use MmesDesign\FilamentFileManager\FileManagerPlugin;
-// use TallCms\Cms\TallCmsPlugin;
+use TallCms\Cms\TallCmsPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
@@ -151,6 +151,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->plugin(TallCmsPlugin::make())
             ->plugins([
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
@@ -351,6 +352,7 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationSort(10)                        // int|Closure|null
                     ->navigationBadge('Roles')                      // string|Closure|null
                     ->navigationBadgeColor('success')           // string|array|Closure|null
+                    ->scopeToTenant(false)
             )
             ->plugins([
                 FilamentBookingPlugin::make(),

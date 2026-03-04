@@ -23,6 +23,10 @@ class CmsCategoryResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Categories';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     public static function form(Schema $schema): Schema
     {
         return CmsCategoryForm::configure($schema);

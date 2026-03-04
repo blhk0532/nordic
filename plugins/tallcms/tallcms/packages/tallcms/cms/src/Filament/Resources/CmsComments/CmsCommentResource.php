@@ -19,6 +19,10 @@ class CmsCommentResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Comments';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
+    protected static bool $isScopedToTenant = false;
+
     public static function getNavigationIcon(): string
     {
         return 'heroicon-o-chat-bubble-left-right';
