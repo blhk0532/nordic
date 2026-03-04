@@ -45,11 +45,11 @@ echo "Step 8: Restart Horizon (graceful)..."
 $PHP artisan horizon:terminate
 
 echo "Step 9: Reload Octane..."
-$PHP sudo supervisorctl restart all || true
+$PHP sudo supervisorctl stop all
+$PHP sudo supervisorctl restart all
 
 echo "Step 10: Disable maintenance mode..."
 $PHP artisan up
-
 echo "======================================"
-echo "Deployment complete."
+echo "Deployment complete. GG"
 echo "======================================"
