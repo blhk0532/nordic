@@ -7,7 +7,13 @@ use App\Policies\RingaDataOutcomePolicy;
 
 it('accepts the application user model for viewAny', function (): void {
     $policy = new RingaDataOutcomePolicy;
-    $user = new User;
+    $user = new class extends User
+    {
+        public function can($abilities, $arguments = []): bool
+        {
+            return false;
+        }
+    };
 
     $result = $policy->viewAny($user);
 
