@@ -36,12 +36,16 @@ $PHP artisan config:cache
 $PHP artisan route:cache
 $PHP artisan view:cache
 $PHP artisan event:cache
+$PHP artisan filament:optimize-clear
+
+$PHP artisan optimize
+$PHP artisan filament:optimize
 
 echo "Step 8: Restart Horizon (graceful)..."
 $PHP artisan horizon:terminate
 
 echo "Step 9: Reload Octane..."
-$PHP artisan octane:reload || true
+$PHP sudo supervisorctl restart all || true
 
 echo "Step 10: Disable maintenance mode..."
 $PHP artisan up
