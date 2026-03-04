@@ -40,7 +40,7 @@ return [
     |
     */
 
-    'server' => env('OCTANE_SERVER', 'roadrunner'),
+    'server' => env('OCTANE_SERVER', 'frankenphp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -221,6 +221,6 @@ return [
     |
     */
 
-    'max_execution_time' => 30,
+    'max_execution_time' => 120,
 
 ];
