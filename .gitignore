@@ -30,3 +30,7 @@ yarn-error.log
 *.cache
 *.bak
 *.tmp
+rr
+rr.yaml
+.env.local
+.env.testing
