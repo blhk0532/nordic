@@ -329,7 +329,7 @@ class TallCmsServiceProvider extends PackageServiceProvider
         foreach ($this->classAliases as $alias => $class) {
             // Check if alias target already exists as class, interface, or trait
             // Allow autoloading (no false param) to properly detect existing types
-            if (! class_exists($alias) && ! interface_exists($alias) && ! trait_exists($alias)) {
+            if (! class_exists($alias, false) && ! interface_exists($alias, false) && ! trait_exists($alias, false)) {
                 class_alias($class, $alias);
             }
         }

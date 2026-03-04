@@ -281,4 +281,21 @@ class CmsPage extends Model
             default => 'max-w-6xl',
         };
     }
+
+    /**
+     * Get excerpt attribute, generating from content if not set.
+     */
+    public function getExcerptAttribute(?string $value): string
+    {
+        if ($value) {
+            return $value;
+        }
+
+        $content = $this->content;
+        if (is_array($content)) {
+            $content = implode(' ', $content);
+        }
+
+        return strip_tags($content ?? '');
+    }
 }

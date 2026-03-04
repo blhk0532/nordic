@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TallCms\Cms\Observers;
 
+use Illuminate\Database\Eloquent\MissingAttributeException;
 use Illuminate\Database\Eloquent\Model;
 use TallCms\Cms\Services\ContentIndexer;
 use TallCms\Cms\Services\LocaleRegistry;
@@ -59,7 +60,11 @@ class SearchContentObserver
     protected function getTranslation(Model $model, string $key, string $locale): mixed
     {
         if (! in_array($key, $model->translatable ?? [])) {
-            return $model->getAttribute($key);
+            try {
+                return $model->getAttribute($key);
+            } catch (MissingAttributeException) {
+                return null;
+            }
         }
 
         try {

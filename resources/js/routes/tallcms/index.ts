@@ -4,10 +4,11 @@ import contact from './contact'
 import comments from './comments'
 import media from './media'
 import seo from './seo'
+import cms from './cms'
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 export const search = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: search.url(options),
@@ -16,13 +17,13 @@ export const search = (options?: RouteQueryOptions): RouteDefinition<'get'> => (
 
 search.definition = {
     methods: ["get","head"],
-    url: '/search',
+    url: '/cms/search',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 search.url = (options?: RouteQueryOptions) => {
     return search.definition.url + queryParams(options)
@@ -31,7 +32,7 @@ search.url = (options?: RouteQueryOptions) => {
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 search.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: search.url(options),
@@ -41,7 +42,7 @@ search.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 search.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: search.url(options),
@@ -51,7 +52,7 @@ search.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 const searchForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: search.url(options),
@@ -61,7 +62,7 @@ const searchForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 searchForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: search.url(options),
@@ -71,7 +72,7 @@ searchForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 /**
 * @see \TallCms\Cms\Livewire\SearchResults::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Livewire/SearchResults.php:7
-* @route '/search'
+* @route '/cms/search'
 */
 searchForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: search.url({
@@ -91,6 +92,7 @@ const tallcms = {
     comments: Object.assign(comments, comments),
     media: Object.assign(media, media),
     seo: Object.assign(seo, seo),
+    cms: Object.assign(cms, cms),
     search: Object.assign(search, search),
 }
 
