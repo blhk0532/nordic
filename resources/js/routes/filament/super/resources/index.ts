@@ -2,6 +2,7 @@ import admins from './admins'
 import outcomeDelaySettings from './outcome-delay-settings'
 import outcomeSettings from './outcome-settings'
 import ringaDataOutcomes from './ringa-data-outcomes'
+import shield from './shield'
 import teamInvitations from './team-invitations'
 import teams from './teams'
 import terminalLogs from './terminal-logs'
@@ -13,10 +14,6 @@ import booking from './booking'
 import bookingCalendars from './booking-calendars'
 import bookingDataLeads from './booking-data-leads'
 import exceptions from './exceptions'
-import clients from './clients'
-import tokens from './tokens'
-import passportScopeResources from './passport-scope-resources'
-import passportScopeActions from './passport-scope-actions'
 import commandRunner from './command-runner'
 import failedJobs from './failed-jobs'
 import whatsappInstances from './whatsapp-instances'
@@ -26,7 +23,6 @@ import notificationChannels from './notification-channels'
 import notificationEvents from './notification-events'
 import notificationTemplates from './notification-templates'
 import notifications from './notifications'
-import shield from './shield'
 import conversations from './conversations'
 import messages from './messages'
 
@@ -35,6 +31,7 @@ const resources = {
     outcomeDelaySettings: Object.assign(outcomeDelaySettings, outcomeDelaySettings),
     outcomeSettings: Object.assign(outcomeSettings, outcomeSettings),
     ringaDataOutcomes: Object.assign(ringaDataOutcomes, ringaDataOutcomes),
+    shield: Object.assign(shield, shield),
     teamInvitations: Object.assign(teamInvitations, teamInvitations),
     teams: Object.assign(teams, teams),
     terminalLogs: Object.assign(terminalLogs, terminalLogs),
@@ -46,10 +43,6 @@ const resources = {
     bookingCalendars: Object.assign(bookingCalendars, bookingCalendars),
     bookingDataLeads: Object.assign(bookingDataLeads, bookingDataLeads),
     exceptions: Object.assign(exceptions, exceptions),
-    clients: Object.assign(clients, clients),
-    tokens: Object.assign(tokens, tokens),
-    passportScopeResources: Object.assign(passportScopeResources, passportScopeResources),
-    passportScopeActions: Object.assign(passportScopeActions, passportScopeActions),
     commandRunner: Object.assign(commandRunner, commandRunner),
     failedJobs: Object.assign(failedJobs, failedJobs),
     whatsappInstances: Object.assign(whatsappInstances, whatsappInstances),
@@ -59,7 +52,6 @@ const resources = {
     notificationEvents: Object.assign(notificationEvents, notificationEvents),
     notificationTemplates: Object.assign(notificationTemplates, notificationTemplates),
     notifications: Object.assign(notifications, notifications),
-    shield: Object.assign(shield, shield),
     conversations: Object.assign(conversations, conversations),
     messages: Object.assign(messages, messages),
 }

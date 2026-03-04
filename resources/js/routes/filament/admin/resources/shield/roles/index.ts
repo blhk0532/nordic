@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../wayfinder'
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 export const index = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 index.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ index.url = (args: { tenant: string | number | { slug: string | number } } | [te
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 index.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ index.get = (args: { tenant: string | number | { slug: string | number } } | [te
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 index.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -69,7 +69,7 @@ index.head = (args: { tenant: string | number | { slug: string | number } } | [t
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 const indexForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ const indexForm = (args: { tenant: string | number | { slug: string | number } }
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 indexForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -89,7 +89,7 @@ indexForm.get = (args: { tenant: string | number | { slug: string | number } } |
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 indexForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -106,7 +106,7 @@ index.form = indexForm
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 export const create = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -121,7 +121,7 @@ create.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 create.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -154,7 +154,7 @@ create.url = (args: { tenant: string | number | { slug: string | number } } | [t
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 create.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -164,7 +164,7 @@ create.get = (args: { tenant: string | number | { slug: string | number } } | [t
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 create.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -174,7 +174,7 @@ create.head = (args: { tenant: string | number | { slug: string | number } } | [
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 const createForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -184,7 +184,7 @@ const createForm = (args: { tenant: string | number | { slug: string | number } 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 createForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -194,7 +194,7 @@ createForm.get = (args: { tenant: string | number | { slug: string | number } } 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/create'
 */
 createForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +211,7 @@ create.form = createForm
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 export const view = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -226,7 +226,7 @@ view.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 view.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -254,7 +254,7 @@ view.url = (args: { tenant: string | number | { slug: string | number }, record:
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 view.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -264,7 +264,7 @@ view.get = (args: { tenant: string | number | { slug: string | number }, record:
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 view.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -274,7 +274,7 @@ view.head = (args: { tenant: string | number | { slug: string | number }, record
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 const viewForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -284,7 +284,7 @@ const viewForm = (args: { tenant: string | number | { slug: string | number }, r
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 viewForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -294,7 +294,7 @@ viewForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 viewForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -311,7 +311,7 @@ view.form = viewForm
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 export const edit = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -326,7 +326,7 @@ edit.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 edit.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -354,7 +354,7 @@ edit.url = (args: { tenant: string | number | { slug: string | number }, record:
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 edit.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -364,7 +364,7 @@ edit.get = (args: { tenant: string | number | { slug: string | number }, record:
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 edit.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -374,7 +374,7 @@ edit.head = (args: { tenant: string | number | { slug: string | number }, record
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 const editForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -384,7 +384,7 @@ const editForm = (args: { tenant: string | number | { slug: string | number }, r
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 editForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -394,7 +394,7 @@ editForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
 */
 editForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

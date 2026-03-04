@@ -30,7 +30,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
-use N3XT0R\FilamentPassportUi\FilamentPassportUiPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
 class UserPanelProvider extends PanelProvider
@@ -117,7 +116,6 @@ class UserPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(
-                FilamentPassportUiPlugin::make(),
                 FilamentShieldPlugin::make()
                     ->navigationLabel('Roles')                  // string|Closure|null
                     ->navigationIcon('heroicon-o-shield-check')         // string|Closure|null

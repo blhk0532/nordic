@@ -65,10 +65,10 @@ class AdminResource extends Resource
         return __('Användare');
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return (string) Cache::rememberForever('admins_count', fn () => Admin::query()->count());
-    }
+    //  public static function getNavigationBadge(): ?string
+    //  {
+    //      return (string) Cache::rememberForever('admins_count', fn () => Admin::query()->count());
+    //  }
 
     public static function form(Schema $schema): Schema
     {

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../wayfinder'
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 const ListRolesf8049ed97fc7127920f60959ae69d12a = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12a.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 ListRolesf8049ed97fc7127920f60959ae69d12a.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12a.url = (args: { tenant: string | number
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 ListRolesf8049ed97fc7127920f60959ae69d12a.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12a.get = (args: { tenant: string | number
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 ListRolesf8049ed97fc7127920f60959ae69d12a.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -69,7 +69,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12a.head = (args: { tenant: string | numbe
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 const ListRolesf8049ed97fc7127920f60959ae69d12aForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ const ListRolesf8049ed97fc7127920f60959ae69d12aForm = (args: { tenant: string | 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 ListRolesf8049ed97fc7127920f60959ae69d12aForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -89,7 +89,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12aForm.get = (args: { tenant: string | nu
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/admin/tenant/{tenant}/shield/roles'
 */
 ListRolesf8049ed97fc7127920f60959ae69d12aForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -105,7 +105,7 @@ ListRolesf8049ed97fc7127920f60959ae69d12aForm.head = (args: { tenant: string | n
 ListRolesf8049ed97fc7127920f60959ae69d12a.form = ListRolesf8049ed97fc7127920f60959ae69d12aForm
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 const ListRoles97ea2592ad6e707738ae83b8eefbf74d = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,7 +120,7 @@ ListRoles97ea2592ad6e707738ae83b8eefbf74d.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 ListRoles97ea2592ad6e707738ae83b8eefbf74d.url = (options?: RouteQueryOptions) => {
@@ -129,7 +129,7 @@ ListRoles97ea2592ad6e707738ae83b8eefbf74d.url = (options?: RouteQueryOptions) =>
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 ListRoles97ea2592ad6e707738ae83b8eefbf74d.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -139,7 +139,7 @@ ListRoles97ea2592ad6e707738ae83b8eefbf74d.get = (options?: RouteQueryOptions): R
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 ListRoles97ea2592ad6e707738ae83b8eefbf74d.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -149,7 +149,7 @@ ListRoles97ea2592ad6e707738ae83b8eefbf74d.head = (options?: RouteQueryOptions): 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 const ListRoles97ea2592ad6e707738ae83b8eefbf74dForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -159,7 +159,7 @@ const ListRoles97ea2592ad6e707738ae83b8eefbf74dForm = (options?: RouteQueryOptio
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 ListRoles97ea2592ad6e707738ae83b8eefbf74dForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -169,7 +169,7 @@ ListRoles97ea2592ad6e707738ae83b8eefbf74dForm.get = (options?: RouteQueryOptions
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ListRoles::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ListRoles.php:7
 * @route '/nds/super/shield/roles'
 */
 ListRoles97ea2592ad6e707738ae83b8eefbf74dForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

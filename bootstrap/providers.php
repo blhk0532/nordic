@@ -18,4 +18,5 @@ return [
     App\Providers\Filament\SuperPanelProvider::class,
     App\Providers\Filament\ToolsPanelProvider::class,
     App\Providers\FortifyServiceProvider::class,
+    TallCms\Cms\TallCmsServiceProvider::class,
 ];

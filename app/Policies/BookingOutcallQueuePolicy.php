@@ -6,43 +6,64 @@ namespace App\Policies;
 
 use App\Models\BookingOutcallQueue;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Foundation\Auth\User as AuthUser;
 
 class BookingOutcallQueuePolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(mixed $user): bool
+    public function viewAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('ViewAny:BookingOutcallQueue');
     }
 
-    public function view(mixed $user, BookingOutcallQueue $bookingOutcallQueue): bool
+    public function view(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
     {
-        return true;
+        return $authUser->can('View:BookingOutcallQueue');
     }
 
-    public function create(mixed $user): bool
+    public function create(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Create:BookingOutcallQueue');
     }
 
-    public function update(mixed $user, BookingOutcallQueue $bookingOutcallQueue): bool
+    public function update(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
     {
-        return true;
+        return $authUser->can('Update:BookingOutcallQueue');
     }
 
-    public function delete(mixed $user, BookingOutcallQueue $bookingOutcallQueue): bool
+    public function delete(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
     {
-        return true;
+        return $authUser->can('Delete:BookingOutcallQueue');
     }
 
-    public function restore(mixed $user, BookingOutcallQueue $bookingOutcallQueue): bool
+    public function restore(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
     {
-        return true;
+        return $authUser->can('Restore:BookingOutcallQueue');
     }
 
-    public function forceDelete(mixed $user, BookingOutcallQueue $bookingOutcallQueue): bool
+    public function forceDelete(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
     {
-        return true;
+        return $authUser->can('ForceDelete:BookingOutcallQueue');
+    }
+
+    public function forceDeleteAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('ForceDeleteAny:BookingOutcallQueue');
+    }
+
+    public function restoreAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('RestoreAny:BookingOutcallQueue');
+    }
+
+    public function replicate(AuthUser $authUser, BookingOutcallQueue $bookingOutcallQueue): bool
+    {
+        return $authUser->can('Replicate:BookingOutcallQueue');
+    }
+
+    public function reorder(AuthUser $authUser): bool
+    {
+        return $authUser->can('Reorder:BookingOutcallQueue');
     }
 }

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../wayfinder'
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 const ViewRole90450831673b0ca28fffdfb5860261a2 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 ViewRole90450831673b0ca28fffdfb5860261a2.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
@@ -44,7 +44,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2.url = (args: { tenant: string | number 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 ViewRole90450831673b0ca28fffdfb5860261a2.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -54,7 +54,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2.get = (args: { tenant: string | number 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 ViewRole90450831673b0ca28fffdfb5860261a2.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -64,7 +64,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2.head = (args: { tenant: string | number
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 const ViewRole90450831673b0ca28fffdfb5860261a2Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -74,7 +74,7 @@ const ViewRole90450831673b0ca28fffdfb5860261a2Form = (args: { tenant: string | n
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 ViewRole90450831673b0ca28fffdfb5860261a2Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -84,7 +84,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2Form.get = (args: { tenant: string | num
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/admin/tenant/{tenant}/shield/roles/{record}'
 */
 ViewRole90450831673b0ca28fffdfb5860261a2Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -100,7 +100,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2Form.head = (args: { tenant: string | nu
 ViewRole90450831673b0ca28fffdfb5860261a2.form = ViewRole90450831673b0ca28fffdfb5860261a2Form
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 const ViewRole5e9081f7016bfe540266d3bf96b54521 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -115,7 +115,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521.definition = {
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 ViewRole5e9081f7016bfe540266d3bf96b54521.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -142,7 +142,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521.url = (args: { record: string | number 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 ViewRole5e9081f7016bfe540266d3bf96b54521.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -152,7 +152,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521.get = (args: { record: string | number 
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 ViewRole5e9081f7016bfe540266d3bf96b54521.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -162,7 +162,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521.head = (args: { record: string | number
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 const ViewRole5e9081f7016bfe540266d3bf96b54521Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -172,7 +172,7 @@ const ViewRole5e9081f7016bfe540266d3bf96b54521Form = (args: { record: string | n
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 ViewRole5e9081f7016bfe540266d3bf96b54521Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -182,7 +182,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521Form.get = (args: { record: string | num
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
-* @see plugins/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
+* @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
 * @route '/nds/super/shield/roles/{record}'
 */
 ViewRole5e9081f7016bfe540266d3bf96b54521Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -6,43 +6,64 @@ namespace App\Policies;
 
 use App\Models\BookingDataLead;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Foundation\Auth\User as AuthUser;
 
 class BookingDataLeadPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(mixed $user): bool
+    public function viewAny(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('ViewAny:BookingDataLead');
     }
 
-    public function view(mixed $user, BookingDataLead $bookingDataLead): bool
+    public function view(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
     {
-        return true;
+        return $authUser->can('View:BookingDataLead');
     }
 
-    public function create(mixed $user): bool
+    public function create(AuthUser $authUser): bool
     {
-        return true;
+        return $authUser->can('Create:BookingDataLead');
     }
 
-    public function update(mixed $user, BookingDataLead $bookingDataLead): bool
+    public function update(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
     {
-        return true;
+        return $authUser->can('Update:BookingDataLead');
     }
 
-    public function delete(mixed $user, BookingDataLead $bookingDataLead): bool
+    public function delete(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
     {
-        return true;
+        return $authUser->can('Delete:BookingDataLead');
     }
 
-    public function restore(mixed $user, BookingDataLead $bookingDataLead): bool
+    public function restore(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
     {
-        return true;
+        return $authUser->can('Restore:BookingDataLead');
     }
 
-    public function forceDelete(mixed $user, BookingDataLead $bookingDataLead): bool
+    public function forceDelete(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
     {
-        return true;
+        return $authUser->can('ForceDelete:BookingDataLead');
+    }
+
+    public function forceDeleteAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('ForceDeleteAny:BookingDataLead');
+    }
+
+    public function restoreAny(AuthUser $authUser): bool
+    {
+        return $authUser->can('RestoreAny:BookingDataLead');
+    }
+
+    public function replicate(AuthUser $authUser, BookingDataLead $bookingDataLead): bool
+    {
+        return $authUser->can('Replicate:BookingDataLead');
+    }
+
+    public function reorder(AuthUser $authUser): bool
+    {
+        return $authUser->can('Reorder:BookingDataLead');
     }
 }

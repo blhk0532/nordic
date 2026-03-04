@@ -29,8 +29,8 @@ use App\Filament\App\Pages\Tenancy\RegisterTeam;
 use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
-use App\Filament\App\Widgets\RatsitDataStatsWidget;
 use App\Filament\Data\Pages\KommunerMap;
+use App\Filament\Widgets\RatsitDataStatsWidget;
 use App\Http\Middleware\ApplyTenantScopes;
 use App\Http\Middleware\CurrentTenant;
 use App\Http\Middleware\EnforceUserResourceNavigation;
@@ -206,9 +206,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->widgets([
                 WeatherWidget::class,
-                //    Widgets\AccountWidget::class,
-                //    Widgets\FilamentInfoWidget::class,
-                //   RatsitDataStatsWidget::class,
+                RatsitDataStatsWidget::class,
             ])
             ->resources([
                 //    BookingDataLeadResource::class,

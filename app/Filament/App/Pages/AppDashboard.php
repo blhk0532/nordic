@@ -9,7 +9,10 @@ use App\Filament\Admin\Widgets\WorldClockWidget;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\MultiCalendar2;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\MultiCalendar3;
 use App\Filament\App\Resources\Bookings\Widgets\BookingCalendar;
+use App\Filament\App\Widgets\CalendarLayoutWidget;
 use App\Filament\App\Widgets\TeamMembersWidget;
+use App\Filament\Widgets\CalendarWidget;
+use App\Filament\Widgets\MyRinglistaWidget;
 use App\Models\BookingCalendar as BookingCalendarModel;
 use Arshaviras\WeatherWidget\Widgets\WeatherWidget;
 use BackedEnum;
@@ -160,7 +163,9 @@ class AppDashboard extends BasePage
             // \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
             AccountInfoStackWidget::class,
             WorldClockWidget::class,
-
+            CalendarLayoutWidget::class,
+            CalendarWidget::class,
+            MyRinglistaWidget::class,
             TeamMembersWidget::class,
         ];
     }

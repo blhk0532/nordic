@@ -68,7 +68,6 @@ use lockscreen\FilamentLockscreen\Lockscreen;
 // use MWGuerra\FileManager\Filament\Pages\SchemaExample;
 // use MWGuerra\FileManager\Filament\Resources\FileSystemItemResource;
 // use MWGuerra\FileManager\FileManagerPlugin;
-use N3XT0R\FilamentPassportUi\FilamentPassportUiPlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Usamamuneerchaudhary\Notifier\FilamentNotifierPlugin;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
@@ -195,7 +194,6 @@ class SuperPanelProvider extends PanelProvider
                     })
             )
             ->plugins([
-                FilamentPassportUiPlugin::make(),
             ])
             ->plugin(CommandRunnerPlugin::make())
 

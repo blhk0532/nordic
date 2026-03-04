@@ -27,11 +27,11 @@
         "awcodes/overlook": "@dev",
         "aymanalhattami/filament-context-menu": "@dev",
         "aymanalhattami/filament-page-with-sidebar": "dev-main",
-        "barryvdh/laravel-snappy": "^1.0",
+        "barryvdh/laravel-snappy": "^1.0.4",
         "bezhansalleh/filament-exceptions": "@dev",
         "bezhansalleh/filament-panel-switch": "@dev",
         "bezhansalleh/filament-plugin-essentials": "@dev",
-        "bezhansalleh/filament-shield": "@dev",
+        "bezhansalleh/filament-shield": "^4.1",
         "binarybuilds/filament-cache-manager": "@dev",
         "binarybuilds/filament-command-runner": "@dev",
         "binarybuilds/filament-failed-jobs": "@dev",
@@ -47,7 +47,7 @@
         "eduardoribeirodev/filament-leaflet": ">=4.6.0",
         "eightynine/filament-excel-import": "@dev",
         "fahiem/filament-pinpoint": "@dev",
-        "filament/filament": "^5.3.0",
+        "filament/filament": "^5.3.1",
         "filamentphp/advanced-export": "^0.3.0",
         "grazulex/laravel-apiroute": "^2.0.5",
         "guava/filament-icon-select-column": "@dev",
@@ -83,7 +83,7 @@
         "leandrocfe/filament-apex-charts": "@dev",
         "leek/filament-dicebear": "^1.1",
         "livewire/blaze": "^1.0.4",
-        "livewire/flux": "^2.12.2",
+        "livewire/flux": "^2.13.0",
         "livewire/livewire": "^4.2.1",
         "livewire/volt": "^1.10.3",
         "mallardduck/blade-lucide-icons": "^1.26.7",
@@ -94,17 +94,15 @@
         "muazzam/slick-scrollbar": "@dev",
         "mwguerra/filemanager": "@dev",
         "mwguerra/web-terminal": "^2.0",
-        "n3xt0r/filament-passport-ui": "^2.2",
-        "n3xt0r/laravel-passport-authorization-core": "^1.2.4",
         "nunomaduro/essentials": "^1.2.0",
         "owenvoke/blade-fontawesome": "^3.2",
-        "pxlrbt/filament-excel": "@dev",
+        "pxlrbt/filament-excel": "dev-main",
         "pxlrbt/filament-spotlight": "@dev",
         "ralphjsmit/laravel-filament-components": "^3.1",
         "relaticle/flowforge": "@dev",
         "rickdbcn/filament-email": "^2.2",
         "salemaljebaly/filament-map-picker": "^1.0.3",
-        "secondnetwork/blade-tabler-icons": "^3.37.0",
+        "secondnetwork/blade-tabler-icons": "^3.38.0",
         "shreejan/actionable-column": "^1.1",
         "shreejan/dash-arrange": "^1.0",
         "shuvroroy/filament-spatie-laravel-backup": "^3.3",
@@ -118,6 +116,7 @@
         "statikbe/laravel-filament-chained-translation-manager": "^4.2.1",
         "stechstudio/filament-impersonate": "^4.1.4",
         "still-code/laravel-umami": "^5.0.3",
+        "tallcms/cms": ">=3.2.7",
         "tapp/filament-maillog": "^2.0.4",
         "usamamuneerchaudhary/filament-notifier": "^1.4",
         "wallacemartinss/filament-icon-picker": "@dev",
@@ -131,11 +130,11 @@
         "barryvdh/laravel-ide-helper": "^3.6.1",
         "driftingly/rector-laravel": "^2.1.9",
         "fakerphp/faker": "^1.24.1",
-        "filament/upgrade": "^5.3.0",
+        "filament/upgrade": "^5.3.1",
         "fruitcake/laravel-debugbar": "^3.16.5",
         "laradumps/laradumps": "^5.2.0",
         "larastan/larastan": "^3.9.3",
-        "laravel/boost": "^2.2.1",
+        "laravel/boost": "^2.2.2",
         "laravel/pail": "^1.2.6",
         "laravel/pint": "^1.27.1",
         "laraveldaily/filacheck": ">=0.3.1",
@@ -156,14 +155,21 @@
                 "symlink": true
             }
         },
-                {
+        {
+            "type": "path",
+            "url": "plugins/andrewdwallo/filament-companies",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
             "type": "path",
             "url": "plugins/alperenersoy/filament-export",
             "options": {
                 "symlink": true
             }
         },
-                {
+        {
             "type": "path",
             "url": "plugins/aymanalhattami/filament-page-with-sidebar",
             "options": {
@@ -313,13 +319,6 @@
         {
             "type": "path",
             "url": "plugins/bezhansalleh/filament-plugin-essentials",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "plugins/bezhansalleh/filament-shield",
             "options": {
                 "symlink": true
             }
@@ -565,6 +564,20 @@
         {
             "type": "path",
             "url": "plugins/zap",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "plugins/tallcms/tallcms",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "plugins/tallcms/tallcms/packages/tallcms/cms",
             "options": {
                 "symlink": true
             }

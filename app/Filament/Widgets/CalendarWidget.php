@@ -89,6 +89,11 @@ class CalendarWidget extends FullCalendarWidget
         ];
     }
 
+    public function getHeading(): array
+    {
+        return [];
+    }
+
     protected function headerActions(): array
     {
         return [
