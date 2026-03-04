@@ -9,57 +9,57 @@ class AdminPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:Admin');
     }
 
-    public function view(AuthUser $authUser): bool
+    public function view(User $authUser): bool
     {
         return $authUser->can('View:Admin');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:Admin');
     }
 
-    public function update(AuthUser $authUser): bool
+    public function update(User $authUser): bool
     {
         return $authUser->can('Update:Admin');
     }
 
-    public function delete(AuthUser $authUser): bool
+    public function delete(User $authUser): bool
     {
         return $authUser->can('Delete:Admin');
     }
 
-    public function restore(AuthUser $authUser): bool
+    public function restore(User $authUser): bool
     {
         return $authUser->can('Restore:Admin');
     }
 
-    public function forceDelete(AuthUser $authUser): bool
+    public function forceDelete(User $authUser): bool
     {
         return $authUser->can('ForceDelete:Admin');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:Admin');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:Admin');
     }
 
-    public function replicate(AuthUser $authUser): bool
+    public function replicate(User $authUser): bool
     {
         return $authUser->can('Replicate:Admin');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:Admin');
     }

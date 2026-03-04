@@ -12,57 +12,57 @@ class CmsPostPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:CmsPost');
     }
 
-    public function view(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function view(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('View:CmsPost');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:CmsPost');
     }
 
-    public function update(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function update(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('Update:CmsPost');
     }
 
-    public function delete(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function delete(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('Delete:CmsPost');
     }
 
-    public function restore(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function restore(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('Restore:CmsPost');
     }
 
-    public function forceDelete(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function forceDelete(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('ForceDelete:CmsPost');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:CmsPost');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:CmsPost');
     }
 
-    public function replicate(AuthUser $authUser, CmsPost $cmsPost): bool
+    public function replicate(User $authUser, CmsPost $cmsPost): bool
     {
         return $authUser->can('Replicate:CmsPost');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:CmsPost');
     }

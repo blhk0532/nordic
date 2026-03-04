@@ -12,57 +12,57 @@ class WhatsappInstancePolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:WhatsappInstance');
     }
 
-    public function view(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function view(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('View:WhatsappInstance');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:WhatsappInstance');
     }
 
-    public function update(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function update(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('Update:WhatsappInstance');
     }
 
-    public function delete(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function delete(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('Delete:WhatsappInstance');
     }
 
-    public function restore(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function restore(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('Restore:WhatsappInstance');
     }
 
-    public function forceDelete(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function forceDelete(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('ForceDelete:WhatsappInstance');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:WhatsappInstance');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:WhatsappInstance');
     }
 
-    public function replicate(AuthUser $authUser, WhatsappInstance $whatsappInstance): bool
+    public function replicate(User $authUser, WhatsappInstance $whatsappInstance): bool
     {
         return $authUser->can('Replicate:WhatsappInstance');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:WhatsappInstance');
     }

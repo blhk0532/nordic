@@ -12,57 +12,57 @@ class CmsCommentPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:CmsComment');
     }
 
-    public function view(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function view(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('View:CmsComment');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:CmsComment');
     }
 
-    public function update(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function update(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('Update:CmsComment');
     }
 
-    public function delete(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function delete(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('Delete:CmsComment');
     }
 
-    public function restore(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function restore(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('Restore:CmsComment');
     }
 
-    public function forceDelete(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function forceDelete(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('ForceDelete:CmsComment');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:CmsComment');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:CmsComment');
     }
 
-    public function replicate(AuthUser $authUser, CmsComment $cmsComment): bool
+    public function replicate(User $authUser, CmsComment $cmsComment): bool
     {
         return $authUser->can('Replicate:CmsComment');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:CmsComment');
     }

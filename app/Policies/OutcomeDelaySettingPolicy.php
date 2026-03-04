@@ -12,57 +12,57 @@ class OutcomeDelaySettingPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:OutcomeDelaySetting');
     }
 
-    public function view(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function view(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('View:OutcomeDelaySetting');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:OutcomeDelaySetting');
     }
 
-    public function update(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function update(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('Update:OutcomeDelaySetting');
     }
 
-    public function delete(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function delete(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('Delete:OutcomeDelaySetting');
     }
 
-    public function restore(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function restore(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('Restore:OutcomeDelaySetting');
     }
 
-    public function forceDelete(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function forceDelete(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('ForceDelete:OutcomeDelaySetting');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:OutcomeDelaySetting');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:OutcomeDelaySetting');
     }
 
-    public function replicate(AuthUser $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
+    public function replicate(User $authUser, OutcomeDelaySetting $outcomeDelaySetting): bool
     {
         return $authUser->can('Replicate:OutcomeDelaySetting');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:OutcomeDelaySetting');
     }

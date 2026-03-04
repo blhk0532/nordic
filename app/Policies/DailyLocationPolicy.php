@@ -12,57 +12,57 @@ class DailyLocationPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:DailyLocation');
     }
 
-    public function view(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function view(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('View:DailyLocation');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:DailyLocation');
     }
 
-    public function update(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function update(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('Update:DailyLocation');
     }
 
-    public function delete(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function delete(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('Delete:DailyLocation');
     }
 
-    public function restore(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function restore(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('Restore:DailyLocation');
     }
 
-    public function forceDelete(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function forceDelete(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('ForceDelete:DailyLocation');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:DailyLocation');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:DailyLocation');
     }
 
-    public function replicate(AuthUser $authUser, DailyLocation $dailyLocation): bool
+    public function replicate(User $authUser, DailyLocation $dailyLocation): bool
     {
         return $authUser->can('Replicate:DailyLocation');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:DailyLocation');
     }

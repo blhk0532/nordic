@@ -12,57 +12,57 @@ class TerminalLogPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:TerminalLog');
     }
 
-    public function view(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function view(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('View:TerminalLog');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:TerminalLog');
     }
 
-    public function update(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function update(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('Update:TerminalLog');
     }
 
-    public function delete(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function delete(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('Delete:TerminalLog');
     }
 
-    public function restore(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function restore(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('Restore:TerminalLog');
     }
 
-    public function forceDelete(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function forceDelete(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('ForceDelete:TerminalLog');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:TerminalLog');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:TerminalLog');
     }
 
-    public function replicate(AuthUser $authUser, TerminalLog $terminalLog): bool
+    public function replicate(User $authUser, TerminalLog $terminalLog): bool
     {
         return $authUser->can('Replicate:TerminalLog');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:TerminalLog');
     }

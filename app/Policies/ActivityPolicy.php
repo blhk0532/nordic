@@ -12,57 +12,57 @@ class ActivityPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:Activity');
     }
 
-    public function view(AuthUser $authUser, Activity $activity): bool
+    public function view(User $authUser, Activity $activity): bool
     {
         return $authUser->can('View:Activity');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:Activity');
     }
 
-    public function update(AuthUser $authUser, Activity $activity): bool
+    public function update(User $authUser, Activity $activity): bool
     {
         return $authUser->can('Update:Activity');
     }
 
-    public function delete(AuthUser $authUser, Activity $activity): bool
+    public function delete(User $authUser, Activity $activity): bool
     {
         return $authUser->can('Delete:Activity');
     }
 
-    public function restore(AuthUser $authUser, Activity $activity): bool
+    public function restore(User $authUser, Activity $activity): bool
     {
         return $authUser->can('Restore:Activity');
     }
 
-    public function forceDelete(AuthUser $authUser, Activity $activity): bool
+    public function forceDelete(User $authUser, Activity $activity): bool
     {
         return $authUser->can('ForceDelete:Activity');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:Activity');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:Activity');
     }
 
-    public function replicate(AuthUser $authUser, Activity $activity): bool
+    public function replicate(User $authUser, Activity $activity): bool
     {
         return $authUser->can('Replicate:Activity');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:Activity');
     }

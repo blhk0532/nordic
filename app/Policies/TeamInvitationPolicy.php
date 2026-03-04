@@ -12,57 +12,57 @@ class TeamInvitationPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:TeamInvitation');
     }
 
-    public function view(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function view(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('View:TeamInvitation');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:TeamInvitation');
     }
 
-    public function update(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function update(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('Update:TeamInvitation');
     }
 
-    public function delete(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function delete(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('Delete:TeamInvitation');
     }
 
-    public function restore(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function restore(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('Restore:TeamInvitation');
     }
 
-    public function forceDelete(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function forceDelete(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('ForceDelete:TeamInvitation');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:TeamInvitation');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:TeamInvitation');
     }
 
-    public function replicate(AuthUser $authUser, TeamInvitation $teamInvitation): bool
+    public function replicate(User $authUser, TeamInvitation $teamInvitation): bool
     {
         return $authUser->can('Replicate:TeamInvitation');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:TeamInvitation');
     }

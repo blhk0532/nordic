@@ -12,57 +12,57 @@ class OrderPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:Order');
     }
 
-    public function view(AuthUser $authUser, Order $order): bool
+    public function view(User $authUser, Order $order): bool
     {
         return $authUser->can('View:Order');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:Order');
     }
 
-    public function update(AuthUser $authUser, Order $order): bool
+    public function update(User $authUser, Order $order): bool
     {
         return $authUser->can('Update:Order');
     }
 
-    public function delete(AuthUser $authUser, Order $order): bool
+    public function delete(User $authUser, Order $order): bool
     {
         return $authUser->can('Delete:Order');
     }
 
-    public function restore(AuthUser $authUser, Order $order): bool
+    public function restore(User $authUser, Order $order): bool
     {
         return $authUser->can('Restore:Order');
     }
 
-    public function forceDelete(AuthUser $authUser, Order $order): bool
+    public function forceDelete(User $authUser, Order $order): bool
     {
         return $authUser->can('ForceDelete:Order');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:Order');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:Order');
     }
 
-    public function replicate(AuthUser $authUser, Order $order): bool
+    public function replicate(User $authUser, Order $order): bool
     {
         return $authUser->can('Replicate:Order');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:Order');
     }

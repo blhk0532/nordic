@@ -12,57 +12,57 @@ class MediaCollectionPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:MediaCollection');
     }
 
-    public function view(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function view(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('View:MediaCollection');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:MediaCollection');
     }
 
-    public function update(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function update(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('Update:MediaCollection');
     }
 
-    public function delete(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function delete(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('Delete:MediaCollection');
     }
 
-    public function restore(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function restore(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('Restore:MediaCollection');
     }
 
-    public function forceDelete(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function forceDelete(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('ForceDelete:MediaCollection');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:MediaCollection');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:MediaCollection');
     }
 
-    public function replicate(AuthUser $authUser, MediaCollection $mediaCollection): bool
+    public function replicate(User $authUser, MediaCollection $mediaCollection): bool
     {
         return $authUser->can('Replicate:MediaCollection');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:MediaCollection');
     }

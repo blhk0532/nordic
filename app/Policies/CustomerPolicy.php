@@ -12,57 +12,57 @@ class CustomerPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:Customer');
     }
 
-    public function view(AuthUser $authUser, Customer $customer): bool
+    public function view(User $authUser, Customer $customer): bool
     {
         return $authUser->can('View:Customer');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:Customer');
     }
 
-    public function update(AuthUser $authUser, Customer $customer): bool
+    public function update(User $authUser, Customer $customer): bool
     {
         return $authUser->can('Update:Customer');
     }
 
-    public function delete(AuthUser $authUser, Customer $customer): bool
+    public function delete(User $authUser, Customer $customer): bool
     {
         return $authUser->can('Delete:Customer');
     }
 
-    public function restore(AuthUser $authUser, Customer $customer): bool
+    public function restore(User $authUser, Customer $customer): bool
     {
         return $authUser->can('Restore:Customer');
     }
 
-    public function forceDelete(AuthUser $authUser, Customer $customer): bool
+    public function forceDelete(User $authUser, Customer $customer): bool
     {
         return $authUser->can('ForceDelete:Customer');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:Customer');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:Customer');
     }
 
-    public function replicate(AuthUser $authUser, Customer $customer): bool
+    public function replicate(User $authUser, Customer $customer): bool
     {
         return $authUser->can('Replicate:Customer');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:Customer');
     }

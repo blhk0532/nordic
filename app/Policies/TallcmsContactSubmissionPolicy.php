@@ -12,57 +12,57 @@ class TallcmsContactSubmissionPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(AuthUser $authUser): bool
+    public function viewAny(User $authUser): bool
     {
         return $authUser->can('ViewAny:TallcmsContactSubmission');
     }
 
-    public function view(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function view(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('View:TallcmsContactSubmission');
     }
 
-    public function create(AuthUser $authUser): bool
+    public function create(User $authUser): bool
     {
         return $authUser->can('Create:TallcmsContactSubmission');
     }
 
-    public function update(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function update(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('Update:TallcmsContactSubmission');
     }
 
-    public function delete(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function delete(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('Delete:TallcmsContactSubmission');
     }
 
-    public function restore(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function restore(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('Restore:TallcmsContactSubmission');
     }
 
-    public function forceDelete(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function forceDelete(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('ForceDelete:TallcmsContactSubmission');
     }
 
-    public function forceDeleteAny(AuthUser $authUser): bool
+    public function forceDeleteAny(User $authUser): bool
     {
         return $authUser->can('ForceDeleteAny:TallcmsContactSubmission');
     }
 
-    public function restoreAny(AuthUser $authUser): bool
+    public function restoreAny(User $authUser): bool
     {
         return $authUser->can('RestoreAny:TallcmsContactSubmission');
     }
 
-    public function replicate(AuthUser $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
+    public function replicate(User $authUser, TallcmsContactSubmission $tallcmsContactSubmission): bool
     {
         return $authUser->can('Replicate:TallcmsContactSubmission');
     }
 
-    public function reorder(AuthUser $authUser): bool
+    public function reorder(User $authUser): bool
     {
         return $authUser->can('Reorder:TallcmsContactSubmission');
     }
