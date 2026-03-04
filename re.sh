@@ -15,7 +15,7 @@ echo "Step 1: Pull latest code..."
 git fetch origin
 git reset --hard origin/main
 
-$PHP sudo artisan octane:status
+$PHP artisan octane:status
 $PHP sudo supervisorctl status
 
 echo "Step 2: Enable maintenance mode..."
