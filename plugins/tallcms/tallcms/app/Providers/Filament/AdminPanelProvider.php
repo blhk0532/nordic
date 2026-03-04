@@ -23,7 +23,7 @@ use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use TallCms\Cms\Services\PluginLicenseService;
 use TallCms\Cms\Services\ThemeResolver;
-use TallCms\Cms\TallCmsPlugin;
+// use TallCms\Cms\TallCmsPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -92,9 +92,9 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->plugins([
-                TallCmsPlugin::make(),
-            ])
+        //    ->plugins([
+        //        TallCmsPlugin::make(),
+        //    ])
             ->authMiddleware([
                 Authenticate::class,
             ])
