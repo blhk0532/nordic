@@ -9,58 +9,58 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $authUser): bool
+    public function viewAny(User $user): bool
     {
-        return $authUser->can('ViewAny:User');
+        return $user->can('ViewAny:User');
     }
 
-    public function view(User $authUser): bool
+    public function view(User $user): bool
     {
-        return $authUser->can('View:User');
+        return $user->can('View:User');
     }
 
-    public function create(User $authUser): bool
+    public function create(User $user): bool
     {
-        return $authUser->can('Create:User');
+        return $user->can('Create:User');
     }
 
-    public function update(User $authUser): bool
+    public function update(User $user): bool
     {
-        return $authUser->can('Update:User');
+        return $user->can('Update:User');
     }
 
-    public function delete(User $authUser): bool
+    public function delete(User $user): bool
     {
-        return $authUser->can('Delete:User');
+        return $user->can('Delete:User');
     }
 
-    public function restore(User $authUser): bool
+    public function restore(User $user): bool
     {
-        return $authUser->can('Restore:User');
+        return $user->can('Restore:User');
     }
 
-    public function forceDelete(User $authUser): bool
+    public function forceDelete(User $user): bool
     {
-        return $authUser->can('ForceDelete:User');
+        return $user->can('ForceDelete:User');
     }
 
-    public function forceDeleteAny(User $authUser): bool
+    public function forceDeleteAny(User $user): bool
     {
-        return $authUser->can('ForceDeleteAny:User');
+        return $user->can('ForceDeleteAny:User');
     }
 
-    public function restoreAny(User $authUser): bool
+    public function restoreAny(User $user): bool
     {
-        return $authUser->can('RestoreAny:User');
+        return $user->can('RestoreAny:User');
     }
 
-    public function replicate(User $authUser): bool
+    public function replicate(User $user): bool
     {
-        return $authUser->can('Replicate:User');
+        return $user->can('Replicate:User');
     }
 
-    public function reorder(User $authUser): bool
+    public function reorder(User $user): bool
     {
-        return $authUser->can('Reorder:User');
+        return $user->can('Reorder:User');
     }
 }
