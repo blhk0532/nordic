@@ -15,6 +15,9 @@ echo "Step 1: Pull latest code..."
 git fetch origin
 git reset --hard origin/main
 
+$PHP sudo artisan octane:status
+$PHP sudo supervisorctl status
+
 echo "Step 2: Enable maintenance mode..."
 $PHP artisan down || true
 
@@ -45,7 +48,9 @@ echo "Step 8: Restart Horizon (graceful)..."
 $PHP artisan horizon:terminate
 
 echo "Step 9: Reload Octane..."
-$PHP sudo supervisorctl stop all
+$PHP sudo artisan octane:status
+$PHP sudo artisan octane:reload --no-interaction
+$PHP sudo supervisorctl status
 $PHP sudo supervisorctl restart all
 
 echo "Step 10: Disable maintenance mode..."
