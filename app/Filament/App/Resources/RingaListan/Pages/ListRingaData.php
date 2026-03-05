@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\RingaListan\Pages;
 
 use App\Filament\App\Resources\RingaListan\RingaListanResource;
-use App\Filament\App\Resources\RingaListan\Widgets\CallHistoryWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataDisplayWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataOutcomeWidget;
 use App\Filament\App\Resources\RingaListan\Widgets\RingaDataStatsWidget;
+use App\Filament\App\Widgets\MyRinglistaWidget;
+use App\Filament\App\Widgets\RingaKanbanWidget;
 use App\Models\RingaData;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Assets\Css;
@@ -23,7 +24,7 @@ class ListRingaData extends ListRecords
 
     public function getHeaderWidgetsColumns(): int|array
     {
-        return 3;
+        return 4;
     }
 
     public function selectRecord(int $recordId): void
@@ -55,6 +56,7 @@ class ListRingaData extends ListRecords
             //    RingaDataDisplayWidget::class,
             //    RingaDataOutcomeWidget::class,
             // RingaDataStatsWidget::class,
+            RingaDataStatsWidget::class,
 
         ];
     }
@@ -69,7 +71,8 @@ class ListRingaData extends ListRecords
     protected function getFooterWidgets(): array
     {
         return [
-            CallHistoryWidget::class,
+            //    RingaKanbanWidget::class,
+            MyRinglistaWidget::class,
         ];
     }
 }

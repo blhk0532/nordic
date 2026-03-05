@@ -29,3 +29,7 @@
 #global-ai-search .message-fade-in {
     animation: chatFadeIn 0.3s ease-out forwards;
 }
+
+.fi-header.fi-header-has-breadcrumbs{
+      display: none !important;
+}

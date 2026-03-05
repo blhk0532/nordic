@@ -198,6 +198,104 @@ EditSearchc8f69e27d44a8ca9e12ca137e37fd714.form = EditSearchc8f69e27d44a8ca9e12c
 /**
 * @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
 * @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+const EditSearch71ccbb5d60114277c98cc1ee95d45e49 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, options),
+    method: 'get',
+})
+
+EditSearch71ccbb5d60114277c98cc1ee95d45e49.definition = {
+    methods: ["get","head"],
+    url: '/nds/dev/searches/{record}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+EditSearch71ccbb5d60114277c98cc1ee95d45e49.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return EditSearch71ccbb5d60114277c98cc1ee95d45e49.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+EditSearch71ccbb5d60114277c98cc1ee95d45e49.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+EditSearch71ccbb5d60114277c98cc1ee95d45e49.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+const EditSearch71ccbb5d60114277c98cc1ee95d45e49Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+EditSearch71ccbb5d60114277c98cc1ee95d45e49Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
+* @route '/nds/dev/searches/{record}/edit'
+*/
+EditSearch71ccbb5d60114277c98cc1ee95d45e49Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditSearch71ccbb5d60114277c98cc1ee95d45e49.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+EditSearch71ccbb5d60114277c98cc1ee95d45e49.form = EditSearch71ccbb5d60114277c98cc1ee95d45e49Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\EditSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/EditSearch.php:7
 * @route '/nds/email/searches/{record}/edit'
 */
 const EditSearcha191a51652a5fa9d93c25d5083cab30f = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -689,6 +787,7 @@ EditSearchf06000cfcb91b5089856c20a354e2483.form = EditSearchf06000cfcb91b5089856
 const EditSearch = {
     '/nds/booking/searches/{record}/edit': EditSearchf604a699f73eb8d346b14abf61d46b2d,
     '/nds/chat/searches/{record}/edit': EditSearchc8f69e27d44a8ca9e12ca137e37fd714,
+    '/nds/dev/searches/{record}/edit': EditSearch71ccbb5d60114277c98cc1ee95d45e49,
     '/nds/email/searches/{record}/edit': EditSearcha191a51652a5fa9d93c25d5083cab30f,
     '/nds/files/searches/{record}/edit': EditSearch5bd8e8e5516b45b2108bb63330e8249b,
     '/nds/notify/searches/{record}/edit': EditSearch6fcfe6ae94d2f0d214ff5e9488049e53,

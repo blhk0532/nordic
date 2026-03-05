@@ -29,7 +29,6 @@ use App\Filament\App\Pages\Tenancy\RegisterTeam;
 use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
-use App\Filament\Data\Pages\KommunerMap;
 use App\Filament\Widgets\RatsitDataStatsWidget;
 use App\Http\Middleware\ApplyTenantScopes;
 use App\Http\Middleware\CurrentTenant;
@@ -194,15 +193,16 @@ class AppPanelProvider extends PanelProvider
                 Scheman::class,
                 ArbetslistaDashboard::class,
                 AppDataHistory::class,
-                //       \App\Filament\Data\Pages\KommunerMap::class,
-                // KommunerMap::class,
+                \App\Filament\Data\Pages\KommunerMap::class,
+                \App\Filament\Pages\TaskBoard::class,
+
                 //    AppRingLista::class,
                 //    BookingCalendersX2::class,
                 //    BookingCalendersX4::class,
                 //    BookingCalendersX2::class,
                 //    BookingCalendersX4::class,
                 //    BookingCalendersX6::class,
-                // \App\Filament\Pages\FlowForge\FlowForgePage::class, // FlowForge integration
+                \App\Filament\Pages\FlowForge\FlowForgePage::class, // FlowForge integration
             ])
             ->widgets([
                 WeatherWidget::class,

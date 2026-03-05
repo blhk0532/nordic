@@ -1,9 +1,9 @@
-import Dashboard from './Dashboard'
 import KommunerMap from './KommunerMap'
+import Dashboard from './Dashboard'
 
 const Pages = {
-    Dashboard: Object.assign(Dashboard, Dashboard),
     KommunerMap: Object.assign(KommunerMap, KommunerMap),
+    Dashboard: Object.assign(Dashboard, Dashboard),
 }
 
 export default Pages

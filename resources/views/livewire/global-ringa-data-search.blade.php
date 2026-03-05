@@ -76,7 +76,7 @@
 <style>
 </style>
         <div class="flex-1 overflow-hidden" style="height: calc(100vh - 280px);">
-            <div class="h-full overflow-y-auto">
+            <div class="h-full overflow-y-auto ringa-tillbaka-modal-content">
                 @livewire(\App\Filament\App\Resources\RingaData\Widgets\AterkomRingTableWidget::class)
             </div>
         </div>

@@ -572,3 +572,26 @@ footer.fi-footer {
     position: absolute;
   top: 2rem;
 }
+
+.ring-tillbaka-tab .fi-ta-header-ctn{
+    display: none!important;
+}
+.ring-tillbaka-tab .fi-ta-content-ctn .fi-ta-main .fi-ta-table thead{
+    display: none!important;
+}
+
+.ringa-tillbaka-modal-content .fi-ta-header-ctn{
+    display: none!important;
+}
+
+.ringa-tillbaka-modal-content .fi-ta-main .fi-ta-table thead{
+    display: none!important;
+}
+
+.ringa-tillbaka-modal-content .fi-ta-main .fi-ta-table .fi-ta-selection-cell .fi-ta-record-checkbox {
+    display: none!important;
+}
+
+#manus-calendar-modal .fi-fo-rich-editor{
+    min-height:60vh;
+}

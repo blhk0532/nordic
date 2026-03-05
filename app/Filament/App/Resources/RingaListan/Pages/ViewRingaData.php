@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaListan\Pages;
 
+use Anish\TextInputEntry\Traits\TextInputEntryTrait;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataCalendar;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataDisplayWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataOutcomeFormWidget;
@@ -17,6 +18,8 @@ use Filament\Support\Enums\Width;
 
 class ViewRingaData extends ViewRecord
 {
+    use TextInputEntryTrait;
+
     public ?int $selectedRecordId = null;
 
     protected static string $resource = RingaListanResource::class;

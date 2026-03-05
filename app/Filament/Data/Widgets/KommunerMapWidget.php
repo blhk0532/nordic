@@ -119,7 +119,7 @@ class KommunerMapWidget extends MapWidget
             ->sum('personer_count');
     }
 
-    protected function getMarkerColor(int $personerCount): Color
+    protected function getMarkerColor(int $personerCount): array
     {
         if ($personerCount > 100000) {
             return Color::Red;

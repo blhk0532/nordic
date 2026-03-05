@@ -9,6 +9,15 @@
 @source '../../../../app/Filament/Dev/**/*';
 @source '../../../../resources/views/filament/dev/**/*';
 
+@import '../../../../vendor/awcodes/mason/resources/css/plugin.css';
+
+@source '../../../../vendor/awcodes/mason/resources/**/*.blade.php';
+
+@source "../../vendor/statikbe/laravel-filament-flexible-content-block-pages/**/*.blade.php";
+@source "../../vendor/statikbe/laravel-filament-flexible-content-blocks/**/*.blade.php";
+@source "../../config/filament-flexible-content-blocks.php";
+@source "../../vendor/solution-forest/filament-tree/resources/**/*.blade.php";
+
 
 ::-webkit-scrollbar {
     width: .56vw !important;

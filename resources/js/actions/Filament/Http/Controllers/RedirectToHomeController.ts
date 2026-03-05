@@ -183,10 +183,91 @@ RedirectToHomeController8c64bc6fca39405dd2e574c532b93366Form.head = (options?: R
 })
 
 RedirectToHomeController8c64bc6fca39405dd2e574c532b93366.form = RedirectToHomeController8c64bc6fca39405dd2e574c532b93366Form
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+const RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url(options),
+    method: 'get',
+})
+
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.definition = {
+    methods: ["get","head"],
+    url: '/blocks',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url = (options?: RouteQueryOptions) => {
+    return RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.definition.url + queryParams(options)
+}
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+const RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
+* @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
+* @route '/blocks'
+*/
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.form = RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form
 
 const RedirectToHomeController = {
     '/admin/tenant/{tenant}': RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c,
     '/nds/chat': RedirectToHomeController8c64bc6fca39405dd2e574c532b93366,
+    '/blocks': RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11,
 }
 
 export default RedirectToHomeController

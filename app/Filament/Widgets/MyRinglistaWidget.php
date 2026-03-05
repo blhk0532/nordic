@@ -22,7 +22,7 @@ class MyRinglistaWidget extends BaseWidget
             TabLayoutTab::make('Overview')
                 ->icon('heroicon-o-home')
                 ->schema([
-                    CalendarWidget::make(),
+                    CalendarWidget::class,
                 ]),
             TabLayoutTab::make('Statistics')
                 ->icon('heroicon-o-chart-bar')

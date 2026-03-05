@@ -24,6 +24,7 @@ export default defineConfig({
                 "resources/css/filament/files/theme.css",
                 "resources/css/filament/admin/theme.css",
                 "resources/css/filament/company/theme.css",
+                "resources/css/filament/dev/theme.css",
             ],
             refresh: true,
         }),

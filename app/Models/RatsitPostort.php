@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $foretag_link
  * @property string|null $personer_kommun
  * @property string|null $foretag_kommun
+ * @property float|null $lat
+ * @property float|null $lng
  * @property int $foretag_link_status
  * @property \Carbon\CarbonImmutable|null $created_at
  * @property \Carbon\CarbonImmutable|null $updated_at
@@ -35,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort wherePersonerKommun($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort wherePersonerLink($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort wherePersonerLinkStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort whereLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort wherePostNummer($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort wherePostOrt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RatsitPostort whereUpdatedAt($value)
@@ -52,5 +56,7 @@ class RatsitPostort extends Model
     protected $casts = [
         'personer_count' => 'integer',
         'foretag_count' => 'integer',
+        'lat' => 'float',
+        'lng' => 'float',
     ];
 }

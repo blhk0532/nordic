@@ -3,13 +3,11 @@
 namespace App\Filament\Queue\Resources\RatsitData\Tables;
 
 use App\Actions\TransferRatsitDataToRingaDataAction;
-use App\Filament\Exports\RatsitDataExporter;
 use App\Models\RatsitData;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ExportBulkAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\IconColumn;
@@ -20,6 +18,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
+use pxlrbt\FilamentExcel\Actions\ExportBulkAction;
 
 class RatsitDataTable
 {
@@ -206,8 +205,7 @@ class RatsitDataTable
             ->defaultPaginationPageOption(10)
             ->toolbarActions([
                 BulkActionGroup::make([
-                    ExportBulkAction::make()
-                        ->exporter(RatsitDataExporter::class),
+                    ExportBulkAction::make(),
                     BulkAction::make('setQueued')
                         ->label('Queue Records')
                         ->icon('heroicon-o-clock')

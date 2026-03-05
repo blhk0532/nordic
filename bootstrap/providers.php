@@ -11,6 +11,7 @@ return [
     App\Providers\Filament\ChatPanelProvider::class,
     App\Providers\Filament\CompanyPanelProvider::class,
     App\Providers\Filament\DataPanelProvider::class,
+    App\Providers\Filament\DevPanelProvider::class,
     App\Providers\Filament\EmailPanelProvider::class,
     App\Providers\Filament\FilesPanelProvider::class,
     App\Providers\Filament\NotifyPanelProvider::class,
@@ -19,4 +20,5 @@ return [
     App\Providers\Filament\ToolsPanelProvider::class,
     App\Providers\FortifyServiceProvider::class,
     TallCms\Cms\TallCmsServiceProvider::class,
+    \Statikbe\FilamentFlexibleContentBlockPages\FlexibleContentBlockPagesPanel::class,
 ];

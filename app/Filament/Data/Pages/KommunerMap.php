@@ -29,11 +29,7 @@ class KommunerMap extends BasePage
 
     public function getWidgets(): array
     {
-        return [
-            PostorterMapWidget::class,
-            KommunerTableWidget::class,
-            PostorterTableWidget::class,
-        ];
+        return [];
     }
 
     public function getColumns(): int|array
@@ -51,7 +47,11 @@ class KommunerMap extends BasePage
 
     public function getWidgetsContentComponent(): SchemaComponent
     {
-        $widgets = array_map(fn ($widget) => LivewireComponent::make($widget), $this->getWidgets());
+        $widgets = [
+            LivewireComponent::make(PostorterMapWidget::class),
+            LivewireComponent::make(KommunerTableWidget::class),
+            LivewireComponent::make(PostorterTableWidget::class),
+        ];
 
         return Grid::make($this->getColumns())
             ->schema($widgets);

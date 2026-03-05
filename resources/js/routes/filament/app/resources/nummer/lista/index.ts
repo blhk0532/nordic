@@ -315,6 +315,106 @@ queueForm.head = (args: { tenant: string | number | { slug: string | number } } 
 queue.form = queueForm
 
 /**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+export const view = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: view.url(args, options),
+    method: 'get',
+})
+
+view.definition = {
+    methods: ["get","head"],
+    url: '/nds/app/team/{tenant}/nummer/lista/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+view.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+            tenant: args[0],
+            record: args[1],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        tenant: typeof args.tenant === 'object'
+        ? args.tenant.slug
+        : args.tenant,
+        record: args.record,
+    }
+
+    return view.definition.url
+            .replace('{tenant}', parsedArgs.tenant.toString())
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+view.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+view.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: view.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+const viewForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+viewForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\App\Resources\RingaData\Pages\ViewRingaData::__invoke
+* @see app/Filament/App/Resources/RingaData/Pages/ViewRingaData.php:7
+* @route '/nds/app/team/{tenant}/nummer/lista/{record}'
+*/
+viewForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: view.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+view.form = viewForm
+
+/**
 * @see \App\Filament\App\Resources\RingaData\Pages\EditRingaData::__invoke
 * @see app/Filament/App/Resources/RingaData/Pages/EditRingaData.php:7
 * @route '/nds/app/team/{tenant}/nummer/lista/{record}/edit'
@@ -418,6 +518,7 @@ const lista = {
     index: Object.assign(index, index),
     create: Object.assign(create, create),
     queue: Object.assign(queue, queue),
+    view: Object.assign(view, view),
     edit: Object.assign(edit, edit),
 }
 

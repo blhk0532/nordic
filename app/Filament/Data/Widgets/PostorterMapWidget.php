@@ -74,7 +74,7 @@ class PostorterMapWidget extends MapWidget
         return $markers;
     }
 
-    protected function getKommunColor(int $postortCount): Color
+    protected function getKommunColor(int $postortCount): array
     {
         // Interpret the supplied number as persons count for kommune markers.
         if ($postortCount > 5000) {

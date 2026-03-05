@@ -10,6 +10,8 @@ use SolutionForest\TabLayoutPlugin\Widgets\TabsWidget as BaseWidget;
 
 class MyCalendarWidget extends BaseWidget
 {
+    protected int|string|array $columnSpan = 'full';
+
     public static function tabs(Tabs $tabs): Tabs
     {
         return $tabs
@@ -22,7 +24,7 @@ class MyCalendarWidget extends BaseWidget
             TabLayoutTab::make('Overview')
                 ->icon('heroicon-o-home')
                 ->schema([
-                    'Telephone',
+                    CalendarWidget::class,
                 ]),
 
             TabLayoutTab::make('Statistics')

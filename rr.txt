@@ -1,0 +1,18 @@
+version: "3"
+server:
+  command: "php vendor/laravel/octane/bin/roadrunner-worker"
+  env:
+    APP_BASE_PATH: /var/www/ubuntu/nordic
+    APP_RUNNING_IN_CONSOLE: "false"
+  relay: pipes
+  timeout: 60s
+
+http:
+  address: ":8000"
+  pool:
+    numworkers: 4
+    maxjobs: 0
+
+logs:
+  mode: development
+  level: debug

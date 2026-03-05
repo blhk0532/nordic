@@ -16,6 +16,7 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class ContactResource extends Resource
@@ -51,6 +52,13 @@ class ContactResource extends Resource
         }
 
         return true;
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery()->where('user_id', auth()->id());
+
+        return $query;
     }
 
     public static function getNavigationBadge(): ?string

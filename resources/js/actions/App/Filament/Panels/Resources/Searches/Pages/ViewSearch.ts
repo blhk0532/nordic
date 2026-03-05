@@ -198,6 +198,104 @@ ViewSearchfefe59097a80b5de71cc5c89986c3f77.form = ViewSearchfefe59097a80b5de71cc
 /**
 * @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
 * @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+const ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, options),
+    method: 'get',
+})
+
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.definition = {
+    methods: ["get","head"],
+    url: '/nds/dev/searches/{record}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            record: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        record: args.record,
+    }
+
+    return ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.definition.url
+            .replace('{record}', parsedArgs.record.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+const ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
+* @route '/nds/dev/searches/{record}'
+*/
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0.form = ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0Form
+/**
+* @see \App\Filament\Panels\Resources\Searches\Pages\ViewSearch::__invoke
+* @see app/Filament/Panels/Resources/Searches/Pages/ViewSearch.php:7
 * @route '/nds/email/searches/{record}'
 */
 const ViewSearch617d0b3b23ebe9d5c76012697abb10b6 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -689,6 +787,7 @@ ViewSearch42c925e50350757508354d24b49ec126.form = ViewSearch42c925e5035075750835
 const ViewSearch = {
     '/nds/booking/searches/{record}': ViewSearch1457e2c48bc4996e06d2f95be512b6bd,
     '/nds/chat/searches/{record}': ViewSearchfefe59097a80b5de71cc5c89986c3f77,
+    '/nds/dev/searches/{record}': ViewSearch96d59c8cd3a0866b432b6edfacc8ebb0,
     '/nds/email/searches/{record}': ViewSearch617d0b3b23ebe9d5c76012697abb10b6,
     '/nds/files/searches/{record}': ViewSearch636a65f3579a2295a83bbf8be3ae90f5,
     '/nds/notify/searches/{record}': ViewSearch4af21ec6c42f540005910381a28c1d73,

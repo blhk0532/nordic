@@ -74,6 +74,7 @@ class AppServiceProvider extends ServiceProvider
                     'queue' => 'Queue',
                     'super' => 'Super',
                     'tools' => 'Tools',
+                    'dev' => 'Dev',
                 ])
                 ->icons([
                     'app' => 'heroicon-o-user-circle',
@@ -88,6 +89,7 @@ class AppServiceProvider extends ServiceProvider
                     'queue' => 'heroicon-c-queue-list',
                     'super' => 'heroicon-m-fire',
                     'tools' => 'heroicon-s-bolt',
+                    'dev' => 'heroicon-o-tv',
                 ]);
 
             if ($user?->role && $user?->role === 'booking') {
@@ -119,7 +121,7 @@ class AppServiceProvider extends ServiceProvider
 
             if ($user?->role && $user?->role === 'super') {
                 $panelSwitch
-                    ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'data', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
+                    ->panels(['app', 'admin', 'booking', 'calendar', 'chat', 'data', 'dev', 'email', 'files', 'notify', 'queue', 'super', 'tools'])
                     ->iconSize(20)
                     ->renderHook(PanelsRenderHook::TOPBAR_LOGO_AFTER)
                     ->modalWidth('sm');

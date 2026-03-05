@@ -267,6 +267,11 @@ class RingaData extends Model
         return $this->hasMany(RingaDataOutcome::class);
     }
 
+    public static function getContactQuery(Builder $query): Builder
+    {
+        return $query->where('outcome', 'Kontakt');
+    }
+
     /** @return Builder<static> */
     public function scopeActive(Builder $query): Builder
     {
@@ -320,5 +325,10 @@ class RingaData extends Model
             ['field' => 'telefon', 'title' => 'Telefon'],
             ['field' => 'outcome', 'title' => 'Utfall'],
         ];
+    }
+
+    public static function getUrl(): string
+    {
+        return (new static)->url;
     }
 }

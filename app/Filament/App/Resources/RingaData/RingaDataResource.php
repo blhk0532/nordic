@@ -12,18 +12,25 @@ use App\Filament\App\Resources\RingaData\Schemas\RingaDataForm;
 use App\Filament\App\Resources\RingaData\Schemas\RingaDataInfolist;
 use App\Filament\App\Resources\RingaData\Tables\RingaDataTable;
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
+use App\Filament\App\Resources\RingaListan\RingaListanResource;
 use App\Models\RingaData;
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Novius\LaravelFilamentActionPreview\Filament\Actions\PreviewAction;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class RingaDataResource extends Resource
 {
     protected static ?string $model = RingaData::class;
+
+    protected static ?string $title = 'Ringadata';
 
     protected static string|BackedEnum|null $navigationIcon = Remix::RiStackLine;
 
@@ -76,15 +83,60 @@ class RingaDataResource extends Resource
         return RingaDataTable::configure($table);
     }
 
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['personnamn', 'telefon', 'gatuadress'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        /** @var RingaData $record */
+
+        return [
+            'Adress' => $record->gatuadress,
+            'PostOrt' => $record->postort.' '.$record->postnummer,
+        ];
+    }
+
+    public static function getGlobalSearchResultActions(Model $record): array
+    {
+        return [
+            Action::make('view')
+                ->icon('heroicon-m-eye')
+                ->url(fn (RingaData $record) => RingaListanResource::getUrl('view', ['record' => $record])),
+            PreviewAction::make()
+                ->label('Edit'),
+            Action::make('ring')
+                ->label('Ring')
+                ->icon('heroicon-m-phone-arrow-up-right')
+                ->color('success')
+                ->url(fn (RingaData $record) => 'tel:'.$record->telefon),
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->where('user_id', auth()->id());
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    {
+        return $record->personnamn;
+    }
+
+    public static function getGlobalSearchResultUrl(Model $record): string
+    {
+        return \App\Filament\App\Resources\RingaData\RingaDataResource::getUrl('view', ['record' => $record]);
+    }
+
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
         $user = auth()->user();
 
-
-           if ($user && in_array($user->role, ['super'])) {
-               return $query;
-           }
+        if ($user && in_array($user->role, ['super'])) {
+            return $query;
+        }
 
         // Everyone else (booking users, regular users) see only their own records or team records
         $userId = $user?->id;
@@ -121,7 +173,7 @@ class RingaDataResource extends Resource
             'index' => ListRingaData::route('/'),
             'create' => CreateRingaData::route('/create'),
             'queue' => QueueRingaData::route('/queue'),
-            //    'view' => ViewRingaData::route('/{record}'),
+            'view' => ViewRingaData::route('/{record}'),
             'edit' => EditRingaData::route('/{record}/edit'),
         ];
     }

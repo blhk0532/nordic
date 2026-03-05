@@ -106,6 +106,86 @@ GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9.form = GeneralSettingsPage1a
 /**
 * @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
 * @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+const GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url(options),
+    method: 'get',
+})
+
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.definition = {
+    methods: ["get","head"],
+    url: '/nds/dev/general-settings-page',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url = (options?: RouteQueryOptions) => {
+    return GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.definition.url + queryParams(options)
+}
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+const GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bcForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bcForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
+* @route '/nds/dev/general-settings-page'
+*/
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bcForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc.form = GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bcForm
+/**
+* @see \Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage::__invoke
+* @see plugins/joaopaulolndev/filament-general-settings/src/Pages/GeneralSettingsPage.php:7
 * @route '/nds/super/general-settings-page'
 */
 const GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -186,6 +266,7 @@ GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae.form = GeneralSettingsPageaf
 
 const GeneralSettingsPage = {
     '/admin/tenant/{tenant}/general-settings-page': GeneralSettingsPage1ac383dbb97d8f43c37ee78452cbd0e9,
+    '/nds/dev/general-settings-page': GeneralSettingsPage0dc842d15886289204fcee8fcaf6d6bc,
     '/nds/super/general-settings-page': GeneralSettingsPageaf862ec695393231f1ae7268ddc791ae,
 }
 

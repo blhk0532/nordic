@@ -31,6 +31,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditEnv\FilamentEditEnvPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
+use Lartisan\Architect\ArchitectPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 
 class DevPanelProvider extends PanelProvider
@@ -112,6 +113,9 @@ class DevPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                ArchitectPlugin::make(),
             ])
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
