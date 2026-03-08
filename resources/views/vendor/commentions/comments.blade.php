@@ -32,7 +32,9 @@
         </form>
     @endif
 
-        <livewire:commentions::comment-list
+        <livewire:dynamic-component
+            :component="$commentionsComponentPrefix . 'comment-list'"
+            :key="'comment-list-' . $record->getKey()"
             :record="$record"
             :mentionables="$this->mentions"
             :polling-interval="$pollingInterval"
@@ -46,7 +48,9 @@
 
     {{-- Subscription Sidebar --}}
     @if ($this->canSubscribe && $this->resolvedSidebarEnabled)
-        <livewire:commentions::subscription-sidebar
+        <livewire:dynamic-component
+            :component="$commentionsComponentPrefix . 'subscription-sidebar'"
+            :key="'subscription-sidebar-' . $record->getKey()"
             :record="$record"
             :show-subscribers="$this->resolvedShowSubscribers"
         />

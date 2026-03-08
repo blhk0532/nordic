@@ -8,12 +8,11 @@ use Anish\TextInputEntry\Infolists\Components\TextInputEntry;
 use App\Models\OutcomeSetting;
 use Fahiem\FilamentPinpoint\PinpointEntry;
 use Filament\Actions\Action;
+use Filament\Forms\Components\RichEditor;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Filament\Support\Enums\TextSize;
-use Filament\Infolists\Components\TextEntry;
 
 class RingaDataInfolist
 {
@@ -45,7 +44,7 @@ class RingaDataInfolist
 
     protected static function getFallbackIcon(OutcomeSetting $outcomeSetting): string
     {
-        $text = strtolower(trim(($outcomeSetting->title ?? '') . ' ' . ($outcomeSetting->outcome ?? '')));
+        $text = strtolower(trim(($outcomeSetting->title ?? '').' '.($outcomeSetting->outcome ?? '')));
 
         return match (true) {
             str_contains($text, 'ring ej'), str_contains($text, 'dmc') => 'heroicon-o-no-symbol',
@@ -94,12 +93,18 @@ class RingaDataInfolist
 
     public static function configure(Schema $schema, $record = null, $component = null): Schema
     {
+        // Get record from schema if not passed as parameter
+        if (! $record) {
+            $record = $schema->getRecord();
+        }
+
         return $schema
             ->components([
                 Grid::make(2)
-                      ->extraAttributes([
-                                'class' => 'queue-data-section',
-                            ])
+                    ->gridContainer()
+                    ->extraAttributes([
+                        'class' => 'queue-data-section',
+                    ])
                     ->schema([
                         Section::make()
                             ->description('')
@@ -114,7 +119,7 @@ class RingaDataInfolist
                                     ->latField('latitud')
                                     ->lngField('longitude')
                                     ->mapType('satellite')
-                                    ->height(500)
+                                    ->height(480)
                                     ->columnSpanFull(),
                             ])
                             ->compact()
@@ -122,28 +127,45 @@ class RingaDataInfolist
                                 // Outcome buttons will be added here as actions in the form schema
                             ]),
                         Section::make('Adress')
-                                                    ->extraAttributes([
+                            ->extraAttributes([
                                 'class' => 'queue-address-section',
                             ])
                             ->schema([
 
-                                TextInputEntry::make('fornamn'),
-                                TextInputEntry::make('efternamn'),
-                                TextInputEntry::make('personnummer'),
-                            TextInputEntry::make('alder'),
-                        TextInputEntry::make('kon'),
-                        TextInputEntry::make('civilstand'),
-                                TextInputEntry::make('gatuadress'),
-                                TextInputEntry::make('postnummer'),
-                                TextInputEntry::make('postort'),
-                        TextInputEntry::make('adressandring'),
-                        TextInputEntry::make('boarea'),
-                        TextInputEntry::make('byggar'),
+                                TextInputEntry::make('fornamn')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('efternamn')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('personnummer')
+                                    ->columnSpan(6),
+                                TextInputEntry::make('alder')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('kon')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('civilstand')
+                                    ->columnSpan(6),
+                                TextInputEntry::make('gatuadress')
+                                    ->columnSpan(6),
+                                TextInputEntry::make('postnummer')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('postort')
+                                    ->columnSpan(3),
+                                TextInputEntry::make('adressandring')
+                                    ->columnSpan(4),
+                                TextInputEntry::make('boarea')
+                                    ->columnSpan(4),
+                                TextInputEntry::make('byggar')
+                                    ->columnSpan(4),
+                                TextInputEntry::make('bostadstyp')
+                                    ->columnSpan(4),
+                                TextInputEntry::make('agandeform')
+                                    ->columnSpan(4),
+                                TextInputEntry::make('fastighetsbeteckning')
+                                    ->columnSpan(4),
                             ])
                             ->columns([
-                                'md' => 3,
+                                'md' => 12,
                             ]),
-
 
                     ])
                     ->columnSpanFull(),
@@ -214,66 +236,72 @@ class RingaDataInfolist
                             ->all(),
                     ]),
 
-                Section::make('Personuppgifter')
-                    ->schema([
-                        TextInputEntry::make('fornamn'),
-                        TextInputEntry::make('efternamn'),
-                        TextInputEntry::make('personnamn')
-                            ->columnSpanFull(),
-                        TextInputEntry::make('fodelsedag'),
-                        TextInputEntry::make('personnummer'),
-                        TextInputEntry::make('alder'),
-                        TextInputEntry::make('kon'),
-                        TextInputEntry::make('civilstand'),
-                    ])
-                    ->columns([
-                        'md' => 2,
-                    ])
-                    ->columnSpanFull(),
+                ...($record && ! empty($record->telfonnummer) ? [
+                    Section::make('✆')
+                        ->description('')
+                        ->extraAttributes([
+                            'class' => 'phone-numbers-section',
+                        ])
+                        ->schema([
+                            TextInputEntry::make('epost'),
+                            //             ->columnSpan(3),
+                        ])
+                        ->compact()
+                        ->headerActions(
+                            collect($record->telfonnummer)
+                                ->filter(fn ($phone) => ! empty(trim((string) $phone)))
+                                ->map(function (string $phone, int $index): Action {
+                                    $dialable = preg_replace('/\s+/', '', $phone);
 
-                Section::make('Kontakt')
-                    ->schema([
-                        TextInputEntry::make('telfonnummer'),
-                        TextInputEntry::make('telefon')
-                            ->editable(true)
-                            ->border(true)
-                            ->size(TextSize::Large),
-                        TextInputEntry::make('epost_adress')
-                            ->editable(true)
-                            ->border(true)
-                            ->size(TextSize::Large),
-                    ])
-                    ->columns([
-                        'md' => 2,
-                    ])
-                    ->columnSpanFull(),
+                                    return Action::make("call_{$index}")
+                                        ->label($phone)
+                                        ->button()
+                                        ->url("tel:{$dialable}")
+                                        ->extraAttributes([
+                                            'class' => 'phone-numbers-button',
+                                        ])
+                                        ->openUrlInNewTab()
+                                        ->color('gray')
+                                        ->size('lg')
+                                        ->extraAttributes([
+                                            'class' => 'phone-button',
+                                        ])
+                                        ->icon('heroicon-o-phone');
+                                })
+                                ->all()
+                        ),
+                ] : []),
 
-                Section::make('Boende')
+                Section::make('Anteckningar')
+                    ->extraAttributes([
+                        'class' => 'user-notes-section',
+                    ])
                     ->schema([
-                        TextInputEntry::make('agandeform'),
-                        TextInputEntry::make('bostadstyp'),
-                        TextInputEntry::make('boarea'),
-                        TextInputEntry::make('byggar'),
-                    ])
-                    ->columns([
-                        'md' => 2,
-                    ])
-                    ->columnSpanFull(),
+                        RichEditor::make('user_notes'),
 
-                Section::make('Övrigt')
-                    ->schema([
-                        TextInputEntry::make('personer'),
-                        TextInputEntry::make('foretag'),
-                        TextInputEntry::make('grannar'),
-                        TextInputEntry::make('fordon'),
-                        TextInputEntry::make('hundar'),
-                        TextInputEntry::make('bolagsengagemang'),
-                        TextInputEntry::make('attempts'),
+                    ])
+                    ->footerActions([
+                        Action::make('save_notes')
+                            ->label('Spara anteckningar')
+                            ->button()
+                            ->color('primary')
+                            ->action(function ($record, $data) {
+                                if ($record) {
+                                    $record->update([
+                                        'user_notes' => $data['user_notes'] ?? '',
+                                    ]);
+
+                                    Notification::make()
+                                        ->title('Anteckningar sparade')
+                                        ->success()
+                                        ->send();
+                                }
+                            }),
                     ])
                     ->columns([
-                        'md' => 3,
+                        'md' => 1,
                     ])
-                    ->columnSpanFull(),
+                    ->columnSpan('full'),
             ]);
     }
 }

@@ -33,10 +33,10 @@ class RingaDatasTable
                 TextColumn::make('telfonnummer')
                     ->label('Telefon')
                     ->sortable(),
-                TextColumn::make('outcome')
-                    ->label('Utfall')
-                    ->sortable()
-                    ->badge(),
+                //    TextColumn::make('outcome')
+                //        ->label('Utfall')
+                //        ->sortable()
+                //        ->badge(),
                 TextColumn::make('attempts')
                     ->sortable()
                     ->alignCenter(),

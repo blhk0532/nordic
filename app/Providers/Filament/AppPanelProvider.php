@@ -193,8 +193,8 @@ class AppPanelProvider extends PanelProvider
                 Scheman::class,
                 ArbetslistaDashboard::class,
                 AppDataHistory::class,
-                \App\Filament\Data\Pages\KommunerMap::class,
-                \App\Filament\Pages\TaskBoard::class,
+                //    \App\Filament\Data\Pages\KommunerMap::class,
+                //    \App\Filament\Pages\TaskBoard::class,
 
                 //    AppRingLista::class,
                 //    BookingCalendersX2::class,

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @property int $id
@@ -330,5 +331,103 @@ class RingaData extends Model
     public static function getUrl(): string
     {
         return (new static)->url;
+    }
+
+    public static function getQueryRinglista(): Builder
+    {
+        $now = now();
+        $tenantId = filament()->getTenant()?->id;
+        $userId = Auth::id();
+
+        if (! $tenantId || ! $userId) {
+            return self::query()->whereRaw('1 = 0');
+        }
+
+        $userIdString = (string) $userId;
+
+        $query = self::query()
+            ->where('team_id', $tenantId)
+            ->where(function (Builder $query) use ($userIdString) {
+                $query->where('user_id', $userIdString)
+                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
+            })
+
+            ->where('is_active', true)
+
+            ->whereDate('started_at', '<=', $now)
+
+            ->where(function (Builder $query) {
+                $query->whereRaw('attempts < COALESCE((
+                    SELECT MAX(max_retry_count)
+                    FROM outcome_settings
+                    WHERE is_active = TRUE
+                ), 3)');
+            })
+            ->where(function (Builder $query) use ($now) {
+                $query->whereNull('available_at')
+                    ->orWhere('available_at', '<=', $now);
+            })
+
+            ->where(function (Builder $query) {
+                $query->whereNull('outcome_category')
+                    ->orWhere('outcome_category', '=', 'Later')
+                    ->orWhere('outcome_category', '=', 'Return')
+                    ->orWhere('outcome_category', '=', 'Maybe')
+                    ->orWhere('outcome_category', '=', 'Retry');
+            })
+            ->where(function (Builder $query) {
+                $query->whereNull('outcome')
+                    ->orWhere('outcome', '=', 'Ej Framkopplad')
+                    ->orWhere('outcome', '=', 'Inget Svar')
+                    ->orWhere('outcome', '=', 'Upptagen')
+                    ->orWhere('outcome', '=', 'Telefonsvar');
+            })
+
+            ->orderBy('id', 'asc');
+
+        return $query;
+    }
+
+    public static function getQueryRingIgen(): Builder
+    {
+        $now = now();
+        $tenantId = filament()->getTenant()?->id;
+        $userId = Auth::id();
+
+        if (! $tenantId || ! $userId) {
+            return self::query()->whereRaw('1 = 0');
+        }
+
+        $userIdString = (string) $userId;
+
+        //   if (filament()->getTenant()->getAttribute('is_admin') === true) {
+        //
+        //   }
+        $query = self::query()
+            ->where('team_id', $tenantId)
+            ->where(function (Builder $query) use ($userIdString) {
+                $query->where('user_id', $userIdString)
+                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
+            })
+            ->whereIn('outcome', ['Aterkommer', 'RingTillbaka'])
+            ->whereNotNull('aterkom_at');
+
+        return $query;
+    }
+
+    public static function getQueryWaitinglist(): Builder
+    {
+
+        $query = self::query()
+            ->where(function (Builder $query) {
+                $query->where('outcome_category', 'Retry')
+                    ->orWhere('outcome', 'Upptagen')
+                    ->orWhere('outcome', 'Inget Svar')
+                    ->orWhere('outcome', 'Telefonsvarare')
+                    ->orWhere('outcome', 'Ej Framkopplad')
+                    ->where('user_id', Auth::id());
+            });
+
+        return $query;
     }
 }

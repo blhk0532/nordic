@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\Bookings\Tables;
 
 use Adultdate\FilamentBooking\Models\Booking\Booking;
+use App\Enums\BookingStatus;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -22,13 +23,18 @@ class BookingsTable
     {
         return $table
             ->query(fn () => Booking::query()->with(['client', 'serviceUser'])->where('booking_user_id', Auth::id()))
+            ->extraAttributes(['class' => 'my-booking-table min-h-[400px]'])
             ->columns([
                 TextColumn::make('number')
                     ->label('Bokningsnummer')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('serviceUser.name')
+                    ->label('Tekniker')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('client.name')
-                    ->label('Kund Namn')
+                    ->label('Kund')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
@@ -42,16 +48,18 @@ class BookingsTable
                     ->searchable()
                     ->toggleable()
                     ->sortable(),
-                TextColumn::make('serviceUser.name')
-                    ->label('Tekniker Namn')
-                    ->searchable()
-                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Bokningsdatum')
                     ->date()
                     ->toggleable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(static fn ($state) => $state instanceof BookingStatus
+                            ? $state->getColor()
+                            : (is_string($state) ? BookingStatus::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
+                    )
+                    ->sortable(),
 
             ])
             ->filters([
@@ -86,6 +94,12 @@ class BookingsTable
                     ->label('Booking date')
                     ->date()
                     ->collapsible(),
-            ]);
+            ])
+            ->recordClasses(fn (Booking $record) => match (true) {
+                $record->status === BookingStatus::Complete => 'bg-success-50 dark:bg-success-950/50',
+                $record->status === BookingStatus::Problem => 'bg-danger-50 dark:bg-danger-950/50',
+                $record->status === BookingStatus::Cancelled => 'bg-danger-50 dark:bg-danger-950/50',
+                default => null,
+            });
     }
 }

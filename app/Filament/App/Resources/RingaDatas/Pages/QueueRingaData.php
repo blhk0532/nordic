@@ -15,7 +15,9 @@ use App\Models\RingaData;
 use BackedEnum;
 use Exception;
 use Filament\Resources\Pages\Page;
+use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
@@ -32,15 +34,15 @@ class QueueRingaData extends Page
 
     protected static ?string $model = RingaData::class;
 
-    protected static ?string $navigationLabel = 'Ringlista';
+    protected static ?string $navigationLabel = 'Samtalskö';
 
-    protected static ?string $title = 'Ringlista';
+    protected static ?string $title = 'Samtalskö';
 
     // public static bool $shouldRegisterNavigation = true;
 
     protected static UnitEnum|string|null $navigationGroup = '';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 4;
 
     protected static ?int $sort = 2;
 
@@ -90,6 +92,10 @@ class QueueRingaData extends Page
         }
 
         $count = self::getQuery()->count();
+
+        if ($count === 0) {
+            return '❍';
+        }
 
         return (string) $count;
     }
@@ -172,70 +178,16 @@ class QueueRingaData extends Page
 
     public static function getQuery(): Builder
     {
-        $now = now();
-        $tenantId = filament()->getTenant()?->id;
-        $userId = Auth::id();
-
-        if (! $tenantId || ! $userId) {
-            return self::getResource()::getEloquentQuery()->whereRaw('1 = 0');
-        }
-
-        $userIdString = (string) $userId;
-
-        $query = self::getResource()::getEloquentQuery()
-            ->where('team_id', $tenantId)
-            ->where(function (Builder $query) use ($userIdString) {
-                $query->where('user_id', $userIdString)
-                    ->orWhereRaw('FIND_IN_SET(?, user_id)', [$userIdString]);
-            })
-        //  // Only active records
-            ->where('is_active', true)
-        //  ->where('outcome', '!=', 'DMC')
-        //  // Only records where current date is between started_at and expires_at
-            ->whereDate('started_at', '<=', $now)
-        //    ->whereDate('expires_at', '<=', $now)
-            // Only records where attempts < max_retry_count from outcome_settings
-            ->where(function (Builder $query) {
-                $query->whereRaw('attempts < COALESCE((
-                    SELECT MAX(max_retry_count)
-                    FROM outcome_settings
-                    WHERE is_active = TRUE
-                ), 3)');
-            })
-            // Only records where current datetime is after available_at OR available_at is null
-            ->where(function (Builder $query) use ($now) {
-                $query->whereNull('available_at')
-                    ->orWhere('available_at', '<=', $now);
-            })
-          // Only records where current datetime is after aterkom_at OR aterkom_at is null
-        //   ->where(function (Builder $query) use ($now) {
-        //       $query->whereNull('aterkom_at')
-        //           ->orWhere('aterkom_at', '<=', $now);
-        //   })
-            ->where(function (Builder $query) {
-                $query->whereNull('outcome_category')
-                    ->orWhere('outcome_category', '=', 'Later')
-                    ->orWhere('outcome_category', '=', 'Return')
-                    ->orWhere('outcome_category', '=', 'Maybe')
-                    ->orWhere('outcome_category', '=', 'Retry');
-            })
-           // Only records that haven't been processed (no outcome set, or retry outcomes)
-            ->where(function (Builder $query) {
-                $query->whereNull('outcome')
-                    ->orWhere('outcome', '=', 'Ej Framkopplad')
-                    ->orWhere('outcome', '=', 'Inget Svar')
-                    ->orWhere('outcome', '=', 'Upptagen')
-                    ->orWhere('outcome', '=', 'Telefonsvar');
-            })
-        //   // Also ensure no outcome is set
-            // Order by id ascending (lowest ID first)
-            ->orderBy('id', 'asc');
-
-        return $query;
+        return RingaData::getQueryRinglista();
     }
 
     protected function getHeaderWidgets(): array
     {
+
+        FilamentAsset::register([
+            Css::make('custom', __DIR__.'/../../resources/css/custom.css'),
+        ]);
+
         return [
 
             RingaDataPinpointWidget::class,

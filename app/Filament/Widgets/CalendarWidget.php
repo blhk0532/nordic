@@ -12,6 +12,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\HtmlString;
 use Saade\FilamentFullCalendar\Actions;
 
 class CalendarWidget extends FullCalendarWidget
@@ -89,9 +90,9 @@ class CalendarWidget extends FullCalendarWidget
         ];
     }
 
-    public function getHeading(): array
+    public function getHeading(): string|HtmlString|null
     {
-        return [];
+        return null;
     }
 
     protected function headerActions(): array

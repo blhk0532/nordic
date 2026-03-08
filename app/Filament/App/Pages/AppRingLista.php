@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Pages;
 
+use App\Enums\Outcomes;
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
 use App\Filament\Admin\Widgets\WorldClockWidget;
-use App\Filament\App\Clusters\Services\Resources\Bookings\Widgets\BookingCalendar;
-use App\Models\BookingCalendar as BookingCalendarModel;
+use App\Filament\App\Resources\RingaListan\RingaListanResource;
+use App\Filament\App\Resources\RingaListan\Widgets\RingaDataStatsWidget;
+use App\Filament\App\Widgets\MyRinglistaWidget;
 use BackedEnum;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Select;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Filament\Pages\Page;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use UnitEnum;
-use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
+use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class AppRingLista extends Page
 {
@@ -25,7 +23,7 @@ class AppRingLista extends Page
 
     protected static ?string $title = '';
 
-    protected static ?string $slug = 'ring-lista';
+    protected static ?string $slug = 'ring-listor';
 
     protected string $view = 'filament.app.pages.ring-lista';
 
@@ -35,11 +33,13 @@ class AppRingLista extends Page
 
     protected static ?int $sort = 4;
 
-    protected static string|BackedEnum|null $navigationIcon = Tabler::PhoneRinging;
+    protected static string|BackedEnum|null $navigationIcon = Remix::RiTimerFlashLine;
+
+    protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiTimerFlashFill;
 
     // Prevent this app-level Dashboard from being auto-discovered so that
     // the explicit `AdminDashboard` can be registered as the admin panel root.
-    protected static bool $isDiscovered = false;
+    protected static bool $isDiscovered = true;
 
     public static function shouldRegisterNavigation(): bool
     {
@@ -48,15 +48,34 @@ class AppRingLista extends Page
 
     public static function getNavigationLabel(): string
     {
-        return 'Ringlistan';
+        return 'Ringalistor';
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        $count = RingaListanResource::getEloquentQuery()
+            ->whereIn('outcome', RingaListanResource::getTrackedOutcomes())
+            ->count();
+
+        return $count ? 'warning' : 'success';
     }
 
     public static function getNavigationBadge(): ?string
     {
-        return '0';
+        $count = RingaListanResource::getEloquentQuery()
+            ->whereIn('outcome', RingaListanResource::getTrackedOutcomes())
+            ->count();
 
+        return $count ? (string) $count : '❍';
     }
 
+    private static function getTrackedOutcomes(): array
+    {
+        return [
+            Outcomes::Aterkommer->value,
+            Outcomes::RingTillbaka->value,
+        ];
+    }
     //   public static function getNavigationBadgeColor(): ?string
     //   {
     //       return 'success';
@@ -81,27 +100,7 @@ class AppRingLista extends Page
     {
         return $schema
             ->components([
-                Section::make()
-                    ->schema([
-                        Select::make('booking_calendars')
-                            ->options(fn () => ['all' => 'Show All'] + BookingCalendarModel::pluck('name', 'id')->toArray())
-                            ->label('Tekninker')
-                            ->placeholder('Välj en tekninker...')
-                            ->searchable()
-                            ->default('all')
-                            ->live()
-                            ->columnSpan(2)
-                            ->afterStateUpdated(function () {
-                                $this->dispatch('refreshCalendar');
-                            }),
-                        DatePicker::make('startDate')
-                            ->maxDate(fn (Get $get) => $get('endDate') ?: now()),
-                        DatePicker::make('endDate')
-                            ->minDate(fn (Get $get) => $get('startDate') ?: now())
-                            ->maxDate(now()),
-                    ])
-                    ->columns(4)
-                    ->columnSpanFull(),
+
             ]);
     }
 
@@ -114,10 +113,7 @@ class AppRingLista extends Page
     public function getWidgets(): array
     {
         return [
-            BookingCalendar::class,
-            \App\Filament\App\Widgets\StatsOverviewWidget::class,
-            \App\Filament\App\Widgets\OrdersChart::class,
-            \App\Filament\App\Widgets\CustomersChart::class,
+
             //     \App\Filament\App\Widgets\BookingStats::class,
         ];
     }
@@ -126,6 +122,8 @@ class AppRingLista extends Page
     {
 
         return [
+            MyRinglistaWidget::class,
+
             //    AccountInfoStackWidget::class,
             //    WorldClockWidget::class,
         ];
@@ -135,7 +133,10 @@ class AppRingLista extends Page
     {
 
         return [
-            \App\Filament\App\Widgets\LatestOrders::class,
+            RingaDataStatsWidget::class,
+            //    MultiCalendar2::class,
+            //    MultiCalendar3::class,
+            //    \App\Filament\App\Widgets\LatestOrders::class,
         ];
     }
 

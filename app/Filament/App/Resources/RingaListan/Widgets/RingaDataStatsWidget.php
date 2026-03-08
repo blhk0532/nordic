@@ -19,20 +19,9 @@ class RingaDataStatsWidget extends StatsOverviewWidget
         $connection = (new RingaData)->getConnectionName() ?: config('database.default');
         $driver = config('database.connections.'.$connection.'.driver');
         // Count records with phone (check actual telefon field, not just is_telefon flag)
-        $telefonCount = RingaData::where(function ($query) use ($driver) {
-            $query->whereNotNull('telefon');
-
-            if ($driver === 'pgsql') {
-                $query->whereRaw('telefon::text <> ?', ['[]'])
-                    ->whereRaw('telefon::text <> ?', ['""'])
-                    ->whereRaw('telefon::text <> ?', ['{}']);
-
-                return;
-            }
-
-            $query->where('telefon', '!=', '[]')
-                ->where('telefon', '!=', '""')
-                ->where('telefon', '!=', '{}');
+        $telefonCount = RingaData::where(function ($query) {
+            $query->where('user_id', auth()->id())
+                ->whereNull('outcome');
         })->count();
 
         // Count sum of all attempts in the list
@@ -45,23 +34,23 @@ class RingaDataStatsWidget extends StatsOverviewWidget
         $bookings = (int) RingaData::whereNotNull('booking_id')->count();
 
         return [
-            Stat::make('Ringlista', number_format($telefonCount))
-                ->description('Nummer Ringlista')
+            Stat::make('Samtalskö', number_format($telefonCount))
+                ->description('Samtalskön')
                 ->color('success')
                 ->icon('heroicon-o-phone'),
 
-            Stat::make('Attempts', number_format($attemptCount))
+            Stat::make('Försök', number_format($attemptCount))
                 ->description('Totala försök')
                 ->color('primary')
                 ->icon('heroicon-o-phone-arrow-up-right'),
 
-            Stat::make('Outcomes', number_format($outcomes))
-                ->description('Avslutade samtal')
+            Stat::make('Utfall', number_format($outcomes))
+                ->description('Utfall samtal')
                 ->color('warning')
                 ->icon('heroicon-o-check-badge'),
 
-            Stat::make('Booking', number_format($bookings))
-                ->description('Bokningar')
+            Stat::make('Bokningar', number_format($bookings))
+                ->description('Mina bokningar')
                 ->color('gray')
                 ->icon('heroicon-o-check-circle'),
         ];

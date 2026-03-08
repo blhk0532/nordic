@@ -18,14 +18,13 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class RingaDataTable
+class RingaListanTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->toolbarActions([
             ])
-            ->extraAttributes(['class' => 'aterkom-table min-h-[400px]'])
             ->columns([
                 TextColumn::make('gatuadress')
                     ->sortable(),

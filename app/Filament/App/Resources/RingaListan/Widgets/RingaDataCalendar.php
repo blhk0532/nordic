@@ -10,7 +10,6 @@ use Adultdate\FilamentBooking\Concerns\HasSchema;
 use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
 use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
@@ -24,6 +23,7 @@ use Adultdate\FilamentBooking\Models\BookingServicePeriod;
 use Adultdate\FilamentBooking\Models\CalendarSettings;
 use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
 use App\Models\User;
 use Carbon\Carbon;
@@ -1687,14 +1687,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                     Section::make()
                         ->schema(BookingForm::getDetailsComponents($clientDefaults))
                         ->columns(2),
-
+                    Section::make()
+                        ->schema(BookingForm::getDetailsComponents2())
+                        ->columns(2),
                     Section::make('Tjänster')
                         ->schema([
                             $this->getCalendarItemsRepeater(),
                         ]),
-                    Section::make()
-                        ->schema(BookingForm::getDetailsComponents2())
-                        ->columns(2),
+
                 ])
                 ->columnSpan(['lg' => 3]),
         ];

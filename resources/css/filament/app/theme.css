@@ -524,7 +524,11 @@ div.fi-modal-window{
   left: 180px;
   top: 6px;
 }
-
+.fc-dom-76{
+    position: absolute;
+  left: 180px;
+  top: 6px;
+}
     .fi-section-content-ctn{
         border:none!important;
     }
@@ -594,4 +598,26 @@ footer.fi-footer {
 
 #manus-calendar-modal .fi-fo-rich-editor{
     min-height:60vh;
+}
+
+.queue-address-section .fi-section-header-heading{
+    display:none!important;
+}
+.phone-numbers-section .fi-section-header{
+   padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1.2rem;
+  padding-left: 1.5rem;
+}
+
+.outcome-buttons-section .fi-sc-action{
+    width: 20%!important;
+}
+
+.ringa-tillbaka-modal-content .fi-ta-main{
+    min-height: 96vh;
+}
+
+.fi-main-ctn{
+    overflow: auto!important;
 }

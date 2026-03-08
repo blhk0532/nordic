@@ -16,6 +16,7 @@ use App\Filament\App\Resources\RingaListan\Tables\RingaDataTable;
 use App\Models\RingaData;
 use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,13 +33,15 @@ class RingaListanResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Remix::RiTimerFlashFill;
 
-    protected static ?string $navigationLabel = 'Återkom';
+    protected static ?string $navigationLabel = 'Ringlistor';
 
     protected static UnitEnum|string|null $navigationGroup = '';
 
     protected static ?string $slug = 'ringa/listor';
 
     protected static ?int $navigationSort = 12;
+
+    protected static bool $isDiscovered = false;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -57,11 +60,21 @@ class RingaListanResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return RingaDataTable::configure($table)
-            ->query(fn () => self::getEloquentQuery()->whereIn('outcome', [
-                Outcomes::Aterkommer->value,
-                Outcomes::RingTillbaka->value,
-            ]));
+        return RingaDataTable::configure($table);
+    }
+
+    public static function getTabs(): array
+    {
+        return [
+            'all' => Tab::make('All')
+                ->badge(fn () => self::getEloquentQuery()->count()),
+            'pending' => Tab::make('Pending')
+                ->modifyQueryUsing(fn (Builder $query) => $query->whereIn('outcome', self::getTrackedOutcomes()))
+                ->badge(fn () => self::getEloquentQuery()->whereIn('outcome', self::getTrackedOutcomes())->count()),
+            'completed' => Tab::make('Completed')
+                ->modifyQueryUsing(fn (Builder $query) => $query->whereNotIn('outcome', self::getTrackedOutcomes()))
+                ->badge(fn () => self::getEloquentQuery()->whereNotIn('outcome', self::getTrackedOutcomes())->count()),
+        ];
     }
 
     public static function getEloquentQuery(): Builder
@@ -71,10 +84,10 @@ class RingaListanResource extends Resource
 
         return parent::getEloquentQuery()
             ->where(function (Builder $query) use ($userId, $tenantId) {
-                $query->where('user_id', $userId);
-
+                $query->where('user_id', $userId)
+                    ->whereNotNull('aterkom_at');
                 if ($tenantId) {
-                    $query->orWhere('team_id', $tenantId);
+                    $query->where('team_id', $tenantId);
                 }
             });
     }
@@ -115,7 +128,7 @@ class RingaListanResource extends Resource
         return $count ? (string) $count : '❍';
     }
 
-    private static function getTrackedOutcomes(): array
+    public static function getTrackedOutcomes(): array
     {
         return [
             Outcomes::Aterkommer->value,

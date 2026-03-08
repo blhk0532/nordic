@@ -118,9 +118,10 @@
             <div class="comm:mt-1 comm:space-y-6 comm:text-sm comm:text-gray-800 comm:dark:text-gray-200">{!! $comment->getParsedBody() !!}</div>
 
             @if ($comment->isComment())
-                <livewire:commentions::reactions
+                <livewire:dynamic-component
+                    :component="$commentionsComponentPrefix . 'reactions'"
+                    :key="'reaction-manager-' . $comment->getId()"
                     :comment="$comment"
-                    :wire:key="'reaction-manager-' . $comment->getId()"
                 />
             @endif
         @endif

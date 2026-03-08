@@ -14,6 +14,7 @@ use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\CreateRecord\Concerns\HasWizard;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Wizard\Step;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Auth;
 
 class CreateBooking extends CreateRecord
@@ -21,6 +22,11 @@ class CreateBooking extends CreateRecord
     use HasWizard;
 
     protected static string $resource = BookingResource::class;
+
+    public function getTitle(): string|Htmlable
+    {
+        return 'Ny Bokning';
+    }
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {

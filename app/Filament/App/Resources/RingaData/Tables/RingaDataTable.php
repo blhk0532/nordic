@@ -31,7 +31,6 @@ use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
-use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
 use Illuminate\Database\Eloquent\Collection;
@@ -103,7 +102,6 @@ final class RingaDataTable
                     }),
                 \EightyNine\ExcelImport\ExcelImportAction::make()
                     ->color('primary'),
-                \Filament\Actions\CreateAction::make(),
             ])
             ->columns([
 
@@ -210,7 +208,7 @@ final class RingaDataTable
                             })
                     ),
                 IconSelectColumn::make('state')
-                ->label(' ')
+                    ->label(' ')
                     ->options(fn () => collect(Priority::cases())->mapWithKeys(
                         fn (Priority $priority) => [$priority->value => $priority->getLabel()]
                     )->toArray())
@@ -278,8 +276,7 @@ final class RingaDataTable
             ])
             ->filters([
 
-
-              Filter::make('postnummer')
+                Filter::make('postnummer')
                     ->schema([
                         TextInput::make('postnummer')
                             ->label('Postnummer'),
@@ -290,8 +287,6 @@ final class RingaDataTable
                             fn ($q, $postnummer) => $q->where('postnummer', 'like', '%'.$postnummer.'%'),
                         );
                     }),
-
-
 
                 SelectFilter::make('postort')
                     ->label('Postort')
@@ -362,7 +357,6 @@ final class RingaDataTable
                             );
                     }),
 
-
                 SelectFilter::make('agandeform')
                     ->label('Ägandeform')
                     ->multiple()
@@ -402,8 +396,6 @@ final class RingaDataTable
                             ->toArray();
                     })
                     ->searchable(),
-
-
 
             ], layout: FiltersLayout::AboveContentCollapsible)
             ->persistFiltersInSession(false)

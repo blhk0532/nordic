@@ -10,13 +10,11 @@ use Adultdate\FilamentBooking\Concerns\HasSchema;
 use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
 use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
 use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
-use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
 use Adultdate\FilamentBooking\Models\Booking\Service;
@@ -24,7 +22,9 @@ use Adultdate\FilamentBooking\Models\BookingServicePeriod;
 use Adultdate\FilamentBooking\Models\CalendarSettings;
 use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
+use App\Models\Booking;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -1770,16 +1770,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                     Section::make()
                         ->schema(BookingForm::getDetailsComponents($clientDefaults))
                         ->columns(2),
-
-                    Section::make('Tjänster')
+                    Section::make()
+                        ->schema(BookingForm::getDetailsComponents2($clientDefaults))
+                        ->columns(2),
+                    Section::make()
                         ->schema([
                             $this->getCalendarItemsRepeater(),
                         ]),
-                    Section::make()
-                        ->schema(BookingForm::getDetailsComponents2())
-                        ->columns(2),
-                ])
-                ->columnSpan(['lg' => 3]),
+                ]),
         ];
     }
 

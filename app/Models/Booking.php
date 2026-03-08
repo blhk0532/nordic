@@ -110,6 +110,13 @@ class Booking extends FilamentBooking
 {
     protected $table = 'booking_bookings';
 
+    protected function casts(): array
+    {
+        return [
+            'status' => \Adultdate\FilamentBooking\Enums\BookingStatus::class,
+        ];
+    }
+
     protected $fillable = [
         'number',
         'google_event_id',
@@ -143,5 +150,7 @@ class Booking extends FilamentBooking
         'category',
         'location',
         'color',
+        'personnummer',
+        'fastighetsbeteckning',
     ];
 }

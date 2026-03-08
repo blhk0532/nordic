@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\Bookings\Schemas;
 
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\Service;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Models\User;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
@@ -33,13 +33,14 @@ class BookingForm
                         Section::make()
                             ->schema(self::getDetailsComponents())
                             ->columns(2),
-                        Section::make('Tjänster')
-                            ->schema([
-                                self::getItemsRepeater(),
-                            ]),
                         Section::make()
                             ->schema(self::getDetailsComponents2())
                             ->columns(2),
+                        Section::make()
+                            ->schema([
+                                self::getItemsRepeater(),
+                            ]),
+
                     ])
                     ->columnSpan(['lg' => 3]),
 
@@ -99,7 +100,7 @@ class BookingForm
                 ->searchable()
                 ->hidden(),
             Select::make('service_user_id')
-                ->label('Service User')
+                ->label('Tekniker')
                 ->options(User::where('role', 'service')->pluck('name', 'id'))
                 ->searchable()
                 ->required(),
@@ -129,6 +130,7 @@ class BookingForm
                 ->columnSpan(1),
 
             Select::make('booking_client_id')
+                ->label('Kund')
                 ->relationship('client', 'name')
                 ->searchable()
                 ->required()
@@ -175,8 +177,8 @@ class BookingForm
                 ])
                 ->createOptionAction(function (Action $action) {
                     return $action
-                        ->modalHeading('Create client')
-                        ->modalSubmitActionLabel('Create client')
+                        ->modalHeading('Skapa Kund')
+                        ->modalSubmitActionLabel('Skapa Kund')
                         ->modalWidth('lg');
                 })
                 ->createOptionUsing(function (array $data) {
@@ -210,8 +212,8 @@ class BookingForm
     {
         return [
             ToggleButtons::make('status')
-                ->options(BookingStatus::restrictedOptions())
-
+                ->options(BookingStatus::class)
+                ->label('Status')
                 ->inline()
                 ->required()
                 ->hidden(fn (?Booking $record) => ! self::canShowStatus($record))

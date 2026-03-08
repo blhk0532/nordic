@@ -6,7 +6,6 @@ namespace App\Filament\App\Resources\RingaDatas\Widgets;
 
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\RingaDatas\Tables\RingaDatasTable;
-use App\Models\RingaData;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
@@ -36,11 +35,15 @@ class RingaDatasQueueTableWidget extends BaseWidget
     {
         return RingaDatasTable::configure($table)
             ->query(function () {
+                $query = \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::getQuery();
+
                 if (! $this->selectedRecordId) {
-                    return RingaData::query()->whereRaw('1=0');
+                    return $query->whereRaw('1=0');
                 }
 
-                return \App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData::getQuery()->where('id', (int) $this->selectedRecordId);
+                $selectedGatuadress = $query->where('id', $this->selectedRecordId)->value('gatuadress');
+
+                return $query->where('gatuadress', $selectedGatuadress);
             })
             ->paginated(false)
             ->emptyStateHeading('Ingen aktuell post vald')

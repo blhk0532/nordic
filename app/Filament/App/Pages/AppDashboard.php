@@ -162,8 +162,8 @@ class AppDashboard extends BasePage
             // \TomatoPHP\FilamentNotes\Filament\Widgets\NotesWidget::class,
             AccountInfoStackWidget::class,
             WorldClockWidget::class,
-            CalendarWidget::class,
-            MyRinglistaWidget::class,
+            //    CalendarWidget::class,
+            //    MyRinglistaWidget::class,
             TeamMembersWidget::class,
         ];
     }

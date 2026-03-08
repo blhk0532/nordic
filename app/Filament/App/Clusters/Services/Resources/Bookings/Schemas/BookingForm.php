@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Clusters\Services\Resources\Bookings\Schemas;
 
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\Service;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Models\User;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
@@ -31,18 +31,19 @@ class BookingForm
             ->components([
                 Group::make()
                     ->schema([
-                        Section::make('Tjänster')
-                            ->schema([
-                                self::getItemsRepeater(),
-                            ]),
                         Section::make()
                             ->schema(self::getDetailsComponents())
                             ->columns(2),
-
                         Section::make()
                             ->schema(self::getDetailsComponents2())
                             ->columns(2),
+                        Section::make()
+                            ->schema([
+                                self::getItemsRepeater(),
+                            ]),
+
                     ])
+
                     ->columnSpan(['lg' => 3]),
 
                 // Removed created_at / updated_at display section — not needed in modal
@@ -88,8 +89,9 @@ class BookingForm
     public static function getDetailsComponents(array $clientDefaults = []): array
     {
         return [
+
             TextInput::make('number')
-                ->default('OR-'.random_int(100000, 999999))
+                ->default('OR-' . random_int(100000, 999999))
                 ->disabled()
                 ->dehydrated()
                 ->required()
@@ -214,11 +216,11 @@ class BookingForm
             TextInput::make('admin_id')
                 ->hidden()
                 ->dehydrated(),
-
             RichEditor::make('notes')
                 ->label('Anteckningar')
                 ->toolbarButtons([
                     'bold',
+
                     'italic',
                     'underline',
                     'bulletList',
@@ -227,7 +229,6 @@ class BookingForm
                     'h3',
                 ])
                 ->columnSpan('full'),
-
         ];
     }
 
@@ -236,25 +237,18 @@ class BookingForm
     {
         return [
             ToggleButtons::make('status')
-                ->options(BookingStatus::restrictedOptions())
-                ->colors([
-                    'booked' => 'gray',
-                    'confirmed' => 'gray',
-                    'problem' => 'gray',
-                    'complete' => 'gray',
-                ])
                 ->inline()
+                ->options(BookingStatus::class)
                 ->required()
-                ->hidden(Auth::user()->name === 'admin') // Only show status field to admin users
                 ->columnSpan('full'),
         ];
     }
 
+    /** @return array<Component> */
     public static function getItemsRepeater(): Repeater
     {
         return Repeater::make('items')
-            ->label('Tjänster')
-            ->extraAttributes(['class' => 'mt-0 mb-0'])
+            ->label('Tjänst')
             ->relationship()
             ->schema([
                 Select::make('booking_service_id')
@@ -262,7 +256,7 @@ class BookingForm
                     ->options(Service::query()->pluck('name', 'id'))
                     ->required()
                     ->live()
-                    ->afterStateUpdated(fn ($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
+                    ->afterStateUpdated(fn($state, Set $set) => $set('unit_price', Service::find($state)?->price ?? 0))
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                     ->searchable()
@@ -283,11 +277,9 @@ class BookingForm
                     ->required()
                     ->columnSpan(1),
             ])
-            ->addActionAlignment(\Filament\Support\Enums\Alignment::Start)
-            ->addActionLabel('Lägg till tjänst')
             ->columns(4)
             ->orderColumn('sort')
             ->defaultItems(1)
-            ->hiddenLabel(true);
+            ->hiddenLabel();
     }
 }
