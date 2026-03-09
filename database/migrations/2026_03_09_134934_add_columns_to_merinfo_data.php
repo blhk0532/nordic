@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('merinfo_data', function (Blueprint $table) {
-        //    $table->string('givenNameOrFirstName')->nullable()->after('personnamn');
+            $table->string('givenNameOrFirstName')->nullable()->after('personnamn');
         //    $table->string('personalNumber')->nullable()->after('givenNameOrFirstName');
         });
     }
