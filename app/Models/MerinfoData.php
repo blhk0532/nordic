@@ -71,12 +71,15 @@ class MerinfoData extends Model
 
     protected $fillable = [
         'personnamn',
+        'givenNameOrFirstName',
         'alder',
+        'personalNumber',
         'kon',
         'gatuadress',
         'postnummer',
         'postort',
         'telefon',
+        'telefoner',
         'karta',
         'link',
         'bostadstyp',

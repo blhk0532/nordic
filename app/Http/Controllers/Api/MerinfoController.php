@@ -6,9 +6,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Merinfo;
+use App\Models\MerinfoData;
+use DateTime;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class MerinfoController extends Controller
@@ -133,13 +136,23 @@ class MerinfoController extends Controller
      */
     public function bulkStore(Request $request): JsonResponse
     {
+        Log::info('MerinfoController bulkStore called', [
+            'ip' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+        ]);
+
         $items = $this->extractBulkItems($request);
+
+        Log::info('MerinfoController extractBulkItems result', [
+            'items_count' => count($items),
+            'first_item' => $items[0] ?? null,
+        ]);
 
         $validated = Validator::make([
             'items' => $items,
         ], [
             'items' => 'required|array|min:1',
-            'items.*.short_uuid' => 'required|string',
+            'items.*.short_uuid' => 'nullable|string',
             'items.*.type' => 'nullable|string',
             'items.*.title' => 'nullable|string',
             'items.*.name' => 'nullable|string',
@@ -147,7 +160,7 @@ class MerinfoController extends Controller
             'items.*.personalNumber' => 'nullable|string',
             'items.*.pnr' => 'nullable|array',
             'items.*.address' => 'nullable|array',
-            'items.*.gender' => 'nullable|string|in:male,female,other',
+            'items.*.gender' => 'nullable|string',
             'items.*.is_celebrity' => 'nullable|boolean',
             'items.*.has_company_engagement' => 'nullable|boolean',
             'items.*.number_plus_count' => 'nullable|integer',
@@ -156,10 +169,16 @@ class MerinfoController extends Controller
             'items.*.same_address_url' => 'nullable|string',
         ])->validate();
 
+        Log::info('MerinfoController validation passed', [
+            'items_count' => count($validated['items']),
+        ]);
+
         $created = 0;
         $updated = 0;
         $failed = 0;
         $errors = [];
+        $merinfoDataCreated = 0;
+        $merinfoDataUpdated = 0;
 
         foreach ($validated['items'] as $itemIndex => $itemData) {
             try {
@@ -184,6 +203,68 @@ class MerinfoController extends Controller
                 );
 
                 $record->wasRecentlyCreated ? $created++ : $updated++;
+
+                $address = $itemData['address'] ?? [];
+                $street = is_array($address) && isset($address[0]['street']) ? $address[0]['street'] : ($itemData['gatuadress'] ?? null);
+                $zipCode = is_array($address) && isset($address[0]['zip_code']) ? $address[0]['zip_code'] : ($itemData['postnummer'] ?? null);
+                $city = is_array($address) && isset($address[0]['city']) ? $address[0]['city'] : ($itemData['postort'] ?? null);
+                $phoneNumbers = $itemData['phone_number'] ?? [];
+                $phoneRaw = is_array($phoneNumbers) && isset($phoneNumbers[0]['raw']) ? $phoneNumbers[0]['raw'] : ($itemData['telefon'] ?? null);
+
+                $age = $itemData['age'] ?? null;
+                $personalNumber = $itemData['personalNumber'] ?? null;
+                if (! $age && $personalNumber) {
+                    $pnr = preg_replace('/[^0-9]/', '', $personalNumber);
+                    if (strlen($pnr) >= 8) {
+                        $birthYear = (int) substr($pnr, 0, 4);
+                        $birthMonth = (int) substr($pnr, 4, 2);
+                        $birthDay = (int) substr($pnr, 6, 2);
+                        try {
+                            $birthDate = new DateTime("$birthYear-$birthMonth-$birthDay");
+                            $today = new DateTime('today');
+                            $age = $birthDate->diff($today)->y;
+                        } catch (Exception $e) {
+                            $age = null;
+                        }
+                    }
+                }
+
+                if ($street) {
+                    Log::info('MerinfoController saving to merinfo_data', [
+                        'item_index' => $itemIndex,
+                        'personnamn' => $itemData['name'] ?? $itemData['personnamn'] ?? null,
+                        'gatuadress' => $street,
+                        'postnummer' => $zipCode,
+                        'postort' => $city,
+                        'telefon' => $phoneRaw,
+                        'age' => $itemData['age'] ?? null,
+                        'gender' => $itemData['gender'] ?? null,
+                    ]);
+
+                    $merinfoData = MerinfoData::updateOrCreate(
+                        [
+                            'personnamn' => $itemData['name'] ?? $itemData['personnamn'] ?? null,
+                            'gatuadress' => $street,
+                        ],
+                        [
+                            'personnamn' => $itemData['name'] ?? $itemData['personnamn'] ?? null,
+                            'givenNameOrFirstName' => $itemData['givenNameOrFirstName'] ?? null,
+                            'alder' => $age,
+                            'personalNumber' => $personalNumber,
+                            'kon' => $itemData['gender'] ?? null,
+                            'gatuadress' => $street,
+                            'postnummer' => $zipCode,
+                            'postort' => $city,
+                            'telefon' => $phoneRaw,
+                            'telefoner' => $phoneNumbers,
+                            'link' => $itemData['url'] ?? null,
+                            'is_telefon' => $itemData['is_telefon'] ?? ($phoneRaw ? true : false),
+                            'is_hus' => $itemData['is_hus'] ?? false,
+                        ]
+                    );
+
+                    $merinfoData->wasRecentlyCreated ? $merinfoDataCreated++ : $merinfoDataUpdated++;
+                }
             } catch (Exception $e) {
                 $failed++;
                 $errors[] = [
@@ -194,6 +275,15 @@ class MerinfoController extends Controller
             }
         }
 
+        Log::info('MerinfoController bulkStore completed', [
+            'created' => $created,
+            'updated' => $updated,
+            'failed' => $failed,
+            'merinfo_data_created' => $merinfoDataCreated,
+            'merinfo_data_updated' => $merinfoDataUpdated,
+            'errors' => $errors,
+        ]);
+
         return response()->json([
             'message' => 'Bulk operation completed',
             'summary' => [
@@ -201,6 +291,8 @@ class MerinfoController extends Controller
                 'created' => $created,
                 'updated' => $updated,
                 'failed' => $failed,
+                'merinfo_data_created' => $merinfoDataCreated,
+                'merinfo_data_updated' => $merinfoDataUpdated,
             ],
             'errors' => $errors,
         ]);

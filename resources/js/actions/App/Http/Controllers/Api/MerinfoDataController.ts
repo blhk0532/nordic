@@ -486,7 +486,7 @@ bulkStore.form = bulkStoreForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:377
+* @see app/Http/Controllers/Api/MerinfoDataController.php:407
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 export const bulkUpdateTotals = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -501,7 +501,7 @@ bulkUpdateTotals.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:377
+* @see app/Http/Controllers/Api/MerinfoDataController.php:407
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotals.url = (options?: RouteQueryOptions) => {
@@ -510,7 +510,7 @@ bulkUpdateTotals.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:377
+* @see app/Http/Controllers/Api/MerinfoDataController.php:407
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotals.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -520,7 +520,7 @@ bulkUpdateTotals.post = (options?: RouteQueryOptions): RouteDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:377
+* @see app/Http/Controllers/Api/MerinfoDataController.php:407
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 const bulkUpdateTotalsForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -530,7 +530,7 @@ const bulkUpdateTotalsForm = (options?: RouteQueryOptions): RouteFormDefinition<
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoDataController::bulkUpdateTotals
-* @see app/Http/Controllers/Api/MerinfoDataController.php:377
+* @see app/Http/Controllers/Api/MerinfoDataController.php:407
 * @route '/api/merinfo-data/bulk-update-totals'
 */
 bulkUpdateTotalsForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

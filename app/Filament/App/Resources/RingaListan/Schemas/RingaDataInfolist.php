@@ -18,7 +18,6 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Illuminate\Support\Carbon;
 
 class RingaDataInfolist
 {
@@ -62,7 +61,7 @@ class RingaDataInfolist
             'RingTillbaka', 'Aterkommer' => [
                 DateTimePicker::make('aterkom_at')
                     ->label('Datum och tid för återkommande samtal')
-                    ->default(fn (): Carbon => now()->addHour()->seconds(0))
+                    ->default(fn () => now()->addHour()->seconds(0))
                     ->native(true)
                     ->seconds(false)
                     ->timezone(config('app.timezone'))

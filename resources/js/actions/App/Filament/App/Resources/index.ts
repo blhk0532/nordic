@@ -8,6 +8,7 @@ import OutcomeDelaySettings from './OutcomeDelaySettings'
 import RetryOutcomes from './RetryOutcomes'
 import RingaData from './RingaData'
 import RingaDataOutcomes from './RingaDataOutcomes'
+import RingaListan from './RingaListan'
 import Users from './Users'
 
 const Resources = {
@@ -21,6 +22,7 @@ const Resources = {
     RetryOutcomes: Object.assign(RetryOutcomes, RetryOutcomes),
     RingaData: Object.assign(RingaData, RingaData),
     RingaDataOutcomes: Object.assign(RingaDataOutcomes, RingaDataOutcomes),
+    RingaListan: Object.assign(RingaListan, RingaListan),
     Users: Object.assign(Users, Users),
 }
 

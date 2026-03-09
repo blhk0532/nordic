@@ -11,7 +11,9 @@ it('uses outcome settings instead of Outcomes2 enum in ringa data infolist', fun
         ->toContain("'style' =>")
         ->toContain('!important')
         ->toContain('getFallbackIcon(')
-        ->toContain('->action(function ($record)')
+        ->toContain('->action(function (array $data, $record)')
+        ->toContain('->modal()')
+        ->toContain('getSpecialModalSchema(')
         ->toContain('redirect(request()->fullUrl(), navigate: true)')
         ->not->toContain('\\App\\Enums\\Outcomes2::cases()');
 });

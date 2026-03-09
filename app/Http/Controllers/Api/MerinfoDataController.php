@@ -223,7 +223,37 @@ class MerinfoDataController extends Controller
      */
     public function bulkStore(Request $request): JsonResponse
     {
-        Log::info('Merinfo bulkStore called', [
+        $payload = $request->all();
+
+        Log::info('MerinfoDataController debug', [
+            'payload_type' => gettype($payload),
+            'is_array' => is_array($payload),
+            'is_list' => array_is_list($payload),
+            'first_key' => array_key_first($payload),
+            'has_0' => isset($payload[0]),
+            'has_short_uuid' => isset($payload[0]) && isset($payload[0]['short_uuid']),
+            'has_results' => isset($payload['results']),
+            'has_results_items' => isset($payload['results'][0]['items']),
+            'payload_sample' => is_array($payload) && isset($payload[0]) ? json_encode($payload[0]) : (isset($payload['results'][0]['items'][0]) ? json_encode($payload['results'][0]['items'][0]) : 'N/A'),
+        ]);
+
+        if (array_is_list($payload) && isset($payload[0]['short_uuid'])) {
+            Log::info('MerinfoDataController redirecting to MerinfoController (list format)', [
+                'records_count' => count($payload),
+            ]);
+
+            return app(\App\Http\Controllers\Api\MerinfoController::class)->bulkStore($request);
+        }
+
+        if (isset($payload['results'][0]['items'][0]['short_uuid'])) {
+            Log::info('MerinfoDataController redirecting to MerinfoController (results format)', [
+                'records_count' => count($payload['results'][0]['items'] ?? []),
+            ]);
+
+            return app(\App\Http\Controllers\Api\MerinfoController::class)->bulkStore($request);
+        }
+
+        Log::info('MerinfoDataController bulkStore called', [
             'records_count' => is_array($request->input('records')) ? count($request->input('records')) : 0,
             'ip' => $request->ip(),
             'user_agent' => $request->header('User-Agent'),
