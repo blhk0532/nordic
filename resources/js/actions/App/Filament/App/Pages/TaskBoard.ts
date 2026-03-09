@@ -1,7 +1,7 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 const TaskBoard = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +15,8 @@ TaskBoard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 TaskBoard.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
@@ -48,8 +48,8 @@ TaskBoard.url = (args: { tenant: string | number | { slug: string | number } } |
 }
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 TaskBoard.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,8 +58,8 @@ TaskBoard.get = (args: { tenant: string | number | { slug: string | number } } |
 })
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 TaskBoard.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,8 +68,8 @@ TaskBoard.head = (args: { tenant: string | number | { slug: string | number } } 
 })
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 const TaskBoardForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,8 +78,8 @@ const TaskBoardForm = (args: { tenant: string | number | { slug: string | number
 })
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 TaskBoardForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,8 +88,8 @@ TaskBoardForm.get = (args: { tenant: string | number | { slug: string | number }
 })
 
 /**
-* @see \App\Filament\Pages\TaskBoard::__invoke
-* @see app/Filament/Pages/TaskBoard.php:7
+* @see \App\Filament\App\Pages\TaskBoard::__invoke
+* @see app/Filament/App/Pages/TaskBoard.php:7
 * @route '/nds/app/team/{tenant}/task-board'
 */
 TaskBoardForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

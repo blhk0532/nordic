@@ -33,10 +33,13 @@ abstract class BookingState extends State
                 Pending::class,
                 Paid::class,
                 Failed::class,
+                Booked::class,
             ])
             ->default(Pending::class)
             ->allowTransition(Pending::class, Paid::class)
-            ->allowTransition(Pending::class, Failed::class);
+            ->allowTransition(Pending::class, Failed::class)
+            ->allowTransition(Booked::class, Paid::class)
+            ->allowTransition(Booked::class, Failed::class);
     }
 
     /**
@@ -61,6 +64,14 @@ class Pending extends BookingState
     public function color(): string
     {
         return 'warning';
+    }
+}
+
+class Booked extends BookingState
+{
+    public function color(): string
+    {
+        return 'primary';
     }
 }
 

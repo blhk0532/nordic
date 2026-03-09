@@ -10,11 +10,13 @@ use Adultdate\FilamentBooking\Concerns\HasSchema;
 use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
 use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRecords;
 use Adultdate\FilamentBooking\Filament\Widgets\FullCalendarWidget;
+use Adultdate\FilamentBooking\Models\Booking\Booking;
 use Adultdate\FilamentBooking\Models\Booking\Client;
 use Adultdate\FilamentBooking\Models\Booking\DailyLocation;
 use Adultdate\FilamentBooking\Models\Booking\Service;
@@ -22,10 +24,9 @@ use Adultdate\FilamentBooking\Models\BookingServicePeriod;
 use Adultdate\FilamentBooking\Models\CalendarSettings;
 use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
-use App\Models\Booking;
 use App\Models\User;
+use App\Services\RingaDataBookingOutcomeService;
 use Carbon\Carbon;
 use Exception;
 use Filament\Actions\Action;
@@ -489,7 +490,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
         // Resolve record from event id
         $record = null;
         if ($this->getModel()) {
-            $record = $this->resolveRecord($event['id'] ?? null);
+            try {
+                $record = $this->resolveRecord($event['id'] ?? null);
+            } catch (Throwable $exception) {
+                logger()->debug('Resize resolveRecord miss, falling back to booking lookup', [
+                    'event_id' => $event['id'] ?? null,
+                    'error' => $exception->getMessage(),
+                ]);
+            }
         }
 
         if (! $record) {
@@ -947,7 +955,11 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
                 $booking->updateTotalPrice();
 
                 if (isset($this->record) && $this->record instanceof \App\Models\RingaData) {
-                    $this->record->update(['outcome' => 'Bokad']);
+                    app(RingaDataBookingOutcomeService::class)->recordBooking(
+                        $this->record,
+                        $booking->id,
+                        Auth::id()
+                    );
                 }
 
                 // The Observer will handle Google Calendar sync and WhatsApp notification automatically

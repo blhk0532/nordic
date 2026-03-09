@@ -11,24 +11,25 @@ use Filament\Support\Contracts\HasLabel;
 enum BookingStatus: string implements HasColor, HasIcon, HasLabel
 {
     case Booked = 'booked';
-    case Pending = 'pending';
-    case Confirm = 'confirm';
-    case Update = 'update';
-    case Cancel = 'cancel';
-    case Problem = 'problem';
+    case Pending = 'processing';
+    case Confirmed = 'confirmed';
+    case Updated = 'updated';
+    case Cancelled = 'cancelled';
     case Complete = 'complete';
 
     public static function toOptions(): array
     {
-        return array_map(fn (self $s) => $s->getLabel(), self::cases());
+        return collect(self::cases())
+            ->mapWithKeys(fn (self $status): array => [$status->value => $status->getLabel()])
+            ->all();
     }
 
     public static function restrictedOptions(): array
     {
         return [
             self::Booked->value => self::Booked->getLabel(),
-            self::Confirm->value => self::Confirm->getLabel(),
-            self::Problem->value => self::Problem->getLabel(),
+            self::Confirmed->value => self::Confirmed->getLabel(),
+            self::Cancelled->value => self::Cancelled->getLabel(),
             self::Complete->value => self::Complete->getLabel(),
         ];
     }
@@ -39,10 +40,9 @@ enum BookingStatus: string implements HasColor, HasIcon, HasLabel
 
             self::Booked => 'Booked',
             self::Pending => 'Pending',
-            self::Confirm => 'Confirm',
-            self::Update => 'Update',
-            self::Cancel => 'Cancel',
-            self::Problem => 'Problem',
+            self::Confirmed => 'Confirmed',
+            self::Updated => 'Updated',
+            self::Cancelled => 'Cancelled',
             self::Complete => 'Complete',
         };
     }
@@ -50,12 +50,11 @@ enum BookingStatus: string implements HasColor, HasIcon, HasLabel
     public function getColor(): string|array|null
     {
         return match ($this) {
-            self::Booked => 'primary',
+            self::Booked => 'gray',
             self::Pending => 'gray',
-            self::Confirm => 'warning',
-            self::Update => 'info',
-            self::Cancel => 'danger',
-            self::Problem => 'danger',
+            self::Confirmed => 'warning',
+            self::Updated => 'info',
+            self::Cancelled => 'danger',
             self::Complete => 'success',
         };
     }
@@ -65,10 +64,9 @@ enum BookingStatus: string implements HasColor, HasIcon, HasLabel
         return match ($this) {
             self::Booked => 'heroicon-o-calendar',
             self::Pending => 'heroicon-o-clock',
-            self::Confirm => 'heroicon-o-check-circle',
-            self::Update => 'heroicon-o-pencil-square',
-            self::Cancel => 'heroicon-o-x-circle',
-            self::Problem => 'heroicon-o-exclamation-triangle',
+            self::Confirmed => 'heroicon-o-check-circle',
+            self::Updated => 'heroicon-o-pencil-square',
+            self::Cancelled => 'heroicon-o-x-circle',
             self::Complete => 'heroicon-o-check-badge',
         };
     }
@@ -76,13 +74,12 @@ enum BookingStatus: string implements HasColor, HasIcon, HasLabel
     public function getCalendarColor(): string
     {
         return match ($this) {
-            self::Booked => 'primary',
-            self::Pending => 'gray',
-            self::Confirm => 'warning',
-            self::Update => 'info',
-            self::Cancel => 'danger',
-            self::Problem => 'danger',
-            self::Complete => 'success',
+            self::Booked => '#6366f1',
+            self::Pending => '#6b7280',
+            self::Confirmed => '#f59e0b',
+            self::Updated => '#06b6d4',
+            self::Cancelled => '#ef4444',
+            self::Complete => '#22c55e',
         };
     }
 }

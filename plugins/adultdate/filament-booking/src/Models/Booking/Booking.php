@@ -70,6 +70,7 @@ class Booking extends Model
     protected $attributes = [
         'currency' => 'SEK',
         'is_active' => true,
+        'state' => 'Adultdate\FilamentBooking\Enums\Booked',
     ];
 
     /**
@@ -192,8 +193,8 @@ class Booking extends Model
             'start' => $start,
             'end' => $end,
             'type' => 'booking',
-            'backgroundColor' => $this->status?->getCalendarColor() ?? 'primary',
-            'borderColor' => $this->status?->getCalendarColor() ?? 'primary',
+            'backgroundColor' => $this->status?->getCalendarColor() ?? BookingStatus::Booked->getCalendarColor(),
+            'borderColor' => $this->status?->getCalendarColor() ?? BookingStatus::Booked->getCalendarColor(),
             'textColor' => 'white',
             'extendedProps' => [
                 'key' => $this->id,  // Required: Record ID for event resolution

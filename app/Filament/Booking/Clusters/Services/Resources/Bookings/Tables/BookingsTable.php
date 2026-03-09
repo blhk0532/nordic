@@ -44,7 +44,6 @@ class BookingsTable
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Confirmed->getIcon() => 'heroicon-o-check-circle',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Updated->getIcon() => 'heroicon-o-pencil-square',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Cancelled->getIcon() => 'heroicon-o-x-circle',
-                        \Adultdate\FilamentBooking\Enums\BookingStatus::Problem->getIcon() => 'heroicon-o-exclamation-triangle',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Complete->getIcon() => 'heroicon-o-check-badge',
                     ])
                     ->colors([
@@ -53,7 +52,6 @@ class BookingsTable
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Confirmed->value => 'warning',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Updated->value => 'info',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Cancelled->value => 'danger',
-                        \Adultdate\FilamentBooking\Enums\BookingStatus::Problem->value => 'danger',
                         \Adultdate\FilamentBooking\Enums\BookingStatus::Complete->value => 'success',
                     ]),
                 TextColumn::make('created_at')

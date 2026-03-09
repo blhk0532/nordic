@@ -41,11 +41,14 @@ class RingaDatasQueueTableWidget extends BaseWidget
                     return $query->whereRaw('1=0');
                 }
 
-                $selectedGatuadress = $query->where('id', $this->selectedRecordId)->value('gatuadress');
+                $selectedGatuadress = (clone $query)->where('id', $this->selectedRecordId)->value('gatuadress');
 
                 return $query->where('gatuadress', $selectedGatuadress);
             })
             ->paginated(false)
+            ->extraAttributes([
+                'class' => 'queue-table-widget',
+            ])
             ->emptyStateHeading('Ingen aktuell post vald')
             ->emptyStateDescription('Välj en post från listan eller kalendern för att se detaljer.');
     }

@@ -9,6 +9,7 @@ use App\Models\Merinfo;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MerinfoController extends Controller
 {
@@ -132,62 +133,110 @@ class MerinfoController extends Controller
      */
     public function bulkStore(Request $request): JsonResponse
     {
-        $validated = $request->validate([
-            'results' => 'required|array|min:1',
-            'results.*.type' => 'required|string',
-            'results.*.title' => 'nullable|string',
-            'results.*.items' => 'required|array',
-            'results.*.items.*.type' => 'required|string',
-            'results.*.items.*.short_uuid' => 'required|string',
-            'results.*.items.*.name' => 'required|string',
-            'results.*.items.*.givenNameOrFirstName' => 'required|string',
-            'results.*.items.*.personalNumber' => 'required|string',
-            'results.*.items.*.pnr' => 'nullable|array',
-            'results.*.items.*.address' => 'nullable|array',
-            'results.*.items.*.gender' => 'required|string|in:male,female,other',
-            'results.*.items.*.is_celebrity' => 'boolean',
-            'results.*.items.*.has_company_engagement' => 'boolean',
-            'results.*.items.*.number_plus_count' => 'integer',
-            'results.*.items.*.phone_number' => 'nullable|array',
-            'results.*.items.*.url' => 'required|string',
-            'results.*.items.*.same_address_url' => 'nullable|string',
-        ]);
+        $items = $this->extractBulkItems($request);
+
+        $validated = Validator::make([
+            'items' => $items,
+        ], [
+            'items' => 'required|array|min:1',
+            'items.*.short_uuid' => 'required|string',
+            'items.*.type' => 'nullable|string',
+            'items.*.title' => 'nullable|string',
+            'items.*.name' => 'nullable|string',
+            'items.*.givenNameOrFirstName' => 'nullable|string',
+            'items.*.personalNumber' => 'nullable|string',
+            'items.*.pnr' => 'nullable|array',
+            'items.*.address' => 'nullable|array',
+            'items.*.gender' => 'nullable|string|in:male,female,other',
+            'items.*.is_celebrity' => 'nullable|boolean',
+            'items.*.has_company_engagement' => 'nullable|boolean',
+            'items.*.number_plus_count' => 'nullable|integer',
+            'items.*.phone_number' => 'nullable|array',
+            'items.*.url' => 'nullable|string',
+            'items.*.same_address_url' => 'nullable|string',
+        ])->validate();
 
         $created = 0;
         $updated = 0;
         $failed = 0;
         $errors = [];
 
-        foreach ($validated['results'] as $resultIndex => $result) {
-            foreach ($result['items'] as $itemIndex => $itemData) {
-                try {
-                    $record = Merinfo::updateOrCreate(
-                        ['short_uuid' => $itemData['short_uuid']],
-                        $itemData
-                    );
+        foreach ($validated['items'] as $itemIndex => $itemData) {
+            try {
+                $record = Merinfo::updateOrCreate(
+                    ['short_uuid' => $itemData['short_uuid']],
+                    [
+                        'type' => $itemData['type'] ?? null,
+                        'title' => $itemData['title'] ?? null,
+                        'name' => $itemData['name'] ?? null,
+                        'givenNameOrFirstName' => $itemData['givenNameOrFirstName'] ?? null,
+                        'personalNumber' => $itemData['personalNumber'] ?? null,
+                        'pnr' => $itemData['pnr'] ?? null,
+                        'address' => $itemData['address'] ?? null,
+                        'gender' => $itemData['gender'] ?? null,
+                        'is_celebrity' => $itemData['is_celebrity'] ?? false,
+                        'has_company_engagement' => $itemData['has_company_engagement'] ?? false,
+                        'number_plus_count' => $itemData['number_plus_count'] ?? 0,
+                        'phone_number' => $itemData['phone_number'] ?? null,
+                        'url' => $itemData['url'] ?? null,
+                        'same_address_url' => $itemData['same_address_url'] ?? null,
+                    ]
+                );
 
-                    $record->wasRecentlyCreated ? $created++ : $updated++;
-                } catch (Exception $e) {
-                    $failed++;
-                    $errors[] = [
-                        'result_index' => $resultIndex,
-                        'item_index' => $itemIndex,
-                        'short_uuid' => $itemData['short_uuid'] ?? 'unknown',
-                        'error' => $e->getMessage(),
-                    ];
-                }
+                $record->wasRecentlyCreated ? $created++ : $updated++;
+            } catch (Exception $e) {
+                $failed++;
+                $errors[] = [
+                    'item_index' => $itemIndex,
+                    'short_uuid' => $itemData['short_uuid'] ?? 'unknown',
+                    'error' => $e->getMessage(),
+                ];
             }
         }
 
         return response()->json([
             'message' => 'Bulk operation completed',
             'summary' => [
-                'total_processed' => count($validated['results']),
+                'total_processed' => count($validated['items']),
                 'created' => $created,
                 'updated' => $updated,
                 'failed' => $failed,
             ],
             'errors' => $errors,
         ]);
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    private function extractBulkItems(Request $request): array
+    {
+        $payload = $request->all();
+
+        if (array_is_list($payload)) {
+            return $payload;
+        }
+
+        if (isset($payload['records']) && is_array($payload['records'])) {
+            return $payload['records'];
+        }
+
+        if (! isset($payload['results']) || ! is_array($payload['results'])) {
+            return [];
+        }
+
+        $items = [];
+
+        foreach ($payload['results'] as $result) {
+            if (isset($result['items']) && is_array($result['items'])) {
+                foreach ($result['items'] as $item) {
+                    if (is_array($item)) {
+                        $items[] = $item;
+                    }
+                }
+            }
+        }
+
+        return $items;
     }
 }

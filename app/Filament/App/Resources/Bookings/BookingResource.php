@@ -43,8 +43,6 @@ class BookingResource extends Resource
      */
     protected static bool $isScopedToTenant = false;
 
-
-
     public static function form(Schema $schema): Schema
     {
         return BookingForm::configure($schema);
@@ -106,11 +104,10 @@ class BookingResource extends Resource
         /** @var class-string<Model> $modelClass */
         $modelClass = self::$model;
 
-        $count = $modelClass::where('status', 'booked')
-            ->where(function ($q) use ($userId) {
-                $q->where('booking_user_id', $userId)
-                    ->orWhere('service_user_id', $userId);
-            })
+        $count = $modelClass::where(function ($q) use ($userId) {
+            $q->where('booking_user_id', $userId)
+                ->orWhere('service_user_id', $userId);
+        })
             ->count();
 
         return (string) $count;

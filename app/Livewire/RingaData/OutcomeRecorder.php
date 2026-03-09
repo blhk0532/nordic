@@ -77,8 +77,8 @@ class OutcomeRecorder extends Component implements HasActions, HasForms, HasSche
             ->size('sm')
             ->disabled($this->processingOutcome === 'RingTillbaka')
             ->extraAttributes([
-                'class' => 'w-full',
-                'style' => "background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'RingTillbaka' ? ' opacity: 0.5;' : ''),
+                'class' => 'w-full h-full flex',
+                'style' => "height:36px; background-color: {$color} !important; color: white !important; border-color: {$color} !important;".($this->processingOutcome === 'RingTillbaka' ? ' opacity: 0.5;' : ''),
             ])
             ->modal()
             ->modalHeading('Schemalägg återkommande samtal')

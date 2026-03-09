@@ -10,6 +10,7 @@ use Adultdate\FilamentBooking\Concerns\HasSchema;
 use Adultdate\FilamentBooking\Concerns\InteractsWithCalendar;
 use Adultdate\FilamentBooking\Concerns\InteractsWithEventRecord;
 use Adultdate\FilamentBooking\Contracts\HasCalendar;
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\CanBeConfigured;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithEvents;
 use Adultdate\FilamentBooking\Filament\Widgets\Concerns\InteractsWithRawJS;
@@ -23,7 +24,6 @@ use Adultdate\FilamentBooking\Models\BookingServicePeriod;
 use Adultdate\FilamentBooking\Models\CalendarSettings;
 use Adultdate\FilamentBooking\ValueObjects\DatesSetInfo;
 use Adultdate\FilamentBooking\ValueObjects\FetchInfo;
-use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Filament\App\Clusters\Services\Resources\Bookings\Schemas\BookingForm;
 use App\Models\User;
 use Carbon\Carbon;
@@ -484,7 +484,14 @@ final class RingaDataCalendar extends FullCalendarWidget implements HasCalendar
         // Resolve record from event id
         $record = null;
         if ($this->getModel()) {
-            $record = $this->resolveRecord($event['id'] ?? null);
+            try {
+                $record = $this->resolveRecord($event['id'] ?? null);
+            } catch (Throwable $exception) {
+                logger()->debug('Resize resolveRecord miss, falling back to booking lookup', [
+                    'event_id' => $event['id'] ?? null,
+                    'error' => $exception->getMessage(),
+                ]);
+            }
         }
 
         if (! $record) {

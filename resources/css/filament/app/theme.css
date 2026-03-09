@@ -621,3 +621,7 @@ footer.fi-footer {
 .fi-main-ctn{
     overflow: auto!important;
 }
+
+.queue-table-widget thead{
+    display:none!important;
+}

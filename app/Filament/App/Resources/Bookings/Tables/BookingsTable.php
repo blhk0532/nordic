@@ -97,7 +97,6 @@ class BookingsTable
             ])
             ->recordClasses(fn (Booking $record) => match (true) {
                 $record->status === BookingStatus::Complete => 'bg-success-50 dark:bg-success-950/50',
-                $record->status === BookingStatus::Problem => 'bg-danger-50 dark:bg-danger-950/50',
                 $record->status === BookingStatus::Cancelled => 'bg-danger-50 dark:bg-danger-950/50',
                 default => null,
             });

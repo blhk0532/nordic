@@ -26,6 +26,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets;
 use Illuminate\Http\Middleware\TrustProxies as BaseTrustProxies;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -102,5 +103,13 @@ return Application::configure(basePath: dirname(__DIR__))
 
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->report(function (NotFoundHttpException $exception): void {
+            logger()->warning('HTTP 404', [
+                'method' => request()->method(),
+                'path' => request()->path(),
+                'url' => request()->fullUrl(),
+                'route' => request()->route()?->getName(),
+                'message' => $exception->getMessage(),
+            ]);
+        });
     })->create();
