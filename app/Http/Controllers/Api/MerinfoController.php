@@ -167,6 +167,24 @@ class MerinfoController extends Controller
             'items.*.phone_number' => 'nullable|array',
             'items.*.url' => 'nullable|string',
             'items.*.same_address_url' => 'nullable|string',
+            'items.*.age' => 'nullable|integer',
+            'items.*.personnamn' => 'nullable|string',
+            'items.*.gatuadress' => 'nullable|string',
+            'items.*.postnummer' => 'nullable|string',
+            'items.*.postort' => 'nullable|string',
+            'items.*.telefon' => 'nullable|string',
+            'items.*.telefonnummer' => 'nullable|string',
+            'items.*.karta' => 'nullable|string',
+            'items.*.bostadstyp' => 'nullable|string',
+            'items.*.bostadspris' => 'nullable|string',
+            'items.*.is_active' => 'nullable|boolean',
+            'items.*.is_telefon' => 'nullable|boolean',
+            'items.*.is_ratsit' => 'nullable|boolean',
+            'items.*.is_hus' => 'nullable|boolean',
+            'items.*.merinfo_personer_total' => 'nullable|integer',
+            'items.*.merinfo_foretag_total' => 'nullable|integer',
+            'items.*.merinfo_personer_count' => 'nullable|integer',
+            'items.*.merinfo_personer_queue' => 'nullable|integer',
         ])->validate();
 
         Log::info('MerinfoController validation passed', [
@@ -181,6 +199,13 @@ class MerinfoController extends Controller
         $merinfoDataUpdated = 0;
 
         foreach ($validated['items'] as $itemIndex => $itemData) {
+            Log::info('MerinfoController foreach item', [
+                'item_index' => $itemIndex,
+                'item_data' => json_encode($itemData),
+                'has_is_hus' => array_key_exists('is_hus', $itemData),
+                'is_hus_value' => $itemData['is_hus'] ?? 'NOT_SET',
+            ]);
+
             try {
                 $record = Merinfo::updateOrCreate(
                     ['short_uuid' => $itemData['short_uuid']],
@@ -230,15 +255,17 @@ class MerinfoController extends Controller
                 }
 
                 if ($street) {
+                    $isTelefon = isset($itemData['is_telefon']) ? (bool) $itemData['is_telefon'] : ! empty($phoneRaw);
+                    $isHus = isset($itemData['is_hus']) ? (bool) $itemData['is_hus'] : false;
+
                     Log::info('MerinfoController saving to merinfo_data', [
                         'item_index' => $itemIndex,
-                        'personnamn' => $itemData['name'] ?? $itemData['personnamn'] ?? null,
-                        'gatuadress' => $street,
-                        'postnummer' => $zipCode,
-                        'postort' => $city,
-                        'telefon' => $phoneRaw,
-                        'age' => $itemData['age'] ?? null,
-                        'gender' => $itemData['gender'] ?? null,
+                        'short_uuid' => $itemData['short_uuid'] ?? null,
+                        'is_hus_incoming' => $itemData['is_hus'] ?? null,
+                        'is_hus_type' => gettype($itemData['is_hus'] ?? null),
+                        'is_hus_bool' => $isHus,
+                        'is_telefon_incoming' => $itemData['is_telefon'] ?? null,
+                        'is_telefon_bool' => $isTelefon,
                     ]);
 
                     $merinfoData = MerinfoData::updateOrCreate(
@@ -258,10 +285,27 @@ class MerinfoController extends Controller
                             'telefon' => $phoneRaw,
                             'telefoner' => $phoneNumbers,
                             'link' => $itemData['url'] ?? null,
-                            'is_telefon' => $itemData['is_telefon'] ?? ($phoneRaw ? true : false),
-                            'is_hus' => $itemData['is_hus'] ?? false,
+                            'is_telefon' => $isTelefon,
+                            'is_hus' => $isHus,
+                            'is_active' => isset($itemData['is_active']) ? (bool) $itemData['is_active'] : true,
+                            'is_ratsit' => isset($itemData['is_ratsit']) ? (bool) $itemData['is_ratsit'] : false,
+                            'bostadstyp' => $itemData['bostadstyp'] ?? null,
+                            'bostadspris' => $itemData['bostadspris'] ?? null,
+                            'karta' => $itemData['karta'] ?? null,
+                            'telefonnummer' => $itemData['telefonnummer'] ?? null,
+                            'merinfo_personer_total' => $itemData['merinfo_personer_total'] ?? null,
+                            'merinfo_foretag_total' => $itemData['merinfo_foretag_total'] ?? null,
+                            'merinfo_personer_count' => $itemData['merinfo_personer_count'] ?? 0,
+                            'merinfo_personer_queue' => $itemData['merinfo_personer_queue'] ?? 0,
                         ]
                     );
+
+                    Log::info('MerinfoController saved to merinfo_data', [
+                        'item_index' => $itemIndex,
+                        'short_uuid' => $itemData['short_uuid'] ?? null,
+                        'is_telefon_saved' => $isTelefon,
+                        'is_hus_saved' => $isHus,
+                    ]);
 
                     $merinfoData->wasRecentlyCreated ? $merinfoDataCreated++ : $merinfoDataUpdated++;
                 }

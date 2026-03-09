@@ -28,6 +28,38 @@ beforeEach(function (): void {
             $table->timestamps();
         });
     }
+
+    if (! Schema::hasTable('merinfo_data')) {
+        Schema::create('merinfo_data', function (Blueprint $table): void {
+            $table->id();
+            $table->text('personnamn')->nullable();
+            $table->string('givenNameOrFirstName', 255)->nullable();
+            $table->string('personalNumber', 255)->nullable();
+            $table->text('alder')->nullable();
+            $table->text('kon')->nullable();
+            $table->text('gatuadress')->nullable();
+            $table->text('postnummer')->nullable();
+            $table->text('postort')->nullable();
+            $table->text('telefon')->nullable();
+            $table->longText('telefonnummer')->nullable();
+            $table->longText('telefoner')->nullable();
+            $table->text('karta')->nullable();
+            $table->text('link')->nullable();
+            $table->text('bostadstyp')->nullable();
+            $table->text('bostadspris')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->boolean('is_telefon')->default(false);
+            $table->boolean('is_ratsit')->default(false);
+            $table->boolean('is_hus')->default(false);
+            $table->integer('merinfo_personer_total')->nullable();
+            $table->integer('merinfo_foretag_total')->nullable();
+            $table->integer('merinfo_personer_count')->default(0);
+            $table->integer('merinfo_personer_queue')->default(0);
+            $table->timestamps();
+
+            $table->unique(['personnamn', 'gatuadress'], 'merinfo_person_gata_unique');
+        });
+    }
 });
 
 it('stores merinfo bulk payload sent as a top-level array', function (): void {
