@@ -2,7 +2,7 @@
     <x-filament::section class="h-full">
         @php
             $recordId = $this->recordId ?? $this->record?->id;
-            $tenant = $this->tenant;
+            $tenant = filament()->getTenant()?->slug;
             $filamentTenant = filament()->getTenant();
         @endphp
 
