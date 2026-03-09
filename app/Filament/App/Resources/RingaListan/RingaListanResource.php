@@ -41,7 +41,7 @@ class RingaListanResource extends Resource
 
     protected static ?int $navigationSort = 12;
 
-    protected static bool $isDiscovered = false;
+    protected static bool $isDiscovered = true;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;

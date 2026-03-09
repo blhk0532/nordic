@@ -5,17 +5,98 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\RingaListan\Schemas;
 
 use Anish\TextInputEntry\Infolists\Components\TextInputEntry;
+use App\Enums\Outcomes3;
 use App\Models\OutcomeSetting;
 use Fahiem\FilamentPinpoint\PinpointEntry;
 use Filament\Actions\Action;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Carbon;
 
 class RingaDataInfolist
 {
+    protected static function isSpecialOutcome(string $outcome): bool
+    {
+        return in_array($outcome, ['RingTillbaka', 'Aterkommer', 'NyligenGjort', 'Offert', 'Bokad', 'Kontakt'], true);
+    }
+
+    protected static function getSpecialModalHeading(string $outcome): string
+    {
+        return match ($outcome) {
+            'RingTillbaka', 'Aterkommer' => 'Schemalägg återkommande samtal',
+            'NyligenGjort' => 'Välj Nästa Gång',
+            'Offert' => 'Skapa Offert',
+            'Bokad' => 'Bokad',
+            'Kontakt' => 'Spara som Kontakt',
+            default => 'Spara',
+        };
+    }
+
+    protected static function getSpecialModalSubmitLabel(string $outcome): string
+    {
+        return match ($outcome) {
+            'RingTillbaka', 'Aterkommer' => 'Schemalägg',
+            'Offert' => 'Spara Offert',
+            default => 'Spara',
+        };
+    }
+
+    protected static function getSpecialModalWidth(string $outcome): string
+    {
+        return match ($outcome) {
+            'Offert' => 'lg',
+            default => 'md',
+        };
+    }
+
+    protected static function getSpecialModalSchema(string $outcome): array
+    {
+        return match ($outcome) {
+            'RingTillbaka', 'Aterkommer' => [
+                DateTimePicker::make('aterkom_at')
+                    ->label('Datum och tid för återkommande samtal')
+                    ->default(fn (): Carbon => now()->addHour()->seconds(0))
+                    ->native(true)
+                    ->seconds(false)
+                    ->timezone(config('app.timezone'))
+                    ->required(),
+            ],
+            'NyligenGjort' => [
+                Select::make('outcome_value')
+                    ->label('Resultat')
+                    ->options(fn (): array => collect(Outcomes3::cases())
+                        ->mapWithKeys(fn (Outcomes3 $case): array => [$case->name => $case->getLabel()])
+                        ->toArray())
+                    ->required(),
+            ],
+            'Offert' => [
+                TextInput::make('subject')
+                    ->label('Ämne')
+                    ->placeholder('Offert ämne')
+                    ->required(),
+                Textarea::make('message')
+                    ->label('Meddelande')
+                    ->placeholder('Offert text...')
+                    ->required()
+                    ->rows(8)
+                    ->columnSpanFull(),
+            ],
+            'Bokad', 'Kontakt' => [
+                Textarea::make('notes')
+                    ->label('Anteckningar')
+                    ->rows(3),
+            ],
+            default => [],
+        };
+    }
+
     protected static function normalizeActionColor(?string $color): string
     {
         $value = strtolower(trim((string) $color));
@@ -188,6 +269,7 @@ class RingaDataInfolist
                             ->get()
                             ->map(function (OutcomeSetting $outcomeSetting) use ($record, $component): Action {
                                 $label = $outcomeSetting->title ?: (string) $outcomeSetting->outcome;
+                                $outcomeValue = (string) $outcomeSetting->outcome;
                                 $color = self::normalizeActionColor($outcomeSetting->color);
                                 $icon = self::normalizeActionIcon($outcomeSetting->icon) ?? self::getFallbackIcon($outcomeSetting);
                                 $style = self::getButtonStyle($outcomeSetting->color);
@@ -200,19 +282,57 @@ class RingaDataInfolist
                                         'style' => $style,
                                     ])
                                     ->color($color)
-                                    ->action(function ($record) use ($outcomeSetting, $component, $label, $color): void {
+                                    ->action(function (array $data, $record) use ($outcomeSetting, $outcomeValue, $component, $label, $color): void {
                                         if ($record) {
-                                            $record->update([
+                                            $selectedOutcomeValue = null;
+
+                                            if ($outcomeValue === 'NyligenGjort') {
+                                                $selectedOutcomeValue = trim((string) ($data['outcome_value'] ?? ''));
+                                            }
+
+                                            $outcomeToSave = $selectedOutcomeValue !== ''
+                                                ? $selectedOutcomeValue
+                                                : $outcomeValue;
+
+                                            $outcomeCategory = $outcomeSetting->category;
+
+                                            if ($outcomeToSave !== $outcomeValue) {
+                                                $outcomeCategory = OutcomeSetting::query()
+                                                    ->where('is_active', true)
+                                                    ->where('outcome', $outcomeToSave)
+                                                    ->value('category') ?? $outcomeCategory;
+                                            }
+
+                                            $attributes = [
                                                 'is_active' => false,
-                                                'outcome' => $outcomeSetting->outcome,
-                                                'outcome_category' => $outcomeSetting->category,
+                                                'outcome' => $outcomeToSave,
+                                                'outcome_category' => $outcomeCategory,
                                                 'is_outcome' => true,
                                                 'attempts' => ($record->attempts ?? 0) + 1,
+                                            ];
+
+                                            if (in_array($outcomeValue, ['RingTillbaka', 'Aterkommer'], true) && filled($data['aterkom_at'] ?? null)) {
+                                                $attributes['aterkom_at'] = Carbon::parse((string) $data['aterkom_at']);
+                                            }
+
+                                            $record->update([
+                                                ...$attributes,
                                             ]);
+
+                                            $notificationLabel = $label;
+
+                                            if ($selectedOutcomeValue !== '') {
+                                                foreach (Outcomes3::cases() as $case) {
+                                                    if ($case->name === $selectedOutcomeValue) {
+                                                        $notificationLabel = $case->getLabel();
+                                                        break;
+                                                    }
+                                                }
+                                            }
 
                                             Notification::make()
                                                 ->title('Utfall registrerat')
-                                                ->body("➤ {$label}")
+                                                ->body("➤ {$notificationLabel}")
                                                 ->color($color)
                                                 ->success()
                                                 ->send();
@@ -228,6 +348,15 @@ class RingaDataInfolist
                                             }
                                         }
                                     });
+
+                                if (self::isSpecialOutcome($outcomeValue)) {
+                                    $action
+                                        ->modal()
+                                        ->modalHeading(self::getSpecialModalHeading($outcomeValue))
+                                        ->modalSubmitActionLabel(self::getSpecialModalSubmitLabel($outcomeValue))
+                                        ->modalWidth(self::getSpecialModalWidth($outcomeValue))
+                                        ->schema(self::getSpecialModalSchema($outcomeValue));
+                                }
 
                                 $action->icon($icon);
 

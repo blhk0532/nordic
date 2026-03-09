@@ -29,6 +29,10 @@ class MerinfoDatasTable
     {
         return $table
             ->columns([
+                                TextColumn::make('id')
+                    ->label('ID')
+                                        ->sortable()
+                    ->weight('bold'),
                 TextColumn::make('personnamn')
                     ->label('Name')
                     ->searchable()
@@ -214,7 +218,7 @@ class MerinfoDatasTable
                             );
                     }),
             ])
-            ->actions([
+            ->recordActions([
                 EditAction::make(),
                 //    DeleteAction::make(),
             ])
