@@ -10,7 +10,10 @@ use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataOutcomeFormWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataOutcomeWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataPinpointWidget;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDatasQueueTableWidget;
-use App\Filament\App\Resources\RingaListan\Widgets\RingaDataInfolistWidget;
+use App\Filament\App\Resources\RingaListan\Widgets\RingaDataInfolistNotesWidget;
+use App\Filament\App\Resources\RingaListan\Widgets\RingaDataInfolistOutcomesWidget;
+use App\Filament\App\Resources\RingaListan\Widgets\RingaDataInfolistPhoneNumbersWidget;
+use App\Filament\App\Resources\RingaListan\Widgets\RingaDataInfolistPrimaryWidget;
 use App\Models\RingaData;
 use BackedEnum;
 use Exception;
@@ -191,7 +194,10 @@ class QueueRingaData extends Page
         return [
 
             RingaDataPinpointWidget::class,
-            RingaDataInfolistWidget::class,
+            RingaDataInfolistPrimaryWidget::class,
+            RingaDataInfolistOutcomesWidget::class,
+            RingaDataInfolistPhoneNumbersWidget::class,
+            RingaDataInfolistNotesWidget::class,
             RingaDataOutcomeFormWidget::class,
             RingaDataOutcomeWidget::class,
             RingaDataCalendar::class,

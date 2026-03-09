@@ -148,6 +148,8 @@ class PostNum extends Model
         'is_active',
         'status',
         'updated_at',
+        'merinfo_personer_house_total',
+        'created_at',
     ];
 
     protected $casts = [
