@@ -25,7 +25,7 @@ use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 
 class RingaListanResource extends Resource
 {
-    public static bool $shouldRegisterNavigation = true;
+    public static bool $shouldRegisterNavigation = false;
 
     protected static ?string $model = RingaData::class;
 
@@ -41,7 +41,7 @@ class RingaListanResource extends Resource
 
     protected static ?int $navigationSort = 12;
 
-    protected static bool $isDiscovered = true;
+    protected static bool $isDiscovered = false;
 
     // Make this resource global (not tenant-scoped) since Ringa data is public information
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -104,7 +104,7 @@ class RingaListanResource extends Resource
         return [
             'index' => ListRingaData::route('/'),
             'create' => CreateRingaData::route('/create'),
-            'queue' => QueueRingaData::route('/queue'),
+            'queue' => QueueRingaData::route('/que'),
             'view' => ViewRingaData::route('/{record}'),
             'edit' => EditRingaData::route('/{record}/edit'),
         ];

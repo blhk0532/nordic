@@ -22,6 +22,8 @@ class RingaDataInfolistNotesWidget extends Widget implements HasActions, HasSche
 
     public ?int $recordId = null;
 
+    public ?string $user_notes = null;
+
     protected string $view = 'filament.app.resources.ringa-data.widgets.ringa-data-infolist-notes-widget';
 
     protected int|string|array $columnSpan = 'full';
@@ -35,11 +37,19 @@ class RingaDataInfolistNotesWidget extends Widget implements HasActions, HasSche
         if (! $this->record && $this->recordId) {
             $this->record = RingaData::query()->find($this->recordId);
         }
+
+        $this->syncUserNotesFromRecord();
     }
 
     public function updateRecord(int $recordId): void
     {
         $this->record = RingaData::query()->find($recordId);
+        $this->syncUserNotesFromRecord();
+    }
+
+    private function syncUserNotesFromRecord(): void
+    {
+        $this->user_notes = $this->record?->user_notes;
     }
 
     public function infolist(Schema $schema): Schema

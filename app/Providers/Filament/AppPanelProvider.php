@@ -135,6 +135,7 @@ class AppPanelProvider extends PanelProvider
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '68px' : '34px')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->defaultThemeMode(ThemeMode::Dark)
+            ->databaseNotificationsPolling('30s')
             //    ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
@@ -475,7 +476,7 @@ class AppPanelProvider extends PanelProvider
         );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::USER_MENU_BEFORE,
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ai-search-trigger');
             }
@@ -488,7 +489,7 @@ class AppPanelProvider extends PanelProvider
         //    );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::GLOBAL_SEARCH_AFTER,
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ringa-data-search-trigger');
             }

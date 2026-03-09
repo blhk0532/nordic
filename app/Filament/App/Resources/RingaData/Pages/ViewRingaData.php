@@ -42,9 +42,9 @@ class ViewRingaData extends ViewRecord
     protected function getHeaderWidgets(): array
     {
         return [
-            RingaDataPinpointWidget::class,
-            RingaDataDisplayWidget::class,
-            RingaDataOutcomeFormWidget::class,
+        //    RingaDataPinpointWidget::class,
+        //    RingaDataDisplayWidget::class,
+        //    RingaDataOutcomeFormWidget::class,
         ];
     }
 

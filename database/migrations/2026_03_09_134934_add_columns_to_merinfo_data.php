@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('merinfo_data', function (Blueprint $table) {
             $table->string('givenNameOrFirstName')->nullable()->after('personnamn');
-        //    $table->string('personalNumber')->nullable()->after('givenNameOrFirstName');
+            //    $table->string('personalNumber')->nullable()->after('givenNameOrFirstName');
         });
     }
 

@@ -11,12 +11,16 @@ use App\Filament\Queue\Resources\PostNums\Pages\ViewPostNum;
 use App\Filament\Queue\Resources\PostNums\Schemas\PostNumForm;
 use App\Filament\Queue\Resources\PostNums\Schemas\PostNumInfolist;
 use App\Filament\Queue\Resources\PostNums\Tables\PostNumsTable;
+use App\Models\HittaSe;
+use App\Models\MerinfoData;
 use App\Models\PostNum;
+use App\Models\RatsitData;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use UnitEnum;
 
 class PostNumResource extends Resource
@@ -46,6 +50,102 @@ class PostNumResource extends Resource
     public static function table(Table $table): Table
     {
         return PostNumsTable::configure($table);
+    }
+
+    public static function getEloquentQuery(): EloquentBuilder
+    {
+        return parent::getEloquentQuery()
+            ->select('post_nums.*')
+            ->selectSub(
+                HittaSe::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('hitta_se.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true),
+                'hitta_personer_saved_live'
+            )
+            ->selectSub(
+                HittaSe::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('hitta_se.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true)
+                    ->where('is_hus', true)
+                    ->where('is_telefon', true),
+                'hitta_foretag_saved_live'
+            )
+            ->selectSub(
+                HittaSe::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('hitta_se.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true)
+                    ->where('is_telefon', true),
+                'hitta_personer_phone_saved_live'
+            )
+            ->selectSub(
+                HittaSe::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('hitta_se.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true)
+                    ->where('is_hus', true),
+                'hitta_personer_house_saved_live'
+            )
+            ->selectSub(
+                RatsitData::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('ratsit_data.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true),
+                'ratsit_personer_saved_live'
+            )
+            ->selectSub(
+                RatsitData::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('ratsit_data.postnummer', 'post_nums.post_nummer')
+                    ->where('is_active', true)
+                    ->whereNotNull('telefon')
+                    ->where('telefon', '!=', ''),
+                'ratsit_personer_phone_saved_live'
+            )
+            ->selectSub(
+                RatsitData::query()
+                    ->selectRaw('count(*)')
+                    ->whereColumn('ratsit_data.postnummer', 'post_nums.post_nummer')
+                    ->where('agandeform', 'Äganderätt'),
+                'ratsit_personer_house_saved_live'
+            )
+            ->selectSub(
+                RatsitData::query()
+                    ->selectRaw('count(*)')
+                    ->whereRaw('1 = 0'),
+                'ratsit_foretag_saved_live'
+            )
+            ->selectSub(
+                MerinfoData::query()
+                    ->selectRaw('count(*)')
+                    ->whereRaw("merinfo_data.postnummer = REPLACE(post_nums.post_nummer, ' ', '')")
+                    ->where('is_active', true),
+                'merinfo_personer_saved_live'
+            )
+            ->selectSub(
+                MerinfoData::query()
+                    ->selectRaw('count(*)')
+                    ->whereRaw("merinfo_data.postnummer = REPLACE(post_nums.post_nummer, ' ', '')")
+                    ->where('is_active', true)
+                    ->where('is_hus', true),
+                'merinfo_personer_house_saved_live'
+            )
+            ->selectSub(
+                MerinfoData::query()
+                    ->selectRaw('count(*)')
+                    ->whereRaw("merinfo_data.postnummer = REPLACE(post_nums.post_nummer, ' ', '')")
+                    ->where('is_active', true)
+                    ->where('is_telefon', true),
+                'merinfo_personer_phone_saved_live'
+            )
+            ->selectSub(
+                MerinfoData::query()
+                    ->selectRaw('count(*)')
+                    ->whereRaw('1 = 0'),
+                'merinfo_foretag_saved_live'
+            );
     }
 
     public static function getRelations(): array

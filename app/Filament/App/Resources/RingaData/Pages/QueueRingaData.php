@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\App\Resources\RingaListan\Pages;
+namespace App\Filament\App\Resources\RingaData\Pages;
 
 use App\Filament\App\Resources\RingaDatas\RingaDatasResource;
 use App\Filament\App\Resources\RingaDatas\Widgets\RingaDataCalendar;

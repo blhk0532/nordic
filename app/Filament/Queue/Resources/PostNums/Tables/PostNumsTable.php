@@ -84,14 +84,14 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('hitta_personer_saved')
+                    TextColumn::make('hitta_personer_saved_live')
                         ->label('💾')
                         ->numeric()
                         ->sortable()
                         ->toggleable()
                         ->placeholder('—'),
 
-                    TextColumn::make('hitta_foretag_saved')
+                    TextColumn::make('hitta_foretag_saved_live')
                         ->label('🏛️💾')
                         ->numeric()
                         ->sortable()
@@ -99,14 +99,14 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('hitta_personer_phone_saved')
+                    TextColumn::make('hitta_personer_phone_saved_live')
                         ->label('☎️')
                         ->numeric()
                         ->sortable()
                         ->toggleable()
                         ->placeholder('—'),
 
-                    TextColumn::make('hitta_personer_house_saved')
+                    TextColumn::make('hitta_personer_house_saved_live')
                         ->label('🏠')
                         ->numeric()
                         ->sortable()
@@ -130,14 +130,14 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('ratsit_personer_saved')
+                    TextColumn::make('ratsit_personer_saved_live')
                         ->label('💾')
                         ->numeric()
                         ->sortable()
                         ->toggleable()
                         ->placeholder('—'),
 
-                    TextColumn::make('ratsit_foretag_saved')
+                    TextColumn::make('ratsit_foretag_saved_live')
                         ->label('🏛️💾')
                         ->numeric()
                         ->sortable()
@@ -145,14 +145,14 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('ratsit_personer_phone_saved')
+                    TextColumn::make('ratsit_personer_phone_saved_live')
                         ->label('☎️')
                         ->numeric()
                         ->sortable()
                         ->toggleable()
                         ->placeholder('—'),
 
-                    TextColumn::make('ratsit_personer_house_saved')
+                    TextColumn::make('ratsit_personer_house_saved_live')
                         ->label('🏠')
                         ->numeric()
                         ->sortable()
@@ -184,7 +184,7 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: false),
 
-                    TextColumn::make('merinfo_personer_saved')
+                    TextColumn::make('merinfo_personer_saved_live')
                         ->label('💾')
                         ->numeric()
                         ->sortable()
@@ -192,7 +192,7 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('merinfo_foretag_saved')
+                    TextColumn::make('merinfo_foretag_saved_live')
                         ->label('🏛️💾')
                         ->numeric()
                         ->sortable()
@@ -200,7 +200,7 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('merinfo_personer_phone_saved')
+                    TextColumn::make('merinfo_personer_phone_saved_live')
                         ->label('☎️')
                         ->numeric()
                         ->sortable()
@@ -208,7 +208,7 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    TextColumn::make('merinfo_personer_house_saved')
+                    TextColumn::make('merinfo_personer_house_saved_live')
                         ->label('🏠')
                         ->numeric()
                         ->sortable()
@@ -224,7 +224,7 @@ class PostNumsTable
                 IconColumn::make('is_active')
                     ->label('⩇⩇:⩇⩇')
                     ->boolean()
-                   ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('status')
                     ->label('Status')

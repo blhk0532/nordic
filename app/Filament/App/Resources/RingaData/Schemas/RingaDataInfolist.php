@@ -4,25 +4,29 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaData\Schemas;
 
-use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 
 class RingaDataInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Schema $schema, $record = null, $component = null): Schema
     {
-        return $schema
-            ->components([
-                RichEditor::make('user_notes')
-                    ->label('Anteckningar')
-                    ->columnSpanFull()
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
-                        ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
-                        ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
-                        ['table', 'attachFiles'], // The `customBlocks` and `mergeTags` tools are also added here if those features are used.
-                        ['undo', 'redo'],
-                    ]),
-            ]);
+        if (! $record) {
+            $record = $schema->getRecord();
+        }
+
+        $components = [
+            RingaDataInfolistPrimary::make(),
+            RingaDataInfolistOutcomes::make($record, $component),
+        ];
+
+        $phoneNumbersSection = RingaDataInfolistPhoneNumbers::make($record);
+
+        if ($phoneNumbersSection) {
+            $components[] = $phoneNumbersSection;
+        }
+
+        $components[] = RingaDataInfolistNotes::make();
+
+        return $schema->components($components);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Queue\Resources\SwedenKommuners\Schemas;
 
+use App\Models\SwedenKommuner;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class SwedenKommunerInfolist
@@ -10,7 +12,26 @@ class SwedenKommunerInfolist
     {
         return $schema
             ->components([
-                //
+                TextEntry::make('kommun'),
+                TextEntry::make('lan'),
+                TextEntry::make('personer')
+                    ->numeric()
+                    ->placeholder('-'),
+                TextEntry::make('foretag')
+                    ->numeric()
+                    ->placeholder('-'),
+                TextEntry::make('latitude')
+                    ->placeholder('-'),
+                TextEntry::make('longitude'),
+                TextEntry::make('created_at')
+                    ->dateTime()
+                    ->placeholder('-'),
+                TextEntry::make('updated_at')
+                    ->dateTime()
+                    ->placeholder('-'),
+                TextEntry::make('deleted_at')
+                    ->dateTime()
+                    ->visible(fn (SwedenKommuner $record): bool => $record->trashed()),
             ]);
     }
 }

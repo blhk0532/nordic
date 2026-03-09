@@ -24,7 +24,7 @@ class RingaDataInfolistOutcomesWidget extends Widget implements HasActions, HasS
 
     protected string $view = 'filament.app.resources.ringa-data.widgets.ringa-data-infolist-outcomes-widget';
 
-    protected int|string|array $columnSpan = 'full';
+    protected int|string|array $columnSpan = '1/2';
 
     protected static ?string $heading = null;
 

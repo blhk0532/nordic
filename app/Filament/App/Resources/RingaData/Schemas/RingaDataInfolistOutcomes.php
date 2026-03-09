@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\App\Resources\RingaListan\Schemas;
+namespace App\Filament\App\Resources\RingaData\Schemas;
 
 use App\Enums\Outcomes3;
 use App\Models\OutcomeSetting;

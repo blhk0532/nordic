@@ -217,9 +217,33 @@ final class RingaDataTable
                         \Adultdate\FilamentBooking\Enums\Paid::class => 'heroicon-o-check-circle',
                         \Adultdate\FilamentBooking\Enums\Failed::class => 'heroicon-o-x-circle',
                     ]),
-                IconColumn::make('outcome')
+
+                TextColumn::make('attempts')
+                    ->label('Try')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false)
+                    ->alignCenter(),
+                ToggleColumn::make('is_active')
+                    ->label('Active')
+                    ->sortable(),
+                TextColumn::make('expires_at')
+                    ->dateTime()
+                    ->hidden()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->hidden()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->hidden()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                                    IconColumn::make('outcome')
                     ->label('🕻')
                     ->sortable()
+                    ->hidden()
                     ->color('gray')
                     ->tooltip(
                         fn ($state) => $state instanceof Outcomes
@@ -251,28 +275,6 @@ final class RingaDataTable
                                     ->send();
                             })
                     ),
-                TextColumn::make('attempts')
-                    ->label('Try')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: false)
-                    ->alignCenter(),
-                ToggleColumn::make('is_active')
-                    ->label('Active')
-                    ->sortable(),
-                TextColumn::make('expires_at')
-                    ->dateTime()
-                    ->hidden()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->hidden()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->hidden()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
 
