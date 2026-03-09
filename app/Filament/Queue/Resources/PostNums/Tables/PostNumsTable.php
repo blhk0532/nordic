@@ -37,6 +37,7 @@ use Filament\Notifications\Notification;
 use Filament\Tables\Columns\ColumnGroup;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
@@ -215,16 +216,15 @@ class PostNumsTable
                         ->placeholder('—')
                         ->toggleable(isToggledHiddenByDefault: true),
 
-                    IconColumn::make('merinfo_personer_queue')
+                    ToggleColumn::make('merinfo_personer_queue')
                         ->label('📅')
-                        ->boolean()
                         ->toggleable(),
                 ]),
 
                 IconColumn::make('is_active')
                     ->label('⩇⩇:⩇⩇')
                     ->boolean()
-                    ->toggleable(),
+                   ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('status')
                     ->label('Status')
@@ -265,7 +265,7 @@ class PostNumsTable
 
                 TernaryFilter::make('has_phone')
                     ->label('Show Phone Only')
-                    ->default(true)
+                    ->default(false)
                     ->queries(
                         true: fn ($query) => $query->where(function ($q) {
                             $q->where('hitta_personer_phone_saved', '>', 0)
