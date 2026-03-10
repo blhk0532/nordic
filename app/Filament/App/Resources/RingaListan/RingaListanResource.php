@@ -67,14 +67,46 @@ class RingaListanResource extends Resource
     {
         return [
             'all' => Tab::make('All')
-                ->badge(fn () => self::getEloquentQuery()->count()),
+                ->badge(fn () => self::getAllCount()),
             'pending' => Tab::make('Pending')
-                ->modifyQueryUsing(fn (Builder $query) => $query->whereIn('outcome', self::getTrackedOutcomes()))
-                ->badge(fn () => self::getEloquentQuery()->whereIn('outcome', self::getTrackedOutcomes())->count()),
+                ->modifyQueryUsing(fn (Builder $query) => self::applyPendingScope($query))
+                ->badge(fn () => self::getRingAgainCount()),
             'completed' => Tab::make('Completed')
-                ->modifyQueryUsing(fn (Builder $query) => $query->whereNotIn('outcome', self::getTrackedOutcomes()))
-                ->badge(fn () => self::getEloquentQuery()->whereNotIn('outcome', self::getTrackedOutcomes())->count()),
+                ->modifyQueryUsing(fn (Builder $query) => self::applyCompletedScope($query))
+                ->badge(fn () => self::getCompletedCount()),
         ];
+    }
+
+    public static function applyPendingScope(Builder $query): Builder
+    {
+        return $query->whereIn('outcome', self::getTrackedOutcomes());
+    }
+
+    public static function applyCompletedScope(Builder $query): Builder
+    {
+        return $query
+            ->whereNotNull('outcome')
+            ->whereNotIn('outcome', self::getTrackedOutcomes());
+    }
+
+    public static function getRingAgainQuery(): Builder
+    {
+        return self::applyPendingScope(self::getEloquentQuery());
+    }
+
+    public static function getRingAgainCount(): int
+    {
+        return (int) self::getRingAgainQuery()->count();
+    }
+
+    public static function getAllCount(): int
+    {
+        return (int) self::getEloquentQuery()->count();
+    }
+
+    public static function getCompletedCount(): int
+    {
+        return (int) self::applyCompletedScope(self::getEloquentQuery())->count();
     }
 
     public static function getEloquentQuery(): Builder
@@ -112,18 +144,14 @@ class RingaListanResource extends Resource
 
     public static function getNavigationBadgeColor(): ?string
     {
-        $count = self::getEloquentQuery()
-            ->whereIn('outcome', self::getTrackedOutcomes())
-            ->count();
+        $count = self::getRingAgainCount();
 
         return $count ? 'warning' : 'success';
     }
 
     public static function getNavigationBadge(): ?string
     {
-        $count = self::getEloquentQuery()
-            ->whereIn('outcome', self::getTrackedOutcomes())
-            ->count();
+        $count = self::getRingAgainCount();
 
         return $count ? (string) $count : '❍';
     }

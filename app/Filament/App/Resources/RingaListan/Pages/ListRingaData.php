@@ -54,25 +54,19 @@ class ListRingaData extends ListRecords
                 ->label('Pending')
                 ->url(fn () => request()->fullUrlWithQuery(['tab' => 'pending']))
                 ->color($currentTab === 'pending' ? 'primary' : 'gray')
-                ->badge(fn () => RingaListanResource::getEloquentQuery()->whereIn('outcome', [
-                    \App\Enums\Outcomes::Aterkommer->value,
-                    \App\Enums\Outcomes::RingTillbaka->value,
-                ])->count()),
+                ->badge(fn () => RingaListanResource::getRingAgainCount()),
 
             Action::make('completed_tab')
                 ->label('Completed')
                 ->url(fn () => request()->fullUrlWithQuery(['tab' => 'completed']))
                 ->color($currentTab === 'completed' ? 'primary' : 'gray')
-                ->badge(fn () => RingaListanResource::getEloquentQuery()->whereNotIn('outcome', [
-                    \App\Enums\Outcomes::Aterkommer->value,
-                    \App\Enums\Outcomes::RingTillbaka->value,
-                ])->count()),
+                ->badge(fn () => RingaListanResource::getCompletedCount()),
 
             Action::make('all_tab')
                 ->label('All')
                 ->url(fn () => request()->fullUrlWithQuery(['tab' => 'all']))
                 ->color($currentTab === 'all' ? 'primary' : 'gray')
-                ->badge(fn () => RingaListanResource::getEloquentQuery()->count()),
+                ->badge(fn () => RingaListanResource::getAllCount()),
         ];
     }
 
@@ -83,14 +77,8 @@ class ListRingaData extends ListRecords
                 $tab = request()->get('tab', 'pending');
 
                 return match ($tab) {
-                    'pending' => $query->whereIn('outcome', [
-                        \App\Enums\Outcomes::Aterkommer->value,
-                        \App\Enums\Outcomes::RingTillbaka->value,
-                    ]),
-                    'completed' => $query->whereNotIn('outcome', [
-                        \App\Enums\Outcomes::Aterkommer->value,
-                        \App\Enums\Outcomes::RingTillbaka->value,
-                    ]),
+                    'pending' => RingaListanResource::applyPendingScope($query),
+                    'completed' => RingaListanResource::applyCompletedScope($query),
                     default => $query,
                 };
             });

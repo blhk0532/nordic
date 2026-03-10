@@ -20,72 +20,80 @@ use Filament\Tables\Table;
 
 class RingaDataTable
 {
-    public static function configure(Table $table): Table
+    public static function configure(Table $table, bool $showScheduleColumns = true): Table
     {
-        return $table
-            ->toolbarActions([
-            ])
-            ->extraAttributes(['class' => 'aterkom-table min-h-[400px]'])
-            ->columns([
-                TextColumn::make('gatuadress')
-                    ->sortable(),
-                TextColumn::make('postort')
-                    ->sortable(),
-                TextColumn::make('personnamn')
-                    ->sortable(),
-                TextColumn::make('attempts')
-                    ->hidden()
-                    ->sortable()
-                    ->alignCenter(),
-                TextColumn::make('outcome')
-                    ->sortable()
-                    ->badge()
-                    ->color(static fn ($state) => $state instanceof Outcomes
-                            ? $state->getColor()
-                            : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
-                    )
-                    ->action(
-                        Actions\Action::make('changeOutcome')
-                            ->label('Change Outcome')
-                            ->icon('heroicon-o-pencil')
-                            ->modalHeading('Change Outcome')
-                            ->modalSubmitActionLabel('Update')
-                            ->schema([
-                                Select::make('outcome')
-                                    ->label('Select New Outcome')
-                                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
-                                        fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
-                                    )->toArray())
-                                    ->required()
-                                    ->native(false)
-                                    ->searchable(),
-                            ])
-                            ->action(function (RingaData $record, array $data): void {
-                                $record->update(['outcome' => $data['outcome']]);
+        $columns = [
+            TextColumn::make('gatuadress')
+                ->sortable(),
+            TextColumn::make('postort')
+                ->sortable(),
+            TextColumn::make('personnamn')
+                ->sortable(),
+            TextColumn::make('attempts')
+                ->hidden()
+                ->sortable()
+                ->alignCenter(),
+            TextColumn::make('outcome')
+                ->sortable()
+                ->default('Ej satt')
+                ->badge()
+                ->color(static fn ($state) => $state instanceof Outcomes
+                        ? $state->getColor()
+                        : (is_string($state) ? Outcomes::tryFrom($state)?->getColor() ?? 'primary' : 'primary')
+                )
+                ->action(
+                    Actions\Action::make('changeOutcome')
+                        ->label('Change Outcome')
+                        ->icon('heroicon-o-pencil')
+                        ->modalHeading('Change Outcome')
+                        ->modalSubmitActionLabel('Update')
+                        ->schema([
+                            Select::make('outcome')
+                                ->label('Select New Outcome')
+                                ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
+                                    fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
+                                )->toArray())
+                                ->required()
+                                ->native(false)
+                                ->searchable(),
+                        ])
+                        ->action(function (RingaData $record, array $data): void {
+                            $record->update(['outcome' => $data['outcome']]);
 
-                                Notification::make()
-                                    ->title('Outcome Updated')
-                                    ->success()
-                                    ->send();
-                            })
-                    ),
+                            Notification::make()
+                                ->title('Outcome Updated')
+                                ->success()
+                                ->send();
+                        })
+                ),
+            TextColumn::make('created_at')
+                ->dateTime()
+                ->hidden()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable()
+                ->hidden()
+                ->toggleable(isToggledHiddenByDefault: true),
+        ];
+
+        if ($showScheduleColumns) {
+            array_splice($columns, 5, 0, [
                 TextColumn::make('available_at')
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('aterkom_at')
                     ->dateTime()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->hidden()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->hidden()
-                    ->toggleable(isToggledHiddenByDefault: true),
+            ]);
+        }
+
+        return $table
+            ->toolbarActions([
             ])
+            ->extraAttributes(['class' => 'aterkom-table min-h-[400px]'])
+            ->columns($columns)
             ->emptyStateHeading('Inga Återkomster')
             ->emptyStateDescription('Återkomstlistan är tom')
             ->emptyStateIcon('heroicon-o-check')
@@ -105,11 +113,7 @@ class RingaDataTable
                     ->label('Ring')
                     ->icon('heroicon-o-phone-arrow-up-right')
                     ->color('primary')
-                    ->action(function ($record, $livewire) {
-                        if (method_exists($livewire, 'selectRecord')) {
-                            $livewire->selectRecord($record->id);
-                        }
-                    }),
+                    ->url(fn (RingaData $record): string => 'tel:'.$record->telefon),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

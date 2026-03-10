@@ -22,6 +22,7 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Novius\LaravelFilamentActionPreview\Filament\Actions\PreviewAction;
 use UnitEnum;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
@@ -61,9 +62,9 @@ class RingaDataResource extends Resource
         //  if (filament()->getTenant()->getAttribute('is_admin') !== true) {
         //      return true;
         //  }
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-            return true;
-        }
+     //   if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+     //       return true;
+     //   }
 
         return false;
     }
@@ -185,6 +186,17 @@ class RingaDataResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) self::getEloquentQuery()->count();
+        if (! auth()->check()) {
+            return null;
+        }
+
+        $userId = auth()->id();
+        $tenantId = filament()->getTenant()?->id ?? 'none';
+
+        return (string) Cache::remember(
+            "filament:ringa-data:navigation-badge:{$userId}:{$tenantId}",
+            now()->addSeconds(30),
+            fn (): int => self::getEloquentQuery()->count(),
+        );
     }
 }

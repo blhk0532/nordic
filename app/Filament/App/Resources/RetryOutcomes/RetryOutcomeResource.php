@@ -18,7 +18,7 @@ use UnitEnum;
 
 class RetryOutcomeResource extends Resource
 {
-    public static bool $shouldRegisterNavigation = true;
+    public static bool $shouldRegisterNavigation = false;
 
     protected static ?string $model = RingaData::class;
 
@@ -59,42 +59,35 @@ class RetryOutcomeResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) self::getQuery()->count();
+        return (string) self::getEloquentQuery()->count();
     }
 
     public static function getNavigationBadgeColor(): ?string
     {
-        return self::getQuery()->count() > 50 ? 'warning' : 'primary';
+        return self::getEloquentQuery()->count() > 50 ? 'warning' : 'primary';
     }
 
     public static function getQuery(): \Illuminate\Database\Eloquent\Builder
     {
-        $query = RingaData::query()
-            ->where(function (Builder $query) {
-                $query->where('outcome_category', 'Retry')
-                    ->orWhere('outcome', 'Upptagen')
-                    ->orWhere('outcome', 'Inget Svar')
-                    ->orWhere('outcome', 'Telefonsvarare')
-                    ->orWhere('outcome', 'Ej Framkopplad')
-                    ->where('user_id', auth()->user()?->id);
-            });
-
-        return $query;
+        return self::getEloquentQuery();
     }
 
     public static function getEloquentQuery(): Builder
     {
-        // $query = parent::getEloquentQuery();
-        $query = RingaData::query()
-            ->where(function (Builder $query) {
+        $userId = auth()->id();
+
+        if (! $userId) {
+            return RingaData::query()->whereRaw('1 = 0');
+        }
+
+        return RingaData::query()
+            ->where('user_id', $userId)
+            ->where(function (Builder $query): void {
                 $query->where('outcome_category', 'Retry')
                     ->orWhere('outcome', 'Upptagen')
                     ->orWhere('outcome', 'Inget Svar')
                     ->orWhere('outcome', 'Telefonsvarare')
-                    ->orWhere('outcome', 'Ej Framkopplad')
-                    ->where('user_id', auth()->user()?->id);
+                    ->orWhere('outcome', 'Ej Framkopplad');
             });
-
-        return $query;
     }
 }

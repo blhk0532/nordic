@@ -84,6 +84,9 @@ use Muazzam\SlickScrollbar\SlickScrollbarPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+use App\Filament\App\Resources\Users\UserResource;
+use Filament\Support\Icons\Heroicon;
+use App\Filament\App\Resources\RingaData\RingaDataResource;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -398,7 +401,7 @@ class AppPanelProvider extends PanelProvider
                     ->icon(Remix::RiDashboard2Line)
                     ->url(fn () => TeamUserResource::getUrl())
                     ->sort(-1)
-                    ->visible(true),
+                    ->visible(false),
                 'register' => fn (Action $action) => $action->label('Register team')
                     ->icon('heroicon-m-user-plus')
                     ->visible(fn () => User::canManageTeam() !== false && ! filament()->getTenant()),
@@ -410,6 +413,21 @@ class AppPanelProvider extends PanelProvider
                 //        ->visible(fn () => User::canManageTeam() !== false),
                 'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
+                    ->url(fn (): string => filament()->getTenant()->slug . '/profile')
+                    ->visible(false),
+                'nummer.lista' => Action::make('nummer.lista')
+                    ->label('Nummerlista')
+                    ->icon('heroicon-o-queue-list')
+                    ->badge(fn () => RingaDataResource::getEloquentQuery()->count())
+                    ->url(fn () => RingaDataResource::getUrl())
+                    ->sort(-1)
+                    ->visible(fn () => User::canManageTeam() !== false),
+                'users' => Action::make('Users')
+                    ->label('Användare')
+                    ->icon(Heroicon::UserGroup)
+                    ->badge(fn () => UserResource::getEloquentQuery()->count())
+                    ->sort(-1)
+                    ->url(fn () => UserResource::getUrl())
                     ->visible(fn () => User::canManageTeam() !== false),
             ])
             ->defaultAvatarProvider(DiceBearProvider::class)

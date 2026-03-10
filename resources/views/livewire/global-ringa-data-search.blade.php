@@ -49,7 +49,7 @@
             <div class="flex items-center gap-3">
                 <x-filament::icon icon="ri-timer-flash-line" class="w-5 h-5 text-white" />
                 <h2 class="text-base font-semibold text-white">
-                    ᓚᘏᗢ
+                    Ring Tillbaka - Återkomstlista
                 </h2>
             </div>
             <button

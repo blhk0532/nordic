@@ -25,7 +25,7 @@ class ChatsPage extends Page
 
     protected static ?string $title = '  ';
 
-    protected static bool $shouldRegisterNavigation = true;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static bool $fullWidth = true;
 

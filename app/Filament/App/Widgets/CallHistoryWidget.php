@@ -9,6 +9,7 @@ use App\Models\RingaData;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class CallHistoryWidget extends BaseWidget
 {
@@ -18,24 +19,31 @@ class CallHistoryWidget extends BaseWidget
 
     protected static ?int $sort = 10;
 
-    public function table(Table $table): Table
+    public static function getBaseQuery(): Builder
     {
-        $userId = auth()->id();
+        $userId = Auth::id();
         $tenantId = filament()->getTenant()?->id;
 
-        return RingaDataTable::configure($table)
-            ->query(
-                RingaData::query()
-                    ->where(function (Builder $query) use ($userId, $tenantId) {
-                        $query->where('user_id', $userId);
+        if (! $userId) {
+            return RingaData::query()->whereRaw('1 = 0');
+        }
 
-                        if ($tenantId) {
-                            $query->orWhere('team_id', $tenantId);
-                        }
-                    })
-                    ->whereNotNull('outcome')
-                    ->latest('updated_at')
-            );
+        return RingaData::query()
+            ->where(function (Builder $query) use ($userId, $tenantId): void {
+                $query->where('user_id', $userId);
+
+                if ($tenantId) {
+                    $query->orWhere('team_id', $tenantId);
+                }
+            })
+            ->whereNotNull('outcome')
+            ->latest('updated_at');
+    }
+
+    public function table(Table $table): Table
+    {
+        return RingaDataTable::configure($table, showScheduleColumns: false)
+            ->query(self::getBaseQuery());
         //    ->heading('Samtalshistorik')
         //    ->description('Registrerade utfall');
     }

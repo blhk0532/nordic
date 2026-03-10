@@ -109,18 +109,18 @@ class AdminPanelProvider extends PanelProvider
 
             ->defaultThemeMode(config('teamkit.theme_mode', ThemeMode::Dark))
             ->sidebarFullyCollapsibleOnDesktop()
-            ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
-            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
-            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
+            // ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
+            // ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
+            // ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             //    ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
-            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
-            ->discoverResources(in: app_path('../plugins/adultdate/filament-booking/src/Filament/Resources'), for: 'Adultdate\\FilamentBooking\\Filament\\Resources')
+            // ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
+            // ->discoverResources(in: app_path('../plugins/adultdate/filament-booking/src/Filament/Resources'), for: 'Adultdate\\FilamentBooking\\Filament\\Resources')
 
             ->pages([
-                Sanctum::class,
+            //    Sanctum::class,
                 \App\Filament\App\Pages\TeamInvitationAccept::class,
-                Profile::class,
-                ControlPanel::class,
+            //    Profile::class,
+            //    ControlPanel::class,
                 PersonalAccessTokens::class,
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
@@ -153,29 +153,29 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->plugin(TallCmsPlugin::make())
+            // ->plugin(TallCmsPlugin::make())
             ->plugins([
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
-                MemberPlugin::make(),
+            //    MemberPlugin::make(),
                 AdvancedExportPlugin::make(),
                 //    ApiServicePlugin::make()
             ])
             ->plugins([
                 FileManagerPlugin::make()
                     ->defaultDisk('public')
-                    ->navigationGroup('Content')
+                    ->navigationGroup('Storage')
                     ->navigationIcon('heroicon-o-folder')
                     ->navigationSort(5),
             ])
             ->plugins([
-                FilamentGeneralSettingsPlugin::make()
-                    ->canAccess(fn () => Auth::user()->role === 'super')
-                    ->setSort(3)
-                    ->setIcon('heroicon-o-cog')
-                    ->setNavigationGroup('Settings')
-                    ->setTitle('Settings')
-                    ->setNavigationLabel('Settings'),
+            //    FilamentGeneralSettingsPlugin::make()
+            //        ->canAccess(fn () => Auth::user()->role === 'super')
+            //        ->setSort(3)
+            //        ->setIcon('heroicon-o-cog')
+            //        ->setNavigationGroup('Settings')
+            //        ->setTitle('Settings')
+            //        ->setNavigationLabel('Settings'),
             ])
             ->plugins([])
             ->plugins([
@@ -195,10 +195,10 @@ class AdminPanelProvider extends PanelProvider
                 //  WhatsappWidgetPlugin::make(),
             ])
             ->plugins([
-                ActivityLogPlugin::make()
-                    ->label('Log')
-                    ->pluralLabel('Logs')
-                    ->navigationGroup('System'),
+            //    ActivityLogPlugin::make()
+            //        ->label('Log')
+            //        ->pluralLabel('Logs')
+            //        ->navigationGroup('System'),
             ])
             ->plugins([
                 EasyFooterPlugin::make()
@@ -345,17 +345,17 @@ class AdminPanelProvider extends PanelProvider
                     ->sort(-1)
                     ->visible(fn () => User::canManageTeam() !== false),
             ])
-            ->plugin(
-                FilamentShieldPlugin::make()
-                    ->navigationLabel('Roles')                  // string|Closure|null
-                    ->navigationIcon('heroicon-o-shield-check')         // string|Closure|null
-                    ->activeNavigationIcon('heroicon-s-shield-check')   // string|Closure|null
-                    ->navigationGroup('Användare')                  // string|Closure|null
-                    ->navigationSort(10)                        // int|Closure|null
-                    ->navigationBadge('Roles')                      // string|Closure|null
-                    ->navigationBadgeColor('success')           // string|array|Closure|null
-                    ->scopeToTenant(false)
-            )
+        //    ->plugin(
+        //        FilamentShieldPlugin::make()
+        //            ->navigationLabel('Roles')                  // string|Closure|null
+        //            ->navigationIcon('heroicon-o-shield-check')         // string|Closure|null
+        //            ->activeNavigationIcon('heroicon-s-shield-check')   // string|Closure|null
+        //            ->navigationGroup('Användare')                  // string|Closure|null
+        //            ->navigationSort(10)                        // int|Closure|null
+        //            ->navigationBadge('Roles')                      // string|Closure|null
+        //            ->navigationBadgeColor('success')           // string|array|Closure|null
+        //        //    ->scopeToTenant(true)
+        //    )
             ->plugins([
                 FilamentBookingPlugin::make(),
                 //   FilamentDialerPlugin::make(),

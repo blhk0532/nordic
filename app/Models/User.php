@@ -37,7 +37,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Kirschbaum\Commentions\Contracts\Commentable;
 use Kirschbaum\Commentions\Contracts\Commenter;
+use Kirschbaum\Commentions\HasComments;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Leek\FilamentDiceBear\Concerns\HasDiceBearAvatar;
@@ -174,12 +176,13 @@ use Zap\Models\Concerns\HasSchedules;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, Commenter, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, WirechatUser
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, Commentable, Commenter, FilamentUser, HasAvatar, HasDefaultTenant, HasTenants, MustVerifyEmailContract, WirechatUser
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
     use HasApiTokens;
+    use HasComments;
     use HasCompanies;
     use HasDiceBearAvatar;
     use HasFactory;

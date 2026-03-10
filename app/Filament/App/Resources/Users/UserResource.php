@@ -19,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Cache;
 
 use function __;
 
@@ -48,9 +49,9 @@ class UserResource extends Resource
         //      return false;
         //  }
 
-        if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
-            return true;
-        }
+        // if (auth()->user()->role === 'admin' || auth()->user()->role === 'super' || auth()->user()->role === 'manager') {
+        //     return true;
+        // }
 
         return false;
 
@@ -93,7 +94,14 @@ class UserResource extends Resource
             return null;
         }
 
-        return (string) self::getEloquentQuery()->count();
+        $userId = auth()->id();
+        $tenantId = filament()->getTenant()?->id ?? auth()->user()?->current_team_id ?? 'none';
+
+        return (string) Cache::remember(
+            "filament:users:navigation-badge:{$userId}:{$tenantId}",
+            now()->addSeconds(30),
+            fn (): int => self::getEloquentQuery()->count(),
+        );
     }
 
     public static function form(Schema $schema): Schema

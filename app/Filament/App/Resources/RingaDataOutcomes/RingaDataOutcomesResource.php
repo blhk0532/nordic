@@ -43,15 +43,15 @@ class RingaDataOutcomesResource extends Resource
     public static function shouldRegisterNavigation(): bool
     {
 
-        $teneant = filament()->getTenant();
-        if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
-            return true;
-        }
-        if (filament()->getTenant()->getAttribute('is_admin') === true) {
-            return true;
-        }
+        //   $teneant = filament()->getTenant();
+        //   if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
+        //       return true;
+        //   }
+        //   if (filament()->getTenant()->getAttribute('is_admin') === true) {
+        //       return true;
+        //   }
 
-        return true;
+        return false;
     }
 
     public static function form(Schema $schema): Schema

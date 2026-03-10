@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Filament\App\Resources\RetryOutcomes\Widgets;
 
 use App\Filament\App\Resources\RetryOutcomes\RetryOutcomeResource;
+use App\Models\RingaData;
+use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
@@ -17,8 +19,6 @@ class RetryOutcomeWidget extends BaseWidget
 
     public function table(Table $table): Table
     {
-        $userId = auth()->id();
-
         return $table
             ->query(fn () => RetryOutcomeResource::getEloquentQuery())
             ->columns([
@@ -52,13 +52,27 @@ class RetryOutcomeWidget extends BaseWidget
                     ->label('Försök')
                     ->sortable()
                     ->toggleable(),
-                TextColumn::make('available_at')
-                    ->label('Återkom')
-                    ->dateTime('d M Y H:i')
-                    ->sortable()
-                    ->toggleable(),
             ])
-            ->defaultSort('available_at', 'asc')
+            ->recordActions([
+                Action::make('ring')
+                    ->label('Ring')
+                    ->icon('heroicon-o-phone-arrow-up-right')
+                    ->color('success')
+                    ->url(function (RingaData $record): string {
+                        $telefon = $record->telefon;
+
+                        if (is_array($telefon)) {
+                            $telefon = $telefon[0] ?? '';
+                        }
+
+                        if (is_string($telefon) && str_contains($telefon, ',')) {
+                            $telefon = explode(',', $telefon)[0];
+                        }
+
+                        return 'tel:'.trim((string) $telefon);
+                    }),
+            ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ]);

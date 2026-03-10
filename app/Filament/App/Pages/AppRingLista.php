@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Pages;
 
-use App\Enums\Outcomes;
 use App\Filament\Admin\Widgets\AccountInfoStackWidget;
 use App\Filament\Admin\Widgets\WorldClockWidget;
 use App\Filament\App\Resources\RingaListan\RingaListanResource;
@@ -53,28 +52,16 @@ class AppRingLista extends Page
 
     public static function getNavigationBadgeColor(): ?string
     {
-        $count = RingaListanResource::getEloquentQuery()
-            ->whereIn('outcome', RingaListanResource::getTrackedOutcomes())
-            ->count();
+        $count = RingaListanResource::getRingAgainCount();
 
         return $count ? 'warning' : 'success';
     }
 
     public static function getNavigationBadge(): ?string
     {
-        $count = RingaListanResource::getEloquentQuery()
-            ->whereIn('outcome', RingaListanResource::getTrackedOutcomes())
-            ->count();
+        $count = RingaListanResource::getRingAgainCount();
 
         return $count ? (string) $count : '❍';
-    }
-
-    private static function getTrackedOutcomes(): array
-    {
-        return [
-            Outcomes::Aterkommer->value,
-            Outcomes::RingTillbaka->value,
-        ];
     }
     //   public static function getNavigationBadgeColor(): ?string
     //   {

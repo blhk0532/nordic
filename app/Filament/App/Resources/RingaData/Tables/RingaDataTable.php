@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\RingaData\Tables;
 
-use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
-use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 use App\Enums\Outcomes;
 use App\Enums\OutcomeType;
-use App\Enums\Priority;
 use App\Models\BookingCalendar;
 use App\Models\Campaign;
 use App\Models\RatsitData;
@@ -32,8 +29,8 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Webbingbrasil\FilamentCopyActions\Tables\CopyableTextColumn;
 use Zvizvi\UserFields\Components\UserColumn;
@@ -44,62 +41,6 @@ final class RingaDataTable
     {
         return $table
             ->headerActions([
-                \Filament\Actions\Action::make('advancedExport')
-                    ->label('Export')
-                    ->color('success')
-                    ->icon('heroicon-o-arrow-down-tray')
-                    ->modal()
-                    ->modalHeading('Export Records')
-                    ->modalDescription('Select the columns you want to export. Maximum of 2000 records will be exported.')
-                    ->schema([
-                        \Filament\Forms\Components\Select::make('order_column')
-                            ->label('Order by Column')
-                            ->options(\App\Models\RingaData::getExportColumns())
-                            ->default('created_at'),
-                        \Filament\Forms\Components\Select::make('order_direction')
-                            ->label('Order Direction')
-                            ->options([
-                                'asc' => 'Ascending',
-                                'desc' => 'Descending',
-                            ])
-                            ->default('desc'),
-                        \Filament\Forms\Components\Repeater::make('columns')
-                            ->label('Configure Export Columns')
-                            ->schema([
-                                \Filament\Forms\Components\Select::make('field')
-                                    ->label('Field')
-                                    ->options(\App\Models\RingaData::getExportColumns())
-                                    ->required(),
-                                \Filament\Forms\Components\TextInput::make('title')
-                                    ->label('Custom Title')
-                                    ->required(),
-                            ])
-                            ->default(\App\Models\RingaData::getDefaultExportColumns())
-                            ->addActionLabel('Add Column')
-                            ->collapsible(),
-                    ])
-                    ->action(function () {
-                        // Simple test export - just export first 10 records directly
-                        $data = \App\Models\RingaData::query()->limit(10)->get();
-
-                        return response()->streamDownload(function () use ($data) {
-                            $handle = fopen('php://output', 'w');
-                            // CSV header
-                            fputcsv($handle, ['ID', 'Name', 'Phone', 'Address', 'Postnr', 'Ort']);
-
-                            foreach ($data as $row) {
-                                fputcsv($handle, [
-                                    $row->id,
-                                    $row->personnamn ?? '',
-                                    $row->telefon ?? '',
-                                    $row->gatuadress ?? '',
-                                    $row->postnummer ?? '',
-                                    $row->postort ?? '',
-                                ]);
-                            }
-                            fclose($handle);
-                        }, 'test-export.csv', ['Content-Type' => 'text/csv']);
-                    }),
                 \EightyNine\ExcelImport\ExcelImportAction::make()
                     ->color('primary'),
             ])
@@ -110,12 +51,13 @@ final class RingaDataTable
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
                 TextColumn::make('postnummer')
-                    ->label('postnr')
+                    ->label('Postnr')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('postort')
+                    ->label('Postort')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
@@ -125,7 +67,7 @@ final class RingaDataTable
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->sortable(),
                 TextColumn::make('fodelsedag')
-                    ->label('Age')
+                    ->label('Ålder')
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->state(fn (RingaData $record) => $record->fodelsedag ? \Carbon\Carbon::parse($record->fodelsedag)->age : '-')
                     ->sortable(),
@@ -207,19 +149,9 @@ final class RingaDataTable
                                 $record->update($data);
                             })
                     ),
-                IconSelectColumn::make('state')
-                    ->label(' ')
-                    ->options(fn () => collect(Priority::cases())->mapWithKeys(
-                        fn (Priority $priority) => [$priority->value => $priority->getLabel()]
-                    )->toArray())
-                    ->icons([
-                        \Adultdate\FilamentBooking\Enums\Pending::class => 'heroicon-o-clock',
-                        \Adultdate\FilamentBooking\Enums\Paid::class => 'heroicon-o-check-circle',
-                        \Adultdate\FilamentBooking\Enums\Failed::class => 'heroicon-o-x-circle',
-                    ]),
 
                 TextColumn::make('attempts')
-                    ->label('Try')
+                    ->label('Försök')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->alignCenter(),
@@ -240,7 +172,7 @@ final class RingaDataTable
                     ->sortable()
                     ->hidden()
                     ->toggleable(isToggledHiddenByDefault: true),
-                                    IconColumn::make('outcome')
+                IconColumn::make('outcome')
                     ->label('🕻')
                     ->sortable()
                     ->hidden()
@@ -276,6 +208,7 @@ final class RingaDataTable
                             })
                     ),
             ])
+            ->columnManagerColumns(3)
             ->filters([
 
                 Filter::make('postnummer')
@@ -294,40 +227,14 @@ final class RingaDataTable
                     ->label('Postort')
                     ->multiple()
                     ->searchable()
-                    ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('postort')
-                            ->distinct()
-                            ->orderBy('postort')
-                            ->pluck('postort', 'postort')
-                            ->toArray();
-                    }),
+                    ->options(fn () => self::getCachedRatsitOptions('postort')),
 
                 SelectFilter::make('kommun')
                     ->label('Kommun')
                     ->multiple()
                     ->searchable()
-                    ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('kommun')
-                            ->distinct()
-                            ->orderBy('kommun')
-                            ->pluck('kommun', 'kommun')
-                            ->toArray();
-                    }),
+                    ->options(fn () => self::getCachedRatsitOptions('kommun')),
 
-                SelectFilter::make('lan')
-                    ->label('Län')
-                    ->multiple()
-                    ->searchable()
-                    ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('lan')
-                            ->distinct()
-                            ->orderBy('lan')
-                            ->pluck('lan', 'lan')
-                            ->toArray();
-                    }),
                 SelectFilter::make('outcome')
                     ->label('Utfall')
                     ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
@@ -363,27 +270,13 @@ final class RingaDataTable
                     ->label('Ägandeform')
                     ->multiple()
                     ->searchable()
-                    ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('agandeform')
-                            ->distinct()
-                            ->orderBy('agandeform')
-                            ->pluck('agandeform', 'agandeform')
-                            ->toArray();
-                    }),
+                    ->options(fn () => self::getCachedRatsitOptions('agandeform')),
 
                 SelectFilter::make('bostadstyp')
                     ->label('Bostadstyp')
                     ->multiple()
                     ->searchable()
-                    ->options(function () {
-                        return RatsitData::query()
-                            ->whereNotNull('bostadstyp')
-                            ->distinct()
-                            ->orderBy('bostadstyp')
-                            ->pluck('bostadstyp', 'bostadstyp')
-                            ->toArray();
-                    }),
+                    ->options(fn () => self::getCachedRatsitOptions('bostadstyp')),
 
                 SelectFilter::make('campaign_id')
                     ->label('Kampanj')
@@ -399,10 +292,11 @@ final class RingaDataTable
                     })
                     ->searchable(),
 
-            ], layout: FiltersLayout::AboveContentCollapsible)
+            ], layout: FiltersLayout::Modal)
+            ->filtersFormColumns(3)
             ->persistFiltersInSession(false)
             ->paginated([10, 25, 50, 100, 150, 200, 250, 300, 400, 500])
-            ->defaultPaginationPageOption(25)
+            ->defaultPaginationPageOption(10)
             ->recordAction('view')
             ->recordActions([
                 EditAction::make()
@@ -422,37 +316,6 @@ final class RingaDataTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    FilamentExportBulkAction::make('export')
-                        ->fileName('My File') // Default file name
-                        ->timeFormat('m y d') // Default time format for naming exports
-                        ->disablePdf() // Disable PDF format for download
-                        ->disableXlsx() // Disable XLSX format for download
-                        ->disableCsv() // Disable CSV format for download
-                        ->defaultFormat('csv') // xlsx, csv or pdf
-                        ->defaultPageOrientation('landscape') // Page orientation for pdf files. portrait or landscape
-                        ->directDownload() // Download directly without showing modal
-                        ->disableAdditionalColumns() // Disable additional columns input
-                        ->disableFilterColumns() // Disable filter columns input
-                        ->disableFileName() // Disable file name input
-                        ->disableFileNamePrefix() // Disable file name prefix
-                        ->disablePreview() // Disable export preview
-                        ->disableTableColumns() // Disable table columns in the export
-                        ->withHiddenColumns() // Show the columns which are toggled hidden
-                        ->fileNameFieldLabel('File Name') // Label for file name input
-                        ->formatFieldLabel('Format') // Label for format input
-                        ->pageOrientationFieldLabel('Page Orientation') // Label for page orientation input
-                        ->filterColumnsFieldLabel('filter columns') // Label for filter columns input
-                        ->additionalColumnsFieldLabel('Additional Columns') // Label for additional columns input
-                        ->additionalColumnsTitleFieldLabel('Title') // Label for additional columns' title input
-                        ->additionalColumnsDefaultValueFieldLabel('Default Value') // Label for additional columns' default value input
-                        ->additionalColumnsAddButtonLabel('Add Column') // Label for additional columns' add button
-                        ->withColumns([TextColumn::make('additionalModelColumn')]) // Export additional model columns that aren't visible in the table results
-                        ->csvDelimiter(',') // Delimiter for csv files
-                        ->modifyExcelWriter(fn (\Spatie\SimpleExcel\SimpleExcelWriter $writer) => $writer->nameCurrentSheet('Sheet')) // Modify SimpleExcelWriter before download
-                        ->modifyPdfWriter(fn (\Barryvdh\DomPDF\PDF|\Barryvdh\Snappy\PdfWrapper $writer) => $writer->setPaper('a4', 'landscape')) // Modify DomPdf or Snappy writer before download
-                        ->formatStates([
-                            'name' => fn (?RingaData $record) => strtoupper($record->name),
-                        ]),
                     DeleteBulkAction::make()
                         ->label('Radera Uppgifterna'),
                     BulkAction::make('transferCampaign')
@@ -751,19 +614,16 @@ final class RingaDataTable
             });
     }
 
-    private function getHeaderActions(): array
+    private static function getCachedRatsitOptions(string $column): array
     {
-        return [
-            FilamentExportHeaderAction::make('export'),
-            \EightyNine\ExcelImport\ExcelImportAction::make()
-                ->color('primary'),
-        ];
-    }
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            FilamentExportHeaderAction::make('Exportera'),
-        ];
+        return Cache::remember("ringa-data:ratsit-options:{$column}", now()->addMinutes(30), function () use ($column): array {
+            return RatsitData::query()
+                ->whereNotNull($column)
+                ->where($column, '!=', '')
+                ->distinct()
+                ->orderBy($column)
+                ->pluck($column, $column)
+                ->toArray();
+        });
     }
 }

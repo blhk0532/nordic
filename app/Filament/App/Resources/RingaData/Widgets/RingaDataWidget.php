@@ -14,6 +14,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Guava\FilamentIconSelectColumn\Tables\Columns\IconSelectColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Shreejan\ActionableColumn\Tables\Columns\ActionableColumn;
 use Zvizvi\UserFields\Components\UserColumn;
 
@@ -23,14 +25,23 @@ class RingaDataWidget extends BaseWidget
 
     protected int|string|array $columnSpan = 'full';
 
+    public static function getBaseQuery(): Builder
+    {
+        $userId = Auth::id();
+
+        if (! $userId) {
+            return RingaData::query()->whereRaw('1 = 0');
+        }
+
+        return RingaData::query()
+            ->where('user_id', $userId)
+            ->whereNull('outcome');
+    }
+
     public function table(Table $table): Table
     {
-        $userId = auth()->id();
-
         return $table
-            ->query(fn () => RingaData::query()
-                ->where('user_id', $userId)
-                ->whereNull('outcome'))
+            ->query(fn () => self::getBaseQuery())
             ->headerActions([
                 \Filament\Actions\Action::make('advancedExport')
                     ->label('Export')

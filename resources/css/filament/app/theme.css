@@ -625,3 +625,7 @@ footer.fi-footer {
 .queue-table-widget thead{
     display:none!important;
 }
+
+.fi-ta-col-manager-actions-ctn{
+    padding-top:2rem
+}

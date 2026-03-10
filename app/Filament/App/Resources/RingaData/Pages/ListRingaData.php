@@ -19,6 +19,7 @@ use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Assets\Css;
 use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentAsset;
+use Filament\Tables\Table;
 
 class ListRingaData extends ListRecords
 {
@@ -50,6 +51,16 @@ class ListRingaData extends ListRecords
     protected function getHeaderActions(): array
     {
         return [];
+    }
+
+    public function table(Table $table): Table
+    {
+        return parent::table($table)
+            ->headerActions([
+                $this->getAdvancedExportHeaderAction(),
+                \EightyNine\ExcelImport\ExcelImportAction::make()
+                    ->color('primary'),
+            ]);
     }
 
     //  public static function getContextMenuActions(): array

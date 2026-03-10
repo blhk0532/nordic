@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\App\Resources\Bookings\Pages;
 
+use Adultdate\FilamentBooking\Enums\BookingStatus;
 use App\Filament\App\Resources\Bookings\BookingResource;
 use Filament\Actions\CreateAction;
 use Filament\Pages\Concerns\ExposesTableToWidgets;
@@ -20,10 +21,10 @@ class ListBookings extends ListRecords
     {
         return [
             null => Tab::make('Visa Alla'),
-            'bokad' => Tab::make()->query(fn ($query) => $query->where('status', 'booked')),
-            'avbokad' => Tab::make()->query(fn ($query) => $query->where('status', 'cancelled')),
-            'bekräftad' => Tab::make()->query(fn ($query) => $query->where('status', 'confirmed')),
-            'genomförd' => Tab::make()->query(fn ($query) => $query->where('status', 'completed')),
+            'bokad' => Tab::make('Bokad')->query(fn ($query) => $query->where('status', BookingStatus::Booked->value)),
+            'avbokad' => Tab::make('Avbokad')->query(fn ($query) => $query->where('status', BookingStatus::Cancelled->value)),
+            'bekräftad' => Tab::make('Bekräftad')->query(fn ($query) => $query->where('status', BookingStatus::Confirmed->value)),
+            'genomförd' => Tab::make('Genomförd')->query(fn ($query) => $query->where('status', BookingStatus::Complete->value)),
         ];
     }
 
@@ -36,8 +37,8 @@ class ListBookings extends ListRecords
         ];
     }
 
-    protected function getHeaderWidgets(): array
-    {
-        return BookingResource::getWidgets();
-    }
+//    protected function getHeaderWidgets(): array
+//    {
+//        return BookingResource::getWidgets();
+//    }
 }

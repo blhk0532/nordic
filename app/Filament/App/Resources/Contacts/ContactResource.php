@@ -44,14 +44,14 @@ class ContactResource extends Resource
     public static function shouldRegisterNavigation(): bool
     {
 
-        if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
-            return true;
-        }
-        if (filament()->getTenant()->getAttribute('is_admin') !== true) {
-            return true;
-        }
+        //    if (auth()->user()->role !== 'admin' && auth()->user()->role !== 'super' && auth()->user()->role !== 'manager') {
+        //        return true;
+        //    }
+        //    if (filament()->getTenant()->getAttribute('is_admin') !== true) {
+        //        return true;
+        //    }
 
-        return true;
+        return false;
     }
 
     public static function getEloquentQuery(): Builder
