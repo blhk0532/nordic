@@ -26,7 +26,7 @@ class MerinfoDataExporter extends Exporter
                 ->label('Ålder'),
             ExportColumn::make('kon')
                 ->label('Kön'),
-            ExportColumn::make('personnummer')
+            ExportColumn::make('personalNumber')
                 ->label('Personnummer'),
             ExportColumn::make('gatuadress')
                 ->label('Gatuadress'),
