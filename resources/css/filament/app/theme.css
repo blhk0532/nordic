@@ -529,6 +529,11 @@ div.fi-modal-window{
   left: 180px;
   top: 6px;
 }
+.singlecalendar-0 .fc-toolbar-title{
+    position: absolute;
+  left: 180px;
+  top: 6px;
+}
     .fi-section-content-ctn{
         border:none!important;
     }

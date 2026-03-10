@@ -237,9 +237,18 @@ final class RingaDataTable
 
                 SelectFilter::make('outcome')
                     ->label('Utfall')
-                    ->options(fn () => collect(Outcomes::cases())->mapWithKeys(
+                    ->options(fn () => ['__null__' => 'No outcome'] + collect(Outcomes::cases())->mapWithKeys(
                         fn (Outcomes $outcome) => [$outcome->value => $outcome->getLabel()]
                     )->toArray())
+                    ->query(function ($query, array $data) {
+                        $value = $data['value'] ?? null;
+
+                        return match ($value) {
+                            '__null__' => $query->whereNull('outcome'),
+                            null, '' => $query,
+                            default => $query->where('outcome', $value),
+                        };
+                    })
                     ->searchable(),
                 Filter::make('fodelsedag_min')
                     ->schema([
