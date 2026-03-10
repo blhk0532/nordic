@@ -29,7 +29,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-
+use NoteBrainsLab\FilamentEmailTemplates\FilamentEmailTemplatesPlugin;
 class EmailPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -111,6 +111,9 @@ class EmailPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(\RickDBCN\FilamentEmail\FilamentEmail::make())
+                                ->plugins([
+            FilamentEmailTemplatesPlugin::make(),
+        ])
             ->plugins([
                 FilamentWirechatPlugin::make()
                     ->onlyPages([])

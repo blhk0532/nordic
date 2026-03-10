@@ -33,7 +33,8 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Lartisan\Architect\ArchitectPlugin;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-
+use Crumbls\Layup\LayupPlugin;
+use TallCms\Cms\TallCmsPlugin;
 class DevPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -117,6 +118,7 @@ class DevPanelProvider extends PanelProvider
             ->plugins([
                 ArchitectPlugin::make(),
             ])
+             ->plugin(TallCmsPlugin::make())
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
                     ->canAccess(fn () => Auth::user()->role === 'super')
@@ -138,6 +140,9 @@ class DevPanelProvider extends PanelProvider
                         \AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationResource::class,
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
                     ]),
-            ]);
+            ])
+                    ->plugins([
+            LayupPlugin::make(),
+        ]);
     }
 }

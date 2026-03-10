@@ -37,7 +37,7 @@ importers:
         version: 7.0.0-beta.6(@fullcalendar/core@7.0.0-beta.6)
       '@fullcalendar/react':
         specifier: 7.0.0-beta.7
-        version: 7.0.0-beta.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(temporal-polyfill@0.3.0)
+        version: 7.0.0-beta.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(temporal-polyfill@0.3.1)
       '@fullcalendar/resource':
         specifier: 7.0.0-beta.6
         version: 7.0.0-beta.6(@fullcalendar/core@7.0.0-beta.6)
@@ -291,8 +291,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.2.1)
       temporal-polyfill:
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.3.1
+        version: 0.3.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -4253,11 +4253,11 @@ packages:
   teex@1.0.1:
     resolution: {integrity: sha512-eYE6iEI62Ni1H8oIa7KlDU6uQBtqr4Eajni3wX7rpfXD8ysFx8z0+dri+KWEPWpBsxXfxu58x/0jvTVT1ekOSg==}
 
-  temporal-polyfill@0.3.0:
-    resolution: {integrity: sha512-qNsTkX9K8hi+FHDfHmf22e/OGuXmfBm9RqNismxBrnSmZVJKegQ+HYYXT+R7Ha8F/YSm2Y34vmzD4cxMu2u95g==}
+  temporal-polyfill@0.3.1:
+    resolution: {integrity: sha512-3Ceqnjxa7nQ1VGRjehALmP9LdiJqalmoYh6o22s8skP+ZN6df1cTN/7h+p0k4v357pFsQN94gtJoxV6fqvlijA==}
 
-  temporal-spec@0.3.0:
-    resolution: {integrity: sha512-n+noVpIqz4hYgFSMOSiINNOUOMFtV5cZQNCmmszA6GiVFVRt3G7AqVyhXjhCSmowvQn+NsGn+jMDMKJYHd3bSQ==}
+  temporal-spec@0.3.1:
+    resolution: {integrity: sha512-B4TUhezh9knfSIMwt7RVggApDRJZo73uZdj8AacL2mZ8RP5KtLianh2MXxL06GN9ESYiIsiuoLQhgVfwe55Yhw==}
 
   text-decoder@1.2.7:
     resolution: {integrity: sha512-vlLytXkeP4xvEq2otHeJfSQIRyWxo/oZGEbXrtEEF9Hnmrdly59sUbzZ/QgyWuLYHctCHxFF4tRQZNQ9k60ExQ==}
@@ -4883,9 +4883,9 @@ snapshots:
 
   '@full-ui/headless-calendar@7.0.0-beta.6': {}
 
-  '@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.0)':
+  '@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.1)':
     dependencies:
-      temporal-polyfill: 0.3.0
+      temporal-polyfill: 0.3.1
 
   '@full-ui/headless-grid@7.0.0-beta.6': {}
 
@@ -4908,10 +4908,10 @@ snapshots:
       '@full-ui/headless-calendar': 7.0.0-beta.6
       preact: 10.23.2
 
-  '@fullcalendar/core@7.0.0-beta.7(@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.0))(temporal-polyfill@0.3.0)':
+  '@fullcalendar/core@7.0.0-beta.7(@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.1))(temporal-polyfill@0.3.1)':
     dependencies:
-      '@full-ui/headless-calendar': 7.0.0-beta.7(temporal-polyfill@0.3.0)
-      temporal-polyfill: 0.3.0
+      '@full-ui/headless-calendar': 7.0.0-beta.7(temporal-polyfill@0.3.1)
+      temporal-polyfill: 0.3.1
 
   '@fullcalendar/daygrid@6.1.20(@fullcalendar/core@6.1.20)':
     dependencies:
@@ -4965,13 +4965,13 @@ snapshots:
     dependencies:
       '@fullcalendar/core': 7.0.0-beta.6
 
-  '@fullcalendar/react@7.0.0-beta.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(temporal-polyfill@0.3.0)':
+  '@fullcalendar/react@7.0.0-beta.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(temporal-polyfill@0.3.1)':
     dependencies:
-      '@full-ui/headless-calendar': 7.0.0-beta.7(temporal-polyfill@0.3.0)
-      '@fullcalendar/core': 7.0.0-beta.7(@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.0))(temporal-polyfill@0.3.0)
+      '@full-ui/headless-calendar': 7.0.0-beta.7(temporal-polyfill@0.3.1)
+      '@fullcalendar/core': 7.0.0-beta.7(@full-ui/headless-calendar@7.0.0-beta.7(temporal-polyfill@0.3.1))(temporal-polyfill@0.3.1)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      temporal-polyfill: 0.3.0
+      temporal-polyfill: 0.3.1
 
   '@fullcalendar/resource-daygrid@6.1.20(@fullcalendar/core@6.1.20)(@fullcalendar/resource@6.1.20(@fullcalendar/core@6.1.20))':
     dependencies:
@@ -8661,11 +8661,11 @@ snapshots:
       - bare-abort-controller
       - react-native-b4a
 
-  temporal-polyfill@0.3.0:
+  temporal-polyfill@0.3.1:
     dependencies:
-      temporal-spec: 0.3.0
+      temporal-spec: 0.3.1
 
-  temporal-spec@0.3.0: {}
+  temporal-spec@0.3.1: {}
 
   text-decoder@1.2.7:
     dependencies:
