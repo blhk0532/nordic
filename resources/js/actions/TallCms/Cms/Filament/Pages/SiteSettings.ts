@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-const SiteSettings = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SiteSettings.url(args, options),
+const SiteSettings = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: SiteSettings.url(options),
     method: 'get',
 })
 
 SiteSettings.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/site-settings',
+    url: '/nds/dev/site-settings',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-SiteSettings.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return SiteSettings.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+SiteSettings.url = (options?: RouteQueryOptions) => {
+    return SiteSettings.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-SiteSettings.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: SiteSettings.url(args, options),
+SiteSettings.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: SiteSettings.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-SiteSettings.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: SiteSettings.url(args, options),
+SiteSettings.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: SiteSettings.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-const SiteSettingsForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SiteSettings.url(args, options),
+const SiteSettingsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SiteSettings.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-SiteSettingsForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SiteSettings.url(args, options),
+SiteSettingsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SiteSettings.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\SiteSettings::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/SiteSettings.php:7
-* @route '/admin/tenant/{tenant}/site-settings'
+* @route '/nds/dev/site-settings'
 */
-SiteSettingsForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: SiteSettings.url(args, {
+SiteSettingsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: SiteSettings.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-const FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, options),
+const FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, options),
     method: 'get',
 })
 
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.definition = {
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/full-width-chat/{conversation}',
+    url: '/admin/{tenant}/full-width-chat/{conversation}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions) => {
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             tenant: args[0],
@@ -36,7 +36,7 @@ FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url = (args: { tenant: string 
         conversation: args.conversation,
     }
 
-    return FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.definition.url
+    return FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{conversation}', parsedArgs.conversation.toString())
             .replace(/\/+$/, '') + queryParams(options)
@@ -45,50 +45,50 @@ FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url = (args: { tenant: string 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, options),
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, options),
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-const FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423dForm = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, options),
+const FullWidthChatPage291cc29b9f29978eecfc6557bfa5bddaForm = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423dForm.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, options),
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bddaForm.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
-* @route '/admin/tenant/{tenant}/full-width-chat/{conversation}'
+* @route '/admin/{tenant}/full-width-chat/{conversation}'
 */
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423dForm.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.url(args, {
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bddaForm.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,7 +97,7 @@ FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423dForm.head = (args: { tenant: st
     method: 'get',
 })
 
-FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d.form = FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423dForm
+FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda.form = FullWidthChatPage291cc29b9f29978eecfc6557bfa5bddaForm
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\FullWidthChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/FullWidthChatPage.php:7
@@ -296,7 +296,7 @@ FullWidthChatPage289e47a3e009ffb0d2ba9035545975d0Form.head = (args: { conversati
 FullWidthChatPage289e47a3e009ffb0d2ba9035545975d0.form = FullWidthChatPage289e47a3e009ffb0d2ba9035545975d0Form
 
 const FullWidthChatPage = {
-    '/admin/tenant/{tenant}/full-width-chat/{conversation}': FullWidthChatPagef8ab29d8867cb1d1015d53331bf6423d,
+    '/admin/{tenant}/full-width-chat/{conversation}': FullWidthChatPage291cc29b9f29978eecfc6557bfa5bdda,
     '/nds/notify/full-width-chat/{conversation}': FullWidthChatPage302022a363091dcd94b4d0237f5b81e7,
     '/nds/super/full-width-chat/{conversation}': FullWidthChatPage289e47a3e009ffb0d2ba9035545975d0,
 }

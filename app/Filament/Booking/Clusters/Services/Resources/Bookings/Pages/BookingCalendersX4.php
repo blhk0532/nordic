@@ -41,6 +41,11 @@ class BookingCalendersX4 extends BaseDashboard
 
     protected string $view = 'filament-booking::pages.page';
 
+    public static function isDiscovered(): bool
+    {
+        return false;
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
         return true;

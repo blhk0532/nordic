@@ -2,105 +2,6 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-const ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, options),
-    method: 'get',
-})
-
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/booking/users/{record}/schedule',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-            record: args[1],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-        record: args.record,
-    }
-
-    return ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-const ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507dForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507dForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
-* @route '/admin/tenant/{tenant}/booking/users/{record}/schedule'
-*/
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507dForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d.form = ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507dForm
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\Users\Pages\ManageServiceProviderSchedules::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/Users/Pages/ManageServiceProviderSchedules.php:7
 * @route '/nds/booking/booking/users/{record}/schedule'
 */
 const ManageServiceProviderSchedules1b0033c4edfd4ef2811d5415eb54fadd = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -296,7 +197,6 @@ ManageServiceProviderSchedulese74016d9905f290ae1b61cbf037f681cForm.head = (args:
 ManageServiceProviderSchedulese74016d9905f290ae1b61cbf037f681c.form = ManageServiceProviderSchedulese74016d9905f290ae1b61cbf037f681cForm
 
 const ManageServiceProviderSchedules = {
-    '/admin/tenant/{tenant}/booking/users/{record}/schedule': ManageServiceProviderSchedulesd55f92eca8112cde05d937945d39507d,
     '/nds/booking/booking/users/{record}/schedule': ManageServiceProviderSchedules1b0033c4edfd4ef2811d5415eb54fadd,
     '/nds/super/booking/users/{record}/schedule': ManageServiceProviderSchedulese74016d9905f290ae1b61cbf037f681c,
 }

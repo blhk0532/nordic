@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-const ChatPagebd879cba6c5d1d75cb4824d38dd7f672 = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, options),
+const ChatPageaef0b3bc027d27978ca8e41219ace1b8 = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, options),
     method: 'get',
 })
 
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672.definition = {
+ChatPageaef0b3bc027d27978ca8e41219ace1b8.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/chats/{conversation}',
+    url: '/admin/{tenant}/chats/{conversation}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions) => {
+ChatPageaef0b3bc027d27978ca8e41219ace1b8.url = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             tenant: args[0],
@@ -36,7 +36,7 @@ ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url = (args: { tenant: string | number 
         conversation: args.conversation,
     }
 
-    return ChatPagebd879cba6c5d1d75cb4824d38dd7f672.definition.url
+    return ChatPageaef0b3bc027d27978ca8e41219ace1b8.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{conversation}', parsedArgs.conversation.toString())
             .replace(/\/+$/, '') + queryParams(options)
@@ -45,50 +45,50 @@ ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url = (args: { tenant: string | number 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, options),
+ChatPageaef0b3bc027d27978ca8e41219ace1b8.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, options),
+ChatPageaef0b3bc027d27978ca8e41219ace1b8.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-const ChatPagebd879cba6c5d1d75cb4824d38dd7f672Form = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, options),
+const ChatPageaef0b3bc027d27978ca8e41219ace1b8Form = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672Form.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, options),
+ChatPageaef0b3bc027d27978ca8e41219ace1b8Form.get = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
-* @route '/admin/tenant/{tenant}/chats/{conversation}'
+* @route '/admin/{tenant}/chats/{conversation}'
 */
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672Form.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatPagebd879cba6c5d1d75cb4824d38dd7f672.url(args, {
+ChatPageaef0b3bc027d27978ca8e41219ace1b8Form.head = (args: { tenant: string | number | { slug: string | number }, conversation: string | number } | [tenant: string | number | { slug: string | number }, conversation: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatPageaef0b3bc027d27978ca8e41219ace1b8.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,7 +97,7 @@ ChatPagebd879cba6c5d1d75cb4824d38dd7f672Form.head = (args: { tenant: string | nu
     method: 'get',
 })
 
-ChatPagebd879cba6c5d1d75cb4824d38dd7f672.form = ChatPagebd879cba6c5d1d75cb4824d38dd7f672Form
+ChatPageaef0b3bc027d27978ca8e41219ace1b8.form = ChatPageaef0b3bc027d27978ca8e41219ace1b8Form
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatPage.php:7
@@ -296,7 +296,7 @@ ChatPagedd30f01de0d9d1dfc342ac7a35f5e004Form.head = (args: { conversation: strin
 ChatPagedd30f01de0d9d1dfc342ac7a35f5e004.form = ChatPagedd30f01de0d9d1dfc342ac7a35f5e004Form
 
 const ChatPage = {
-    '/admin/tenant/{tenant}/chats/{conversation}': ChatPagebd879cba6c5d1d75cb4824d38dd7f672,
+    '/admin/{tenant}/chats/{conversation}': ChatPageaef0b3bc027d27978ca8e41219ace1b8,
     '/nds/notify/chats/{conversation}': ChatPage20cade8567144101cee5c752dbfda959,
     '/nds/super/chats/{conversation}': ChatPagedd30f01de0d9d1dfc342ac7a35f5e004,
 }

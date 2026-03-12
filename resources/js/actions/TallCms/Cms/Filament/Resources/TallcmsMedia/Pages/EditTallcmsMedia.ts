@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-const EditTallcmsMedia = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const EditTallcmsMedia = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditTallcmsMedia.url(args, options),
     method: 'get',
 })
 
 EditTallcmsMedia.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/tallcms-media/{record}/edit',
+    url: '/nds/dev/tallcms-media/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-EditTallcmsMedia.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditTallcmsMedia.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
     return EditTallcmsMedia.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,9 +44,9 @@ EditTallcmsMedia.url = (args: { tenant: string | number | { slug: string | numbe
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-EditTallcmsMedia.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+EditTallcmsMedia.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditTallcmsMedia.url(args, options),
     method: 'get',
 })
@@ -55,9 +54,9 @@ EditTallcmsMedia.get = (args: { tenant: string | number | { slug: string | numbe
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-EditTallcmsMedia.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+EditTallcmsMedia.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditTallcmsMedia.url(args, options),
     method: 'head',
 })
@@ -65,9 +64,9 @@ EditTallcmsMedia.head = (args: { tenant: string | number | { slug: string | numb
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-const EditTallcmsMediaForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const EditTallcmsMediaForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMedia.url(args, options),
     method: 'get',
 })
@@ -75,9 +74,9 @@ const EditTallcmsMediaForm = (args: { tenant: string | number | { slug: string |
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-EditTallcmsMediaForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditTallcmsMediaForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMedia.url(args, options),
     method: 'get',
 })
@@ -85,9 +84,9 @@ EditTallcmsMediaForm.get = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMedia\Pages\EditTallcmsMedia::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMedia/Pages/EditTallcmsMedia.php:7
-* @route '/admin/tenant/{tenant}/tallcms-media/{record}/edit'
+* @route '/nds/dev/tallcms-media/{record}/edit'
 */
-EditTallcmsMediaForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditTallcmsMediaForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMedia.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

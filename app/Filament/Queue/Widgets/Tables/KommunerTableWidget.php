@@ -32,7 +32,7 @@ class KommunerTableWidget extends TableWidget
                     ->label('Kommun')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => '#')
+                    ->color('primary')
                     ->action(function ($record) {
                         $this->dispatch('show-postorter', kommun: $record->kommun);
                     }),

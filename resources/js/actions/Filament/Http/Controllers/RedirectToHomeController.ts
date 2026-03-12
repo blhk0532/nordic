@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-const RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, options),
+const RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, options),
     method: 'get',
 })
 
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.definition = {
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}',
+    url: '/admin/{tenant}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url = (args: { tenant: 
         : args.tenant,
     }
 
-    return RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.definition.url
+    return RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -50,50 +50,50 @@ RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url = (args: { tenant: 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, options),
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, options),
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-const RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5cForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, options),
+const RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5cForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, options),
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5cForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.url(args, {
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5cForm.head = (args: { ten
     method: 'get',
 })
 
-RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c.form = RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5cForm
+RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4.form = RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4Form
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
@@ -265,7 +265,7 @@ RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form.head = (options?: R
 RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11.form = RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11Form
 
 const RedirectToHomeController = {
-    '/admin/tenant/{tenant}': RedirectToHomeController3dbbb1464e719e717fa4718d2d3d2c5c,
+    '/admin/{tenant}': RedirectToHomeControllerb36f2705fbd31301159707b18268ffe4,
     '/nds/chat': RedirectToHomeController8c64bc6fca39405dd2e574c532b93366,
     '/blocks': RedirectToHomeController7e4a5a2e113644d1913c836b7531cb11,
 }

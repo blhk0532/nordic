@@ -1,10 +1,10 @@
-import Booking from './Booking'
 import BookingCalendars from './BookingCalendars'
+import Booking from './Booking'
 import BookingDataLeads from './BookingDataLeads'
 
 const Resources = {
-    Booking: Object.assign(Booking, Booking),
     BookingCalendars: Object.assign(BookingCalendars, BookingCalendars),
+    Booking: Object.assign(Booking, Booking),
     BookingDataLeads: Object.assign(BookingDataLeads, BookingDataLeads),
 }
 

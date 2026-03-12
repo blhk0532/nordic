@@ -26,6 +26,9 @@ class HittaDatasTable
     {
         return $table
             ->columns([
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 TextColumn::make('personnamn')
                     ->label('Personnamn')
                     ->sortable()

@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-const EditMediaCollection = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const EditMediaCollection = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditMediaCollection.url(args, options),
     method: 'get',
 })
 
 EditMediaCollection.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit',
+    url: '/nds/dev/media-collection/media-collections/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-EditMediaCollection.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditMediaCollection.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
     return EditMediaCollection.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,9 +44,9 @@ EditMediaCollection.url = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-EditMediaCollection.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+EditMediaCollection.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditMediaCollection.url(args, options),
     method: 'get',
 })
@@ -55,9 +54,9 @@ EditMediaCollection.get = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-EditMediaCollection.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+EditMediaCollection.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditMediaCollection.url(args, options),
     method: 'head',
 })
@@ -65,9 +64,9 @@ EditMediaCollection.head = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-const EditMediaCollectionForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const EditMediaCollectionForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditMediaCollection.url(args, options),
     method: 'get',
 })
@@ -75,9 +74,9 @@ const EditMediaCollectionForm = (args: { tenant: string | number | { slug: strin
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-EditMediaCollectionForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditMediaCollectionForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditMediaCollection.url(args, options),
     method: 'get',
 })
@@ -85,9 +84,9 @@ EditMediaCollectionForm.get = (args: { tenant: string | number | { slug: string 
 /**
 * @see \TallCms\Cms\Filament\Resources\MediaCollection\Pages\EditMediaCollection::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/MediaCollection/Pages/EditMediaCollection.php:7
-* @route '/admin/tenant/{tenant}/media-collection/media-collections/{record}/edit'
+* @route '/nds/dev/media-collection/media-collections/{record}/edit'
 */
-EditMediaCollectionForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditMediaCollectionForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditMediaCollection.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

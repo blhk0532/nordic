@@ -1,119 +1,15 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-const ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, options),
-    method: 'get',
-})
-
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/team-invitations',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-const ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2eForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2eForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
-* @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
-* @route '/admin/tenant/{tenant}/team-invitations'
-*/
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2eForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e.form = ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2eForm
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \App\Filament\Admin\Resources\TeamInvitations\Pages\ManageTeamInvitations::__invoke
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-const ManageTeamInvitations011364a502edf6236977c6a55de0f08b = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url(options),
+const ManageTeamInvitations = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ManageTeamInvitations.url(options),
     method: 'get',
 })
 
-ManageTeamInvitations011364a502edf6236977c6a55de0f08b.definition = {
+ManageTeamInvitations.definition = {
     methods: ["get","head"],
     url: '/nds/super/team-invitations',
 } satisfies RouteDefinition<["get","head"]>
@@ -123,8 +19,8 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08b.definition = {
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url = (options?: RouteQueryOptions) => {
-    return ManageTeamInvitations011364a502edf6236977c6a55de0f08b.definition.url + queryParams(options)
+ManageTeamInvitations.url = (options?: RouteQueryOptions) => {
+    return ManageTeamInvitations.definition.url + queryParams(options)
 }
 
 /**
@@ -132,8 +28,8 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url = (options?: RouteQuer
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-ManageTeamInvitations011364a502edf6236977c6a55de0f08b.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url(options),
+ManageTeamInvitations.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ManageTeamInvitations.url(options),
     method: 'get',
 })
 
@@ -142,8 +38,8 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08b.get = (options?: RouteQuer
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-ManageTeamInvitations011364a502edf6236977c6a55de0f08b.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url(options),
+ManageTeamInvitations.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ManageTeamInvitations.url(options),
     method: 'head',
 })
 
@@ -152,8 +48,8 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08b.head = (options?: RouteQue
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-const ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url(options),
+const ManageTeamInvitationsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamInvitations.url(options),
     method: 'get',
 })
 
@@ -162,8 +58,8 @@ const ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm = (options?: Rou
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url(options),
+ManageTeamInvitationsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamInvitations.url(options),
     method: 'get',
 })
 
@@ -172,8 +68,8 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm.get = (options?: Route
 * @see app/Filament/Admin/Resources/TeamInvitations/Pages/ManageTeamInvitations.php:7
 * @route '/nds/super/team-invitations'
 */
-ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamInvitations011364a502edf6236977c6a55de0f08b.url({
+ManageTeamInvitationsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamInvitations.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -182,11 +78,6 @@ ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm.head = (options?: Rout
     method: 'get',
 })
 
-ManageTeamInvitations011364a502edf6236977c6a55de0f08b.form = ManageTeamInvitations011364a502edf6236977c6a55de0f08bForm
-
-const ManageTeamInvitations = {
-    '/admin/tenant/{tenant}/team-invitations': ManageTeamInvitations2b9c005317bccbb07bfc6d45ed4c0f2e,
-    '/nds/super/team-invitations': ManageTeamInvitations011364a502edf6236977c6a55de0f08b,
-}
+ManageTeamInvitations.form = ManageTeamInvitationsForm
 
 export default ManageTeamInvitations

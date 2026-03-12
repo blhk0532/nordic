@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-const EditRolecf75203911c0f266f20727a4513f2e60 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditRolecf75203911c0f266f20727a4513f2e60.url(args, options),
+const EditRole4b0e80def8b7e078eb7d46a3aff155d2 = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, options),
     method: 'get',
 })
 
-EditRolecf75203911c0f266f20727a4513f2e60.definition = {
+EditRole4b0e80def8b7e078eb7d46a3aff155d2.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/shield/roles/{record}/edit',
+    url: '/nds/dev/shield/roles/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-EditRolecf75203911c0f266f20727a4513f2e60.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditRole4b0e80def8b7e078eb7d46a3aff155d2.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
-    return EditRolecf75203911c0f266f20727a4513f2e60.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
+    return EditRole4b0e80def8b7e078eb7d46a3aff155d2.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,50 +44,50 @@ EditRolecf75203911c0f266f20727a4513f2e60.url = (args: { tenant: string | number 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-EditRolecf75203911c0f266f20727a4513f2e60.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditRolecf75203911c0f266f20727a4513f2e60.url(args, options),
+EditRole4b0e80def8b7e078eb7d46a3aff155d2.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-EditRolecf75203911c0f266f20727a4513f2e60.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditRolecf75203911c0f266f20727a4513f2e60.url(args, options),
+EditRole4b0e80def8b7e078eb7d46a3aff155d2.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-const EditRolecf75203911c0f266f20727a4513f2e60Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRolecf75203911c0f266f20727a4513f2e60.url(args, options),
+const EditRole4b0e80def8b7e078eb7d46a3aff155d2Form = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-EditRolecf75203911c0f266f20727a4513f2e60Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRolecf75203911c0f266f20727a4513f2e60.url(args, options),
+EditRole4b0e80def8b7e078eb7d46a3aff155d2Form.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}/edit'
+* @route '/nds/dev/shield/roles/{record}/edit'
 */
-EditRolecf75203911c0f266f20727a4513f2e60Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditRolecf75203911c0f266f20727a4513f2e60.url(args, {
+EditRole4b0e80def8b7e078eb7d46a3aff155d2Form.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditRole4b0e80def8b7e078eb7d46a3aff155d2.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,7 +96,7 @@ EditRolecf75203911c0f266f20727a4513f2e60Form.head = (args: { tenant: string | nu
     method: 'get',
 })
 
-EditRolecf75203911c0f266f20727a4513f2e60.form = EditRolecf75203911c0f266f20727a4513f2e60Form
+EditRole4b0e80def8b7e078eb7d46a3aff155d2.form = EditRole4b0e80def8b7e078eb7d46a3aff155d2Form
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\EditRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/EditRole.php:7
@@ -198,7 +197,7 @@ EditRole8da8545fa8d4a8244eecbf8cbb516792Form.head = (args: { record: string | nu
 EditRole8da8545fa8d4a8244eecbf8cbb516792.form = EditRole8da8545fa8d4a8244eecbf8cbb516792Form
 
 const EditRole = {
-    '/admin/tenant/{tenant}/shield/roles/{record}/edit': EditRolecf75203911c0f266f20727a4513f2e60,
+    '/nds/dev/shield/roles/{record}/edit': EditRole4b0e80def8b7e078eb7d46a3aff155d2,
     '/nds/super/shield/roles/{record}/edit': EditRole8da8545fa8d4a8244eecbf8cbb516792,
 }
 

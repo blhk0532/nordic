@@ -21,7 +21,9 @@ use App\Http\Controllers\Api\PostNummerQueController;
 use App\Http\Controllers\Api\PostNummerQueueController;
 use App\Http\Controllers\Api\RatsitDataController;
 use App\Http\Controllers\Api\RatsitForetagQueueController;
+use App\Http\Controllers\Api\RatsitKommunApiController;
 use App\Http\Controllers\Api\RatsitQueueController;
+use App\Http\Controllers\Api\SwedenPostnummerApiController;
 use App\Http\Controllers\Api\UpplysningDataController;
 use App\Http\Controllers\RingaDataOutcomeController;
 use Illuminate\Http\Request;
@@ -188,6 +190,20 @@ Route::put('/ratsit-queue/update/{postNummer}', [RatsitQueueController::class, '
 // Postnummer Queue API routes (comprehensive queue tracker)
 Route::post('/postnummer-queue/bulk-update', [PostNummerQueueController::class, 'bulkUpdate']);
 Route::put('/postnummer-queue/update/{postNummer}', [PostNummerQueueController::class, 'updateByPostNummer'])->where('postNummer', '[a-zA-Z0-9\s%]+');
+
+// Sweden Postnummer API routes
+Route::get('/sweden-postnummer/get-queue', [SwedenPostnummerApiController::class, 'getQueue']);
+Route::match(['get', 'put', 'post'], '/sweden-postnummer/by-code/{postnummer}', [SwedenPostnummerApiController::class, 'getByCode'])->where('postnummer', '[a-zA-Z0-9\s%]+');
+Route::put('/sweden-postnummer/update/{postnummer}', [SwedenPostnummerApiController::class, 'update'])->where('postnummer', '[a-zA-Z0-9\s%]+');
+Route::post('/sweden-postnummer/batch-update', [SwedenPostnummerApiController::class, 'batchUpdate']);
+Route::get('/sweden-postnummer/check-counts/{postnummer}', [SwedenPostnummerApiController::class, 'checkCounts'])->where('postnummer', '[a-zA-Z0-9\s%]+');
+
+// Ratsit Kommuner API routes
+Route::get('/ratsit-kommuner/list', [RatsitKommunApiController::class, 'list']);
+Route::get('/ratsit-kommuner/stats', [RatsitKommunApiController::class, 'stats']);
+Route::match(['get', 'put', 'post'], '/ratsit-kommuner/by-name/{kommun}', [RatsitKommunApiController::class, 'getByName'])->where('kommun', '[a-zA-Z0-9\s%]+');
+Route::put('/ratsit-kommuner/update/{kommun}', [RatsitKommunApiController::class, 'update'])->where('kommun', '[a-zA-Z0-9\s%]+');
+Route::post('/ratsit-kommuner/batch-update', [RatsitKommunApiController::class, 'batchUpdate']);
 
 // Generic Job Queue API endpoints (Merinfo specific)
 Route::get('/job-queue/get-merinfo', [JobQueueController::class, 'getMerinfo']);

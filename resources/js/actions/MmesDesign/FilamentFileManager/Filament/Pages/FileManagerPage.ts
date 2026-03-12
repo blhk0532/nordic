@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 const FileManagerPage = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: FileManagerPage.url(args, options),
@@ -11,13 +11,13 @@ const FileManagerPage = (args: { tenant: string | number | { slug: string | numb
 
 FileManagerPage.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/file-manager',
+    url: '/admin/{tenant}/file-manager',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 FileManagerPage.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -50,7 +50,7 @@ FileManagerPage.url = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 FileManagerPage.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: FileManagerPage.url(args, options),
@@ -60,7 +60,7 @@ FileManagerPage.get = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 FileManagerPage.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: FileManagerPage.url(args, options),
@@ -70,7 +70,7 @@ FileManagerPage.head = (args: { tenant: string | number | { slug: string | numbe
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 const FileManagerPageForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: FileManagerPage.url(args, options),
@@ -80,7 +80,7 @@ const FileManagerPageForm = (args: { tenant: string | number | { slug: string | 
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 FileManagerPageForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: FileManagerPage.url(args, options),
@@ -90,7 +90,7 @@ FileManagerPageForm.get = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \MmesDesign\FilamentFileManager\Filament\Pages\FileManagerPage::__invoke
 * @see vendor/mmes-design/filament-file-manager/src/Filament/Pages/FileManagerPage.php:7
-* @route '/admin/tenant/{tenant}/file-manager'
+* @route '/admin/{tenant}/file-manager'
 */
 FileManagerPageForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: FileManagerPage.url(args, {

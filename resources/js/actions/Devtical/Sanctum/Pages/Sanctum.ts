@@ -1,108 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-const Sanctum2128f37f20a590b1ff0195c75ef6250f = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, options),
-    method: 'get',
-})
-
-Sanctum2128f37f20a590b1ff0195c75ef6250f.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/sanctum',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-Sanctum2128f37f20a590b1ff0195c75ef6250f.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return Sanctum2128f37f20a590b1ff0195c75ef6250f.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-Sanctum2128f37f20a590b1ff0195c75ef6250f.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-Sanctum2128f37f20a590b1ff0195c75ef6250f.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-const Sanctum2128f37f20a590b1ff0195c75ef6250fForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-Sanctum2128f37f20a590b1ff0195c75ef6250fForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Devtical\Sanctum\Pages\Sanctum::__invoke
-* @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
-* @route '/admin/tenant/{tenant}/sanctum'
-*/
-Sanctum2128f37f20a590b1ff0195c75ef6250fForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: Sanctum2128f37f20a590b1ff0195c75ef6250f.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-Sanctum2128f37f20a590b1ff0195c75ef6250f.form = Sanctum2128f37f20a590b1ff0195c75ef6250fForm
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \Devtical\Sanctum\Pages\Sanctum::__invoke
 * @see plugins/devtical/filament-sanctum/src/Pages/Sanctum.php:7
@@ -345,7 +241,6 @@ Sanctum91c5726998c839de35750eea81c6063cForm.head = (options?: RouteQueryOptions)
 Sanctum91c5726998c839de35750eea81c6063c.form = Sanctum91c5726998c839de35750eea81c6063cForm
 
 const Sanctum = {
-    '/admin/tenant/{tenant}/sanctum': Sanctum2128f37f20a590b1ff0195c75ef6250f,
     '/nds/booking/sanctum': Sanctumd329e1ada52ea18773c534265725f03e,
     '/nds/chat/sanctum': Sanctume64f8eb57b38b4d674264fb743bee1bb,
     '/nds/super/sanctum': Sanctum91c5726998c839de35750eea81c6063c,

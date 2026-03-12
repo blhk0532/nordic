@@ -36,6 +36,11 @@ class BookingCalendarsX1 extends BaseDashboard
 
     protected static string $routePath = 'nds-kalender-x1-custom';
 
+    public static function isDiscovered(): bool
+    {
+        return false;
+    }
+
     protected static string|UnitEnum|null $navigationGroup = 'Kalendrar';
     //  protected static ?string $slug = 'dashboard';
 

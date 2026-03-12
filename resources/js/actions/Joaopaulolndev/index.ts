@@ -1,9 +1,9 @@
-import FilamentGeneralSettings from './FilamentGeneralSettings'
 import FilamentEditProfile from './FilamentEditProfile'
+import FilamentGeneralSettings from './FilamentGeneralSettings'
 
 const Joaopaulolndev = {
-    FilamentGeneralSettings: Object.assign(FilamentGeneralSettings, FilamentGeneralSettings),
     FilamentEditProfile: Object.assign(FilamentEditProfile, FilamentEditProfile),
+    FilamentGeneralSettings: Object.assign(FilamentGeneralSettings, FilamentGeneralSettings),
 }
 
 export default Joaopaulolndev

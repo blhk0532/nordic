@@ -1,5 +1,5 @@
-import Admin from './Admin'
 import App from './App'
+import Admin from './Admin'
 import Pages from './Pages'
 import Booking from './Booking'
 import Panels from './Panels'
@@ -14,8 +14,8 @@ import Super from './Super'
 import Tools from './Tools'
 
 const Filament = {
-    Admin: Object.assign(Admin, Admin),
     App: Object.assign(App, App),
+    Admin: Object.assign(Admin, Admin),
     Pages: Object.assign(Pages, Pages),
     Booking: Object.assign(Booking, Booking),
     Panels: Object.assign(Panels, Panels),

@@ -52,6 +52,7 @@
         "fahiem/filament-pinpoint": "@dev",
         "filament/filament": "^5.3.2",
         "filamentphp/advanced-export": "^0.3.0",
+        "finity-labs/fin-mail": "^1.0",
         "grazulex/laravel-apiroute": "^2.0.5",
         "guava/filament-icon-select-column": "@dev",
         "hammadzafar05/mobile-bottom-nav": "^1.0.2",

@@ -43,7 +43,7 @@ class DashboardBooking extends BaseDashboard
 
     public static function shouldRegisterNavigation(): bool
     {
-        return true;
+        return false;
     }
 
     public static function getNavigationLabel(): string

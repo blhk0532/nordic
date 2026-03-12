@@ -7,7 +7,7 @@
  */
 
 import { program } from 'commander';
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
 import { URL } from 'url';
 // Use full Puppeteer (bundled Chromium) to avoid system browser issues
@@ -18,10 +18,54 @@ import axios from 'axios';
 
 // Helper for Puppeteer-compatible delays
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const scriptDirectory = path.dirname(new URL(import.meta.url).pathname);
+const projectRoot = path.resolve(scriptDirectory, '..');
+
+const loadProjectEnv = () => {
+  const envPath = path.join(projectRoot, '.env');
+
+  try {
+    const envContents = readFileSync(envPath, 'utf-8');
+
+    for (const rawLine of envContents.split(/\r?\n/)) {
+      const line = rawLine.trim();
+
+      if (!line || line.startsWith('#')) {
+        continue;
+      }
+
+      const separatorIndex = line.indexOf('=');
+
+      if (separatorIndex === -1) {
+        continue;
+      }
+
+      const key = line.slice(0, separatorIndex).trim();
+      let value = line.slice(separatorIndex + 1).trim();
+
+      if (!key || process.env[key]) {
+        continue;
+      }
+
+      if (
+        (value.startsWith('"') && value.endsWith('"'))
+        || (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+
+      process.env[key] = value;
+    }
+  } catch {
+    // Ignore missing .env files and fall back to the current environment/CLI args.
+  }
+};
+
+loadProjectEnv();
 
 class HittaScraper {
   constructor(api_url, api_token) {
-    this.api_url = api_url || process.env.APP_URL || process.env.APP_URL;
+    this.api_url = (api_url || process.env.API_URL || process.env.APP_URL || '').replace(/\/+$/, '');
     this.api_token = api_token || process.env.LARAVEL_API_TOKEN;
 
     this.data_dir = path.join(process.cwd(), 'scripts', 'data');
@@ -219,6 +263,11 @@ class HittaScraper {
     /**
      * Save Hitta data via API
      */
+    if (!this.api_url) {
+      console.log('  ✗ Missing API URL. Pass --api-url or set API_URL/APP_URL in .env.');
+      return false;
+    }
+
     try {
       const is_hus = this.isHouseDeterminer(hittaData.gatuadress, hittaData.bostadstyp);
       const is_telefon = Array.isArray(hittaData.telefon) && hittaData.telefon.length > 0;
@@ -1112,6 +1161,11 @@ class HittaScraper {
     console.log('saveToDatabase called with records:', records?.length || 0);
     console.log('API URL:', this.api_url);
     console.log('API Token exists:', !!this.api_token);
+
+    if (!this.api_url) {
+      console.log('Missing API URL. Pass --api-url or set API_URL/APP_URL in .env.');
+      return 0;
+    }
 
     if (!records || records.length === 0) {
       console.log('No results to save to database');

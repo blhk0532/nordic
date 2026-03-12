@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-const EditTallcmsMenu = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const EditTallcmsMenu = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditTallcmsMenu.url(args, options),
     method: 'get',
 })
 
 EditTallcmsMenu.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/tallcms-menus/{record}/edit',
+    url: '/nds/dev/tallcms-menus/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-EditTallcmsMenu.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditTallcmsMenu.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
     return EditTallcmsMenu.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,9 +44,9 @@ EditTallcmsMenu.url = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-EditTallcmsMenu.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+EditTallcmsMenu.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditTallcmsMenu.url(args, options),
     method: 'get',
 })
@@ -55,9 +54,9 @@ EditTallcmsMenu.get = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-EditTallcmsMenu.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+EditTallcmsMenu.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditTallcmsMenu.url(args, options),
     method: 'head',
 })
@@ -65,9 +64,9 @@ EditTallcmsMenu.head = (args: { tenant: string | number | { slug: string | numbe
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-const EditTallcmsMenuForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const EditTallcmsMenuForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMenu.url(args, options),
     method: 'get',
 })
@@ -75,9 +74,9 @@ const EditTallcmsMenuForm = (args: { tenant: string | number | { slug: string | 
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-EditTallcmsMenuForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditTallcmsMenuForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMenu.url(args, options),
     method: 'get',
 })
@@ -85,9 +84,9 @@ EditTallcmsMenuForm.get = (args: { tenant: string | number | { slug: string | nu
 /**
 * @see \TallCms\Cms\Filament\Resources\TallcmsMenus\Pages\EditTallcmsMenu::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/TallcmsMenus/Pages/EditTallcmsMenu.php:7
-* @route '/admin/tenant/{tenant}/tallcms-menus/{record}/edit'
+* @route '/nds/dev/tallcms-menus/{record}/edit'
 */
-EditTallcmsMenuForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditTallcmsMenuForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditTallcmsMenu.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

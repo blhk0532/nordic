@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-const ViewRole90450831673b0ca28fffdfb5860261a2 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, options),
+const ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, options),
     method: 'get',
 })
 
-ViewRole90450831673b0ca28fffdfb5860261a2.definition = {
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/shield/roles/{record}',
+    url: '/nds/dev/shield/roles/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-ViewRole90450831673b0ca28fffdfb5860261a2.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
-    return ViewRole90450831673b0ca28fffdfb5860261a2.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
+    return ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,50 +44,50 @@ ViewRole90450831673b0ca28fffdfb5860261a2.url = (args: { tenant: string | number 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-ViewRole90450831673b0ca28fffdfb5860261a2.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, options),
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-ViewRole90450831673b0ca28fffdfb5860261a2.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, options),
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-const ViewRole90450831673b0ca28fffdfb5860261a2Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, options),
+const ViewRoled0bdec7a4837f51f1b8e944fa90a4eebForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-ViewRole90450831673b0ca28fffdfb5860261a2Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, options),
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eebForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/{record}'
+* @route '/nds/dev/shield/roles/{record}'
 */
-ViewRole90450831673b0ca28fffdfb5860261a2Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewRole90450831673b0ca28fffdfb5860261a2.url(args, {
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eebForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,7 +96,7 @@ ViewRole90450831673b0ca28fffdfb5860261a2Form.head = (args: { tenant: string | nu
     method: 'get',
 })
 
-ViewRole90450831673b0ca28fffdfb5860261a2.form = ViewRole90450831673b0ca28fffdfb5860261a2Form
+ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb.form = ViewRoled0bdec7a4837f51f1b8e944fa90a4eebForm
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\ViewRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/ViewRole.php:7
@@ -198,7 +197,7 @@ ViewRole5e9081f7016bfe540266d3bf96b54521Form.head = (args: { record: string | nu
 ViewRole5e9081f7016bfe540266d3bf96b54521.form = ViewRole5e9081f7016bfe540266d3bf96b54521Form
 
 const ViewRole = {
-    '/admin/tenant/{tenant}/shield/roles/{record}': ViewRole90450831673b0ca28fffdfb5860261a2,
+    '/nds/dev/shield/roles/{record}': ViewRoled0bdec7a4837f51f1b8e944fa90a4eeb,
     '/nds/super/shield/roles/{record}': ViewRole5e9081f7016bfe540266d3bf96b54521,
 }
 

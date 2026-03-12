@@ -1,108 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../../wayfinder'
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-const CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, options),
-    method: 'get',
-})
-
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/booking/daily-locations/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-const CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
-* @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
-* @route '/admin/tenant/{tenant}/booking/daily-locations/create'
-*/
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63.form = CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63Form
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../../wayfinder'
 /**
 * @see \Adultdate\FilamentBooking\Filament\Resources\Booking\DailyLocations\Pages\CreateDailyLocation::__invoke
 * @see plugins/adultdate/filament-booking/src/Filament/Resources/Booking/DailyLocations/Pages/CreateDailyLocation.php:7
@@ -265,7 +161,6 @@ CreateDailyLocation0b8ec438c0dba079e478871bf61a473aForm.head = (options?: RouteQ
 CreateDailyLocation0b8ec438c0dba079e478871bf61a473a.form = CreateDailyLocation0b8ec438c0dba079e478871bf61a473aForm
 
 const CreateDailyLocation = {
-    '/admin/tenant/{tenant}/booking/daily-locations/create': CreateDailyLocationef6b137448075030fc2ebd0cffc3ad63,
     '/nds/booking/booking/daily-locations/create': CreateDailyLocation9050e60e3560207c45d16e70ede2e6b8,
     '/nds/super/booking/daily-locations/create': CreateDailyLocation0b8ec438c0dba079e478871bf61a473a,
 }

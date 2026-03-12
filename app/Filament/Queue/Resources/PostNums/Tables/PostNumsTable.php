@@ -64,11 +64,14 @@ class PostNumsTable
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
+                TextColumn::make('kommun')
+                    ->label('Kommun')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('post_lan')
                     ->label('Post Län')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
                 ColumnGroup::make('Hitta', [
                     TextColumn::make('hitta_personer_total')
                         ->label('🌐')
@@ -190,8 +193,7 @@ class PostNumsTable
                         ->sortable()
                         ->toggleable()
                         ->placeholder('—')
-                        ->toggleable(isToggledHiddenByDefault: true),
-
+                        ->toggleable(isToggledHiddenByDefault: false),
                     TextColumn::make('merinfo_foretag_saved_live')
                         ->label('🏛️💾')
                         ->numeric()
@@ -229,8 +231,7 @@ class PostNumsTable
                 TextColumn::make('status')
                     ->label('Status')
                     ->searchable()
-                    ->toggleable(),
-
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -259,13 +260,24 @@ class PostNumsTable
                         'running' => 'Running',
                         'complete' => 'Complete',
                     ]),
-
+                SelectFilter::make('kommun')
+                    ->label('Kommun')
+                    ->searchable()
+                    ->options(fn () => PostNum::query()
+                        ->whereNotNull('kommun')
+                        ->where('kommun', '<>', '')
+                        ->select('kommun')
+                        ->distinct()
+                        ->orderBy('kommun')
+                        ->pluck('kommun', 'kommun')
+                        ->filter()
+                        ->all()),
                 TernaryFilter::make('is_active')
-                    ->label('Active')->default(true),
+                    ->label('Active')->default(),
 
                 TernaryFilter::make('has_phone')
                     ->label('Show Phone Only')
-                    ->default(false)
+                    ->default()
                     ->queries(
                         true: fn ($query) => $query->where(function ($q) {
                             $q->where('hitta_personer_phone_saved', '>', 0)
@@ -275,6 +287,22 @@ class PostNumsTable
                         false: fn ($query) => $query->where(function ($q) {
                             $q->where('hitta_personer_phone_saved', '=', 0)
                                 ->where('ratsit_personer_phone_saved', '=', 0)
+                                ->where('merinfo_personer_phone_saved', '=', 0);
+                        }),
+                        blank: fn ($query) => $query,
+                    ),
+                TernaryFilter::make('has_personer')
+                    ->label('Show With Personer')
+                    ->default()
+                    ->queries(
+                        true: fn ($query) => $query->where(function ($q) {
+                            $q->where('ratsit_personer_total', '>', 0)
+                                ->orWhere('ratsit_personer_saved', '>', 0)
+                                ->orWhere('merinfo_personer_phone_saved', '>', 0);
+                        }),
+                        false: fn ($query) => $query->where(function ($q) {
+                            $q->where('ratsit_personer_total', '=', 0)
+                                ->where('ratsit_personer_saved', '=', 0)
                                 ->where('merinfo_personer_phone_saved', '=', 0);
                         }),
                         blank: fn ($query) => $query,

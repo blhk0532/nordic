@@ -7,6 +7,11 @@ namespace App\Providers\Filament;
 use Adultdate\FilamentBooking\Filament\Resources\BookingCalendars\BookingCalendarResource;
 use Adultdate\FilamentBooking\FilamentBookingPlugin;
 use AdultDate\FilamentWirechat\FilamentWirechatPlugin;
+use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendarsX1;
+use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendarsX3;
+use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendersX2;
+use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendersX4;
+use App\Filament\App\Clusters\Services\Resources\Bookings\Pages\BookingCalendersX6;
 use App\Filament\Pages\Dashboard;
 use App\Http\Middleware\FilamentPanelAccess;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
@@ -94,6 +99,11 @@ class CalendarPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Calendar/Pages'), for: 'App\Filament\Calendar\Pages')
             ->pages([
                 Dashboard::class,
+                BookingCalendarsX1::class,
+                BookingCalendersX2::class,
+                BookingCalendarsX3::class,
+                BookingCalendersX4::class,
+                BookingCalendersX6::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Calendar/Widgets'), for: 'App\Filament\Calendar\Widgets')
             ->widgets([

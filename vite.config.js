@@ -10,6 +10,7 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/css/app.css",
+                "resources/js/app.js",
                 "resources/js/app.tsx",
                 "resources/css/filament/adm/theme.css",
                 "resources/css/filament/app/theme.css",
@@ -25,6 +26,7 @@ export default defineConfig({
                 "resources/css/filament/admin/theme.css",
                 "resources/css/filament/company/theme.css",
                 "resources/css/filament/dev/theme.css",
+                "resources/css/filament/email/theme.css",
             ],
             refresh: true,
         }),
@@ -43,103 +45,103 @@ export default defineConfig({
     esbuild: {
         jsx: "automatic",
     },
-        optimizeDeps: {
+    optimizeDeps: {
+        include: [
+            "temporal-polyfill",
+            "@fullcalendar/core",
+            "@fullcalendar/react",
+            "@fullcalendar/daygrid",
+            "@fullcalendar/interaction",
+            "@fullcalendar/list",
+            "@fullcalendar/moment",
+            "@fullcalendar/moment-timezone",
+            "@fullcalendar/multimonth",
+            "@fullcalendar/resource",
+            "@fullcalendar/resource-daygrid",
+            "@fullcalendar/resource-timegrid",
+            "@fullcalendar/resource-timeline",
+            "@fullcalendar/scrollgrid",
+            "@fullcalendar/theme-monarch",
+            "@fullcalendar/theme-pulse",
+            "@fullcalendar/timegrid",
+            "@fullcalendar/timeline",
+        ],
+    },
+    build: {
+        emptyOutDir: false,
+        commonjsOptions: {
             include: [
-                'temporal-polyfill',
-                '@fullcalendar/core',
-                '@fullcalendar/react',
-                '@fullcalendar/daygrid',
-                '@fullcalendar/interaction',
-                '@fullcalendar/list',
-                '@fullcalendar/moment',
-                '@fullcalendar/moment-timezone',
-                '@fullcalendar/multimonth',
-                '@fullcalendar/resource',
-                '@fullcalendar/resource-daygrid',
-                '@fullcalendar/resource-timegrid',
-                '@fullcalendar/resource-timeline',
-                '@fullcalendar/scrollgrid',
-                '@fullcalendar/theme-monarch',
-                '@fullcalendar/theme-pulse',
-                '@fullcalendar/timegrid',
-                '@fullcalendar/timeline',
+                /node_modules\/temporal-polyfill/,
+                /node_modules\/@fullcalendar/,
+                /node_modules/,
             ],
         },
-        build: {
-            emptyOutDir: false,
-            commonjsOptions: {
-                include: [
-                    /node_modules\/temporal-polyfill/,
-                    /node_modules\/@fullcalendar/,
-                    /node_modules/,
-                ],
-            },
-            rollupOptions: {
-                output: {
-                    manualChunks(id) {
-                        if (id.includes('node_modules/@fullcalendar')) {
-                            return 'vendor-fullcalendar';
-                        }
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes("node_modules/@fullcalendar")) {
+                        return "vendor-fullcalendar";
+                    }
 
-                        if (id.includes('node_modules/@inertiajs')) {
-                            return 'vendor-inertia';
-                        }
+                    if (id.includes("node_modules/@inertiajs")) {
+                        return "vendor-inertia";
+                    }
 
-                        if (
-                            id.includes('node_modules/react/') ||
-                            id.includes('node_modules/react-dom/') ||
-                            id.includes('node_modules/scheduler/') ||
-                            id.includes('node_modules/use-sync-external-store/')
-                        ) {
-                            return 'vendor-react-core';
-                        }
+                    if (
+                        id.includes("node_modules/react/") ||
+                        id.includes("node_modules/react-dom/") ||
+                        id.includes("node_modules/scheduler/") ||
+                        id.includes("node_modules/use-sync-external-store/")
+                    ) {
+                        return "vendor-react-core";
+                    }
 
-                        if (
-                            id.includes('node_modules/@radix-ui/') ||
-                            id.includes('node_modules/@floating-ui/')
-                        ) {
-                            return 'vendor-radix';
-                        }
+                    if (
+                        id.includes("node_modules/@radix-ui/") ||
+                        id.includes("node_modules/@floating-ui/")
+                    ) {
+                        return "vendor-radix";
+                    }
 
-                        if (id.includes('node_modules/@tiptap')) {
-                            return 'vendor-tiptap';
-                        }
-                    },
+                    if (id.includes("node_modules/@tiptap")) {
+                        return "vendor-tiptap";
+                    }
                 },
             },
         },
-        ssr: {
-            noExternal: [
-                'temporal-polyfill',
-                '@fullcalendar/core',
-                '@fullcalendar/react',
-                '@fullcalendar/daygrid',
-                '@fullcalendar/interaction',
-                '@fullcalendar/list',
-                '@fullcalendar/moment',
-                '@fullcalendar/moment-timezone',
-                '@fullcalendar/multimonth',
-                '@fullcalendar/resource',
-                '@fullcalendar/resource-daygrid',
-                '@fullcalendar/resource-timegrid',
-                '@fullcalendar/resource-timeline',
-                '@fullcalendar/scrollgrid',
-                '@fullcalendar/theme-monarch',
-                '@fullcalendar/theme-pulse',
-                '@fullcalendar/timegrid',
-                '@fullcalendar/timeline',
+    },
+    ssr: {
+        noExternal: [
+            "temporal-polyfill",
+            "@fullcalendar/core",
+            "@fullcalendar/react",
+            "@fullcalendar/daygrid",
+            "@fullcalendar/interaction",
+            "@fullcalendar/list",
+            "@fullcalendar/moment",
+            "@fullcalendar/moment-timezone",
+            "@fullcalendar/multimonth",
+            "@fullcalendar/resource",
+            "@fullcalendar/resource-daygrid",
+            "@fullcalendar/resource-timegrid",
+            "@fullcalendar/resource-timeline",
+            "@fullcalendar/scrollgrid",
+            "@fullcalendar/theme-monarch",
+            "@fullcalendar/theme-pulse",
+            "@fullcalendar/timegrid",
+            "@fullcalendar/timeline",
+        ],
+    },
+    server: {
+        cors: true,
+        watch: {
+            ignored: [
+                "**/storage/framework/views/**",
+                "**/resources/jsBAK/**",
+                "**/*.bak",
+                "**/* copy.*",
             ],
         },
-        server: {
-            cors: true,
-            watch: {
-                ignored: [
-                    "**/storage/framework/views/**",
-                    "**/resources/jsBAK/**",
-                    "**/*.bak",
-                    "**/* copy.*",
-                ],
-            },
-        },
-        envPrefix: ["VITE_", "APP_", "DB_"],
+    },
+    envPrefix: ["VITE_", "APP_", "DB_"],
 });

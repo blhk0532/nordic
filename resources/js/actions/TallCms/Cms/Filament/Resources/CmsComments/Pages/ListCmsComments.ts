@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-const ListCmsComments = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsComments.url(args, options),
+const ListCmsComments = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsComments.url(options),
     method: 'get',
 })
 
 ListCmsComments.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/cms-comments',
+    url: '/nds/dev/cms-comments',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-ListCmsComments.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return ListCmsComments.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+ListCmsComments.url = (options?: RouteQueryOptions) => {
+    return ListCmsComments.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-ListCmsComments.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsComments.url(args, options),
+ListCmsComments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsComments.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-ListCmsComments.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListCmsComments.url(args, options),
+ListCmsComments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListCmsComments.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-const ListCmsCommentsForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsComments.url(args, options),
+const ListCmsCommentsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsComments.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-ListCmsCommentsForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsComments.url(args, options),
+ListCmsCommentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsComments.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ListCmsComments::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ListCmsComments.php:7
-* @route '/admin/tenant/{tenant}/cms-comments'
+* @route '/nds/dev/cms-comments'
 */
-ListCmsCommentsForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsComments.url(args, {
+ListCmsCommentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsComments.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

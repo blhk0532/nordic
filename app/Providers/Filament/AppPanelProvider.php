@@ -27,8 +27,10 @@ use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 use App\Filament\App\Pages\Tenancy\RegisterTeam;
 // use App\Filament\Data\Resources\RatsitDatas\RatsitDataResource;
 use App\Filament\App\Resources\BookingDataLeads\BookingDataLeadResource;
+use App\Filament\App\Resources\RingaData\RingaDataResource;
 use App\Filament\App\Resources\RingaDatas\Pages\QueueRingaData;
 use App\Filament\App\Resources\TeamUsers\TeamUserResource;
+use App\Filament\App\Resources\Users\UserResource;
 use App\Filament\Widgets\RatsitDataStatsWidget;
 use App\Http\Middleware\ApplyTenantScopes;
 use App\Http\Middleware\CurrentTenant;
@@ -61,6 +63,7 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentView;
+use Filament\Support\Icons\Heroicon;
 use Filament\View\PanelsRenderHook;
 use Hammadzafar05\MobileBottomNav\MobileBottomNav;
 use Hammadzafar05\MobileBottomNav\MobileBottomNavItem;
@@ -84,9 +87,6 @@ use Muazzam\SlickScrollbar\SlickScrollbarPlugin;
 use Wallacemartinss\FilamentIconPicker\Enums\Remix;
 use Wallacemartinss\FilamentIconPicker\Enums\Tabler;
 use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use App\Filament\App\Resources\Users\UserResource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\App\Resources\RingaData\RingaDataResource;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -413,7 +413,7 @@ class AppPanelProvider extends PanelProvider
                 //        ->visible(fn () => User::canManageTeam() !== false),
                 'profile' => fn (Action $action) => $action->label('Team Settings')
                     ->sort(-1)
-                    ->url(fn (): string => filament()->getTenant()->slug . '/profile')
+                    ->url(fn (): string => filament()->getTenant()->slug.'/profile')
                     ->visible(false),
                 'nummer.lista' => Action::make('nummer.lista')
                     ->label('Nummerlista')
@@ -440,10 +440,10 @@ class AppPanelProvider extends PanelProvider
                     ->login(
                         fn (AuthPageConfig $config) => $config
                             ->media(asset('assets/bangkok.jpg'))
-                            ->mediaPosition(MediaPosition::Cover)
+                            ->mediaPosition(MediaPosition::Left)
                             ->blur(1)
                             ->themeToggle()
-                            ->renderHook(AuthDesignerRenderHook::CardBefore, fn () => view('filament.logo-auth'))
+                            ->renderHook(AuthDesignerRenderHook::MediaOverlay, fn () => view('filament.app-logo-auth'))
                     )
             )
             ->plugins([
@@ -511,6 +511,11 @@ class AppPanelProvider extends PanelProvider
             function (): \Illuminate\View\View {
                 return view('filament.app.global-ringa-data-search-trigger');
             }
+        );
+
+                FilamentView::registerRenderHook(
+            PanelsRenderHook::CONTENT_BEFORE,
+            fn () => view('filament.app.content-before')
         );
     }
 }

@@ -2,113 +2,14 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-const ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, options),
-    method: 'get',
-})
-
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.definition = {
-    methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/terminal-logs/{record}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-            record: args[1],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-        record: args.record,
-    }
-
-    return ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace('{record}', parsedArgs.record.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-const ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0fForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0fForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
-* @route '/admin/tenant/{tenant}/terminal-logs/{record}'
-*/
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0fForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f.form = ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0fForm
-/**
-* @see \App\Filament\Admin\Resources\TerminalLogResource\Pages\ViewTerminalLog::__invoke
-* @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-const ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, options),
+const ViewTerminalLog = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewTerminalLog.url(args, options),
     method: 'get',
 })
 
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.definition = {
+ViewTerminalLog.definition = {
     methods: ["get","head"],
     url: '/nds/super/terminal-logs/{record}',
 } satisfies RouteDefinition<["get","head"]>
@@ -118,7 +19,7 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.definition = {
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+ViewTerminalLog.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { record: args }
     }
@@ -135,7 +36,7 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url = (args: { record: string | 
         record: args.record,
     }
 
-    return ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.definition.url
+    return ViewTerminalLog.definition.url
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -145,8 +46,8 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url = (args: { record: string | 
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, options),
+ViewTerminalLog.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ViewTerminalLog.url(args, options),
     method: 'get',
 })
 
@@ -155,8 +56,8 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.get = (args: { record: string | 
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, options),
+ViewTerminalLog.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ViewTerminalLog.url(args, options),
     method: 'head',
 })
 
@@ -165,8 +66,8 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.head = (args: { record: string |
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-const ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, options),
+const ViewTerminalLogForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTerminalLog.url(args, options),
     method: 'get',
 })
 
@@ -175,8 +76,8 @@ const ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm = (args: { record: str
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, options),
+ViewTerminalLogForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTerminalLog.url(args, options),
     method: 'get',
 })
 
@@ -185,8 +86,8 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm.get = (args: { record: strin
 * @see app/Filament/Admin/Resources/TerminalLogResource/Pages/ViewTerminalLog.php:7
 * @route '/nds/super/terminal-logs/{record}'
 */
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.url(args, {
+ViewTerminalLogForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ViewTerminalLog.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -195,11 +96,6 @@ ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm.head = (args: { record: stri
     method: 'get',
 })
 
-ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c.form = ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6cForm
-
-const ViewTerminalLog = {
-    '/admin/tenant/{tenant}/terminal-logs/{record}': ViewTerminalLog9dc89ba82a8d0c240fd56ed5a1389b0f,
-    '/nds/super/terminal-logs/{record}': ViewTerminalLogdfc16677eaa33547d4e5fbee43655d6c,
-}
+ViewTerminalLog.form = ViewTerminalLogForm
 
 export default ViewTerminalLog

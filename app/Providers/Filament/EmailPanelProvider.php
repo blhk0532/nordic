@@ -21,6 +21,7 @@ use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
+use FinityLabs\FinMail\FinMailPlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -28,8 +29,9 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
-use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
 use NoteBrainsLab\FilamentEmailTemplates\FilamentEmailTemplatesPlugin;
+use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+
 class EmailPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -111,9 +113,12 @@ class EmailPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugin(\RickDBCN\FilamentEmail\FilamentEmail::make())
-                                ->plugins([
-            FilamentEmailTemplatesPlugin::make(),
-        ])
+            ->plugins([
+                FilamentEmailTemplatesPlugin::make(),
+            ])
+            ->plugins([
+                FinMailPlugin::make(),
+            ])
             ->plugins([
                 FilamentWirechatPlugin::make()
                     ->onlyPages([])

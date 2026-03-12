@@ -1,29 +1,49 @@
-<style>
-    .video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1;
-}
+@php
+  $currentUserId = auth()->id();
+  $sessionBackgroundPath = session('filament_random_bg_path');
+  $sessionBackgroundUserId = session('filament_random_bg_user_id');
 
-.video-bg iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.77vh; /* 16:9 aspect ratio */
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* disables clicking the video */
-}
+  if (! is_string($sessionBackgroundPath) || $sessionBackgroundPath === '' || $sessionBackgroundUserId !== $currentUserId) {
+    $backgroundFiles = glob(public_path('assets/bg/*.{jpg,jpeg,png,webp,avif,gif}'), GLOB_BRACE) ?: [];
+
+    $selectedBackgroundPath = $backgroundFiles !== []
+      ? $backgroundFiles[array_rand($backgroundFiles)]
+      : public_path('assets/pattaya.webp');
+
+    $sessionBackgroundPath = str_replace(public_path(), '', $selectedBackgroundPath);
+    $sessionBackgroundPath = str_replace('\\', '/', $sessionBackgroundPath);
+
+    session([
+      'filament_random_bg_path' => $sessionBackgroundPath,
+      'filament_random_bg_user_id' => $currentUserId,
+    ]);
+  }
+
+  $appUrl = rtrim((string) config('app.url'), '/');
+  $backgroundImageUrl = $appUrl . '/' . ltrim($sessionBackgroundPath, '/');
+@endphp
+
+<style>
+  .filament-random-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+      background-size: cover;
+  /* Add a semi-transparent background color for better visual depth (optional) */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* Apply the blur effect to the background area */
+  backdrop-filter: blur(8px);
+  /* Add -webkit- prefix for wider compatibility, especially older Safari/iOS */
+  -webkit-backdrop-filter: blur(8px);
+  /* Other styling for the container */
+
+  }
+  .fi-main.fi-width-full{
+    z-index: 10;
+  }
 </style>
-<div class="video-bg">
-      <iframe
-    src="https://www.youtube.com/watch?v=Q71sLS8h9a4?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=Q71sLS8h9a4&modestbranding=0"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
+<div class="filament-random-bg" aria-hidden="true" style="background-image: url('{{ $backgroundImageUrl }}');"></div>

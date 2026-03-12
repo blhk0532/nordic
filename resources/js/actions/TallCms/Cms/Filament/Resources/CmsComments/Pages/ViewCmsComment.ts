@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-const ViewCmsComment = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const ViewCmsComment = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewCmsComment.url(args, options),
     method: 'get',
 })
 
 ViewCmsComment.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/cms-comments/{record}',
+    url: '/nds/dev/cms-comments/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-ViewCmsComment.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+ViewCmsComment.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
     return ViewCmsComment.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,9 +44,9 @@ ViewCmsComment.url = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-ViewCmsComment.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+ViewCmsComment.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: ViewCmsComment.url(args, options),
     method: 'get',
 })
@@ -55,9 +54,9 @@ ViewCmsComment.get = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-ViewCmsComment.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+ViewCmsComment.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: ViewCmsComment.url(args, options),
     method: 'head',
 })
@@ -65,9 +64,9 @@ ViewCmsComment.head = (args: { tenant: string | number | { slug: string | number
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-const ViewCmsCommentForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const ViewCmsCommentForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewCmsComment.url(args, options),
     method: 'get',
 })
@@ -75,9 +74,9 @@ const ViewCmsCommentForm = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-ViewCmsCommentForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+ViewCmsCommentForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewCmsComment.url(args, options),
     method: 'get',
 })
@@ -85,9 +84,9 @@ ViewCmsCommentForm.get = (args: { tenant: string | number | { slug: string | num
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsComments\Pages\ViewCmsComment::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsComments/Pages/ViewCmsComment.php:7
-* @route '/admin/tenant/{tenant}/cms-comments/{record}'
+* @route '/nds/dev/cms-comments/{record}'
 */
-ViewCmsCommentForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+ViewCmsCommentForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: ViewCmsComment.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

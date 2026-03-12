@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 export const index = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
@@ -11,13 +11,13 @@ export const index = (args: { tenant: string | number | { slug: string | number 
 
 index.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances',
+    url: '/admin/{tenant}/whatsapp-instances',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 index.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -50,7 +50,7 @@ index.url = (args: { tenant: string | number | { slug: string | number } } | [te
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 index.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
@@ -60,7 +60,7 @@ index.get = (args: { tenant: string | number | { slug: string | number } } | [te
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 index.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(args, options),
@@ -70,7 +70,7 @@ index.head = (args: { tenant: string | number | { slug: string | number } } | [t
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 const indexForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
@@ -80,7 +80,7 @@ const indexForm = (args: { tenant: string | number | { slug: string | number } }
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 indexForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
@@ -90,7 +90,7 @@ indexForm.get = (args: { tenant: string | number | { slug: string | number } } |
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
 indexForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, {
@@ -107,7 +107,7 @@ index.form = indexForm
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 export const create = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
@@ -116,13 +116,13 @@ export const create = (args: { tenant: string | number | { slug: string | number
 
 create.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances/create',
+    url: '/admin/{tenant}/whatsapp-instances/create',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 create.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -155,7 +155,7 @@ create.url = (args: { tenant: string | number | { slug: string | number } } | [t
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 create.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
@@ -165,7 +165,7 @@ create.get = (args: { tenant: string | number | { slug: string | number } } | [t
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 create.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: create.url(args, options),
@@ -175,7 +175,7 @@ create.head = (args: { tenant: string | number | { slug: string | number } } | [
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 const createForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, options),
@@ -185,7 +185,7 @@ const createForm = (args: { tenant: string | number | { slug: string | number } 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 createForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, options),
@@ -195,7 +195,7 @@ createForm.get = (args: { tenant: string | number | { slug: string | number } } 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\CreateWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/CreateWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/create'
+* @route '/admin/{tenant}/whatsapp-instances/create'
 */
 createForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, {
@@ -212,7 +212,7 @@ create.form = createForm
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 export const view = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
@@ -221,13 +221,13 @@ export const view = (args: { tenant: string | number | { slug: string | number }
 
 view.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances/{record}',
+    url: '/admin/{tenant}/whatsapp-instances/{record}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 view.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
@@ -255,7 +255,7 @@ view.url = (args: { tenant: string | number | { slug: string | number }, record:
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 view.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
@@ -265,7 +265,7 @@ view.get = (args: { tenant: string | number | { slug: string | number }, record:
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 view.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: view.url(args, options),
@@ -275,7 +275,7 @@ view.head = (args: { tenant: string | number | { slug: string | number }, record
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 const viewForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
@@ -285,7 +285,7 @@ const viewForm = (args: { tenant: string | number | { slug: string | number }, r
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 viewForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
@@ -295,7 +295,7 @@ viewForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ViewWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ViewWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}'
+* @route '/admin/{tenant}/whatsapp-instances/{record}'
 */
 viewForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, {
@@ -312,7 +312,7 @@ view.form = viewForm
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 export const edit = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
@@ -321,13 +321,13 @@ export const edit = (args: { tenant: string | number | { slug: string | number }
 
 edit.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit',
+    url: '/admin/{tenant}/whatsapp-instances/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 edit.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
@@ -355,7 +355,7 @@ edit.url = (args: { tenant: string | number | { slug: string | number }, record:
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 edit.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
@@ -365,7 +365,7 @@ edit.get = (args: { tenant: string | number | { slug: string | number }, record:
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 edit.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
@@ -375,7 +375,7 @@ edit.head = (args: { tenant: string | number | { slug: string | number }, record
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 const editForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, options),
@@ -385,7 +385,7 @@ const editForm = (args: { tenant: string | number | { slug: string | number }, r
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 editForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, options),
@@ -395,7 +395,7 @@ editForm.get = (args: { tenant: string | number | { slug: string | number }, rec
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
 editForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, {

@@ -20,7 +20,7 @@ class BookingCalendarResource extends Resource
 {
     protected static ?string $model = BookingCalendar::class;
 
-    protected static ?string $navigationLabel = 'Kalender';
+    protected static ?string $navigationLabel = 'Kalendrar';
 
     protected static bool $isScopedToTenant = false;
 
@@ -51,7 +51,9 @@ class BookingCalendarResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return true;
+        $panel = filament()->getCurrentPanel();
+
+        return $panel && in_array($panel->getId(), ['super', 'booking', 'calendar', 'queue']);
     }
 
     public static function getPages(): array

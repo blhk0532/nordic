@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-const EditWhatsappInstance345bc1c1db76c694027e476abedb4be0 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, options),
+const EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499 = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, options),
     method: 'get',
 })
 
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.definition = {
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit',
+    url: '/admin/{tenant}/whatsapp-instances/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             tenant: args[0],
@@ -36,7 +36,7 @@ EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url = (args: { tenant: stri
         record: args.record,
     }
 
-    return EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.definition.url
+    return EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
@@ -45,50 +45,50 @@ EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url = (args: { tenant: stri
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, options),
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, options),
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-const EditWhatsappInstance345bc1c1db76c694027e476abedb4be0Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, options),
+const EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499Form = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, options),
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499Form.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit'
+* @route '/admin/{tenant}/whatsapp-instances/{record}/edit'
 */
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.url(args, {
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499Form.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -97,7 +97,7 @@ EditWhatsappInstance345bc1c1db76c694027e476abedb4be0Form.head = (args: { tenant:
     method: 'get',
 })
 
-EditWhatsappInstance345bc1c1db76c694027e476abedb4be0.form = EditWhatsappInstance345bc1c1db76c694027e476abedb4be0Form
+EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499.form = EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499Form
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\EditWhatsappInstance::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/EditWhatsappInstance.php:7
@@ -296,7 +296,7 @@ EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288Form.head = (args: { record:
 EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288.form = EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288Form
 
 const EditWhatsappInstance = {
-    '/admin/tenant/{tenant}/whatsapp-instances/{record}/edit': EditWhatsappInstance345bc1c1db76c694027e476abedb4be0,
+    '/admin/{tenant}/whatsapp-instances/{record}/edit': EditWhatsappInstance903ff7ac26704caf9aaeafa6a691e499,
     '/nds/notify/whatsapp-instances/{record}/edit': EditWhatsappInstance312e99f64f8417cd9747f582528c8b1e,
     '/nds/super/whatsapp-instances/{record}/edit': EditWhatsappInstance3cb69ed598bdb98bb4e7cbd0f510c288,
 }

@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-const ListCmsCategories = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsCategories.url(args, options),
+const ListCmsCategories = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsCategories.url(options),
     method: 'get',
 })
 
 ListCmsCategories.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/cms-categories',
+    url: '/nds/dev/cms-categories',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-ListCmsCategories.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return ListCmsCategories.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+ListCmsCategories.url = (options?: RouteQueryOptions) => {
+    return ListCmsCategories.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-ListCmsCategories.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsCategories.url(args, options),
+ListCmsCategories.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsCategories.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-ListCmsCategories.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListCmsCategories.url(args, options),
+ListCmsCategories.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListCmsCategories.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-const ListCmsCategoriesForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsCategories.url(args, options),
+const ListCmsCategoriesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsCategories.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-ListCmsCategoriesForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsCategories.url(args, options),
+ListCmsCategoriesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsCategories.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsCategories\Pages\ListCmsCategories::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsCategories/Pages/ListCmsCategories.php:7
-* @route '/admin/tenant/{tenant}/cms-categories'
+* @route '/nds/dev/cms-categories'
 */
-ListCmsCategoriesForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsCategories.url(args, {
+ListCmsCategoriesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsCategories.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

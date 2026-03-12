@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-const PluginManager = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: PluginManager.url(args, options),
+const PluginManager = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PluginManager.url(options),
     method: 'get',
 })
 
 PluginManager.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/plugin-manager',
+    url: '/nds/dev/plugin-manager',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-PluginManager.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return PluginManager.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+PluginManager.url = (options?: RouteQueryOptions) => {
+    return PluginManager.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-PluginManager.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: PluginManager.url(args, options),
+PluginManager.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: PluginManager.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-PluginManager.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: PluginManager.url(args, options),
+PluginManager.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: PluginManager.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-const PluginManagerForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PluginManager.url(args, options),
+const PluginManagerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PluginManager.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-PluginManagerForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PluginManager.url(args, options),
+PluginManagerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PluginManager.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Pages\PluginManager::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Pages/PluginManager.php:7
-* @route '/admin/tenant/{tenant}/plugin-manager'
+* @route '/nds/dev/plugin-manager'
 */
-PluginManagerForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: PluginManager.url(args, {
+PluginManagerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: PluginManager.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-const ListCmsPages = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsPages.url(args, options),
+const ListCmsPages = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsPages.url(options),
     method: 'get',
 })
 
 ListCmsPages.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/cms-pages',
+    url: '/nds/dev/cms-pages',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-ListCmsPages.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return ListCmsPages.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+ListCmsPages.url = (options?: RouteQueryOptions) => {
+    return ListCmsPages.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-ListCmsPages.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListCmsPages.url(args, options),
+ListCmsPages.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListCmsPages.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-ListCmsPages.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListCmsPages.url(args, options),
+ListCmsPages.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListCmsPages.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-const ListCmsPagesForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsPages.url(args, options),
+const ListCmsPagesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsPages.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-ListCmsPagesForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsPages.url(args, options),
+ListCmsPagesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsPages.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPages\Pages\ListCmsPages::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPages/Pages/ListCmsPages.php:7
-* @route '/admin/tenant/{tenant}/cms-pages'
+* @route '/nds/dev/cms-pages'
 */
-ListCmsPagesForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListCmsPages.url(args, {
+ListCmsPagesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListCmsPages.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

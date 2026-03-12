@@ -114,7 +114,7 @@ class BookingPanelProvider extends PanelProvider
             ->discoverClusters(in: app_path('Filament/Booking/Clusters'), for: 'App\\Filament\\Booking\\Clusters')
             ->navigationGroups([
                 NavigationGroup::make('Boknings Kalendrar')
-                    ->icon('heroicon-o-calendar-days'),
+                    ->icon('heroicon-o-calendar'),
             ])
             ->pages([
                 //   Dashboard::class,
@@ -164,15 +164,9 @@ class BookingPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->plugins($this->optionalPanelPlugins())
+
             ->plugins([
                 FilamentBookingPlugin::make(),
-                FilamentWirechatPlugin::make()
-                    ->onlyPages([])
-                    ->excludeResources([
-                        \AdultDate\FilamentWirechat\Filament\Resources\Conversations\ConversationResource::class,
-                        \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
-                    ]),
             ]);
     }
 

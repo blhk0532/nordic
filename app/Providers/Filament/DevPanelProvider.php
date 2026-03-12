@@ -11,6 +11,7 @@ use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Caresome\FilamentAuthDesigner\View\AuthDesignerRenderHook;
+use Crumbls\Layup\LayupPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,9 +33,9 @@ use Joaopaulolndev\FilamentEditEnv\FilamentEditEnvPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Lartisan\Architect\ArchitectPlugin;
-use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
-use Crumbls\Layup\LayupPlugin;
 use TallCms\Cms\TallCmsPlugin;
+use Wallacemartinss\FilamentIconPicker\FilamentIconPickerPlugin;
+
 class DevPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -94,6 +95,7 @@ class DevPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Panels/Resources'), for: 'App\Filament\Panels\Resources')
             ->pages([
                 DevDashboard::class,
+                \App\Filament\Dev\Pages\MenuItemsManager::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Dev/Widgets'), for: 'App\Filament\Dev\Widgets')
             ->widgets([
@@ -118,7 +120,7 @@ class DevPanelProvider extends PanelProvider
             ->plugins([
                 ArchitectPlugin::make(),
             ])
-             ->plugin(TallCmsPlugin::make())
+            ->plugin(TallCmsPlugin::make())
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
                     ->canAccess(fn () => Auth::user()->role === 'super')
@@ -141,8 +143,8 @@ class DevPanelProvider extends PanelProvider
                         \AdultDate\FilamentWirechat\Filament\Resources\Messages\MessageResource::class,
                     ]),
             ])
-                    ->plugins([
-            LayupPlugin::make(),
-        ]);
+            ->plugins([
+                LayupPlugin::make(),
+            ]);
     }
 }

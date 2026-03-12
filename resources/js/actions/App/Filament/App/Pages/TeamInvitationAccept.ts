@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-const TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+const TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, options),
     method: 'get',
 })
 
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.definition = {
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/team-invitation-accept',
+    url: '/admin/{tenant}/team-invitation-accept',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url = (args: { tenant: stri
         : args.tenant,
     }
 
-    return TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.definition.url
+    return TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -50,50 +50,50 @@ TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url = (args: { tenant: stri
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-const TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+const TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0adForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, options),
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0adForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
-* @route '/admin/tenant/{tenant}/team-invitation-accept'
+* @route '/admin/{tenant}/team-invitation-accept'
 */
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.url(args, {
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0adForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form.head = (args: { tenant:
     method: 'get',
 })
 
-TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404.form = TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404Form
+TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad.form = TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0adForm
 /**
 * @see \App\Filament\App\Pages\TeamInvitationAccept::__invoke
 * @see app/Filament/App/Pages/TeamInvitationAccept.php:7
@@ -209,7 +209,7 @@ TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form.head = (args: { tenant:
 TeamInvitationAccepte7d994bfd2b40381a647da575947fd89.form = TeamInvitationAccepte7d994bfd2b40381a647da575947fd89Form
 
 const TeamInvitationAccept = {
-    '/admin/tenant/{tenant}/team-invitation-accept': TeamInvitationAccept1730b9692b01ef4337b0cec0ccdf7404,
+    '/admin/{tenant}/team-invitation-accept': TeamInvitationAcceptba9cb06e37e6f9294052b3f50858f0ad,
     '/nds/app/team/{tenant}/team-invitation-accept': TeamInvitationAccepte7d994bfd2b40381a647da575947fd89,
 }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d4205f652a17ab64bfc3b72be7050b1",
+    "content-hash": "4cb9911f939b643c1f5e00e0aa56f8b7",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -6648,6 +6648,84 @@
                 }
             ],
             "time": "2025-08-08T12:00:00+00:00"
+        },
+        {
+            "name": "finity-labs/fin-mail",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/finity-labs/fin-mail.git",
+                "reference": "42263ee5967728e65a8b44d091edc39a1c83f963"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/finity-labs/fin-mail/zipball/42263ee5967728e65a8b44d091edc39a1c83f963",
+                "reference": "42263ee5967728e65a8b44d091edc39a1c83f963",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "filament/spatie-laravel-settings-plugin": "^3.0|^4.0|^5.0",
+                "illuminate/contracts": "^11.0|^12.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16",
+                "spatie/laravel-settings": "^3.0|^4.0",
+                "spatie/laravel-translatable": "^6.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.0|^3.0",
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^2.0|^3.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.0"
+            },
+            "suggest": {
+                "awcodes/filament-tiptap-editor": "For a richer email body editor experience",
+                "mohamedsabil83/filament-forms-tinyeditor": "Alternative rich text editor"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "FinMail": "FinityLabs\\FinMail\\Facades\\FinMail"
+                    },
+                    "providers": [
+                        "FinityLabs\\FinMail\\FinMailServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FinityLabs\\FinMail\\": "src/",
+                    "FinityLabs\\FinMail\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Finity Labs",
+                    "email": "filament.infinity@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A powerful email template manager and composer for Filament with dynamic token replacement, template versioning, and inline email sending.",
+            "homepage": "https://github.com/finity-labs/fin-mail",
+            "keywords": [
+                "email",
+                "email-builder",
+                "email-composer",
+                "filament",
+                "laravel",
+                "templates"
+            ],
+            "support": {
+                "issues": "https://github.com/finity-labs/fin-mail/issues",
+                "source": "https://github.com/finity-labs/fin-mail/tree/v1.0.1"
+            },
+            "time": "2026-03-05T20:48:34+00:00"
         },
         {
             "name": "firebase/php-jwt",

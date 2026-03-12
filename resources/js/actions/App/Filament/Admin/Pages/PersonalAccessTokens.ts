@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 const PersonalAccessTokens = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: PersonalAccessTokens.url(args, options),
@@ -11,13 +11,13 @@ const PersonalAccessTokens = (args: { tenant: string | number | { slug: string |
 
 PersonalAccessTokens.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/personal-access-tokens',
+    url: '/admin/{tenant}/personal-access-tokens',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -50,7 +50,7 @@ PersonalAccessTokens.url = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: PersonalAccessTokens.url(args, options),
@@ -60,7 +60,7 @@ PersonalAccessTokens.get = (args: { tenant: string | number | { slug: string | n
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokens.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: PersonalAccessTokens.url(args, options),
@@ -70,7 +70,7 @@ PersonalAccessTokens.head = (args: { tenant: string | number | { slug: string | 
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 const PersonalAccessTokensForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: PersonalAccessTokens.url(args, options),
@@ -80,7 +80,7 @@ const PersonalAccessTokensForm = (args: { tenant: string | number | { slug: stri
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokensForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: PersonalAccessTokens.url(args, options),
@@ -90,7 +90,7 @@ PersonalAccessTokensForm.get = (args: { tenant: string | number | { slug: string
 /**
 * @see \App\Filament\Admin\Pages\PersonalAccessTokens::__invoke
 * @see app/Filament/Admin/Pages/PersonalAccessTokens.php:7
-* @route '/admin/tenant/{tenant}/personal-access-tokens'
+* @route '/admin/{tenant}/personal-access-tokens'
 */
 PersonalAccessTokensForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: PersonalAccessTokens.url(args, {

@@ -59,10 +59,12 @@ class KommunerMapWidget extends MapWidget
 
         $markers = [];
         foreach ($kommuner as $kommun) {
+            $personerCount = (int) $kommun->personer_count;
+
             $markers[] = Marker::make($kommun->lat, $kommun->lng)
-                ->title($kommun->kommun)
-                ->popupContent($kommun->kommun.': '.number_format($kommun->personer_count).' personer')
-                ->color($this->getMarkerColor($kommun->personer_count));
+                ->title($kommun->kommun.' - '.number_format($personerCount).' personer')
+                ->popupContent($kommun->kommun.': '.number_format($personerCount).' personer')
+                ->color($this->getMarkerColor($personerCount));
         }
 
         return $markers;

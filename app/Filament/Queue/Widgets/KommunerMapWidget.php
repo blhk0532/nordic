@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Filament\Queue\Widgets;
 
-use App\Models\RatsitKommun;
-use App\Models\RatsitPostort;
-use EduardoRibeiroDev\FilamentLeaflet\Enums\Color;
+use App\Models\SwedenKommuner;
 use EduardoRibeiroDev\FilamentLeaflet\Support\Markers\Marker;
 use EduardoRibeiroDev\FilamentLeaflet\Widgets\MapWidget;
+use Filament\Support\Colors\Color;
 use Livewire\Attributes\On;
 
 class KommunerMapWidget extends MapWidget
@@ -17,87 +16,53 @@ class KommunerMapWidget extends MapWidget
 
     protected ?string $heading = 'Sweden Kommuner Map';
 
-    protected array $mapCenter = [60.1282, 18.6435];
+    protected array $mapCenter = [62.3908000, 17.3069000];
 
     protected int $defaultZoom = 5;
 
-    protected int $mapHeight = 500;
+    protected int $mapHeight = 690;
 
-    public ?string $selectedKommun = null;
+    public function getHeading(): ?string
+    {
+        return 'Sverige Kommuner';
+    }
 
     #[On('show-postorter')]
     public function handleShowPostorter(string $kommun): void
     {
-        $this->selectedKommun = $kommun;
-        $this->heading = "Postnummer in {$kommun}";
         $this->dispatch('refresh-map');
     }
 
     #[On('clear-selection')]
     public function handleClearSelection(): void
     {
-        $this->selectedKommun = null;
-        $this->heading = 'Sweden Kommuner Map';
+        $this->dispatch('refresh-map');
     }
 
     protected function getMarkers(): array
     {
-        if ($this->selectedKommun) {
-            return $this->getPostorterMarkers();
-        }
-
         return $this->getKommunerMarkers();
     }
 
     protected function getKommunerMarkers(): array
     {
-        $kommuner = RatsitKommun::query()
-            ->whereNotNull('lat')
-            ->whereNotNull('lng')
-            ->where('personer_count', '>', 0)
+        $kommuner = SwedenKommuner::query()
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
             ->get();
 
         $markers = [];
         foreach ($kommuner as $kommun) {
-            $markers[] = Marker::make($kommun->lat, $kommun->lng)
-                ->title($kommun->kommun)
-                ->popupContent($kommun->kommun.': '.number_format($kommun->personer_count).' personer')
-                ->color($this->getMarkerColor($kommun->personer_count));
-        }
+            $personerCount = (int) $kommun->personer;
+            $kommunName = (string) $kommun->kommun;
 
-        return $markers;
-    }
-
-    protected function getPostorterMarkers(): array
-    {
-        $kommun = RatsitKommun::whereRaw('LOWER(kommun) = ?', [strtolower($this->selectedKommun)])->first();
-
-        if (! $kommun) {
-            return [];
-        }
-
-        $postorter = RatsitPostort::whereRaw('LOWER(kommun) = ?', [strtolower($this->selectedKommun)])
-            ->orWhereRaw('LOWER(personer_kommun) = ?', [strtolower($this->selectedKommun)])
-            ->selectRaw('post_nummer, post_ort, SUM(personer_count) as personer_count, SUM(foretag_count) as foretag_count')
-            ->groupBy('post_nummer', 'post_ort')
-            ->get();
-
-        $markers = [];
-        $index = 0;
-        $total = $postorter->count();
-
-        foreach ($postorter as $postort) {
-            $latOffset = (sin($index * 2 * M_PI / max($total, 1)) * 0.05);
-            $lngOffset = (cos($index * 2 * M_PI / max($total, 1)) * 0.05);
-
-            $markers[] = Marker::make(
-                (float) $kommun->lat + $latOffset,
-                (float) $kommun->lng + $lngOffset
-            )
-                ->title($postort->post_nummer.' - '.$postort->post_ort)
-                ->popupContent($postort->post_nummer.' '.$postort->post_ort.'<br>Personer: '.number_format($postort->personer_count).'<br>Företag: '.number_format($postort->foretag_count))
-                ->color(Color::Blue);
-            $index++;
+            $markers[] = Marker::make((float) $kommun->latitude, (float) $kommun->longitude)
+                ->title($kommun->kommun.' - '.number_format($personerCount).' personer')
+                ->popupContent($kommun->kommun.': '.number_format($personerCount).' personer')
+                ->onClick(function () use ($kommunName): void {
+                    $this->dispatch('show-postorter', kommun: $kommunName);
+                })
+                ->color($this->getMarkerColor($personerCount));
         }
 
         return $markers;
@@ -105,32 +70,56 @@ class KommunerMapWidget extends MapWidget
 
     protected function getTotalKommuner(): int
     {
-        return RatsitKommun::query()
-            ->whereNotNull('lat')
-            ->whereNotNull('lng')
+        return SwedenKommuner::query()
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
             ->count();
     }
 
     protected function getTotalPersoner(): int
     {
-        return (int) RatsitKommun::query()
-            ->whereNotNull('lat')
-            ->whereNotNull('lng')
-            ->sum('personer_count');
+        return (int) SwedenKommuner::query()
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
+            ->sum('personer');
     }
 
     protected function getMarkerColor(int $personerCount): array
     {
-        if ($personerCount > 100000) {
+        if ($personerCount > 200000) {
             return Color::Red;
         }
-        if ($personerCount > 50000) {
+        if ($personerCount > 100000) {
+            return Color::Pink;
+        }
+        if ($personerCount > 80000) {
             return Color::Orange;
         }
+        if ($personerCount > 60000) {
+            return Color::Cyan;
+        }
+        if ($personerCount > 50000) {
+            return Color::Pink;
+        }
+        if ($personerCount > 40000) {
+            return Color::Violet;
+        }
+        if ($personerCount > 30000) {
+            return Color::Blue;
+        }
         if ($personerCount > 20000) {
-            return Color::Gold;
+            return Color::Indigo;
+        }
+        if ($personerCount > 10000) {
+            return Color::Sky;
+        }
+        if ($personerCount > 8000) {
+            return Color::Gray;
+        }
+        if ($personerCount > 3000) {
+            return Color::Gray;
         }
 
-        return Color::Blue;
+        return Color::Gray;
     }
 }

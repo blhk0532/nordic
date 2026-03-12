@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-const CreateUser = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser.url(args, options),
+const CreateUser = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUser.url(options),
     method: 'get',
 })
 
 CreateUser.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/users/create',
+    url: '/nds/dev/users/create',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-CreateUser.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return CreateUser.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+CreateUser.url = (options?: RouteQueryOptions) => {
+    return CreateUser.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-CreateUser.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateUser.url(args, options),
+CreateUser.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateUser.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-CreateUser.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateUser.url(args, options),
+CreateUser.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateUser.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-const CreateUserForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url(args, options),
+const CreateUserForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-CreateUserForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url(args, options),
+CreateUserForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\CreateUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/CreateUser.php:7
-* @route '/admin/tenant/{tenant}/users/create'
+* @route '/nds/dev/users/create'
 */
-CreateUserForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateUser.url(args, {
+CreateUserForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateUser.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

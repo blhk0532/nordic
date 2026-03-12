@@ -2,9 +2,15 @@
 
 namespace App\Filament\Queue\Resources\SwedenKommuners\Pages;
 
+use App\Actions\ImportSwedenKommunerCountsFromRatsit;
 use App\Filament\Queue\Resources\SwedenKommuners\SwedenKommunerResource;
+use App\Filament\Queue\Widgets\KommunerMapWidget;
+use App\Filament\Queue\Widgets\PostorterMapWidget;
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
+use Throwable;
 
 class ListSwedenKommuners extends ListRecords
 {
@@ -14,6 +20,45 @@ class ListSwedenKommuners extends ListRecords
     {
         return [
             CreateAction::make(),
+            Action::make('importRatsitCounts')
+                ->label('Import Ratsit Counts')
+                ->icon('heroicon-o-arrow-down-tray')
+                ->color('success')
+                ->requiresConfirmation()
+                ->modalHeading('Import Ratsit counts for all kommuner')
+                ->modalDescription('This imports current personer_count and foretag_count values from ratsit_kommuner into sweden_kommuner without deleting existing rows.')
+                ->action(function (ImportSwedenKommunerCountsFromRatsit $importAction): void {
+                    try {
+                        $stats = $importAction->handle();
+
+                        Notification::make()
+                            ->success()
+                            ->title('Ratsit counts imported')
+                            ->body("Processed {$stats['processed']} rows, updated {$stats['updated']}, unchanged {$stats['unchanged']}, unmatched {$stats['unmatched']}.")
+                            ->send();
+                    } catch (Throwable $throwable) {
+                        Notification::make()
+                            ->danger()
+                            ->title('Import failed')
+                            ->body($throwable->getMessage())
+                            ->send();
+                    }
+                }),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            KommunerMapWidget::make(),
+            PostorterMapWidget::make(),
+        ];
+    }
+
+    protected function getHeaderFooter(): array
+    {
+        return [
+
         ];
     }
 }

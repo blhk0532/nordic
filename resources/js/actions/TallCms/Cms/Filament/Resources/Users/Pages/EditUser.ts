@@ -2,42 +2,41 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-const EditUser = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const EditUser = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditUser.url(args, options),
     method: 'get',
 })
 
 EditUser.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/users/{record}/edit',
+    url: '/nds/dev/users/{record}/edit',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-EditUser.url = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions) => {
+EditUser.url = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { record: args }
+    }
+
     if (Array.isArray(args)) {
         args = {
-            tenant: args[0],
-            record: args[1],
+            record: args[0],
         }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
         record: args.record,
     }
 
     return EditUser.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
             .replace('{record}', parsedArgs.record.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -45,9 +44,9 @@ EditUser.url = (args: { tenant: string | number | { slug: string | number }, rec
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-EditUser.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+EditUser.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: EditUser.url(args, options),
     method: 'get',
 })
@@ -55,9 +54,9 @@ EditUser.get = (args: { tenant: string | number | { slug: string | number }, rec
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-EditUser.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+EditUser.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: EditUser.url(args, options),
     method: 'head',
 })
@@ -65,9 +64,9 @@ EditUser.head = (args: { tenant: string | number | { slug: string | number }, re
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-const EditUserForm = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const EditUserForm = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditUser.url(args, options),
     method: 'get',
 })
@@ -75,9 +74,9 @@ const EditUserForm = (args: { tenant: string | number | { slug: string | number 
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-EditUserForm.get = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditUserForm.get = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditUser.url(args, options),
     method: 'get',
 })
@@ -85,9 +84,9 @@ EditUserForm.get = (args: { tenant: string | number | { slug: string | number },
 /**
 * @see \TallCms\Cms\Filament\Resources\Users\Pages\EditUser::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/Users/Pages/EditUser.php:7
-* @route '/admin/tenant/{tenant}/users/{record}/edit'
+* @route '/nds/dev/users/{record}/edit'
 */
-EditUserForm.head = (args: { tenant: string | number | { slug: string | number }, record: string | number } | [tenant: string | number | { slug: string | number }, record: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+EditUserForm.head = (args: { record: string | number } | [record: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: EditUser.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

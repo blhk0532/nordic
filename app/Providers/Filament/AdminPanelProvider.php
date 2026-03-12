@@ -55,7 +55,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use JeffersonGoncalves\Filament\WhatsappWidget\Resources\WhatsappAgentResource;
 use JeffersonGoncalves\Filament\WhatsappWidget\WhatsappWidgetPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
@@ -117,10 +116,10 @@ class AdminPanelProvider extends PanelProvider
             // ->discoverResources(in: app_path('../plugins/adultdate/filament-booking/src/Filament/Resources'), for: 'Adultdate\\FilamentBooking\\Filament\\Resources')
 
             ->pages([
-            //    Sanctum::class,
+                //    Sanctum::class,
                 \App\Filament\App\Pages\TeamInvitationAccept::class,
-            //    Profile::class,
-            //    ControlPanel::class,
+                //    Profile::class,
+                //    ControlPanel::class,
                 PersonalAccessTokens::class,
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
@@ -133,10 +132,6 @@ class AdminPanelProvider extends PanelProvider
             ->resources([
                 //    BookingCalendarResource::class,
                 TeamUserResource::class,
-            ])
-            ->resources([
-                //    BookingCalendarResource::class,
-                //    WhatsappAgentResource::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -157,7 +152,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentApexChartsPlugin::make(),
                 FilamentEvolutionPlugin::make(),
-            //    MemberPlugin::make(),
+                //    MemberPlugin::make(),
                 AdvancedExportPlugin::make(),
                 //    ApiServicePlugin::make()
             ])
@@ -169,13 +164,13 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationSort(5),
             ])
             ->plugins([
-            //    FilamentGeneralSettingsPlugin::make()
-            //        ->canAccess(fn () => Auth::user()->role === 'super')
-            //        ->setSort(3)
-            //        ->setIcon('heroicon-o-cog')
-            //        ->setNavigationGroup('Settings')
-            //        ->setTitle('Settings')
-            //        ->setNavigationLabel('Settings'),
+                //    FilamentGeneralSettingsPlugin::make()
+                //        ->canAccess(fn () => Auth::user()->role === 'super')
+                //        ->setSort(3)
+                //        ->setIcon('heroicon-o-cog')
+                //        ->setNavigationGroup('Settings')
+                //        ->setTitle('Settings')
+                //        ->setNavigationLabel('Settings'),
             ])
             ->plugins([])
             ->plugins([
@@ -195,10 +190,10 @@ class AdminPanelProvider extends PanelProvider
                 //  WhatsappWidgetPlugin::make(),
             ])
             ->plugins([
-            //    ActivityLogPlugin::make()
-            //        ->label('Log')
-            //        ->pluralLabel('Logs')
-            //        ->navigationGroup('System'),
+                //    ActivityLogPlugin::make()
+                //        ->label('Log')
+                //        ->pluralLabel('Logs')
+                //        ->navigationGroup('System'),
             ])
             ->plugins([
                 EasyFooterPlugin::make()

@@ -37,6 +37,11 @@ class BookingCalendersX6 extends BaseDashboard
 
     protected static ?int $navigationSort = 6;
 
+    public static function isDiscovered(): bool
+    {
+        return false;
+    }
+
     //  protected static ?string $slug = 'dashboard';
 
     protected static string|UnitEnum|null $navigationGroup = 'Kalendrar';

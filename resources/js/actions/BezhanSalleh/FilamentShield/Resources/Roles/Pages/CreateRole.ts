@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../wayfinder'
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-const CreateRole2dc8b84baaaef3bae51d8a32bcf1431f = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, options),
+const CreateRole6a9ecf988ec3e5e30e96474fa5960d85 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url(options),
     method: 'get',
 })
 
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.definition = {
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/shield/roles/create',
+    url: '/nds/dev/shield/roles/create',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url = (options?: RouteQueryOptions) => {
+    return CreateRole6a9ecf988ec3e5e30e96474fa5960d85.definition.url + queryParams(options)
 }
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, options),
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url(options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, options),
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url(options),
     method: 'head',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-const CreateRole2dc8b84baaaef3bae51d8a32bcf1431fForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, options),
+const CreateRole6a9ecf988ec3e5e30e96474fa5960d85Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url(options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431fForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, options),
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url(options),
     method: 'get',
 })
 
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
-* @route '/admin/tenant/{tenant}/shield/roles/create'
+* @route '/nds/dev/shield/roles/create'
 */
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431fForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.url(args, {
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateRole6a9ecf988ec3e5e30e96474fa5960d85.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +78,7 @@ CreateRole2dc8b84baaaef3bae51d8a32bcf1431fForm.head = (args: { tenant: string | 
     method: 'get',
 })
 
-CreateRole2dc8b84baaaef3bae51d8a32bcf1431f.form = CreateRole2dc8b84baaaef3bae51d8a32bcf1431fForm
+CreateRole6a9ecf988ec3e5e30e96474fa5960d85.form = CreateRole6a9ecf988ec3e5e30e96474fa5960d85Form
 /**
 * @see \BezhanSalleh\FilamentShield\Resources\Roles\Pages\CreateRole::__invoke
 * @see vendor/bezhansalleh/filament-shield/src/Resources/Roles/Pages/CreateRole.php:7
@@ -185,7 +161,7 @@ CreateRole11e055d7abeddef45d22dea3c46b678fForm.head = (options?: RouteQueryOptio
 CreateRole11e055d7abeddef45d22dea3c46b678f.form = CreateRole11e055d7abeddef45d22dea3c46b678fForm
 
 const CreateRole = {
-    '/admin/tenant/{tenant}/shield/roles/create': CreateRole2dc8b84baaaef3bae51d8a32bcf1431f,
+    '/nds/dev/shield/roles/create': CreateRole6a9ecf988ec3e5e30e96474fa5960d85,
     '/nds/super/shield/roles/create': CreateRole11e055d7abeddef45d22dea3c46b678f,
 }
 

@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-const ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, options),
+const ChatsPage8bde5a6931c1e18ac6e990b28d596aa5 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, options),
     method: 'get',
 })
 
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.definition = {
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/chats',
+    url: '/admin/{tenant}/chats',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url = (args: { tenant: string | number
         : args.tenant,
     }
 
-    return ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.definition.url
+    return ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -50,50 +50,50 @@ ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url = (args: { tenant: string | number
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, options),
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, options),
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-const ChatsPagea6095bd0232f9f3cb977aa3c93abfbbbForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, options),
+const ChatsPage8bde5a6931c1e18ac6e990b28d596aa5Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbbForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, options),
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
-* @route '/admin/tenant/{tenant}/chats'
+* @route '/admin/{tenant}/chats'
 */
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbbForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.url(args, {
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ ChatsPagea6095bd0232f9f3cb977aa3c93abfbbbForm.head = (args: { tenant: string | n
     method: 'get',
 })
 
-ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb.form = ChatsPagea6095bd0232f9f3cb977aa3c93abfbbbForm
+ChatsPage8bde5a6931c1e18ac6e990b28d596aa5.form = ChatsPage8bde5a6931c1e18ac6e990b28d596aa5Form
 /**
 * @see \AdultDate\FilamentWirechat\Filament\Pages\ChatsPage::__invoke
 * @see plugins/adultdate/filament-wirechat/src/Filament/Pages/ChatsPage.php:7
@@ -265,7 +265,7 @@ ChatsPage4add964372ca5bb4beca1bce22fc0af0Form.head = (options?: RouteQueryOption
 ChatsPage4add964372ca5bb4beca1bce22fc0af0.form = ChatsPage4add964372ca5bb4beca1bce22fc0af0Form
 
 const ChatsPage = {
-    '/admin/tenant/{tenant}/chats': ChatsPagea6095bd0232f9f3cb977aa3c93abfbbb,
+    '/admin/{tenant}/chats': ChatsPage8bde5a6931c1e18ac6e990b28d596aa5,
     '/nds/notify/chats': ChatsPage98523f837743d7c9ea380affdbe41ce8,
     '/nds/super/chats': ChatsPage4add964372ca5bb4beca1bce22fc0af0,
 }

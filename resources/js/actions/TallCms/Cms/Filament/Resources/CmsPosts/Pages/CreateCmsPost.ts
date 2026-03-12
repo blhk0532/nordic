@@ -1,99 +1,75 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../../../wayfinder'
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-const CreateCmsPost = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateCmsPost.url(args, options),
+const CreateCmsPost = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateCmsPost.url(options),
     method: 'get',
 })
 
 CreateCmsPost.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/cms-posts/create',
+    url: '/nds/dev/cms-posts/create',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-CreateCmsPost.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { tenant: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'slug' in args) {
-        args = { tenant: args.slug }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            tenant: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        tenant: typeof args.tenant === 'object'
-        ? args.tenant.slug
-        : args.tenant,
-    }
-
-    return CreateCmsPost.definition.url
-            .replace('{tenant}', parsedArgs.tenant.toString())
-            .replace(/\/+$/, '') + queryParams(options)
+CreateCmsPost.url = (options?: RouteQueryOptions) => {
+    return CreateCmsPost.definition.url + queryParams(options)
 }
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-CreateCmsPost.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: CreateCmsPost.url(args, options),
+CreateCmsPost.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: CreateCmsPost.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-CreateCmsPost.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: CreateCmsPost.url(args, options),
+CreateCmsPost.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: CreateCmsPost.url(options),
     method: 'head',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-const CreateCmsPostForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateCmsPost.url(args, options),
+const CreateCmsPostForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateCmsPost.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-CreateCmsPostForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateCmsPost.url(args, options),
+CreateCmsPostForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateCmsPost.url(options),
     method: 'get',
 })
 
 /**
 * @see \TallCms\Cms\Filament\Resources\CmsPosts\Pages\CreateCmsPost::__invoke
 * @see plugins/tallcms/tallcms/packages/tallcms/cms/src/Filament/Resources/CmsPosts/Pages/CreateCmsPost.php:7
-* @route '/admin/tenant/{tenant}/cms-posts/create'
+* @route '/nds/dev/cms-posts/create'
 */
-CreateCmsPostForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: CreateCmsPost.url(args, {
+CreateCmsPostForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: CreateCmsPost.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),

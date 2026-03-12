@@ -16,90 +16,83 @@ class PostorterMapWidget extends MapWidget
 {
     protected static ?int $sort = 1;
 
-    protected ?string $heading = 'Sweden Kommuner Map';
+    protected ?string $heading = 'Sweden Postorter Map';
 
     protected array $mapCenter = [60.1282, 18.6435];
 
-    protected int $defaultZoom = 5;
+    protected int $defaultZoom = 10;
 
-    protected int $mapHeight = 600;
+    protected int $mapHeight = 690;
 
-    public ?string $selectedKommun = null;
+    public ?string $selectedKommun = 'Gävle';
+
+    public function getHeading(): ?string
+    {
+        if ($this->selectedKommun !== null && $this->selectedKommun !== '') {
+            return "Postorter i {$this->selectedKommun}";
+        }
+
+        return 'Välj en kommun för att visa postorter';
+    }
 
     #[On('show-postorter')]
     public function handleShowPostorter(string $kommun): void
     {
         $this->selectedKommun = $kommun;
         $this->heading = "Postnummer i {$kommun}";
+        $this->dispatch('refresh-map');
     }
 
     #[On('clear-selection')]
     public function handleClearSelection(): void
     {
-        $this->selectedKommun = null;
-        $this->heading = 'Sweden Kommuner Map';
+        $this->selectedKommun = 'Gävle';
+        $this->heading = 'Postorter i Gävle';
+        $this->dispatch('refresh-map');
     }
 
     protected function getMarkers(): array
     {
-        if ($this->selectedKommun) {
-            return $this->getPostorterMarkersForKommun();
+        if (! $this->selectedKommun) {
+            return [];
         }
 
-        return $this->getKommunerMarkers();
-    }
-
-    protected function getKommunerMarkers(): array
-    {
-        $kommuner = SwedishKommun::whereNotNull('lat')
-            ->whereNotNull('lng')
-            ->get();
-
-        $markers = [];
-
-        foreach ($kommuner as $kommun) {
-            // Prefer the personer_count from the ratsit_kommuner table (RatsitKommun)
-            $like = '%'.strtolower($kommun->kommun).'%';
-            $ratsitKommun = RatsitKommun::whereRaw('LOWER(kommun) LIKE ?', [$like])->first();
-
-            $personsCount = $ratsitKommun ? (int) $ratsitKommun->personer_count : 0;
-
-            // Always show the kommun on the map; display persons count (0 if none)
-            $markers[] = Marker::make((float) $kommun->lat, (float) $kommun->lng)
-                ->title($kommun->kommun.' — Personer: '.number_format($personsCount))
-                ->popupContent($kommun->kommun.'<br>Län: '.$kommun->lan.'<br>Personer: '.number_format($personsCount))
-                ->color($this->getKommunColor($personsCount));
-        }
-
-        return $markers;
-    }
-
-    protected function getKommunColor(int $postortCount): array
-    {
-        // Interpret the supplied number as persons count for kommune markers.
-        if ($postortCount > 5000) {
-            return Color::Red;
-        }
-        if ($postortCount > 2000) {
-            return Color::Orange;
-        }
-        if ($postortCount > 1000) {
-            return Color::Gold;
-        }
-
-        return Color::Blue;
+        return $this->getPostorterMarkersForKommun();
     }
 
     protected function getPostorterMarkersForKommun(): array
     {
-        $kommun = SwedishKommun::whereRaw('LOWER(kommun) LIKE ?', ['%'.strtolower($this->selectedKommun).'%'])->first();
+        $selectedKommun = (string) $this->selectedKommun;
+        $normalizedKommun = strtolower(trim($selectedKommun));
+        $baseKommun = strtolower(trim(strtok($selectedKommun, '-')));
+        $baseKommun = rtrim($baseKommun, 's');
 
-        if (! $kommun) {
+        $kommun = SwedishKommun::query()
+            ->whereRaw('LOWER(kommun) = ?', [$normalizedKommun])
+            ->orWhereRaw('LOWER(kommun) = ?', [$baseKommun])
+            ->orWhereRaw('LOWER(kommun) LIKE ?', ['%'.$baseKommun.'%'])
+            ->first();
+
+        $kommunCenter = RatsitKommun::query()
+            ->whereRaw('LOWER(kommun) = ?', [$normalizedKommun])
+            ->orWhereRaw('LOWER(kommun) LIKE ?', ['%'.$normalizedKommun.'%'])
+            ->orWhereRaw('LOWER(kommun) LIKE ?', ['%'.$baseKommun.'%'])
+            ->whereNotNull('lat')
+            ->whereNotNull('lng')
+            ->first();
+
+        $centerLat = $kommun?->lat ?? $kommunCenter?->lat;
+        $centerLng = $kommun?->lng ?? $kommunCenter?->lng;
+
+        if ($centerLat === null || $centerLng === null) {
             return [];
         }
 
-        $like = '%'.strtolower($this->selectedKommun).'%';
+        $like = '%'.$normalizedKommun.'%';
+        $baseLike = '%'.$baseKommun.'%';
+
         $postorter = RatsitPostort::whereRaw('LOWER(personer_kommun) LIKE ? OR LOWER(foretag_kommun) LIKE ? OR LOWER(kommun) LIKE ?', [$like, $like, $like])
+            ->orWhereRaw('LOWER(personer_kommun) LIKE ? OR LOWER(foretag_kommun) LIKE ? OR LOWER(kommun) LIKE ?', [$baseLike, $baseLike, $baseLike])
             ->where('personer_count', '>', 0)
             ->selectRaw('post_nummer, post_ort, SUM(personer_count) as personer_count, SUM(foretag_count) as foretag_count')
             ->groupBy('post_nummer', 'post_ort')
@@ -114,8 +107,8 @@ class PostorterMapWidget extends MapWidget
             $lngOffset = cos($index * 2 * M_PI / max($total, 1)) * 0.1;
 
             $markers[] = Marker::make(
-                (float) $kommun->lat + $latOffset,
-                (float) $kommun->lng + $lngOffset
+                (float) $centerLat + $latOffset,
+                (float) $centerLng + $lngOffset
             )
                 ->title($postort->post_nummer.' - '.$postort->post_ort)
                 ->popupContent($postort->post_nummer.' '.$postort->post_ort.'<br>Personer: '.number_format($postort->personer_count).'<br>Företag: '.number_format($postort->foretag_count))

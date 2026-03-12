@@ -1,12 +1,12 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
-import invite from './invite'
 import auth from './auth'
 import pages from './pages'
 import resources from './resources'
+import tenant69401c from './tenant'
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 export const home = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: home.url(args, options),
@@ -15,13 +15,13 @@ export const home = (args: { tenant: string | number | { slug: string | number }
 
 home.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}',
+    url: '/admin/{tenant}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 home.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -54,7 +54,7 @@ home.url = (args: { tenant: string | number | { slug: string | number } } | [ten
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 home.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: home.url(args, options),
@@ -64,7 +64,7 @@ home.get = (args: { tenant: string | number | { slug: string | number } } | [ten
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 home.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: home.url(args, options),
@@ -74,7 +74,7 @@ home.head = (args: { tenant: string | number | { slug: string | number } } | [te
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 const homeForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: home.url(args, options),
@@ -84,7 +84,7 @@ const homeForm = (args: { tenant: string | number | { slug: string | number } } 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 homeForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: home.url(args, options),
@@ -94,7 +94,7 @@ homeForm.get = (args: { tenant: string | number | { slug: string | number } } | 
 /**
 * @see \Filament\Http\Controllers\RedirectToHomeController::__invoke
 * @see vendor/filament/filament/src/Http/Controllers/RedirectToHomeController.php:10
-* @route '/admin/tenant/{tenant}'
+* @route '/admin/{tenant}'
 */
 homeForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: home.url(args, {
@@ -190,12 +190,11 @@ tenantForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 tenant.form = tenantForm
 
 const admin = {
-    invite: Object.assign(invite, invite),
     auth: Object.assign(auth, auth),
-    tenant: Object.assign(tenant, tenant),
     home: Object.assign(home, home),
     pages: Object.assign(pages, pages),
     resources: Object.assign(resources, resources),
+    tenant: Object.assign(tenant, tenant69401c),
 }
 
 export default admin

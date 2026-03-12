@@ -1,0 +1,302 @@
+{
+    "name": "abc Template",
+    "description": "",
+    "thumbnail": null,
+    "content": {
+        "rows": [
+            {
+                "id": "row_ldcJrdry",
+                "order": 0,
+                "columns": [
+                    {
+                        "id": "col_m9H031Ml",
+                        "span": {
+                            "lg": 12,
+                            "md": 12,
+                            "sm": 12,
+                            "xl": 12
+                        },
+                        "widgets": [
+                            {
+                                "id": "widget_q7Z7GegF",
+                                "data": {
+                                    "columns": "3",
+                                    "members": []
+                                },
+                                "type": "team-grid"
+                            }
+                        ],
+                        "settings": {
+                            "padding": "p-4",
+                            "background": "transparent"
+                        }
+                    }
+                ],
+                "settings": {
+                    "wrap": "wrap",
+                    "align": "stretch",
+                    "justify": "start",
+                    "direction": "row",
+                    "full_width": false
+                }
+            },
+            {
+                "id": "row_Z0FTvSPB",
+                "order": 1,
+                "columns": [
+                    {
+                        "id": "col_cz1CU0AA",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [],
+                        "settings": {
+                            "padding": "p-4",
+                            "background": "transparent"
+                        }
+                    },
+                    {
+                        "id": "col_gnCSrJ17",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [],
+                        "settings": {
+                            "padding": "p-4",
+                            "background": "transparent"
+                        }
+                    },
+                    {
+                        "id": "col_uPVWwnrX",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [],
+                        "settings": {
+                            "padding": "p-4",
+                            "background": "transparent"
+                        }
+                    }
+                ],
+                "settings": {
+                    "wrap": "wrap",
+                    "align": "stretch",
+                    "justify": "start",
+                    "direction": "row",
+                    "full_width": false
+                }
+            },
+            {
+                "id": "hero",
+                "columns": [
+                    {
+                        "id": "hero-col",
+                        "span": {
+                            "lg": 12,
+                            "md": 12,
+                            "sm": 12,
+                            "xl": 12
+                        },
+                        "widgets": [
+                            {
+                                "id": "hero-heading",
+                                "data": {
+                                    "level": "h1",
+                                    "content": "Welcome to Our Platform",
+                                    "text_align": "center",
+                                    "text_color": "#ffffff"
+                                },
+                                "type": "heading"
+                            },
+                            {
+                                "id": "hero-text",
+                                "data": {
+                                    "content": "<p style=\"text-align:center;color:#cbd5e1\">Build something amazing with our powerful tools and beautiful components.</p>"
+                                },
+                                "type": "text"
+                            },
+                            {
+                                "id": "hero-btn",
+                                "data": {
+                                    "url": "#features",
+                                    "size": "lg",
+                                    "label": "Get Started",
+                                    "style": "primary"
+                                },
+                                "type": "button"
+                            }
+                        ],
+                        "settings": []
+                    }
+                ],
+                "settings": {
+                    "full_width": true,
+                    "background_color": "#1e3a5f"
+                }
+            },
+            {
+                "id": "features",
+                "columns": [
+                    {
+                        "id": "feat-1",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [
+                            {
+                                "id": "blurb-1",
+                                "data": {
+                                    "title": "Fast",
+                                    "layout": "top",
+                                    "content": "<p>Lightning-fast performance out of the box.</p>",
+                                    "media_type": "none"
+                                },
+                                "type": "blurb"
+                            }
+                        ],
+                        "settings": []
+                    },
+                    {
+                        "id": "feat-2",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [
+                            {
+                                "id": "blurb-2",
+                                "data": {
+                                    "title": "Flexible",
+                                    "layout": "top",
+                                    "content": "<p>Customize every aspect to match your brand.</p>",
+                                    "media_type": "none"
+                                },
+                                "type": "blurb"
+                            }
+                        ],
+                        "settings": []
+                    },
+                    {
+                        "id": "feat-3",
+                        "span": {
+                            "lg": 4,
+                            "md": 4,
+                            "sm": 12,
+                            "xl": 4
+                        },
+                        "widgets": [
+                            {
+                                "id": "blurb-3",
+                                "data": {
+                                    "title": "Reliable",
+                                    "layout": "top",
+                                    "content": "<p>Built on solid foundations you can trust.</p>",
+                                    "media_type": "none"
+                                },
+                                "type": "blurb"
+                            }
+                        ],
+                        "settings": []
+                    }
+                ],
+                "settings": []
+            },
+            {
+                "id": "cta-row",
+                "columns": [
+                    {
+                        "id": "cta-col",
+                        "span": {
+                            "lg": 12,
+                            "md": 12,
+                            "sm": 12,
+                            "xl": 12
+                        },
+                        "widgets": [
+                            {
+                                "id": "cta-1",
+                                "data": {
+                                    "title": "Ready to get started?",
+                                    "content": "<p>Join thousands of happy customers today.</p>",
+                                    "button_url": "#",
+                                    "button_text": "Sign Up Free"
+                                },
+                                "type": "cta"
+                            }
+                        ],
+                        "settings": []
+                    }
+                ],
+                "settings": []
+            },
+            {
+                "id": "testimonials",
+                "columns": [
+                    {
+                        "id": "test-1",
+                        "span": {
+                            "lg": 6,
+                            "md": 6,
+                            "sm": 12,
+                            "xl": 6
+                        },
+                        "widgets": [
+                            {
+                                "id": "testimonial-1",
+                                "data": {
+                                    "role": "CEO",
+                                    "quote": "This product changed how we work. Highly recommended!",
+                                    "style": "card",
+                                    "author": "Jane Smith",
+                                    "rating": "5",
+                                    "company": "Acme Corp"
+                                },
+                                "type": "testimonial"
+                            }
+                        ],
+                        "settings": []
+                    },
+                    {
+                        "id": "test-2",
+                        "span": {
+                            "lg": 6,
+                            "md": 6,
+                            "sm": 12,
+                            "xl": 6
+                        },
+                        "widgets": [
+                            {
+                                "id": "testimonial-2",
+                                "data": {
+                                    "role": "CTO",
+                                    "quote": "The best tool we've ever used. Simple yet powerful.",
+                                    "style": "card",
+                                    "author": "John Doe",
+                                    "rating": "5",
+                                    "company": "Tech Inc"
+                                },
+                                "type": "testimonial"
+                            }
+                        ],
+                        "settings": []
+                    }
+                ],
+                "settings": []
+            }
+        ]
+    }
+}

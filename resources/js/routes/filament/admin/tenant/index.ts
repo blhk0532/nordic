@@ -1,86 +1,5 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-export const registration = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: registration.url(options),
-    method: 'get',
-})
-
-registration.definition = {
-    methods: ["get","head"],
-    url: '/admin/new',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-registration.url = (options?: RouteQueryOptions) => {
-    return registration.definition.url + queryParams(options)
-}
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-registration.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: registration.url(options),
-    method: 'get',
-})
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-registration.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: registration.url(options),
-    method: 'head',
-})
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-const registrationForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: registration.url(options),
-    method: 'get',
-})
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-registrationForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: registration.url(options),
-    method: 'get',
-})
-
-/**
-* @see \AlessandroNuunes\FilamentMember\Pages\RegisterTenant::__invoke
-* @see vendor/alessandronuunes/filament-member/src/Pages/RegisterTenant.php:7
-* @route '/admin/new'
-*/
-registrationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: registration.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-registration.form = registrationForm
-
-/**
 * @see routes/web.php:165
 * @route '/admin/tenant/{tenant}/profile'
 */
@@ -171,3 +90,9 @@ profileForm.head = (args: { tenant: string | number } | [tenant: string | number
 })
 
 profile.form = profileForm
+
+const tenant = {
+    profile: Object.assign(profile, profile),
+}
+
+export default tenant

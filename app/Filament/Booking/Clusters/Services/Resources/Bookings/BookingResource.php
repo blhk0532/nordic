@@ -28,11 +28,11 @@ class BookingResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'number';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Bokningar';
+    protected static string|UnitEnum|null $navigationGroup = 'Bokningar Admin';
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-calendar-days';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clock';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 0;
 
     protected static ?string $navigationLabel = 'Bokningar';
 

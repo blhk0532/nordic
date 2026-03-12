@@ -64,4 +64,9 @@ class UserResource extends Resource
             'schedule' => ManageServiceProviderSchedules::route('/{record}/schedule'),
         ];
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 }

@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-const ManageTeamUsers7b778516dd41cf830ccec5fee5031adf = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, options),
+const ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, options),
     method: 'get',
 })
 
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.definition = {
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/team-users',
+    url: '/admin/{tenant}/team-users',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url = (args: { tenant: string | 
         : args.tenant,
     }
 
-    return ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.definition.url
+    return ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -50,50 +50,50 @@ ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url = (args: { tenant: string | 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, options),
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, options),
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-const ManageTeamUsers7b778516dd41cf830ccec5fee5031adfForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, options),
+const ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adfForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, options),
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
-* @route '/admin/tenant/{tenant}/team-users'
+* @route '/admin/{tenant}/team-users'
 */
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adfForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.url(args, {
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ ManageTeamUsers7b778516dd41cf830ccec5fee5031adfForm.head = (args: { tenant: stri
     method: 'get',
 })
 
-ManageTeamUsers7b778516dd41cf830ccec5fee5031adf.form = ManageTeamUsers7b778516dd41cf830ccec5fee5031adfForm
+ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3.form = ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3Form
 /**
 * @see \App\Filament\App\Resources\TeamUsers\Pages\ManageTeamUsers::__invoke
 * @see app/Filament/App/Resources/TeamUsers/Pages/ManageTeamUsers.php:7
@@ -209,7 +209,7 @@ ManageTeamUsers2f0bc4c4ced3fa69ea2ba1b7afebb813Form.head = (args: { tenant: stri
 ManageTeamUsers2f0bc4c4ced3fa69ea2ba1b7afebb813.form = ManageTeamUsers2f0bc4c4ced3fa69ea2ba1b7afebb813Form
 
 const ManageTeamUsers = {
-    '/admin/tenant/{tenant}/team-users': ManageTeamUsers7b778516dd41cf830ccec5fee5031adf,
+    '/admin/{tenant}/team-users': ManageTeamUsers92f58c364e9d32adc8b4ddcceb04f4d3,
     '/nds/app/team/{tenant}/team-users': ManageTeamUsers2f0bc4c4ced3fa69ea2ba1b7afebb813,
 }
 

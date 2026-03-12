@@ -2,24 +2,24 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-const ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, options),
+const ListWhatsappInstances436ef3561820185091c510df6eebd5c2 = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, options),
     method: 'get',
 })
 
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.definition = {
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2.definition = {
     methods: ["get","head"],
-    url: '/admin/tenant/{tenant}/whatsapp-instances',
+    url: '/admin/{tenant}/whatsapp-instances',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { tenant: args }
     }
@@ -42,7 +42,7 @@ ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url = (args: { tenant: str
         : args.tenant,
     }
 
-    return ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.definition.url
+    return ListWhatsappInstances436ef3561820185091c510df6eebd5c2.definition.url
             .replace('{tenant}', parsedArgs.tenant.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
@@ -50,50 +50,50 @@ ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url = (args: { tenant: str
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, options),
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, options),
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-const ListWhatsappInstancesac889784123f5142239cdd10ddd15b3bForm = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, options),
+const ListWhatsappInstances436ef3561820185091c510df6eebd5c2Form = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3bForm.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, options),
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2Form.get = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
-* @route '/admin/tenant/{tenant}/whatsapp-instances'
+* @route '/admin/{tenant}/whatsapp-instances'
 */
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3bForm.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.url(args, {
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2Form.head = (args: { tenant: string | number | { slug: string | number } } | [tenant: string | number | { slug: string | number } ] | string | number | { slug: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: ListWhatsappInstances436ef3561820185091c510df6eebd5c2.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -102,7 +102,7 @@ ListWhatsappInstancesac889784123f5142239cdd10ddd15b3bForm.head = (args: { tenant
     method: 'get',
 })
 
-ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b.form = ListWhatsappInstancesac889784123f5142239cdd10ddd15b3bForm
+ListWhatsappInstances436ef3561820185091c510df6eebd5c2.form = ListWhatsappInstances436ef3561820185091c510df6eebd5c2Form
 /**
 * @see \WallaceMartinss\FilamentEvolution\Filament\Resources\WhatsappInstanceResource\Pages\ListWhatsappInstances::__invoke
 * @see plugins/wallacemartinss/filament-whatsapp-conector/src/Filament/Resources/WhatsappInstanceResource/Pages/ListWhatsappInstances.php:7
@@ -265,7 +265,7 @@ ListWhatsappInstances5d41258a8e1107841f9f539c3c12b6e6Form.head = (options?: Rout
 ListWhatsappInstances5d41258a8e1107841f9f539c3c12b6e6.form = ListWhatsappInstances5d41258a8e1107841f9f539c3c12b6e6Form
 
 const ListWhatsappInstances = {
-    '/admin/tenant/{tenant}/whatsapp-instances': ListWhatsappInstancesac889784123f5142239cdd10ddd15b3b,
+    '/admin/{tenant}/whatsapp-instances': ListWhatsappInstances436ef3561820185091c510df6eebd5c2,
     '/nds/notify/whatsapp-instances': ListWhatsappInstancesf02fc72ff76f5432acd3a004138ed006,
     '/nds/super/whatsapp-instances': ListWhatsappInstances5d41258a8e1107841f9f539c3c12b6e6,
 }

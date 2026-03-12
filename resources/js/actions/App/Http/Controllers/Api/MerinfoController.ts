@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::index
-* @see app/Http/Controllers/Api/MerinfoController.php:21
+* @see app/Http/Controllers/Api/MerinfoController.php:22
 * @route '/api/merinfo'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::store
-* @see app/Http/Controllers/Api/MerinfoController.php:51
+* @see app/Http/Controllers/Api/MerinfoController.php:52
 * @route '/api/merinfo'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,7 +97,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::store
-* @see app/Http/Controllers/Api/MerinfoController.php:51
+* @see app/Http/Controllers/Api/MerinfoController.php:52
 * @route '/api/merinfo'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::store
-* @see app/Http/Controllers/Api/MerinfoController.php:51
+* @see app/Http/Controllers/Api/MerinfoController.php:52
 * @route '/api/merinfo'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +116,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::store
-* @see app/Http/Controllers/Api/MerinfoController.php:51
+* @see app/Http/Controllers/Api/MerinfoController.php:52
 * @route '/api/merinfo'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +126,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::store
-* @see app/Http/Controllers/Api/MerinfoController.php:51
+* @see app/Http/Controllers/Api/MerinfoController.php:52
 * @route '/api/merinfo'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -138,7 +138,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 export const show = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -153,7 +153,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 show.url = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -180,7 +180,7 @@ show.url = (args: { merinfo: string | number } | [merinfo: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 show.get = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -190,7 +190,7 @@ show.get = (args: { merinfo: string | number } | [merinfo: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 show.head = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -200,7 +200,7 @@ show.head = (args: { merinfo: string | number } | [merinfo: string | number ] | 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 const showForm = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,7 +210,7 @@ const showForm = (args: { merinfo: string | number } | [merinfo: string | number
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 showForm.get = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ showForm.get = (args: { merinfo: string | number } | [merinfo: string | number ]
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::show
-* @see app/Http/Controllers/Api/MerinfoController.php:82
+* @see app/Http/Controllers/Api/MerinfoController.php:83
 * @route '/api/merinfo/{merinfo}'
 */
 showForm.head = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -237,7 +237,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 export const update = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -252,7 +252,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 update.url = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -279,7 +279,7 @@ update.url = (args: { merinfo: string | number } | [merinfo: string | number ] |
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 update.put = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -289,7 +289,7 @@ update.put = (args: { merinfo: string | number } | [merinfo: string | number ] |
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 update.patch = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -299,7 +299,7 @@ update.patch = (args: { merinfo: string | number } | [merinfo: string | number ]
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 const updateForm = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -314,7 +314,7 @@ const updateForm = (args: { merinfo: string | number } | [merinfo: string | numb
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 updateForm.put = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -329,7 +329,7 @@ updateForm.put = (args: { merinfo: string | number } | [merinfo: string | number
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::update
-* @see app/Http/Controllers/Api/MerinfoController.php:92
+* @see app/Http/Controllers/Api/MerinfoController.php:93
 * @route '/api/merinfo/{merinfo}'
 */
 updateForm.patch = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -346,7 +346,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::destroy
-* @see app/Http/Controllers/Api/MerinfoController.php:125
+* @see app/Http/Controllers/Api/MerinfoController.php:126
 * @route '/api/merinfo/{merinfo}'
 */
 export const destroy = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -361,7 +361,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::destroy
-* @see app/Http/Controllers/Api/MerinfoController.php:125
+* @see app/Http/Controllers/Api/MerinfoController.php:126
 * @route '/api/merinfo/{merinfo}'
 */
 destroy.url = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -388,7 +388,7 @@ destroy.url = (args: { merinfo: string | number } | [merinfo: string | number ] 
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::destroy
-* @see app/Http/Controllers/Api/MerinfoController.php:125
+* @see app/Http/Controllers/Api/MerinfoController.php:126
 * @route '/api/merinfo/{merinfo}'
 */
 destroy.delete = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -398,7 +398,7 @@ destroy.delete = (args: { merinfo: string | number } | [merinfo: string | number
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::destroy
-* @see app/Http/Controllers/Api/MerinfoController.php:125
+* @see app/Http/Controllers/Api/MerinfoController.php:126
 * @route '/api/merinfo/{merinfo}'
 */
 const destroyForm = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -413,7 +413,7 @@ const destroyForm = (args: { merinfo: string | number } | [merinfo: string | num
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::destroy
-* @see app/Http/Controllers/Api/MerinfoController.php:125
+* @see app/Http/Controllers/Api/MerinfoController.php:126
 * @route '/api/merinfo/{merinfo}'
 */
 destroyForm.delete = (args: { merinfo: string | number } | [merinfo: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -430,7 +430,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoController.php:136
+* @see app/Http/Controllers/Api/MerinfoController.php:137
 * @route '/api/merinfo/bulk'
 */
 export const bulkStore = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -445,7 +445,7 @@ bulkStore.definition = {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoController.php:136
+* @see app/Http/Controllers/Api/MerinfoController.php:137
 * @route '/api/merinfo/bulk'
 */
 bulkStore.url = (options?: RouteQueryOptions) => {
@@ -454,7 +454,7 @@ bulkStore.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoController.php:136
+* @see app/Http/Controllers/Api/MerinfoController.php:137
 * @route '/api/merinfo/bulk'
 */
 bulkStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -464,7 +464,7 @@ bulkStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoController.php:136
+* @see app/Http/Controllers/Api/MerinfoController.php:137
 * @route '/api/merinfo/bulk'
 */
 const bulkStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -474,7 +474,7 @@ const bulkStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'>
 
 /**
 * @see \App\Http\Controllers\Api\MerinfoController::bulkStore
-* @see app/Http/Controllers/Api/MerinfoController.php:136
+* @see app/Http/Controllers/Api/MerinfoController.php:137
 * @route '/api/merinfo/bulk'
 */
 bulkStoreForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
